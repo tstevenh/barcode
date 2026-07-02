@@ -10,7 +10,8 @@
     "bwip-js": "4.11.1"
   },
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "build": "node scripts/build-pages.mjs",
+    "start": "node scripts/build-pages.mjs && node server.js",
+    "dev": "node scripts/build-pages.mjs && node server.js"
   }
 }

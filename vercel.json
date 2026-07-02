@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "cleanUrls": true,
   "rewrites": [
     { "source": "/barcode", "destination": "/api/barcode" },
     { "source": "/barcode.png", "destination": "/api/barcode?format=png" },

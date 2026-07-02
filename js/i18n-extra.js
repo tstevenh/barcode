@@ -8,6 +8,7 @@
   }
   var EN = {
     navBulk: "Bulk",
+    navTypes: "All barcodes",
     navApi: "API Docs",
     bulkHeading: "Bulk generate",
     bulkBadge: "CSV \u2192 ZIP / PDF",
@@ -44,6 +45,7 @@
   };
   var ID = {
     navBulk: "Massal",
+    navTypes: "Semua barcode",
     navApi: "API Docs",
     bulkHeading: "Buat massal",
     bulkBadge: "CSV \u2192 ZIP / PDF",

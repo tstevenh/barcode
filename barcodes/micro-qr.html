@@ -3,19 +3,20 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Barcode Studio — Online Barcode &amp; QR Code Generator</title>
-<meta name="description" content="Free online barcode &amp; QR code generator — 100+ symbologies (QR, Data Matrix, PDF417, EAN, UPC, GS1, Code 128 and more). Live preview, bulk CSV, and PNG / SVG / PDF export." />
+<title>Micro QR Generator — Free Online | Barcode Studio</title>
+<meta name="description" content="Generate a scannable Micro QR online, free. Smaller QR code for short data. Live preview with PNG, SVG and PDF export — no signup." />
 <meta name="theme-color" content="#0b1220" />
-<link rel="canonical" href="https://lawbarcode.vercel.app/" />
+<link rel="canonical" href="https://lawbarcode.vercel.app/barcodes/micro-qr" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Barcode Studio — Online Barcode &amp; QR Code Generator" />
-<meta property="og:description" content="Generate any barcode in seconds. 100+ symbologies, live preview, bulk generation, and PNG / SVG / PDF export." />
-<meta property="og:url" content="https://lawbarcode.vercel.app/" />
+<meta property="og:title" content="Micro QR Generator | Barcode Studio" />
+<meta property="og:description" content="Generate a scannable Micro QR online, free. Smaller QR code for short data. Live preview with PNG, SVG and PDF export — no signup." />
+<meta property="og:url" content="https://lawbarcode.vercel.app/barcodes/micro-qr" />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1220'/%3E%3Cg fill='white'%3E%3Crect x='6' y='8' width='2' height='16'/%3E%3Crect x='9' y='8' width='1' height='16'/%3E%3Crect x='11' y='8' width='3' height='16'/%3E%3Crect x='15' y='8' width='1' height='16'/%3E%3Crect x='17' y='8' width='2' height='16'/%3E%3Crect x='20' y='8' width='1' height='16'/%3E%3Crect x='22' y='8' width='3' height='16'/%3E%3Crect x='26' y='8' width='1' height='16'/%3E%3C/g%3E%3C/svg%3E" />
-<link rel="stylesheet" href="css/style.css" />
-<link rel="stylesheet" href="css/bulk-api.css" />
-<script src="js/qr-local.js"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://lawbarcode.vercel.app/"},{"@type":"ListItem","position":2,"name":"Barcode Types","item":"https://lawbarcode.vercel.app/barcodes"},{"@type":"ListItem","position":3,"name":"Micro QR Generator","item":"https://lawbarcode.vercel.app/barcodes/micro-qr"}]},{"@type":"SoftwareApplication","name":"Micro QR Generator","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://lawbarcode.vercel.app/barcodes/micro-qr"}]}</script>
+<link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="/css/bulk-api.css" />
+<script src="/js/qr-local.js"></script>
 <script>
 (function () {
   function hasJsBarcode() { return typeof window.JsBarcode === "function"; }
@@ -70,8 +71,8 @@
 })();
 </script>
 <script>window.BARCODE_HAS_API = true;</script>
-<script src="js/i18n.js"></script>
-<script src="js/i18n-extra.js"></script>
+<script src="/js/i18n.js"></script>
+<script src="/js/i18n-extra.js"></script>
 </head>
 <body>
   <div class="loader" id="loader"><div class="loader-bars"><span></span><span></span><span></span><span></span><span></span></div><p data-i18n="loaderText">Loading Barcode Studio…</p></div>
@@ -88,7 +89,7 @@
       <a href="#generator" class="btn btn-ghost" data-i18n="navGenerator">Generator</a>
       <a href="#bulk" class="btn btn-ghost" data-i18n="navBulk">Bulk</a>
       <a href="/barcodes" class="btn btn-ghost" data-i18n="navTypes">All barcodes</a>
-      <a href="api-docs.html" class="btn btn-ghost" data-i18n="navApi">API Docs</a>
+      <a href="/api-docs.html" class="btn btn-ghost" data-i18n="navApi">API Docs</a>
       <button class="btn btn-ghost" id="resetBtn" data-i18n="navReset">Reset</button>
       <button class="btn btn-ghost" id="printBtn" data-i18n="navPrint">Print</button>
       <div class="lang-wrap">
@@ -99,17 +100,13 @@
   </header>
 
   <section class="hero">
-    <div class="hero-bg" aria-hidden="true">
-      <span class="float-sq s1"></span>
-      <span class="float-sq s2"></span>
-      <span class="float-sq s3"></span>
-      <span class="float-sq s4"></span>
-    </div>
+    <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-content">
-      <span class="eyebrow reveal" data-i18n="heroEyebrow">20+ symbologies · 1D &amp; 2D</span>
-      <h2 class="reveal" data-i18n-html="heroTitleHtml">Generate <span class="grad-text">any barcode</span><br/>in seconds.</h2>
-      <p class="reveal" data-i18n="heroDesc">QR, Data Matrix, PDF417, Aztec, Code 128, EAN, UPC and more — customize, preview live, and export as PNG, SVG or ZIP.</p>
-      <a href="#generator" class="btn btn-primary btn-lg reveal" data-i18n="heroCta">Start generating ↓</a>
+      <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/barcodes">Barcodes</a><span>/</span><span>Micro QR</span></nav>
+      <span class="eyebrow">2D Code</span>
+      <h1>Micro QR <span class="grad-text">Generator</span></h1>
+      <p>Smaller QR code for short data.</p>
+      <a href="#generator" class="btn btn-primary btn-lg">Open the generator ↓</a>
     </div>
   </section>
 
@@ -340,11 +337,23 @@
     </aside>
   </div>
 
+    <section class="seo-section">
+    <div class="seo-wrap">
+      <h2>About the Micro QR</h2>
+      <p>Micro QR is a smaller version of the QR Code with a single finder pattern instead of three, designed for very short data where space is scarce. It fits where a full QR Code would be too large, such as small electronic parts.</p>
+      <h3>Common uses</h3>
+      <ul class="seo-uses"><li>Small electronic components</li><li>Compact product marking</li><li>Space-constrained labels</li><li>Short IDs</li></ul>
+      <h3>Related barcode types</h3>
+      <div class="seo-related"><a href="/barcodes/qr-code">QR Code</a><a href="/barcodes/gs1-qr-code">GS1 QR Code</a><a href="/barcodes/gs1-digital-link-qr-code">GS1 Digital Link QR Code</a><a href="/barcodes/gs1-digital-link-data-matrix">GS1 Digital Link Data Matrix</a><a href="/barcodes/data-matrix">Data Matrix</a><a href="/barcodes/gs1-data-matrix">GS1 Data Matrix</a><a href="/barcodes/pdf417">PDF417</a><a href="/barcodes/micropdf417">MicroPDF417</a><a href="/barcodes/aztec">Aztec</a><a href="/barcodes/maxicode">MaxiCode</a><a href="/barcodes/dotcode">DotCode</a><a href="/barcodes/han-xin-code">Han Xin Code</a><a href="/barcodes/codablock-f">Codablock-F</a><a href="/barcodes/royal-mail-mailmark-2d">Royal Mail Mailmark 2D</a></div>
+      <p class="seo-all"><a href="/barcodes">Browse all 106 barcode &amp; QR types →</a></p>
+    </div>
+  </section>
   <footer class="footer">
     <span class="footer-brand">Barcode Studio</span> · <span data-i18n="footerText">made by Lawstore since 2026</span>
   </footer>
 
-  <script src="js/catalog.js"></script>
-  <script src="js/app.js"></script>
+  <script>window.BARCODE_INITIAL_TYPE="microqr";</script>
+  <script src="/js/catalog.js"></script>
+  <script src="/js/app.js"></script>
 </body>
 </html>

@@ -53,25 +53,32 @@ function decorate(res) {
   return res;
 }
 
+function firstFile(candidates) {
+  for (const c of candidates) {
+    try { if (fs.statSync(c).isFile()) return c; } catch (e) { /* next */ }
+  }
+  return null;
+}
+
 function serveStatic(req, res, pathname) {
   let rel = decodeURIComponent(pathname);
   if (rel === "/") rel = "/index.html";
-  const filePath = path.normalize(path.join(ROOT, rel));
+  const base = path.normalize(path.join(ROOT, rel));
   // Block path traversal outside the project root.
-  if (filePath !== ROOT && !filePath.startsWith(ROOT + path.sep)) {
+  if (base !== ROOT && !base.startsWith(ROOT + path.sep)) {
     res.statusCode = 403; res.end("Forbidden"); return;
   }
-  fs.stat(filePath, (err, stat) => {
-    if (err || !stat.isFile()) {
-      res.statusCode = 404;
-      res.setHeader("Content-Type", "text/plain; charset=utf-8");
-      res.end("Not found");
-      return;
-    }
-    res.statusCode = 200;
-    res.setHeader("Content-Type", MIME[path.extname(filePath).toLowerCase()] || "application/octet-stream");
-    fs.createReadStream(filePath).pipe(res);
-  });
+  // Clean-URL resolution (mirrors Vercel cleanUrls): exact file, then .html, then dir index.
+  const filePath = firstFile([base, base + ".html", path.join(base, "index.html")]);
+  if (!filePath) {
+    res.statusCode = 404;
+    res.setHeader("Content-Type", "text/plain; charset=utf-8");
+    res.end("Not found");
+    return;
+  }
+  res.statusCode = 200;
+  res.setHeader("Content-Type", MIME[path.extname(filePath).toLowerCase()] || "application/octet-stream");
+  fs.createReadStream(filePath).pipe(res);
 }
 
 const server = http.createServer((req, res) => {

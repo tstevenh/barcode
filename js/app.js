@@ -18,7 +18,8 @@
 
   // ---- Symbology catalog ----
   // engine: jsbarcode | qr | bwip ; kind: 2d | linear | postal | ean ; bcid defaults to id ; def = default data
-  const CATALOG = [
+  // Shared with the page builder via js/catalog.js; inline copy below is a fallback.
+  const CATALOG = (typeof window !== "undefined" && window.BARCODE_CATALOG) || [
     { groupKey: "grp2D", items: [
       { id: "qrcode",        name: "QR Code",                       engine: "qr",   kind: "2d", bcid: "qrcode", def: "https://example.com" },
       { id: "gs1qrcode",     name: "GS1 QR Code",                   engine: "bwip", kind: "2d", def: "(01)09521234543213(17)261231" },
@@ -1110,8 +1111,11 @@
     initReveal();
     initBulk();
     buildSidebar("");
-    // Start with QR Code so the first visible preview never depends on JsBarcode or bwip-js.
-    selectType("qrcode");
+    // Per-type landing pages set window.BARCODE_INITIAL_TYPE; default to QR Code so the
+    // first visible preview never depends on JsBarcode or bwip-js.
+    let initialType = (typeof window !== "undefined" && window.BARCODE_INITIAL_TYPE) || "qrcode";
+    if (!findItem(initialType)) initialType = "qrcode";
+    selectType(initialType);
     const libs = window.__barcodeLibs || {};
     if (libs.jsbarcode && typeof libs.jsbarcode.then === "function") {
       libs.jsbarcode.then(function (ok) { if (ok && engineOf(current) === "jsbarcode") render(); });
