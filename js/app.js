@@ -265,7 +265,7 @@
       // as AI 01, e.g. 0109521234543213 -> 09521234543213.
       if (d.slice(0, 2) === "01" && d.length >= 15) d = d.slice(2);
     }
-    if (!d) throw new Error("DataBar / EAN-14 hanya menerima angka. Masukkan minimal 1 digit, sistem akan membuat GTIN-14 valid otomatis.");
+    if (!d) throw new Error(T("errDataBarDigits"));
 
     // Make a 13-digit body, then calculate the 14th check digit.
     // If user typed 14 digits, the last digit is treated as old check digit and
@@ -620,7 +620,15 @@
   }
 
   function popPreview() { const el = $("preview"); el.classList.remove("pop"); void el.offsetWidth; el.classList.add("pop"); }
-  function showError(msg) { $("preview").innerHTML = '<div class="error-msg">⚠ ' + msg + "</div>"; setStatus(msg, "err"); }
+  function showError(msg) {
+    const p = $("preview");
+    p.innerHTML = "";
+    const d = document.createElement("div");
+    d.className = "error-msg";
+    d.textContent = "⚠ " + (msg || "");
+    p.appendChild(d);
+    setStatus(msg, "err");
+  }
 
   function hasApiFallback() { return !!window.BARCODE_HAS_API && typeof location !== "undefined" && location.protocol.indexOf("http") === 0; }
   function apiBarcodeUrl(value, format) {
@@ -640,7 +648,7 @@
   }
   function renderApiImageList(values) {
     const preview = $("preview"); const batch = values.length > 1;
-    if (!hasApiFallback()) { showError("Engine barcode belum dimuat. Untuk mode tanpa API, pastikan CDN tidak diblokir."); return; }
+    if (!hasApiFallback()) { showError(T("errEngineCdn")); return; }
     if (batch) preview.classList.add("barcode-batch");
     let done = 0, failed = 0;
     values.forEach(function (v) {
@@ -655,7 +663,7 @@
         if (done + failed === values.length) {
           applyZoom();
           $("dlZip").hidden = true;
-          setStatus(failed ? ("Sebagian barcode gagal dimuat dari API: " + failed) : (batch ? TF("stCodes", values.length) : T("stValid")), failed ? "err" : "ok");
+          setStatus(failed ? TF("errApiPartial", failed) : (batch ? TF("stCodes", values.length) : T("stValid")), failed ? "err" : "ok");
         }
       };
       img.onerror = function () {
@@ -664,12 +672,12 @@
         if (typeof fetch === "function") {
           fetch(url, { cache: "no-store" }).then(function (r) { return r.json().catch(function () { return {}; }); })
             .then(function (j) {
-              const m = j && j.error ? j.error : "API barcode gagal membuat preview. Cek input atau deploy versi Vercel API.";
+              const m = j && j.error ? j.error : T("errApiPreview");
               if (done + failed === values.length) showError(m);
             })
-            .catch(function () { if (done + failed === values.length) showError("API barcode gagal membuat preview. Cek input atau deploy versi Vercel API."); });
+            .catch(function () { if (done + failed === values.length) showError(T("errApiPreview")); });
         } else if (done + failed === values.length) {
-          showError("API barcode gagal membuat preview. Cek input atau deploy versi Vercel API.");
+          showError(T("errApiPreview"));
         }
       };
       img.src = apiBarcodeUrl(v, "png");
@@ -682,7 +690,7 @@
     const preview = $("preview"); const batch = values.length > 1;
     if (batch) preview.classList.add("barcode-batch");
     try {
-      if (typeof JsBarcode === "undefined") { if (hasApiFallback()) { renderApiImageList(values); return; } throw new Error("JsBarcode belum berhasil dimuat. Refresh halaman atau gunakan versi Vercel API."); }
+      if (typeof JsBarcode === "undefined") { if (hasApiFallback()) { renderApiImageList(values); return; } throw new Error(T("errJsBarcode")); }
       values.forEach((v) => {
         const svg = makeLinearSvg(v); const svgStr = new XMLSerializer().serializeToString(svg);
         if (batch) { const w = document.createElement("div"); w.className = "batch-item"; w.appendChild(svg); preview.appendChild(w); batchItems.push({ svg: svgStr, label: v }); }
@@ -694,7 +702,7 @@
   }
 
   function renderBwipList(values) {
-    if (typeof bwipjs === "undefined") { if (hasApiFallback()) { renderApiImageList(values); return; } showError("bwip-js belum berhasil dimuat. Refresh halaman, cek koneksi CDN, atau deploy versi Vercel API."); return; }
+    if (typeof bwipjs === "undefined") { if (hasApiFallback()) { renderApiImageList(values); return; } showError(T("errBwip")); return; }
     const preview = $("preview"); const batch = values.length > 1;
     if (batch) preview.classList.add("barcode-batch");
     try {

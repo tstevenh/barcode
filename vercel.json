@@ -2,8 +2,8 @@
   "version": 2,
   "rewrites": [
     { "source": "/barcode", "destination": "/api/barcode" },
-    { "source": "/barcode.png", "destination": "/api/barcode" },
-    { "source": "/barcode.svg", "destination": "/api/barcode" },
+    { "source": "/barcode.png", "destination": "/api/barcode?format=png" },
+    { "source": "/barcode.svg", "destination": "/api/barcode?format=svg" },
     { "source": "/health", "destination": "/api/health" }
   ]
 }

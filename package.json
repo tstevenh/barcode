@@ -10,6 +10,7 @@
     "bwip-js": "4.11.1"
   },
   "scripts": {
-    "start": "node api/health.js"
+    "start": "node server.js",
+    "dev": "node server.js"
   }
 }

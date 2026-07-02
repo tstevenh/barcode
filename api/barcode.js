@@ -4,6 +4,7 @@
 
 const bwipjs = require("bwip-js");
 const drawsvg = require("./drawing-svg");
+const rateLimit = require("./_rate-limit");
 
 const ALIASES = {
   qr: "qrcode", qrcode: "qrcode", microqr: "microqrcode",
@@ -102,7 +103,7 @@ function normalizeGtin14Digits(value, limited) {
     if (d.slice(0, 2) === "01" && d.length >= 15) d = d.slice(2);
   }
   if (!d) {
-    const err = new Error("DataBar / EAN-14 hanya menerima angka. Masukkan minimal 1 digit, sistem akan membuat GTIN-14 valid otomatis.");
+    const err = new Error("DataBar / EAN-14 accepts digits only. Enter at least 1 digit; a valid GTIN-14 is generated automatically.");
     err.status = 400;
     throw err;
   }
@@ -303,13 +304,25 @@ module.exports = async (req, res) => {
     res.status(204).end();
     return;
   }
+  const rl = rateLimit(req);
+  res.setHeader("X-RateLimit-Limit", String(rl.limit));
+  res.setHeader("X-RateLimit-Remaining", String(rl.remaining));
+  if (!rl.ok) {
+    res.setHeader("Retry-After", String(rl.retryAfter));
+    res.status(429).json({ error: "Too many requests. Please retry in " + rl.retryAfter + "s." });
+    return;
+  }
   const q = req.query || {};
   const get = (k) => {
     const v = q[k];
     if (v == null) return null;
     return String(Array.isArray(v) ? v[0] : v);
   };
-  const format = (get("format") || "png").toLowerCase();
+  // Resolve output format: explicit ?format= wins, else infer from a .svg/.png
+  // path suffix (so /barcode.svg and /barcode.png honour their contract), else png.
+  const rawUrl = String(req.url || "");
+  const pathExt = /\.svg(\?|$)/i.test(rawUrl) ? "svg" : (/\.png(\?|$)/i.test(rawUrl) ? "png" : null);
+  const format = (get("format") || pathExt || "png").toLowerCase();
   try {
     const opts = buildOpts(get);
     if (format === "svg") {

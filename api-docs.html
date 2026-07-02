@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Barcode Studio API — Documentation</title>
 <meta name="description" content="Public REST API reference for generating barcode images (PNG and SVG) from a URL." />
+<meta name="theme-color" content="#0b1220" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1220'/%3E%3Cg fill='white'%3E%3Crect x='6' y='8' width='2' height='16'/%3E%3Crect x='9' y='8' width='1' height='16'/%3E%3Crect x='11' y='8' width='3' height='16'/%3E%3Crect x='15' y='8' width='1' height='16'/%3E%3Crect x='17' y='8' width='2' height='16'/%3E%3Crect x='20' y='8' width='1' height='16'/%3E%3Crect x='22' y='8' width='3' height='16'/%3E%3Crect x='26' y='8' width='1' height='16'/%3E%3C/g%3E%3C/svg%3E" />
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/api-docs.css" />
 </head>
@@ -72,7 +74,7 @@
         <p data-i18n="dBaseP">All requests are made over HTTPS against the base URL below. Append each endpoint path to it.</p>
         <div class="code" data-lang="url">
           <div class="code-top"><span>Base URL</span><button class="copy-btn" type="button" data-i18n="dCopy">Copy</button></div>
-          <pre>https://api.barcode.studio</pre>
+          <pre>https://lawbarcode.vercel.app</pre>
         </div>
       </section>
 
@@ -85,11 +87,11 @@
         </ol>
         <div class="code" data-lang="url">
           <div class="code-top"><span data-i18n="dFirstReq">Your first request</span><button class="copy-btn" type="button" data-i18n="dCopy">Copy</button></div>
-          <pre>https://api.barcode.studio/barcode?type=qrcode&amp;data=Hello%20World</pre>
+          <pre>https://lawbarcode.vercel.app/barcode?type=qrcode&amp;data=Hello%20World</pre>
         </div>
         <div class="code" data-lang="html">
           <div class="code-top"><span>HTML</span><button class="copy-btn" type="button" data-i18n="dCopy">Copy</button></div>
-          <pre>&lt;img src=<span class="tok-s">"https://api.barcode.studio/barcode?type=qrcode&amp;data=Hello"</span> alt=<span class="tok-s">"QR"</span> width=<span class="tok-s">"180"</span> /&gt;</pre>
+          <pre>&lt;img src=<span class="tok-s">"https://lawbarcode.vercel.app/barcode?type=qrcode&amp;data=Hello"</span> alt=<span class="tok-s">"QR"</span> width=<span class="tok-s">"180"</span> /&gt;</pre>
         </div>
       </section>
 
@@ -164,19 +166,19 @@
         <h3 data-i18n="dExImgT">HTML image tag</h3>
         <div class="code" data-lang="html">
           <div class="code-top"><span>HTML</span><button class="copy-btn" type="button" data-i18n="dCopy">Copy</button></div>
-          <pre>&lt;img src=<span class="tok-s">"https://api.barcode.studio/barcode?type=qrcode&amp;data=Hello"</span> alt=<span class="tok-s">"QR code"</span> width=<span class="tok-s">"200"</span> /&gt;</pre>
+          <pre>&lt;img src=<span class="tok-s">"https://lawbarcode.vercel.app/barcode?type=qrcode&amp;data=Hello"</span> alt=<span class="tok-s">"QR code"</span> width=<span class="tok-s">"200"</span> /&gt;</pre>
         </div>
 
         <h3 data-i18n="dExCurlT">cURL</h3>
         <div class="code" data-lang="bash">
           <div class="code-top"><span>Terminal</span><button class="copy-btn" type="button" data-i18n="dCopy">Copy</button></div>
-          <pre>curl -o barcode.svg <span class="tok-s">"https://api.barcode.studio/barcode.svg?type=ean13&amp;data=4006381333931"</span></pre>
+          <pre>curl -o barcode.svg <span class="tok-s">"https://lawbarcode.vercel.app/barcode.svg?type=ean13&amp;data=4006381333931"</span></pre>
         </div>
 
         <h3 data-i18n="dExJsT">JavaScript (fetch)</h3>
         <div class="code" data-lang="js">
           <div class="code-top"><span>JavaScript</span><button class="copy-btn" type="button" data-i18n="dCopy">Copy</button></div>
-          <pre><span class="tok-k">const</span> url = <span class="tok-s">"https://api.barcode.studio/barcode?type=code128&amp;data=ABC-123&amp;includetext=1"</span>;
+          <pre><span class="tok-k">const</span> url = <span class="tok-s">"https://lawbarcode.vercel.app/barcode?type=code128&amp;data=ABC-123&amp;includetext=1"</span>;
 <span class="tok-k">const</span> res = <span class="tok-k">await</span> fetch(url);
 <span class="tok-k">const</span> blob = <span class="tok-k">await</span> res.blob();
 document.querySelector(<span class="tok-s">"img"</span>).src = URL.createObjectURL(blob);</pre>
@@ -186,7 +188,7 @@ document.querySelector(<span class="tok-s">"img"</span>).src = URL.createObjectU
         <div class="code" data-lang="python">
           <div class="code-top"><span>Python</span><button class="copy-btn" type="button" data-i18n="dCopy">Copy</button></div>
           <pre><span class="tok-k">import</span> requests
-r = requests.get(<span class="tok-s">"https://api.barcode.studio/barcode"</span>,
+r = requests.get(<span class="tok-s">"https://lawbarcode.vercel.app/barcode"</span>,
   params={<span class="tok-s">"type"</span>: <span class="tok-s">"datamatrix"</span>, <span class="tok-s">"data"</span>: <span class="tok-s">"SKU-9981"</span>})
 <span class="tok-k">open</span>(<span class="tok-s">"out.png"</span>, <span class="tok-s">"wb"</span>).write(r.content)</pre>
         </div>

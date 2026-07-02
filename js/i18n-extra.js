@@ -40,7 +40,7 @@
     apiImgT: "Use it straight inside an <img> tag",
     apiParamsT: "Main parameters",
     apiSetupT: "Run it",
-    apiSetup: "Open the api/ folder, then run npm install and npm start. The API listens on http://localhost:3000."
+    apiSetup: "In the project root, run npm install then npm start. The app and API serve together at http://localhost:3000."
   };
   var ID = {
     navBulk: "Massal",
@@ -76,7 +76,7 @@
     apiImgT: "Pakai langsung di dalam tag <img>",
     apiParamsT: "Parameter utama",
     apiSetupT: "Menjalankan",
-    apiSetup: "Buka folder api/, lalu jalankan npm install dan npm start. API berjalan di http://localhost:3000."
+    apiSetup: "Di root proyek, jalankan npm install lalu npm start. Aplikasi dan API berjalan bersama di http://localhost:3000."
   };
   add("en", EN);
   add("id", ID);
