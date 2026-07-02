@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Build / tooling artifacts
+.playwright-mcp/
+.vercel/
+dist/
+*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Env / secrets
+.env
+.env.*
+!.env.example

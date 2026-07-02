@@ -1,0 +1,15 @@
+{
+  "name": "barcode-vercel-fast",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Fast Vercel deploy for barcode web + API.",
+  "engines": {
+    "node": "20.x"
+  },
+  "dependencies": {
+    "bwip-js": "4.11.1"
+  },
+  "scripts": {
+    "start": "node api/health.js"
+  }
+}
