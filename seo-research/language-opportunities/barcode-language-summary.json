@@ -1,0 +1,962 @@
+[
+  {
+    "language": "Polish",
+    "market": "Poland",
+    "total_volume": 15700,
+    "low_comp_volume": 11800,
+    "low_medium_volume": 15700,
+    "weighted_cpc_sum": 78318.00000000001,
+    "weighted_competition_sum": 207470,
+    "keyword_count": 10,
+    "low_keyword_count": 8,
+    "top_keywords": [
+      {
+        "keyword": "generator kodow kreskowych",
+        "volume": 9900,
+        "competition": "LOW",
+        "competition_index": 2,
+        "cpc": 6.54,
+        "score": 216
+      },
+      {
+        "keyword": "generator kodu kreskowego",
+        "volume": 880,
+        "competition": "LOW",
+        "competition_index": 3,
+        "cpc": 7.18,
+        "score": 181
+      },
+      {
+        "keyword": "generator data matrix",
+        "volume": 320,
+        "competition": "LOW",
+        "competition_index": 4,
+        "cpc": 0.99,
+        "score": 134
+      },
+      {
+        "keyword": "generator barcode",
+        "volume": 320,
+        "competition": "LOW",
+        "competition_index": 2,
+        "cpc": 0.33,
+        "score": 133
+      },
+      {
+        "keyword": "generator code 128",
+        "volume": 260,
+        "competition": "LOW",
+        "competition_index": 3,
+        "cpc": 0.86,
+        "score": 132
+      },
+      {
+        "keyword": "generator ean 13",
+        "volume": 90,
+        "competition": "LOW",
+        "competition_index": 3,
+        "cpc": 2.74,
+        "score": 126
+      },
+      {
+        "keyword": "generator kodu qr",
+        "volume": 2900,
+        "competition": "MEDIUM",
+        "competition_index": 40,
+        "cpc": 1.59,
+        "score": 111
+      },
+      {
+        "keyword": "generator pdf417",
+        "volume": 20,
+        "competition": "LOW",
+        "competition_index": 3,
+        "cpc": "",
+        "score": 94
+      }
+    ],
+    "opportunity_score": 1266,
+    "weighted_avg_cpc": 4.99,
+    "weighted_avg_competition_index": 13.2
+  },
+  {
+    "language": "Japanese",
+    "market": "Japan",
+    "total_volume": 516830,
+    "low_comp_volume": 515830,
+    "low_medium_volume": 516830,
+    "weighted_cpc_sum": 434682,
+    "weighted_competition_sum": 7150790,
+    "keyword_count": 10,
+    "low_keyword_count": 9,
+    "top_keywords": [
+      {
+        "keyword": "qrコード 作成",
+        "volume": 450000,
+        "competition": "LOW",
+        "competition_index": 15,
+        "cpc": 0.78,
+        "score": 233
+      },
+      {
+        "keyword": "バーコード 作成",
+        "volume": 22200,
+        "competition": "LOW",
+        "competition_index": 2,
+        "cpc": 1.48,
+        "score": 203
+      },
+      {
+        "keyword": "qrコード 生成",
+        "volume": 33100,
+        "competition": "LOW",
+        "competition_index": 9,
+        "cpc": 1,
+        "score": 200
+      },
+      {
+        "keyword": "janコード 作成",
+        "volume": 8100,
+        "competition": "LOW",
+        "competition_index": 2,
+        "cpc": 1.76,
+        "score": 189
+      },
+      {
+        "keyword": "バーコード 生成",
+        "volume": 1900,
+        "competition": "LOW",
+        "competition_index": 2,
+        "cpc": 1.3,
+        "score": 165
+      },
+      {
+        "keyword": "バーコードジェネレーター",
+        "volume": 210,
+        "competition": "LOW",
+        "competition_index": 1,
+        "cpc": "",
+        "score": 126
+      },
+      {
+        "keyword": "code128 作成",
+        "volume": 170,
+        "competition": "LOW",
+        "competition_index": 1,
+        "cpc": "",
+        "score": 123
+      },
+      {
+        "keyword": "data matrix 作成",
+        "volume": 110,
+        "competition": "LOW",
+        "competition_index": 1,
+        "cpc": "",
+        "score": 117
+      }
+    ],
+    "opportunity_score": 1529,
+    "weighted_avg_cpc": 0.84,
+    "weighted_avg_competition_index": 13.8
+  },
+  {
+    "language": "German",
+    "market": "Germany",
+    "total_volume": 281000,
+    "low_comp_volume": 43400,
+    "low_medium_volume": 178400,
+    "weighted_cpc_sum": 636248.7,
+    "weighted_competition_sum": 15854380,
+    "keyword_count": 14,
+    "low_keyword_count": 11,
+    "top_keywords": [
+      {
+        "keyword": "barcode generator",
+        "volume": 33100,
+        "competition": "LOW",
+        "competition_index": 4,
+        "cpc": 1.66,
+        "score": 208
+      },
+      {
+        "keyword": "ean 13 generator",
+        "volume": 2400,
+        "competition": "LOW",
+        "competition_index": 8,
+        "cpc": 2.17,
+        "score": 167
+      },
+      {
+        "keyword": "qr code generator",
+        "volume": 135000,
+        "competition": "MEDIUM",
+        "competition_index": 61,
+        "cpc": 2.24,
+        "score": 154
+      },
+      {
+        "keyword": "data matrix code generator",
+        "volume": 1000,
+        "competition": "LOW",
+        "competition_index": 9,
+        "cpc": 2.2,
+        "score": 153
+      },
+      {
+        "keyword": "strichcode generator",
+        "volume": 1600,
+        "competition": "LOW",
+        "competition_index": 13,
+        "cpc": 0.83,
+        "score": 150
+      },
+      {
+        "keyword": "barcode erstellen",
+        "volume": 3600,
+        "competition": "LOW",
+        "competition_index": 32,
+        "cpc": 1.7,
+        "score": 149
+      },
+      {
+        "keyword": "strichcode erstellen",
+        "volume": 1000,
+        "competition": "LOW",
+        "competition_index": 8,
+        "cpc": 1.29,
+        "score": 149
+      },
+      {
+        "keyword": "code 128 generator",
+        "volume": 390,
+        "competition": "LOW",
+        "competition_index": 9,
+        "cpc": 0.81,
+        "score": 132
+      }
+    ],
+    "opportunity_score": 1818,
+    "weighted_avg_cpc": 2.26,
+    "weighted_avg_competition_index": 56.4
+  },
+  {
+    "language": "Dutch",
+    "market": "Netherlands",
+    "total_volume": 92820,
+    "low_comp_volume": 31740,
+    "low_medium_volume": 64840,
+    "weighted_cpc_sum": 205076.9,
+    "weighted_competition_sum": 4197350,
+    "keyword_count": 12,
+    "low_keyword_count": 9,
+    "top_keywords": [
+      {
+        "keyword": "barcode generator",
+        "volume": 14800,
+        "competition": "LOW",
+        "competition_index": 7,
+        "cpc": 2.23,
+        "score": 196
+      },
+      {
+        "keyword": "streepjescode generator",
+        "volume": 14800,
+        "competition": "LOW",
+        "competition_index": 7,
+        "cpc": 2.23,
+        "score": 196
+      },
+      {
+        "keyword": "ean 13 generator",
+        "volume": 590,
+        "competition": "LOW",
+        "competition_index": 15,
+        "cpc": 3.22,
+        "score": 145
+      },
+      {
+        "keyword": "barcode maken",
+        "volume": 1000,
+        "competition": "LOW",
+        "competition_index": 23,
+        "cpc": 1.61,
+        "score": 138
+      },
+      {
+        "keyword": "qr code generator",
+        "volume": 33100,
+        "competition": "MEDIUM",
+        "competition_index": 61,
+        "cpc": 2.18,
+        "score": 132
+      },
+      {
+        "keyword": "streepjescode maken",
+        "volume": 320,
+        "competition": "LOW",
+        "competition_index": 11,
+        "cpc": 1.48,
+        "score": 131
+      },
+      {
+        "keyword": "data matrix generator",
+        "volume": 140,
+        "competition": "LOW",
+        "competition_index": 10,
+        "cpc": 2.54,
+        "score": 125
+      },
+      {
+        "keyword": "code 128 generator",
+        "volume": 70,
+        "competition": "LOW",
+        "competition_index": 9,
+        "cpc": 2.45,
+        "score": 116
+      }
+    ],
+    "opportunity_score": 1376,
+    "weighted_avg_cpc": 2.21,
+    "weighted_avg_competition_index": 45.2
+  },
+  {
+    "language": "Spanish",
+    "market": "Mexico",
+    "total_volume": 119390,
+    "low_comp_volume": 66690,
+    "low_medium_volume": 66690,
+    "weighted_cpc_sum": 84726.2,
+    "weighted_competition_sum": 3846890,
+    "keyword_count": 12,
+    "low_keyword_count": 8,
+    "top_keywords": [
+      {
+        "keyword": "generador de codigo de barras",
+        "volume": 22200,
+        "competition": "LOW",
+        "competition_index": 2,
+        "cpc": 0.8,
+        "score": 199
+      },
+      {
+        "keyword": "generador codigo de barras",
+        "volume": 22200,
+        "competition": "LOW",
+        "competition_index": 2,
+        "cpc": 0.8,
+        "score": 199
+      },
+      {
+        "keyword": "generador de codigos de barras",
+        "volume": 22200,
+        "competition": "LOW",
+        "competition_index": 2,
+        "cpc": 0.8,
+        "score": 199
+      },
+      {
+        "keyword": "generador ean 13",
+        "volume": 30,
+        "competition": "LOW",
+        "competition_index": 0,
+        "cpc": "",
+        "score": 101
+      },
+      {
+        "keyword": "generador upc",
+        "volume": 30,
+        "competition": "LOW",
+        "competition_index": 1,
+        "cpc": "",
+        "score": 100
+      },
+      {
+        "keyword": "generador pdf417",
+        "volume": 10,
+        "competition": "LOW",
+        "competition_index": 0,
+        "cpc": "",
+        "score": 91
+      },
+      {
+        "keyword": "generador isbn",
+        "volume": 10,
+        "competition": "LOW",
+        "competition_index": 0,
+        "cpc": "",
+        "score": 91
+      },
+      {
+        "keyword": "generador code 128",
+        "volume": 10,
+        "competition": "LOW",
+        "competition_index": 6,
+        "cpc": 0.52,
+        "score": 88
+      }
+    ],
+    "opportunity_score": 1112,
+    "weighted_avg_cpc": 0.71,
+    "weighted_avg_competition_index": 32.2
+  },
+  {
+    "language": "Portuguese",
+    "market": "Brazil",
+    "total_volume": 207450,
+    "low_comp_volume": 63050,
+    "low_medium_volume": 146950,
+    "weighted_cpc_sum": 102370,
+    "weighted_competition_sum": 9695810,
+    "keyword_count": 10,
+    "low_keyword_count": 7,
+    "top_keywords": [
+      {
+        "keyword": "gerador de codigo de barras",
+        "volume": 33100,
+        "competition": "LOW",
+        "competition_index": 1,
+        "cpc": 0.8,
+        "score": 206
+      },
+      {
+        "keyword": "gerador codigo de barras",
+        "volume": 27100,
+        "competition": "LOW",
+        "competition_index": 4,
+        "cpc": 0.74,
+        "score": 200
+      },
+      {
+        "keyword": "gerador de codigo qr",
+        "volume": 1900,
+        "competition": "LOW",
+        "competition_index": 4,
+        "cpc": 0.37,
+        "score": 158
+      },
+      {
+        "keyword": "gerador de codigos de barras",
+        "volume": 590,
+        "competition": "LOW",
+        "competition_index": 3,
+        "cpc": 0.58,
+        "score": 142
+      },
+      {
+        "keyword": "gerador ean 13",
+        "volume": 320,
+        "competition": "LOW",
+        "competition_index": 4,
+        "cpc": 0.59,
+        "score": 132
+      },
+      {
+        "keyword": "gerador de qr code",
+        "volume": 74000,
+        "competition": "MEDIUM",
+        "competition_index": 66,
+        "cpc": 0.36,
+        "score": 131
+      },
+      {
+        "keyword": "gerador qr code",
+        "volume": 9900,
+        "competition": "MEDIUM",
+        "competition_index": 49,
+        "cpc": 0.38,
+        "score": 116
+      },
+      {
+        "keyword": "gerador isbn",
+        "volume": 20,
+        "competition": "LOW",
+        "competition_index": 0,
+        "cpc": "",
+        "score": 97
+      }
+    ],
+    "opportunity_score": 1223,
+    "weighted_avg_cpc": 0.49,
+    "weighted_avg_competition_index": 46.7
+  },
+  {
+    "language": "French",
+    "market": "France",
+    "total_volume": 44210,
+    "low_comp_volume": 20810,
+    "low_medium_volume": 40610,
+    "weighted_cpc_sum": 54474.90000000001,
+    "weighted_competition_sum": 1628960,
+    "keyword_count": 10,
+    "low_keyword_count": 7,
+    "top_keywords": [
+      {
+        "keyword": "generateur code barre",
+        "volume": 8100,
+        "competition": "LOW",
+        "competition_index": 4,
+        "cpc": 1.08,
+        "score": 184
+      },
+      {
+        "keyword": "generateur code barres",
+        "volume": 8100,
+        "competition": "LOW",
+        "competition_index": 4,
+        "cpc": 1.08,
+        "score": 184
+      },
+      {
+        "keyword": "generateur de code barre",
+        "volume": 4400,
+        "competition": "LOW",
+        "competition_index": 6,
+        "cpc": 1.36,
+        "score": 174
+      },
+      {
+        "keyword": "generateur ean 13",
+        "volume": 110,
+        "competition": "LOW",
+        "competition_index": 8,
+        "cpc": 2.92,
+        "score": 125
+      },
+      {
+        "keyword": "generateur code 128",
+        "volume": 40,
+        "competition": "LOW",
+        "competition_index": 4,
+        "cpc": 1.76,
+        "score": 110
+      },
+      {
+        "keyword": "generateur qr code",
+        "volume": 9900,
+        "competition": "MEDIUM",
+        "competition_index": 63,
+        "cpc": 1.31,
+        "score": 108
+      },
+      {
+        "keyword": "generateur de qr code",
+        "volume": 9900,
+        "competition": "MEDIUM",
+        "competition_index": 66,
+        "cpc": 1.19,
+        "score": 104
+      },
+      {
+        "keyword": "generateur isbn",
+        "volume": 50,
+        "competition": "LOW",
+        "competition_index": 4,
+        "cpc": "",
+        "score": 104
+      }
+    ],
+    "opportunity_score": 1107,
+    "weighted_avg_cpc": 1.23,
+    "weighted_avg_competition_index": 36.8
+  },
+  {
+    "language": "Turkish",
+    "market": "Turkey",
+    "total_volume": 110690,
+    "low_comp_volume": 29680,
+    "low_medium_volume": 110690,
+    "weighted_cpc_sum": 61394,
+    "weighted_competition_sum": 5508220,
+    "keyword_count": 6,
+    "low_keyword_count": 3,
+    "top_keywords": [
+      {
+        "keyword": "barkod oluşturucu",
+        "volume": 22200,
+        "competition": "LOW",
+        "competition_index": 12,
+        "cpc": 0.26,
+        "score": 188
+      },
+      {
+        "keyword": "barkod generator",
+        "volume": 6600,
+        "competition": "LOW",
+        "competition_index": 6,
+        "cpc": 0.52,
+        "score": 176
+      },
+      {
+        "keyword": "barkod olusturucu",
+        "volume": 880,
+        "competition": "LOW",
+        "competition_index": 20,
+        "cpc": 0.39,
+        "score": 132
+      },
+      {
+        "keyword": "qr kod oluşturucu",
+        "volume": 40500,
+        "competition": "MEDIUM",
+        "competition_index": 64,
+        "cpc": 0.64,
+        "score": 125
+      },
+      {
+        "keyword": "qr kod oluşturma",
+        "volume": 40500,
+        "competition": "MEDIUM",
+        "competition_index": 64,
+        "cpc": 0.64,
+        "score": 125
+      },
+      {
+        "keyword": "qr kod olusturucu",
+        "volume": 10,
+        "competition": "MEDIUM",
+        "competition_index": 62,
+        "cpc": 0.68,
+        "score": 11
+      },
+      {
+        "keyword": "karekod olusturucu",
+        "volume": 0,
+        "competition": "",
+        "competition_index": "",
+        "cpc": "",
+        "score": -25
+      },
+      {
+        "keyword": "karekod oluşturucu",
+        "volume": 0,
+        "competition": "",
+        "competition_index": "",
+        "cpc": "",
+        "score": -25
+      }
+    ],
+    "opportunity_score": 607,
+    "weighted_avg_cpc": 0.55,
+    "weighted_avg_competition_index": 49.8
+  },
+  {
+    "language": "Italian",
+    "market": "Italy",
+    "total_volume": 17170,
+    "low_comp_volume": 6570,
+    "low_medium_volume": 17170,
+    "weighted_cpc_sum": 24308.300000000003,
+    "weighted_competition_sum": 749150,
+    "keyword_count": 8,
+    "low_keyword_count": 5,
+    "top_keywords": [
+      {
+        "keyword": "generatore codice a barre",
+        "volume": 5400,
+        "competition": "LOW",
+        "competition_index": 10,
+        "cpc": 1.11,
+        "score": 172
+      },
+      {
+        "keyword": "generatore codici a barre",
+        "volume": 1000,
+        "competition": "LOW",
+        "competition_index": 14,
+        "cpc": 0.88,
+        "score": 142
+      },
+      {
+        "keyword": "generatore ean 13",
+        "volume": 110,
+        "competition": "LOW",
+        "competition_index": 6,
+        "cpc": 0.53,
+        "score": 115
+      },
+      {
+        "keyword": "generatore isbn",
+        "volume": 50,
+        "competition": "LOW",
+        "competition_index": 1,
+        "cpc": "",
+        "score": 106
+      },
+      {
+        "keyword": "generatore qr code",
+        "volume": 5400,
+        "competition": "MEDIUM",
+        "competition_index": 64,
+        "cpc": 1.42,
+        "score": 98
+      },
+      {
+        "keyword": "creare qr code",
+        "volume": 3600,
+        "competition": "MEDIUM",
+        "competition_index": 65,
+        "cpc": 2.15,
+        "score": 95
+      },
+      {
+        "keyword": "generatore upc",
+        "volume": 10,
+        "competition": "LOW",
+        "competition_index": 4,
+        "cpc": "",
+        "score": 87
+      },
+      {
+        "keyword": "generatore codice qr",
+        "volume": 1600,
+        "competition": "MEDIUM",
+        "competition_index": 63,
+        "cpc": 1.23,
+        "score": 80
+      }
+    ],
+    "opportunity_score": 795,
+    "weighted_avg_cpc": 1.42,
+    "weighted_avg_competition_index": 43.6
+  },
+  {
+    "language": "Spanish",
+    "market": "Spain",
+    "total_volume": 37030,
+    "low_comp_volume": 6030,
+    "low_medium_volume": 37030,
+    "weighted_cpc_sum": 37987,
+    "weighted_competition_sum": 1950420,
+    "keyword_count": 12,
+    "low_keyword_count": 8,
+    "top_keywords": [
+      {
+        "keyword": "generador de codigo de barras",
+        "volume": 1900,
+        "competition": "LOW",
+        "competition_index": 3,
+        "cpc": 1.2,
+        "score": 163
+      },
+      {
+        "keyword": "generador codigo de barras",
+        "volume": 1900,
+        "competition": "LOW",
+        "competition_index": 3,
+        "cpc": 1.2,
+        "score": 163
+      },
+      {
+        "keyword": "generador de codigos de barras",
+        "volume": 1900,
+        "competition": "LOW",
+        "competition_index": 3,
+        "cpc": 1.2,
+        "score": 163
+      },
+      {
+        "keyword": "generador ean 13",
+        "volume": 260,
+        "competition": "LOW",
+        "competition_index": 2,
+        "cpc": "",
+        "score": 128
+      },
+      {
+        "keyword": "generador qr",
+        "volume": 18100,
+        "competition": "MEDIUM",
+        "competition_index": 65,
+        "cpc": 1,
+        "score": 114
+      },
+      {
+        "keyword": "crear codigo qr",
+        "volume": 8100,
+        "competition": "MEDIUM",
+        "competition_index": 59,
+        "cpc": 1.03,
+        "score": 107
+      },
+      {
+        "keyword": "generador isbn",
+        "volume": 40,
+        "competition": "LOW",
+        "competition_index": 0,
+        "cpc": "",
+        "score": 104
+      },
+      {
+        "keyword": "generador code 128",
+        "volume": 10,
+        "competition": "LOW",
+        "competition_index": 0,
+        "cpc": "",
+        "score": 91
+      }
+    ],
+    "opportunity_score": 1343,
+    "weighted_avg_cpc": 1.03,
+    "weighted_avg_competition_index": 52.7
+  },
+  {
+    "language": "Indonesian",
+    "market": "Indonesia",
+    "total_volume": 45090,
+    "low_comp_volume": 7560,
+    "low_medium_volume": 45080,
+    "weighted_cpc_sum": 3772.8,
+    "weighted_competition_sum": 2244920,
+    "keyword_count": 11,
+    "low_keyword_count": 4,
+    "top_keywords": [
+      {
+        "keyword": "generator barcode",
+        "volume": 6600,
+        "competition": "LOW",
+        "competition_index": 17,
+        "cpc": 0.05,
+        "score": 164
+      },
+      {
+        "keyword": "generator data matrix",
+        "volume": 880,
+        "competition": "LOW",
+        "competition_index": 0,
+        "cpc": 1.05,
+        "score": 153
+      },
+      {
+        "keyword": "buat barcode",
+        "volume": 18100,
+        "competition": "MEDIUM",
+        "competition_index": 53,
+        "cpc": 0.04,
+        "score": 120
+      },
+      {
+        "keyword": "generator code 128",
+        "volume": 50,
+        "competition": "LOW",
+        "competition_index": 2,
+        "cpc": "",
+        "score": 105
+      },
+      {
+        "keyword": "buat qr code",
+        "volume": 12100,
+        "competition": "MEDIUM",
+        "competition_index": 65,
+        "cpc": 0.12,
+        "score": 103
+      },
+      {
+        "keyword": "pembuat barcode",
+        "volume": 2900,
+        "competition": "MEDIUM",
+        "competition_index": 43,
+        "cpc": 0.04,
+        "score": 101
+      },
+      {
+        "keyword": "generator pdf417",
+        "volume": 30,
+        "competition": "LOW",
+        "competition_index": 2,
+        "cpc": "",
+        "score": 99
+      },
+      {
+        "keyword": "pembuat qr code",
+        "volume": 2400,
+        "competition": "MEDIUM",
+        "competition_index": 62,
+        "cpc": 0.05,
+        "score": 81
+      }
+    ],
+    "opportunity_score": 1031,
+    "weighted_avg_cpc": 0.08,
+    "weighted_avg_competition_index": 49.8
+  },
+  {
+    "language": "Arabic",
+    "market": "Saudi Arabia",
+    "total_volume": 12510,
+    "low_comp_volume": 0,
+    "low_medium_volume": 12420,
+    "weighted_cpc_sum": 4721.1,
+    "weighted_competition_sum": 759350,
+    "keyword_count": 4,
+    "low_keyword_count": 0,
+    "top_keywords": [
+      {
+        "keyword": "انشاء باركود",
+        "volume": 12100,
+        "competition": "MEDIUM",
+        "competition_index": 61,
+        "cpc": 0.37,
+        "score": 108
+      },
+      {
+        "keyword": "مولد باركود",
+        "volume": 320,
+        "competition": "MEDIUM",
+        "competition_index": 46,
+        "cpc": 0.28,
+        "score": 66
+      },
+      {
+        "keyword": "مولد qr code",
+        "volume": 0,
+        "competition": "",
+        "competition_index": "",
+        "cpc": "",
+        "score": -25
+      },
+      {
+        "keyword": "مولد رمز qr",
+        "volume": 0,
+        "competition": "",
+        "competition_index": "",
+        "cpc": "",
+        "score": -25
+      },
+      {
+        "keyword": "منشئ باركود",
+        "volume": 0,
+        "competition": "",
+        "competition_index": "",
+        "cpc": "",
+        "score": -25
+      },
+      {
+        "keyword": "مولد باركود ean 13",
+        "volume": 0,
+        "competition": "",
+        "competition_index": "",
+        "cpc": "",
+        "score": -25
+      },
+      {
+        "keyword": "مولد code 128",
+        "volume": 0,
+        "competition": "",
+        "competition_index": "",
+        "cpc": "",
+        "score": -25
+      },
+      {
+        "keyword": "مولد data matrix",
+        "volume": 0,
+        "competition": "",
+        "competition_index": "",
+        "cpc": "",
+        "score": -25
+      }
+    ],
+    "opportunity_score": -134,
+    "weighted_avg_cpc": 0.38,
+    "weighted_avg_competition_index": 60.7
+  }
+]

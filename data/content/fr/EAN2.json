@@ -1,0 +1,77 @@
+{
+ "id": "EAN2",
+ "title": "générateur EAN-2 add-on | Barcode Studio",
+ "metaDescription": "Créez un EAN-2 add-on dans Barcode Studio. générateur EAN-2 add-on avec aperçu, réglages d’impression, traitement par lot et export PNG, SVG ou PDF.",
+ "primaryKeyword": "générateur EAN-2 add-on",
+ "secondaryKeywords": [
+  "générateur EAN-2 add-on",
+  "EAN-2 add-on en ligne",
+  "EAN-2 add-on PNG SVG PDF",
+  "EAN-2 add-on étiquettes",
+  "EAN-2 add-on API",
+  "générateur EAN-2 add-on"
+ ],
+ "lead": "Générez EAN-2 add-on comme code commercial EAN/UPC, contrôlez la lisibilité dans l’aperçu et préparez le résultat pour étiquettes, documents, emballages ou intégrations API.",
+ "sections": [
+  {
+   "h2": "Qu’est-ce que EAN-2 add-on",
+   "html": "<p>générateur EAN-2 add-on permet de préparer EAN-2 add-on sans logiciel spécialisé. Ce format appartient à la famille code commercial EAN/UPC et convient lorsque la compatibilité lecteur, la géométrie et les dimensions doivent rester maîtrisées. Vous saisissez les données, vérifiez l’aperçu et voyez immédiatement si le symbole tient sur l’étiquette ou le document.</p><p>Le résultat ne se limite pas à une image. Taille du module, marge, contraste et texte lisible doivent fonctionner ensemble. Barcode Studio rend ces paramètres visibles avant l’export afin que le PNG, le SVG ou le PDF puisse rejoindre une maquette, un modèle d’étiquette ou un système interne.</p><p>Les données destinées à EAN-2 add-on doivent respecter les règles de la symbologie. Certains formats acceptent du texte, d’autres uniquement des chiffres, un nombre pair de caractères ou une structure GS1 avec Application Identifiers. Pour un produit, un colis ou un document réglementé, le numéro source doit rester exact.</p><p>Dans un flux professionnel, la répétabilité compte. La même valeur doit produire un symbole prévisible, et l’export vectoriel facilite l’impression à différentes tailles. Pour des séries d’étiquettes, un fichier CSV permet de générer de nombreux codes avec un style cohérent.</p><p>Le parcours reste direct : choisissez EAN-2 add-on, collez les données, contrôlez la validation et ajustez la taille à l’espace disponible. Le PNG convient à un usage rapide, le SVG à la mise en page, et le PDF aux planches d’impression. Pour une intégration, l’endpoint REST renvoie l’image du code via une URL.</p>"
+  },
+  {
+   "h2": "Comment EAN-2 add-on encode les données",
+   "html": "<p>Le résultat ne se limite pas à une image. Taille du module, marge, contraste et texte lisible doivent fonctionner ensemble. Barcode Studio rend ces paramètres visibles avant l’export afin que le PNG, le SVG ou le PDF puisse rejoindre une maquette, un modèle d’étiquette ou un système interne.</p><p>Les données destinées à EAN-2 add-on doivent respecter les règles de la symbologie. Certains formats acceptent du texte, d’autres uniquement des chiffres, un nombre pair de caractères ou une structure GS1 avec Application Identifiers. Pour un produit, un colis ou un document réglementé, le numéro source doit rester exact.</p><p>Dans un flux professionnel, la répétabilité compte. La même valeur doit produire un symbole prévisible, et l’export vectoriel facilite l’impression à différentes tailles. Pour des séries d’étiquettes, un fichier CSV permet de générer de nombreux codes avec un style cohérent.</p><p>Le parcours reste direct : choisissez EAN-2 add-on, collez les données, contrôlez la validation et ajustez la taille à l’espace disponible. Le PNG convient à un usage rapide, le SVG à la mise en page, et le PDF aux planches d’impression. Pour une intégration, l’endpoint REST renvoie l’image du code via une URL.</p><p>Avant une utilisation en volume, réalisez une impression test. Le fond doit rester clair, les bords doivent être nets et la zone libre ne doit pas recevoir de texte, de traits ou d’illustrations. Testez avec le même lecteur et dans des conditions proches de l’usage réel.</p>"
+  },
+  {
+   "h2": "Quelles données peuvent être encodées",
+   "html": "<p>Les données destinées à EAN-2 add-on doivent respecter les règles de la symbologie. Certains formats acceptent du texte, d’autres uniquement des chiffres, un nombre pair de caractères ou une structure GS1 avec Application Identifiers. Pour un produit, un colis ou un document réglementé, le numéro source doit rester exact.</p><p>Dans un flux professionnel, la répétabilité compte. La même valeur doit produire un symbole prévisible, et l’export vectoriel facilite l’impression à différentes tailles. Pour des séries d’étiquettes, un fichier CSV permet de générer de nombreux codes avec un style cohérent.</p><p>Le parcours reste direct : choisissez EAN-2 add-on, collez les données, contrôlez la validation et ajustez la taille à l’espace disponible. Le PNG convient à un usage rapide, le SVG à la mise en page, et le PDF aux planches d’impression. Pour une intégration, l’endpoint REST renvoie l’image du code via une URL.</p><p>Avant une utilisation en volume, réalisez une impression test. Le fond doit rester clair, les bords doivent être nets et la zone libre ne doit pas recevoir de texte, de traits ou d’illustrations. Testez avec le même lecteur et dans des conditions proches de l’usage réel.</p><p>EAN-2 add-on se compare aux formats proches selon la densité, l’espace disponible et les exigences du lecteur. Si davantage de contenu doit être encodé, un format 2D peut être plus adapté. Pour caisse, stock ou chaîne logistique établie, un standard linéaire reste souvent le choix le plus sûr.</p>"
+  },
+  {
+   "h2": "Où utiliser ce format",
+   "html": "<p>Dans un flux professionnel, la répétabilité compte. La même valeur doit produire un symbole prévisible, et l’export vectoriel facilite l’impression à différentes tailles. Pour des séries d’étiquettes, un fichier CSV permet de générer de nombreux codes avec un style cohérent.</p><p>Le parcours reste direct : choisissez EAN-2 add-on, collez les données, contrôlez la validation et ajustez la taille à l’espace disponible. Le PNG convient à un usage rapide, le SVG à la mise en page, et le PDF aux planches d’impression. Pour une intégration, l’endpoint REST renvoie l’image du code via une URL.</p><p>Avant une utilisation en volume, réalisez une impression test. Le fond doit rester clair, les bords doivent être nets et la zone libre ne doit pas recevoir de texte, de traits ou d’illustrations. Testez avec le même lecteur et dans des conditions proches de l’usage réel.</p><p>EAN-2 add-on se compare aux formats proches selon la densité, l’espace disponible et les exigences du lecteur. Si davantage de contenu doit être encodé, un format 2D peut être plus adapté. Pour caisse, stock ou chaîne logistique établie, un standard linéaire reste souvent le choix le plus sûr.</p><p>générateur EAN-2 add-on permet de préparer EAN-2 add-on sans logiciel spécialisé. Ce format appartient à la famille code commercial EAN/UPC et convient lorsque la compatibilité lecteur, la géométrie et les dimensions doivent rester maîtrisées. Vous saisissez les données, vérifiez l’aperçu et voyez immédiatement si le symbole tient sur l’étiquette ou le document.</p>"
+  },
+  {
+   "h2": "Créer le code dans Barcode Studio",
+   "html": "<p>Le parcours reste direct : choisissez EAN-2 add-on, collez les données, contrôlez la validation et ajustez la taille à l’espace disponible. Le PNG convient à un usage rapide, le SVG à la mise en page, et le PDF aux planches d’impression. Pour une intégration, l’endpoint REST renvoie l’image du code via une URL.</p><p>Avant une utilisation en volume, réalisez une impression test. Le fond doit rester clair, les bords doivent être nets et la zone libre ne doit pas recevoir de texte, de traits ou d’illustrations. Testez avec le même lecteur et dans des conditions proches de l’usage réel.</p><p>EAN-2 add-on se compare aux formats proches selon la densité, l’espace disponible et les exigences du lecteur. Si davantage de contenu doit être encodé, un format 2D peut être plus adapté. Pour caisse, stock ou chaîne logistique établie, un standard linéaire reste souvent le choix le plus sûr.</p><p>générateur EAN-2 add-on permet de préparer EAN-2 add-on sans logiciel spécialisé. Ce format appartient à la famille code commercial EAN/UPC et convient lorsque la compatibilité lecteur, la géométrie et les dimensions doivent rester maîtrisées. Vous saisissez les données, vérifiez l’aperçu et voyez immédiatement si le symbole tient sur l’étiquette ou le document.</p><p>Le résultat ne se limite pas à une image. Taille du module, marge, contraste et texte lisible doivent fonctionner ensemble. Barcode Studio rend ces paramètres visibles avant l’export afin que le PNG, le SVG ou le PDF puisse rejoindre une maquette, un modèle d’étiquette ou un système interne.</p>"
+  },
+  {
+   "h2": "Impression et lecture",
+   "html": "<p>Avant une utilisation en volume, réalisez une impression test. Le fond doit rester clair, les bords doivent être nets et la zone libre ne doit pas recevoir de texte, de traits ou d’illustrations. Testez avec le même lecteur et dans des conditions proches de l’usage réel.</p><p>EAN-2 add-on se compare aux formats proches selon la densité, l’espace disponible et les exigences du lecteur. Si davantage de contenu doit être encodé, un format 2D peut être plus adapté. Pour caisse, stock ou chaîne logistique établie, un standard linéaire reste souvent le choix le plus sûr.</p><p>générateur EAN-2 add-on permet de préparer EAN-2 add-on sans logiciel spécialisé. Ce format appartient à la famille code commercial EAN/UPC et convient lorsque la compatibilité lecteur, la géométrie et les dimensions doivent rester maîtrisées. Vous saisissez les données, vérifiez l’aperçu et voyez immédiatement si le symbole tient sur l’étiquette ou le document.</p><p>Le résultat ne se limite pas à une image. Taille du module, marge, contraste et texte lisible doivent fonctionner ensemble. Barcode Studio rend ces paramètres visibles avant l’export afin que le PNG, le SVG ou le PDF puisse rejoindre une maquette, un modèle d’étiquette ou un système interne.</p><p>Les données destinées à EAN-2 add-on doivent respecter les règles de la symbologie. Certains formats acceptent du texte, d’autres uniquement des chiffres, un nombre pair de caractères ou une structure GS1 avec Application Identifiers. Pour un produit, un colis ou un document réglementé, le numéro source doit rester exact.</p>"
+  },
+  {
+   "h2": "Comparaison avec les formats proches",
+   "html": "<p>EAN-2 add-on se compare aux formats proches selon la densité, l’espace disponible et les exigences du lecteur. Si davantage de contenu doit être encodé, un format 2D peut être plus adapté. Pour caisse, stock ou chaîne logistique établie, un standard linéaire reste souvent le choix le plus sûr.</p><p>générateur EAN-2 add-on permet de préparer EAN-2 add-on sans logiciel spécialisé. Ce format appartient à la famille code commercial EAN/UPC et convient lorsque la compatibilité lecteur, la géométrie et les dimensions doivent rester maîtrisées. Vous saisissez les données, vérifiez l’aperçu et voyez immédiatement si le symbole tient sur l’étiquette ou le document.</p><p>Le résultat ne se limite pas à une image. Taille du module, marge, contraste et texte lisible doivent fonctionner ensemble. Barcode Studio rend ces paramètres visibles avant l’export afin que le PNG, le SVG ou le PDF puisse rejoindre une maquette, un modèle d’étiquette ou un système interne.</p><p>Les données destinées à EAN-2 add-on doivent respecter les règles de la symbologie. Certains formats acceptent du texte, d’autres uniquement des chiffres, un nombre pair de caractères ou une structure GS1 avec Application Identifiers. Pour un produit, un colis ou un document réglementé, le numéro source doit rester exact.</p><p>Dans un flux professionnel, la répétabilité compte. La même valeur doit produire un symbole prévisible, et l’export vectoriel facilite l’impression à différentes tailles. Pour des séries d’étiquettes, un fichier CSV permet de générer de nombreux codes avec un style cohérent.</p>"
+  }
+ ],
+ "uses": [
+  "étiquettes produit et emballages",
+  "stock et inventaire",
+  "documents, billets et formulaires",
+  "impression par lot depuis CSV"
+ ],
+ "faq": [
+  {
+   "q": "générateur EAN-2 add-on fonctionne-t-il dans le navigateur",
+   "a": "Oui. Barcode Studio crée EAN-2 add-on sans installation, puis le résultat peut être enregistré en PNG, SVG ou PDF."
+  },
+  {
+   "q": "Quelles données saisir",
+   "a": "Les données doivent respecter les règles de EAN-2 add-on. Si le format impose des chiffres, une longueur ou une structure GS1, conservez la valeur source exacte."
+  },
+  {
+   "q": "Puis-je générer plusieurs codes à la fois",
+   "a": "Oui. Le mode lot accepte une liste collée ou un fichier CSV, puis produit un ZIP ou une feuille PDF."
+  },
+  {
+   "q": "Le code convient-il à l’impression",
+   "a": "Oui, mais une impression test suivie d’une lecture sur le support final reste recommandée avant la production."
+  },
+  {
+   "q": "Quand choisir SVG plutôt que PNG",
+   "a": "SVG convient à la mise en page et au redimensionnement, tandis que PNG suffit pour une utilisation rapide dans des documents ou applications."
+  },
+  {
+   "q": "Puis-je utiliser une API",
+   "a": "Oui. L’endpoint REST génère l’image du code à partir de paramètres dans l’URL pour l’intégration dans vos systèmes."
+  }
+ ]
+}

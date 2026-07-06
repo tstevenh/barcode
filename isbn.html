@@ -7,8 +7,15 @@
 <meta name="description" content="Free ISBN barcode generator: turn any 10 or 13-digit ISBN into a scannable EAN-13 barcode with check digit and optional price add-on. PNG/SVG/PDF export." />
 <meta name="theme-color" content="#0b1220" />
 <link rel="canonical" href="https://lawbarcode.vercel.app/isbn" />
+<link rel="alternate" hreflang="en" href="https://lawbarcode.vercel.app/isbn" />
+<link rel="alternate" hreflang="pl-PL" href="https://lawbarcode.vercel.app/pl/isbn" />
+<link rel="alternate" hreflang="de-DE" href="https://lawbarcode.vercel.app/de/isbn" />
+<link rel="alternate" hreflang="nl-NL" href="https://lawbarcode.vercel.app/nl/isbn" />
+<link rel="alternate" hreflang="fr-FR" href="https://lawbarcode.vercel.app/fr/isbn" />
+<link rel="alternate" hreflang="ja-JP" href="https://lawbarcode.vercel.app/ja/isbn" />
+<link rel="alternate" hreflang="x-default" href="https://lawbarcode.vercel.app/isbn" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="ISBN Generator | Barcode Studio" />
+<meta property="og:title" content="ISBN Barcode Generator | Barcode Studio" />
 <meta property="og:description" content="Free ISBN barcode generator: turn any 10 or 13-digit ISBN into a scannable EAN-13 barcode with check digit and optional price add-on. PNG/SVG/PDF export." />
 <meta property="og:url" content="https://lawbarcode.vercel.app/isbn" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -71,6 +78,7 @@
 })();
 </script>
 <script>window.BARCODE_HAS_API = true;</script>
+<script>window.BARCODE_LOCALE="en";</script>
 <script src="/js/i18n.js"></script>
 <script src="/js/i18n-extra.js"></script>
 </head>
@@ -102,7 +110,7 @@
   <section class="hero">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-content">
-      <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/barcodes">Barcodes</a><span>/</span><span>ISBN</span></nav>
+      <nav class="crumb" aria-label="Barcode Types"><a href="/">Home</a><span>/</span><a href="/barcodes">Codes</a><span>/</span><span>ISBN</span></nav>
       <span class="eyebrow">Retail (EAN / UPC)</span>
       <h1>ISBN <span class="grad-text">Generator</span></h1>
       <p>Every book barcode you scan at a bookstore is really an EAN-13 built from the book's ISBN — here's how to turn your ISBN into one.</p>

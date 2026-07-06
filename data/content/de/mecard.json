@@ -1,0 +1,74 @@
+{
+ "id": "mecard",
+ "title": "MeCard Generator | Barcode Studio",
+ "metaDescription": "Erstelle MeCard in Barcode Studio. MeCard Generator mit Vorschau, Druckeinstellungen, Stapelverarbeitung und Export als PNG, SVG oder PDF.",
+ "primaryKeyword": "MeCard Generator",
+ "secondaryKeywords": [
+  "MeCard Generator",
+  "MeCard erstellen",
+  "MeCard PNG SVG PDF",
+  "MeCard Etiketten",
+  "MeCard API",
+  "MeCard Generator"
+ ],
+ "lead": "Erstelle MeCard als 2D-Code, prüfe die Lesbarkeit direkt in der Vorschau und bereite die Ausgabe für Etiketten, Dokumente, Verpackungen oder API-Abläufe vor.",
+ "sections": [
+  {
+   "h2": "Was ist MeCard",
+   "html": "<p>MeCard Generator hilft, MeCard ohne Spezialsoftware vorzubereiten. Das Format gehört zur Gruppe 2D-Code und eignet sich, wenn Scanner-Kompatibilität, klare Geometrie und kontrollierte Abmessungen wichtig sind. Du gibst die Daten ein, prüfst die Vorschau und erkennst sofort, ob das Symbol zur Etikettfläche oder zum Dokument passt.</p><p>Entscheidend ist nicht nur die Grafikdatei. Modulgröße, Rand, Kontrast und gegebenenfalls Klartext müssen zusammenpassen. Barcode Studio macht diese Einstellungen vor dem Export sichtbar, damit PNG, SVG oder PDF direkt in Layouts, Druckvorlagen oder interne Systeme übernommen werden können.</p><p>Die Daten für MeCard müssen den Regeln der jeweiligen Symbologie folgen. Einige Formate erlauben Text, andere nur Ziffern, gerade Zeichenanzahlen oder strukturierte GS1-Daten mit Application Identifiers. Bei Produkt-, Paket- oder Behördenkennzeichnung sollte die Originalnummer unverändert bleiben und die Prüfziffer separat kontrolliert werden.</p><p>In betrieblichen Abläufen zählt Wiederholbarkeit. Derselbe Datenwert soll immer ein vorhersehbares Symbol erzeugen, und Vektorexport erleichtert den Druck in mehreren Größen. Für Etikettenserien kann eine CSV-Liste eingelesen werden, sodass viele Codes mit einheitlichem Stil entstehen.</p><p>Der Arbeitsablauf bleibt übersichtlich: MeCard auswählen, Daten einfügen, Validierung prüfen und die Größe an die verfügbare Fläche anpassen. Danach eignet sich PNG für schnelle Nutzung, SVG für Satzprogramme und PDF für Druckbögen. Für Integrationen liefert der REST-Endpunkt das Codebild direkt über eine URL.</p>"
+  },
+  {
+   "h2": "Wie MeCard Daten codiert",
+   "html": "<p>Entscheidend ist nicht nur die Grafikdatei. Modulgröße, Rand, Kontrast und gegebenenfalls Klartext müssen zusammenpassen. Barcode Studio macht diese Einstellungen vor dem Export sichtbar, damit PNG, SVG oder PDF direkt in Layouts, Druckvorlagen oder interne Systeme übernommen werden können.</p><p>Die Daten für MeCard müssen den Regeln der jeweiligen Symbologie folgen. Einige Formate erlauben Text, andere nur Ziffern, gerade Zeichenanzahlen oder strukturierte GS1-Daten mit Application Identifiers. Bei Produkt-, Paket- oder Behördenkennzeichnung sollte die Originalnummer unverändert bleiben und die Prüfziffer separat kontrolliert werden.</p><p>In betrieblichen Abläufen zählt Wiederholbarkeit. Derselbe Datenwert soll immer ein vorhersehbares Symbol erzeugen, und Vektorexport erleichtert den Druck in mehreren Größen. Für Etikettenserien kann eine CSV-Liste eingelesen werden, sodass viele Codes mit einheitlichem Stil entstehen.</p><p>Der Arbeitsablauf bleibt übersichtlich: MeCard auswählen, Daten einfügen, Validierung prüfen und die Größe an die verfügbare Fläche anpassen. Danach eignet sich PNG für schnelle Nutzung, SVG für Satzprogramme und PDF für Druckbögen. Für Integrationen liefert der REST-Endpunkt das Codebild direkt über eine URL.</p><p>Vor dem produktiven Einsatz ist ein Probedruck sinnvoll. Der Hintergrund sollte hell sein, die Kanten müssen scharf bleiben und der Rand darf nicht durch Text, Linien oder Grafiken gestört werden. Teste mit demselben Scanner und unter ähnlichem Licht, wie später am Arbeitsplatz.</p>"
+  },
+  {
+   "h2": "Welche Daten passen hinein",
+   "html": "<p>Die Daten für MeCard müssen den Regeln der jeweiligen Symbologie folgen. Einige Formate erlauben Text, andere nur Ziffern, gerade Zeichenanzahlen oder strukturierte GS1-Daten mit Application Identifiers. Bei Produkt-, Paket- oder Behördenkennzeichnung sollte die Originalnummer unverändert bleiben und die Prüfziffer separat kontrolliert werden.</p><p>In betrieblichen Abläufen zählt Wiederholbarkeit. Derselbe Datenwert soll immer ein vorhersehbares Symbol erzeugen, und Vektorexport erleichtert den Druck in mehreren Größen. Für Etikettenserien kann eine CSV-Liste eingelesen werden, sodass viele Codes mit einheitlichem Stil entstehen.</p><p>Der Arbeitsablauf bleibt übersichtlich: MeCard auswählen, Daten einfügen, Validierung prüfen und die Größe an die verfügbare Fläche anpassen. Danach eignet sich PNG für schnelle Nutzung, SVG für Satzprogramme und PDF für Druckbögen. Für Integrationen liefert der REST-Endpunkt das Codebild direkt über eine URL.</p><p>Vor dem produktiven Einsatz ist ein Probedruck sinnvoll. Der Hintergrund sollte hell sein, die Kanten müssen scharf bleiben und der Rand darf nicht durch Text, Linien oder Grafiken gestört werden. Teste mit demselben Scanner und unter ähnlichem Licht, wie später am Arbeitsplatz.</p><p>MeCard sollte gegen verwandte Formate nach Datendichte, Platzbedarf und Scanneranforderungen abgewogen werden. Für mehr Inhalt kann ein 2D-Format geeigneter sein. Für Kassen, Lager oder etablierte Lieferketten bleibt ein linearer Standard oft die robustere Wahl.</p>"
+  },
+  {
+   "h2": "Wo dieses Format eingesetzt wird",
+   "html": "<p>In betrieblichen Abläufen zählt Wiederholbarkeit. Derselbe Datenwert soll immer ein vorhersehbares Symbol erzeugen, und Vektorexport erleichtert den Druck in mehreren Größen. Für Etikettenserien kann eine CSV-Liste eingelesen werden, sodass viele Codes mit einheitlichem Stil entstehen.</p><p>Der Arbeitsablauf bleibt übersichtlich: MeCard auswählen, Daten einfügen, Validierung prüfen und die Größe an die verfügbare Fläche anpassen. Danach eignet sich PNG für schnelle Nutzung, SVG für Satzprogramme und PDF für Druckbögen. Für Integrationen liefert der REST-Endpunkt das Codebild direkt über eine URL.</p><p>Vor dem produktiven Einsatz ist ein Probedruck sinnvoll. Der Hintergrund sollte hell sein, die Kanten müssen scharf bleiben und der Rand darf nicht durch Text, Linien oder Grafiken gestört werden. Teste mit demselben Scanner und unter ähnlichem Licht, wie später am Arbeitsplatz.</p><p>MeCard sollte gegen verwandte Formate nach Datendichte, Platzbedarf und Scanneranforderungen abgewogen werden. Für mehr Inhalt kann ein 2D-Format geeigneter sein. Für Kassen, Lager oder etablierte Lieferketten bleibt ein linearer Standard oft die robustere Wahl.</p><p>MeCard Generator hilft, MeCard ohne Spezialsoftware vorzubereiten. Das Format gehört zur Gruppe 2D-Code und eignet sich, wenn Scanner-Kompatibilität, klare Geometrie und kontrollierte Abmessungen wichtig sind. Du gibst die Daten ein, prüfst die Vorschau und erkennst sofort, ob das Symbol zur Etikettfläche oder zum Dokument passt.</p>"
+  },
+  {
+   "h2": "So erstellst du den Code in Barcode Studio",
+   "html": "<p>Der Arbeitsablauf bleibt übersichtlich: MeCard auswählen, Daten einfügen, Validierung prüfen und die Größe an die verfügbare Fläche anpassen. Danach eignet sich PNG für schnelle Nutzung, SVG für Satzprogramme und PDF für Druckbögen. Für Integrationen liefert der REST-Endpunkt das Codebild direkt über eine URL.</p><p>Vor dem produktiven Einsatz ist ein Probedruck sinnvoll. Der Hintergrund sollte hell sein, die Kanten müssen scharf bleiben und der Rand darf nicht durch Text, Linien oder Grafiken gestört werden. Teste mit demselben Scanner und unter ähnlichem Licht, wie später am Arbeitsplatz.</p><p>MeCard sollte gegen verwandte Formate nach Datendichte, Platzbedarf und Scanneranforderungen abgewogen werden. Für mehr Inhalt kann ein 2D-Format geeigneter sein. Für Kassen, Lager oder etablierte Lieferketten bleibt ein linearer Standard oft die robustere Wahl.</p><p>MeCard Generator hilft, MeCard ohne Spezialsoftware vorzubereiten. Das Format gehört zur Gruppe 2D-Code und eignet sich, wenn Scanner-Kompatibilität, klare Geometrie und kontrollierte Abmessungen wichtig sind. Du gibst die Daten ein, prüfst die Vorschau und erkennst sofort, ob das Symbol zur Etikettfläche oder zum Dokument passt.</p><p>Entscheidend ist nicht nur die Grafikdatei. Modulgröße, Rand, Kontrast und gegebenenfalls Klartext müssen zusammenpassen. Barcode Studio macht diese Einstellungen vor dem Export sichtbar, damit PNG, SVG oder PDF direkt in Layouts, Druckvorlagen oder interne Systeme übernommen werden können.</p>"
+  },
+  {
+   "h2": "Druck und Scanqualität",
+   "html": "<p>Vor dem produktiven Einsatz ist ein Probedruck sinnvoll. Der Hintergrund sollte hell sein, die Kanten müssen scharf bleiben und der Rand darf nicht durch Text, Linien oder Grafiken gestört werden. Teste mit demselben Scanner und unter ähnlichem Licht, wie später am Arbeitsplatz.</p><p>MeCard sollte gegen verwandte Formate nach Datendichte, Platzbedarf und Scanneranforderungen abgewogen werden. Für mehr Inhalt kann ein 2D-Format geeigneter sein. Für Kassen, Lager oder etablierte Lieferketten bleibt ein linearer Standard oft die robustere Wahl.</p><p>MeCard Generator hilft, MeCard ohne Spezialsoftware vorzubereiten. Das Format gehört zur Gruppe 2D-Code und eignet sich, wenn Scanner-Kompatibilität, klare Geometrie und kontrollierte Abmessungen wichtig sind. Du gibst die Daten ein, prüfst die Vorschau und erkennst sofort, ob das Symbol zur Etikettfläche oder zum Dokument passt.</p><p>Entscheidend ist nicht nur die Grafikdatei. Modulgröße, Rand, Kontrast und gegebenenfalls Klartext müssen zusammenpassen. Barcode Studio macht diese Einstellungen vor dem Export sichtbar, damit PNG, SVG oder PDF direkt in Layouts, Druckvorlagen oder interne Systeme übernommen werden können.</p><p>Die Daten für MeCard müssen den Regeln der jeweiligen Symbologie folgen. Einige Formate erlauben Text, andere nur Ziffern, gerade Zeichenanzahlen oder strukturierte GS1-Daten mit Application Identifiers. Bei Produkt-, Paket- oder Behördenkennzeichnung sollte die Originalnummer unverändert bleiben und die Prüfziffer separat kontrolliert werden.</p>"
+  },
+  {
+   "h2": "Vergleich mit verwandten Formaten",
+   "html": "<p>MeCard sollte gegen verwandte Formate nach Datendichte, Platzbedarf und Scanneranforderungen abgewogen werden. Für mehr Inhalt kann ein 2D-Format geeigneter sein. Für Kassen, Lager oder etablierte Lieferketten bleibt ein linearer Standard oft die robustere Wahl.</p><p>MeCard Generator hilft, MeCard ohne Spezialsoftware vorzubereiten. Das Format gehört zur Gruppe 2D-Code und eignet sich, wenn Scanner-Kompatibilität, klare Geometrie und kontrollierte Abmessungen wichtig sind. Du gibst die Daten ein, prüfst die Vorschau und erkennst sofort, ob das Symbol zur Etikettfläche oder zum Dokument passt.</p><p>Entscheidend ist nicht nur die Grafikdatei. Modulgröße, Rand, Kontrast und gegebenenfalls Klartext müssen zusammenpassen. Barcode Studio macht diese Einstellungen vor dem Export sichtbar, damit PNG, SVG oder PDF direkt in Layouts, Druckvorlagen oder interne Systeme übernommen werden können.</p><p>Die Daten für MeCard müssen den Regeln der jeweiligen Symbologie folgen. Einige Formate erlauben Text, andere nur Ziffern, gerade Zeichenanzahlen oder strukturierte GS1-Daten mit Application Identifiers. Bei Produkt-, Paket- oder Behördenkennzeichnung sollte die Originalnummer unverändert bleiben und die Prüfziffer separat kontrolliert werden.</p><p>In betrieblichen Abläufen zählt Wiederholbarkeit. Derselbe Datenwert soll immer ein vorhersehbares Symbol erzeugen, und Vektorexport erleichtert den Druck in mehreren Größen. Für Etikettenserien kann eine CSV-Liste eingelesen werden, sodass viele Codes mit einheitlichem Stil entstehen.</p>"
+  }
+ ],
+ "uses": [
+  "Produktetiketten und Verpackungen",
+  "Lager und Inventur",
+  "Dokumente, Tickets und Formulare",
+  "Seriendruck aus CSV-Daten",
+  "API-Integrationen"
+ ],
+ "faq": [
+  {
+   "q": "Funktioniert MeCard Generator im Browser",
+   "a": "Ja. Barcode Studio erstellt MeCard ohne Installation, danach kann die Ausgabe als PNG, SVG oder PDF gespeichert werden."
+  },
+  {
+   "q": "Welche Daten kann ich eingeben",
+   "a": "Die Daten müssen zu den Regeln von MeCard passen. Wenn Ziffern, Länge oder GS1-Struktur gefordert sind, sollte der Quellwert unverändert bleiben."
+  },
+  {
+   "q": "Kann ich viele Codes gleichzeitig erstellen",
+   "a": "Ja. Im Stapelmodus lassen sich Listen einfügen oder CSV-Dateien laden und anschließend als ZIP oder PDF ausgeben."
+  },
+  {
+   "q": "Eignet sich der Code für den Druck",
+   "a": "Ja, ein Probedruck mit anschließendem Scan auf dem Zielmaterial ist vor der Seriennutzung sinnvoll."
+  },
+  {
+   "q": "Wann ist SVG besser als PNG",
+   "a": "SVG eignet sich für Layout und Skalierung, PNG für schnelle Nutzung in Dokumenten oder Anwendungen."
+  }
+ ]
+}

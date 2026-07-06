@@ -243,7 +243,7 @@
     fEventTitle: "Termintitel", fLocation: "Ort", fStart: "Beginn", fEnd: "Ende", fDescription: "Beschreibung",
     grp2D: "2D-Codes", grpLinear: "Lineare Codes", grpGS1: "GS1 DataBar", grpPostal: "Postcodes", grpEan: "EAN / UPC",
     stValid: "G\u00fcltig \u2713", stEnterData: "Daten zum Codieren eingeben.",
-    stBarcodes: "{n} Barcodes erstellt.", stCodes: "{n} Codes erstellt.", stQrCodes: "{n} QR-Codes erstellt.",
+    stBarcodes: "{n} Codes erstellt.", stCodes: "{n} Codes erstellt.", stQrCodes: "{n} QR-Codes erstellt.",
     stPacking: "ZIP wird gepackt\u2026", stZipped: "{n} Dateien gezippt.", pdfAuto: "auto",
     errInvalid: "Ung\u00fcltige Daten f\u00fcr diese Symbologie.",
     err2dEngine: "Barcode-Engine nicht geladen \u2013 mit dem Internet verbinden und neu laden.",
@@ -378,6 +378,200 @@
     ismn: "Nomor publikasi musik."
   };
 
+  Object.assign(UI_FR, {
+    footerText: "créé par Lawstore depuis 2026",
+    errDataBarDigits: "DataBar / EAN-14 accepte uniquement des chiffres. Saisissez au moins 1 chiffre ; un GTIN-14 valide est généré automatiquement.",
+    errEngineCdn: "Le moteur de codes-barres n'est pas chargé. Si vous êtes hors ligne, vérifiez que le CDN n'est pas bloqué.",
+    errApiPartial: "Certains codes-barres n'ont pas pu être chargés depuis l'API : {n}",
+    errApiPreview: "L'API de codes-barres n'a pas pu générer l'aperçu. Vérifiez la saisie ou le déploiement de l'API.",
+    errJsBarcode: "JsBarcode n'a pas pu être chargé. Actualisez la page ou utilisez la version API.",
+    errBwip: "bwip-js n'a pas pu être chargé. Actualisez la page, vérifiez le CDN ou déployez l'API."
+  });
+
+  Object.assign(UI_DE, {
+    heroDesc: "QR, Data Matrix, PDF417, Aztec, GS1, Postcodes, WiFi, vCard und mehr: anpassen, live ansehen und als PNG, SVG oder ZIP exportieren.",
+    footerText: "erstellt von Lawstore seit 2026",
+    errDataBarDigits: "DataBar / EAN-14 akzeptiert nur Ziffern. Gib mindestens 1 Ziffer ein; ein gültiger GTIN-14 wird automatisch erzeugt.",
+    errEngineCdn: "Die Barcode-Engine ist nicht geladen. Wenn du offline bist, prüfe, ob das CDN blockiert wird.",
+    errApiPartial: "Einige Barcodes konnten nicht über die API geladen werden: {n}",
+    errApiPreview: "Die Barcode-API konnte keine Vorschau rendern. Prüfe die Eingabe oder das API-Deployment.",
+    errJsBarcode: "JsBarcode konnte nicht geladen werden. Lade die Seite neu oder nutze die API-Version.",
+    errBwip: "bwip-js konnte nicht geladen werden. Lade die Seite neu, prüfe die CDN-Verbindung oder deploye die API."
+  });
+
+  var UI_PL = {
+    brandTagline: "Generator kodów kreskowych i QR online",
+    navGenerator: "Generator", navReset: "Resetuj", navPrint: "Drukuj",
+    loaderText: "Ładowanie Barcode Studio…",
+    heroEyebrow: "100+ symbologii · 1D · 2D · pocztowe",
+    heroTitleHtml: "Twórz <span class=\"grad-text\">dowolne kody kreskowe</span><br/>w kilka sekund.",
+    heroDesc: "QR, Data Matrix, PDF417, Aztec, GS1, kody pocztowe, WiFi, vCard i więcej: dostosuj, zobacz podgląd na żywo i eksportuj jako PNG, SVG lub ZIP.",
+    heroCta: "Zacznij tworzyć ↓",
+    searchPh: "Szukaj symbologii…",
+    dataHeading: "Dane", dataPh: "Wpisz dane do zakodowania…",
+    seqToggle: "Tryb partii / sekwencji",
+    seqCount: "Liczba", seqStart: "Start #", seqPrefix: "Prefiks", seqPad: "Dopełnienie",
+    previewHeading: "Podgląd", propsHeading: "Właściwości",
+    pBarWidth: "Szerokość kreski", pHeight: "Wysokość", pHeightMm: "Wysokość (mm)", pFontSize: "Rozmiar czcionki", pTextAlign: "Wyrównanie tekstu",
+    pShowText: "Pokaż tekst czytelny dla człowieka", pSize: "Rozmiar", pErrCorr: "Korekcja błędów",
+    pScale: "Skala", pPdfCols: "Kolumny PDF", pForeground: "Kolor przedni", pBackground: "Tło",
+    pTransparent: "Przezroczyste tło", pMargin: "Margines",
+    optCenter: "Środek", optLeft: "Lewo", optRight: "Prawo",
+    btnCopy: "Kopiuj", btnCopied: "Skopiowano", btnZip: "ZIP (partia)",
+    feat1T: "Podgląd w czasie rzeczywistym", feat1D: "Każda zmiana renderuje się natychmiast z płynną animacją.",
+    feat2T: "100+ symbologii", feat2D: "Kody liniowe, 2D, GS1, pocztowe, EAN/UPC i inne.",
+    feat3T: "Inteligentna treść", feat3D: "WiFi, vCard, e-mail, SMS, lokalizacja i wydarzenia z kalendarza.",
+    feat4T: "Partie i eksport", feat4D: "Generuj sekwencje i pobieraj PNG, SVG lub archiwum ZIP.",
+    footerText: "tworzone przez Lawstore od 2026",
+    langLabel: "Język",
+    contentType: "Typ treści",
+    ctText: "Tekst", ctUrl: "URL / link", ctWifi: "Sieć WiFi", ctVcard: "Kontakt (vCard)",
+    ctEmail: "E-mail", ctSms: "SMS", ctTel: "Telefon", ctGeo: "Lokalizacja", ctEvent: "Wydarzenie w kalendarzu",
+    fSsid: "Nazwa sieci (SSID)", fPassword: "Hasło", fEncryption: "Szyfrowanie", fHidden: "Sieć ukryta",
+    encNone: "Brak",
+    fFirstName: "Imię", fLastName: "Nazwisko", fOrg: "Organizacja", fJobTitle: "Stanowisko",
+    fPhone: "Telefon", fEmail: "E-mail", fWebsite: "Strona internetowa", fAddress: "Adres",
+    fTo: "Do", fSubject: "Temat", fBody: "Wiadomość",
+    fNumber: "Numer", fMessage: "Wiadomość", fLat: "Szerokość geograficzna", fLong: "Długość geograficzna",
+    fEventTitle: "Tytuł wydarzenia", fLocation: "Miejsce", fStart: "Początek", fEnd: "Koniec", fDescription: "Opis",
+    grp2D: "Kody 2D", grpLinear: "Kody liniowe", grpGS1: "GS1 DataBar", grpPostal: "Kody pocztowe", grpEan: "EAN / UPC",
+    stValid: "Poprawne ✓", stEnterData: "Wpisz dane do zakodowania.",
+    stBarcodes: "Wygenerowano {n} kodów kreskowych.", stCodes: "Wygenerowano {n} kodów.", stQrCodes: "Wygenerowano {n} kodów QR.",
+    stPacking: "Pakowanie ZIP…", stZipped: "Spakowano {n} plików.", pdfAuto: "auto",
+    errInvalid: "Nieprawidłowe dane dla tej symbologii.",
+    err2dEngine: "Silnik kodów kreskowych nie został wczytany — połącz się z internetem i odśwież.",
+    errQr: "Nie udało się wygenerować kodu QR.",
+    errDataBarDigits: "DataBar / EAN-14 przyjmuje tylko cyfry. Wpisz co najmniej 1 cyfrę; poprawny GTIN-14 zostanie utworzony automatycznie.",
+    errEngineCdn: "Silnik kodów kreskowych nie został wczytany. Jeśli pracujesz offline, sprawdź, czy CDN nie jest blokowany.",
+    errApiPartial: "Niektórych kodów kreskowych nie udało się wczytać z API: {n}",
+    errApiPreview: "API kodów kreskowych nie mogło wyrenderować podglądu. Sprawdź dane lub wdrożenie API.",
+    errJsBarcode: "Nie udało się wczytać JsBarcode. Odśwież stronę albo użyj wersji API.",
+    errBwip: "Nie udało się wczytać bwip-js. Odśwież stronę, sprawdź połączenie CDN albo wdróż API.",
+    errCoreLibs: "Nie udało się wczytać bibliotek podstawowych. Połącz się z internetem i odśwież.",
+    svgNA: "SVG jest niedostępne dla tego kodu lub trybu. Spróbuj PNG albo wyłącz partię.",
+    genFirst: "Najpierw wygeneruj kod kreskowy.", genSingleFirst: "Najpierw wygeneruj pojedynczy kod.",
+    copyNA: "Kopiowanie obrazu do schowka nie jest tutaj obsługiwane.", copyFail: "Kopiowanie nie powiodło się.", nothingExport: "Nie ma nic do eksportu."
+  };
+
+  var UI_NL = {
+    brandTagline: "Barcode- en QR-code generator online",
+    navGenerator: "Generator", navReset: "Resetten", navPrint: "Afdrukken",
+    loaderText: "Barcode Studio laden…",
+    heroEyebrow: "100+ symbologieën · 1D · 2D · post",
+    heroTitleHtml: "Maak <span class=\"grad-text\">elke barcode</span><br/>in enkele seconden.",
+    heroDesc: "QR, Data Matrix, PDF417, Aztec, GS1, postcodes, WiFi, vCard en meer: pas aan, bekijk live en exporteer als PNG, SVG of ZIP.",
+    heroCta: "Begin met maken ↓",
+    searchPh: "Symbologie zoeken…",
+    dataHeading: "Gegevens", dataPh: "Voer de te coderen gegevens in…",
+    seqToggle: "Batch- / reeksmodus",
+    seqCount: "Aantal", seqStart: "Start #", seqPrefix: "Voorvoegsel", seqPad: "Opvullen",
+    previewHeading: "Voorbeeld", propsHeading: "Eigenschappen",
+    pBarWidth: "Balkbreedte", pHeight: "Hoogte", pHeightMm: "Hoogte (mm)", pFontSize: "Lettergrootte", pTextAlign: "Tekstuitlijning",
+    pShowText: "Leesbare tekst tonen", pSize: "Grootte", pErrCorr: "Foutcorrectie",
+    pScale: "Schaal", pPdfCols: "PDF-kolommen", pForeground: "Voorgrond", pBackground: "Achtergrond",
+    pTransparent: "Transparante achtergrond", pMargin: "Marge",
+    optCenter: "Midden", optLeft: "Links", optRight: "Rechts",
+    btnCopy: "Kopiëren", btnCopied: "Gekopieerd", btnZip: "ZIP (batch)",
+    feat1T: "Live voorbeeld", feat1D: "Elke wijziging wordt direct met vloeiende animatie gerenderd.",
+    feat2T: "100+ symbologieën", feat2D: "Lineair, 2D, GS1, postcodes, EAN/UPC en meer.",
+    feat3T: "Slimme inhoud", feat3D: "WiFi, vCard, e-mail, SMS, locatie en agenda-afspraken.",
+    feat4T: "Batch en export", feat4D: "Maak reeksen en download PNG, SVG of een ZIP-archief.",
+    footerText: "gemaakt door Lawstore sinds 2026",
+    langLabel: "Taal",
+    contentType: "Inhoudstype",
+    ctText: "Tekst", ctUrl: "URL / link", ctWifi: "WiFi-netwerk", ctVcard: "Contact (vCard)",
+    ctEmail: "E-mail", ctSms: "SMS", ctTel: "Telefoon", ctGeo: "Locatie", ctEvent: "Agenda-afspraak",
+    fSsid: "Netwerknaam (SSID)", fPassword: "Wachtwoord", fEncryption: "Versleuteling", fHidden: "Verborgen netwerk",
+    encNone: "Geen",
+    fFirstName: "Voornaam", fLastName: "Achternaam", fOrg: "Organisatie", fJobTitle: "Functie",
+    fPhone: "Telefoon", fEmail: "E-mail", fWebsite: "Website", fAddress: "Adres",
+    fTo: "Aan", fSubject: "Onderwerp", fBody: "Bericht",
+    fNumber: "Nummer", fMessage: "Bericht", fLat: "Breedtegraad", fLong: "Lengtegraad",
+    fEventTitle: "Titel afspraak", fLocation: "Locatie", fStart: "Begin", fEnd: "Einde", fDescription: "Beschrijving",
+    grp2D: "2D-codes", grpLinear: "Lineaire codes", grpGS1: "GS1 DataBar", grpPostal: "Postcodes", grpEan: "EAN / UPC",
+    stValid: "Geldig ✓", stEnterData: "Voer gegevens in om te coderen.",
+    stBarcodes: "{n} codes gegenereerd.", stCodes: "{n} codes gegenereerd.", stQrCodes: "{n} QR-codes gegenereerd.",
+    stPacking: "ZIP maken…", stZipped: "{n} bestanden gezipt.", pdfAuto: "auto",
+    errInvalid: "Ongeldige gegevens voor deze symbologie.",
+    err2dEngine: "Barcode-engine niet geladen — maak verbinding met internet en laad opnieuw.",
+    errQr: "QR-code kon niet worden gemaakt.",
+    errDataBarDigits: "DataBar / EAN-14 accepteert alleen cijfers. Voer minimaal 1 cijfer in; een geldige GTIN-14 wordt automatisch gemaakt.",
+    errEngineCdn: "Barcode-engine niet geladen. Controleer offline of het CDN niet wordt geblokkeerd.",
+    errApiPartial: "Sommige barcodes konden niet via de API worden geladen: {n}",
+    errApiPreview: "De barcode-API kon geen voorbeeld renderen. Controleer de invoer of de API-deployment.",
+    errJsBarcode: "JsBarcode kon niet worden geladen. Vernieuw de pagina of gebruik de API-versie.",
+    errBwip: "bwip-js kon niet worden geladen. Vernieuw de pagina, controleer de CDN-verbinding of deploy de API.",
+    errCoreLibs: "Kernbibliotheken konden niet worden geladen. Maak verbinding met internet en laad opnieuw.",
+    svgNA: "SVG is niet beschikbaar voor deze code of modus. Probeer PNG of schakel batch uit.",
+    genFirst: "Genereer eerst een barcode.", genSingleFirst: "Genereer eerst één barcode.",
+    copyNA: "Afbeelding kopiëren naar het klembord wordt hier niet ondersteund.", copyFail: "Kopiëren mislukt.", nothingExport: "Niets om te exporteren."
+  };
+
+  var UI_JA = {
+    brandTagline: "バーコードとQRコードの作成ツール",
+    navGenerator: "作成", navReset: "リセット", navPrint: "印刷",
+    loaderText: "Barcode Studioを読み込み中…",
+    heroEyebrow: "100種類以上 · 1D · 2D · 郵便コード",
+    heroTitleHtml: "<span class=\"grad-text\">あらゆるバーコード</span>を<br/>数秒で作成。",
+    heroDesc: "QR、Data Matrix、PDF417、Aztec、GS1、郵便コード、WiFi、vCardなどを調整し、ライブ表示してPNG、SVG、ZIPで保存できます。",
+    heroCta: "作成を始める ↓",
+    searchPh: "形式を検索…",
+    dataHeading: "データ", dataPh: "エンコードするデータを入力…",
+    seqToggle: "一括 / 連番モード",
+    seqCount: "件数", seqStart: "開始 #", seqPrefix: "接頭辞", seqPad: "桁埋め",
+    previewHeading: "プレビュー", propsHeading: "設定",
+    pBarWidth: "バー幅", pHeight: "高さ", pHeightMm: "高さ (mm)", pFontSize: "文字サイズ", pTextAlign: "文字位置",
+    pShowText: "人が読める文字を表示", pSize: "サイズ", pErrCorr: "誤り訂正",
+    pScale: "倍率", pPdfCols: "PDF列数", pForeground: "前景色", pBackground: "背景色",
+    pTransparent: "透明背景", pMargin: "余白",
+    optCenter: "中央", optLeft: "左", optRight: "右",
+    btnCopy: "コピー", btnCopied: "コピー済み", btnZip: "ZIP（一括）",
+    feat1T: "リアルタイム表示", feat1D: "変更はすぐに滑らかに反映されます。",
+    feat2T: "100種類以上の形式", feat2D: "リニア、2D、GS1、郵便コード、EAN/UPCなどに対応。",
+    feat3T: "スマート入力", feat3D: "WiFi、vCard、メール、SMS、位置情報、予定を扱えます。",
+    feat4T: "一括作成と出力", feat4D: "連番を作成し、PNG、SVG、ZIPで保存できます。",
+    footerText: "Lawstore が2026年から提供",
+    langLabel: "言語",
+    contentType: "内容の種類",
+    ctText: "テキスト", ctUrl: "URL / リンク", ctWifi: "WiFiネットワーク", ctVcard: "連絡先 (vCard)",
+    ctEmail: "メール", ctSms: "SMS", ctTel: "電話", ctGeo: "位置情報", ctEvent: "カレンダー予定",
+    fSsid: "ネットワーク名 (SSID)", fPassword: "パスワード", fEncryption: "暗号化", fHidden: "非公開ネットワーク",
+    encNone: "なし",
+    fFirstName: "名", fLastName: "姓", fOrg: "組織", fJobTitle: "役職",
+    fPhone: "電話", fEmail: "メール", fWebsite: "Webサイト", fAddress: "住所",
+    fTo: "宛先", fSubject: "件名", fBody: "本文",
+    fNumber: "番号", fMessage: "メッセージ", fLat: "緯度", fLong: "経度",
+    fEventTitle: "予定名", fLocation: "場所", fStart: "開始", fEnd: "終了", fDescription: "説明",
+    grp2D: "2Dコード", grpLinear: "リニアコード", grpGS1: "GS1 DataBar", grpPostal: "郵便コード", grpEan: "EAN / UPC",
+    stValid: "有効 ✓", stEnterData: "エンコードするデータを入力してください。",
+    stBarcodes: "{n}件のバーコードを作成しました。", stCodes: "{n}件のコードを作成しました。", stQrCodes: "{n}件のQRコードを作成しました。",
+    stPacking: "ZIPを作成中…", stZipped: "{n}個のファイルをZIP化しました。", pdfAuto: "自動",
+    errInvalid: "この形式ではデータが無効です。",
+    err2dEngine: "バーコードエンジンを読み込めません。インターネットに接続して再読み込みしてください。",
+    errQr: "QRコードを作成できませんでした。",
+    errDataBarDigits: "DataBar / EAN-14は数字のみ対応します。1桁以上を入力すると、有効なGTIN-14が自動作成されます。",
+    errEngineCdn: "バーコードエンジンを読み込めません。オフラインの場合はCDNが遮断されていないか確認してください。",
+    errApiPartial: "APIから読み込めなかったバーコードがあります: {n}",
+    errApiPreview: "バーコードAPIでプレビューを描画できませんでした。入力またはAPIのデプロイを確認してください。",
+    errJsBarcode: "JsBarcodeを読み込めませんでした。ページを更新するかAPI版を使用してください。",
+    errBwip: "bwip-jsを読み込めませんでした。ページ更新、CDN接続、またはAPIデプロイを確認してください。",
+    errCoreLibs: "主要ライブラリを読み込めませんでした。インターネットに接続して再読み込みしてください。",
+    svgNA: "このコードまたはモードではSVGを利用できません。PNGを試すか一括を無効にしてください。",
+    genFirst: "先にバーコードを作成してください。", genSingleFirst: "先に単一のバーコードを作成してください。",
+    copyNA: "ここでは画像のクリップボードコピーに対応していません。", copyFail: "コピーに失敗しました。", nothingExport: "出力するものがありません。"
+  };
+
+  function genericHints(text) {
+    var out = {};
+    Object.keys(HINTS_EN).forEach(function (key) { out[key] = text; });
+    return out;
+  }
+  var HINTS_PL = genericHints("Wybierz ten format, wpisz dane i wygeneruj gotowy kod do eksportu.");
+  var HINTS_DE = genericHints("Wähle dieses Format, gib die Daten ein und erstelle einen exportfertigen Code.");
+  var HINTS_NL = genericHints("Kies dit formaat, voer de gegevens in en maak een code die klaar is voor export.");
+  var HINTS_FR = genericHints("Choisissez ce format, saisissez les données et générez un code prêt à exporter.");
+  var HINTS_JA = genericHints("この形式を選び、データを入力して保存できるコードを作成します。");
+
   window.I18N = {
     meta: {
       langs: [
@@ -385,10 +579,13 @@
         { code: "id", label: "Bahasa Indonesia" },
         { code: "es", label: "Espa\u00f1ol" },
         { code: "fr", label: "Fran\u00e7ais" },
-        { code: "de", label: "Deutsch" }
+        { code: "de", label: "Deutsch" },
+        { code: "pl", label: "Polski" },
+        { code: "nl", label: "Nederlands" },
+        { code: "ja", label: "日本語" }
       ]
     },
-    ui: { en: UI_EN, id: UI_ID, es: UI_ES, fr: UI_FR, de: UI_DE },
-    hints: { en: HINTS_EN, id: HINTS_ID }
+    ui: { en: UI_EN, id: UI_ID, es: UI_ES, fr: UI_FR, de: UI_DE, pl: UI_PL, nl: UI_NL, ja: UI_JA },
+    hints: { en: HINTS_EN, id: HINTS_ID, fr: HINTS_FR, de: HINTS_DE, pl: HINTS_PL, nl: HINTS_NL, ja: HINTS_JA }
   };
 })();

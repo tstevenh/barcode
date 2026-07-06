@@ -6,6 +6,8 @@
   const DICT = window.I18N || { meta: { langs: [{ code: "en", label: "English" }] }, ui: { en: {} }, hints: { en: {} } };
   const AVAILABLE = DICT.meta.langs.map((l) => l.code);
   function detectLang() {
+    const forced = (typeof window !== "undefined" && window.BARCODE_LOCALE || "").slice(0, 2).toLowerCase();
+    if (forced && AVAILABLE.includes(forced)) return forced;
     const saved = localStorage.getItem("bcs_lang");
     if (saved && AVAILABLE.includes(saved)) return saved;
     const nav = (navigator.language || "en").slice(0, 2).toLowerCase();
