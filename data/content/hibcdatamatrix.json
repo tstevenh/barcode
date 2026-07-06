@@ -1,0 +1,52 @@
+{
+  "id": "hibcdatamatrix",
+  "title": "HIBC LIC Data Matrix Generator – Healthcare Barcode",
+  "metaDescription": "Generate an HIBC LIC Data Matrix free online. Encode labeler ID, product number, and lot/expiry data in a compact 2D symbol for medical device labeling.",
+  "primaryKeyword": "hibc lic data matrix generator",
+  "secondaryKeywords": ["hibc data matrix barcode", "healthcare industry bar code data matrix", "medical device direct part marking hibc", "hibc lic 2d symbol", "hibc secondary data structure", "hibcc labeler identification code"],
+  "lead": "Generate an HIBC LIC Data Matrix that packs a full Health Industry Bar Code record into a tiny, high-density 2D symbol.",
+  "sections": [
+    {
+      "h2": "What is HIBC LIC Data Matrix?",
+      "html": "<p>HIBC LIC Data Matrix combines HIBCC's Health Industry Bar Code data standard with the Data Matrix symbology, which is prized for packing dense data into a very small physical footprint. This makes it the go-to HIBC carrier when label space is extremely tight — small medical device components, ampoules, surgical instruments and other items too small for a linear barcode of sufficient length.</p><p>The LIC in HIBC LIC refers to the Labeler Identification Code assigned by HIBCC directly to the manufacturer, as opposed to the HIBC PAS variant, which reuses a company's existing GS1 or HIBCC-recognized prefix. Both variants can be carried in Data Matrix; Barcode Studio's HIBC LIC Data Matrix builder specifically targets labelers using HIBCC-assigned LIC numbers.</p>"
+    },
+    {
+      "h2": "How HIBC LIC data is structured",
+      "html": "<p>The data content follows HIBC's standard primary/secondary structure:</p><ul><li><strong>Leading \"+\" data identifier</strong> — marks the payload as HIBC-formatted.</li><li><strong>4-character Labeler Identification Code</strong> — HIBCC-assigned to the manufacturer.</li><li><strong>Product/catalog number</strong> — the labeler's own item identifier.</li><li><strong>Unit-of-measure digit</strong> — indicates packaging level.</li><li><strong>Optional secondary data</strong> — lot/batch number, expiry date and quantity, when full traceability is needed on the same symbol.</li><li><strong>Modulo-43 check character</strong> — validates the primary data string against transcription errors.</li></ul><p>Because Data Matrix has strong built-in Reed–Solomon error correction, HIBC LIC Data Matrix symbols remain reliably scannable even at very small print sizes or with minor surface damage — a meaningful advantage for direct part marking on reusable surgical instruments that get sterilized and handled repeatedly.</p>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>The Data Matrix carrier follows ISO/IEC 16022 using ECC 200 Reed–Solomon error correction, which is what allows HIBC LIC Data Matrix symbols to remain scannable even when a meaningful portion of the symbol is damaged or obscured. The HIBC LIC data standard itself, maintained by HIBCC, defines the primary string as a leading \"+\" identifier, a 4-character HIBCC-assigned Labeler Identification Code, a variable-length product/catalog number, a single unit-of-measure digit, and a modulo-43 check character validating the whole primary string; optional secondary data for lot, expiry and quantity follows a defined tag structure appended after the primary data. Because Data Matrix can be rendered as a rectangular as well as square symbol, labelers with unusually shaped marking areas have some flexibility in aspect ratio without changing the underlying data structure.</p>"
+    },
+    {
+      "h2": "Where HIBC LIC Data Matrix is used",
+      "html": "<p>This symbol shows up specifically where space is the binding constraint:</p><ul><li>Small medical device components and single-use instrument marking.</li><li>Direct part marking on reusable surgical instruments that must retain a scannable identifier through repeated sterilization cycles.</li><li>Ampoules, vials and other small pharmaceutical containers where a linear barcode would need to be too long to fit.</li><li>Hospital sterile processing departments tracking instrument sets by scanning individual instrument-level Data Matrix codes.</li></ul><p>Facilities and manufacturers using HIBCC's LIC numbering scheme choose Data Matrix specifically for these tight-space, high-durability marking needs, reserving linear HIBC Code 39/128 for larger labels where a longer symbol isn't a constraint. Instrument-tray tracking systems in particular rely on this combination of small footprint and damage tolerance, since a single tray may hold dozens of individually marked instruments that all need to scan reliably after years of repeated sterilization cycles.</p>"
+    },
+    {
+      "h2": "How to generate an HIBC LIC Data Matrix in Barcode Studio",
+      "html": "<p>To build the symbol:</p><ul><li>Select <strong>HIBC LIC Data Matrix</strong> from the barcode type list.</li><li>Enter your HIBCC-assigned Labeler Identification Code, product/catalog number, and unit of measure, plus lot number, expiry date and quantity if the label needs secondary traceability data.</li><li>Barcode Studio prepends the \"+\" identifier, computes the modulo-43 check character, and renders the completed string as a Data Matrix symbol.</li><li>Set the module size and shape (square or rectangular Data Matrix) to fit your smallest labeling constraint while keeping the symbol within a printable and scannable size for your marking method — laser etching, inkjet, or thermal transfer.</li><li>Export as SVG for direct part marking artwork or PNG for label proofing, and use <strong>Bulk CSV → ZIP/PDF</strong> to generate a distinct HIBC LIC Data Matrix per component or lot across a production run.</li><li>Call the REST API at <code>/barcode?type=hibcdatamatrix&data=...</code> to integrate generation into a manufacturing or label-management system.</li></ul>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Because HIBC LIC Data Matrix is frequently used at the smallest practical print size, verify print quality against ISO/IEC 15415 grading, particularly for direct part marking methods like laser etching where contrast can be lower than ink on paper. For instruments that undergo repeated sterilization, confirm the marking method (etching depth, laser type) is rated for autoclave cycles so the symbol doesn't degrade below a scannable grade over the instrument's service life.</p>"
+    },
+    {
+      "h2": "HIBC LIC Data Matrix vs related HIBC carriers",
+      "html": "<p>Against <strong>HIBC LIC QR Code</strong> and <strong>HIBC LIC PDF417</strong>, Data Matrix generally wins on sheer footprint efficiency, making it the default choice whenever the label or part-marking area is the binding constraint rather than data volume. Against <strong>HIBC LIC Codablock-F</strong>, Data Matrix requires a 2D imaging scanner rather than a linear laser scanner, but achieves a dramatically smaller symbol for the same data — a trade-off that matters most on components too small for any stacked linear symbol to fit. Against <strong>HIBC PAS Data Matrix</strong>, the carrier symbology and print characteristics are identical; only the labeler-identification portion of the encoded text differs.</p>"
+    }
+  ],
+  "uses": [
+    "Small medical device component and single-use instrument marking",
+    "Direct part marking on reusable, sterilizable surgical instruments",
+    "Ampoules, vials and small pharmaceutical container labeling",
+    "Hospital sterile processing instrument-set tracking",
+    "HIBCC LIC-numbered manufacturers needing compact 2D labeling"
+  ],
+  "faq": [
+    {"q": "What is an HIBC LIC Data Matrix generator used for?", "a": "<p>An hibc lic data matrix generator creates a compact 2D Data Matrix symbol encoding a Health Industry Bar Code record — labeler ID, product number, and optional lot/expiry data — for medical devices and healthcare products with limited label space.</p>"},
+    {"q": "Why use Data Matrix instead of linear HIBC barcodes?", "a": "Data Matrix packs the same or more HIBC data into a much smaller physical footprint than a linear barcode, and its error correction keeps it readable on small, curved, or worn surfaces common in medical device marking."},
+    {"q": "Is HIBC LIC Data Matrix suitable for direct part marking?", "a": "<p>Yes — it's commonly used for direct part marking on reusable surgical instruments and small device components, since Data Matrix tolerates the lower contrast typical of laser-etched or dot-peened marks.</p>"},
+    {"q": "What's the difference between HIBC LIC and HIBC PAS Data Matrix?", "a": "HIBC LIC uses a Labeler Identification Code assigned directly by HIBCC, while HIBC PAS uses a labeler's existing GS1 or HIBCC-recognized company prefix — the Data Matrix carrier and overall structure are otherwise similar."},
+    {"q": "Can I batch-generate HIBC LIC Data Matrix codes for a production run?", "a": "<p>Yes — use the bulk CSV to ZIP/PDF tool to generate a unique symbol per component or lot, useful for serialized manufacturing runs.</p>"}
+  ]
+}

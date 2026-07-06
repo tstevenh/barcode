@@ -1,0 +1,51 @@
+{
+  "id": "code25",
+  "title": "Standard 2 of 5 Barcode Generator | Barcode Studio",
+  "metaDescription": "Generate Standard 2 of 5 barcodes free online. Simple digits-only encoding for warehouse and photofinishing labels, with live preview and instant export.",
+  "primaryKeyword": "standard 2 of 5 generator",
+  "secondaryKeywords": ["standard 2 of 5 barcode", "code 25 barcode", "2 of 5 non-interleaved", "photofinishing barcode", "warehouse carton barcode", "2 of 5 vs interleaved"],
+  "lead": "Standard 2 of 5 is the original, non-interleaved member of the 2-of-5 barcode family, encoding digits in a simple all-bars pattern still found in warehouse and photo lab systems.",
+  "sections": [
+    {
+      "h2": "What Is a Standard 2 of 5 Barcode?",
+      "html": "<p>Standard 2 of 5 (also called Code 25 or Industrial 2 of 5's close sibling) is one of the earliest numeric-only barcode symbologies, encoding digits 0–9 using a pattern where information is carried entirely in the widths of the bars — the spaces between them are fixed and carry no data. This is what distinguishes it from its more space-efficient successor, Interleaved 2 of 5, which encodes data in both bars and spaces to achieve roughly half the physical length for the same digit count.</p><p>\"Standard\" here specifically means the non-interleaved variant: every digit is represented by its own group of 5 bars (2 wide, 3 narrow — hence \"2 of 5\"), with plain spaces separating each character rather than the spaces themselves carrying data. That makes Standard 2 of 5 noticeably wider than Interleaved 2 of 5 for the same string, but also simpler to print and decode reliably on basic equipment.</p>"
+    },
+    {
+      "h2": "How Standard 2 of 5 Encodes Data",
+      "html": "<p>Each digit in Standard 2 of 5 is represented by five bars, of which exactly two are wide and three are narrow — the \"2 of 5\" name describes this ratio directly. Unlike Interleaved 2 of 5, the spaces between bars are always narrow and carry no encoded information; only the bars themselves vary in width to represent data. This all-bars approach makes Standard 2 of 5 less dense than its interleaved counterpart but also more tolerant of certain print defects, since there's no risk of misreading data encoded in the spaces.</p><p>The symbology is digits-only — no letters or symbols — and typically doesn't include a mandatory check digit in its most basic form, though implementations vary and optional check digits are sometimes layered on for specific industry uses.</p>"
+    },
+    {
+      "h2": "Where Standard 2 of 5 Is Used",
+      "html": "<p>Standard 2 of 5 has a smaller footprint today than it once did, but still appears in a few specific contexts:</p><ul><li><strong>Photofinishing and film processing</strong> — historically one of its most common applications, tracking film rolls and print orders through processing labs.</li><li><strong>Warehouse and shelf labeling</strong> in older inventory systems that adopted it before Interleaved 2 of 5 or Code 128 became standard.</li><li><strong>Airline ticket stock</strong> in some legacy systems, before more modern symbologies took over.</li><li><strong>Basic sequential numbering</strong> on internal forms or documents where simple digit encoding is all that's needed.</li></ul><p>For most new numeric-only barcode applications today, Interleaved 2 of 5 (denser) or Code 128 subset C (denser still, plus mandatory checksum) are generally preferred — Standard 2 of 5 mainly persists where legacy systems already depend on it.</p>"
+    },
+    {
+      "h2": "Standard 2 of 5 Technical Specifications",
+      "html": "<p>Standard 2 of 5 encodes digits 0–9 only, with no letters or symbols. Each digit is represented by 5 bars, exactly 2 of which are wide, framed by start and stop patterns; the interspersed spaces are always a single fixed narrow width and carry no data. There is no industry-mandated maximum length — the symbology scales with however many digits you need — though width grows quickly since only bars, not spaces, carry information. No check digit is required by the base specification, though some implementations layer on an optional modulo-10 digit for extra validation in specific industries.</p>"
+    },
+    {
+      "h2": "How to Create a Standard 2 of 5 Barcode in Barcode Studio",
+      "html": "<p>Select <strong>Standard 2 of 5</strong> from Barcode Studio's symbology list. Enter your numeric data — only digits 0–9 are valid, with no letters or symbols supported. The live preview shows the resulting barcode immediately, reflecting Standard 2 of 5's wider, all-bars structure. From there:</p><ul><li>Adjust <strong>bar width</strong> — because this symbology is less dense than Interleaved 2 of 5, expect a longer barcode for the same digit count, so plan label width accordingly.</li><li>Set <strong>height</strong> and toggle <strong>human-readable text</strong> for visual verification alongside the barcode.</li><li>Customize <strong>colors</strong> and confirm the <strong>quiet zone</strong> margin, particularly important given the symbology's reliance on precise bar width detection.</li><li>Export as <strong>PNG, SVG, or PDF</strong>, or use <strong>Copy</strong> for direct placement into design software.</li></ul><p>For sequential numeric IDs, use the <strong>batch/sequence</strong> generator. For a full list of values, the <strong>bulk CSV → ZIP/PDF</strong> tool generates every barcode from a spreadsheet in one pass. Developers can generate Standard 2 of 5 barcodes programmatically via the <strong>REST API</strong> using <code>/barcode?type=code25&data=YOURDATA</code>.</p>"
+    },
+    {
+      "h2": "Print and Scan Best Practices",
+      "html": "<p>Standard 2 of 5's all-bars design has specific printing implications:</p><ul><li>Because only bar widths carry data, print quality that keeps bar edges crisp matters more than space precision — smudging that blurs bar boundaries is the primary risk to scan reliability.</li><li>Plan for extra label width compared to Interleaved 2 of 5 or Code 128 for the same digit count, since Standard 2 of 5 is meaningfully less dense.</li><li>Maintain the quiet zone at least 10x the narrowest bar width on both sides of the symbol.</li><li>If you have a choice of symbology for a new numeric-only application, evaluate Interleaved 2 of 5 or Code 128 subset C first — they're more space-efficient for the same accuracy, and Standard 2 of 5 is really only preferable when matching existing legacy equipment.</li><li>Verify scanner compatibility explicitly, as Standard 2 of 5 is less universally supported by default on modern camera-based scanners than Code 39 or Code 128.</li></ul>"
+    },
+    {
+      "h2": "Standard 2 of 5 vs. Related Codes",
+      "html": "<p>Against <strong>Interleaved 2 of 5</strong>, Standard 2 of 5 is meaningfully wider for the same digit count since only bars, not spaces, carry data — Interleaved is the better choice for any new numeric application unless you specifically need Standard's simpler, more print-defect-tolerant structure. Against <strong>Industrial 2 of 5</strong>, the two are close cousins with nearly identical all-bars encoding; Industrial 2 of 5 is generally considered the earlier, slightly simpler variant, and the two are sometimes used interchangeably depending on regional convention. Against <strong>Code 128 subset C</strong>, Code 128 C is both denser and carries a mandatory check digit, making it the stronger choice for any greenfield numeric-only barcode project today.</p>"
+    }
+  ],
+  "uses": [
+    "Photofinishing and film processing tracking",
+    "Legacy warehouse and shelf inventory labels",
+    "Older airline ticket stock systems",
+    "Basic sequential numbering on internal forms"
+  ],
+  "faq": [
+    {"q": "What is a Standard 2 of 5 generator used for?", "a": "A Standard 2 of 5 generator creates digit-only barcodes using the original, non-interleaved 2-of-5 encoding, commonly found in legacy photofinishing, warehouse, and ticketing systems."},
+    {"q": "What's the difference between Standard 2 of 5 and Interleaved 2 of 5?", "a": "<p>Standard 2 of 5 encodes data only in bar widths, with fixed, non-data-carrying spaces, making it wider. Interleaved 2 of 5 encodes data in both bars and spaces, roughly halving the barcode length for the same digits.</p>"},
+    {"q": "Can Standard 2 of 5 encode letters?", "a": "No, it's a digits-only symbology encoding 0–9 exclusively, with no support for letters or symbols."},
+    {"q": "Does Standard 2 of 5 require an even number of digits?", "a": "<p>Unlike Interleaved 2 of 5, Standard 2 of 5 does not require an even digit count since each digit is encoded independently rather than in interleaved pairs.</p>"},
+    {"q": "Is Standard 2 of 5 still recommended for new applications?", "a": "<p>Generally no — for new numeric-only barcode needs, Interleaved 2 of 5 or Code 128 subset C are more space-efficient. Standard 2 of 5 is mainly used to match existing legacy systems.</p>"}
+  ]
+}

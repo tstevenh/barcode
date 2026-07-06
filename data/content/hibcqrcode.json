@@ -1,0 +1,52 @@
+{
+  "id": "hibcqrcode",
+  "title": "HIBC LIC QR Code Generator – Healthcare Barcode",
+  "metaDescription": "Generate an HIBC LIC QR code free online. Encode labeler ID, product/catalog number, and secondary data structured to the HIBC standard in a QR Code.",
+  "primaryKeyword": "hibc lic qr code generator",
+  "secondaryKeywords": ["hibc lic barcode", "healthcare industry bar code", "hibc qr code format", "hibc labeler identification code", "hibc primary data structure", "medical device qr labeling"],
+  "lead": "Generate an HIBC LIC QR Code that carries a Health Industry Bar Code Labeler Identification Code record for medical and pharmaceutical labeling.",
+  "sections": [
+    {
+      "h2": "What is HIBC LIC and why QR Code?",
+      "html": "<p>HIBC (Health Industry Bar Code) is a data-content standard maintained by the Health Industry Business Communications Council (HIBCC) for labeling healthcare products — medical devices, pharmaceuticals and related supplies. The LIC (Labeler Identification Code) variant uses an identification number assigned directly by HIBCC to the labeler (manufacturer or distributor), distinguishing it from the newer PAS variant, which uses a labeler's existing GS1 or HIBCC-recognized company prefix instead.</p><p>HIBC LIC data can be carried in several barcode symbologies, and HIBC QR Code is the 2D option: a standard QR Code encoding a HIBC-formatted message. It's used where a 2D symbol is preferred over the linear HIBC Code 39/Code 128 options — for instance, when more data needs to fit in a small labeling area, or when a facility's scanning infrastructure is QR-oriented.</p>"
+    },
+    {
+      "h2": "How HIBC LIC data is structured",
+      "html": "<p>An HIBC LIC message follows a defined primary and secondary data structure:</p><ul><li><strong>Data identifier</strong> — the message begins with a \"+\" character marking it as HIBC-formatted data.</li><li><strong>Labeler Identification Code (LIC)</strong> — a 4-character code assigned to the manufacturer or labeler by HIBCC.</li><li><strong>Product or catalog number</strong> — the labeler's own item identifier, up to a defined length.</li><li><strong>Unit of measure</strong> — a single digit indicating packaging level (each, case, pallet, etc.).</li><li><strong>Secondary data (optional)</strong> — expiry date, lot/batch number and quantity, when the label requires full traceability rather than just product identification.</li><li><strong>Check character</strong> — a modulo-43 check character validating the primary data string.</li></ul><p>When encoded in a QR Code, this HIBC-formatted text string is placed directly as the QR Code's payload — the QR Code itself doesn't need special HIBC-specific encoding rules beyond carrying the correctly structured text.</p>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>HIBC is a data-content standard maintained by the Health Industry Business Communications Council (HIBCC); the QR Code carrier itself follows the standard ISO/IEC 18004 specification, typically at error correction level M or Q. The HIBC LIC primary data string uses a defined character set (uppercase letters, digits, and a small set of symbols) with the 4-character Labeler Identification Code assigned directly by HIBCC, followed by a variable-length product/catalog number up to the labeler's chosen format, and validated by a single modulo-43 check character — the same check algorithm used across all HIBC LIC carrier symbologies. Secondary data (lot, expiry, quantity) follows a defined tag-based sub-structure within the same string when present.</p>"
+    },
+    {
+      "h2": "Where HIBC LIC QR Codes are used",
+      "html": "<p>HIBC LIC QR Codes appear across healthcare product labeling, including:</p><ul><li>Medical device unit and case labeling for manufacturers using HIBCC-assigned labeler codes.</li><li>Hospital and clinical supply chain scanning, where inventory systems recognize the HIBC data structure for receiving and stock control.</li><li>Pharmaceutical secondary packaging in markets and workflows that use HIBC alongside or instead of GS1 identifiers.</li><li>Facilities transitioning between linear HIBC barcodes and 2D symbols to pack more traceability data (lot, expiry) into the same label space.</li></ul><p>Many healthcare supply chains today lean toward GS1 standards, but HIBC LIC remains active in specific manufacturer and hospital systems that were built around HIBCC's numbering scheme.</p>"
+    },
+    {
+      "h2": "How to generate an HIBC LIC QR Code in Barcode Studio",
+      "html": "<p>To build an HIBC LIC QR Code:</p><ul><li>Select <strong>HIBC LIC QR Code</strong> from the barcode type list.</li><li>Enter your HIBCC-assigned Labeler Identification Code, product/catalog number, and unit of measure; add secondary data (lot number, expiry date, quantity) if your labeling requires full traceability.</li><li>Barcode Studio formats the string with the leading \"+\" data identifier and calculates the modulo-43 check character automatically, then encodes the result as a QR Code.</li><li>Choose an error-correction level appropriate to your label's print environment — Medium or Quartile is typical for healthcare labels that may be exposed to handling wear.</li><li>Export as SVG for label artwork or PNG for proofing, and use <strong>Bulk CSV → ZIP/PDF</strong> to generate a unique HIBC LIC QR Code per product or lot across a labeling run.</li><li>Call the REST API at <code>/barcode?type=hibcqrcode&data=...</code> to integrate HIBC LIC QR generation into a label-printing or ERP system.</li></ul>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Healthcare labels are scanned in clinical and warehouse environments with varying lighting and handling wear, so print with high contrast and verify the code with a barcode verifier before a production run, especially if the label will be re-scanned repeatedly through a product's shelf life. Keep the quiet zone intact and confirm your scanning software or middleware correctly recognizes the HIBC \"+\" prefix so it parses labeler code, product number and secondary data fields rather than treating the whole string as opaque text.</p>"
+    },
+    {
+      "h2": "HIBC LIC QR Code vs related HIBC carriers",
+      "html": "<p>Against <strong>HIBC LIC Data Matrix</strong>, the QR Code carrier is a reasonable choice when a facility's scanning fleet is already QR-oriented, though Data Matrix generally achieves a smaller footprint for the same HIBC string and is more common on the smallest device labels. Against <strong>HIBC LIC PDF417</strong>, QR Code is roughly comparable in data capacity for typical HIBC messages but has a more square aspect ratio, which suits labels that are wide and short less well than PDF417's rectangular format. Against <strong>HIBC PAS QR Code</strong>, the underlying QR symbol is identical — the difference is entirely in the text payload, since PAS identifies the labeler through an existing GS1 Company Prefix instead of a HIBCC-assigned 4-character LIC.</p>"
+    }
+  ],
+  "uses": [
+    "Medical device unit and case labeling by HIBCC-registered manufacturers",
+    "Hospital and clinical inventory receiving and stock control",
+    "Pharmaceutical secondary packaging using HIBC data structures",
+    "Lot and expiry traceability on healthcare product labels",
+    "Facilities standardized on HIBCC labeler identification codes"
+  ],
+  "faq": [
+    {"q": "What is an HIBC LIC QR code generator used for?", "a": "<p>An hibc lic qr code generator creates a QR Code encoding a Health Industry Bar Code message — labeler ID, product number, and optional lot/expiry data — formatted to the HIBC LIC data standard for healthcare labeling.</p>"},
+    {"q": "What does LIC mean in HIBC LIC?", "a": "LIC stands for Labeler Identification Code, a 4-character identifier assigned directly by HIBCC to the manufacturer or labeler, as opposed to the PAS variant which uses an existing GS1/HIBCC company prefix."},
+    {"q": "Can HIBC data be put in a QR Code instead of a linear barcode?", "a": "<p>Yes — HIBC LIC data can be carried in a QR Code, Data Matrix, PDF417 or Codablock-F symbol, or in linear Code 39/Code 128; the choice depends on label space and available scanning infrastructure.</p>"},
+    {"q": "Does an HIBC LIC QR Code include expiry date and lot number?", "a": "It can — the HIBC secondary data structure supports optional expiry date, lot/batch number and quantity fields alongside the primary labeler and product identification."},
+    {"q": "Can Barcode Studio calculate the HIBC check character automatically?", "a": "<p>Yes — enter your labeler code and product data, and Barcode Studio computes the required modulo-43 check character and formats the full HIBC string automatically.</p>"}
+  ]
+}

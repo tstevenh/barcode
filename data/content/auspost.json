@@ -1,0 +1,53 @@
+{
+  "id": "auspost",
+  "title": "Australia Post Barcode Generator | Barcode Studio",
+  "metaDescription": "Generate Australia Post 4-State Customer Barcodes free online for parcel and mail sortation. Encode FCC, DPID, and customer info. PNG/SVG export plus API.",
+  "primaryKeyword": "australia post barcode generator",
+  "secondaryKeywords": ["australia post 4-state barcode", "auspost customer barcode", "dpid barcode generator", "fcc barcode australia", "australia post mail sortation", "4-state customer code"],
+  "lead": "Encode a Format Control Code and Delivery Point ID into the four-state barcode Australia Post uses to automatically sort mail and parcels.",
+  "sections": [
+    {
+      "h2": "What Is an Australia Post 4-State Barcode?",
+      "html": "<p>An australia post barcode generator produces the 4-State Customer Barcode, a postal symbology used by Australia Post for automated mail and parcel sortation. Like other four-state postal codes, each bar can be printed in one of four vertical positions — full bar, ascender (top half), descender (bottom half), or tracker (short middle segment) — which lets the format encode more information per unit of horizontal space than a simple two-state barcode.</p><p>The barcode is built around a Format Control Code (FCC) that tells sorting equipment what kind of data follows, combined with a Delivery Point Identifier (DPID) or postcode-based routing data. It's the barcode you'll see printed along the bottom of Australian parcel labels and reply-paid mail, distinguishable by its short bars in groups running along the label edge.</p>"
+    },
+    {
+      "h2": "How the Barcode Encodes Data",
+      "html": "<p>An Australia Post 4-State Customer Barcode is structured in three main parts: a Format Control Code (FCC) that identifies the barcode's purpose and length variant, the actual routing/customer data (typically a Delivery Point Identifier or postcode-based digits), and a checksum-like Reed-Solomon-derived encoding scheme applied across the bar pattern for error tolerance. Several standard lengths exist depending on how much data needs to travel with the piece — shorter formats carry just enough for basic postcode routing, while longer formats can carry a full DPID plus additional customer reference information used in presorted mail programs.</p><p>Because each bar has four possible states rather than two, the visual result is a dense row of short vertical marks of varying heights rather than the wide/narrow bar pattern typical of linear barcodes like Code 39.</p>"
+    },
+    {
+      "h2": "Technical Specifications",
+      "html": "<p>The Australia Post 4-State Customer Barcode is defined in three standard lengths: a 37-bar format for basic postcode-level routing (Format Control Code 11), a 52-bar format that adds a Delivery Point Identifier (FCC 59), and a 67-bar format that carries a DPID plus additional customer information for presort mail programs (FCC 59 with extended data). Each bar encodes 2 bits of information across its four possible states, and the message is protected by a Reed-Solomon error-correcting code computed across the encoded bar values, letting sorting equipment recover from a limited number of misread bars rather than rejecting the item outright.</p><p>Valid input data is numeric for postcode and DPID fields, with the Format Control Code itself determined by which of the three standard barcode lengths you're generating.</p>"
+    },
+    {
+      "h2": "Where Australia Post Barcodes Are Used",
+      "html": "<p>This symbology is specific to Australian mail and parcel handling:</p><ul><li><strong>Parcel labels</strong> — Australia Post parcel and satchel labels carry a 4-State barcode alongside the human-readable tracking number for automated conveyor sortation.</li><li><strong>Presorted bulk mail</strong> — businesses using Australia Post's presort mail programs print DPID-encoded barcodes to qualify for reduced postage rates tied to machine-sortable mail.</li><li><strong>Reply-paid and business reply mail</strong> — pre-printed barcodes on Australian business reply envelopes speed up return processing.</li><li><strong>Direct mail and statements</strong> — utilities and financial institutions in Australia print these codes on mailed statements for sortation efficiency.</li></ul>"
+    },
+    {
+      "h2": "How to Create an Australia Post Barcode in Barcode Studio",
+      "html": "<p>Select <strong>Australia Post</strong> from the Postal Code group. Enter your Format Control Code followed by the routing/customer data string as specified by Australia Post's technical documentation for your mail class — the live preview renders the four-state bar pattern as you type so you can visually confirm it before export. From there:</p><ul><li>Adjust <strong>bar height and spacing</strong> to match the barcode placement zone required on your label or envelope.</li><li>Keep the barcode in solid black on a light background — Australia Post's sorting equipment, like most postal scanners, is calibrated for high-contrast printing rather than color.</li><li>Export as <strong>PNG or SVG</strong> for direct placement in a label template, or use <strong>Copy</strong> for quick insertion into design software.</li><li>Use the <strong>bulk CSV → ZIP/PDF</strong> tool to generate a unique barcode for every parcel or mail piece in a batch from a spreadsheet of DPIDs or reference numbers.</li><li>Call the <strong>REST API</strong> — <code>/barcode?type=auspost&data=YOURFCCANDDATA</code> — to generate these barcodes programmatically from a shipping or mail-merge system.</li></ul>"
+    },
+    {
+      "h2": "Print and Scan Best Practices",
+      "html": "<p>Because this barcode feeds automated sortation equipment running at high speed, print accuracy directly affects delivery:</p><ul><li>Place the barcode in the designated zone on parcel labels or envelopes as specified by Australia Post's mailing and labeling guidelines.</li><li>Print in solid black ink — avoid reversed contrast, tints, or textured stock that can scatter the light used by optical bar sensors.</li><li>Verify your Format Control Code matches the actual data length and mail class you're using; a mismatched FCC can cause sorting equipment to reject or misroute the item.</li><li>Keep the surrounding quiet zone free of other print, since the four-state bar pattern is easy for overlapping ink or graphics to corrupt.</li><li>Test print a sample barcode with a barcode scanner or verifier before a large production run, especially if you're generating DPID-based codes for a presort mail program with strict Australia Post specifications.</li></ul>"
+    },
+    {
+      "h2": "Australia Post 4-State vs Related Postal Codes",
+      "html": "<p>Australia Post's 4-State Customer Barcode shares its core four-state, height-modulated bar mechanic with other national postal codes, but the data structure is entirely Australia-specific — its Format Control Code and DPID fields won't validate against UK, Japanese, or generic 4-state readers built for other standards. <strong>Royal Mail's RM4SCC</strong> and <strong>Mailmark 4-State</strong> encode UK postcodes and delivery point suffixes instead of an FCC/DPID pair, while <strong>Japan Post's barcode</strong> encodes a Japanese postal code and address number. The generic <strong>DAFT</strong> notation (Descender/Ascender/Full/Tracker) underlies all of these visually, describing the same four bar states without any country-specific encoding rules layered on top. Always generate the format that matches the postal network actually sorting your mail.</p>"
+    }
+  ],
+  "uses": [
+    "Australia Post parcel and satchel label sortation",
+    "Presorted bulk mail programs qualifying for reduced postage",
+    "Business reply-paid envelopes and return mail in Australia",
+    "Utility and financial statement mailings using DPID-based routing",
+    "Logistics labels requiring automated Australian postal sortation"
+  ],
+  "faq": [
+    {"q": "What is an Australia Post 4-State Customer Barcode?", "a": "It's a four-state postal barcode used by Australia Post to encode routing data — such as a Format Control Code and Delivery Point Identifier — for automated mail and parcel sortation."},
+    {"q": "What is a DPID in an Australia post barcode generator?", "a": "<p>A Delivery Point Identifier (DPID) is a unique number assigned by Australia Post to a specific delivery address, used inside the barcode to route mail directly to that address during automated sortation.</p>"},
+    {"q": "Do I need an official Australia Post account to use these barcodes?", "a": "You can generate the barcode format freely for testing or internal labeling, but formal presort mail programs and DPID assignment require registration with Australia Post's business mailing services."},
+    {"q": "Can I bulk-generate Australia Post barcodes from a spreadsheet?", "a": "<p>Yes. Upload a CSV of your FCC and routing data to Barcode Studio's bulk tool to produce a ZIP of individual barcode images or a single print-ready PDF, one barcode per row.</p>"},
+    {"q": "Is this Australia Post barcode generator free?", "a": "Yes, Barcode Studio's Australia Post barcode generator runs entirely in your browser with no account required for standard exports."},
+    {"q": "Can I generate these barcodes from my own software?", "a": "Yes — call /barcode?type=auspost&data=YOURDATA through Barcode Studio's REST API to generate the barcode image directly from a shipping or mailing application."}
+  ]
+}

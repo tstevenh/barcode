@@ -1,0 +1,77 @@
+{
+ "id": "MSI11",
+ "title": "MSI Mod 11 Generator - Barcode with Check Digit",
+ "metaDescription": "Generate an MSI Mod 11 barcode free in your browser. Automatically calculate the weighted mod-11 check digit and export PNG, SVG, or PDF instantly.",
+ "primaryKeyword": "msi mod 11 generator",
+ "secondaryKeywords": [
+  "msi mod11 check digit",
+  "msi barcode with checksum",
+  "modified plessey mod 11",
+  "weighted check digit barcode",
+  "inventory barcode with check digit"
+ ],
+ "lead": "Generate an MSI barcode with an automatic mod-11 check digit for stronger error protection on high-volume inventory labels.",
+ "sections": [
+  {
+   "h2": "What is MSI Mod 11?",
+   "html": "<p>MSI Mod 11 is the MSI (Modified Plessey) barcode with a single check digit appended, calculated using a weighted modulo-11 algorithm. It uses the same binary bar-width encoding as plain MSI for the underlying digits, but adds one extra digit at the end that lets a scanner or downstream system verify the rest of the number was read correctly. Compared to MSI Mod 10, the weighted mod-11 calculation is statistically better at catching certain error patterns &mdash; particularly transposition errors, where two adjacent digits get swapped &mdash; which is why some inventory and asset-tracking systems specifically require Mod 11 over the simpler Mod 10 scheme.</p><p>Using an <strong>msi mod 11 generator</strong> instead of computing the digit by hand matters here even more than with Mod 10, since the cyclical 2-through-7 weighting is easier to get wrong manually than a simple doubling pass. MSI itself is a legacy symbology from 1970s shelf-marking and warehouse systems; it was never adopted by GS1 for retail point-of-sale, so Mod 11 today lives almost entirely in internal, closed-loop systems &mdash; warehouse management software, older handheld scanners, and asset registries &mdash; that were configured years ago to expect this exact check-digit scheme and have simply never changed.</p>"
+  },
+  {
+   "h2": "How the mod-11 check digit is calculated",
+   "html": "<p>Working from the rightmost digit of your data, each digit is multiplied by a cyclical weight that repeats 2, 3, 4, 5, 6, 7, 2, 3, 4... moving from right to left. The weighted values are summed, and that sum is divided by 11; the remainder is subtracted from 11 to produce the check digit (if the result is 10 or 11, conventions vary by system, and Barcode Studio follows the standard MSI Mod 11 handling for that edge case). Because the weighting changes from position to position, this scheme is more sensitive to digits being swapped or shifted than the doubling used in Mod 10, which treats alternating positions more uniformly. Barcode Studio calculates and appends this digit automatically from your base numeric input.</p>"
+  },
+  {
+   "h2": "Technical Specifications",
+   "html": "<p>MSI Mod 11 encodes digits 0&ndash;9 only, using the same 4-bit binary bar/space pattern per digit as plain MSI, framed by fixed start and stop patterns. A single trailing check digit is computed with a weighted (2 through 7, cyclically) modulo-11 algorithm applied right-to-left across the base digits. As with all MSI variants, there's no fixed overall symbol length and no governing standards body &mdash; MSI Mod 11 is a de facto industry convention rather than a GS1 or ISO specification, so always confirm your scanner or receiving system expects this exact check-digit scheme before switching from Mod 10.</p>"
+  },
+  {
+   "h2": "Where MSI Mod 11 is used",
+   "html": "<p>MSI Mod 11 appears in the same general settings as other MSI variants &mdash; warehouse racking labels, inventory tags, and internal asset tracking &mdash; specifically in organizations that have standardized on the stronger check-digit scheme, often because a past incident with transposed digits caused a costly misroute or inventory discrepancy. It's also used where a system was originally specified with Mod 11 by an equipment vendor or integrator and later installations simply continued the convention.</p><p>It's also common in library shelving systems, cable and component reel labeling, and multi-location asset tracking where a mislabeled item might not be discovered for weeks, making the stronger error catch worth the marginal extra calculation. Because Mod 11 and Mod 10 produce different check digits from the same base data, a system can't simply switch between them without reprinting every existing label, which is one reason organizations tend to standardize on one scheme early and rarely revisit the choice.</p>"
+  },
+  {
+   "h2": "How to create an MSI Mod 11 barcode in Barcode Studio",
+   "html": "<p>Select <strong>MSI Mod 11</strong> from the symbology list on the left, then enter your base numeric data &mdash; Barcode Studio calculates and appends the weighted mod-11 check digit automatically. From there you can:</p><ul><li>Adjust bar width, height, and quiet zone to match your label size and scanner</li><li>Toggle human-readable text below the bars, typically shown with the check digit included for manual verification</li><li>Export as PNG, SVG, or PDF, or copy the image directly into a label template</li><li>Use the batch or sequence tools to generate a numbered run of labels, each with its own correctly computed check digit</li><li>Upload a CSV of base numeric values for bulk generation as a ZIP of image files or a print-ready PDF of labels</li><li>Call the REST API &mdash; <code>/barcode?type=MSI11&amp;data=123456</code> &mdash; to generate codes programmatically, with the check digit computed automatically</li></ul>"
+  },
+  {
+   "h2": "Print and scan best practices",
+   "html": "<p>A check digit only helps if your scanning software is actually configured to validate it and reject mismatches rather than silently accepting whatever was read. Make sure your scanner or middleware is set to verify MSI Mod 11 specifically (not Mod 10, which uses a different algorithm and would reject every valid Mod 11 code). Beyond that, standard MSI printing guidance applies: keep bar widths consistent and print at a resolution that clearly distinguishes wide from narrow elements, maintain a clean quiet zone, and print human-readable text as a manual fallback when a label is damaged.</p><p>Before a production print run, scan a small test batch with the actual floor hardware and confirm both that the check digit is accepted and that any downstream system correctly strips or retains it as expected &mdash; some middleware validates the check digit then passes only the base number forward, while other setups expect the full string including the check digit. Getting this mismatched between print and scan sides is a common source of otherwise-mysterious integration failures after a symbology switch.</p>"
+  },
+  {
+   "h2": "MSI vs. MSI Mod 10 vs. MSI Mod 11",
+   "html": "<p>All three share the identical binary bar-width encoding for digits 0&ndash;9 and differ only in the check digit. Plain MSI has none, relying entirely on the receiving system for validation. MSI Mod 10 appends a check digit from a Luhn-style doubling algorithm, which is simple and adequate for catching single-digit errors. MSI Mod 11 appends a check digit from a positionally-weighted algorithm that catches a broader range of errors, including many transpositions that Mod 10 can miss, at the cost of a marginally more complex calculation. Some high-reliability systems even combine both into a double check digit (Mod 11/10), but if you only need one, Mod 11 generally offers the best error-detection-per-digit tradeoff of the three.</p>"
+  }
+ ],
+ "uses": [
+  "High-reliability warehouse and distribution center inventory labels",
+  "Asset tracking systems requiring stronger transposition-error detection",
+  "Replacing MSI Mod 10 labels after a transposition-related error incident",
+  "Internal systems specified by an integrator to require weighted mod-11 checks",
+  "Manufacturing inventory tags where misreads carry a high correction cost"
+ ],
+ "faq": [
+  {
+   "q": "How is the MSI Mod 11 check digit calculated?",
+   "a": "Each digit is multiplied by a cyclical weight (2 through 7, repeating) from right to left, the weighted values are summed, and the check digit is derived from 11 minus the remainder of that sum divided by 11."
+  },
+  {
+   "q": "What's the difference between MSI Mod 11 and MSI Mod 10?",
+   "a": "Mod 11 uses a positionally-weighted algorithm that's better at catching transposition errors, while Mod 10 uses a simpler doubling algorithm similar to the Luhn check used on credit cards."
+  },
+  {
+   "q": "Do I need to calculate the check digit myself?",
+   "a": "No, Barcode Studio calculates and appends the correct weighted mod-11 check digit automatically based on the numeric data you enter."
+  },
+  {
+   "q": "Can MSI Mod 11 encode letters?",
+   "a": "No, MSI Mod 11 encodes numeric digits only, and the check digit itself is always a single numeric digit."
+  },
+  {
+   "q": "Why would I choose Mod 11 over Mod 10?",
+   "a": "Mod 11's weighted calculation is statistically more effective at detecting transposition errors (two digits swapped), which makes it a better fit for high-volume or high-cost-of-error inventory systems."
+  },
+  {
+   "q": "Can I bulk-generate MSI Mod 11 barcodes?",
+   "a": "Yes, upload a CSV of base numeric values and Barcode Studio will calculate each check digit and generate a ZIP of image files or a print-ready PDF of labels."
+  }
+ ]
+}

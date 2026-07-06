@@ -1,0 +1,54 @@
+{
+  "id": "pzn",
+  "title": "PZN Pharma Generator - Free German Pharmacy Barcode",
+  "metaDescription": "Free PZN generator for German pharmaceutical packaging. Encode a Pharmazentralnummer with the correct check digit and export PNG, SVG, or PDF labels.",
+  "primaryKeyword": "pzn pharma generator",
+  "secondaryKeywords": ["pzn barcode generator", "pharmazentralnummer barcode", "german pharmacy barcode", "pzn code 39", "pzn8 generator", "pharmaceutical packaging barcode germany"],
+  "lead": "Generate a PZN barcode encoding a German Pharmazentralnummer, the identification number printed on pharmaceutical packaging sold in Germany.",
+  "sections": [
+    {
+      "h2": "What is a PZN barcode?",
+      "html": "<p>PZN stands for Pharmazentralnummer, the central pharmaceutical number that uniquely identifies every medicinal product and many other pharmacy-sold items in Germany. A PZN barcode is a Code 39-based symbol that encodes this number with a leading \"PZN\" or \"-\" prefix character convention and a check digit, so pharmacy dispensing systems and insurance billing software can scan the package and instantly identify the exact product, strength, and pack size. It's the German equivalent of what a UPC or EAN does at a retail checkout, adapted for pharmacy and health-insurance workflows.</p><p>A PZN pharma generator is a tool built for the packaging designers, pharmaceutical wholesalers, and print vendors who need to produce correct, scannable PZN artwork &mdash; typing in the raw identifying number and getting back a properly formatted Code 39 symbol with the right prefix and check digit already calculated, rather than working out the modulo-11 arithmetic by hand for every product variant.</p>"
+    },
+    {
+      "h2": "How it works and structure",
+      "html": "<p>A PZN is a numeric identifier, historically 7 digits and now commonly 8 digits (PZN8) to accommodate the growing number of registered products, assigned by IFA (Informationsstelle f&uuml;r Arzneispezialit&auml;ten) in Germany. The barcode itself uses the Code 39 symbology, with the encoded string typically formatted as \"-\" followed by the PZN digits and a modulo-check digit calculated from the PZN value, so scanners and validation software can detect data-entry or printing errors before a wrong medication is dispensed or billed.</p><p>Every registered pharmaceutical, medical device, or pharmacy-sold item in Germany gets its own PZN assigned by IFA when it's registered for sale, and that number stays fixed to the specific product, strength, and pack size combination for the life of the product on the market. That stability is what makes PZN reliable for automated dispensing and billing: scanning the same package months or years apart should always resolve to the same product record.</p>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>PZN is not a GS1 Application Identifier system &mdash; it's Germany's own pharmaceutical numbering scheme, administered by IFA and used alongside (not instead of) GS1 identifiers like GTIN on some packaging. The check digit is calculated using a weighted modulo-11 algorithm specific to the PZN format, and Barcode Studio computes and appends it automatically. Because it rides on Code 39, the barcode itself has no fixed physical size requirement beyond standard Code 39 quiet zone and X-dimension guidance, but German pharmacy packaging regulations (Packungsbeilage and related rules) do specify placement and minimum legibility on cartons.</p><p>Because PZN uses the underlying Code 39 character set and structure, any standard Code 39-capable scanner can physically read the bars &mdash; the part that's PZN-specific is the data format (the prefix character and the modulo-11 check digit convention) rather than the symbology itself. That's worth knowing if you're troubleshooting a scan issue: a scanner that reads generic Code 39 correctly but rejects a PZN code is more likely hitting a software-side validation rule than a physical decode problem.</p>"
+    },
+    {
+      "h2": "Where PZN barcodes are used",
+      "html": "<p>Every prescription and over-the-counter medication package sold through German pharmacies carries a PZN barcode, scanned at the point of dispensing so the pharmacy system can verify the product, check for interactions or recalls, and submit the correct billing code to statutory or private health insurers. It also appears on many non-drug items sold through pharmacies &mdash; supplements, medical devices, and cosmetics registered with IFA &mdash; and is used in wholesale pharmaceutical distribution within Germany to track inventory between manufacturers, wholesalers, and pharmacies.</p><p>Because German statutory health insurance billing is built around PZN, the code also functions as the backbone of prescription reimbursement: a pharmacy's dispensing software reads the PZN, matches it to a reimbursement rate and any patient co-payment rules, and submits that record to the relevant insurer, which makes PZN accuracy a financial as well as a clinical safety concern.</p>"
+    },
+    {
+      "h2": "How to create a PZN barcode in Barcode Studio",
+      "html": "<p>Select <strong>PZN (Pharma)</strong> from the Linear Barcode list, then enter the 7- or 8-digit PZN number assigned to the product. Barcode Studio calculates the correct check digit and formats the encoded data according to PZN convention automatically, so you don't need to compute it by hand:</p><ul><li>Adjust bar height, module width, and quiet zone to fit your carton or label layout</li><li>Set foreground/background colors while keeping enough contrast for pharmacy scanners</li><li>Export as PNG, SVG, or PDF for packaging artwork</li><li>Bulk-generate PZN barcodes from a CSV of product numbers, output as a ZIP or print-ready PDF</li><li>Use the REST API to automate label generation: <code>/barcode?type=pzn&amp;data=04150726</code></li></ul><p>The live preview shows the fully formatted symbol, prefix and check digit included, as soon as you enter the raw PZN number, which makes it easy to catch a mistyped digit before generating final artwork for an entire product line.</p>"
+    },
+    {
+      "h2": "Printing and scanning best practices",
+      "html": "<p>Always verify the PZN digits against the manufacturer's official product listing before printing &mdash; a transposed digit produces a barcode that scans successfully but identifies the wrong product, which is a serious risk in a pharmacy dispensing context. Print at a resolution that keeps Code 39's narrow bars crisp, since PZN codes are often placed on small cartons with limited space, and maintain the required quiet zone on both sides. Test scans with actual pharmacy point-of-sale hardware before a full production run, since German pharmacy systems expect the PZN prefix formatting to match exactly.</p><p>Because the modulo-11 check digit will catch a single mistyped digit but cannot catch an entirely wrong-but-otherwise-valid PZN, cross-check the source number against IFA's official product database or the manufacturer's packaging specification rather than relying on the check digit alone as your only accuracy safeguard.</p>"
+    },
+    {
+      "h2": "PZN versus other pharmaceutical barcodes",
+      "html": "<p>PZN is specific to the German market; other countries use different pharmaceutical identifiers on the same Code 39 or Code 128 base, such as Code 32 for the Italian national drug code or NTIN/PPN for GS1-based pharmaceutical numbering used more broadly across Europe. A product sold in multiple countries will often carry several of these codes on different regions' packaging, or a GS1 DataMatrix encoding an NTIN alongside batch and expiration data for markets that have moved to 2D serialization requirements. If you need pan-European or GS1-standard pharmaceutical identification instead of Germany-specific PZN, look at the NTIN or PPN symbologies instead.</p><p>This fragmentation across national pharmaceutical numbering schemes is part of why many manufacturers selling across Europe now print a GS1 DataMatrix as the primary machine-readable code (satisfying EU Falsified Medicines Directive serialization requirements) while retaining PZN in linear Code 39 form specifically for compatibility with existing German pharmacy dispensing systems that were built around it.</p>"
+    }
+  ],
+  "uses": [
+    "Prescription and over-the-counter medication packaging in Germany",
+    "Pharmacy point-of-sale scanning and dispensing verification",
+    "Health insurance billing codes submitted by German pharmacies",
+    "Non-drug pharmacy items such as supplements and medical devices",
+    "Wholesale pharmaceutical distribution and inventory tracking within Germany",
+    "Recall and interaction checks against a scanned product identifier"
+  ],
+  "faq": [
+    {"q": "What is a PZN pharma generator used for?", "a": "A PZN pharma generator creates the Code 39-based barcode encoding a Pharmazentralnummer, the identification number required on pharmaceutical and pharmacy products sold in Germany."},
+    {"q": "How many digits does a PZN have?", "a": "A PZN is historically 7 digits and increasingly 8 digits (PZN8) as more products are registered, plus a check digit calculated from those numbers."},
+    {"q": "Is PZN a GS1 barcode?", "a": "No, PZN is Germany's own pharmaceutical numbering scheme administered by IFA, distinct from GS1 identifiers like GTIN, though both can appear on the same package."},
+    {"q": "Does Barcode Studio calculate the PZN check digit automatically?", "a": "Yes, enter the raw PZN digits and Barcode Studio calculates the correct check digit and formats the barcode according to PZN convention."},
+    {"q": "Can I bulk-generate PZN barcodes for multiple products?", "a": "Yes, upload a CSV of PZN numbers and Barcode Studio will generate the corresponding barcodes as a ZIP or print-ready PDF."},
+    {"q": "What barcode symbology does PZN use?", "a": "PZN barcodes use the Code 39 symbology with a specific prefix and check-digit convention, rather than a unique symbology of its own."}
+  ]
+}

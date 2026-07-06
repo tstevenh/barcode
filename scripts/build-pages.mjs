@@ -2,9 +2,11 @@
 //
 //   node scripts/build-pages.mjs
 //
-// Emits: <dir>/<slug>.html for every symbology, a <dir>/index.html hub page,
-// sitemap.xml and robots.txt. Re-run whenever the catalog, SEO content, or
-// index.html template changes. Output is committed so it deploys as static.
+// Each barcode type gets its own ROOT-level clean URL (e.g. /qr-code, /pdf417),
+// a keyword-aligned <title>/meta, a unique 800+ word article, FAQ (+ FAQPage
+// schema) and the live generator pre-selected to that type. Also emits a hub
+// page (/barcodes), sitemap.xml and robots.txt. Output is committed and served
+// statically; a manifest tracks generated files so re-runs clean up safely.
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -16,86 +18,95 @@ const ROOT = path.resolve(__dirname, "..");
 
 const CATALOG = require(path.join(ROOT, "js/catalog.js"));
 const SEO = require(path.join(ROOT, "data/seo-content.js"));
+const KW = readJSON(path.join(ROOT, "data/keywords.json")) || {};
+const CONTENT_DIR = path.join(ROOT, "data/content");
+const MANIFEST = path.join(ROOT, ".pagegen-manifest.json");
 
 const BASE = SEO.site.baseUrl.replace(/\/$/, "");
-const DIR = SEO.site.dir;
-const OUT = path.join(ROOT, DIR);
+const HUB = "barcodes"; // hub at /barcodes (file barcodes.html) — distinct from the /barcode API
 
 const FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1220'/%3E%3Cg fill='white'%3E%3Crect x='6' y='8' width='2' height='16'/%3E%3Crect x='9' y='8' width='1' height='16'/%3E%3Crect x='11' y='8' width='3' height='16'/%3E%3Crect x='15' y='8' width='1' height='16'/%3E%3Crect x='17' y='8' width='2' height='16'/%3E%3Crect x='20' y='8' width='1' height='16'/%3E%3Crect x='22' y='8' width='3' height='16'/%3E%3Crect x='26' y='8' width='1' height='16'/%3E%3C/g%3E%3C/svg%3E";
 
 // --- helpers ---------------------------------------------------------------
+function readJSON(p) { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch (e) { return null; } }
 const esc = (s) => String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-const attr = (s) => esc(s).replace(/\n/g, " ");
+const attr = (s) => esc(s).replace(/\s+/g, " ").trim();
+const wordCount = (html) => (String(html).replace(/<[^>]+>/g, " ").replace(/&[a-z]+;/g, " ").match(/\b[\w'-]+\b/g) || []).length;
 
 function slugify(name) {
-  return String(name).toLowerCase()
-    .replace(/\+/g, " plus ")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+  return String(name).toLowerCase().replace(/\+/g, " plus ").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 }
 
-// Pull the app's HINTS_EN one-liners out of i18n.js to seed unique copy.
 function loadHints() {
   const src = fs.readFileSync(path.join(ROOT, "js/i18n.js"), "utf8");
   const start = src.indexOf("var HINTS_EN = {");
-  const braceStart = src.indexOf("{", start);
+  const b = src.indexOf("{", start);
   let depth = 0, end = -1;
-  for (let i = braceStart; i < src.length; i++) {
-    if (src[i] === "{") depth++;
-    else if (src[i] === "}") { depth--; if (depth === 0) { end = i; break; } }
-  }
-  const obj = src.slice(braceStart, end + 1);
-  // eslint-disable-next-line no-new-func
-  return Function("return (" + obj + ")")();
+  for (let i = b; i < src.length; i++) { if (src[i] === "{") depth++; else if (src[i] === "}") { depth--; if (!depth) { end = i; break; } } }
+  return Function("return (" + src.slice(b, end + 1) + ")")();
 }
 const HINTS = loadHints();
 
-// Flatten catalog with resolved metadata.
+// Flatten catalog with resolved slug + reserved-word guard.
+const RESERVED = new Set(["barcode", "barcodes", "api", "api-docs", "health", "index", "css", "js", "sitemap", "robots"]);
 const ITEMS = [];
 const seen = new Set();
 for (const group of CATALOG) {
   for (const it of group.items) {
     let slug = slugify(it.name);
+    if (RESERVED.has(slug)) slug = slug + "-barcode";
     while (seen.has(slug)) slug = slug + "-" + slugify(it.id);
     seen.add(slug);
     ITEMS.push({ ...it, group: group.groupKey, slug });
   }
 }
 const TOTAL = ITEMS.length;
-const bySlug = (it) => `${BASE}/${DIR}/${it.slug}`;
+const urlFor = (it) => `${BASE}/${it.slug}`;
 
-function firstSentence(s) {
-  const m = String(s || "").match(/^[^.!?]+[.!?]/);
-  return m ? m[0].trim() : String(s || "").trim();
-}
+function firstSentence(s) { const m = String(s || "").match(/^[^.!?]+[.!?]/); return m ? m[0].trim() : String(s || "").trim(); }
+
+// Merge authored content (data/content/<id>.json) > seo-content overrides > derived.
 function contentFor(it) {
   const cat = SEO.categories[it.group] || { label: "Barcode", lede: "a barcode symbology.", uses: [] };
   const ov = SEO.overrides[it.id] || {};
+  const authored = readJSON(path.join(CONTENT_DIR, it.id + ".json")) || {};
   const hint = HINTS[it.id] || "";
-  const about = ov.about || `${it.name} is ${cat.lede}${hint ? " " + hint : ""}`;
-  const lead = ov.lead || firstSentence(hint) || firstSentence(about);
-  const uses = ov.uses || cat.uses;
-  const title = ov.title || `${it.name} Generator — Free Online | ${SEO.site.name}`;
-  const desc = ov.description ||
-    `Generate a scannable ${it.name} online, free. ${hint || cat.lede} Live preview with PNG, SVG and PDF export — no signup.`.replace(/\s+/g, " ").trim().slice(0, 158);
-  return { cat, about, lead, uses, title, desc };
+  const kw = KW[it.id] || {};
+
+  const title = authored.title || ov.title || `${it.name} Generator — Free Online | ${SEO.site.name}`;
+  const desc = (authored.metaDescription || ov.description ||
+    `Generate a scannable ${it.name} online, free. ${hint || cat.lede} Live preview with PNG, SVG and PDF export — no signup.`)
+    .replace(/\s+/g, " ").trim();
+  const lead = authored.lead || ov.lead || firstSentence(hint) || firstSentence(cat.lede);
+  const uses = authored.uses || ov.uses || cat.uses;
+
+  // Article sections: authored preferred; otherwise a minimal derived fallback.
+  let sections = authored.sections;
+  if (!sections || !sections.length) {
+    const about = ov.about || `${it.name} is ${cat.lede}${hint ? " " + hint : ""}`;
+    sections = [{ h2: `About the ${it.name}`, html: `<p>${esc(about)}</p>` }];
+  }
+  const faq = authored.faq || [];
+  return { cat, title, desc, lead, uses, sections, faq, primaryKeyword: authored.primaryKeyword || kw.primary || `${it.name.toLowerCase()} generator` };
 }
 
-// --- head / hero / content builders ---------------------------------------
+// --- head ------------------------------------------------------------------
 function headFor(it, c) {
-  const url = bySlug(it);
-  const ld = {
-    "@context": "https://schema.org",
-    "@graph": [
-      { "@type": "BreadcrumbList", itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: BASE + "/" },
-        { "@type": "ListItem", position: 2, name: "Barcode Types", item: `${BASE}/${DIR}` },
-        { "@type": "ListItem", position: 3, name: `${it.name} Generator`, item: url }
-      ]},
-      { "@type": "SoftwareApplication", name: `${it.name} Generator`, applicationCategory: "UtilitiesApplication",
-        operatingSystem: "Web", offers: { "@type": "Offer", price: "0", priceCurrency: "USD" }, url: url }
-    ]
-  };
+  const url = urlFor(it);
+  const graph = [
+    { "@type": "BreadcrumbList", itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: BASE + "/" },
+      { "@type": "ListItem", position: 2, name: "Barcode Types", item: `${BASE}/${HUB}` },
+      { "@type": "ListItem", position: 3, name: `${it.name} Generator`, item: url }
+    ]},
+    { "@type": "SoftwareApplication", name: `${it.name} Generator`, applicationCategory: "UtilitiesApplication",
+      operatingSystem: "Web", offers: { "@type": "Offer", price: "0", priceCurrency: "USD" }, url }
+  ];
+  if (c.faq && c.faq.length) {
+    graph.push({ "@type": "FAQPage", mainEntity: c.faq.map((f) => ({
+      "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: String(f.a).replace(/<[^>]+>/g, "") } })) });
+  }
+  const ld = { "@context": "https://schema.org", "@graph": graph };
   return [
     `<title>${esc(c.title)}</title>`,
     `<meta name="description" content="${attr(c.desc)}" />`,
@@ -116,7 +127,7 @@ function heroFor(it, c) {
   return `  <section class="hero">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-content">
-      <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/${DIR}">Barcodes</a><span>/</span><span>${esc(it.name)}</span></nav>
+      <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/${HUB}">Barcodes</a><span>/</span><span>${esc(it.name)}</span></nav>
       <span class="eyebrow">${esc(c.cat.label)}</span>
       <h1>${esc(it.name)} <span class="grad-text">Generator</span></h1>
       <p>${esc(c.lead)}</p>
@@ -127,73 +138,60 @@ function heroFor(it, c) {
 
 function relatedFor(it) {
   const sibs = ITEMS.filter((o) => o.group === it.group && o.id !== it.id).slice(0, 14);
-  return sibs.map((o) => `<a href="/${DIR}/${o.slug}">${esc(o.name)}</a>`).join("");
+  return sibs.map((o) => `<a href="/${o.slug}">${esc(o.name)}</a>`).join("");
 }
 
-function seoSectionFor(it, c) {
+function articleFor(it, c) {
+  const secs = c.sections.map((s) => `      <h2>${esc(s.h2)}</h2>\n      ${s.html}`).join("\n");
   const uses = (c.uses || []).map((u) => `<li>${esc(u)}</li>`).join("");
-  return `  <section class="seo-section">
+  const faq = (c.faq || []).map((f) =>
+    `        <details class="faq-item"><summary>${esc(f.q)}</summary><div class="faq-a">${f.a}</div></details>`).join("\n");
+  return `  <article class="seo-section">
     <div class="seo-wrap">
-      <h2>About the ${esc(it.name)}</h2>
-      <p>${esc(c.about)}</p>
-      ${uses ? `<h3>Common uses</h3>\n      <ul class="seo-uses">${uses}</ul>` : ""}
-      <h3>Related barcode types</h3>
+${secs}
+      ${uses ? `<h2>Common uses</h2>\n      <ul class="seo-uses">${uses}</ul>` : ""}
+      ${faq ? `<h2>Frequently asked questions</h2>\n      <div class="faq">\n${faq}\n      </div>` : ""}
+      <h2>Related barcode types</h2>
       <div class="seo-related">${relatedFor(it)}</div>
-      <p class="seo-all"><a href="/${DIR}">Browse all ${TOTAL} barcode &amp; QR types →</a></p>
+      <p class="seo-all"><a href="/${HUB}">Browse all ${TOTAL} barcode &amp; QR types →</a></p>
     </div>
-  </section>
+  </article>
 `;
 }
 
 // --- template transform ----------------------------------------------------
 const TEMPLATE = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
-
-function absolutize(html) {
-  return html
-    .replace(/href="css\//g, 'href="/css/')
-    .replace(/src="js\//g, 'src="/js/')
-    .replace(/href="api-docs\.html"/g, 'href="/api-docs.html"');
-}
+const absolutize = (html) => html
+  .replace(/href="css\//g, 'href="/css/')
+  .replace(/src="js\//g, 'src="/js/')
+  .replace(/href="api-docs\.html"/g, 'href="/api-docs.html"');
 
 function buildPage(it) {
   const c = contentFor(it);
   let html = TEMPLATE;
-
-  // 1) head: replace <title> … up to the first stylesheet link
   const headStart = html.indexOf("<title>");
   const cssMarker = html.indexOf('<link rel="stylesheet" href="css/style.css"');
   html = html.slice(0, headStart) + headFor(it, c) + html.slice(cssMarker);
-
-  // 2) hero: replace the whole hero section with a per-type hero
   const hStart = html.indexOf('<section class="hero">');
   const hEnd = html.indexOf("</section>", hStart) + "</section>".length;
   html = html.slice(0, hStart) + heroFor(it, c).trimStart() + html.slice(hEnd);
-
-  // 3) preselect the symbology before scripts load
-  html = html.replace(
-    '<script src="js/catalog.js"></script>',
-    `<script>window.BARCODE_INITIAL_TYPE=${JSON.stringify(it.id)};</script>\n  <script src="js/catalog.js"></script>`
-  );
-
-  // 4) inject the SEO content section above the footer
-  html = html.replace('<footer class="footer">', seoSectionFor(it, c) + '  <footer class="footer">');
-
-  return absolutize(html);
+  html = html.replace('<script src="js/catalog.js"></script>',
+    `<script>window.BARCODE_INITIAL_TYPE=${JSON.stringify(it.id)};</script>\n  <script src="js/catalog.js"></script>`);
+  html = html.replace('<footer class="footer">', articleFor(it, c) + '  <footer class="footer">');
+  return { html: absolutize(html), words: wordCount(articleFor(it, c)) };
 }
 
-// --- hub page --------------------------------------------------------------
+// --- hub --------------------------------------------------------------------
 function hubPage() {
   const groups = CATALOG.map((g) => {
     const cat = SEO.categories[g.groupKey] || { label: g.groupKey };
     const rows = g.items.map((raw) => {
       const it = ITEMS.find((x) => x.id === raw.id);
-      const hint = HINTS[it.id] || "";
-      return `      <a class="hub-item" href="/${DIR}/${it.slug}"><span class="hub-name">${esc(it.name)}</span><span class="hub-hint">${esc(hint)}</span></a>`;
+      return `      <a class="hub-item" href="/${it.slug}"><span class="hub-name">${esc(it.name)}</span><span class="hub-hint">${esc(HINTS[it.id] || "")}</span></a>`;
     }).join("\n");
     return `    <section class="hub-group">\n      <h2>${esc(cat.label)}</h2>\n      <div class="hub-grid">\n${rows}\n      </div>\n    </section>`;
   }).join("\n");
-
-  const url = `${BASE}/${DIR}`;
+  const url = `${BASE}/${HUB}`;
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -238,20 +236,32 @@ ${groups}
 }
 
 // --- sitemap / robots ------------------------------------------------------
-function sitemap() {
-  const urls = [`${BASE}/`, `${BASE}/${DIR}`, `${BASE}/api-docs.html`, ...ITEMS.map(bySlug)];
-  const body = urls.map((u) => `  <url><loc>${u}</loc></url>`).join("\n");
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;
-}
+const sitemap = () => {
+  const urls = [`${BASE}/`, `${BASE}/${HUB}`, `${BASE}/api-docs.html`, ...ITEMS.map(urlFor)];
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${u}</loc></url>`).join("\n")}\n</urlset>\n`;
+};
 const robots = `User-agent: *\nAllow: /\n\nSitemap: ${BASE}/sitemap.xml\n`;
 
-// --- write -----------------------------------------------------------------
-fs.rmSync(OUT, { recursive: true, force: true });
-fs.mkdirSync(OUT, { recursive: true });
-for (const it of ITEMS) fs.writeFileSync(path.join(OUT, it.slug + ".html"), buildPage(it));
-fs.writeFileSync(path.join(OUT, "index.html"), hubPage());
-fs.writeFileSync(path.join(ROOT, "sitemap.xml"), sitemap());
-fs.writeFileSync(path.join(ROOT, "robots.txt"), robots);
+// --- write (with safe manifest-based cleanup) ------------------------------
+const prev = readJSON(MANIFEST) || [];
+for (const f of prev) { try { fs.rmSync(path.join(ROOT, f), { force: true }); } catch (e) {} }
+fs.rmSync(path.join(ROOT, "barcodes"), { recursive: true, force: true }); // retire old /barcodes/<slug> dir
 
-console.log(`Built ${ITEMS.length} type pages + hub, sitemap.xml, robots.txt`);
-console.log(`Sample URLs: /${DIR}/${ITEMS[0].slug}, /${DIR}/${ITEMS.find((x)=>x.id==="CODE128").slug}, /${DIR}/${ITEMS.find((x)=>x.id==="EAN13").slug}`);
+const written = [];
+let thin = 0, minW = Infinity;
+for (const it of ITEMS) {
+  const { html, words } = buildPage(it);
+  const file = it.slug + ".html";
+  fs.writeFileSync(path.join(ROOT, file), html);
+  written.push(file);
+  minW = Math.min(minW, words);
+  if (words < 800) thin++;
+}
+fs.writeFileSync(path.join(ROOT, "barcodes.html"), hubPage()); written.push("barcodes.html");
+fs.writeFileSync(path.join(ROOT, "sitemap.xml"), sitemap()); written.push("sitemap.xml");
+fs.writeFileSync(path.join(ROOT, "robots.txt"), robots); written.push("robots.txt");
+fs.writeFileSync(MANIFEST, JSON.stringify(written, null, 0));
+
+console.log(`Built ${ITEMS.length} root pages + hub + sitemap + robots.`);
+console.log(`Word counts: min ${minW === Infinity ? 0 : minW}; pages under 800 words: ${thin}/${ITEMS.length}`);
+console.log(`Sample: /${ITEMS[0].slug}, /${ITEMS.find((x) => x.id === "pdf417").slug}, /${ITEMS.find((x) => x.id === "EAN13").slug}`);

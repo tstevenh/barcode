@@ -1,0 +1,53 @@
+{
+  "id": "dpdlabel",
+  "title": "DPD Barcode / Parcel Label Generator | Barcode Studio",
+  "metaDescription": "Generate a DPD-style parcel barcode free in your browser. Encode tracking numbers in Code 128, adjust size, and export PNG, SVG, or PDF for shipping labels.",
+  "primaryKeyword": "dpd barcode dpd parcel label generator",
+  "secondaryKeywords": ["dpd tracking barcode", "dpd parcel label", "code 128 shipping label", "courier barcode generator", "parcel tracking number barcode"],
+  "lead": "Turn a DPD tracking or parcel number into a scannable Code 128 barcode for shipping labels and depot handling.",
+  "sections": [
+    {
+      "h2": "What is the DPD barcode?",
+      "html": "<p>DPD (Dynamic Parcel Distribution), one of Europe's largest parcel courier networks, prints a Code 128 barcode on its shipping labels to identify each parcel as it moves through sortation, depots, and last-mile delivery. The barcode itself isn't a unique DPD-only symbology &mdash; it's standard Code 128, a high-density linear barcode capable of encoding the full ASCII character set &mdash; but DPD (like most major couriers) applies its own data structure and check-digit rules to the string encoded inside it, similar to how UPS, FedEx, and DHL each define their own parcel number formats on top of Code 128 or GS1-128.</p>"
+    },
+    {
+      "h2": "How the parcel number is structured",
+      "html": "<p>A DPD parcel/tracking number is typically a numeric string of 14 digits that identifies the depot, service type, and a unique sequence number for the shipment, often with a trailing check digit calculated by DPD's own algorithm to catch data entry or scanning errors. The exact byte layout (depot code, sequence range, check digit position) is internal to DPD's routing systems and varies by country and service level, so the practical approach when generating a DPD-compatible label is to encode the exact tracking number string DPD's shipping system or API has already generated for that parcel &mdash; you're not constructing the number yourself, just rendering it as a scannable barcode.</p><p>Because it's built on Code 128, the barcode can also carry additional data alongside the tracking number if your integration requires it, such as concatenated route or sort codes, since Code 128 supports full alphanumeric strings and switches automatically between its internal character subsets to keep the symbol as compact as possible.</p>"
+    },
+    {
+      "h2": "Technical Specifications",
+      "html": "<p>Because the DPD parcel barcode is rendered in Code 128, it inherits that symbology's specifications: it can encode the full ASCII character set (letters, digits, punctuation), uses a mandatory weighted modulo-103 checksum built into Code 128 itself, and requires a defined quiet zone on both sides for reliable scanning. Layered on top of that is DPD's own numbering convention &mdash; typically a 14-digit numeric tracking reference with an internal check digit &mdash; which is a courier-specific business rule rather than part of the Code 128 standard. There's no separate \"DPD barcode\" specification published by a standards body; the format is effectively defined by DPD's own shipping and label-generation systems.</p>"
+    },
+    {
+      "h2": "Where DPD barcodes are used",
+      "html": "<p>You'll find this barcode on DPD shipping labels affixed to parcels, on depot sortation manifests, on \"Pickup\" or \"Parcelshop\" drop-off receipts, and on internal DPD handling documents used to scan a parcel at each handover point &mdash; origin depot, hub, delivery depot, and courier handheld scanner. Businesses that ship through DPD's API or a shipping platform integrated with DPD typically receive a pre-formatted label (often a PDF or ZPL file) with the barcode already rendered, but there are cases &mdash; custom packing slips, internal tracking sheets, or replacement labels for damaged originals &mdash; where you need to generate the barcode yourself from a known tracking number.</p>"
+    },
+    {
+      "h2": "How to create a DPD-style barcode in Barcode Studio",
+      "html": "<p>Select <strong>DPD Barcode / DPD Parcel Label</strong> from the symbology list on the left, which renders your input using Code 128 encoding. Enter the tracking or parcel number exactly as provided by DPD (or your shipping platform), then:</p><ul><li>Adjust bar width, height, and quiet zone to match your label stock and printer</li><li>Toggle human-readable text below the bars so warehouse staff can read the number visually if a scan fails</li><li>Export as PNG, SVG, or PDF sized for your label printer, or copy the image directly into a label template</li><li>Use the batch or sequence tools to generate barcodes for a numbered range of parcel numbers</li><li>Upload a CSV of tracking numbers for bulk generation as a ZIP of image files or a print-ready PDF of labels</li><li>Call the REST API &mdash; <code>/barcode?type=dpdlabel&amp;data=0101234567890128</code> &mdash; to generate labels programmatically from your shipping or warehouse software</li></ul>"
+    },
+    {
+      "h2": "Print and scan best practices for parcel labels",
+      "html": "<p>Parcel labels get handled roughly &mdash; tossed on conveyor belts, stacked, and scanned quickly at multiple points &mdash; so print quality and size matter. Use a thermal label printer at a resolution of at least 203 dpi, keep the barcode at least 1.5 inches wide for reliable handheld and conveyor-scanner reads, and always leave a clear quiet zone with no text, logos, or other barcodes overlapping it. Print human-readable digits below the bars so depot staff can key in the number manually if a label gets damaged or a scanner misreads it, and test your label on the same printer and label stock you'll use in production before running a full batch, since heat-transfer and direct-thermal printers can render bar widths slightly differently.</p>"
+    },
+    {
+      "h2": "DPD barcode vs. other courier barcodes",
+      "html": "<p>DPD's Code 128-based tracking barcode plays the same functional role as UPS's, FedEx's, and DHL's own tracking barcodes &mdash; all major couriers build their parcel-level barcode on either Code 128 or, for pallet and mixed shipment data, GS1-128 with structured application identifiers. The difference between them is purely in each courier's internal numbering scheme and check-digit algorithm, not in the underlying barcode symbology. If you're building a multi-courier shipping integration, you'll typically use the same Code 128 rendering path for all of them and simply swap in each courier's own tracking-number format and validation rules.</p>"
+    }
+  ],
+  "uses": [
+    "Printing shipping labels for parcels shipped through DPD",
+    "Regenerating a damaged or unreadable DPD label from a known tracking number",
+    "Internal warehouse manifests and packing slips referencing DPD tracking numbers",
+    "Parcelshop and pickup point drop-off receipts",
+    "Custom shipping integrations that need to render a DPD-compatible Code 128 barcode"
+  ],
+  "faq": [
+    {"q": "What barcode symbology does DPD use?", "a": "DPD parcel labels use standard Code 128 barcodes, with DPD applying its own tracking number format and check-digit rules to the data encoded inside the symbol."},
+    {"q": "Can I generate a DPD barcode without a DPD account?", "a": "You can generate the barcode image itself for any valid tracking number string, but the tracking number must come from DPD's own systems or your shipping platform's DPD integration &mdash; you can't invent a working tracking number."},
+    {"q": "Do I need special software to print DPD labels?", "a": "No, once you have the tracking number, you can render the Code 128 barcode in Barcode Studio and export it as a PNG, SVG, or PDF sized for your label printer."},
+    {"q": "Why does my DPD barcode need a check digit?", "a": "The check digit lets DPD's scanning systems detect data entry or scan errors before a parcel is misrouted, similar to how check digits work in other courier and retail barcode formats."},
+    {"q": "Can I bulk-generate labels for multiple DPD parcels?", "a": "Yes, upload a CSV of tracking numbers and Barcode Studio will generate a ZIP of image files or a print-ready PDF of labels in one batch."},
+    {"q": "What size should a DPD parcel barcode be printed?", "a": "Aim for at least 1.5 inches of barcode width printed at 203 dpi or higher on a thermal label printer, with a clear quiet zone on both sides, for reliable scanning at depots and delivery points."}
+  ]
+}

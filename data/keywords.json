@@ -1,0 +1,1592 @@
+{
+ "qrcode": {
+  "name": "QR Code",
+  "primary": "qr code generator",
+  "volume": 823000,
+  "candidates": [
+   {
+    "kw": "qr code generator",
+    "v": 823000
+   },
+   {
+    "kw": "qr code barcode generator",
+    "v": 480
+   }
+  ]
+ },
+ "gs1qrcode": {
+  "name": "GS1 QR Code",
+  "primary": "gs1 qr code generator",
+  "volume": 30,
+  "candidates": [
+   {
+    "kw": "gs1 qr code generator",
+    "v": 30
+   },
+   {
+    "kw": "gs1 qr code barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "gs1dlqrcode": {
+  "name": "GS1 Digital Link QR Code",
+  "primary": "gs1 digital link qr code generator",
+  "volume": 10,
+  "candidates": [
+   {
+    "kw": "gs1 digital link qr code generator",
+    "v": 10
+   },
+   {
+    "kw": "gs1 digital link qr code barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "gs1dldatamatrix": {
+  "name": "GS1 Digital Link Data Matrix",
+  "primary": "gs1 digital link data matrix generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "gs1 digital link data matrix generator",
+    "v": 0
+   },
+   {
+    "kw": "gs1 digital link data matrix barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "datamatrix": {
+  "name": "Data Matrix",
+  "primary": "data matrix generator",
+  "volume": 6600,
+  "candidates": [
+   {
+    "kw": "data matrix generator",
+    "v": 6600
+   },
+   {
+    "kw": "data matrix barcode generator",
+    "v": 1300
+   }
+  ]
+ },
+ "gs1datamatrix": {
+  "name": "GS1 Data Matrix",
+  "primary": "gs1 data matrix generator",
+  "volume": 90,
+  "candidates": [
+   {
+    "kw": "gs1 data matrix generator",
+    "v": 90
+   },
+   {
+    "kw": "gs1 data matrix barcode generator",
+    "v": 10
+   }
+  ]
+ },
+ "pdf417": {
+  "name": "PDF417",
+  "primary": "pdf417 barcode generator",
+  "volume": 1000,
+  "candidates": [
+   {
+    "kw": "pdf417 barcode generator",
+    "v": 1000
+   },
+   {
+    "kw": "pdf417 generator",
+    "v": 480
+   }
+  ]
+ },
+ "micropdf417": {
+  "name": "MicroPDF417",
+  "primary": "micropdf417 generator",
+  "volume": 10,
+  "candidates": [
+   {
+    "kw": "micropdf417 generator",
+    "v": 10
+   },
+   {
+    "kw": "micropdf417 barcode generator",
+    "v": 10
+   }
+  ]
+ },
+ "azteccode": {
+  "name": "Aztec",
+  "primary": "aztec barcode generator",
+  "volume": 590,
+  "candidates": [
+   {
+    "kw": "aztec barcode generator",
+    "v": 590
+   },
+   {
+    "kw": "aztec generator",
+    "v": 20
+   }
+  ]
+ },
+ "microqr": {
+  "name": "Micro QR",
+  "primary": "micro qr generator",
+  "volume": 390,
+  "candidates": [
+   {
+    "kw": "micro qr generator",
+    "v": 390
+   },
+   {
+    "kw": "micro qr barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "maxicode": {
+  "name": "MaxiCode",
+  "primary": "maxicode generator",
+  "volume": 20,
+  "candidates": [
+   {
+    "kw": "maxicode generator",
+    "v": 20
+   },
+   {
+    "kw": "maxicode barcode generator",
+    "v": 10
+   }
+  ]
+ },
+ "dotcode": {
+  "name": "DotCode",
+  "primary": "dotcode generator",
+  "volume": 320,
+  "candidates": [
+   {
+    "kw": "dotcode generator",
+    "v": 320
+   },
+   {
+    "kw": "dotcode barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "hanxin": {
+  "name": "Han Xin Code",
+  "primary": "han xin code generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "han xin code generator",
+    "v": 0
+   },
+   {
+    "kw": "han xin code barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "codablockf": {
+  "name": "Codablock-F",
+  "primary": "codablock-f generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "codablock-f generator",
+    "v": 0
+   },
+   {
+    "kw": "codablock-f barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "mailmark2d": {
+  "name": "Royal Mail Mailmark 2D",
+  "primary": "royal mail mailmark 2d generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "royal mail mailmark 2d generator",
+    "v": 0
+   },
+   {
+    "kw": "royal mail mailmark 2d barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "swissqrcode": {
+  "name": "Swiss QR Code",
+  "primary": "swiss qr code generator",
+  "volume": 10,
+  "candidates": [
+   {
+    "kw": "swiss qr code generator",
+    "v": 10
+   },
+   {
+    "kw": "swiss qr code barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "zatcaqrcode": {
+  "name": "ZATCA QR Code",
+  "primary": "zatca qr code generator",
+  "volume": 10,
+  "candidates": [
+   {
+    "kw": "zatca qr code generator",
+    "v": 10
+   },
+   {
+    "kw": "zatca qr code barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "epcqrcode": {
+  "name": "EPC QR Code",
+  "primary": "epc qr code generator",
+  "volume": 10,
+  "candidates": [
+   {
+    "kw": "epc qr code generator",
+    "v": 10
+   },
+   {
+    "kw": "epc qr code barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "mecard": {
+  "name": "MeCard",
+  "primary": "mecard generator",
+  "volume": 10,
+  "candidates": [
+   {
+    "kw": "mecard generator",
+    "v": 10
+   },
+   {
+    "kw": "mecard barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "ntin": {
+  "name": "NTIN Code",
+  "primary": "ntin code generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "ntin code generator",
+    "v": 0
+   },
+   {
+    "kw": "ntin code barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "ppn": {
+  "name": "PPN Code",
+  "primary": "ppn code generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "ppn code generator",
+    "v": 0
+   },
+   {
+    "kw": "ppn code barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "hibcqrcode": {
+  "name": "HIBC LIC QR Code",
+  "primary": "hibc lic qr code generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "hibc lic qr code generator",
+    "v": 0
+   },
+   {
+    "kw": "hibc lic qr code barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "hibcdatamatrix": {
+  "name": "HIBC LIC Data Matrix",
+  "primary": "hibc lic data matrix generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "hibc lic data matrix generator",
+    "v": 0
+   },
+   {
+    "kw": "hibc lic data matrix barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "hibcpdf417": {
+  "name": "HIBC LIC PDF417",
+  "primary": "hibc lic pdf417 generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "hibc lic pdf417 generator",
+    "v": 0
+   },
+   {
+    "kw": "hibc lic pdf417 barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "hibccodablockf": {
+  "name": "HIBC LIC Codablock-F",
+  "primary": "hibc lic codablock-f generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "hibc lic codablock-f generator",
+    "v": 0
+   },
+   {
+    "kw": "hibc lic codablock-f barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "hibcpasqrcode": {
+  "name": "HIBC PAS QR Code",
+  "primary": "hibc pas qr code generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "hibc pas qr code generator",
+    "v": 0
+   },
+   {
+    "kw": "hibc pas qr code barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "hibcpasdatamatrix": {
+  "name": "HIBC PAS Data Matrix",
+  "primary": "hibc pas data matrix generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "hibc pas data matrix generator",
+    "v": 0
+   },
+   {
+    "kw": "hibc pas data matrix barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "hibcpaspdf417": {
+  "name": "HIBC PAS PDF417",
+  "primary": "hibc pas pdf417 generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "hibc pas pdf417 generator",
+    "v": 0
+   },
+   {
+    "kw": "hibc pas pdf417 barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "CODE128": {
+  "name": "Code 128",
+  "primary": "code 128 barcode generator",
+  "volume": 1900,
+  "candidates": [
+   {
+    "kw": "code 128 barcode generator",
+    "v": 1900
+   },
+   {
+    "kw": "code 128 generator",
+    "v": 390
+   }
+  ]
+ },
+ "CODE128A": {
+  "name": "Code 128 A",
+  "primary": "code 128 a barcode generator",
+  "volume": 1900,
+  "candidates": [
+   {
+    "kw": "code 128 a barcode generator",
+    "v": 1900
+   },
+   {
+    "kw": "code 128 a generator",
+    "v": 0
+   }
+  ]
+ },
+ "CODE128B": {
+  "name": "Code 128 B",
+  "primary": "code 128 b barcode generator",
+  "volume": 1900,
+  "candidates": [
+   {
+    "kw": "code 128 b barcode generator",
+    "v": 1900
+   },
+   {
+    "kw": "code 128 b generator",
+    "v": 10
+   }
+  ]
+ },
+ "CODE128C": {
+  "name": "Code 128 C",
+  "primary": "code 128 c generator",
+  "volume": 10,
+  "candidates": [
+   {
+    "kw": "code 128 c generator",
+    "v": 10
+   },
+   {
+    "kw": "code 128 c barcode generator",
+    "v": 10
+   }
+  ]
+ },
+ "CODE39": {
+  "name": "Code 39",
+  "primary": "code 39 barcode generator",
+  "volume": 1000,
+  "candidates": [
+   {
+    "kw": "code 39 barcode generator",
+    "v": 1000
+   },
+   {
+    "kw": "code 39 generator",
+    "v": 90
+   }
+  ]
+ },
+ "code39ext": {
+  "name": "Code-39 Full ASCII",
+  "primary": "code-39 full ascii barcode generator",
+  "volume": 10,
+  "candidates": [
+   {
+    "kw": "code-39 full ascii barcode generator",
+    "v": 10
+   },
+   {
+    "kw": "code-39 full ascii generator",
+    "v": 0
+   }
+  ]
+ },
+ "code93": {
+  "name": "Code 93",
+  "primary": "code 93 generator",
+  "volume": 10,
+  "candidates": [
+   {
+    "kw": "code 93 generator",
+    "v": 10
+   },
+   {
+    "kw": "code 93 barcode generator",
+    "v": 10
+   }
+  ]
+ },
+ "code11": {
+  "name": "Code 11",
+  "primary": "code 11 generator",
+  "volume": 10,
+  "candidates": [
+   {
+    "kw": "code 11 generator",
+    "v": 10
+   },
+   {
+    "kw": "code 11 barcode generator",
+    "v": 10
+   }
+  ]
+ },
+ "code25": {
+  "name": "Standard 2 of 5",
+  "primary": "standard 2 of 5 generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "standard 2 of 5 generator",
+    "v": 0
+   },
+   {
+    "kw": "standard 2 of 5 barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "flattermarken": {
+  "name": "Flattermarken",
+  "primary": "flattermarken generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "flattermarken generator",
+    "v": 0
+   },
+   {
+    "kw": "flattermarken barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "ITF": {
+  "name": "Interleaved 2 of 5",
+  "primary": "interleaved 2 of 5 barcode generator",
+  "volume": 50,
+  "candidates": [
+   {
+    "kw": "interleaved 2 of 5 barcode generator",
+    "v": 50
+   },
+   {
+    "kw": "interleaved 2 of 5 generator",
+    "v": 10
+   }
+  ]
+ },
+ "ITF14": {
+  "name": "ITF-14",
+  "primary": "itf-14 barcode generator",
+  "volume": 390,
+  "candidates": [
+   {
+    "kw": "itf-14 barcode generator",
+    "v": 390
+   },
+   {
+    "kw": "itf-14 generator",
+    "v": 20
+   }
+  ]
+ },
+ "industrial2of5": {
+  "name": "Industrial 2 of 5",
+  "primary": "industrial 2 of 5 generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "industrial 2 of 5 generator",
+    "v": 0
+   },
+   {
+    "kw": "industrial 2 of 5 barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "iata2of5": {
+  "name": "IATA 2 of 5",
+  "primary": "iata 2 of 5 generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "iata 2 of 5 generator",
+    "v": 0
+   },
+   {
+    "kw": "iata 2 of 5 barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "matrix2of5": {
+  "name": "Matrix 2 of 5",
+  "primary": "matrix 2 of 5 generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "matrix 2 of 5 generator",
+    "v": 0
+   },
+   {
+    "kw": "matrix 2 of 5 barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "dpdlabel": {
+  "name": "DPD Barcode / DPD Parcel Label",
+  "primary": "dpd barcode dpd parcel label generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "dpd barcode dpd parcel label generator",
+    "v": 0
+   },
+   {
+    "kw": "dpd barcode dpd parcel label barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "upus10": {
+  "name": "UPU S10",
+  "primary": "upu s10 barcode generator",
+  "volume": 10,
+  "candidates": [
+   {
+    "kw": "upu s10 barcode generator",
+    "v": 10
+   },
+   {
+    "kw": "upu s10 generator",
+    "v": 0
+   }
+  ]
+ },
+ "MSI": {
+  "name": "MSI",
+  "primary": "msi generator",
+  "volume": 10,
+  "candidates": [
+   {
+    "kw": "msi generator",
+    "v": 10
+   },
+   {
+    "kw": "msi barcode generator",
+    "v": 10
+   }
+  ]
+ },
+ "MSI10": {
+  "name": "MSI Mod 10",
+  "primary": "msi mod 10 generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "msi mod 10 generator",
+    "v": 0
+   },
+   {
+    "kw": "msi mod 10 barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "MSI11": {
+  "name": "MSI Mod 11",
+  "primary": "msi mod 11 generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "msi mod 11 generator",
+    "v": 0
+   },
+   {
+    "kw": "msi mod 11 barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "code32": {
+  "name": "Code 32 (Italian)",
+  "primary": "code 32 italian generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "code 32 italian generator",
+    "v": 0
+   },
+   {
+    "kw": "code 32 italian barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "pharmacode": {
+  "name": "Pharmacode",
+  "primary": "pharmacode generator",
+  "volume": 30,
+  "candidates": [
+   {
+    "kw": "pharmacode generator",
+    "v": 30
+   },
+   {
+    "kw": "pharmacode barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "pharmacode2": {
+  "name": "Pharmacode 2-track",
+  "primary": "pharmacode 2-track generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "pharmacode 2-track generator",
+    "v": 0
+   },
+   {
+    "kw": "pharmacode 2-track barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "codabar": {
+  "name": "Codabar",
+  "primary": "codabar generator",
+  "volume": 40,
+  "candidates": [
+   {
+    "kw": "codabar generator",
+    "v": 40
+   },
+   {
+    "kw": "codabar barcode generator",
+    "v": 30
+   }
+  ]
+ },
+ "telepen": {
+  "name": "Telepen",
+  "primary": "telepen barcode generator",
+  "volume": 10,
+  "candidates": [
+   {
+    "kw": "telepen barcode generator",
+    "v": 10
+   },
+   {
+    "kw": "telepen generator",
+    "v": 0
+   }
+  ]
+ },
+ "channelcode": {
+  "name": "Channel Code",
+  "primary": "channel code generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "channel code generator",
+    "v": 0
+   },
+   {
+    "kw": "channel code barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "bc412": {
+  "name": "BC412",
+  "primary": "bc412 generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "bc412 generator",
+    "v": 0
+   },
+   {
+    "kw": "bc412 barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "pzn": {
+  "name": "PZN (Pharma)",
+  "primary": "pzn pharma generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "pzn pharma generator",
+    "v": 0
+   },
+   {
+    "kw": "pzn pharma barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "gs1-128": {
+  "name": "GS1-128",
+  "primary": "gs1-128 barcode generator",
+  "volume": 140,
+  "candidates": [
+   {
+    "kw": "gs1-128 barcode generator",
+    "v": 140
+   },
+   {
+    "kw": "gs1-128 generator",
+    "v": 30
+   }
+  ]
+ },
+ "gs1-128composite": {
+  "name": "GS1-128 Composite Symbology",
+  "primary": "gs1-128 composite symbology generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "gs1-128 composite symbology generator",
+    "v": 0
+   },
+   {
+    "kw": "gs1-128 composite symbology barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "hibccode39": {
+  "name": "HIBC LIC Code 39",
+  "primary": "hibc lic code 39 generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "hibc lic code 39 generator",
+    "v": 0
+   },
+   {
+    "kw": "hibc lic code 39 barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "hibccode128": {
+  "name": "HIBC LIC Code 128",
+  "primary": "hibc lic code 128 generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "hibc lic code 128 generator",
+    "v": 0
+   },
+   {
+    "kw": "hibc lic code 128 barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "hibcpascode39": {
+  "name": "HIBC PAS Code 39",
+  "primary": "hibc pas code 39 generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "hibc pas code 39 generator",
+    "v": 0
+   },
+   {
+    "kw": "hibc pas code 39 barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "hibcpascode128": {
+  "name": "HIBC PAS Code 128",
+  "primary": "hibc pas code 128 generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "hibc pas code 128 generator",
+    "v": 0
+   },
+   {
+    "kw": "hibc pas code 128 barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "databaromni": {
+  "name": "DataBar Omni",
+  "primary": "databar omni generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "databar omni generator",
+    "v": 0
+   },
+   {
+    "kw": "databar omni barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "databarstacked": {
+  "name": "DataBar Stacked",
+  "primary": "databar stacked generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "databar stacked generator",
+    "v": 0
+   },
+   {
+    "kw": "databar stacked barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "databarstackedomni": {
+  "name": "DataBar Stacked Omni",
+  "primary": "databar stacked omni generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "databar stacked omni generator",
+    "v": 0
+   },
+   {
+    "kw": "databar stacked omni barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "databartruncated": {
+  "name": "DataBar Truncated",
+  "primary": "databar truncated generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "databar truncated generator",
+    "v": 0
+   },
+   {
+    "kw": "databar truncated barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "databarlimited": {
+  "name": "DataBar Limited",
+  "primary": "databar limited generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "databar limited generator",
+    "v": 0
+   },
+   {
+    "kw": "databar limited barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "databarexpanded": {
+  "name": "DataBar Expanded",
+  "primary": "databar expanded generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "databar expanded generator",
+    "v": 0
+   },
+   {
+    "kw": "databar expanded barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "databarexpandedstacked": {
+  "name": "GS1 DataBar Expanded Stacked",
+  "primary": "gs1 databar expanded stacked generator",
+  "volume": 10,
+  "candidates": [
+   {
+    "kw": "gs1 databar expanded stacked generator",
+    "v": 10
+   },
+   {
+    "kw": "gs1 databar expanded stacked barcode generator",
+    "v": 10
+   }
+  ]
+ },
+ "databaromnicomposite": {
+  "name": "GS1 DataBar Composite",
+  "primary": "gs1 databar composite generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "gs1 databar composite generator",
+    "v": 0
+   },
+   {
+    "kw": "gs1 databar composite barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "databarstackedcomposite": {
+  "name": "GS1 DataBar Stacked Composite",
+  "primary": "gs1 databar stacked composite generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "gs1 databar stacked composite generator",
+    "v": 0
+   },
+   {
+    "kw": "gs1 databar stacked composite barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "databarstackedomnicomposite": {
+  "name": "GS1 DataBar Stacked Omni Composite",
+  "primary": "gs1 databar stacked omni composite generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "gs1 databar stacked omni composite generator",
+    "v": 0
+   },
+   {
+    "kw": "gs1 databar stacked omni composite barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "databarlimitedcomposite": {
+  "name": "GS1 DataBar Limited Composite",
+  "primary": "gs1 databar limited composite generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "gs1 databar limited composite generator",
+    "v": 0
+   },
+   {
+    "kw": "gs1 databar limited composite barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "databartruncatedcomposite": {
+  "name": "GS1 DataBar Truncated Composite",
+  "primary": "gs1 databar truncated composite generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "gs1 databar truncated composite generator",
+    "v": 0
+   },
+   {
+    "kw": "gs1 databar truncated composite barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "databarexpandedcomposite": {
+  "name": "GS1 DataBar Expanded Composite",
+  "primary": "gs1 databar expanded composite generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "gs1 databar expanded composite generator",
+    "v": 0
+   },
+   {
+    "kw": "gs1 databar expanded composite barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "databarexpandedstackedcomposite": {
+  "name": "GS1 DataBar Expanded Stacked Composite",
+  "primary": "gs1 databar expanded stacked composite generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "gs1 databar expanded stacked composite generator",
+    "v": 0
+   },
+   {
+    "kw": "gs1 databar expanded stacked composite barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "gs1-cc": {
+  "name": "GS1 Composite 2D Component",
+  "primary": "gs1 composite 2d component generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "gs1 composite 2d component generator",
+    "v": 0
+   },
+   {
+    "kw": "gs1 composite 2d component barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "postnet": {
+  "name": "USPS POSTNET",
+  "primary": "usps postnet barcode generator",
+  "volume": 10,
+  "candidates": [
+   {
+    "kw": "usps postnet barcode generator",
+    "v": 10
+   },
+   {
+    "kw": "usps postnet generator",
+    "v": 0
+   }
+  ]
+ },
+ "planet": {
+  "name": "USPS PLANET",
+  "primary": "usps planet generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "usps planet generator",
+    "v": 0
+   },
+   {
+    "kw": "usps planet barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "onecode": {
+  "name": "USPS Intelligent Mail",
+  "primary": "usps intelligent mail barcode generator",
+  "volume": 70,
+  "candidates": [
+   {
+    "kw": "usps intelligent mail barcode generator",
+    "v": 70
+   },
+   {
+    "kw": "usps intelligent mail generator",
+    "v": 0
+   }
+  ]
+ },
+ "uspsimpackage": {
+  "name": "USPS IM Package",
+  "primary": "usps im package generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "usps im package generator",
+    "v": 0
+   },
+   {
+    "kw": "usps im package barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "royalmail": {
+  "name": "Royal Mail 4-State",
+  "primary": "royal mail 4-state generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "royal mail 4-state generator",
+    "v": 0
+   },
+   {
+    "kw": "royal mail 4-state barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "mailmark4state": {
+  "name": "Royal Mail Mailmark 4-State",
+  "primary": "royal mail mailmark 4-state generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "royal mail mailmark 4-state generator",
+    "v": 0
+   },
+   {
+    "kw": "royal mail mailmark 4-state barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "daft": {
+  "name": "DAFT",
+  "primary": "daft generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "daft generator",
+    "v": 0
+   },
+   {
+    "kw": "daft barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "kix": {
+  "name": "Royal Dutch KIX",
+  "primary": "royal dutch kix generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "royal dutch kix generator",
+    "v": 0
+   },
+   {
+    "kw": "royal dutch kix barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "auspost": {
+  "name": "Australia Post",
+  "primary": "australia post barcode generator",
+  "volume": 10,
+  "candidates": [
+   {
+    "kw": "australia post barcode generator",
+    "v": 10
+   },
+   {
+    "kw": "australia post generator",
+    "v": 0
+   }
+  ]
+ },
+ "japanpost": {
+  "name": "Japan Post",
+  "primary": "japan post generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "japan post generator",
+    "v": 0
+   },
+   {
+    "kw": "japan post barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "koreapost": {
+  "name": "Korean Postal Authority Code",
+  "primary": "korean postal authority code generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "korean postal authority code generator",
+    "v": 0
+   },
+   {
+    "kw": "korean postal authority code barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "identcode": {
+  "name": "Deutsche Post Identcode",
+  "primary": "deutsche post identcode generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "deutsche post identcode generator",
+    "v": 0
+   },
+   {
+    "kw": "deutsche post identcode barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "leitcode": {
+  "name": "Deutsche Post Leitcode",
+  "primary": "deutsche post leitcode generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "deutsche post leitcode generator",
+    "v": 0
+   },
+   {
+    "kw": "deutsche post leitcode barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "EAN13": {
+  "name": "EAN-13",
+  "primary": "ean-13 generator",
+  "volume": 110,
+  "candidates": [
+   {
+    "kw": "ean-13 generator",
+    "v": 110
+   },
+   {
+    "kw": "ean-13 barcode generator",
+    "v": 110
+   }
+  ]
+ },
+ "EAN8": {
+  "name": "EAN-8",
+  "primary": "ean-8 barcode generator",
+  "volume": 20,
+  "candidates": [
+   {
+    "kw": "ean-8 barcode generator",
+    "v": 20
+   },
+   {
+    "kw": "ean-8 generator",
+    "v": 10
+   }
+  ]
+ },
+ "EAN5": {
+  "name": "EAN-5 add-on",
+  "primary": "ean-5 add-on generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "ean-5 add-on generator",
+    "v": 0
+   },
+   {
+    "kw": "ean-5 add-on barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "EAN2": {
+  "name": "EAN-2 add-on",
+  "primary": "ean-2 add-on generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "ean-2 add-on generator",
+    "v": 0
+   },
+   {
+    "kw": "ean-2 add-on barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "UPC": {
+  "name": "UPC-A",
+  "primary": "upc-a generator",
+  "volume": 40500,
+  "candidates": [
+   {
+    "kw": "upc-a generator",
+    "v": 40500
+   },
+   {
+    "kw": "upc-a barcode generator",
+    "v": 1300
+   }
+  ]
+ },
+ "UPCE": {
+  "name": "UPC-E",
+  "primary": "upc-e barcode generator",
+  "volume": 30,
+  "candidates": [
+   {
+    "kw": "upc-e barcode generator",
+    "v": 30
+   },
+   {
+    "kw": "upc-e generator",
+    "v": 10
+   }
+  ]
+ },
+ "ean14": {
+  "name": "EAN-14",
+  "primary": "ean-14 barcode generator",
+  "volume": 20,
+  "candidates": [
+   {
+    "kw": "ean-14 barcode generator",
+    "v": 20
+   },
+   {
+    "kw": "ean-14 generator",
+    "v": 10
+   }
+  ]
+ },
+ "ean8composite": {
+  "name": "EAN-8 Composite",
+  "primary": "ean-8 composite generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "ean-8 composite generator",
+    "v": 0
+   },
+   {
+    "kw": "ean-8 composite barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "ean13composite": {
+  "name": "EAN-13 Composite",
+  "primary": "ean-13 composite generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "ean-13 composite generator",
+    "v": 0
+   },
+   {
+    "kw": "ean-13 composite barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "upcacomposite": {
+  "name": "UPC-A Composite",
+  "primary": "upc-a composite generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "upc-a composite generator",
+    "v": 0
+   },
+   {
+    "kw": "upc-a composite barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "upcecomposite": {
+  "name": "UPC-E Composite",
+  "primary": "upc-e composite generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "upc-e composite generator",
+    "v": 0
+   },
+   {
+    "kw": "upc-e composite barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "isbn": {
+  "name": "ISBN",
+  "primary": "isbn barcode generator",
+  "volume": 720,
+  "candidates": [
+   {
+    "kw": "isbn barcode generator",
+    "v": 720
+   },
+   {
+    "kw": "isbn generator",
+    "v": 390
+   }
+  ]
+ },
+ "isbn13addon5": {
+  "name": "ISBN-13 + 5 add-on",
+  "primary": "isbn-13 5 add-on generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "isbn-13 5 add-on generator",
+    "v": 0
+   },
+   {
+    "kw": "isbn-13 5 add-on barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "issn": {
+  "name": "ISSN",
+  "primary": "issn barcode generator",
+  "volume": 390,
+  "candidates": [
+   {
+    "kw": "issn barcode generator",
+    "v": 390
+   },
+   {
+    "kw": "issn generator",
+    "v": 10
+   }
+  ]
+ },
+ "issnaddon2": {
+  "name": "ISSN + 2 add-on",
+  "primary": "issn 2 add-on generator",
+  "volume": 0,
+  "candidates": [
+   {
+    "kw": "issn 2 add-on generator",
+    "v": 0
+   },
+   {
+    "kw": "issn 2 add-on barcode generator",
+    "v": 0
+   }
+  ]
+ },
+ "ismn": {
+  "name": "ISMN",
+  "primary": "ismn barcode generator",
+  "volume": 10,
+  "candidates": [
+   {
+    "kw": "ismn barcode generator",
+    "v": 10
+   },
+   {
+    "kw": "ismn generator",
+    "v": 0
+   }
+  ]
+ }
+}

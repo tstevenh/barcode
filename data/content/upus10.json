@@ -1,0 +1,57 @@
+{
+  "id": "upus10",
+  "title": "UPU S10 Barcode Generator - Postal Tracking | Barcode Studio",
+  "metaDescription": "Generate a UPU S10 postal tracking barcode free in your browser. Encode the 13-character S10 identifier in Code 128 and export PNG, SVG, or PDF instantly.",
+  "primaryKeyword": "upu s10 barcode generator",
+  "secondaryKeywords": ["upu s10 format", "international mail tracking barcode", "ems tracking number barcode", "s10 postal identifier", "universal postal union barcode"],
+  "lead": "Encode a UPU S10 international mail tracking number as a scannable barcode for postal and EMS shipments.",
+  "sections": [
+    {
+      "h2": "What is UPU S10?",
+      "html": "<p>UPU S10 is a standardized 13-character identifier format defined by the Universal Postal Union, the United Nations agency that coordinates postal policy between member countries, for tracking mail items as they move through international postal networks. If you've ever tracked an international parcel or EMS (Express Mail Service) shipment and seen a code like <code>RR123456785US</code>, that's an S10 identifier &mdash; it's the international equivalent of a domestic courier tracking number, designed so that any postal operator in the 190-plus UPU member countries can recognize and route the item using the same format.</p>"
+    },
+    {
+      "h2": "How the S10 format is structured",
+      "html": "<p>An S10 identifier is exactly 13 characters, made up of three parts: two uppercase letters identifying the service category (for example, item type or product), followed by eight digits &mdash; the first seven form the serial number and the eighth is a check digit calculated with a weighted modulo-10 algorithm defined in the UPU standard &mdash; and finally two uppercase letters representing the ISO country code of the postal operator that issued the number. So in <code>RR123456785US</code>, \"RR\" identifies the service, \"1234567\" is the serial, \"5\" is the check digit, and \"US\" identifies the originating postal administration.</p><p>The check digit exists specifically so that scanning or data-entry errors get caught immediately rather than propagating through the international postal chain, where a single misrouted digit could send a parcel to the wrong country. The identifier itself doesn't encode routing information directly &mdash; postal systems look it up in tracking databases &mdash; but its structure ensures every operator in the chain can validate that a scanned number is well-formed before acting on it.</p>"
+    },
+    {
+      "h2": "Technical Specifications",
+      "html": "<p>The S10 identifier is a fixed 13-character string: 2 uppercase service-category letters, 7 serial digits, 1 check digit (weighted modulo-10), and 2 uppercase ISO country-code letters &mdash; always exactly 13 characters, never more or fewer. The format is formally standardized by the Universal Postal Union under the S10 standard, which every UPU member postal administration agrees to follow for internationally tracked mail. The identifier is rendered as a Code 128 barcode, which means it also inherits Code 128's own mandatory checksum and quiet-zone requirements on top of the S10 check digit itself.</p>"
+    },
+    {
+      "h2": "Which barcode symbology carries the S10 code",
+      "html": "<p>The S10 identifier is printed as a Code 128 barcode on postal labels and customs documents, since Code 128 handles the mixed letters-and-digits character set efficiently and is widely supported by the barcode scanners postal operators already use for other logistics work. Encoding S10 in Code 128 also means the barcode benefits from Code 128's own error-detection features on top of the S10 check digit itself, giving postal tracking two independent layers of protection against misreads.</p>"
+    },
+    {
+      "h2": "Where UPU S10 is used",
+      "html": "<p>You'll see S10 identifiers on international registered mail, EMS express parcels, small packet items with tracking, and customs declaration forms (like CN 22/CN 23) that accompany cross-border shipments. National postal services &mdash; USPS, Royal Mail, Deutsche Post, La Poste, and others &mdash; all issue and recognize S10 numbers for items entering the international network, and it's the number you enter on the UPU's own international tracking tool as well as on most national postal tracking websites when the item originated or is transiting abroad.</p>"
+    },
+    {
+      "h2": "How to create a UPU S10 barcode in Barcode Studio",
+      "html": "<p>Select <strong>UPU S10</strong> from the symbology list on the left, which renders your input as Code 128. Enter the full 13-character identifier (two letters, eight digits including the check digit, two letters), then:</p><ul><li>Adjust bar width, height, and quiet zone to fit your label size</li><li>Toggle human-readable text below the bars so postal staff can read the code if a scan fails</li><li>Export as PNG, SVG, or PDF, or copy the image directly into a customs form or label template</li><li>Use the batch or sequence tools to generate barcodes for a range of tracking numbers at once</li><li>Upload a CSV of S10 identifiers for bulk generation as a ZIP of image files or a print-ready PDF of labels</li><li>Call the REST API &mdash; <code>/barcode?type=upus10&amp;data=RR123456785US</code> &mdash; to generate labels programmatically from your own shipping or fulfillment software</li></ul>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>International mail labels pass through many hands and scanning systems across different countries, so consistency matters more than usual. Print the S10 barcode at a size and resolution that keeps Code 128's narrow bars clearly distinguishable &mdash; smearing or under-resolution is a common cause of failed reads at customs checkpoints. Always print the human-readable 13-character string beneath the bars so any postal worker, in any country, can key it in manually if a scan fails. Keep the quiet zone clear, and verify your label layout doesn't overlap the barcode with customs stamps, tape, or other markings that get applied later in the shipping process.</p>"
+    },
+    {
+      "h2": "UPU S10 vs. domestic tracking barcodes",
+      "html": "<p>UPU S10 is specifically the internationally standardized format recognized across all UPU member postal administrations, which is what lets a package handed to USPS be tracked seamlessly once it's handed off to Deutsche Post or Royal Mail abroad. Domestic-only tracking numbers &mdash; like a purely internal USPS or courier tracking code that never leaves national systems &mdash; don't need to follow the S10 format and often use a different length or structure entirely. If a shipment might cross an international border, S10 is the format postal systems expect; for purely domestic parcels, follow whatever format your carrier already uses.</p>"
+    }
+  ],
+  "uses": [
+    "International registered mail and small packet tracking labels",
+    "EMS (Express Mail Service) parcel labels",
+    "Customs declaration forms accompanying cross-border shipments",
+    "Postal operator sortation and handover manifests",
+    "Reprinting a lost or damaged international mail label from a known tracking number"
+  ],
+  "faq": [
+    {"q": "What does a UPU S10 barcode encode?", "a": "It encodes a 13-character identifier: two service-type letters, an 8-digit serial number with a built-in check digit, and a 2-letter country code identifying the originating postal operator."},
+    {"q": "What barcode symbology is used for UPU S10?", "a": "The S10 identifier is printed as a Code 128 barcode, which handles the mixed letters-and-digits format efficiently and is widely supported by postal scanning equipment."},
+    {"q": "How is the S10 check digit calculated?", "a": "It uses a weighted modulo-10 calculation defined in the UPU standard, applied to the seven-digit serial number, so postal systems can detect a mistyped or misscanned digit before the item is misrouted."},
+    {"q": "Can I create an S10 number myself, or do I need one issued by a postal operator?", "a": "You need a valid identifier issued by a postal operator or your shipping platform's international mail integration &mdash; you can't invent a working one, since it must correspond to a real tracked item in the postal network."},
+    {"q": "Is UPU S10 the same as a domestic tracking number?", "a": "No, S10 is specifically the international standard format recognized across UPU member countries, while individual postal operators may use different formats for purely domestic mail that never crosses a border."},
+    {"q": "Can I bulk-generate UPU S10 barcodes?", "a": "Yes, upload a CSV of S10 identifiers and Barcode Studio will generate a ZIP of image files or a print-ready PDF of labels in one batch."}
+  ]
+}

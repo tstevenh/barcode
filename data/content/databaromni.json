@@ -1,0 +1,54 @@
+{
+  "id": "databaromni",
+  "title": "DataBar Omni Generator - Free GS1 Barcode | Barcode Studio",
+  "metaDescription": "Free DataBar Omni generator for GS1 GTIN-14 barcodes on small items. Enter (01)+GTIN, adjust size and colors, then export PNG, SVG, or bulk labels.",
+  "primaryKeyword": "databar omni generator",
+  "secondaryKeywords": ["gs1 databar omnidirectional", "databar barcode for produce", "reduced space symbology", "rss-14 barcode", "gtin-14 barcode generator", "databar omni vs upc"],
+  "lead": "Build a GS1 DataBar Omnidirectional barcode that fits on tiny packaging while still scanning like a full-size UPC at checkout.",
+  "sections": [
+    {
+      "h2": "What is DataBar Omnidirectional?",
+      "html": "<p>GS1 DataBar Omnidirectional (often just called DataBar Omni, and formerly known as RSS-14) is a linear barcode built to carry a full GTIN on packages too small for a standard UPC or EAN symbol. It's roughly a third the width of a UPC-A while still encoding a complete 14-digit Global Trade Item Number through GS1 Application Identifier (01), which is why you'll see it as <code>(01)09521234543213</code> in GS1 documentation and in Barcode Studio's data field.</p><p>The \"omnidirectional\" part matters: unlike some of its DataBar siblings, this symbol was engineered from the start to be swept through a laser or camera-based point-of-sale scanner from any angle, just like the UPC symbols cashiers scan thousands of times a day.</p>"
+    },
+    {
+      "h2": "Structure and what it encodes",
+      "html": "<p>DataBar Omni is a single continuous row of bars and spaces, not stacked into multiple rows, which is what gives it its distinctive narrow, elongated shape. Internally it splits the GTIN into two halves, each encoded with its own check character logic, then joins them with a central guard pattern that a scanner uses to confirm orientation regardless of which direction the label passes under the beam.</p><p>Unlike DataBar Expanded, DataBar Omni carries only the GTIN &mdash; there's no room in the symbol structure for supplementary Application Identifiers like batch numbers or expiration dates. If you need to attach that kind of variable data to a DataBar Omni symbol, you'd add a 2D composite component on top, which is a separate symbology (DataBar Composite) built specifically for that purpose. On its own, DataBar Omni is a pure, fixed-length GTIN carrier.</p>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>DataBar Omni encodes GS1 Application Identifier (01), a 14-digit GTIN, and nothing else &mdash; the symbol structure has no capacity for additional AIs. The full symbol, including guard patterns and check digits, is fixed in height-to-width ratio and is standardized under ISO/IEC 24724 as part of the GS1 DataBar family. It requires a symbol height tall enough for omnidirectional laser sweep scanning (GS1 specifies a minimum height around 33% of the symbol's width for reliable omnidirectional reads) and a quiet zone on each side per GS1 General Specifications. Because it's GTIN-only, any additional data such as batch, lot, or expiration date requires either DataBar Expanded or a DataBar Composite symbol layered with a 2D component.</p>"
+    },
+    {
+      "h2": "Where DataBar Omni is used",
+      "html": "<p>Retailers adopted DataBar Omni for exactly the items where a UPC-A physically doesn't fit: loose produce stickers, small jewelry tags, cosmetics samples, spice jars, hardware like screws and fasteners sold individually, and health and beauty items with limited label real estate. Grocery chains use it heavily on produce, since a UPC-A barcode is often wider than the sticker a piece of fruit can carry.</p><p>Because major retail scanner networks in the US and elsewhere have supported DataBar at point-of-sale checkout since 2010, a well-formed DataBar Omni symbol scans through the same lanes as a UPC without requiring special equipment, provided the underlying POS software recognizes the symbology.</p>"
+    },
+    {
+      "h2": "How to create a DataBar Omni barcode in Barcode Studio",
+      "html": "<p>Select <strong>DataBar Omni</strong> from the GS1 DataBar section of the symbology list, then enter your GTIN using GS1 Application Identifier syntax &mdash; for example <code>(01)09521234543213</code>. Barcode Studio validates the check digit and parses the AI automatically.</p><ul><li>Adjust the module width and overall scale to fit your label size</li><li>Set foreground and background colors, keeping strong contrast for reliable scanning</li><li>Control the quiet zone margin so the symbol reads correctly next to other print</li><li>Export as PNG or SVG, or copy the barcode directly into a label design</li><li>Upload a CSV of GTINs for bulk generation as a ZIP of images or a print-ready PDF sheet of labels</li><li>Automate generation with the REST API: <code>/barcode?type=databaromni&amp;data=(01)09521234543213</code></li></ul>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Keep the quiet zone at the width Barcode Studio's default margin provides on both sides of the symbol &mdash; DataBar's narrower bars are more sensitive to a cramped quiet zone than a UPC's wider elements. Print at high enough resolution that the narrowest bar width doesn't blur or bleed, since DataBar Omni packs more data into less horizontal space than UPC-A. Verify your GTIN is correctly registered under your organization's GS1 Company Prefix before putting a DataBar Omni symbol into commercial circulation, since duplicate or unregistered GTINs will cause downstream scanning and inventory conflicts even if the barcode itself scans cleanly.</p>"
+    },
+    {
+      "h2": "Choosing DataBar Omni among its family members",
+      "html": "<p>DataBar Omni is the right starting point whenever an item is too small for a UPC-A but the label still has reasonable width to spare and needs to move through a standard retail sweep-scan lane. If width is genuinely the constraint &mdash; a tall, narrow label rather than a short, wide one &mdash; DataBar Stacked Omni delivers the same omnidirectional POS reliability in a taller, narrower footprint. If you additionally need to carry a batch number, expiration date, or other supplementary Application Identifier alongside the GTIN, plain DataBar Omni can't do that on its own; you'd need DataBar Expanded (which carries multiple AIs natively in a wider single-row symbol) or a DataBar Composite symbol (which adds a 2D component on top of the linear DataBar Omni symbol specifically to carry that extra data).</p><p>For most small retail items that just need a scannable GTIN and nothing more, DataBar Omni remains the simplest and most broadly compatible choice within the family, which is why it's the default many retailers reach for first before considering the more specialized variants.</p>"
+    }
+  ],
+  "uses": [
+    "Loose produce and fresh food stickers too small for a UPC-A",
+    "Jewelry and small accessory tags",
+    "Cosmetics samples and travel-size health and beauty items",
+    "Individually sold hardware like screws, fasteners, and small parts",
+    "Spice jars and other compact grocery packaging",
+    "Any small retail item needing a full GTIN-14 at point-of-sale"
+  ],
+  "faq": [
+    {"q": "What does a DataBar Omni generator actually encode?", "a": "A DataBar Omni generator encodes a single GTIN (Global Trade Item Number) using GS1 Application Identifier (01), producing a linear barcode narrow enough for small packaging while remaining scannable from any direction at checkout."},
+    {"q": "Can DataBar Omni carry a batch number or expiration date?", "a": "No, DataBar Omni by itself only carries a GTIN. If you need to add batch, lot, or date information, use DataBar Composite, which adds a 2D component on top of the linear DataBar Omni symbol, or use DataBar Expanded instead."},
+    {"q": "Is DataBar Omni the same as RSS-14?", "a": "Yes, RSS-14 (Reduced Space Symbology) was the original name for DataBar Omnidirectional before GS1 renamed the family to GS1 DataBar."},
+    {"q": "Will a regular retail scanner read DataBar Omni?", "a": "<p>Most modern retail point-of-sale scanners in the US and other major markets have supported DataBar Omni since 2010, but check with your specific retailer or POS provider to confirm their scanning software recognizes the symbology before printing at scale.</p>"},
+    {"q": "Can I bulk-generate DataBar Omni barcodes for many products?", "a": "Yes, upload a CSV of GTINs to Barcode Studio and it will generate a ZIP of image files or a print-ready PDF of labels in one batch."},
+    {"q": "What's the difference between DataBar Omni and DataBar Stacked?", "a": "DataBar Omni is a single wide row optimized for omnidirectional sweep scanning at retail checkout, while DataBar Stacked splits the same GTIN-only data into two shorter rows for narrow, tall labels where a wide single-row symbol won't fit."}
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "id": "CODE39",
+  "title": "Code 39 Barcode Generator | Barcode Studio",
+  "metaDescription": "Create Code 39 barcodes free with our code 39 barcode generator. Uppercase letters, digits, and symbols supported. Live preview, PNG/SVG/PDF export, and API.",
+  "primaryKeyword": "code 39 barcode generator",
+  "secondaryKeywords": ["code 39 barcode", "generate code 39 online", "code 39 asterisk", "code 39 vs code 128", "code 39 check digit", "military barcode standard"],
+  "lead": "Code 39 is the barcode that started self-checking alphanumeric encoding, and it's still trusted today for its simplicity and near-universal scanner support.",
+  "sections": [
+    {
+      "h2": "What Is a Code 39 Barcode?",
+      "html": "<p>Code 39 is one of the oldest and most widely supported linear barcode symbologies, first introduced in 1974. It encodes uppercase letters A–Z, digits 0–9, and a limited set of symbols: hyphen, period, dollar sign, forward slash, plus sign, percent sign, and space. Every valid Code 39 barcode is bounded by an asterisk (*) start/stop character, which is why you'll sometimes see it referred to informally as a symbology with visible \"bookend\" markers when the human-readable text is shown beneath the bars.</p><p>Code 39 remains popular decades after newer, denser symbologies emerged because it's simple, robust, and supported by essentially every barcode scanner ever made — including older laser scanners with no configuration required. Its lower density compared to Code 128 means longer barcodes for the same data, but for short identifiers that tradeoff rarely matters.</p>"
+    },
+    {
+      "h2": "How Code 39 Encodes Data",
+      "html": "<p>Each Code 39 character is represented by 9 elements — 5 bars and 4 spaces — of which exactly 3 are wide and 6 are narrow, giving the symbology its \"3 of 9\" name (Code 39 is a contraction of that). This fixed wide/narrow ratio design makes it self-checking: a scanner can validate the internal structure of each character independently, which is part of why Code 39 has a reputation for reliability even on lower-quality prints, without requiring a mandatory check digit.</p><p>A check digit (modulo 43) is available as an option but isn't required by the base standard, unlike Code 128 where it's mandatory. Because the character set tops out at 43 symbols (26 letters, 10 digits, 7 symbols, plus the start/stop asterisk), Code 39 can't represent lowercase letters or extended ASCII directly — for that, see Code 39 Full ASCII, which layers a two-character encoding scheme on top of standard Code 39 to reach the full character range.</p>"
+    },
+    {
+      "h2": "Where Code 39 Is Used",
+      "html": "<p>Code 39's long track record and broad hardware compatibility keep it in active use across several industries:</p><ul><li><strong>Automotive industry</strong> — part and inventory labeling under long-standing AIAG standards.</li><li><strong>Defense and government</strong> — Code 39 was mandated by the U.S. Department of Defense (LOGMARS standard) for military supply labeling and remains common in that space.</li><li><strong>Healthcare</strong> — hospital ID badges and non-patient-facing supply tracking, though newer systems increasingly favor Code 128 or GS1 DataMatrix for patient safety data.</li><li><strong>Retail inventory and asset tags</strong> — internal, non-POS labeling where simplicity outweighs the need for lowercase or dense numeric encoding.</li><li><strong>Document and file tracking</strong> — badge and folder labels in office and archival systems.</li></ul>"
+    },
+    {
+      "h2": "Code 39 Technical Specifications",
+      "html": "<p>Code 39 is standardized as ISO/IEC 16388. Its character set covers 43 symbols: A–Z, 0–9, and seven special characters (space - . $ / + %), plus the asterisk used exclusively as the start/stop delimiter. Each character is built from 9 elements — 5 bars and 4 spaces — of which exactly 3 are wide, giving each character a fixed 3-of-9 ratio regardless of which character it represents. There's no fixed maximum length; Code 39 barcodes grow linearly with data length and can become quite long relative to denser symbologies. A modulo-43 check digit is available but optional in the base standard, unlike Code 128's mandatory checksum.</p>"
+    },
+    {
+      "h2": "How to Create a Code 39 Barcode in Barcode Studio",
+      "html": "<p>Select <strong>Code 39</strong> from Barcode Studio's symbology list. Enter your data using uppercase letters, digits, and the supported symbols (- . $ / + % and space) — lowercase letters aren't valid in standard Code 39, so if your source data includes them, either convert to uppercase or switch to Code 39 Full ASCII. The live preview updates as you type, showing the asterisk start/stop characters automatically. Then:</p><ul><li>Adjust <strong>bar width</strong> — Code 39's lower density means longer barcodes than Code 128 for the same character count, so leave enough label width.</li><li>Set <strong>height</strong> and enable <strong>human-readable text</strong> if operators need to visually verify the code, including the asterisks if your workflow expects them.</li><li>Customize <strong>colors</strong> for your label design while keeping strong bar/background contrast.</li><li>Confirm the <strong>quiet zone</strong> margin is adequate — Code 39's wide/narrow bar ratios need clear space to scan correctly.</li><li>Export as <strong>PNG, SVG, or PDF</strong>, or <strong>Copy</strong> directly into another application.</li></ul><p>For numbered part or asset series, use the <strong>batch/sequence</strong> generator. For labeling an entire inventory list, the <strong>bulk CSV → ZIP/PDF</strong> tool converts a spreadsheet into a complete set of barcode files or a printable PDF sheet. To integrate Code 39 generation into your own systems, call the <strong>REST API</strong> with <code>/barcode?type=code39&data=YOURDATA</code>.</p>"
+    },
+    {
+      "h2": "Print and Scan Best Practices",
+      "html": "<p>Code 39's forgiving design still benefits from careful printing:</p><ul><li>Because Code 39 is lower-density than Code 128, don't over-compress it to save space — that erodes the wide/narrow bar ratio the self-checking design depends on.</li><li>Maintain a quiet zone of at least 10x the width of the narrowest bar on both sides of the barcode.</li><li>If precision matters (e.g., regulated industries), enable the optional modulo-43 check digit for an extra layer of error detection, even though it isn't required by the base standard.</li><li>Remember Code 39 only supports uppercase — verify your data doesn't silently contain lowercase characters that will be rejected or misencoded.</li><li>Older laser scanners handle Code 39 exceptionally well, but if you're deploying new camera-based imagers, test both to confirm consistent read rates before a full rollout.</li></ul>"
+    },
+    {
+      "h2": "Code 39 vs. Related Codes",
+      "html": "<p>Against <strong>Code 39 Full ASCII</strong>, standard Code 39 is limited to uppercase and a handful of symbols, while Full ASCII layers a two-character shift scheme on top to reach lowercase and the full ASCII range — at the cost of roughly doubling barcode length for those extra characters. Against <strong>Code 93</strong>, Code 39's successor, Code 93 covers the same core character range in a noticeably shorter barcode with mandatory dual check digits, but isn't quite as universally supported by older scanners. Against <strong>Code 128</strong>, Code 39 is far less dense and lacks lowercase support, but its simplicity and decades-long hardware compatibility keep it entrenched in automotive and defense standards that predate Code 128's adoption.</p>"
+    }
+  ],
+  "uses": [
+    "Automotive parts and inventory labeling (AIAG standards)",
+    "Military and government supply labeling (LOGMARS)",
+    "Hospital ID badges and non-patient supply tracking",
+    "Internal retail inventory and asset tags",
+    "Document, folder, and archival tracking labels"
+  ],
+  "faq": [
+    {"q": "What characters can a code 39 barcode generator encode?", "a": "A code 39 barcode generator encodes uppercase letters A–Z, digits 0–9, and the symbols hyphen, period, dollar sign, slash, plus sign, percent sign, and space — 43 characters total plus the asterisk start/stop marker."},
+    {"q": "Does Code 39 require a check digit?", "a": "<p>No, the base Code 39 standard doesn't require one because the symbology is self-checking by design. An optional modulo-43 check digit is available for extra error detection in regulated or high-reliability applications.</p>"},
+    {"q": "Can Code 39 encode lowercase letters?", "a": "No, standard Code 39 only supports uppercase. Use Code 39 Full ASCII if you need lowercase letters or extended characters."},
+    {"q": "Why is Code 39 still used if Code 128 is denser?", "a": "<p>Code 39 remains popular for its simplicity, self-checking reliability, and near-universal hardware support, especially in industries like automotive and defense with long-standing standards built around it.</p>"},
+    {"q": "Can I generate Code 39 barcodes in bulk?", "a": "<p>Yes, Barcode Studio's bulk CSV → ZIP/PDF tool generates a full batch of Code 39 barcodes from a spreadsheet in one step.</p>"}
+  ]
+}

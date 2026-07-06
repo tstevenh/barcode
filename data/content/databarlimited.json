@@ -1,0 +1,54 @@
+{
+  "id": "databarlimited",
+  "title": "DataBar Limited Generator - Free GS1 GTIN Barcode",
+  "metaDescription": "Free DataBar Limited generator for small items with a 0 or 1 indicator digit GTIN. Enter (01)+GTIN, adjust size, and export PNG, SVG, or bulk labels.",
+  "primaryKeyword": "databar limited generator",
+  "secondaryKeywords": ["gs1 databar limited", "indicator digit 0 or 1 barcode", "small non-retail gtin barcode", "databar for image scanners", "narrow gtin barcode", "healthcare item barcode generator"],
+  "lead": "Generate a compact GS1 DataBar Limited barcode for very small items whose GTIN starts with indicator digit 0 or 1.",
+  "sections": [
+    {
+      "h2": "What is DataBar Limited?",
+      "html": "<p>DataBar Limited is a narrow linear GS1 barcode designed for items too small even for the already-compact DataBar Omni symbol. It encodes a GTIN through Application Identifier (01), but with one hard restriction the other DataBar variants don't share: the GTIN's leading indicator digit must be either 0 or 1. That single-digit constraint is baked into how the symbol was defined, and it's the first thing to check before you commit a product's GTIN to a DataBar Limited label.</p>"
+    },
+    {
+      "h2": "Why the indicator digit restriction exists",
+      "html": "<p>GS1 reserved DataBar Limited for a specific slice of the GTIN numbering scheme &mdash; items identified with an indicator digit of 0 or 1 &mdash; rather than allowing the full range of GTIN indicator digits that DataBar Omni or Expanded can carry. In practice this means DataBar Limited is meant for smaller, typically non-orderable retail units rather than general-purpose cases or variable configurations, and if you try to encode a GTIN starting with any other digit, it isn't a valid DataBar Limited symbol.</p><p>The other half of the tradeoff is scanning equipment: GS1 does not recommend DataBar Limited for point-of-sale scanning with omnidirectional laser scanners, since some legacy laser-based checkout scanners can't decode it reliably. It's built instead for image-based (camera) scanners, which handle it without issue. That makes DataBar Limited a better fit for controlled environments &mdash; a pharmacy back-office scanner or a warehouse imager &mdash; than for a supermarket checkout lane still running older laser hardware.</p>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>DataBar Limited encodes GS1 Application Identifier (01) with a 14-digit GTIN restricted to a leading indicator digit of 0 or 1, standardized under ISO/IEC 24724 with GS1 General Specifications defining the exact narrow-width module structure. It is deliberately narrower than DataBar Omni &mdash; roughly the width needed for the smallest packaging GS1 anticipated &mdash; at the cost of both the indicator-digit restriction and GS1's guidance against relying on legacy omnidirectional laser scanners for it. Quiet zone requirements follow standard GS1 DataBar rules, and like the other GTIN-only variants, there's no room for supplementary Application Identifiers in the base linear symbol.</p>"
+    },
+    {
+      "h2": "Where DataBar Limited is used",
+      "html": "<p>DataBar Limited turns up on small healthcare items, private-label cosmetics, and other compact retail units where the indicator-digit-0-or-1 numbering already applies and the barcode needs to be as narrow as possible. It's common in pharmacy and health-and-beauty supply chains that have standardized on modern image-based scanners, since that removes the main compatibility concern GS1 flags for this symbology.</p>"
+    },
+    {
+      "h2": "How to create a DataBar Limited barcode in Barcode Studio",
+      "html": "<p>Select <strong>DataBar Limited</strong> from the GS1 DataBar section of the symbology list, then enter your GTIN with AI syntax, making sure the digit right after <code>(01)</code> is 0 or 1 &mdash; for example <code>(01)0952123454321X</code>. Barcode Studio checks the indicator digit and check digit and will flag an invalid GTIN before rendering.</p><ul><li>Adjust module width to fit the narrow footprint DataBar Limited is built for</li><li>Set foreground/background colors while keeping enough contrast for image-based scanners</li><li>Fine-tune the quiet zone margin around the symbol</li><li>Export as PNG or SVG, or copy the code into your label design</li><li>Bulk-generate from a CSV of qualifying GTINs into a ZIP or print-ready PDF</li><li>Automate with the REST API: <code>/barcode?type=databarlimited&amp;data=(01)0952123454321X</code></li></ul>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Confirm your GTIN's indicator digit is 0 or 1 before finalizing artwork &mdash; this is the single most common reason a DataBar Limited symbol gets rejected downstream. Verify that wherever the label will be scanned uses image-based (camera) scanning rather than older laser point-of-sale hardware, since that's the scanning environment GS1 designed this symbology around. Keep print resolution high enough to render DataBar Limited's narrow module widths cleanly, and preserve the full quiet zone Barcode Studio generates by default.</p>"
+    },
+    {
+      "h2": "DataBar Limited versus DataBar Omni and Expanded",
+      "html": "<p>It helps to think of DataBar Limited as the narrowest member of the GTIN-only DataBar family, sitting below DataBar Omni in both width and in the range of GTINs it can legally represent. DataBar Omni accepts any indicator digit and is built for general retail checkout, which makes it the safer default when you're not certain what scanning hardware a trading partner runs. DataBar Limited trades that flexibility for a narrower footprint, but only for GTINs GS1 has designated with an indicator digit of 0 or 1, and only where the scanning chain has already moved to image-based readers.</p><p>DataBar Expanded sits on the opposite side of the family from a data standpoint: where DataBar Limited restricts what it can carry, Expanded adds capacity for AIs like batch number and expiration date on top of the GTIN. If a small item needs both the narrow DataBar Limited footprint and supplementary data, a DataBar Limited Composite symbol (a DataBar Limited linear component with a 2D composite on top) is the correct choice rather than trying to force extra AIs into the linear DataBar Limited symbol itself, which is strictly GTIN-only.</p>"
+    }
+  ],
+  "uses": [
+    "Small healthcare and pharmacy items with a 0 or 1 indicator-digit GTIN",
+    "Private-label cosmetics and personal care items",
+    "Compact retail units scanned by image-based scanners",
+    "Non-orderable small package variants distinct from full case GTINs",
+    "Warehouse or back-office inventory scanned with camera-based imagers",
+    "Any tiny package where DataBar Omni is still too wide to fit"
+  ],
+  "faq": [
+    {"q": "What indicator digit does a DataBar Limited generator require?", "a": "A DataBar Limited generator requires the GTIN's leading indicator digit to be 0 or 1; GTINs starting with any other digit are not valid for this symbology."},
+    {"q": "Can DataBar Limited be scanned at a normal retail checkout?", "a": "GS1 does not recommend DataBar Limited for point-of-sale scanning with omnidirectional laser scanners, since some legacy laser scanners can't decode it reliably; it's better suited to image-based (camera) scanners."},
+    {"q": "How is DataBar Limited different from DataBar Omni?", "a": "<p>DataBar Omni accepts any valid GTIN and is built for general retail checkout scanning, while DataBar Limited only accepts GTINs with an indicator digit of 0 or 1 and targets narrower packaging read by image-based scanners.</p>"},
+    {"q": "Does DataBar Limited support Application Identifiers other than the GTIN?", "a": "No, DataBar Limited is a GTIN-only symbol using AI (01); for additional data like batch numbers or dates, use DataBar Expanded or a composite variant instead."},
+    {"q": "Can I bulk-generate DataBar Limited barcodes from a spreadsheet?", "a": "Yes, upload a CSV of qualifying GTINs to Barcode Studio and it will output a ZIP of images or a print-ready PDF of labels."},
+    {"q": "What happens if I enter a GTIN with the wrong indicator digit?", "a": "Barcode Studio will flag the GTIN as invalid for DataBar Limited before rendering, since the symbology's specification restricts the indicator digit to 0 or 1."}
+  ]
+}

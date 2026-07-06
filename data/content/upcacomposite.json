@@ -1,0 +1,53 @@
+{
+  "id": "upcacomposite",
+  "title": "UPC-A Composite Generator | Barcode Studio",
+  "metaDescription": "Create a UPC-A Composite barcode free online: a standard 12-digit UPC-A plus a linked 2D component for batch, expiry, or serial data. Instant preview.",
+  "primaryKeyword": "upc-a composite generator",
+  "secondaryKeywords": ["upc-a composite barcode", "upc composite symbol", "gs1 composite upc", "upc plus 2d code", "gtin-12 composite", "upc application identifiers"],
+  "lead": "A UPC-A Composite keeps the 12-digit UPC-A your register already scans and adds a small 2D component above it for GS1 data the linear code can't hold.",
+  "sections": [
+    {
+      "h2": "What Is a UPC-A Composite Barcode?",
+      "html": "<p>A UPC-A Composite combines a standard UPC-A linear barcode with a small 2D component — usually MicroPDF417, or PDF417 for larger data payloads — printed directly above it. The UPC-A portion still encodes the same 12-digit product number (11 data digits plus a check digit) that every North American retail scanner reads for pricing at checkout. The composite component adds supplementary GS1 Application Identifier data on top, without altering how the linear code itself functions.</p><p>This is a GS1 Composite symbol, meaning the two parts are linked and meant to be read together by a composite-capable scanner. Critically, a plain UPC-A scanner that doesn't recognize the 2D component simply ignores it and still reads the linear barcode correctly — the composite is additive, not a replacement for standard UPC-A scanning.</p>"
+    },
+    {
+      "h2": "How the UPC-A and Composite Component Work Together",
+      "html": "<p>The linear UPC-A follows the standard UPC-A structure: a number system digit, a five-digit manufacturer code, a five-digit item number, and a mod-10 check digit computed automatically. That part is unchanged from a standalone UPC-A generator — you're still identifying one specific product in the GS1 numbering system.</p><p>The 2D component is where variable, per-unit or per-batch information lives. It commonly carries:</p><ul><li><strong>Batch or lot number</strong> (AI 10) — links a scanned unit back to its production run for quality control or recalls.</li><li><strong>Expiration date</strong> (AI 15/17) — useful for products where shelf life matters beyond what the fixed UPC-A tells you.</li><li><strong>Serial number</strong> (AI 21) — distinguishes an individual item from every other unit sharing the same UPC-A.</li></ul><p>Because a single UPC-A represents one product across potentially millions of units, none of this variable data can be encoded in the 12 digits alone — the composite component is how it travels with the code without requiring a second, separate barcode on the package.</p>"
+    },
+    {
+      "h2": "Technical Specifications",
+      "html": "<p>The linear portion of a UPC-A Composite is exactly 12 digits, numeric only, following the standard UPC-A structure — number system digit, manufacturer code, item number, and check digit. The linked 2D component is most often MicroPDF417 for compact Application Identifier strings, or full PDF417 when the batch/serial payload is larger; the GS1 Composite specification also defines CC-A and CC-B variants of the 2D portion depending on data volume. Unlike the base UPC-A, which most retail scanners have read for decades, GS1 Composite decoding requires imager-class scanning hardware — older single-line laser scanners typically read only the linear bars and cannot parse the 2D component at all.</p>"
+    },
+    {
+      "h2": "Where UPC-A Composite Barcodes Are Used",
+      "html": "<ul><li><strong>Over-the-counter pharmaceuticals</strong> sold in North American retail that need lot and expiration tracking alongside the standard UPC.</li><li><strong>Perishable and refrigerated grocery items</strong> where a best-before date needs to be machine-readable, not just printed as text.</li><li><strong>Nutritional supplements and cosmetics</strong> subject to batch-level recall requirements.</li><li><strong>Serialized retail products</strong> where a brand wants unit-level traceability without abandoning the UPC-A that every U.S. and Canadian point-of-sale system already expects.</li></ul>"
+    },
+    {
+      "h2": "How to Create a UPC-A Composite in Barcode Studio",
+      "html": "<p>Select <strong>UPC-A Composite</strong> from the Retail (EAN/UPC) group in Barcode Studio. Enter the 11-digit UPC-A product number — the check digit is added automatically — along with your composite data string using GS1 Application Identifiers, for example <code>(10)LOT88(17)261115</code>. The live preview shows the linear UPC-A and its linked 2D component rendered together as they'll appear on the finished label.</p><ul><li>Pick a composite type (MicroPDF417 for compact AI strings, or full PDF417 when you need more data) based on your batch/serial data volume.</li><li>Adjust bar width and overall symbol size so both the UPC-A bars and the 2D component stay within your label's scannable resolution.</li><li>Confirm the human-readable digits under the UPC-A display correctly and that colors keep strong contrast for reliable scanning.</li><li>Maintain a clean quiet zone around the entire combined symbol — composite barcodes need more surrounding white space than plain linear codes.</li><li>Export as <strong>PNG, SVG, or PDF</strong>, or use <strong>Copy</strong> to drop the barcode straight into packaging artwork.</li></ul><p>For production runs, use the <strong>bulk CSV → ZIP/PDF</strong> tool with one row per unit or batch to generate a full set of composite labels at once, or call the <strong>REST API</strong> directly, e.g. <code>/barcode?type=upcacomposite&data=...</code>, from your labeling or ERP system.</p>"
+    },
+    {
+      "h2": "Print and Scan Best Practices",
+      "html": "<p>Because the 2D component packs more detail into less space than the linear bars, print quality has a bigger impact on composite symbols than on a plain UPC-A:</p><ul><li>Use a print resolution high enough that the 2D component's cells render sharply — low-DPI thermal printing is the most common cause of unreadable composite data.</li><li>Confirm your scanning hardware explicitly supports GS1 Composite decoding; many older laser scanners read only the linear UPC-A and can't parse the 2D portion at all.</li><li>Keep quiet zones generous on every side of the combined symbol so scanners can locate both the linear and 2D parts independently.</li><li>Validate your Application Identifier formatting before a full print run — a malformed AI string can silently corrupt the composite data while the UPC-A portion still scans normally.</li></ul>"
+    },
+    {
+      "h2": "UPC-A Composite vs Plain UPC-A vs EAN-8 Composite",
+      "html": "<p>A plain UPC-A identifies the product and nothing more — no batch, expiry, or serial data travels with it. A UPC-A Composite adds exactly that layer through a linked 2D component while leaving the linear code's core function untouched for scanners that only read the bars. Compared to an EAN-8 Composite, the difference is which base code is being extended: UPC-A Composite pairs the 2D component with the full 12-digit code used on standard-size North American retail packaging, while EAN-8 Composite pairs the same idea with the shorter 8-digit code reserved for genuinely space-constrained packaging. If your product already uses a standard UPC-A and you need to add batch, expiry, or serial tracking without a second barcode, UPC-A Composite is the direct fit.</p>"
+    }
+  ],
+  "uses": [
+    "OTC pharmaceuticals needing lot and expiration tracking",
+    "Perishable grocery items with machine-readable best-before dates",
+    "Supplements and cosmetics under batch recall requirements",
+    "Serialized retail products with unit-level traceability",
+    "Compatibility with existing UPC-A point-of-sale systems"
+  ],
+  "faq": [
+    {"q": "What extra data does a UPC-A Composite carry over a plain UPC-A?", "a": "<p>The 2D component above the bars adds GS1 Application Identifier data like batch/lot number, expiration date, or serial number — information the fixed 12-digit UPC-A alone can't hold.</p>"},
+    {"q": "Will a standard UPC scanner still read a UPC-A Composite?", "a": "Yes, standard scanners read the linear UPC-A portion normally at checkout and simply don't process the 2D component sitting above it."},
+    {"q": "Is a upc-a composite generator free to use?", "a": "Yes — Barcode Studio's UPC-A Composite generator is free in the browser, with PNG, SVG, and PDF export included."},
+    {"q": "What scanner do I need to read the composite data?", "a": "<p>You need an imager or scanner rated for GS1 Composite symbols specifically; plain laser barcode scanners typically can't decode the 2D component.</p>"},
+    {"q": "How is the composite data formatted?", "a": "<p>Using GS1 Application Identifiers in parentheses followed by the value, for example (10) for lot number or (17) for expiration date, such as (10)LOT88(17)261115.</p>"},
+    {"q": "Can I bulk-generate UPC-A Composite labels from a spreadsheet?", "a": "Yes — upload a CSV with each product's UPC-A and composite data string, and the bulk tool outputs a ZIP or print-ready PDF for the entire batch."}
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "CODE128B",
+  "title": "Code 128 B Barcode Generator | Barcode Studio",
+  "metaDescription": "Create Code 128 B barcodes free with our code 128 b barcode generator. Full upper/lowercase ASCII support, live preview, PNG/SVG/PDF export, and REST API.",
+  "primaryKeyword": "code 128 b barcode generator",
+  "secondaryKeywords": ["code 128 subset b", "code 128 character set b", "mixed case barcode", "code 128 b vs c", "full ascii barcode", "code 128 lowercase"],
+  "lead": "Code 128 subset B is the workhorse variant for mixed-case text, encoding upper and lowercase letters, digits, and symbols in one compact barcode.",
+  "sections": [
+    {
+      "h2": "What Is a Code 128 B Barcode?",
+      "html": "<p>Code 128 B is the character-set-B variant of Code 128, supporting the full printable ASCII range: uppercase letters, lowercase letters, digits 0–9, and standard punctuation and symbols. It does not include the non-printable control characters that subset A supports. In practice, subset B is the most commonly used of the three Code 128 subsets because most real-world data — product names, mixed-case model numbers, email-derived codes, alphanumeric order IDs — needs both letter cases in the same string.</p><p>When you use plain, auto-mode Code 128 and type any lowercase letter, the encoder will typically drop into subset B automatically to represent it. Choosing Code 128 B explicitly in Barcode Studio forces that subset for the entire symbol, which is useful when a downstream system or scanner configuration expects consistent subset B output rather than a barcode that could switch subsets mid-stream.</p>"
+    },
+    {
+      "h2": "How Subset B Fits the Code 128 Family",
+      "html": "<p>All three Code 128 subsets share identical bar geometry, start/stop codes, and a modulo-103 check digit — they differ only in which characters map to which internal code values:</p><ul><li><strong>Subset A</strong> — uppercase, digits, symbols, and control characters. No lowercase.</li><li><strong>Subset B</strong> (this page) — uppercase and lowercase letters, digits, and symbols. No control characters. The default choice for general text.</li><li><strong>Subset C</strong> — digit pairs only, doubling numeric density but unable to encode any letters.</li></ul><p>Because subset B covers essentially all printable characters people actually type, it's the default assumption for anything that isn't strictly numeric or strictly control-character-driven. If your data is a long pure-digit string, subset C will produce a noticeably shorter barcode for the same information — but the moment even one letter appears, subset B (or auto Code 128) becomes necessary.</p>"
+    },
+    {
+      "h2": "Where Code 128 B Is Used",
+      "html": "<p>Subset B is the default for most modern Code 128 applications involving readable, mixed-case data:</p><ul><li><strong>Retail product labeling</strong> where SKUs mix letters and numbers, e.g. internal catalog codes like \"SkuAb-4471\".</li><li><strong>Order and fulfillment tracking numbers</strong> that combine carrier prefixes with alphanumeric IDs.</li><li><strong>Name badges and access credentials</strong> encoding a person's name or username alongside an ID number.</li><li><strong>Library and document management systems</strong> using mixed-case catalog or file references.</li><li><strong>Software license keys and serial numbers</strong> that include both letter cases for compactness.</li><li><strong>Marketing and coupon codes</strong> where mixed-case strings are shorter and easier to read than all-uppercase equivalents.</li></ul>"
+    },
+    {
+      "h2": "Code 128 B Technical Specifications",
+      "html": "<p>Code 128 B is governed by the same ISO/IEC 15417 standard as the other Code 128 subsets. It encodes all 95 printable ASCII characters — uppercase and lowercase letters, digits, punctuation, and symbols — but excludes non-printable control characters. Each character uses 11 modules split across 3 bars and 3 spaces, plus a distinct stop pattern at the end of the symbol. There's no fixed maximum data length in the standard itself, though physical label width and scanner depth-of-field impose practical limits. A single check digit is mandatory, computed as a modulo-103 weighted checksum over the start character and every encoded symbol value; Barcode Studio calculates and appends it automatically, so no manual math is required.</p>"
+    },
+    {
+      "h2": "How to Create a Code 128 B Barcode in Barcode Studio",
+      "html": "<p>Select <strong>Code 128 B</strong> from Barcode Studio's symbology list to force subset B encoding. Type your mixed-case text or alphanumeric string into the data field — the live preview renders instantly so you can confirm the bar pattern before exporting. From there:</p><ul><li>Set <strong>bar width</strong> to control overall barcode length — subset B's density is the same as A and roughly half that of subset C for numeric data.</li><li>Adjust <strong>height</strong> and <strong>font size</strong> for the human-readable line beneath the bars, keeping mixed-case text legible at your intended print size.</li><li>Customize <strong>colors</strong> to match label branding, ensuring sufficient contrast for reliable scans.</li><li>Verify the <strong>quiet zone</strong> margin is intact — cropping it during design work is a common cause of scan failures.</li><li>Export as <strong>PNG, SVG, or PDF</strong>, or use <strong>Copy</strong> to embed directly into another document or design tool.</li></ul><p>For sequential IDs — like incrementing order numbers with a letter prefix — use the <strong>batch/sequence</strong> feature. For larger label runs, the <strong>bulk CSV → ZIP/PDF</strong> tool converts a spreadsheet column into a complete set of barcode files or a single printable PDF. Developers can generate Code 128 B barcodes programmatically via the <strong>REST API</strong> using <code>/barcode?type=code128b&data=YOURDATA</code>.</p>"
+    },
+    {
+      "h2": "Print and Scan Best Practices",
+      "html": "<p>Subset B's mixed-case flexibility comes with a few practical considerations at print time:</p><ul><li>Keep the printed bar width consistent with your scanner's resolution capability — thermal printers at lower DPI settings can blur adjacent narrow bars, especially at smaller label sizes.</li><li>Maintain a quiet zone of at least 10x the narrowest bar width on both sides; this matters just as much for subset B as any other Code 128 variant.</li><li>If your data mixes case with numbers, double-check that no unintended switch to subset C occurs if you're relying on an auto-encoder elsewhere in your pipeline — locking to subset B guarantees consistent behavior.</li><li>Enable human-readable text for any workflow involving manual verification or re-entry, since mixed-case strings are harder to guess correctly than all-caps or all-numeric ones if a scan fails.</li><li>Test barcode legibility against your actual print substrate — glossy label stock can introduce glare that affects scan reliability more than the character set does.</li></ul>"
+    },
+    {
+      "h2": "Code 128 B vs. Related Codes",
+      "html": "<p>Against <strong>Code 128 A</strong>, subset B adds lowercase letters but drops support for control characters — the right trade for almost all consumer-facing and general business data. Against <strong>Code 128 C</strong>, subset B is roughly twice as wide for purely numeric strings, since C encodes two digits per character; if your data turns out to be all-digit, switching to C shortens the barcode meaningfully. Against <strong>Code 39</strong>, subset B is denser and includes lowercase letters that Code 39 can't represent without its Full ASCII extension, though Code 39 remains more universally supported on very old scanner hardware. For most modern mixed-case applications, subset B (or auto Code 128) is the default recommendation over any of these alternatives.</p>"
+    }
+  ],
+  "uses": [
+    "Retail SKUs and catalog codes with mixed-case letters and numbers",
+    "Order and fulfillment tracking numbers",
+    "Employee badges and access credentials",
+    "Library and document management catalog codes",
+    "Software license keys and serial numbers",
+    "Marketing and coupon codes using mixed-case strings"
+  ],
+  "faq": [
+    {"q": "What does a code 128 b barcode generator encode?", "a": "A code 128 b barcode generator encodes the full printable ASCII set — uppercase letters, lowercase letters, digits, and symbols — making it the standard choice for general mixed-case text and alphanumeric codes."},
+    {"q": "Is Code 128 B the same as regular Code 128?", "a": "<p>Not exactly. Plain Code 128 auto-selects between subsets A, B, and C for maximum efficiency, while Code 128 B forces subset B for the entire barcode. For typical mixed-case text, the two often produce identical results.</p>"},
+    {"q": "Can Code 128 B encode numbers efficiently?", "a": "It can encode digits, but not as densely as subset C, which packs two digits into one code value. For strings that are purely numeric and long, subset C produces a shorter barcode."},
+    {"q": "Does Code 128 B support control characters?", "a": "No, subset B does not include non-printable control characters. If you need those, use Code 128 A instead."},
+    {"q": "Can I generate a batch of Code 128 B barcodes from a list?", "a": "<p>Yes. Barcode Studio's bulk CSV → ZIP/PDF tool accepts a spreadsheet of values and outputs a complete set of Code 128 B barcodes as individual files or a print-ready PDF.</p>"}
+  ]
+}

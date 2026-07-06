@@ -1,0 +1,53 @@
+{
+  "id": "daft",
+  "title": "DAFT Generator - 4-State Postal Barcode | Barcode Studio",
+  "metaDescription": "Free daft generator for custom 4-state postal barcodes. Build Descender/Ascender/Full/Tracker bar patterns for postal code testing. PNG/SVG plus REST API.",
+  "primaryKeyword": "daft generator",
+  "secondaryKeywords": ["daft barcode", "4-state postal barcode generator", "descender ascender full tracker", "custom postal barcode", "4-state bar pattern generator", "postal barcode testing tool"],
+  "lead": "Build raw 4-state bar patterns with the daft generator in Barcode Studio, using the Descender/Ascender/Full/Tracker letters behind every 4-state postal code.",
+  "sections": [
+    {
+      "h2": "What Is DAFT?",
+      "html": "<p>DAFT isn't a postal authority's barcode standard the way RM4SCC or Australia Post's 4-State code are — it's a descriptive notation used to talk about and construct any 4-state postal barcode directly. The letters stand for the four vertical bar positions every 4-state postal symbology is built from: <strong>D</strong>escender (bottom half only), <strong>A</strong>scender (top half only), <strong>F</strong>ull (the complete bar, top to bottom), and <strong>T</strong>racker (a short segment in the middle only).</p><p>A daft generator lets you type a string made up of those four letters and render the exact bar pattern that results, bar by bar, without needing the character-encoding tables that translate postcodes or customer data into DAFT sequences for a specific national postal format. It's the lowest-level way to see and control a 4-state barcode's appearance.</p>"
+    },
+    {
+      "h2": "How DAFT Notation Works",
+      "html": "<p>Every real-world 4-state postal barcode — Royal Mail's RM4SCC, Royal Mail Mailmark 4-State, Australia Post's 4-State Customer Barcode, and Japan Post's barcode — ultimately reduces to a sequence of bars in one of these four states. Postal standards define lookup tables that convert each valid input character (a digit, a letter, a checksum value) into a fixed pair or group of DAFT letters. A DAFT generator skips that translation layer and lets you specify the bar states directly, one letter per bar position.</p><p>This makes DAFT notation useful as a building block: developers implementing a new 4-state barcode encoder, or engineers verifying that a particular bar sequence prints and scans correctly, can type the exact D/A/F/T string they want to test rather than reverse-engineering it from postcode data.</p>"
+    },
+    {
+      "h2": "Technical Specifications",
+      "html": "<p>A DAFT-notation barcode accepts a string composed only of the characters D, A, F, and T (case-insensitive in most implementations), with each character corresponding to one printed bar in the resulting 4-state symbol. There's no checksum, start/stop pattern, or character-set validation applied at this level — DAFT is a direct bar-state description, not a data-carrying symbology with its own encoding rules. Bar height follows the same convention used across 4-state postal codes: a Full bar spans the entire vertical height, an Ascender occupies the top half, a Descender occupies the bottom half, and a Tracker is a short middle segment, all evenly spaced along the horizontal axis.</p><p>Because it has no built-in error detection, DAFT output is best treated as a visual and structural reference rather than a barcode meant for live postal sortation.</p>"
+    },
+    {
+      "h2": "Where DAFT Is Used",
+      "html": "<p>DAFT notation shows up primarily in technical and development contexts rather than on finished mail pieces:</p><ul><li><strong>Barcode library and encoder development</strong> — engineers building or testing 4-state barcode rendering libraries use DAFT strings to verify bar-drawing logic independent of postal encoding tables.</li><li><strong>Postal specification documentation</strong> — technical specs for RM4SCC, Mailmark, Australia Post, and Japan Post barcodes often describe example bar patterns using D/A/F/T notation.</li><li><strong>Print and scanner calibration</strong> — print shops and equipment vendors use known DAFT sequences to test that a printer or scanner correctly reproduces and reads all four bar states.</li><li><strong>Educational and reference material</strong> — DAFT is a common way to explain 4-state postal barcodes conceptually without requiring readers to know a specific country's data-encoding rules.</li></ul>"
+    },
+    {
+      "h2": "How to Create a DAFT Barcode in Barcode Studio",
+      "html": "<p>Select <strong>DAFT</strong> from the Postal Code group in the symbology list. Type a string of D, A, F, and T characters directly — each letter renders as one bar in the live preview, updating instantly as you type so you can see exactly how a given sequence looks before exporting. From there:</p><ul><li>Adjust <strong>bar height and spacing</strong> to test how a sequence would appear at different print scales.</li><li>Use solid black on a light background to match how postal scanners actually read 4-state bars, even though DAFT output itself isn't tied to a live postal service.</li><li>Export as <strong>PNG or SVG</strong> for use in documentation, encoder test suites, or print calibration sheets, or use <strong>Copy</strong> to paste the image into other tools.</li><li>Use the <strong>bulk CSV → ZIP/PDF</strong> tool if you need to generate and export multiple DAFT test patterns in one batch.</li><li>Call the <strong>REST API</strong> — <code>/barcode?type=daft&data=YOURDAFTSTRING</code> — to generate DAFT bar patterns programmatically from a test harness or documentation pipeline.</li></ul>"
+    },
+    {
+      "h2": "Printing and Scanning Best Practices",
+      "html": "<p>Since DAFT output mirrors the visual structure of real 4-state postal barcodes, the same print discipline applies when using it for calibration or testing:</p><ul><li>Print in solid black ink on a light, matte surface, matching the contrast conditions real postal optical sensors expect.</li><li>Preserve accurate bar height ratios between Full, Ascender, Descender, and Tracker states — if your printer or scanner can't distinguish these cleanly on a DAFT test pattern, it likely can't reliably read a production RM4SCC, Mailmark, Australia Post, or Japan Post barcode either.</li><li>Keep a clear quiet zone around the pattern, since 4-state bars are closely spaced and sensitive to interference from nearby print.</li><li>Use a DAFT test string covering all four bar states in combination when calibrating new print or scan hardware, rather than testing with a single repeated state.</li><li>Remember that DAFT patterns have no checksum — visually verify output carefully, since there's no built-in error detection to catch a misprint.</li></ul>"
+    },
+    {
+      "h2": "DAFT vs Related Postal Codes",
+      "html": "<p>DAFT is not a competing standard to RM4SCC, Mailmark 4-State, Australia Post's 4-State Customer Barcode, or Japan Post's barcode — it's the shared notation underlying all of them. Where those symbologies define specific character sets, checksums, and start/stop markers on top of the four-state bar mechanic, DAFT strips that away and lets you specify bar states directly. Use a DAFT generator when you need to test, document, or visualize raw 4-state bar patterns; use the country-specific postal symbologies when you need a barcode that an actual postal service's sorting equipment will accept and route mail with.</p>"
+    }
+  ],
+  "uses": [
+    "4-state barcode encoder and rendering library development",
+    "Postal specification documentation and technical examples",
+    "Print and scanner calibration for 4-state bar detection",
+    "Educational material explaining 4-state postal barcodes",
+    "Manual construction of custom 4-state test patterns"
+  ],
+  "faq": [
+    {"q": "What does a daft generator actually produce?", "a": "It renders a 4-state bar pattern directly from a string of D, A, F, and T letters, where each letter sets one bar to Descender, Ascender, Full, or Tracker height."},
+    {"q": "Is DAFT the same as a real postal barcode like RM4SCC?", "a": "<p>No. DAFT is the notation used to describe bar states in any 4-state postal barcode, but it has no checksum or character-encoding rules of its own, so it isn't a production postal symbology by itself.</p>"},
+    {"q": "Who typically uses a DAFT generator?", "a": "Developers building or testing 4-state barcode encoders, print shops calibrating equipment, and anyone documenting or learning how 4-state postal barcodes are structured."},
+    {"q": "Can I bulk-generate DAFT patterns from a spreadsheet?", "a": "<p>Yes. Upload a CSV of DAFT strings to Barcode Studio's bulk tool to produce a ZIP of images or a single PDF, one bar pattern per row.</p>"},
+    {"q": "Is this daft generator free to use?", "a": "Yes, Barcode Studio's DAFT generator runs entirely in your browser with no account required for standard PNG/SVG exports."},
+    {"q": "Can I generate DAFT patterns from my own application?", "a": "Yes — call /barcode?type=daft&data=YOURDAFTSTRING through the REST API to generate the bar pattern image directly from a test or documentation pipeline."}
+  ]
+}

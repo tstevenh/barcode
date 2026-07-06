@@ -1,0 +1,78 @@
+{
+ "id": "royalmail",
+ "title": "Royal Mail 4-State Generator (RM4SCC) | Barcode Studio",
+ "metaDescription": "Free Royal Mail 4-State (RM4SCC) generator. Encode UK postcodes and delivery-point suffixes for Cleanmail and Mailsort. PNG/SVG export plus REST API.",
+ "primaryKeyword": "royal mail 4-state generator",
+ "secondaryKeywords": [
+  "rm4scc barcode",
+  "royal mail postcode barcode",
+  "cleanmail barcode",
+  "mailsort barcode generator",
+  "uk postal barcode",
+  "delivery point suffix barcode"
+ ],
+ "lead": "Turn a UK postcode and delivery point suffix into an RM4SCC code with the royal mail 4-state generator in Barcode Studio, ready for Cleanmail and Mailsort.",
+ "sections": [
+  {
+   "h2": "What Is a Royal Mail 4-State Barcode?",
+   "html": "<p>The Royal Mail 4-State barcode, officially the RM4SCC (Royal Mail 4-State Customer Code), is the postal symbology Royal Mail introduced in the 1990s so its sorting machines could read UK addresses automatically instead of relying on optical character recognition alone. Any royal mail 4-state generator works from the same underlying idea: each bar in the code can sit in one of four vertical positions, so a comparatively short strip of marks can carry a full postcode plus a delivery point suffix.</p><p>You'll recognize it as the row of short, uneven bars printed along the bottom-right of UK letters and franked mail — usually just above or beside the address block. It predates newer Royal Mail formats and remains the standard barcode for Cleanmail, Mailsort, and other bulk mail discount schemes that require machine-readable addressing.</p>"
+  },
+  {
+   "h2": "How RM4SCC Encodes Data",
+   "html": "<p>RM4SCC represents each character as a pair of bars, and each bar can appear as a full bar, an ascender (top half only), a descender (bottom half only), or a tracker (short middle segment only) — hence \"4-state.\" A start bar and stop bar frame the message, and the final character is a checksum calculated from the preceding characters, letting sorting equipment detect a misread or damaged barcode before it causes a misroute.</p><p>The encoded string is almost always the outward UK postcode combined with the delivery point suffix (DPS) — a two-character suffix Royal Mail assigns to a specific address within that postcode. Together, postcode plus DPS pinpoints an individual delivery point precisely enough for fully automated sortation, without the barcode needing to spell out the address itself.</p>"
+  },
+  {
+   "h2": "Technical Specifications",
+   "html": "<p>RM4SCC encodes the 36 characters A–Z and 0–9, which covers the letters and digits used in UK postcodes and DPS codes. Each character maps to a fixed two-bar pattern from the four-state alphabet, framed by a dedicated start and stop character and closed with a single check character computed by weighting the bar values. There's no theoretical length limit enforced by the symbology itself, but in practice input is a UK postcode (up to 7 characters) plus a 2-character DPS, giving a compact, predictable barcode length.</p><p>Because it's a height-modulated code rather than a width-modulated one like Code 128, print quality depends more on vertical alignment and bar height consistency than on narrow-bar tolerances.</p>"
+  },
+  {
+   "h2": "Where Royal Mail 4-State Barcodes Are Used",
+   "html": "<p>RM4SCC is specific to UK mail handling and Royal Mail's bulk-mail discount programs:</p><ul><li><strong>Cleanmail and Mailsort</strong> — bulk mailers print RM4SCC barcodes on envelopes to qualify for Royal Mail's presorted postage discounts.</li><li><strong>Franking machines</strong> — many UK franking systems print an RM4SCC barcode alongside the postage impression.</li><li><strong>Direct mail and statements</strong> — UK utilities, banks, and subscription businesses print this barcode on mailed statements and marketing mail for automated sortation.</li><li><strong>Reply-paid and business reply envelopes</strong> — pre-printed RM4SCC codes speed up return mail processing in the UK.</li></ul>"
+  },
+  {
+   "h2": "How to Create an RM4SCC Barcode in Barcode Studio",
+   "html": "<p>Select <strong>Royal Mail 4-State</strong> from the Postal Code group in the symbology list. Type the UK postcode followed by the delivery point suffix — the live preview updates as you type so you can check the bar pattern before exporting. From there:</p><ul><li>Adjust <strong>bar height and spacing</strong> to fit the barcode zone required by your envelope template or franking layout.</li><li>Keep the barcode solid black on a light, uncoated background — Royal Mail's optical readers, like most postal scanners, need strong contrast rather than color or tinted print.</li><li>Export as <strong>PNG or SVG</strong> for drop-in placement in a mail-merge or label template, or use <strong>Copy</strong> to paste directly into design software.</li><li>Use the <strong>bulk CSV → ZIP/PDF</strong> tool to generate one barcode per row for an entire mailing list of postcodes and DPS values in a single pass.</li><li>Call the <strong>REST API</strong> — <code>/barcode?type=royalmail&data=YOURPOSTCODEDPS</code> — to generate RM4SCC images on demand from a mail-merge or fulfillment system.</li></ul>"
+  },
+  {
+   "h2": "Printing and Scanning Best Practices",
+   "html": "<p>Since RM4SCC is a 4-state, height-modulated code feeding high-speed sorting equipment, print precision matters more than with a simple linear barcode:</p><ul><li>Place the barcode in the position specified by Royal Mail's mailing guidelines for your mail class — typically bottom-right of the envelope, clear of the address block and any stamps or franking.</li><li>Print in solid black ink on a light, matte surface; glossy stock and low-contrast printing are the most common causes of misreads on postal optical sensors.</li><li>Preserve the full bar height range — because the symbology relies on ascenders, descenders, and trackers being visually distinct, any print process that compresses or blurs vertical detail (like low-DPI thermal printing) risks corrupting the code.</li><li>Keep a clean quiet zone around the barcode, free of other text, logos, or graphics.</li><li>Print and scan a test batch before a full mailing run, especially for Cleanmail or Mailsort submissions where Royal Mail will reject barcodes that fail machine verification.</li></ul>"
+  },
+  {
+   "h2": "Royal Mail 4-State vs Related Postal Codes",
+   "html": "<p>RM4SCC is the older, simpler of Royal Mail's two 4-state formats. <strong>Royal Mail Mailmark 4-State</strong> is the newer standard, designed to carry a mail class identifier and additional tracking data alongside routing information, and is gradually complementing RM4SCC for mailers who need item-level tracking. <strong>Australia Post's 4-State Customer Barcode</strong> and <strong>Japan Post's barcode</strong> use the same four-state bar-height concept but with country-specific data structures — none are interchangeable with RM4SCC, so always generate the format your national postal service actually requires. If you only need basic UK postcode-based sortation without tracking, RM4SCC remains the simpler, more universally supported choice.</p>"
+  }
+ ],
+ "uses": [
+  "Cleanmail and Mailsort presorted bulk mail discounts",
+  "Franking machine output for UK business mail",
+  "UK utility, bank, and subscription statement mailings",
+  "Business reply-paid and reply envelopes in the UK",
+  "Direct mail campaigns requiring automated Royal Mail sortation"
+ ],
+ "faq": [
+  {
+   "q": "What does a royal mail 4-state generator encode?",
+   "a": "It encodes a UK postcode combined with a two-character delivery point suffix (DPS), which together identify a specific delivery point for Royal Mail's automated sorting equipment."
+  },
+  {
+   "q": "What is RM4SCC?",
+   "a": "<p>RM4SCC (Royal Mail 4-State Customer Code) is the official name of the barcode symbology used by Royal Mail for postcode-based automated mail sortation in the UK.</p>"
+  },
+  {
+   "q": "Do I need a Royal Mail account to use an RM4SCC barcode?",
+   "a": "You can generate and print RM4SCC barcodes freely, but qualifying for Cleanmail or Mailsort postage discounts requires registering as a bulk mailer with Royal Mail."
+  },
+  {
+   "q": "Can I bulk-generate Royal Mail 4-State barcodes from a spreadsheet?",
+   "a": "<p>Yes. Upload a CSV of postcodes and delivery point suffixes to Barcode Studio's bulk tool to produce a ZIP of barcode images or a single print-ready PDF, one per row.</p>"
+  },
+  {
+   "q": "Is this royal mail 4-state generator free to use?",
+   "a": "Yes, Barcode Studio's Royal Mail 4-State generator runs entirely in your browser, with no account required for standard PNG/SVG exports."
+  },
+  {
+   "q": "How is RM4SCC different from Mailmark 4-State?",
+   "a": "RM4SCC encodes just postcode and delivery point suffix, while Mailmark 4-State is Royal Mail's newer format built to also carry mail class and tracking-related data."
+  }
+ ]
+}

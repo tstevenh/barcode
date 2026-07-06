@@ -1,0 +1,51 @@
+{
+  "id": "code11",
+  "title": "Code 11 Barcode Generator | Barcode Studio",
+  "metaDescription": "Create Code 11 barcodes free with our code 11 generator. Digits and dash encoding for telecom equipment labeling, with live preview and instant export.",
+  "primaryKeyword": "code 11 generator",
+  "secondaryKeywords": ["code 11 barcode", "telecom barcode standard", "code 11 check digit", "code 11 vs code 39", "usoc barcode", "digit dash barcode"],
+  "lead": "Code 11 is a narrow, numeric-only barcode built specifically for labeling telecommunications equipment, where compact serial numbers are the norm.",
+  "sections": [
+    {
+      "h2": "What Is a Code 11 Barcode?",
+      "html": "<p>Code 11 is a linear barcode symbology designed in 1977 specifically for the telecommunications industry, where it's still used to label network equipment, cables, and circuit packs. Its character set is deliberately narrow: the ten digits 0–9 plus a single dash (-) character, which is exactly what's needed for the numeric-with-separator serial numbers common in telecom hardware inventories. Because it doesn't need to support letters or a wide range of symbols, Code 11 keeps its bar structure simple while still supporting high-reliability check digits.</p><p>The name refers to its 11-symbol character set (10 digits plus the dash), and it's sometimes called \"USD-8\" in older barcode references. If you work with telecom equipment inventory today, you may still encounter Code 11 labels on legacy hardware even as some newer systems shift toward Code 128 for broader flexibility.</p>"
+    },
+    {
+      "h2": "How Code 11 Encodes Data",
+      "html": "<p>Each Code 11 character is built from bars and spaces in a pattern using two element widths (wide and narrow), similar in spirit to Code 39's wide/narrow ratio approach but with a smaller, more specialized character set. Code 11 supports one or two check digits depending on the length of the data being encoded — longer strings typically use two check digits (calculated with different modulo weightings) for stronger error detection, while shorter strings may use just one. This scalable check-digit approach reflects Code 11's original design goal: telecom serial numbers can vary meaningfully in length, and the symbology adapts its own error-checking rigor accordingly.</p><p>Because the character set is limited to digits and a dash, Code 11 can't represent alphanumeric product names or descriptions — it's purpose-built for numeric identifiers, not general text.</p>"
+    },
+    {
+      "h2": "Where Code 11 Is Used",
+      "html": "<p>Code 11's use case is narrower and more specialized than most other linear barcodes:</p><ul><li><strong>Telecommunications equipment labeling</strong> — its original and still primary use, marking circuit packs, network cards, and switching equipment with serial numbers.</li><li><strong>Cable and wiring identification</strong> — numeric-with-dash IDs on cable runs in telecom and data center environments.</li><li><strong>Legacy telecom inventory systems</strong> — older asset management databases built around Code 11's specific check-digit scheme.</li><li><strong>Some industrial control panel labeling</strong> where equipment identifiers follow a similar numeric-dash convention inherited from telecom standards.</li></ul>"
+    },
+    {
+      "h2": "Code 11 Technical Specifications",
+      "html": "<p>Code 11 (also referenced as USD-8 in older barcode literature) encodes an 11-symbol character set: digits 0–9 plus a dash. Each character is built from a sequence of wide and narrow bars and spaces, with the ratio pattern varying by character to distinguish them. Check digit requirements scale with data length — strings up to a defined length threshold use a single check digit (C), while longer strings use two (C and K), each calculated with different modulo-11 weighted sums over the preceding characters. There's no fixed maximum data length in the specification, though practical telecom labels tend to be short serial numbers rather than long strings.</p>"
+    },
+    {
+      "h2": "How to Create a Code 11 Barcode in Barcode Studio",
+      "html": "<p>Select <strong>Code 11</strong> from the symbology list in Barcode Studio. Enter your data using only digits and dashes — this is a numeric-only symbology, so letters and other symbols aren't valid input. The live preview updates instantly, and the appropriate one or two check digits are calculated and appended automatically based on your data's length. From there:</p><ul><li>Adjust <strong>bar width</strong> to fit typical telecom equipment label sizes, which are often small.</li><li>Set <strong>height</strong> and enable <strong>human-readable text</strong> so technicians can visually confirm serial numbers without a scanner.</li><li>Customize <strong>colors</strong> for durable label stock, keeping strong contrast for reliable reads in equipment rooms with variable lighting.</li><li>Confirm the <strong>quiet zone</strong> margin is preserved, especially on small labels where space is tight.</li><li>Export as <strong>PNG, SVG, or PDF</strong>, or use <strong>Copy</strong> to paste into label design software.</li></ul><p>For a run of sequential serial numbers, use the <strong>batch/sequence</strong> tool. For labeling a full equipment inventory, the <strong>bulk CSV → ZIP/PDF</strong> feature converts a spreadsheet of numeric IDs into a complete set of barcodes in one pass. Developers integrating Code 11 generation into asset management systems can use the <strong>REST API</strong> with <code>/barcode?type=code11&data=YOURDATA</code>.</p>"
+    },
+    {
+      "h2": "Print and Scan Best Practices",
+      "html": "<p>Code 11 labels are often small and applied in equipment rooms, so a few practices matter more here than on typical retail labels:</p><ul><li>Use durable label stock rated for the equipment environment — telecom labels frequently face heat, dust, or handling wear that standard paper labels don't survive.</li><li>Maintain adequate quiet zone even on compact labels; resist the temptation to crowd text or logos right up against the barcode to save space.</li><li>Confirm your scanner explicitly supports Code 11 — it's far less universal than Code 39 or Code 128, so verify compatibility with your handheld or fixed-mount scanner before large print runs.</li><li>For long serial numbers, rely on the automatic two-check-digit calculation rather than a single digit, since it provides meaningfully better error detection on longer numeric strings.</li><li>Test print contrast under the actual lighting conditions of the equipment room or data center where labels will be scanned, since these spaces often have inconsistent lighting compared to retail settings.</li></ul>"
+    },
+    {
+      "h2": "Code 11 vs. Related Codes",
+      "html": "<p>Against <strong>Code 39</strong>, Code 11 is narrower in character set (digits and dash only, versus Code 39's full uppercase-plus-symbols range) but often produces a more compact barcode for pure numeric-with-dash serial numbers, and its scalable check-digit scheme gives it somewhat stronger built-in validation for longer strings. Against <strong>Code 128 subset C</strong>, Code 128 C is denser still for pure digit strings and far more widely supported by modern scanners, which is why some newer telecom deployments have migrated away from Code 11 despite its historical dominance in that industry. Against <strong>Interleaved 2 of 5</strong>, Code 11 supports the dash character that ITF cannot, making it the better fit when serial numbers include that separator as a meaningful part of the identifier.</p>"
+    }
+  ],
+  "uses": [
+    "Telecommunications equipment and circuit pack labeling",
+    "Cable and wiring identification in data centers",
+    "Legacy telecom inventory and asset management systems",
+    "Industrial control panel numeric identifiers"
+  ],
+  "faq": [
+    {"q": "What is a code 11 generator used for?", "a": "A code 11 generator creates barcodes for telecommunications equipment and cable labeling, encoding digits and a dash character with automatic check-digit calculation for reliable numeric identification."},
+    {"q": "What characters can Code 11 encode?", "a": "<p>Only the digits 0–9 and a dash character. It cannot encode letters or other symbols, which is why it's used specifically for numeric serial numbers rather than general text.</p>"},
+    {"q": "Does Code 11 always use two check digits?", "a": "No, the number of check digits depends on data length — shorter strings may use one check digit, while longer strings typically use two for stronger error detection. Barcode Studio calculates this automatically."},
+    {"q": "Is Code 11 still commonly used today?", "a": "<p>It remains in active use in telecommunications equipment labeling, particularly for legacy inventory systems, though some newer deployments have shifted to Code 128 for broader flexibility.</p>"},
+    {"q": "Can I generate a batch of Code 11 barcodes for equipment inventory?", "a": "<p>Yes, use Barcode Studio's bulk CSV → ZIP/PDF tool to generate barcodes for an entire list of numeric serial numbers at once.</p>"}
+  ]
+}

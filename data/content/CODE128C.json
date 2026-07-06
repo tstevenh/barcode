@@ -1,0 +1,52 @@
+{
+  "id": "CODE128C",
+  "title": "Code 128 C Generator | Barcode Studio",
+  "metaDescription": "Generate Code 128 C barcodes free with our code 128 c generator. Digit-pair encoding for maximum density on long numeric strings, plus export and API access.",
+  "primaryKeyword": "code 128 c generator",
+  "secondaryKeywords": ["code 128 subset c", "code 128 digit pairs", "high density numeric barcode", "code 128 c vs itf-14", "gs1-128 numeric encoding", "code 128 c check digit"],
+  "lead": "Code 128 subset C squeezes two digits into every symbol character, making it the most compact way to barcode a long numeric-only string.",
+  "sections": [
+    {
+      "h2": "What Is a Code 128 C Barcode?",
+      "html": "<p>Code 128 C is the character-set-C variant of Code 128, and it works differently from subsets A and B: instead of mapping one character to one symbol, it maps a <strong>pair of digits (00 through 99)</strong> to a single symbol character. That means a 12-digit string that would take 12 symbol characters in subset B takes only 6 in subset C — roughly halving the physical length of the barcode for the same data. The tradeoff is strict: subset C can only encode digit pairs, so it cannot represent letters, symbols, or an odd-length numeric string without padding.</p><p>This makes Code 128 C the go-to choice specifically for long, purely numeric identifiers — order numbers, GTINs, tracking numbers — where minimizing barcode width matters more than encoding mixed content.</p>"
+    },
+    {
+      "h2": "How Subset C Encoding Works",
+      "html": "<p>Where subsets A and B each dedicate one symbol character to one input character, subset C consumes input two digits at a time. The digit pair \"00\" through \"99\" each has a unique symbol value, giving 100 possible pairs mapped into the same 11-module bar/space pattern used throughout Code 128. Because of this pairing requirement:</p><ul><li>Your input data must have an <strong>even number of digits</strong>. An odd-length numeric string needs a leading zero or other padding to encode in pure subset C.</li><li>Subset C cannot mix in letters — if your data has even one non-digit character, you need subset B or auto Code 128 instead.</li><li>The same modulo-103 check digit calculation used across all Code 128 variants still applies, calculated over the encoded (paired) values.</li></ul><p>This digit-pair mechanism is exactly what underlies GS1-128 application identifiers for things like weight, quantity, and date fields, where compactness on a shipping label is critical and the data is guaranteed numeric.</p>"
+    },
+    {
+      "h2": "Where Code 128 C Is Used",
+      "html": "<p>Subset C shows up wherever a long numeric ID needs to fit in minimal label space:</p><ul><li><strong>GS1-128 shipping labels</strong> — encoding GTINs, batch quantities, and dates as numeric application identifier fields.</li><li><strong>Warehouse and logistics tracking numbers</strong> — long numeric carrier or shipment IDs that would otherwise produce an unwieldy barcode in subset B.</li><li><strong>Inventory and serial number systems</strong> using purely numeric internal identifiers.</li><li><strong>Ticket and voucher numbers</strong> where a long digit string needs to stay physically small on a compact ticket stub.</li><li><strong>Utility meter and account numbers</strong> that are numeric-only and need dense encoding on small labels.</li></ul>"
+    },
+    {
+      "h2": "Code 128 C Technical Specifications",
+      "html": "<p>Code 128 C falls under the same ISO/IEC 15417 standard as subsets A and B, but its 106 symbol values map to digit pairs \"00\" through \"99\" rather than individual characters. Each symbol still occupies 11 modules across 3 bars and 3 spaces, identical to the other subsets, which is exactly why subset C achieves double the numeric density — the same physical footprint per character now represents two digits instead of one. Data length must be even, since digits are consumed two at a time; Barcode Studio will flag or pad odd-length numeric input as needed. As with all Code 128 variants, a mandatory modulo-103 check digit is calculated over the encoded values and appended automatically.</p>"
+    },
+    {
+      "h2": "How to Create a Code 128 C Barcode in Barcode Studio",
+      "html": "<p>Choose <strong>Code 128 C</strong> from the symbology list in Barcode Studio when you know your data is purely numeric with an even digit count. Enter the digits into the data field — if the count is odd, pad with a leading zero first, since subset C can't encode a lone unpaired digit. The live preview will show the compact result immediately. From there:</p><ul><li>Adjust <strong>bar width</strong> — subset C's compression means you can often go narrower than a subset B barcode of equivalent data length while staying scannable.</li><li>Set <strong>height</strong> and toggle <strong>human-readable text</strong> to display the full digit string beneath the bars for manual verification.</li><li>Customize <strong>colors</strong> and confirm the <strong>quiet zone</strong> margin is preserved around the symbol.</li><li>Export as <strong>PNG, SVG, or PDF</strong>, or use <strong>Copy</strong> for direct use in label design software.</li></ul><p>For sequential numeric IDs, use the <strong>batch/sequence</strong> tool to generate an incrementing series automatically. For larger numeric datasets, the <strong>bulk CSV → ZIP/PDF</strong> uploader turns a spreadsheet column into a full set of barcodes in one pass — just make sure every value has an even digit count first. Developers can call the <strong>REST API</strong> directly with <code>/barcode?type=code128c&data=YOURDATA</code> to automate generation from numeric datasets.</p>"
+    },
+    {
+      "h2": "Print and Scan Best Practices",
+      "html": "<p>Because subset C barcodes are narrower for the same data length, a few things matter more here than with A or B:</p><ul><li>Don't shrink the barcode too aggressively just because it's already compact — the quiet zone and minimum bar width requirements are unchanged, and over-shrinking is the most common cause of misreads with subset C.</li><li>Always validate that your source data has an even digit count before batch-generating; a single odd-length value in a CSV will either fail or force an unexpected subset switch depending on your encoder.</li><li>Keep human-readable text on for numeric IDs that operators may need to key in manually if a scan fails — long digit strings are error-prone to retype accurately.</li><li>If you're producing GS1-128 labels, verify your application identifier structure and check digit against GS1 specifications, since Code 128 C's compactness is often used specifically for GS1 compliance.</li><li>Test scans at your actual print DPI; subset C's narrower symbols make print resolution shortfalls more visible than in subsets A or B.</li></ul>"
+    },
+    {
+      "h2": "Code 128 C vs. Related Codes",
+      "html": "<p>Against <strong>Code 128 A and B</strong>, subset C is roughly twice as dense for numeric data but can't encode a single letter or symbol — the moment your data isn't purely even-length digits, you need to switch. Against <strong>Interleaved 2 of 5 (ITF)</strong>, another digit-pair symbology, Code 128 C carries a mandatory check digit that ITF's base form lacks, making it the more error-resistant choice for numeric IDs where misreads are costly. Against <strong>ITF-14</strong> specifically, Code 128 C is flexible-length and general-purpose, while ITF-14 is a fixed 14-digit GS1 standard purpose-built for shipping cases — use ITF-14 when GS1 case-coding compliance is required, and Code 128 C for other long numeric identifiers.</p>"
+    }
+  ],
+  "uses": [
+    "GS1-128 shipping label application identifiers (weight, date, batch)",
+    "Long numeric shipment and tracking numbers",
+    "Purely numeric inventory and serial number systems",
+    "Ticket and voucher numeric identifiers",
+    "Utility meter and account number labels"
+  ],
+  "faq": [
+    {"q": "What does a code 128 c generator do differently?", "a": "A code 128 c generator encodes digits in pairs rather than one at a time, producing a barcode roughly half the length of subset A or B for the same numeric data — ideal for long numeric IDs on small labels."},
+    {"q": "Can Code 128 C encode letters?", "a": "No. Subset C only encodes digit pairs (00–99). If your data includes any letters or symbols, use Code 128 B or auto Code 128 instead."},
+    {"q": "What happens if my numeric string has an odd number of digits?", "a": "<p>Subset C requires an even digit count since it encodes two digits per symbol. Pad an odd-length string with a leading zero, or let auto Code 128 handle the mixed encoding for you.</p>"},
+    {"q": "Is Code 128 C the same as ITF-14?", "a": "<p>No, though both are compact numeric symbologies. ITF-14 is a distinct barcode standard fixed at 14 digits for shipping cartons, while Code 128 C is a flexible-length subset of Code 128 usable for any even-length numeric string.</p>"},
+    {"q": "Can I batch-generate Code 128 C barcodes from a spreadsheet?", "a": "<p>Yes — upload a CSV of even-length numeric values to Barcode Studio's bulk tool to generate a ZIP of barcode images or a single print-ready PDF.</p>"}
+  ]
+}

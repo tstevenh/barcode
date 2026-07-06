@@ -1,0 +1,79 @@
+{
+ "id": "gs1datamatrix",
+ "title": "GS1 Data Matrix Generator - GTIN, Batch, Expiry",
+ "metaDescription": "Generate a GS1 Data Matrix code with Application Identifiers for GTIN, batch, and expiry. Free browser tool for pharma and UDI labeling with API access.",
+ "primaryKeyword": "gs1 data matrix generator",
+ "secondaryKeywords": [
+  "gs1 datamatrix",
+  "gtin data matrix",
+  "udi barcode generator",
+  "pharma 2d barcode",
+  "gs1 application identifiers datamatrix",
+  "medical device barcode"
+ ],
+ "lead": "Encode GTIN, batch number, and expiration date into a compact GS1-compliant Data Matrix code built for pharmaceutical and device labeling.",
+ "sections": [
+  {
+   "h2": "What is a GS1 Data Matrix code?",
+   "html": "<p>GS1 DataMatrix is a Data Matrix symbol (ISO/IEC 16022) whose payload follows the GS1 General Specifications, structuring data with Application Identifiers (AIs) such as (01) for GTIN, (17) for expiration date, and (10) for batch/lot number. It's one of GS1's officially recognized 2D symbologies for regulated industries, and is the barcode most commonly required by pharmaceutical serialization and medical device Unique Device Identification (UDI) rules worldwide, because its small footprint fits on unit-dose blister packs and device labels where space is extremely limited and a linear barcode of equivalent data length simply wouldn't fit.</p>"
+  },
+  {
+   "h2": "How GS1 Application Identifier data is structured",
+   "html": "<p>Physically, a GS1 DataMatrix symbol is identical to a standard Data Matrix code &mdash; the same L-shaped solid finder border, clock track, and Reed-Solomon (ECC200) error correction. What distinguishes it is the payload: data is a concatenation of Application Identifiers and values, where fixed-length fields like the 14-digit GTIN under AI 01 need no separator, but variable-length fields like a batch number under AI 10 require the non-printable FNC1 character (represented in human-readable form with parentheses around the AI) to mark the field boundary. This lets any GS1-compliant scanner parse the structured data without prior knowledge of your specific product catalog, since the AI itself tells the receiving system what each value means and how long to expect it.</p>"
+  },
+  {
+   "h2": "Technical specifications",
+   "html": "<p>Pharmaceutical serialization mandates in most major markets require GTIN, batch/lot number, expiration date, and a unique serial number on each saleable unit, making the combination of AIs 01, 10, 17, and 21 the standard payload for drug packaging. Medical device UDI labeling under FDA and EU MDR rules similarly combines a Device Identifier (part of the GTIN) with production identifiers like lot number, expiration date, and sometimes manufacturing date. Because Data Matrix achieves high data density in a small footprint, all of these fields typically fit on a symbol just a few millimeters across, and the underlying symbol still uses the same fixed ECC200 error correction as plain Data Matrix rather than a separately selectable level.</p><ul><li><strong>GTIN (01):</strong> 14-digit global trade item number, fixed length</li><li><strong>Batch/lot (10):</strong> variable-length traceability code, needs FNC1 termination if followed by another field</li><li><strong>Expiration date (17):</strong> fixed 6-digit YYMMDD format</li><li><strong>Serial number (21):</strong> variable-length unique unit identifier required for serialization mandates</li><li><strong>Standards body:</strong> GS1 General Specifications on top of ISO/IEC 16022 Data Matrix</li></ul>"
+  },
+  {
+   "h2": "Where GS1 Data Matrix is used",
+   "html": "<p>Pharmaceutical unit-dose and blister pack serialization to meet drug supply chain security regulations such as the US Drug Supply Chain Security Act and the EU Falsified Medicines Directive; medical device labeling for FDA UDI and EU MDR compliance; hospital and clinical inventory systems that scan device and drug data at the point of care to reduce medication errors; and small consumer healthcare products where a linear barcode wouldn't fit the available label area. Regulatory bodies in the US, EU, and other regions specifically reference GS1 DataMatrix (or an equivalent GS1 2D symbology) as an accepted format for these mandates, which is why it has become the de facto standard across the pharmaceutical and medical device industries rather than just one option among many.</p>"
+  },
+  {
+   "h2": "How to create a GS1 Data Matrix code in Barcode Studio",
+   "html": "<p>Select <strong>GS1 Data Matrix</strong> from the symbology list and enter your data using GS1 Application Identifier syntax, for example <code>(01)00312345678905(17)270630(10)LOT9F2(21)000123</code>. Barcode Studio validates AI formats and lengths and inserts required separators between variable-length fields automatically. Error correction is fixed at ECC200 (Reed-Solomon) as with plain Data Matrix, so there's nothing to configure there. From there you can:</p><ul><li>Choose square or rectangular symbol shape to fit unit-dose or device label dimensions</li><li>Adjust module size and quiet zone for very small or curved label surfaces</li><li>Export as PNG or SVG for packaging artwork, or copy the code for direct use</li><li>Use batch/sequence tools or CSV bulk upload to generate unique GTIN/batch/serial codes across a production run, exported as ZIP or PDF</li><li>Call the REST API &mdash; <code>/barcode?type=gs1datamatrix&amp;data=(01)00312345678905(17)270630</code> &mdash; to integrate with a serialization or labeling system</li></ul>"
+  },
+  {
+   "h2": "Print and scan best practices for GS1 Data Matrix",
+   "html": "<p>Maintain the required quiet zone even on small labels; Data Matrix's solid finder border tolerates tight surrounding print but still needs clear space to be reliably located by the scanner's decoding software. For regulated pharmaceutical and device labeling, verify print quality against ISO/IEC 15415 symbol quality grading, since many regulatory frameworks specify a minimum grade for compliance and manufacturers routinely fail audits over marginal print quality rather than encoding errors. Thermal transfer and laser marking on unit-dose packaging both benefit from testing under real production line speeds and lighting before validating a labeling process, since a symbol that scans fine on a static bench test can fail on a moving line. Always confirm the encoded AI string against GS1's syntax rules; a malformed AI &mdash; wrong length, missing FNC1 separator, or invalid date format &mdash; can cause pharmacy or hospital scanning systems to reject a label that otherwise looks correct to the eye.</p>"
+  },
+  {
+   "h2": "GS1 Data Matrix vs related codes",
+   "html": "<p>GS1 Data Matrix shares its physical symbol with plain Data Matrix but adds a mandatory structured payload of Application Identifiers, so the two aren't interchangeable for regulated use even though a generic scanner can physically decode either. GS1 QR Code carries the same kind of AI-structured data in a QR symbol instead, which is more common in retail-facing applications since it doubles as something a consumer's phone can also scan for product information. GS1-128, a linear barcode rather than a 2D code, encodes the same AI concept but needs considerably more horizontal space, making it a poor fit for the small unit-dose and device labels where GS1 Data Matrix dominates. GS1 Digital Link Data Matrix goes a step further, embedding the same GTIN, batch, and expiry data inside a resolvable web URL rather than a plain AI string, so it works both as a supply-chain identifier and a consumer-facing link.</p>"
+  }
+ ],
+ "uses": [
+  "Pharmaceutical unit-dose and blister pack serialization for drug supply chain security",
+  "Medical device UDI labeling for FDA and EU MDR compliance",
+  "Hospital and clinical point-of-care inventory scanning",
+  "Small consumer healthcare product packaging with limited label space",
+  "Drug traceability and anti-counterfeiting programs",
+  "Device manufacturer production line labeling and serialization"
+ ],
+ "faq": [
+  {
+   "q": "Is GS1 Data Matrix required for pharmaceutical labeling?",
+   "a": "Most major drug serialization regulations require a 2D barcode carrying GTIN, batch, expiry, and serial number, and GS1 DataMatrix is the symbology most commonly specified or used in practice due to its compact size and Reed-Solomon error correction."
+  },
+  {
+   "q": "What's the difference between Data Matrix and GS1 Data Matrix?",
+   "a": "The physical symbol is identical; a GS1 Data Matrix code specifically structures its payload using GS1 Application Identifiers like GTIN, batch, and expiry, so supply chain and pharmacy systems can parse it consistently using a gs1 data matrix generator that validates the AI syntax."
+  },
+  {
+   "q": "What Application Identifiers are required for UDI labeling?",
+   "a": "Requirements vary by regulator, but most UDI labels combine a Device Identifier (based on GTIN), production identifiers like lot or batch number, and an expiration date where applicable."
+  },
+  {
+   "q": "Can I generate serialized codes for a full production batch?",
+   "a": "Yes, upload a CSV with per-unit GTIN, batch, expiry, and serial values and Barcode Studio will bulk-generate a ZIP or PDF of individually coded GS1 Data Matrix labels."
+  },
+  {
+   "q": "How small can a GS1 Data Matrix label be printed?",
+   "a": "Because Data Matrix is highly space-efficient, a full GTIN, batch, and expiry payload can typically be printed within a few millimeters, small enough for unit-dose blister packs and device labels."
+  },
+  {
+   "q": "Can I choose the error correction level for GS1 Data Matrix?",
+   "a": "No, GS1 Data Matrix uses the same fixed ECC200 Reed-Solomon correction as plain Data Matrix; the ratio is determined by symbol size, not a user-selectable setting."
+  }
+ ]
+}

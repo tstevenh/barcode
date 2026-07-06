@@ -1,0 +1,54 @@
+{
+  "id": "databarexpandedstacked",
+  "title": "GS1 DataBar Expanded Stacked Generator | Barcode Studio",
+  "metaDescription": "Free GS1 DataBar Expanded Stacked generator for GTIN plus dates or lot data on narrow labels. Enter AI data and export PNG, SVG, or bulk labels.",
+  "primaryKeyword": "gs1 databar expanded stacked generator",
+  "secondaryKeywords": ["databar expanded stacked barcode", "multi-row gs1 barcode", "scale label barcode generator", "coupon barcode narrow label", "gtin plus lot number barcode", "gs1 application identifier barcode"],
+  "lead": "Create a multi-row GS1 DataBar Expanded Stacked barcode that packs a GTIN plus extra data onto a narrow scale or coupon label.",
+  "sections": [
+    {
+      "h2": "What is GS1 DataBar Expanded Stacked?",
+      "html": "<p>GS1 DataBar Expanded Stacked carries the same capability as DataBar Expanded &mdash; a GTIN via Application Identifier (01) plus additional AIs like (17) expiration date, (10) batch/lot number, (3103) net weight, or (8110) coupon codes &mdash; but arranges that data across multiple stacked rows/segments instead of one long single-row symbol. It exists for exactly one reason: some labels that need Expanded's rich AI data simply aren't wide enough for Expanded's single-row layout.</p><p>A <strong>gs1 databar expanded stacked generator</strong> is the practical way to build this symbol because the segmentation into rows has to align correctly with the underlying AI-delimited data, and getting the row breaks wrong produces a symbol that a decoder can't reassemble into the original string. GS1 designed the Expanded family specifically to carry richer supply-chain data than a GTIN-only barcode while still remaining a single linear symbol rather than requiring a separate 2D component, and the stacked variant extends that same design goal to genuinely narrow label stock.</p>"
+    },
+    {
+      "h2": "How stacking preserves Expanded's data capacity in less width",
+      "html": "<p>A DataBar Expanded symbol grows wider as you add more Application Identifiers, since it's a variable-length, single-row structure. On a narrow scale label or a small coupon insert, that growth runs out of room fast. DataBar Expanded Stacked solves this by segmenting the same encoded data into two or more rows joined by finder patterns, so the symbol grows taller instead of wider as more AI data is added.</p><p>The data model underneath is identical to plain DataBar Expanded &mdash; same Application Identifiers, same parsing rules, same fixed-length fields for things like GTIN and dates. The only difference is the physical segmentation into rows, which is why a scanner or decoder needs to support DataBar Expanded Stacked specifically, not just generic DataBar Expanded, even though the payload structure is the same.</p>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>DataBar Expanded Stacked encodes the identical Application Identifier data model as DataBar Expanded, standardized under the same ISO/IEC 24724 GS1 DataBar family, with a maximum data capacity governed by the GS1 General Specifications (roughly 74 numeric or 41 alphanumeric characters of AI data). The distinguishing feature is that the encoded segments are arranged into two or more stacked rows joined by finder patterns, rather than one continuous row, which keeps the symbol's overall width close to a GTIN-only DataBar symbol even as more AIs are added. Height, row separation, and quiet zone follow GS1's stacked-symbol guidance, and fixed-length AI fields like GTIN and dates still terminate by length rather than delimiter.</p>"
+    },
+    {
+      "h2": "Where GS1 DataBar Expanded Stacked is used",
+      "html": "<p>This is the standard choice for fresh food and deli scale labels printed on narrow thermal label stock, where the label width is fixed by the scale hardware but the data needed &mdash; GTIN, net weight, and often a sell-by date &mdash; exceeds what a GTIN-only DataBar symbol can carry. It's also common on coupon inserts and small promotional tags where AI (8110) coupon data needs to fit a compact, narrow print area rather than the wider footprint plain DataBar Expanded would need.</p><p>Bakery and produce departments use it heavily for weighed items that also need a use-by date, and specialty retailers use it on variable-weight products like bulk nuts, candy, or cheese sold by weight from an in-store scale. It also appears on some pharmaceutical unit-dose packaging where a GTIN, lot number, and expiration date all need to travel together on a label too narrow for single-row Expanded.</p>"
+    },
+    {
+      "h2": "How to create a DataBar Expanded Stacked barcode in Barcode Studio",
+      "html": "<p>Select <strong>GS1 DataBar Expanded Stacked</strong> from the GS1 DataBar section of the symbology list, then build your AI data string just as you would for DataBar Expanded &mdash; for example <code>(01)09521234543213(3103)000450(17)251231</code> for a GTIN, net weight, and expiration date. Barcode Studio parses each Application Identifier segment and lays the data out across stacked rows automatically.</p><ul><li>Add or remove Application Identifiers as your labeling needs change</li><li>Adjust module width and row height to match narrow scale-label stock</li><li>Set foreground/background colors and quiet zone margin</li><li>Export as PNG or SVG, or copy the barcode into a label template</li><li>Bulk-generate from a CSV where each row supplies its own AI data string, output as a ZIP or print-ready PDF</li><li>Automate with the REST API: <code>/barcode?type=databarexpandedstacked&amp;data=(01)09521234543213(3103)000450</code></li></ul>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Verify your scale printer or label software explicitly supports DataBar Expanded Stacked output, since scale-integrated printers often have their own barcode configuration separate from a general-purpose barcode generator. Keep AI syntax precise &mdash; fixed-length fields like GTIN and dates must be the exact expected length so the parser can find the boundary between fields without a delimiter. Preserve the spacing and quiet zone between stacked rows that Barcode Studio renders by default, since a cropped or compressed row gap is a common cause of failed decodes on this symbology.</p><p>Test scan every generated label with the actual POS scanner used at checkout before a full production run, especially after any change to weight or date fields, since a value with a different digit count than your test data can shift where field boundaries fall within a fixed-length AI. Thermal printers used on scale hardware also degrade print quality over time as the printhead wears, so periodic verification scans catch a slow decline in decode reliability before it becomes a checkout problem.</p>"
+    },
+    {
+      "h2": "DataBar Expanded Stacked versus related codes",
+      "html": "<p>DataBar Expanded Stacked is to DataBar Expanded what DataBar Stacked Omni is to DataBar Omni: the same encoded data, rearranged to trade width for height. Compared with GS1-128, it remains scannable at a retail checkout lane, which GS1-128 was never built for, making it the right choice for scale and coupon labels rather than case or pallet marking. Compared with DataBar Composite, which pairs a compact GTIN-only linear symbol with a separate 2D component, DataBar Expanded Stacked keeps everything in a single linear (if multi-row) symbol, which is simpler for many scale printers and thermal label systems that already expect one continuous barcode region.</p>"
+    }
+  ],
+  "uses": [
+    "Deli, meat, and produce scale labels with GTIN plus net weight",
+    "Coupon inserts using AI (8110) on narrow print stock",
+    "Perishable goods needing GTIN plus expiration date on a compact label",
+    "Products requiring batch or lot traceability data in limited label width",
+    "Promotional tags combining GTIN with variable pricing or weight data",
+    "Any narrow label needing DataBar Expanded's AI capacity without the width"
+  ],
+  "faq": [
+    {"q": "What does a GS1 DataBar Expanded Stacked generator produce?", "a": "It produces a multi-row GS1 barcode carrying a GTIN plus additional Application Identifiers such as expiration date, batch number, or net weight, arranged to fit a narrower label than plain DataBar Expanded needs."},
+    {"q": "How is DataBar Expanded Stacked different from DataBar Expanded?", "a": "Both carry identical GTIN-plus-AI data; DataBar Expanded lays it out in one long row, while DataBar Expanded Stacked segments the same data into multiple stacked rows to fit a narrower label."},
+    {"q": "Is DataBar Expanded Stacked used on grocery scale labels?", "a": "<p>Yes, it's a common choice for deli, meat, and produce scale labels where the printer's label width is fixed but the data needed &mdash; GTIN, weight, and sometimes a date &mdash; exceeds what a GTIN-only DataBar symbol can hold.</p>"},
+    {"q": "Can DataBar Expanded Stacked encode a coupon?", "a": "Yes, encoding Application Identifier (8110) in a DataBar Expanded Stacked symbol lets a coupon scan and apply at checkout on a narrower label than plain DataBar Expanded would require."},
+    {"q": "Can I bulk-generate DataBar Expanded Stacked barcodes?", "a": "Yes, upload a CSV where each row contains a full AI data string and Barcode Studio will output the barcodes as a ZIP or print-ready PDF."},
+    {"q": "Does my scanner need special support for DataBar Expanded Stacked?", "a": "Yes, a scanner needs firmware that recognizes DataBar Expanded Stacked specifically, since its stacked row structure differs physically from single-row DataBar Expanded even though the underlying data format is the same."}
+  ]
+}

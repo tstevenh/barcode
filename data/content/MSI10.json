@@ -1,0 +1,77 @@
+{
+ "id": "MSI10",
+ "title": "MSI Mod 10 Generator - Barcode with Check Digit",
+ "metaDescription": "Generate an MSI Mod 10 barcode free in your browser. Automatically calculate the mod-10 check digit, adjust size, and export PNG, SVG, or PDF instantly.",
+ "primaryKeyword": "msi mod 10 generator",
+ "secondaryKeywords": [
+  "msi mod10 check digit",
+  "msi barcode with checksum",
+  "modified plessey mod 10",
+  "msi luhn check digit",
+  "inventory barcode with check digit"
+ ],
+ "lead": "Generate an MSI barcode with an automatic mod-10 check digit for extra error protection on inventory labels.",
+ "sections": [
+  {
+   "h2": "What is MSI Mod 10?",
+   "html": "<p>MSI Mod 10 is the MSI (Modified Plessey) barcode with a single check digit appended, calculated using a modulo-10 algorithm closely related to the Luhn algorithm used to validate credit card numbers. It keeps the same underlying binary bar-width encoding as plain MSI, but adds one extra digit at the end that a scanner or downstream system can use to confirm the rest of the number was read correctly &mdash; catching common errors like a single mistyped or misscanned digit before bad data reaches your inventory system.</p><p>An <strong>msi mod 10 generator</strong> is worth using instead of hand-computing the digit because a single arithmetic slip defeats the entire point of the check &mdash; a wrong check digit gets rejected by a validating scanner just like a genuinely corrupted read, causing needless rescans. MSI itself dates back to shelf-marking and inventory systems from the 1970s, and while it has mostly been superseded by Code 128 and GS1 barcodes in modern retail, it persists in legacy warehouse management systems, older handheld scanners, and internal asset registries that were built around it decades ago and never migrated.</p>"
+  },
+  {
+   "h2": "How the mod-10 check digit is calculated",
+   "html": "<p>Working from the rightmost digit of your data, every second digit is doubled; if doubling produces a two-digit result, its digits are added together (for example, 8 doubled is 16, which becomes 1+6=7). All the resulting digits &mdash; both the doubled-and-reduced values and the digits left untouched &mdash; are summed, and the check digit is whatever value, when added to that sum, brings the total up to the next multiple of 10. Barcode Studio calculates and appends this digit automatically, so you only need to enter your base numeric data.</p><p>This is the same family of algorithm used in the Luhn check digit for credit cards and in several other barcode check-digit schemes, which makes it fast to calculate and easy to verify with standard libraries, though it's not the most robust option for catching every type of error &mdash; that's where MSI Mod 11 comes in, described below.</p>"
+  },
+  {
+   "h2": "Technical Specifications",
+   "html": "<p>Like plain MSI, MSI Mod 10 encodes digits 0&ndash;9 only, using the same 4-bit binary bar/space pattern per digit framed by fixed start and stop patterns. The difference is a single trailing check digit computed with a doubling-based modulo-10 algorithm applied right-to-left over the base data. There's no fixed overall length requirement &mdash; the barcode simply grows by one digit compared to the equivalent plain MSI symbol. As with plain MSI, this is a de facto industry symbology rather than one governed by GS1 or ISO, so exact quiet-zone and module-width recommendations can vary slightly by scanner vendor.</p>"
+  },
+  {
+   "h2": "MSI Mod 10 vs. plain MSI and MSI Mod 11",
+   "html": "<p>Compared to plain MSI, Mod 10 adds one extra digit that provides basic protection against random single-digit errors and some transposition errors, at the cost of a slightly longer barcode. Compared to MSI Mod 11, Mod 10 is simpler to calculate and verify, but MSI Mod 11 uses a weighted-sum algorithm that's statistically more effective at catching double-digit transposition errors and certain other error patterns, so systems handling high-value or high-risk data sometimes prefer Mod 11 or even a double check digit combining both (MSI Mod 10/10 or Mod 11/10) for extra assurance. If your system only expects a single mod-10 check digit, Mod 10 is the correct, most widely compatible choice.</p>"
+  },
+  {
+   "h2": "Where MSI Mod 10 is used",
+   "html": "<p>You'll find MSI Mod 10 in the same environments as plain MSI &mdash; retail shelf labels, warehouse and inventory tags, asset tracking &mdash; but specifically in systems where the extra reliability of a check digit is worth the small increase in label length, such as high-volume distribution centers where a single misread digit could route an item to the wrong bin or trigger an incorrect reorder.</p><p>It also shows up on library and video-rental shelf tags, cable and reel identification in electronics assembly, and multi-pack carton labels in older distribution software that was configured decades ago to expect exactly this check-digit scheme. Because MSI was never adopted by GS1 for retail point-of-sale, you won't see it at a supermarket checkout; it lives almost entirely in closed-loop, internal systems where the same organization controls both the label printer and the scanner configuration, which is precisely the kind of environment where standardizing on a check digit pays off over time.</p>"
+  },
+  {
+   "h2": "How to create an MSI Mod 10 barcode in Barcode Studio",
+   "html": "<p>Select <strong>MSI Mod 10</strong> from the symbology list on the left, then enter your base numeric data &mdash; Barcode Studio calculates and appends the mod-10 check digit automatically, so you don't need to compute it yourself. From there you can:</p><ul><li>Adjust bar width, height, and quiet zone to fit your label size</li><li>Toggle human-readable text below the bars, which typically shows the check digit alongside your data for manual verification</li><li>Export as PNG, SVG, or PDF, or copy the image directly into a label template</li><li>Use the batch or sequence tools to generate a numbered run of labels, each with its own correctly calculated check digit</li><li>Upload a CSV of numeric values for bulk generation as a ZIP of image files or a print-ready PDF of labels</li><li>Call the REST API &mdash; <code>/barcode?type=MSI10&amp;data=123456</code> &mdash; to generate codes programmatically, with the check digit computed server-side</li></ul>"
+  },
+  {
+   "h2": "Print and scan best practices",
+   "html": "<p>MSI Mod 10's check digit only protects you if the barcode is actually printed and scanned cleanly enough for a reader to detect it in the first place &mdash; it doesn't fix a code that's unreadable outright. Print at a resolution where wide and narrow elements stay clearly distinguishable, keep a consistent quiet zone on both sides, and configure your scanner or scanning software to validate the mod-10 check digit and reject non-matching reads rather than passing bad data straight through. For very high-volume or safety-critical workflows, consider MSI Mod 11 or a double check digit for a further reduction in undetected errors.</p><p>Before rolling out a batch of labels, scan a handful with the exact reader model used on the floor and confirm the decoded value includes the correct check digit rather than just the base number &mdash; some scanner configurations strip the check digit after validating it, which is fine for most systems but will break an integration expecting the full string. Keep a printed reference chart mapping a few sample values to their known-correct check digits nearby during setup, so a misconfigured scanner is obvious immediately rather than after a shift's worth of mis-scans.</p>"
+  }
+ ],
+ "uses": [
+  "High-volume warehouse and distribution center inventory labels",
+  "Retail shelf tags where basic error detection reduces mis-scans",
+  "Asset tracking systems that validate scanned data against a check digit",
+  "Replacing plain MSI labels where added reliability is needed",
+  "Internal systems that specifically expect a single mod-10 check digit"
+ ],
+ "faq": [
+  {
+   "q": "How is the MSI Mod 10 check digit calculated?",
+   "a": "Starting from the rightmost digit, every second digit is doubled and its digits summed if the result is two digits, then all digits are added together; the check digit is the amount needed to round that sum up to the next multiple of 10."
+  },
+  {
+   "q": "What's the difference between MSI Mod 10 and MSI Mod 11?",
+   "a": "Mod 10 uses a doubling-based algorithm similar to the Luhn check used on credit cards, while Mod 11 uses a weighted-sum algorithm that's generally better at catching transposition errors; Mod 10 is simpler, Mod 11 is more robust."
+  },
+  {
+   "q": "Do I need to calculate the check digit myself?",
+   "a": "No, Barcode Studio calculates and appends the correct mod-10 check digit automatically based on the numeric data you enter."
+  },
+  {
+   "q": "Can MSI Mod 10 encode letters?",
+   "a": "No, MSI Mod 10 encodes numeric digits only; the check digit itself is also always a single numeric digit."
+  },
+  {
+   "q": "Is MSI Mod 10 the same algorithm as a credit card check digit?",
+   "a": "It's from the same family &mdash; both use a doubling-based modulo-10 approach related to the Luhn algorithm &mdash; but they're applied in the context of different barcode and number formats."
+  },
+  {
+   "q": "Can I bulk-generate MSI Mod 10 barcodes?",
+   "a": "Yes, upload a CSV of base numeric values and Barcode Studio will calculate each check digit and generate a ZIP of image files or a print-ready PDF of labels."
+  }
+ ]
+}

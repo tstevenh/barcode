@@ -1,0 +1,54 @@
+{
+  "id": "databartruncated",
+  "title": "DataBar Truncated Generator - Free GS1 GTIN Barcode",
+  "metaDescription": "Free DataBar Truncated generator for short, single-row GS1 GTIN barcodes on tight vertical space. Enter (01)+GTIN and export PNG, SVG, or bulk labels.",
+  "primaryKeyword": "databar truncated generator",
+  "secondaryKeywords": ["gs1 databar truncated", "short height gtin barcode", "reduced height databar", "databar for aimed scanners", "single row gtin barcode", "small label gtin barcode"],
+  "lead": "Generate a shortened GS1 DataBar barcode for labels with almost no vertical room to spare.",
+  "sections": [
+    {
+      "h2": "What is DataBar Truncated?",
+      "html": "<p>DataBar Truncated takes the exact same single-row data layout as DataBar Omnidirectional &mdash; a GTIN encoded through Application Identifier (01), such as <code>(01)09521234543213</code> &mdash; and reduces the bar height. Nothing about the encoded data changes; the difference is purely physical, aimed at situations where a label has very little vertical space but can spare the horizontal width of a full-row DataBar symbol.</p>"
+    },
+    {
+      "h2": "Why shortening the bars changes how it scans",
+      "html": "<p>A standard DataBar Omni symbol's bar height gives a scanner room to read the code correctly even if the label passes under the beam at a slight tilt or if the scan line doesn't cross dead-center. Cut that height down, as DataBar Truncated does, and you lose much of that margin for error &mdash; a scan line that would have caught a full-height bar can miss a truncated one if it's not aimed carefully.</p><p>That's the core tradeoff versus its relatives: DataBar Stacked and DataBar Stacked Omni solve tight space by adding a second row and keeping full bar height, preserving (in Stacked Omni's case) omnidirectional reliability. DataBar Truncated instead keeps the single-row layout and shrinks height directly, which is simpler to print and read in a controlled setting but sacrifices the reliable any-angle scanning that makes DataBar Omni suitable for busy checkout lanes. GS1 guidance reflects this: DataBar Truncated is not recommended for general retail point-of-sale scanning and is meant for situations with a fixed, aimed scanner rather than a high-throughput sweep lane.</p>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>DataBar Truncated encodes GS1 Application Identifier (01) with a 14-digit GTIN, identical in data content to DataBar Omni and standardized under the same ISO/IEC 24724 GS1 DataBar family. The only structural difference is a reduced minimum symbol height, well below the height GS1 specifies for reliable omnidirectional scanning, which is precisely why GS1 restricts its recommended use to aimed, non-sweep scanning environments. Quiet zone requirements on the horizontal axis remain the same as DataBar Omni. As a GTIN-only symbol, it has no capacity for supplementary Application Identifiers.</p>"
+    },
+    {
+      "h2": "Where DataBar Truncated is used",
+      "html": "<p>DataBar Truncated fits applications where label height is the binding constraint and the scanning setup is predictable &mdash; internal inventory tags scanned by a fixed-mount or handheld reader aimed deliberately at the code, asset tags in tight physical spaces, and specialty packaging where a full-height DataBar Omni symbol simply won't fit under a product image or text block. It's less common at consumer retail checkout precisely because that environment depends on omnidirectional reliability that a shortened symbol can't fully guarantee.</p>"
+    },
+    {
+      "h2": "How to create a DataBar Truncated barcode in Barcode Studio",
+      "html": "<p>Select <strong>DataBar Truncated</strong> from the GS1 DataBar group in the symbology list, then enter the GTIN with AI syntax, for example <code>(01)09521234543213</code>. Barcode Studio validates the check digit and renders the shortened single-row symbol.</p><ul><li>Adjust the reduced bar height and module width to fit your exact label constraints</li><li>Set foreground/background colors while keeping strong contrast</li><li>Fine-tune the quiet zone margin on both sides of the symbol</li><li>Export as PNG or SVG, or copy the code for a label template</li><li>Upload a CSV of GTINs for bulk generation into a ZIP or print-ready PDF</li><li>Use the REST API to automate output: <code>/barcode?type=databartruncated&amp;data=(01)09521234543213</code></li></ul>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Before deploying DataBar Truncated at scale, confirm the specific scanner or reader you'll use is set up to aim directly and consistently at the symbol, since it doesn't carry the same tolerance for angle or sweep as DataBar Omni. Keep quiet zones intact even though the symbol is short vertically &mdash; the horizontal margins still matter for the scanner to isolate the start and stop of the code. If your application later needs sweep-lane checkout scanning, reconsider DataBar Omni or DataBar Stacked Omni instead, since Truncated trades that reliability away specifically to save vertical space.</p>"
+    },
+    {
+      "h2": "Choosing between DataBar Truncated and its relatives",
+      "html": "<p>All four GTIN-only DataBar symbols &mdash; Omni, Stacked, Stacked Omni, and Truncated &mdash; encode identical data, so picking among them comes down to label geometry and how the item will actually be scanned. If you have full width and full height to spare and need reliable any-angle scanning, DataBar Omni is the default choice. If width is the scarce resource but the item still needs to move through a checkout sweep lane, DataBar Stacked Omni keeps that reliability in a taller, narrower package. If width is scarce and the scan will happen in a controlled, handheld or fixed setting rather than a sweep lane, plain DataBar Stacked works. DataBar Truncated is the answer specifically when height, not width, is the constraint you can't work around &mdash; a shallow label band above or below a graphic, for instance &mdash; and the scanning environment can be controlled well enough to tolerate its reduced aiming tolerance.</p><p>It's worth flagging to anyone specifying labels for a new product line that DataBar Truncated is the variant most likely to cause downstream scanning complaints if it ends up in front of a general-purpose retail scanner instead of the aimed reader it was designed for. Confirming the actual scanning hardware early avoids a costly relabel later.</p>"
+    }
+  ],
+  "uses": [
+    "Internal inventory tags scanned by fixed or aimed handheld readers",
+    "Asset tags in physically tight spaces",
+    "Specialty packaging where vertical label space is severely limited",
+    "Warehouse bins and shelf labels scanned deliberately rather than swept",
+    "Applications where horizontal width is available but height is not",
+    "Controlled scanning environments that don't require omnidirectional reads"
+  ],
+  "faq": [
+    {"q": "What is a DataBar Truncated generator best used for?", "a": "A DataBar Truncated generator is best for labels with very limited vertical space, where the barcode will be read by a scanner that can be aimed deliberately rather than swept past at any angle."},
+    {"q": "Is DataBar Truncated safe to use at retail checkout?", "a": "GS1 guidance advises against using DataBar Truncated for general retail point-of-sale scanning because its reduced height makes omnidirectional sweep scanning less reliable; DataBar Omni or DataBar Stacked Omni are better suited to checkout lanes."},
+    {"q": "Does DataBar Truncated store different data than DataBar Omni?", "a": "No, both encode the same GTIN through Application Identifier (01); the only difference is that DataBar Truncated has a shorter bar height."},
+    {"q": "Why not just use DataBar Stacked instead of DataBar Truncated?", "a": "<p>DataBar Stacked splits the GTIN into two full-height rows to save width, while DataBar Truncated keeps a single row and shortens the height instead &mdash; choose whichever dimension your label can least spare.</p>"},
+    {"q": "Can I bulk-generate DataBar Truncated barcodes?", "a": "Yes, upload a CSV of GTINs and Barcode Studio will produce a ZIP of image files or a print-ready PDF of labels."},
+    {"q": "What GS1 Application Identifier does DataBar Truncated use?", "a": "It uses AI (01) for the GTIN, the same Application Identifier used by DataBar Omni, Stacked, and Stacked Omni, since all four are GTIN-only symbols."}
+  ]
+}

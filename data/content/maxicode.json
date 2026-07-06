@@ -1,0 +1,79 @@
+{
+  "id": "maxicode",
+  "title": "MaxiCode Generator - Fixed-Size 2D Barcode | Barcode Studio",
+  "metaDescription": "Generate a MaxiCode barcode free online, the fixed-size 2D symbol UPS uses for high-speed package sorting. Export PNG or SVG or use the REST API.",
+  "primaryKeyword": "maxicode generator",
+  "secondaryKeywords": [
+    "maxicode barcode",
+    "ups barcode generator",
+    "fixed size 2d barcode",
+    "package sorting barcode",
+    "maxicode specs",
+    "high speed scanning barcode"
+  ],
+  "lead": "Generate a MaxiCode, the fixed-size dot-matrix barcode built for scanning packages at high speed on a sorting conveyor.",
+  "sections": [
+    {
+      "h2": "What is a MaxiCode?",
+      "html": "<p>MaxiCode is a two-dimensional barcode standardized under ISO/IEC 16023, developed by United Parcel Service (UPS) in the 1980s specifically to identify packages moving quickly along conveyor sorting systems. Unlike most 2D symbologies, MaxiCode always has a fixed physical size (about 1 inch, or 25.4 mm, square) and a fixed number of hexagonal data modules, which makes it easy for a high-speed scanner to locate and read reliably without needing to first determine the symbol's dimensions. A <strong>maxicode generator</strong> is really only useful for this one narrow purpose &mdash; unlike QR or Data Matrix, you're not choosing MaxiCode for flexibility, you're choosing it because your package sorting network already requires it.</p>"
+    },
+    {
+      "h2": "How MaxiCode encodes data",
+      "html": "<p>At the center of every MaxiCode is a distinctive bullseye finder pattern of concentric circles, which a scanner can detect from multiple angles and even while the package is moving, unlike square corner-based finder patterns that are more sensitive to rotation. Surrounding the bullseye, data is encoded not in the square modules typical of QR or Data Matrix, but in a fixed grid of hexagonal dots, arranged in rows around the center. This hexagonal packing, combined with Reed-Solomon error correction, is optimized for the specific problem UPS needed to solve: fast, reliable reads on packages moving past a fixed scanner at conveyor speed, regardless of minor skew or tilt. Because omnidirectional linear laser scanners were already common on sortation lines when MaxiCode was designed, the circular bullseye also plays well with the sweeping scan patterns those older systems use, unlike a square finder pattern optimized primarily for area-imaging cameras.</p>"
+    },
+    {
+      "h2": "What MaxiCode encodes and key specs",
+      "html": "<p>Because the symbol size and module count are fixed, MaxiCode's capacity is fixed too: it holds up to about 93 characters of data per symbol. Structured Carrier Message (SCM) mode, the primary encoding mode, is optimized for shipping data such as postal code, country code, and class of service, packed into a compact fixed-format primary message plus additional secondary message content. Several numbered modes define how that primary message is interpreted, with different modes suited to domestic shipments, international shipments, and other structured logistics formats. Because of this fixed structure, MaxiCode is less flexible than variable-size 2D codes but far more predictable for automated high-speed sorting equipment that's tuned to expect a specific symbol footprint.</p><ul><li><strong>Fixed size:</strong> approximately 1 inch (25.4 mm) square, unlike variable-size 2D codes</li><li><strong>Data modules:</strong> hexagonal dots rather than square modules</li><li><strong>Capacity:</strong> up to ~93 characters, optimized for shipping data</li></ul>"
+    },
+    {
+      "h2": "Where MaxiCode is used",
+      "html": "<p>MaxiCode is best known as the barcode UPS uses on virtually every package it ships, encoding destination postal code, country, and service class for automated conveyor sorting. It's also specified by the U.S. Department of Defense for some logistics and shipping applications, and by other logistics and freight operations that need fast, rotation-tolerant scanning on high-speed sortation lines. Postal and parcel operators outside the US have also adopted MaxiCode or MaxiCode-compatible equipment for cross-border shipments handled through UPS's network, since the label needs to remain readable across every sorting facility the package passes through regardless of country. Because of its fixed size and origin, it's rarely seen outside large-scale package sorting and logistics contexts.</p>"
+    },
+    {
+      "h2": "How to create a MaxiCode in Barcode Studio",
+      "html": "<p>Select <strong>MaxiCode</strong> from the symbology list and enter your shipping or structured data directly. From there you can:</p><ul><li>Choose the appropriate MaxiCode mode for your data (Structured Carrier Message for shipping data, or general text modes for other content)</li><li>Preview the fixed-size symbol layout, since MaxiCode doesn't scale like other 2D codes</li><li>Export as PNG or SVG for label templates, or copy the code directly</li><li>Use batch/sequence generation or CSV bulk upload to produce unique shipping labels across a batch, exported as ZIP or PDF</li><li>Call the REST API &mdash; <code>/barcode?type=maxicode&amp;data=Shipment%20Data</code> &mdash; to integrate MaxiCode generation into a shipping or logistics system</li></ul>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Since MaxiCode's size is fixed by specification, don't attempt to scale it up or down to fit a custom label layout the way you might with QR or Data Matrix &mdash; print it at its defined dimensions to ensure compatibility with the fixed-focus, high-speed scanners it was designed for. Maintain strong contrast between the dots and background, since sorting equipment often reads MaxiCode at significant distance and speed compared to handheld scanning. If you're encoding shipping data, follow the Structured Carrier Message format precisely, as many carrier sorting systems expect the primary message fields in a specific order and format. Test any custom MaxiCode implementation against real sorting equipment if it will enter a carrier's logistics network, since compatibility requirements are strict, and coordinate directly with the carrier if you're producing labels intended to enter their sortation system rather than assuming generic compliance is sufficient.</p>"
+    },
+    {
+      "h2": "MaxiCode vs related codes",
+      "html": "<p>MaxiCode's fixed size and hexagonal module grid set it apart from every other common 2D symbology, all of which scale their dimensions to the data being encoded. QR code and Data Matrix both offer far higher and more flexible capacity, adjustable error correction, and broad general-purpose scanner support, but neither offers MaxiCode's specific advantage of a perfectly predictable footprint for scanners tuned to expect one exact symbol size at high belt speed. PDF417, a stacked linear format used on driver's licenses and boarding passes, solves a different problem entirely and isn't a realistic substitute for conveyor sorting. In practice, MaxiCode isn't really in competition with these alternatives for most users: you use it because a carrier's sortation network requires it, not because you evaluated it against other 2D formats for a general-purpose labeling need.</p>"
+    }
+  ],
+  "uses": [
+    "UPS package labels for automated conveyor sorting",
+    "U.S. Department of Defense logistics and shipping applications",
+    "High-speed freight and parcel sortation systems",
+    "Large-scale distribution center package tracking",
+    "Courier and logistics operations requiring rotation-tolerant scanning",
+    "Automated material handling systems reading labels at speed"
+  ],
+  "faq": [
+    {
+      "q": "Why does UPS use MaxiCode instead of a regular barcode?",
+      "a": "MaxiCode's central bullseye finder pattern can be detected reliably even when a package is moving and slightly tilted on a conveyor, and its fixed size lets high-speed sorting scanners lock onto it without first needing to determine the symbol's dimensions."
+    },
+    {
+      "q": "Can I resize a MaxiCode to fit my label?",
+      "a": "No, MaxiCode is defined at a fixed size of about 1 inch square with a fixed number of modules; resizing it away from spec risks incompatibility with the fixed-focus scanners it's designed for."
+    },
+    {
+      "q": "How much data can MaxiCode hold?",
+      "a": "MaxiCode holds up to about 93 characters per symbol, which is enough for structured shipping data like postal code, country, and service class but far less than variable-size 2D codes like QR or Data Matrix."
+    },
+    {
+      "q": "What are the hexagonal dots in a MaxiCode?",
+      "a": "MaxiCode encodes data using a fixed grid of hexagonal modules rather than the square modules used by most other 2D barcodes, a design choice optimized for reliable high-speed optical scanning."
+    },
+    {
+      "q": "Is MaxiCode used outside of package shipping?",
+      "a": "It's occasionally used in other logistics contexts, including some U.S. Department of Defense applications, but it's rarely seen outside large-scale package sorting given its origin and fixed-size design."
+    },
+    {
+      "q": "Is a maxicode generator useful outside of shipping?",
+      "a": "Rarely — MaxiCode's fixed size and specialized encoding modes are built around carrier sortation systems, so unless you're producing labels for a network that specifically requires MaxiCode, a flexible symbology like QR code or Data Matrix will usually serve better."
+    }
+  ]
+}

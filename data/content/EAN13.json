@@ -1,0 +1,46 @@
+{
+  "id": "EAN13",
+  "title": "EAN-13 Generator – Free Barcode Tool | Barcode Studio",
+  "metaDescription": "Generate EAN-13 barcodes free online. Enter 12 digits, the check digit is added automatically. Live preview, PNG/SVG/PDF export, bulk CSV, and REST API.",
+  "primaryKeyword": "ean-13 generator",
+  "secondaryKeywords": ["ean-13 barcode", "european article number generator", "gtin-13 barcode", "ean vs upc", "ean-13 check digit calculator", "retail barcode generator"],
+  "lead": "Enter 12 digits and get a scannable EAN-13 barcode instantly, with the 13th check digit calculated for you.",
+  "sections": [
+    {
+      "h2": "What Is an EAN-13 Barcode?",
+      "html": "<p>EAN-13 (European Article Number, 13 digits) is the international standard barcode for retail products, used in stores worldwide outside of North America — and increasingly alongside UPC-A within North America too, since UPC-A is technically a subset of EAN-13. Every EAN-13 barcode encodes a 13-digit Global Trade Item Number (GTIN-13): 12 data digits plus a final check digit. It's the barcode printed on nearly every packaged product you'd find on a supermarket or retail shelf outside the US and Canada.</p><p>Important distinction: Barcode Studio generates a correctly formatted, scannable EAN-13 barcode image from any 12 digits you provide. It does not register or assign an official GTIN. A GTIN that's actually unique in global retail systems has to be licensed from GS1 (the organization that administers the EAN/UPC numbering system) through a GS1 company prefix. If you're building a real retail product for sale through major retailers or marketplaces, you need a GS1-issued prefix — this tool is for generating the barcode image once you have (or are testing with) a number.</p>"
+    },
+    {
+      "h2": "How EAN-13 Encodes Data — Structure and Check Digit",
+      "html": "<p>An EAN-13 barcode's 13 digits break down into three parts:</p><ul><li><strong>Country/GS1 prefix (2–3 digits)</strong> — indicates which GS1 member organization issued the number, not necessarily where the product was made. For example, prefixes starting with 0 correspond to the US/Canada (UPC compatibility range), while other ranges map to GS1 organizations in specific countries.</li><li><strong>Company and item reference (9–10 digits)</strong> — assigned by the GS1 member organization to a specific manufacturer, then subdivided by that manufacturer to identify individual products.</li><li><strong>Check digit (1 digit)</strong> — calculated using a weighted modulo-10 algorithm across the preceding 12 digits, letting scanners detect a misread or mistyped digit.</li></ul><p>You only need to type the first 12 digits into Barcode Studio; the check digit is calculated and appended automatically, so the barcode you export is always mathematically valid.</p>"
+    },
+    {
+      "h2": "Where EAN-13 Is Used",
+      "html": "<p>EAN-13 is the default retail barcode across most of the world:</p><ul><li><strong>Grocery and retail packaging</strong> — nearly every packaged consumer product sold in Europe, Asia, Australia, and most other regions carries an EAN-13 for point-of-sale scanning.</li><li><strong>E-commerce marketplaces</strong> — Amazon, eBay, and similar platforms often require a GTIN (EAN-13 or UPC-A) to list a new product.</li><li><strong>Inventory and warehouse management</strong> — retailers and distributors use EAN-13 to track SKUs through receiving, stocking, and sales.</li><li><strong>Books and media (as ISBN-based EAN-13)</strong> — modern ISBNs are formatted as EAN-13 barcodes with a 978 or 979 prefix.</li><li><strong>Cross-border retail</strong> — because EAN-13 is a superset of UPC-A, products can carry one code that scans correctly on both European and North American point-of-sale systems.</li></ul>"
+    },
+    {
+      "h2": "How to Create an EAN-13 Barcode in Barcode Studio",
+      "html": "<p>Select <strong>EAN-13</strong> from the symbology list under Retail (EAN/UPC). Type your 12-digit number — if you have a real GS1-issued GTIN, use that; for testing or internal use, any 12 digits will produce a valid barcode. The check digit is calculated and displayed automatically as you type, and the live preview shows exactly what will print. From there:</p><ul><li>Adjust <strong>bar width and height</strong> — retail scanners are tuned to a fairly standard size range, so avoid shrinking the barcode too far below 80% of nominal size.</li><li>Keep <strong>human-readable text</strong> (the digits below the bars) turned on for retail use — it's required by most point-of-sale systems and lets staff key in the number manually if a scan fails.</li><li>Set the <strong>quiet zone</strong> (margin) correctly; EAN-13 needs clear space on both sides for scanners to detect the start and stop guard patterns.</li><li>Export as <strong>PNG, SVG, or PDF</strong> for packaging artwork, or use <strong>Copy</strong> for quick placement in a design tool.</li><li>Use <strong>batch/sequence</strong> to generate a numbered run of GTINs, or the <strong>bulk CSV → ZIP/PDF</strong> tool to turn a spreadsheet of product numbers into a folder or print sheet of barcodes.</li><li>Call the <strong>REST API</strong> — <code>/barcode?type=ean13&data=YOUR12DIGITS</code> — to generate EAN-13 images programmatically from a PIM, ERP, or labeling pipeline.</li></ul>"
+    },
+    {
+      "h2": "Print and Scan Best Practices for Retail",
+      "html": "<p>Retail scanning environments are unforgiving, so a few rules matter:</p><ul><li><strong>Size</strong>: GS1 specifies a nominal EAN-13 size, with an acceptable magnification range roughly from 80% to 200% of nominal — going smaller risks bars merging or failing to resolve under a laser or imager scanner.</li><li><strong>Quiet zones</strong>: leave clear space (no text, logos, or other marks) on both sides of the barcode — this is one of the most common reasons a technically correct barcode fails to scan at checkout.</li><li><strong>Contrast</strong>: print black bars on a white or light background; avoid low-contrast color combinations, and never print a barcode over a busy background pattern.</li><li><strong>Placement</strong>: keep the barcode flat, not wrapped around a curved edge or seam, and avoid placing it where packaging folds or creases could distort the bars.</li><li><strong>Verification</strong>: for any GTIN going into real retail distribution, verify the code with a barcode verifier or your retailer's onboarding requirements before mass printing — a barcode that looks fine on screen can still fail grading specs.</li></ul>"
+    }
+  ],
+  "uses": [
+    "Retail product packaging sold in Europe, Asia, and most non-North American markets",
+    "E-commerce marketplace listings requiring a GTIN",
+    "Book and media packaging using ISBN-formatted EAN-13 codes",
+    "Warehouse and inventory tracking of SKUs by GTIN",
+    "Cross-border products needing one code compatible with both EAN and UPC scanners",
+    "Internal or private-label products using a manufacturer's own numbering range"
+  ],
+  "faq": [
+    {"q": "What is the difference between EAN-13 and UPC-A?", "a": "<p>UPC-A is 12 digits and used mainly in the US and Canada; EAN-13 is 13 digits and used internationally. Structurally, a UPC-A code is an EAN-13 code with a leading zero — most retail scanners read both formats interchangeably.</p>"},
+    {"q": "How many digits do I enter for an ean-13 generator?", "a": "Enter 12 digits; Barcode Studio calculates the 13th digit (the check digit) automatically using the standard modulo-10 algorithm and appends it to complete the barcode."},
+    {"q": "Does this tool register my product with GS1?", "a": "<p>No. Barcode Studio generates a correctly formatted, scannable EAN-13 image from any digits you enter, but it doesn't assign or register an official GTIN. To get a number that's genuinely unique in global retail systems, you need to license a GS1 company prefix directly from GS1.</p>"},
+    {"q": "Can I use a random 12-digit number for testing?", "a": "Yes, any 12 digits will produce a valid, scannable EAN-13 barcode for testing, mockups, or internal use — just don't use an untested number on a product going into real retail distribution, since it could collide with another company's actual GTIN."},
+    {"q": "Can I generate EAN-13 barcodes in bulk?", "a": "<p>Yes. Upload a CSV of 12-digit numbers to Barcode Studio's bulk tool to generate a ZIP of individual barcode images or a single print-ready PDF sheet, one barcode per row.</p>"},
+    {"q": "Is the EAN-13 generator free to use?", "a": "Yes, Barcode Studio's EAN-13 generator runs entirely in your browser at no cost, with no account required for standard PNG/SVG/PDF exports."}
+  ]
+}

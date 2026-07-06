@@ -1,0 +1,51 @@
+{
+  "id": "hibccode128",
+  "title": "HIBC LIC Code 128 Generator - Free | Barcode Studio",
+  "metaDescription": "Free HIBC LIC Code 128 generator for compact medical device labels. Enter labeler ID and product number, then export PNG, SVG, or PDF for print.",
+  "primaryKeyword": "hibc lic code 128 generator",
+  "secondaryKeywords": ["hibc code 128 barcode", "hibcc labeler code 128", "medical device barcode generator", "hibc primary data message", "compact healthcare barcode"],
+  "lead": "Generate an HIBC LIC Code 128 barcode that packs manufacturer and product identity into a denser symbol for space-constrained medical labels.",
+  "sections": [
+    {
+      "h2": "What is an HIBC LIC Code 128 barcode?",
+      "html": "<p>HIBC LIC Code 128 is the same primary Health Industry Bar Code data structure as HIBC LIC Code 39 &mdash; a \"+\" flag character, a HIBCC-assigned labeler identification code, a product or catalog number, a unit-of-measure digit, and a check character &mdash; but encoded in Code 128 instead of Code 39. HIBCC's specification allows LIC and PAS messages to be encoded in several symbologies, including Code 39, Code 128, and various 2D formats, and Code 128 was added to give labelers a denser option once device packaging began shrinking and label real estate got tighter.</p>"
+    },
+    {
+      "h2": "Why manufacturers choose Code 128 over Code 39 for HIBC",
+      "html": "<p>Code 128 encodes the same alphanumeric character set in noticeably less horizontal space than Code 39, because each Code 128 character uses a more efficient bar-and-space pattern and the symbology supports shifting between character subsets to pack digits especially tightly. For a manufacturer printing HIBC LIC data on a small diagnostic vial, an implantable device tray, or a single-use surgical item, that density difference can be the deciding factor between a barcode that fits cleanly on the available label area and one that has to be shrunk to the point of being hard to scan reliably. Code 39 remains common on larger cartons and legacy systems, but Code 128 has become the preferred choice as device packaging gets smaller and labeling requirements (including UDI) pile more data onto the same physical space.</p>"
+    },
+    {
+      "h2": "LIC (primary) vs. PAS (secondary) messages",
+      "html": "<p>As with the Code 39 variant, it's important to know which HIBC message type you're generating. The <strong>LIC message</strong> is the primary, fixed identity of the product &mdash; who made it and what it is, per the labeler's own product numbering. The <strong>PAS message</strong> is the secondary, variable data &mdash; lot number, expiration date, serial number, quantity &mdash; that changes with each production batch or unit and is typically printed as a separate but linked barcode alongside the LIC message. This page is specifically for the LIC (primary) message encoded in Code 128; use the companion HIBC PAS Code 128 generator when you need to encode lot and expiration data instead.</p>"
+    },
+    {
+      "h2": "Where HIBC LIC Code 128 is used",
+      "html": "<p>HIBC LIC Code 128 labels are common on compact medical device packaging, single-use surgical supplies, implant trays, and diagnostic kits where every millimeter of label space counts. Hospital receiving and materials management systems that were built around HIBC identifiers use these labels the same way they use the Code 39 variant &mdash; to identify manufacturer and product at receiving, point of use, and reorder &mdash; but manufacturers increasingly print the denser Code 128 version specifically because it fits smaller unit-of-use packaging without shrinking the barcode below a reliably scannable size.</p>"
+    },
+    {
+      "h2": "How to create an HIBC LIC Code 128 barcode in Barcode Studio",
+      "html": "<p>Select <strong>HIBC LIC Code 128</strong> from the Linear Barcode list, then enter your HIBC-formatted string starting with the \"+\" flag character, your assigned labeler identification code, and your product number, for example <code>+A99912345/$$</code>. Barcode Studio computes and appends the required HIBC check character automatically. From there you can:</p><ul><li>Adjust bar height, module width, and quiet zone to fit compact device or vial labels</li><li>Set colors while preserving enough contrast for handheld hospital and warehouse scanners</li><li>Export as PNG, SVG, or PDF, or copy the barcode into your label design software</li><li>Bulk-generate labels from a CSV of labeler codes and product numbers, exported as a ZIP or print-ready PDF</li><li>Call the REST API &mdash; <code>/barcode?type=hibccode128&amp;data=+A99912345/$$</code> &mdash; to generate labels from your labeling or ERP system</li></ul>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Code 128's density advantage only helps if the printed symbol still meets minimum module width for your scanner fleet, so test at the actual print size you intend to use on packaging, not just on a full-size proof sheet. Keep the required quiet zone intact even when space is tight &mdash; it's tempting to crowd Code 128 close to other label elements to save space, but doing so is a common cause of misreads on small device labels. Confirm your labeler identification code is correctly assigned by HIBCC, and if the label also carries a linked PAS message with lot and expiration data, keep the two barcodes visually separated with clear quiet zones so scanners don't conflate them.</p>"
+    },
+    {
+      "h2": "Migrating from Code 39 to Code 128 without breaking downstream systems",
+      "html": "<p>If you currently print HIBC LIC data in Code 39 and are considering a switch to Code 128 to reclaim label space, the underlying data content doesn't change &mdash; the flag character, labeler identification code, product number, and check character all follow the same HIBC structure. What does change is which symbology your trading partners' scanners and receiving software are configured to recognize, so a symbology change is a coordination exercise as much as a printing one. Confirm with major hospital or distributor customers that their scanning infrastructure already reads HIBC Code 128 before switching a high-volume product line, and consider a transition period where both symbologies are validated against real scanning hardware rather than assuming compatibility from the spec alone.</p><p>In practice, most modern barcode scanners handle both Code 39 and Code 128 without configuration changes, since symbology auto-detection is standard on current hardware. The bigger risk tends to be older, purpose-built hospital scanning stations that were configured years ago for a narrower set of symbologies and never revisited.</p>"
+    }
+  ],
+  "uses": [
+    "Compact medical device and implant tray labeling",
+    "Single-use surgical supply packaging with limited label space",
+    "Diagnostic kit and vial labeling in space-constrained formats",
+    "Hospital materials management systems built around HIBC identifiers",
+    "Manufacturer labeling where Code 39 barcodes no longer fit available space"
+  ],
+  "faq": [
+    {"q": "What is an HIBC LIC Code 128 generator used for?", "a": "It generates the primary Health Industry Bar Code message, identifying a medical product's manufacturer and product number, encoded in the denser Code 128 symbology rather than Code 39."},
+    {"q": "Why use Code 128 instead of Code 39 for HIBC labeling?", "a": "Code 128 encodes the same HIBC data in less horizontal space than Code 39, which matters on small medical device packaging where label area is limited."},
+    {"q": "Is HIBC LIC Code 128 the same data as HIBC LIC Code 39?", "a": "Yes, both encode the same primary LIC message structure (flag character, labeler ID, product number, check character); only the underlying barcode symbology differs."},
+    {"q": "Can I put lot number and expiration date in an HIBC LIC Code 128 barcode?", "a": "No, that variable data belongs in a separate linked HIBC PAS message; the LIC message is reserved for the fixed manufacturer and product identity."}
+  ]
+}

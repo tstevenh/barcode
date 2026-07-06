@@ -1,0 +1,52 @@
+{
+  "id": "ntin",
+  "title": "NTIN Code Generator – Pharma Data Matrix",
+  "metaDescription": "Generate an NTIN code free online for pharmaceutical packaging. Encode a National Trade Item Number as GS1 Application Identifier (01) in a Data Matrix.",
+  "primaryKeyword": "ntin code generator",
+  "secondaryKeywords": ["national trade item number barcode", "ntin gs1 data matrix", "pharma serialization barcode", "PZN ntin conversion", "gs1 ai 01 ntin", "german pharma barcode"],
+  "lead": "Generate an NTIN barcode that carries a National Trade Item Number as a GS1 Application Identifier for pharmaceutical traceability.",
+  "sections": [
+    {
+      "h2": "What is an NTIN?",
+      "html": "<p>An NTIN, or National Trade Item Number, is a GS1-structured product identifier used specifically for pharmaceuticals in countries that layer a national drug-numbering scheme on top of GS1's global identification standard. It's not a barcode symbology itself — it's the data content, encoded using GS1 Application Identifier (01) inside a carrier symbol, most commonly a GS1 Data Matrix on pharmaceutical packaging.</p><p>The best-known example is Germany, where the national Pharmazentralnummer (PZN) — an 8-digit code identifying a specific packaged drug product — is converted into an NTIN by prefixing it with the country's GS1 prefix (typically 4150 for German PZN-based NTINs) and appending a GS1 check digit, producing a full 14-digit GTIN-compatible number. This lets a product that already has a recognized national pharma code participate in GS1's global traceability infrastructure without assigning it a second, unrelated GTIN.</p>"
+    },
+    {
+      "h2": "How NTIN data is structured",
+      "html": "<p>An NTIN is encoded as GS1 Application Identifier (01), the same AI used for a standard GTIN, followed by the 14-digit number:</p><ul><li><strong>AI (01)</strong> — indicates the following digits are a Global Trade Item Number.</li><li><strong>Country/national prefix</strong> — identifies the issuing scheme, e.g., Germany's PZN-derived prefix.</li><li><strong>National drug number</strong> — the original national identifier (such as the PZN), embedded within the digit string.</li><li><strong>GS1 check digit</strong> — a standard modulo-10 check digit computed over the full 13 preceding digits, as with any GTIN.</li></ul><p>In practice, an NTIN-carrying pharmaceutical package will also encode GS1 AI (17) expiry date, AI (10) batch/lot number, and AI (21) serial number alongside AI (01), since pharmaceutical serialization regulations (such as the EU Falsified Medicines Directive) require all of these on a single Data Matrix symbol, not just the product identifier alone.</p>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>An NTIN is a 14-digit numeric string encoded under GS1 Application Identifier (01), governed by GS1's global GTIN specification with a national numbering scheme (such as Germany's PZN, managed by IFA GmbH) mapped into it via a country-specific GS1 prefix. The check digit is the standard GS1 modulo-10 weighted algorithm applied across the 13 preceding digits, identical to the calculation used for any GTIN-13 or GTIN-14. The carrier symbol is almost always a GS1 Data Matrix (ISO/IEC 16022) using ECC 200 Reed–Solomon error correction, printed small enough for individual sales-unit pharmaceutical packaging, and typically combined on the same symbol with AI (17) expiry date, AI (10) batch/lot, and AI (21) serial number as required by serialization regulation such as the EU Falsified Medicines Directive.</p>"
+    },
+    {
+      "h2": "Where NTIN is used",
+      "html": "<p>NTIN appears specifically in pharmaceutical supply chains in markets with a national drug-numbering authority that GS1 has mapped into its identification system:</p><ul><li>German pharmaceutical packaging, where PZN-based NTINs are the standard product identifier on serialized medicine packs.</li><li>Other European markets with analogous national pharma code schemes recognized by GS1.</li><li>Cross-border pharmaceutical distribution, where an NTIN lets a product with a national code be tracked using the same GS1 infrastructure used for GTIN-based products elsewhere in the EU.</li></ul><p>Pharmacies, wholesalers and regulators scan the Data Matrix carrying the NTIN (along with batch, expiry and serial number) to verify authenticity and log dispensing under national serialization and anti-counterfeiting programs.</p>"
+    },
+    {
+      "h2": "How to generate an NTIN barcode in Barcode Studio",
+      "html": "<p>To build a pharma-ready NTIN symbol:</p><ul><li>Select <strong>NTIN Code</strong> from the barcode type list — this configures the GS1 Data Matrix builder with AI (01) pre-selected for the NTIN.</li><li>Enter your 14-digit NTIN value (or the national number plus prefix, if the builder computes the check digit for you), then add any additional Application Identifiers your regulatory context requires — AI (17) expiry date, AI (10) batch/lot, and AI (21) serial number are standard for serialized pharma packs.</li><li>Barcode Studio formats the combined AI string with the correct FNC1 group separators and renders it as a GS1 Data Matrix.</li><li>Set the symbol size to match your pack's regulatory minimum readable size — pharmaceutical Data Matrix codes are often printed quite small, so verify grade with a verification scanner before production.</li><li>Export as SVG for packaging artwork or PNG for proofing, and use <strong>Bulk CSV → ZIP/PDF</strong> to generate a unique serialized NTIN Data Matrix per pack when producing a full serialization batch.</li><li>For integration with a packaging line or serialization management system, call the REST API at <code>/barcode?type=ntin&data=...</code> to generate codes on demand.</li></ul>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Pharmaceutical Data Matrix symbols carrying an NTIN must meet strict print-quality grades (commonly ISO/IEC 15415 grade C or better) because dispensing and verification systems reject poorly printed codes outright. Use direct thermal transfer or high-resolution inkjet printing appropriate for your packaging substrate, keep the quiet zone clear, and verify a statistically meaningful sample of printed packs with a barcode verifier before running a full production batch — a marginal NTIN symbol that scans on a phone may still fail a pharmacy's dedicated verification scanner. Double-check the FNC1 group separator placement between variable-length Application Identifiers, since a missing separator is a common cause of a scanner reading AI (10) batch data as part of the AI (17) expiry field or vice versa.</p>"
+    },
+    {
+      "h2": "NTIN vs related pharma codes",
+      "html": "<p>NTIN and <strong>PPN</strong> solve the same basic problem — giving a nationally numbered pharmaceutical product a barcode-ready identifier — but through different registries: NTIN reuses the GS1 GTIN structure and AI (01), so it sits natively alongside other GS1 data on the same Data Matrix, while PPN is managed by IFA under its own two-check-digit scheme and is more common in contexts that predate or sit outside full GS1 adoption. Compared with a plain <strong>GS1 Data Matrix</strong> encoding an ordinary manufacturer-assigned GTIN, an NTIN is structurally identical but semantically distinct — it signals that the underlying number originates from a national drug registry (like Germany's PZN) rather than being assigned directly by the brand owner through GS1.</p>"
+    }
+  ],
+  "uses": [
+    "German pharmaceutical packaging using PZN-derived NTINs",
+    "EU Falsified Medicines Directive serialization compliance",
+    "Cross-border pharma distribution using GS1 traceability infrastructure",
+    "Pharmacy dispensing verification and anti-counterfeiting checks",
+    "Serialized packaging lines combining NTIN, batch, expiry and serial number"
+  ],
+  "faq": [
+    {"q": "What is an NTIN code generator used for?", "a": "<p>An ntin code generator creates a GS1 Data Matrix encoding a National Trade Item Number — a national pharmaceutical code (like Germany's PZN) reformatted as a GTIN under GS1 Application Identifier (01).</p>"},
+    {"q": "How is NTIN different from a regular GTIN?", "a": "An NTIN is structurally a GTIN — same AI (01) and 14-digit format with a GS1 check digit — but it's specifically derived from a national pharmaceutical numbering scheme rather than assigned directly by a manufacturer through GS1."},
+    {"q": "Is PZN the same as NTIN?", "a": "<p>No — PZN is Germany's national 8-digit pharmaceutical number; NTIN is the GS1-compatible 14-digit code derived from the PZN by adding a national prefix and GS1 check digit.</p>"},
+    {"q": "What other data appears alongside an NTIN on a pharma package?", "a": "Serialized pharmaceutical packaging typically combines the NTIN (AI 01) with batch/lot number (AI 10), expiry date (AI 17), and a unique serial number (AI 21) in a single GS1 Data Matrix."},
+    {"q": "Can Barcode Studio generate serialized NTIN codes in bulk?", "a": "<p>Yes — use the bulk CSV to ZIP/PDF tool to generate a unique NTIN Data Matrix with a distinct serial number per pack across a production batch.</p>"}
+  ]
+}

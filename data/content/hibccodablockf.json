@@ -1,0 +1,52 @@
+{
+  "id": "hibccodablockf",
+  "title": "HIBC LIC Codablock-F Generator – Healthcare",
+  "metaDescription": "Generate an HIBC LIC Codablock-F barcode free online. Encode labeler ID and product data in a multi-row linear-stacked symbol for healthcare labeling.",
+  "primaryKeyword": "hibc lic codablock-f generator",
+  "secondaryKeywords": ["hibc codablock-f barcode", "healthcare industry bar code codablock", "codablock-f medical labeling", "hibc stacked linear barcode", "hibcc labeler code codablock", "hibc lic multi-row barcode"],
+  "lead": "Generate an HIBC LIC Codablock-F barcode that stacks Code 128-style rows to fit a full labeler and product record on healthcare packaging.",
+  "sections": [
+    {
+      "h2": "What is HIBC LIC Codablock-F?",
+      "html": "<p>HIBC LIC Codablock-F combines HIBCC's Health Industry Bar Code data standard with Codablock-F, a stacked linear symbology that arranges multiple rows of Code 128-style barcode data into a single rectangular block. This gives it a middle ground between a simple linear barcode and a full 2D symbol like Data Matrix or PDF417: it holds more data than a single-row Code 128, while still being decodable by many linear laser scanners that can raster across the stacked rows, in addition to 2D imaging scanners.</p><p>The LIC in HIBC LIC identifies labelers using HIBCC-assigned Labeler Identification Codes, as opposed to HIBC PAS, which reuses an existing GS1 or HIBCC-recognized company prefix. Codablock-F is also available under the PAS structure; this page covers the HIBCC LIC variant specifically. Manufacturers that adopted Codablock-F years ago, often for compatibility with installed laser-scanning equipment, tend to standardize new HIBC labels on the same symbology rather than mixing carrier types across a product line.</p>"
+    },
+    {
+      "h2": "How HIBC LIC data is structured",
+      "html": "<p>The data content follows HIBC's standard record format, just as it does across every HIBC carrier symbology:</p><ul><li><strong>\"+\" data identifier</strong> — marks the record as HIBC-formatted.</li><li><strong>4-character Labeler Identification Code</strong> — assigned by HIBCC.</li><li><strong>Product/catalog number</strong> — the labeler's own item identifier.</li><li><strong>Unit-of-measure digit</strong> — packaging level.</li><li><strong>Optional secondary data</strong> — lot/batch number, expiry date, and quantity, when the label needs full traceability.</li><li><strong>Modulo-43 check character</strong> — validates the primary data string.</li></ul><p>Codablock-F automatically wraps this data string across multiple stacked rows, each internally encoded like a Code 128 symbol with its own row indicator, so scanning software reassembles the full message from however many rows the data required.</p>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>Codablock-F stacks 2 to 44 rows of Code 128-style data, each row internally structured like a standard Code 128 symbol with an added row indicator, giving it broad legacy linear-scanner compatibility that pure 2D symbols lack. The HIBC LIC content follows HIBCC's usual structure: a leading \"+\" identifier, 4-character HIBCC-assigned Labeler Identification Code, product/catalog number, unit-of-measure digit, optional secondary data for lot, expiry and quantity, and a modulo-43 check character validating the primary string. Row count and symbol width are determined automatically from the message length, and each row carries its own Code 128 checksum in addition to the overall HIBC check character.</p>"
+    },
+    {
+      "h2": "Where HIBC LIC Codablock-F is used",
+      "html": "<p>Codablock-F sees use in healthcare settings that value linear-scanner compatibility alongside higher data capacity:</p><ul><li>Medical device and pharmaceutical labels in facilities equipped primarily with linear (laser) scanners that can still raster-read a stacked block.</li><li>Legacy hospital and distributor systems that adopted Codablock-F before 2D imaging scanners became standard equipment.</li><li>Labels needing more data than a single-row Code 128 can hold within an acceptable label width, without requiring a full 2D imaging scanner upgrade.</li><li>European healthcare supply chains where Codablock-F saw earlier and broader adoption than in some other regions.</li></ul><p>Blood-bank and clinical laboratory labeling, which adopted Codablock-F under related standards like ISBT 128 well before HIBC did, is one reason the symbology remains well supported by scanning hardware in hospital settings even as many facilities shift new deployments toward Data Matrix or PDF417.</p>"
+    },
+    {
+      "h2": "How to generate an HIBC LIC Codablock-F barcode in Barcode Studio",
+      "html": "<p>To build the symbol:</p><ul><li>Select <strong>HIBC LIC Codablock-F</strong> from the barcode type list.</li><li>Enter your HIBCC-assigned Labeler Identification Code, product/catalog number, unit of measure, and optional secondary data (lot, expiry, quantity).</li><li>Barcode Studio formats the HIBC string with its leading \"+\" identifier and modulo-43 check character, then arranges it into the appropriate number of Codablock-F rows automatically.</li><li>Adjust row height and module width to fit your label dimensions while keeping each row's bars wide enough for your scanning equipment's resolution.</li><li>Export as SVG for label artwork or PNG for proofing, and use <strong>Bulk CSV → ZIP/PDF</strong> to generate a distinct HIBC LIC Codablock-F symbol per product or lot across a labeling run.</li><li>Call the REST API at <code>/barcode?type=hibccodablockf&data=...</code> to integrate generation into a label-printing or inventory system.</li></ul><p>If your facility mixes linear laser scanners and 2D imagers across different stations, generate a test label first and confirm both scanner types decode it correctly before committing to Codablock-F for a full product line, since raster scan mode needs to be enabled on some older linear scanners.</p>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Because Codablock-F relies on correctly aligned, evenly spaced rows, print at a resolution that keeps bar widths and inter-row gaps consistent — low-quality thermal printing can blur row boundaries and cause misreads. Confirm your scanning hardware, whether linear laser or 2D imager, is configured to handle multi-row Codablock-F decoding, since some older linear scanners require a specific raster or multi-line scan mode to reassemble a stacked symbol correctly.</p>"
+    },
+    {
+      "h2": "HIBC LIC Codablock-F vs related HIBC carriers",
+      "html": "<p>Against <strong>HIBC LIC Data Matrix</strong> and <strong>HIBC LIC PDF417</strong>, Codablock-F's biggest advantage is compatibility with linear laser scanners that predate 2D imaging, at the cost of a larger physical footprint for the same HIBC data. Against <strong>HIBC LIC Code 128</strong>, a single-row linear symbol, Codablock-F holds substantially more data within a similar label width by stacking rows, making it the fallback when a facility outgrows single-row Code 128's capacity but hasn't upgraded to 2D scanners. Against <strong>HIBC PAS Codablock-F</strong>, the symbol structure is identical; only the labeler-identification scheme in the encoded text differs.</p>"
+    }
+  ],
+  "uses": [
+    "Medical device and pharmaceutical labels for linear-scanner environments",
+    "Legacy hospital and distributor systems built around Codablock-F",
+    "Labels needing more data than single-row Code 128 within a fixed width",
+    "European healthcare supply chains with early Codablock-F adoption",
+    "HIBCC LIC-numbered manufacturers standardized on stacked linear labels"
+  ],
+  "faq": [
+    {"q": "What is an HIBC LIC Codablock-F generator used for?", "a": "<p>An hibc lic codablock-f generator creates a stacked linear barcode encoding a Health Industry Bar Code record — labeler ID, product number, and optional lot/expiry data — readable by both linear and 2D healthcare scanners.</p>"},
+    {"q": "How is Codablock-F different from Data Matrix for HIBC data?", "a": "Codablock-F stacks Code 128-style rows and can be read by linear laser scanners as well as 2D imagers, while Data Matrix requires a 2D imaging scanner but achieves a much smaller footprint for the same data."},
+    {"q": "Can linear barcode scanners read Codablock-F?", "a": "<p>Many linear laser scanners can raster-read Codablock-F's stacked rows, though scanning speed and reliability are generally better with a 2D imaging scanner.</p>"},
+    {"q": "Does HIBC LIC Codablock-F support lot and expiry data?", "a": "Yes — like other HIBC carriers, it supports an optional secondary data block for lot/batch number, expiry date, and quantity alongside the primary labeler and product identification."},
+    {"q": "Can I batch-generate HIBC LIC Codablock-F barcodes?", "a": "<p>Yes — use the bulk CSV to ZIP/PDF tool to generate a unique symbol per product or lot row for a full labeling run.</p>"}
+  ]
+}

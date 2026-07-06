@@ -1,0 +1,52 @@
+{
+  "id": "EAN2",
+  "title": "EAN-2 Add-On Barcode Generator | Barcode Studio",
+  "metaDescription": "Generate an EAN-2 add-on barcode free online to encode a magazine issue number next to a main EAN-13/UPC-A code. Instant preview, export, and REST API.",
+  "primaryKeyword": "ean-2 add-on generator",
+  "secondaryKeywords": ["ean-2 supplement barcode", "2 digit barcode add-on", "magazine issue number barcode", "ean-2 vs ean-5", "periodical barcode add-on", "ean-13 supplement code"],
+  "lead": "Add a 2-digit EAN-2 supplement to encode an issue or edition number alongside your main EAN-13 or UPC-A barcode.",
+  "sections": [
+    {
+      "h2": "What Is an EAN-2 Add-On?",
+      "html": "<p>EAN-2 is a 2-digit supplemental barcode printed immediately to the right of a main EAN-13 or UPC-A code. Like its 5-digit counterpart EAN-5, it never appears alone — it exists purely to carry a small piece of variable information that the primary barcode's fixed digits can't hold. EAN-2's most common job is encoding a magazine or periodical's issue number within a year, distinguishing, for example, week 3 of a weekly publication from week 4 under the same main barcode.</p><p>Because it only holds 2 digits, EAN-2 covers a much smaller range of values than EAN-5 — up to 100 distinct values (00–99) — which fits its narrower role encoding an issue count rather than a price. A dedicated ean-2 add-on generator saves publishers from having to hand-build this small but visually distinct bar pattern for every issue.</p><p>Publishers favor EAN-2 over reprinting an entirely new main barcode each issue because the ISBN- or EAN-13-level identifier for a magazine title typically stays fixed for the life of the publication — only the 2-digit supplement changes from issue to issue, which keeps registration and distribution systems simple.</p>"
+    },
+    {
+      "h2": "How EAN-2 Encodes Data",
+      "html": "<p>EAN-2 encodes exactly 2 numeric digits using the same parity-pattern encoding approach as EAN-5, rather than a modulo-10 check digit. The 2-digit value is typically interpreted as a sequential issue or edition number by the publication using it — there's no universal industry-wide mapping the way there loosely is for EAN-5's price convention, so the exact meaning of the 2 digits is defined by the publisher's own numbering scheme rather than the symbology itself.</p><p>The odd/even parity sequence across the two digits also distinguishes an EAN-2 supplement from an EAN-5 supplement at the scanning stage, so point-of-sale and newsstand equipment configured to read supplements can tell which type it has encountered without any separate signal from the operator.</p>"
+    },
+    {
+      "h2": "Technical Specifications",
+      "html": "<p>EAN-2 is always exactly 2 digits, numeric only, with no independent check digit — as with EAN-5, its brief parity pattern serves as a light integrity check rather than a calculated final digit. It functions strictly as a supplement: Barcode Studio generates it as an add-on component meant to be placed beside a main EAN-13 or UPC-A barcode, not as a standalone symbology capable of identifying a product by itself.</p>"
+    },
+    {
+      "h2": "Where EAN-2 Is Used",
+      "html": "<ul><li><strong>Magazines and newspapers</strong> — the primary use case, encoding a weekly or periodic issue number alongside the publication's main barcode.</li><li><strong>Serialized print publications</strong> — comics, journals, and other regularly issued print goods sometimes use the 2-digit field to indicate edition sequence.</li><li><strong>Limited variant tracking</strong> — occasionally repurposed by publishers for a small enumerated value other than an issue number, since the field itself is just 2 raw digits.</li></ul>"
+    },
+    {
+      "h2": "How to Create an EAN-2 Add-On in Barcode Studio",
+      "html": "<p>Select <strong>EAN-2 add-on</strong> from the symbology list under Retail (EAN/UPC). Enter exactly 2 digits representing your issue number or other short enumerated value — the live preview shows the add-on's compact bar pattern immediately so you can confirm it before export. From there:</p><ul><li>Generate your main <strong>EAN-13</strong> or <strong>UPC-A</strong> barcode separately, then place the EAN-2 add-on to its right with the standard supplemental spacing between the two.</li><li>Match <strong>bar height</strong> proportionally to the main barcode's guard-pattern height so the combined symbol reads as a single unit visually.</li><li>Export as <strong>PNG or SVG</strong> for direct placement in cover or masthead design software, or use <strong>Copy</strong> for quick insertion.</li><li>Use the <strong>bulk CSV → ZIP/PDF</strong> tool to generate issue-numbered add-ons across an entire run of periodicals in one pass.</li><li>Call the <strong>REST API</strong> — <code>/barcode?type=ean2&data=YOUR2DIGITS</code> — to generate the add-on programmatically from a publishing workflow.</li></ul>"
+    },
+    {
+      "h2": "Printing and Scanning Best Practices",
+      "html": "<ul><li><strong>Placement and spacing</strong>: keep the standard gap between the main barcode and the EAN-2 add-on so scanners can distinguish where the primary code ends and the supplement begins.</li><li><strong>Height</strong>: don't compress the add-on's taller guard bars relative to the main code — that height difference is part of how the format is recognized.</li><li><strong>Contrast and quiet zone</strong>: apply the same solid black-on-light, clear-margin standards used for the main EAN-13 or UPC-A barcode.</li><li><strong>Scanner support</strong>: confirm your point-of-sale or newsstand scanning system is actually configured to capture supplemental codes — many retail scanners read only the primary barcode by default and silently skip the add-on.</li></ul>"
+    },
+    {
+      "h2": "EAN-2 vs EAN-5 vs the Main Barcode",
+      "html": "<p>EAN-2 and EAN-5 are both optional supplements to a primary EAN-13 or UPC-A — neither functions as a standalone product identifier. The distinction is simply capacity and convention: EAN-2's 2 digits suit a small enumerated value like a weekly issue number, while EAN-5's 5 digits are the standard choice for encoding a price, most often in book publishing. A magazine typically uses EAN-2 rather than EAN-5 because it only needs to distinguish a handful of issues within a numbering cycle, not represent a full price. Most retail products use neither add-on at all — this supplemental mechanism is largely confined to periodicals and books where the same main barcode needs to represent slightly different information issue to issue.</p><p>It's worth noting that some publishers do choose EAN-5 over EAN-2 even for issue-style data, simply because 5 digits give more room for combining a season code with a sequence number, or because their internal systems already standardized on the larger field. Neither choice is mandated by any single global rule — as long as your point-of-sale and distribution partners agree on which supplement format to expect and how to interpret its digits, either can work, though EAN-2 remains the conventional default for straightforward periodical issue numbering.</p>"
+    }
+  ],
+  "uses": [
+    "Weekly or periodic magazine issue numbering",
+    "Newspaper edition sequencing alongside the main barcode",
+    "Comics and serialized print publication numbering",
+    "Small enumerated variant tracking on printed goods"
+  ],
+  "faq": [
+    {"q": "What does an ean-2 add-on generator encode?", "a": "It encodes exactly 2 numeric digits, most commonly used by magazines and periodicals to represent an issue or edition number alongside the main EAN-13 or UPC-A barcode."},
+    {"q": "Can EAN-2 be used as a standalone barcode?", "a": "<p>No. EAN-2 is a supplemental add-on printed next to a main EAN-13 or UPC-A barcode — it cannot identify a product by itself.</p>"},
+    {"q": "How many values can EAN-2 represent?", "a": "EAN-2 covers 100 possible values, from 00 to 99, which is enough range for most periodical issue-numbering needs within a cycle."},
+    {"q": "Will every barcode scanner read the EAN-2 add-on?", "a": "Not necessarily — many retail and newsstand scanners are configured to read only the primary barcode and ignore supplemental add-ons unless specifically set up to capture them."},
+    {"q": "Is the EAN-2 add-on generator free to use?", "a": "Yes, Barcode Studio's EAN-2 generator runs entirely in your browser with no account required for standard PNG/SVG exports."},
+    {"q": "Can I generate EAN-2 add-ons in bulk for a publication run?", "a": "<p>Yes. Upload a CSV of 2-digit issue numbers to Barcode Studio's bulk tool to produce a ZIP of individual add-on images or a single print-ready PDF, one per issue.</p>"}
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "id": "databarlimitedcomposite",
+  "title": "GS1 DataBar Limited Composite Generator",
+  "metaDescription": "Generate GS1 DataBar Limited Composite barcodes free online. Add a 2D composite carrying lot or expiry data to a compact DataBar Limited GTIN for small items.",
+  "primaryKeyword": "gs1 databar limited composite generator",
+  "secondaryKeywords": ["databar limited composite", "gs1 composite barcode small item", "databar limited with 2d component", "narrow gtin barcode with expiry", "gs1 databar for small packaging", "gtin 0 or 1 barcode composite"],
+  "lead": "Create a GS1 DataBar Limited Composite symbol for very small items that need a GTIN plus supplementary batch or expiry data.",
+  "sections": [
+    {
+      "h2": "What is GS1 DataBar Limited Composite?",
+      "html": "<p>GS1 DataBar Limited Composite pairs the narrowest of the DataBar family — DataBar Limited — with a 2D composite component printed above it. DataBar Limited itself is the most space-efficient linear DataBar variant, designed for items so small that even standard DataBar Omnidirectional won't fit. Its trade-off is a data restriction: the encoded GTIN's indicator digit (the first digit of the 14-digit GTIN) must be 0 or 1, which limits it to specific packaging hierarchy levels and means it is not intended for scanning through fixed retail point-of-sale scan tunnels at variable orientation — it is meant for handheld imager scanning only.</p><p>Adding the composite 2D tier on top lets a manufacturer keep that minimal linear footprint while still attaching traceability data like lot number or expiration date, which the bare 14-digit GTIN can't carry on its own.</p>"
+    },
+    {
+      "h2": "Structure and specifications",
+      "html": "<p>The linear component is DataBar Limited: a single-row symbol narrower and shorter than DataBar Omnidirectional or DataBar Stacked, purpose-built for very small package real estate.</p><ul><li><strong>Linear data:</strong> GTIN-14 via AI (01), with the constraint that the indicator digit must be 0 or 1 — this is a hard requirement of the DataBar Limited specification, not a Barcode Studio limitation.</li><li><strong>Composite data:</strong> supplementary AIs such as (17) expiration date, (10) batch/lot number, or (21) serial number, encoded in a CC-A or CC-B 2D structure above the linear component.</li><li><strong>Scanning constraint:</strong> because DataBar Limited is not omnidirectional, it's intended for handheld imager or fixed-position scanning, not high-speed laser scan tunnels.</li><li><strong>Typical footprint:</strong> the smallest combined linear-plus-composite footprint in the DataBar family, making it the choice when literally no other DataBar variant fits the available label space.</li></ul>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>DataBar Limited's linear component is the narrowest fixed-length symbol in the DataBar family, roughly 74 modules wide and about 10 modules tall for the linear portion alone, encoding a full GTIN-14 with mandatory check digit under AI (01). The indicator digit restriction (0 or 1) is a structural encoding rule, not a configurable option. The composite tier adds a CC-A or CC-B MicroPDF417-based structure above the linear rows, joined by the standard GS1 composite separator pattern. Because both the linear and composite portions are already near the minimum practical module size for laser/imager decoding, GS1's specification calls for higher minimum print quality grades on DataBar Limited Composite than on larger DataBar variants.</p>"
+    },
+    {
+      "h2": "Where DataBar Limited Composite is used",
+      "html": "<p>This is a specialist symbol for genuinely space-constrained packaging that still needs traceability data:</p><ul><li>Small pharmaceutical blister packs, vials, or single-dose packaging where label area is measured in a few square centimeters.</li><li>Cosmetics samples, travel-size toiletries, and miniature consumer products sold at retail but too small for a full-size DataBar Omnidirectional Composite label.</li><li>Jewelry tags, small electronic components, and other niche retail items where GTIN plus lot/date tracking is required by the manufacturer or distributor.</li><li>Healthcare supply items scanned by handheld imagers in pharmacy or hospital settings rather than checkout laser scanners, matching DataBar Limited's intended scan environment.</li></ul><p>Because of its indicator-digit restriction and non-omnidirectional design, it is rarely seen at general grocery or mass-market retail checkout — it's a purpose-built solution for small items moving through controlled scanning environments.</p>"
+    },
+    {
+      "h2": "How to generate a DataBar Limited Composite in Barcode Studio",
+      "html": "<p>Barcode Studio validates and renders both tiers together. To create one:</p><ul><li>Select <strong>GS1 DataBar Limited Composite</strong> from the barcode type list.</li><li>Enter a GTIN-14 that starts with indicator digit 0 or 1, then add the supplementary AI data for the composite tier — lot, expiry, or serial number.</li><li>Preview the combined symbol and fine-tune module size and margins to fit your small-format label while keeping the separator between linear and composite tiers intact.</li><li>Export as SVG for sharp reproduction at small sizes, or PNG for quick label mockups.</li><li>Use <strong>Bulk CSV → ZIP/PDF</strong> when generating symbols for a production batch where each item carries a distinct lot or expiry value.</li><li>Call the REST API with <code>/barcode?type=databarlimitedcomposite&data=...</code> to automate generation from your packaging system.</li></ul><p>Confirm your GTIN's indicator digit before generating — DataBar Limited will reject or misencode GTINs that don't start with 0 or 1, since that's a structural constraint of the symbology itself, not an arbitrary rule.</p>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Given its already minimal module width, print DataBar Limited Composite at the highest resolution available and avoid further shrinking the symbol — there's little tolerance left before elements become unreadable. Since it's designed for handheld imager scanning, verify with the actual imager model your supply chain partners use rather than a general-purpose laser scanner, which may not decode DataBar Limited reliably. Keep full quiet zones intact and make sure nothing overlaps the separator pattern between the linear and 2D tiers, since misreads on tiny composite symbols are almost always caused by insufficient print resolution or a compressed quiet zone.</p>"
+    },
+    {
+      "h2": "DataBar Limited Composite vs related codes",
+      "html": "<p>Compared to <strong>DataBar Truncated Composite</strong>, Limited is narrower but carries the indicator-digit restriction (0 or 1) that Truncated doesn't have, making Truncated the better choice when GTIN structure can't be constrained. Compared to <strong>DataBar Omnidirectional Composite</strong>, Limited trades omnidirectional scan reliability for a much smaller footprint — Omnidirectional remains the right choice for anything crossing a retail checkout scan tunnel. Compared to <strong>DataBar Expanded Composite</strong>, Limited encodes only a bare GTIN-14 in its linear tier, while Expanded can pack multiple Application Identifiers into the linear symbol itself; choose Limited purely for its minimal footprint, not for extra data capacity.</p>"
+    }
+  ],
+  "uses": [
+    "Small pharmaceutical blister packs and single-dose packaging with lot/expiry tracking",
+    "Cosmetics samples and travel-size toiletries needing GTIN plus batch data",
+    "Jewelry tags and small electronic components with compact traceability labels",
+    "Healthcare supply items scanned by handheld imagers in pharmacy settings",
+    "Any small retail item too small for DataBar Omnidirectional Composite"
+  ],
+  "faq": [
+    {"q": "What is a GS1 DataBar Limited Composite generator used for?", "a": "<p>A gs1 databar limited composite generator creates the smallest DataBar-family composite barcode, combining a compact DataBar Limited GTIN with a 2D component for extra data like lot number or expiration date on very small packaging.</p>"},
+    {"q": "Why must the GTIN start with 0 or 1?", "a": "DataBar Limited's specification restricts the GTIN's indicator digit to 0 or 1 by design, which limits which packaging hierarchy levels it can represent — this is a structural rule of the symbology, not adjustable in a generator."},
+    {"q": "Can DataBar Limited Composite be scanned by a checkout laser scanner?", "a": "<p>It's not designed for omnidirectional laser scan tunnels the way DataBar Omnidirectional is. DataBar Limited is intended for handheld imager scanning, so verify compatibility with your actual scanning hardware before relying on it at checkout.</p>"},
+    {"q": "What data can the composite portion hold?", "a": "Typical additions are expiration date, batch or lot number, or a serial number — whatever supplementary GS1 Application Identifier data your product's traceability requirements call for."},
+    {"q": "Can I bulk-generate DataBar Limited Composite labels for a production run?", "a": "<p>Yes — use the bulk CSV to ZIP/PDF tool to supply a GTIN and varying lot or expiry values per row, generating a unique composite symbol for each item automatically.</p>"}
+  ]
+}

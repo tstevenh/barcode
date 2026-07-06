@@ -1,0 +1,54 @@
+{
+  "id": "databaromnicomposite",
+  "title": "GS1 DataBar Composite Generator | Barcode Studio",
+  "metaDescription": "Free GS1 DataBar Composite generator: linear GTIN plus a 2D component for batch, date, or serial data. Enter AI data and export PNG, SVG, or bulk labels.",
+  "primaryKeyword": "gs1 databar composite generator",
+  "secondaryKeywords": ["databar omni composite barcode", "cc-a cc-b composite symbol", "micropdf417 composite component", "gtin plus batch number barcode", "linear plus 2d gs1 barcode", "databar composite generator"],
+  "lead": "Generate a GS1 DataBar Composite symbol that pairs a scannable linear GTIN with a 2D component carrying batch, date, or serial data.",
+  "sections": [
+    {
+      "h2": "What is GS1 DataBar Composite?",
+      "html": "<p>GS1 DataBar Composite (formally DataBar Omnidirectional Composite) stacks a small 2D symbol directly on top of a standard DataBar Omnidirectional linear barcode, so a single label carries two connected components: the linear DataBar Omni portion encoding the GTIN via Application Identifier (01), and a 2D composite component built from MicroPDF417 that carries additional Application Identifiers such as batch/lot number, expiration date, or a serial number.</p>"
+    },
+    {
+      "h2": "Why pair a linear symbol with a 2D component instead of using DataBar Expanded?",
+      "html": "<p>DataBar Expanded solves a similar problem &mdash; GTIN plus extra AI data &mdash; but it does so natively within a single linear symbol, which means every scanner reading it needs to decode the full Expanded structure to get anything at all, including the GTIN. DataBar Composite takes a different approach: the linear DataBar Omni component on its own is a complete, independently scannable GTIN barcode, readable by any scanner or system that already handles standard DataBar Omni or even legacy UPC-style scanning logic. The 2D composite component sits above it as an optional add-on that richer systems can read for the supplementary data, without breaking compatibility for simpler ones.</p><p>That backward-compatible layering is the entire reason DataBar Composite exists as a distinct symbol from DataBar Expanded. If every scanner and system in your supply chain already reads the full 2D component, DataBar Expanded is simpler to produce and manage. If you need the base GTIN to remain readable by any DataBar-capable scanner while only some downstream systems consume the extra composite data, DataBar Composite is the better architecture.</p><p>The 2D component comes in two sizes &mdash; CC-A (smaller capacity) and CC-B (larger capacity) &mdash; and which one a symbol uses is determined automatically by how much supplementary data you encode.</p>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>The linear component of a DataBar Omni Composite symbol follows the same ISO/IEC 24724 GS1 DataBar Omnidirectional structure and GTIN-14 payload as standalone DataBar Omni. The 2D component is built from MicroPDF417 under ISO/IEC 24728 and comes in CC-A (lower capacity, roughly up to 56 numeric characters) or CC-B (higher capacity) forms, selected automatically based on how much supplementary AI data &mdash; batch/lot (10), expiration date (17), serial number (21), and similar &mdash; needs to fit. GS1 General Specifications define the required linking structure and separator pattern between the two components so a composite-aware scanner can associate them as one logical unit while a simpler scanner still decodes the linear part alone.</p>"
+    },
+    {
+      "h2": "Where GS1 DataBar Composite is used",
+      "html": "<p>Pharmaceutical and healthcare packaging is a major application, where regulatory serialization requirements call for lot number, expiration date, and sometimes a serial number tied to the GTIN, while still needing the base linear component to scan on existing retail and pharmacy point-of-sale equipment. It also appears on perishable retail goods that need traceability data alongside the GTIN, and in supply chain contexts where trading partners have mixed scanning capability &mdash; some able to read the full composite, others only the linear GTIN.</p>"
+    },
+    {
+      "h2": "How to create a DataBar Composite barcode in Barcode Studio",
+      "html": "<p>Select <strong>GS1 DataBar Composite</strong> from the GS1 DataBar section of the symbology list, then enter the GTIN plus any supplementary Application Identifiers for the 2D component &mdash; for example <code>(01)09521234543213(17)251231(10)LOT789</code> for a GTIN with expiration date and lot number. Barcode Studio renders the linear DataBar Omni portion and the 2D composite component together as one symbol.</p><ul><li>Barcode Studio automatically sizes the composite component (CC-A or CC-B) based on your supplementary data</li><li>Adjust overall module width and scale to fit your label</li><li>Set foreground/background colors and quiet zone margin for both components</li><li>Export as PNG or SVG, or copy the combined symbol into a label template</li><li>Bulk-generate from a CSV of GTIN-plus-AI strings into a ZIP or print-ready PDF</li><li>Automate with the REST API: <code>/barcode?type=databaromnicomposite&amp;data=(01)09521234543213(17)251231</code></li></ul>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Print at high enough resolution to keep the fine MicroPDF417 modules in the 2D component crisp, since that component typically has smaller, denser elements than the linear DataBar portion beneath it. Confirm which downstream systems actually need to read the composite data versus just the GTIN, so you know whether their scanning hardware and software are configured to decode the full composite symbol rather than only the linear part. Keep the full symbol &mdash; both linear and 2D components together with their quiet zones &mdash; intact when placing it in packaging artwork; cropping either component breaks the pairing a composite-aware scanner expects.</p>"
+    },
+    {
+      "h2": "DataBar Composite versus related codes",
+      "html": "<p>DataBar Composite, DataBar Expanded, and GS1-128 all attach supplementary data to a GTIN, but DataBar Composite is the only one of the three built for backward compatibility &mdash; its linear component alone is a fully standard DataBar Omni symbol, so legacy scanners keep working even if they never learn to read the 2D layer. DataBar Expanded packs everything into one linear symbol instead, which is simpler but means every reader must handle the full AI structure to get even the GTIN. GS1-128 is the logistics-side equivalent, built for cartons and pallets rather than retail point-of-sale, and doesn't offer the same linear/2D split. Choose DataBar Composite when your rollout spans old and new scanning hardware at the same time.</p>"
+    }
+  ],
+  "uses": [
+    "Pharmaceutical packaging needing GTIN plus lot, expiration, and serial data",
+    "Perishable retail goods requiring traceability alongside the base GTIN",
+    "Supply chains with mixed scanner capability across trading partners",
+    "Healthcare and medical device labeling with regulatory serialization needs",
+    "Products needing backward-compatible linear scanning plus richer 2D data",
+    "Any GTIN-labeled item where some systems need only the linear code and others need supplementary AI data"
+  ],
+  "faq": [
+    {"q": "What is a GS1 DataBar Composite generator used for?", "a": "A GS1 DataBar Composite generator produces a symbol combining a linear DataBar Omni GTIN barcode with a 2D component carrying supplementary data like batch number, expiration date, or serial number."},
+    {"q": "How is DataBar Composite different from DataBar Expanded?", "a": "DataBar Expanded encodes GTIN plus extra Application Identifiers in a single linear symbol, while DataBar Composite keeps the GTIN in an independently scannable linear component and adds the extra data in a separate 2D component on top, preserving compatibility with simpler scanners."},
+    {"q": "What does the 2D component of a DataBar Composite symbol use?", "a": "<p>The 2D component is built from MicroPDF417 and comes in two sizes, CC-A or CC-B, chosen automatically based on how much supplementary data is encoded.</p>"},
+    {"q": "Can a basic scanner still read the GTIN if it can't decode the 2D component?", "a": "Yes, the linear DataBar Omni portion of a DataBar Composite symbol is a complete, independently scannable GTIN barcode, so scanners that don't support the 2D component can still read the base GTIN."},
+    {"q": "Can I bulk-generate DataBar Composite barcodes?", "a": "Yes, upload a CSV of GTIN-plus-AI data strings to Barcode Studio and it will generate the combined symbols as a ZIP of images or a print-ready PDF."},
+    {"q": "Is DataBar Composite common in pharmaceutical labeling?", "a": "Yes, it's widely used in healthcare and pharmaceutical packaging where regulations require lot, expiration, and sometimes serial number data alongside a GTIN that still needs to scan on standard retail or pharmacy equipment."}
+  ]
+}

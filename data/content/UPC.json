@@ -1,0 +1,46 @@
+{
+  "id": "UPC",
+  "title": "UPC-A Generator – Free Barcode Tool | Barcode Studio",
+  "metaDescription": "Generate UPC-A barcodes free online. Enter 11 digits, the 12th check digit is added automatically. Live preview, PNG/SVG/PDF export, bulk CSV, and REST API.",
+  "primaryKeyword": "upc-a generator",
+  "secondaryKeywords": ["upc barcode generator", "upc-a check digit calculator", "universal product code generator", "gtin-12 barcode", "upc vs ean", "retail barcode maker"],
+  "lead": "Enter 11 digits and get a scannable UPC-A barcode instantly, with the 12th check digit calculated for you.",
+  "sections": [
+    {
+      "h2": "What Is a UPC-A Barcode?",
+      "html": "<p>UPC-A (Universal Product Code, version A) is the standard retail barcode used across the United States and Canada, printed on the vast majority of packaged consumer goods sold in North American stores. Every UPC-A barcode encodes a 12-digit number: 11 data digits plus a final check digit, forming what GS1 calls a GTIN-12 (Global Trade Item Number). It's the barcode you'll see at the bottom of nearly every product box, can, or bag scanned at a US or Canadian checkout.</p><p>Barcode Studio generates a properly formatted, scannable UPC-A barcode image from any 11 digits you enter — but it does not register or assign an official product number. A UPC that's genuinely unique across the retail system has to come from a GS1 US-issued company prefix (GS1 is the nonprofit standards organization that administers UPC/EAN numbering). If you're bringing a real product to retail, you need a licensed prefix; this tool generates the barcode image once you have a number, whether that's a real GS1 GTIN or a placeholder for internal testing.</p>"
+    },
+    {
+      "h2": "How UPC-A Encodes Data — Structure and Check Digit",
+      "html": "<p>A UPC-A barcode's 12 digits break down into distinct parts:</p><ul><li><strong>Number system digit (1 digit)</strong> — indicates the type of product or use case; most retail products use 0, 1, 6, 7, or 8, while other values are reserved for special categories like coupons or variable-weight items such as fresh meat and produce.</li><li><strong>Manufacturer/company code and product code (10 digits)</strong> — the manufacturer portion is assigned by GS1 US to a specific company, and that company then assigns the product portion to individual items in its catalog.</li><li><strong>Check digit (1 digit)</strong> — calculated with a weighted modulo-10 algorithm across the preceding 11 digits, allowing scanners to detect a corrupted or mistyped read.</li></ul><p>You only need to type the first 11 digits into Barcode Studio; the check digit is calculated and appended automatically, so every barcode you export is mathematically valid and ready to print.</p>"
+    },
+    {
+      "h2": "Where UPC-A Is Used",
+      "html": "<p>UPC-A is the default retail barcode across North America:</p><ul><li><strong>Grocery, drugstore, and general retail packaging</strong> — the overwhelming majority of packaged products sold in the US and Canada carry a UPC-A for point-of-sale scanning.</li><li><strong>E-commerce marketplaces</strong> — Amazon, Walmart Marketplace, and similar platforms typically require a UPC or other GTIN to create a new product listing.</li><li><strong>Inventory and warehouse systems</strong> — retailers and distributors use the UPC to track SKUs from receiving through sale.</li><li><strong>Coupons and variable-weight items</strong> — special number-system digit ranges handle store coupons and items priced by weight, like deli or produce items with an embedded price or weight field.</li><li><strong>Cross-border retail</strong> — because UPC-A is structurally an EAN-13 with a leading zero, the same product can often be scanned correctly by both US and international point-of-sale systems.</li></ul>"
+    },
+    {
+      "h2": "How to Create a UPC-A Barcode in Barcode Studio",
+      "html": "<p>Select <strong>UPC-A</strong> from the symbology list under Retail (EAN/UPC). Type your 11-digit number — a real GS1 US-issued GTIN if you're shipping a retail product, or any 11 digits for testing and internal use. The check digit calculates and displays automatically as you type, and the live preview shows exactly what will be exported. From there:</p><ul><li>Adjust <strong>bar width and height</strong> — retail scanners expect a fairly standard size, so stay close to nominal size rather than shrinking aggressively to fit a small label.</li><li>Keep <strong>human-readable text</strong> (digits below and beside the bars) turned on — most retailers require it, and it lets cashiers key in the number by hand if a scan fails.</li><li>Confirm the <strong>quiet zone</strong> (margin) is clear on both sides — UPC-A scanners rely on that blank space to detect the guard bars that frame the code.</li><li>Export as <strong>PNG, SVG, or PDF</strong> for packaging artwork, or use <strong>Copy</strong> for quick placement in design software.</li><li>Use <strong>batch/sequence</strong> to generate a run of sequential product numbers, or the <strong>bulk CSV → ZIP/PDF</strong> tool to convert a spreadsheet of UPCs into a folder of images or one print-ready PDF sheet.</li><li>Call the <strong>REST API</strong> — <code>/barcode?type=upca&data=YOUR11DIGITS</code> — to generate UPC-A images programmatically from a PIM, ERP, or labeling system.</li></ul>"
+    },
+    {
+      "h2": "Print and Scan Best Practices for Retail",
+      "html": "<p>UPC-A is scanned at high volume in demanding retail environments, so a few rules matter most:</p><ul><li><strong>Size</strong>: GS1 defines a nominal UPC-A size with an acceptable magnification range (roughly 80%–200% of nominal) — undersized barcodes are one of the leading causes of scan failures at checkout.</li><li><strong>Quiet zones</strong>: keep the margins on both sides of the barcode completely clear of text, logos, or graphics; crowding this space breaks the scanner's ability to find the guard patterns.</li><li><strong>Contrast</strong>: print black bars on a white or light background — low-contrast color combinations or busy background art are common causes of rejected scans.</li><li><strong>Placement</strong>: keep the barcode on a flat surface, not wrapped around a curved edge, seam, or fold, which distorts bar widths.</li><li><strong>Verification</strong>: before mass-printing packaging for real retail distribution, verify the barcode against your retailer's or GS1's grading specifications — a barcode that displays correctly on screen can still fail a physical scan-quality check.</li></ul>"
+    }
+  ],
+  "uses": [
+    "Retail product packaging sold throughout the United States and Canada",
+    "E-commerce marketplace listings requiring a UPC or GTIN",
+    "Grocery, drugstore, and big-box retail point-of-sale scanning",
+    "Variable-weight and coupon barcodes using special number-system digits",
+    "Warehouse and inventory tracking by UPC/SKU",
+    "Private-label and small-business products entering North American retail"
+  ],
+  "faq": [
+    {"q": "How many digits do I enter for a upc-a generator?", "a": "Enter 11 digits; Barcode Studio calculates the 12th digit (the check digit) automatically using the standard modulo-10 algorithm and appends it to complete the barcode."},
+    {"q": "What's the difference between UPC-A and EAN-13?", "a": "<p>UPC-A is 12 digits and used mainly in the US and Canada, while EAN-13 is 13 digits and used internationally. A UPC-A code is functionally the same as an EAN-13 with a leading zero, which is why most modern scanners read both formats.</p>"},
+    {"q": "Does this tool register my UPC with GS1?", "a": "<p>No. Barcode Studio generates a correctly formatted, scannable UPC-A image from any 11 digits you enter, but it does not assign or register an official product number. For a UPC that's genuinely unique in retail systems, you need to license a GS1 US company prefix directly from GS1.</p>"},
+    {"q": "Can I use a made-up number for testing?", "a": "Yes, any 11 digits produce a valid, scannable UPC-A barcode for mockups, prototypes, or internal use — just don't ship a real retail product with an untested number, since it could collide with another company's actual UPC."},
+    {"q": "Can I generate UPC-A barcodes in bulk from a spreadsheet?", "a": "<p>Yes. Upload a CSV of 11-digit numbers to Barcode Studio's bulk tool to generate a ZIP of individual barcode images or a single print-ready PDF sheet, one barcode per row.</p>"},
+    {"q": "Is the UPC-A generator free to use?", "a": "Yes, Barcode Studio's UPC-A generator runs entirely in your browser at no cost, with no account required for standard PNG/SVG/PDF exports."}
+  ]
+}

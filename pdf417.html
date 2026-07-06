@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PDF417 Barcode Generator - Free Online | Barcode Studio</title>
+<meta name="description" content="Generate a PDF417 barcode free for driver's licenses, boarding passes, and shipping labels. Adjust rows, columns, and error correction, export PNG or SVG." />
+<meta name="theme-color" content="#0b1220" />
+<link rel="canonical" href="https://lawbarcode.vercel.app/pdf417" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="PDF417 Generator | Barcode Studio" />
+<meta property="og:description" content="Generate a PDF417 barcode free for driver's licenses, boarding passes, and shipping labels. Adjust rows, columns, and error correction, export PNG or SVG." />
+<meta property="og:url" content="https://lawbarcode.vercel.app/pdf417" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1220'/%3E%3Cg fill='white'%3E%3Crect x='6' y='8' width='2' height='16'/%3E%3Crect x='9' y='8' width='1' height='16'/%3E%3Crect x='11' y='8' width='3' height='16'/%3E%3Crect x='15' y='8' width='1' height='16'/%3E%3Crect x='17' y='8' width='2' height='16'/%3E%3Crect x='20' y='8' width='1' height='16'/%3E%3Crect x='22' y='8' width='3' height='16'/%3E%3Crect x='26' y='8' width='1' height='16'/%3E%3C/g%3E%3C/svg%3E" />
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://lawbarcode.vercel.app/"},{"@type":"ListItem","position":2,"name":"Barcode Types","item":"https://lawbarcode.vercel.app/barcodes"},{"@type":"ListItem","position":3,"name":"PDF417 Generator","item":"https://lawbarcode.vercel.app/pdf417"}]},{"@type":"SoftwareApplication","name":"PDF417 Generator","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://lawbarcode.vercel.app/pdf417"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does PDF417 stand for?","acceptedAnswer":{"@type":"Answer","text":"PDF stands for Portable Data File, and 417 refers to each codeword pattern consisting of 4 bars and spaces spanning 17 modules, which is the structural building block of the symbol."}},{"@type":"Question","name":"How much data can a PDF417 barcode hold?","acceptedAnswer":{"@type":"Answer","text":"At maximum size, PDF417 can hold roughly 1,850 alphanumeric characters, about 2,700 digits, or around 1,100 bytes of binary data, though most real-world uses encode a few hundred characters."}},{"@type":"Question","name":"Is PDF417 the same as the barcode on my driver's license?","acceptedAnswer":{"@type":"Answer","text":"Yes, most U.S. and Canadian driver's licenses use PDF417 on the back to encode a standardized AAMVA data set including name, date of birth, and license number."}},{"@type":"Question","name":"Can a smartphone scan a PDF417 barcode?","acceptedAnswer":{"@type":"Answer","text":"Yes, most modern barcode scanning apps and camera-based scanners can read PDF417, though it was originally designed for laser-based linear scanners due to its row-based structure."}},{"@type":"Question","name":"What's the difference between PDF417 and QR code?","acceptedAnswer":{"@type":"Answer","text":"PDF417 is a stacked linear symbology built from rows of barcode-like patterns, while QR code is a true matrix symbol; PDF417 is more common for large structured text data like ID cards, while QR code is more common for URLs and consumer-facing content."}},{"@type":"Question","name":"Can I use this PDF417 barcode generator for free in bulk?","acceptedAnswer":{"@type":"Answer","text":"Yes, this PDF417 barcode generator is free with no login; upload a CSV of data values and Barcode Studio will bulk-generate a ZIP of image files or a print-ready PDF of labels."}}]}]}</script>
+<link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="/css/bulk-api.css" />
+<script src="/js/qr-local.js"></script>
+<script>
+(function () {
+  function hasJsBarcode() { return typeof window.JsBarcode === "function"; }
+  function hasBwip() { return !!(window.bwipjs && typeof window.bwipjs.toCanvas === "function"); }
+  function hasPdf() { var ns = window.jspdf || window.jsPDF; return !!(ns && (ns.jsPDF || ns)); }
+  function loadScript(src, check, timeoutMs) {
+    return new Promise(function (resolve) {
+      if (check()) return resolve(true);
+      var done = false;
+      var s = document.createElement("script");
+      var t = setTimeout(function () { finish(check()); }, timeoutMs || 2500);
+      function finish(ok) {
+        if (done) return;
+        done = true;
+        clearTimeout(t);
+        try { if (!ok && s.parentNode) s.parentNode.removeChild(s); } catch (e) {}
+        resolve(!!ok || check());
+      }
+      s.async = false;
+      s.onload = function () { finish(true); };
+      s.onerror = function () { finish(false); };
+      s.src = src;
+      document.head.appendChild(s);
+    });
+  }
+  async function loadAny(urls, check) {
+    for (var i = 0; i < urls.length; i++) {
+      if (await loadScript(urls[i], check, 2500)) return true;
+    }
+    return check();
+  }
+  window.__barcodeLibs = {
+    jsbarcode: loadAny([
+      "https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js",
+      "https://unpkg.com/jsbarcode@3.11.6/dist/JsBarcode.all.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"
+    ], hasJsBarcode),
+    bwip: loadAny([
+      "https://cdn.jsdelivr.net/npm/bwip-js@4.11.1/dist/bwip-js-min.js",
+      "https://unpkg.com/bwip-js@4.11.1/dist/bwip-js-min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/bwip-js/4.7.0/bwip-js-min.js"
+    ], hasBwip),
+    pdf: loadAny([
+      "https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js",
+      "https://unpkg.com/jspdf@2.5.1/dist/jspdf.umd.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+    ], hasPdf)
+  };
+  window.__barcodeLibsReady = Promise.all([window.__barcodeLibs.jsbarcode, window.__barcodeLibs.bwip, window.__barcodeLibs.pdf]).then(function (r) {
+    return { jsbarcode: r[0], bwip: r[1], pdf: r[2], qr: !!(window.QRCode && typeof window.QRCode.toCanvas === "function") };
+  });
+})();
+</script>
+<script>window.BARCODE_HAS_API = true;</script>
+<script src="/js/i18n.js"></script>
+<script src="/js/i18n-extra.js"></script>
+</head>
+<body>
+  <div class="loader" id="loader"><div class="loader-bars"><span></span><span></span><span></span><span></span><span></span></div><p data-i18n="loaderText">Loading Barcode Studio…</p></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <div>
+        <h1>Barcode Studio</h1>
+        <p data-i18n="brandTagline">Free Online Barcode &amp; QR Code Generator</p>
+      </div>
+    </div>
+    <nav class="top-actions">
+      <a href="#generator" class="btn btn-ghost" data-i18n="navGenerator">Generator</a>
+      <a href="#bulk" class="btn btn-ghost" data-i18n="navBulk">Bulk</a>
+      <a href="/barcodes" class="btn btn-ghost" data-i18n="navTypes">All barcodes</a>
+      <a href="/api-docs.html" class="btn btn-ghost" data-i18n="navApi">API Docs</a>
+      <button class="btn btn-ghost" id="resetBtn" data-i18n="navReset">Reset</button>
+      <button class="btn btn-ghost" id="printBtn" data-i18n="navPrint">Print</button>
+      <div class="lang-wrap">
+        <span class="globe" aria-hidden="true">🌐</span>
+        <select id="langSelect" class="lang-select" aria-label="Language"></select>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-content">
+      <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/barcodes">Barcodes</a><span>/</span><span>PDF417</span></nav>
+      <span class="eyebrow">2D Code</span>
+      <h1>PDF417 <span class="grad-text">Generator</span></h1>
+      <p>Create a high-capacity PDF417 barcode for IDs, boarding passes, and shipping labels, right in your browser.</p>
+      <a href="#generator" class="btn btn-primary btn-lg">Open the generator ↓</a>
+    </div>
+  </section>
+
+  <div class="app" id="generator">
+    <aside class="sidebar reveal">
+      <div class="sidebar-search">
+        <input type="text" id="typeSearch" data-i18n-ph="searchPh" placeholder="Search symbology…" />
+      </div>
+      <div class="type-list" id="typeList"></div>
+    </aside>
+
+    <main class="main">
+      <section class="card reveal">
+        <div class="card-head">
+          <h2 data-i18n="dataHeading">Data</h2>
+          <span class="pill" id="activeType">Code 128</span>
+        </div>
+        <div class="prop-row ct-row" id="contentTypeRow" hidden>
+          <label data-i18n="contentType">Content type</label>
+          <select id="ctSelect">
+            <option value="text" data-i18n="ctText">Text</option>
+            <option value="url" data-i18n="ctUrl">URL / Link</option>
+            <option value="wifi" data-i18n="ctWifi">WiFi network</option>
+            <option value="vcard" data-i18n="ctVcard">Contact (vCard)</option>
+            <option value="email" data-i18n="ctEmail">Email</option>
+            <option value="sms" data-i18n="ctSms">SMS</option>
+            <option value="tel" data-i18n="ctTel">Phone</option>
+            <option value="geo" data-i18n="ctGeo">Location</option>
+            <option value="event" data-i18n="ctEvent">Calendar event</option>
+          </select>
+        </div>
+        <textarea id="data" rows="3" data-i18n-ph="dataPh" placeholder="Enter the data to encode…">Barcode Studio</textarea>
+        <div class="builder" id="builderFields" hidden>
+          <div class="ct-block" data-ct="wifi">
+            <label class="fld"><span data-i18n="fSsid">Network name (SSID)</span><input type="text" id="wSsid" value="MyNetwork" /></label>
+            <label class="fld"><span data-i18n="fPassword">Password</span><input type="text" id="wPass" value="password123" /></label>
+            <label class="fld"><span data-i18n="fEncryption">Encryption</span>
+              <select id="wEnc"><option value="WPA">WPA/WPA2</option><option value="WEP">WEP</option><option value="nopass" data-i18n="encNone">None</option></select>
+            </label>
+            <label class="switch"><input type="checkbox" id="wHidden" /> <span data-i18n="fHidden">Hidden network</span></label>
+          </div>
+          <div class="ct-block" data-ct="vcard">
+            <label class="fld"><span data-i18n="fFirstName">First name</span><input type="text" id="vFirst" value="John" /></label>
+            <label class="fld"><span data-i18n="fLastName">Last name</span><input type="text" id="vLast" value="Doe" /></label>
+            <label class="fld"><span data-i18n="fOrg">Organization</span><input type="text" id="vOrg" /></label>
+            <label class="fld"><span data-i18n="fJobTitle">Job title</span><input type="text" id="vTitle" /></label>
+            <label class="fld"><span data-i18n="fPhone">Phone</span><input type="text" id="vPhone" value="+1 555 0100" /></label>
+            <label class="fld"><span data-i18n="fEmail">Email</span><input type="text" id="vEmail" value="john@example.com" /></label>
+            <label class="fld"><span data-i18n="fWebsite">Website</span><input type="text" id="vUrl" /></label>
+            <label class="fld"><span data-i18n="fAddress">Address</span><input type="text" id="vAddr" /></label>
+          </div>
+          <div class="ct-block" data-ct="email">
+            <label class="fld"><span data-i18n="fTo">To</span><input type="text" id="eTo" value="hello@example.com" /></label>
+            <label class="fld"><span data-i18n="fSubject">Subject</span><input type="text" id="eSub" /></label>
+            <label class="fld"><span data-i18n="fBody">Message</span><input type="text" id="eBody" /></label>
+          </div>
+          <div class="ct-block" data-ct="sms">
+            <label class="fld"><span data-i18n="fNumber">Number</span><input type="text" id="sNum" value="+15550100" /></label>
+            <label class="fld"><span data-i18n="fMessage">Message</span><input type="text" id="sMsg" value="Hello" /></label>
+          </div>
+          <div class="ct-block" data-ct="tel">
+            <label class="fld"><span data-i18n="fNumber">Number</span><input type="text" id="tNum" value="+15550100" /></label>
+          </div>
+          <div class="ct-block" data-ct="geo">
+            <label class="fld"><span data-i18n="fLat">Latitude</span><input type="text" id="gLat" value="40.7128" /></label>
+            <label class="fld"><span data-i18n="fLong">Longitude</span><input type="text" id="gLng" value="-74.0060" /></label>
+          </div>
+          <div class="ct-block" data-ct="event">
+            <label class="fld"><span data-i18n="fEventTitle">Event title</span><input type="text" id="cTitle" value="Meeting" /></label>
+            <label class="fld"><span data-i18n="fLocation">Location</span><input type="text" id="cLoc" /></label>
+            <label class="fld"><span data-i18n="fStart">Start</span><input type="datetime-local" id="cStart" /></label>
+            <label class="fld"><span data-i18n="fEnd">End</span><input type="datetime-local" id="cEnd" /></label>
+            <label class="fld"><span data-i18n="fDescription">Description</span><input type="text" id="cDesc" /></label>
+          </div>
+        </div>
+        <p class="hint" id="typeHint"></p>
+
+        <div class="seq">
+          <label class="switch">
+            <input type="checkbox" id="seqEnable" /> <span data-i18n="seqToggle">Batch / sequence mode</span>
+          </label>
+          <div class="seq-fields" id="seqFields">
+            <label><span data-i18n="seqCount">Count</span> <input type="number" id="seqCount" min="2" max="100" value="5" /></label>
+            <label><span data-i18n="seqStart">Start #</span> <input type="number" id="seqStart" value="1" /></label>
+            <label><span data-i18n="seqPrefix">Prefix</span> <input type="text" id="seqPrefix" placeholder="ABC-" /></label>
+            <label><span data-i18n="seqPad">Pad</span> <input type="number" id="seqPad" min="0" max="12" value="4" /></label>
+          </div>
+        </div>
+      </section>
+
+      <section class="card preview-card reveal">
+        <div class="card-head">
+          <h2 data-i18n="previewHeading">Preview</h2>
+          <div class="preview-tools">
+            <button class="chip" data-zoom="out" title="Zoom out">−</button>
+            <span id="zoomLabel">100%</span>
+            <button class="chip" data-zoom="in" title="Zoom in">+</button>
+          </div>
+        </div>
+        <div class="preview-stage">
+          <div id="preview" class="preview-inner"></div>
+        </div>
+        <div class="download-row">
+          <button class="btn btn-primary" id="dlPng">⬇ PNG</button>
+          <button class="btn btn-secondary" id="dlSvg">⬇ SVG</button>
+          <button class="btn btn-soft" id="copyBtn">📋 Copy</button>
+          <button class="btn btn-soft" id="dlZip" hidden>⬇ ZIP (batch)</button>
+        </div>
+      </section>
+
+      <section class="card bulk-card reveal" id="bulk">
+        <div class="card-head">
+          <h2 data-i18n="bulkHeading">Bulk generate</h2>
+          <span class="pill" data-i18n="bulkBadge">CSV \u2192 ZIP / PDF</span>
+        </div>
+        <p class="hint" data-i18n="bulkDesc">Upload a CSV/TXT file or paste values to generate hundreds of barcodes at once.</p>
+        <div class="bulk-grid">
+          <label class="bulk-file">
+            <input type="file" id="bulkFile" accept=".csv,.txt,text/csv,text/plain" />
+            <span data-i18n="bulkUpload">\u2b06 Upload CSV / TXT</span>
+          </label>
+          <textarea id="bulkPaste" rows="4" data-i18n-ph="bulkPastePh" placeholder="\u2026or paste values here, one per line"></textarea>
+        </div>
+        <div class="bulk-opts">
+          <label class="switch"><input type="checkbox" id="bulkHeader" /> <span data-i18n="bulkHeaderLbl">First row is a header</span></label>
+          <label class="bulk-sel"><span data-i18n="bulkDataColLbl">Data column</span><select id="bulkDataCol"></select></label>
+          <label class="bulk-sel"><span data-i18n="bulkLabelColLbl">Label / filename</span><select id="bulkLabelCol"></select></label>
+          <label class="bulk-sel"><span data-i18n="bulkPdfColsLbl">PDF columns</span><input type="number" id="bulkPdfCols" min="1" max="6" value="3" /></label>
+        </div>
+        <p class="bulk-info" id="bulkInfo"></p>
+        <div class="bulk-progress" id="bulkProgress" hidden><div class="bulk-bar" id="bulkBar"></div></div>
+        <div class="download-row">
+          <button class="btn btn-primary" id="bulkGenBtn" data-i18n="bulkGenerate">\u2699 Generate</button>
+          <button class="btn btn-secondary" id="bulkDlZip" hidden data-i18n="bulkDlZip">\u2b07 ZIP (PNG)</button>
+          <button class="btn btn-secondary" id="bulkDlPdf" hidden data-i18n="bulkDlPdf">\u2b07 PDF sheet</button>
+        </div>
+      </section>
+    </main>
+
+    <aside class="props reveal">
+      <h2 data-i18n="propsHeading">Properties</h2>
+
+      <div class="prop-group" id="linearProps">
+        <div class="prop-row">
+          <label data-i18n="pBarWidth">Bar width</label>
+          <input type="range" id="barWidth" min="1" max="6" step="0.5" value="2" />
+          <output id="barWidthV">2</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pHeight">Height</label>
+          <input type="range" id="barHeight" min="20" max="240" step="5" value="100" />
+          <output id="barHeightV">100</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pFontSize">Font size</label>
+          <input type="range" id="fontSize" min="8" max="40" step="1" value="18" />
+          <output id="fontSizeV">18</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pTextAlign">Text align</label>
+          <select id="textAlign">
+            <option value="center" selected data-i18n="optCenter">Center</option>
+            <option value="left" data-i18n="optLeft">Left</option>
+            <option value="right" data-i18n="optRight">Right</option>
+          </select>
+        </div>
+        <label class="switch"><input type="checkbox" id="displayValue" checked /> <span data-i18n="pShowText">Show human-readable text</span></label>
+      </div>
+
+      <div class="prop-group" id="qrProps" hidden>
+        <div class="prop-row">
+          <label data-i18n="pSize">Size</label>
+          <input type="range" id="qrSize" min="120" max="640" step="20" value="300" />
+          <output id="qrSizeV">300</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pErrCorr">Error corr.</label>
+          <select id="qrEcc">
+            <option value="L">L – 7%</option>
+            <option value="M" selected>M – 15%</option>
+            <option value="Q">Q – 25%</option>
+            <option value="H">H – 30%</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="prop-group" id="twoDProps" hidden>
+        <div class="prop-row">
+          <label data-i18n="pScale">Scale</label>
+          <input type="range" id="tdScale" min="2" max="10" step="1" value="4" />
+          <output id="tdScaleV">4</output>
+        </div>
+        <div class="prop-row" id="bwipHeightRow" style="display:none">
+          <label data-i18n="pHeightMm">Height (mm)</label>
+          <input type="range" id="bwipHeight" min="5" max="40" step="1" value="12" />
+          <output id="bwipHeightV">12</output>
+        </div>
+        <div class="prop-row" id="pdfColsRow">
+          <label data-i18n="pPdfCols">PDF columns</label>
+          <input type="range" id="pdfCols" min="0" max="12" step="1" value="0" />
+          <output id="pdfColsV">auto</output>
+        </div>
+        <label class="switch" id="bwipTextRow" style="display:none"><input type="checkbox" id="bwipText" /> <span data-i18n="pShowText">Show human-readable text</span></label>
+      </div>
+
+      <div class="prop-group">
+        <div class="prop-row two">
+          <div>
+            <label data-i18n="pForeground">Foreground</label>
+            <input type="color" id="fg" value="#000000" />
+          </div>
+          <div>
+            <label data-i18n="pBackground">Background</label>
+            <input type="color" id="bg" value="#ffffff" />
+          </div>
+        </div>
+        <label class="switch"><input type="checkbox" id="transparent" /> <span data-i18n="pTransparent">Transparent background</span></label>
+        <div class="prop-row">
+          <label data-i18n="pMargin">Margin</label>
+          <input type="range" id="margin" min="0" max="40" step="2" value="10" />
+          <output id="marginV">10</output>
+        </div>
+      </div>
+
+      <div class="prop-group">
+        <p class="prop-note" id="status"></p>
+      </div>
+    </aside>
+  </div>
+
+    <article class="seo-section">
+    <div class="seo-wrap">
+      <h2>What is a PDF417 barcode?</h2>
+      <p>PDF417 is a stacked linear barcode, standardized under ISO/IEC 15438, that arranges multiple rows of a 1D-style barcode pattern on top of each other to create a compact, high-capacity 2D symbol. The name comes from its structure: every codeword pattern consists of 4 bars and spaces across 17 modules ("PDF" stands for Portable Data File). It was developed by Symbol Technologies in 1991 and is now a public-domain, royalty-free standard widely used wherever a large amount of data needs to travel on a single printed label, such as a driver's license or shipping form. Any free PDF417 barcode generator that supports adjustable error correction and row/column tuning, like Barcode Studio, can reproduce the format to spec.</p>
+      <h2>How PDF417 encodes data</h2>
+      <p>Unlike a matrix code such as QR or Data Matrix, PDF417 is not a grid of independently addressable modules — it's built from discrete rows, and each row looks like its own small linear barcode with a start pattern, a row-indicator codeword, several data codewords, and a stop pattern. Stacking anywhere from 3 to 90 of these rows, each containing 1 to 30 codewords, lets the symbol scale from a small tag to a dense block holding over a thousand characters. Reed-Solomon error correction is calculated across the entire symbol at one of nine selectable levels, so higher levels reconstruct data even when part of the label is smudged, torn, or unreadable, at the cost of consuming codewords that could otherwise carry more data.</p><p>Because a decoder effectively has to identify and read each row in sequence rather than parse one uniform grid, PDF417 historically relied on raster or laser-based linear scanners doing multiple passes; modern 2D camera-based imagers handle the whole symbol in a single frame, which is why PDF417 now works fine with ordinary smartphone-class scanning hardware.</p>
+      <h2>What PDF417 encodes and key specs</h2>
+      <p>PDF417 can hold up to about 1,850 alphanumeric characters, around 2,700 digits, or roughly 1,100 bytes of binary data in its largest configuration, though real-world uses like driver's licenses typically encode a few hundred characters of structured text rather than pushing toward the theoretical maximum. It supports numeric, alphanumeric (text), and byte compaction modes, and the encoder switches between them automatically within a single symbol to maximize density — for example packing a numeric ID more efficiently than the surrounding text fields. A compact variant, Truncated PDF417, removes the right-hand guard pattern to save horizontal space in controlled printing environments, though this sacrifices some of the symbol's damage tolerance and orientation redundancy, so it's best reserved for situations where you control both the printer and the scanner.</p><ul><li><strong>Rows:</strong> 3 to 90, each holding 1 to 30 codewords</li><li><strong>Error correction:</strong> 9 selectable levels (0-8) of Reed-Solomon protection</li><li><strong>Capacity:</strong> up to ~1,850 text characters or ~2,700 digits at maximum size</li><li><strong>Standard:</strong> ISO/IEC 15438, public domain and royalty-free</li></ul>
+      <h2>Where PDF417 is used</h2>
+      <p>U.S. and Canadian driver's licenses and state ID cards encode the AAMVA standard data set — name, date of birth, license number, address, and license class — on the back using PDF417, which is why it's often called "the barcode on the back of a driver's license." Airline boarding passes follow IATA's Bar Coded Boarding Pass (BCBP) standard, which also uses PDF417 for paper passes. USPS and other postal or parcel carriers print it on shipping and customs labels to carry structured tracking data. Manufacturing and logistics operations use it for parts tracking where a single label needs to carry more structured data than a simple linear barcode allows, and many government forms, permits, and visas use it to encode substantial text data compactly on a single printed page.</p>
+      <h2>How to create a PDF417 barcode in Barcode Studio</h2>
+      <p>Select <strong>PDF417</strong> from the symbology list on the left and enter your text or structured data directly — PDF417 isn't part of the 2D content-type builder used for QR codes, so you type or paste the raw string you want encoded. From there you can:</p><ul><li>Adjust the number of rows and columns, or let the generator auto-size based on your data length</li><li>Set the error correction level (0-8) to balance data capacity against damage tolerance</li><li>Adjust module width, row height, colors, and quiet zone for your label format</li><li>Export as PNG or SVG, or copy the code directly for use in ID card or shipping label templates</li><li>Generate a batch or numbered sequence, or upload a CSV for bulk generation as a ZIP or print-ready PDF of labels</li><li>Call the REST API &mdash; <code>/barcode?type=pdf417&amp;data=Shipment%20ID%2012345</code> &mdash; to automate barcode generation for a logistics or ID system</li></ul>
+      <h2>Print and scan best practices</h2>
+      <p>Keep a quiet zone of at least two modules on the left and right of the symbol (PDF417's guard bars need clear space to be located correctly), and don't use the truncated variant unless you control both printing and scanning equipment closely, since it removes some damage tolerance. Choose a higher error correction level for labels that will be handled, folded, or exposed to weather, such as shipping labels, and a lower level when maximizing capacity matters more, such as dense ID card data. Print at a module width appropriate to your scanner's resolution — PDF417's row structure means it's less forgiving of low-resolution printing than a matrix code like QR at the same physical size, since a single blurred row can cost an entire codeword sequence rather than a few scattered modules. Test with the actual scanner hardware your use case requires, since laser-based and camera-based PDF417 readers can behave differently on borderline print quality, and verify AAMVA or BCBP compliance against the issuing authority's own spec if you're producing ID or boarding-pass labels.</p>
+      <h2>PDF417 vs related codes</h2>
+      <p>PDF417 stands apart from QR code, Data Matrix, and Aztec in one key way: those three are true matrix codes with an even grid of modules, while PDF417 is a stacked linear symbology built from rows that read more like a sequence of small 1D barcodes. That structure gives PDF417 very high raw capacity for its footprint and made it a natural fit for ID and boarding-pass systems that were originally built around linear-scanning hardware. Compared with MicroPDF417, its own compact sibling, standard PDF417 supports a larger data payload and more rows/columns, while MicroPDF417 trims overhead to fit dramatically smaller labels at a lower capacity ceiling. Compared with Aztec — which needs no quiet zone and is common on transit tickets — or QR code, which is the most universally scannable by consumer phone cameras, PDF417 remains the default choice specifically where a governing standard (AAMVA, IATA BCBP) already mandates it.</p>
+      <h2>Common uses</h2>
+      <ul class="seo-uses"><li>U.S. and Canadian driver's license and ID card back-of-card data (AAMVA standard)</li><li>Airline boarding passes (IATA Bar Coded Boarding Pass standard)</li><li>USPS and shipping/logistics labels carrying structured tracking data</li><li>Government forms and permits requiring compact high-volume text encoding</li><li>Manufacturing and parts tracking labels with detailed structured data</li><li>Event tickets and access credentials with embedded verification data</li></ul>
+      <h2>Frequently asked questions</h2>
+      <div class="faq">
+        <details class="faq-item"><summary>What does PDF417 stand for?</summary><div class="faq-a">PDF stands for Portable Data File, and 417 refers to each codeword pattern consisting of 4 bars and spaces spanning 17 modules, which is the structural building block of the symbol.</div></details>
+        <details class="faq-item"><summary>How much data can a PDF417 barcode hold?</summary><div class="faq-a">At maximum size, PDF417 can hold roughly 1,850 alphanumeric characters, about 2,700 digits, or around 1,100 bytes of binary data, though most real-world uses encode a few hundred characters.</div></details>
+        <details class="faq-item"><summary>Is PDF417 the same as the barcode on my driver's license?</summary><div class="faq-a">Yes, most U.S. and Canadian driver's licenses use PDF417 on the back to encode a standardized AAMVA data set including name, date of birth, and license number.</div></details>
+        <details class="faq-item"><summary>Can a smartphone scan a PDF417 barcode?</summary><div class="faq-a">Yes, most modern barcode scanning apps and camera-based scanners can read PDF417, though it was originally designed for laser-based linear scanners due to its row-based structure.</div></details>
+        <details class="faq-item"><summary>What's the difference between PDF417 and QR code?</summary><div class="faq-a">PDF417 is a stacked linear symbology built from rows of barcode-like patterns, while QR code is a true matrix symbol; PDF417 is more common for large structured text data like ID cards, while QR code is more common for URLs and consumer-facing content.</div></details>
+        <details class="faq-item"><summary>Can I use this PDF417 barcode generator for free in bulk?</summary><div class="faq-a">Yes, this PDF417 barcode generator is free with no login; upload a CSV of data values and Barcode Studio will bulk-generate a ZIP of image files or a print-ready PDF of labels.</div></details>
+      </div>
+      <h2>Related barcode types</h2>
+      <div class="seo-related"><a href="/qr-code">QR Code</a><a href="/gs1-qr-code">GS1 QR Code</a><a href="/gs1-digital-link-qr-code">GS1 Digital Link QR Code</a><a href="/gs1-digital-link-data-matrix">GS1 Digital Link Data Matrix</a><a href="/data-matrix">Data Matrix</a><a href="/gs1-data-matrix">GS1 Data Matrix</a><a href="/micropdf417">MicroPDF417</a><a href="/aztec">Aztec</a><a href="/micro-qr">Micro QR</a><a href="/maxicode">MaxiCode</a><a href="/dotcode">DotCode</a><a href="/han-xin-code">Han Xin Code</a><a href="/codablock-f">Codablock-F</a><a href="/royal-mail-mailmark-2d">Royal Mail Mailmark 2D</a></div>
+      <p class="seo-all"><a href="/barcodes">Browse all 106 barcode &amp; QR types →</a></p>
+    </div>
+  </article>
+  <footer class="footer">
+    <span class="footer-brand">Barcode Studio</span> · <span data-i18n="footerText">made by Lawstore since 2026</span>
+  </footer>
+
+  <script>window.BARCODE_INITIAL_TYPE="pdf417";</script>
+  <script src="/js/catalog.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

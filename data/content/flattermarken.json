@@ -1,0 +1,51 @@
+{
+  "id": "flattermarken",
+  "title": "Flattermarken Generator | Barcode Studio",
+  "metaDescription": "Create Flattermarken barcodes free online with our flattermarken generator. German pharmaceutical pica-font digit encoding with live preview and export.",
+  "primaryKeyword": "flattermarken generator",
+  "secondaryKeywords": ["flattermarken barcode", "german pharmaceutical barcode", "pharma packaging code", "flattermarken vs pharmacode", "variable bar height barcode", "packungsbeilage barcode"],
+  "lead": "Flattermarken is a distinctive German barcode that encodes digits using variable bar height instead of variable bar width, historically used to mark pharmaceutical packaging.",
+  "sections": [
+    {
+      "h2": "What Is a Flattermarken Barcode?",
+      "html": "<p>Flattermarken (German for roughly \"fluttering marks,\" describing the visual effect of bars at different heights) is a specialized barcode symbology that encodes data through bar <strong>height</strong> rather than bar width, which is what nearly every other linear symbology uses. Instead of wide and narrow bars sitting on a common baseline, Flattermarken uses tall and short bars, all the same width, printed at consistent spacing. It originated in Germany for use in pharmaceutical and print-industry packaging applications, historically often printed on the edge of folded package inserts (Packungsbeilagen) as a way to identify and sort them without needing conventional barcode scanning equipment aimed at the front of the package.</p><p>Because the encoding mechanism relies purely on height differences rather than width, Flattermarken can be printed and read using different equipment than standard bar-width symbologies, which was part of its original appeal in high-speed printing and packaging lines.</p>"
+    },
+    {
+      "h2": "How Flattermarken Encodes Data",
+      "html": "<p>Each digit in Flattermarken is represented by a bar of one of two heights — tall or short — arranged in sequence along the edge of packaging material. Because the mechanism is height-based rather than width-based, the symbology is well suited to being read by sensors positioned to detect vertical bar extent as material moves past on a production line, rather than a traditional area-scan or laser barcode reader aimed perpendicular to the code. This makes it a practical fit for the high-speed folding and packaging machinery common in pharmaceutical manufacturing, where package inserts are folded and need to be verified or sorted quickly.</p><p>Flattermarken is a digits-only encoding; it isn't designed for alphanumeric data, since its original purpose was simple identification and batch-sorting rather than general-purpose data carrying.</p>"
+    },
+    {
+      "h2": "Where Flattermarken Is Used",
+      "html": "<p>Flattermarken's use is concentrated almost entirely in one industry and region:</p><ul><li><strong>Pharmaceutical packaging in Germany and neighboring European markets</strong> — printed on package insert leaflets (Packungsbeilagen) to identify and verify the correct insert during high-speed folding and packaging operations.</li><li><strong>Print and packaging line automation</strong> — used by folding and packaging machinery to confirm the right printed material is being processed in sequence.</li><li><strong>Legacy pharmaceutical quality control systems</strong> that were built around Flattermarken verification before more modern symbologies like Pharmacode or Data Matrix became more common for pharma serialization.</li></ul><p>If you're working in pharmaceutical packaging today for new serialization requirements (like those under the EU Falsified Medicines Directive), you'll more often encounter Data Matrix codes rather than Flattermarken — but Flattermarken remains relevant wherever existing insert-folding equipment is built around it.</p>"
+    },
+    {
+      "h2": "Flattermarken Technical Specifications",
+      "html": "<p>Flattermarken is a digits-only symbology encoding 0–9, with each digit represented by a single bar rendered at one of two fixed heights (tall or short) rather than by varying bar or space width. All bars share the same width and spacing; only the height varies to carry information. There's no formally codified international standard body governing Flattermarken the way ISO governs Code 128 or Code 39 — it's a German industry convention tied to specific pharmaceutical packaging and print-finishing equipment, so exact height tolerances and start/stop conventions can vary somewhat by the sensor hardware reading them. No standard check digit scheme is broadly documented for the symbology; validation typically relies on the mechanical reliability of the sensor read itself.</p>"
+    },
+    {
+      "h2": "How to Create a Flattermarken Barcode in Barcode Studio",
+      "html": "<p>Select <strong>Flattermarken</strong> from the symbology list in Barcode Studio. Enter your numeric data — this is a digits-only symbology, so letters and symbols aren't supported. The live preview renders the distinctive tall/short bar pattern as you type. From there:</p><ul><li>Adjust <strong>bar width</strong> to match your packaging material dimensions, keeping in mind this symbology's data is carried in height, not width.</li><li>Set the <strong>height</strong> parameters carefully, since the contrast between tall and short bars is what encodes each digit — insufficient height difference risks misreads on production equipment tuned for a specific tolerance.</li><li>Adjust <strong>colors</strong> if your packaging stock requires specific contrast, and confirm the <strong>quiet zone</strong> margin around the code.</li><li>Export as <strong>PNG, SVG, or PDF</strong>, or use <strong>Copy</strong> to place directly into packaging artwork files.</li></ul><p>For sequential batch or lot numbers, use the <strong>batch/sequence</strong> tool. For generating codes across a full production run of package variants, the <strong>bulk CSV → ZIP/PDF</strong> feature handles a spreadsheet of values in one pass. Developers integrating Flattermarken generation into packaging design pipelines can use the <strong>REST API</strong> with <code>/barcode?type=flattermarken&data=YOURDATA</code>.</p>"
+    },
+    {
+      "h2": "Print and Scan Best Practices",
+      "html": "<p>Because Flattermarken relies on height rather than width to encode data, its printing considerations differ from most barcodes:</p><ul><li>Verify the tall/short height contrast matches what your specific folding or packaging machinery's sensor is calibrated to detect — this varies by equipment manufacturer more than with width-based symbologies.</li><li>Print on the intended edge or fold-line position consistently, since Flattermarken is typically read as material moves past a fixed sensor rather than scanned like a conventional barcode.</li><li>Keep the code's positioning consistent across a print run; any drift in vertical alignment or bar height calibration can cause read failures on automated packaging lines even if the printed pattern is technically correct.</li><li>For new pharmaceutical serialization projects, confirm with your regulatory and packaging engineering teams whether Flattermarken or a modern 2D code like Data Matrix is actually required — many newer lines have moved away from Flattermarken.</li><li>Test with the actual production sensor hardware before a full print run, since generic barcode scanners typically cannot read Flattermarken at all.</li></ul>"
+    },
+    {
+      "h2": "Flattermarken vs. Related Codes",
+      "html": "<p>Against <strong>Pharmacode</strong>, another German-originated pharma symbology, Pharmacode encodes data through conventional bar-width variation and is readable by standard barcode scanners, while Flattermarken's height-based mechanism requires specialized sensor hardware built into folding or packaging machinery — the two solve different problems despite both appearing on pharmaceutical packaging. Against <strong>Data Matrix</strong>, the modern default for pharmaceutical serialization under regulations like the EU Falsified Medicines Directive, Data Matrix carries far more data (batch, expiry, serial number) and is scannable with any 2D imager, which is why most new pharma packaging lines have moved to Data Matrix rather than adopting or continuing Flattermarken.</p>"
+    }
+  ],
+  "uses": [
+    "Pharmaceutical package insert (Packungsbeilage) identification in Germany",
+    "High-speed print and packaging line automation",
+    "Legacy pharmaceutical quality control and sorting systems",
+    "European pharma packaging verification predating modern 2D serialization"
+  ],
+  "faq": [
+    {"q": "What is a flattermarken generator used for?", "a": "A flattermarken generator creates the height-based bar codes used in German pharmaceutical packaging to identify and sort package insert leaflets on high-speed folding machinery."},
+    {"q": "How is Flattermarken different from a normal barcode?", "a": "<p>Standard barcodes encode data through bar width; Flattermarken encodes data through bar height, using tall and short bars instead of wide and narrow ones. This suits detection by height-sensing equipment on packaging lines.</p>"},
+    {"q": "Can Flattermarken encode letters?", "a": "No, it's a digits-only symbology designed for simple numeric identification rather than general alphanumeric data."},
+    {"q": "Is Flattermarken still used in pharmaceutical packaging today?", "a": "<p>It's largely used to maintain compatibility with existing folding and packaging equipment. Newer serialization requirements in the EU increasingly rely on Data Matrix codes instead.</p>"},
+    {"q": "Can a standard barcode scanner read Flattermarken?", "a": "<p>No, Flattermarken is read by specialized height-sensing equipment on packaging lines, not by conventional laser or camera-based barcode scanners.</p>"}
+  ]
+}

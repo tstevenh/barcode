@@ -1,0 +1,52 @@
+{
+  "id": "hibcpasqrcode",
+  "title": "HIBC PAS QR Code Generator – Healthcare Barcode",
+  "metaDescription": "Generate an HIBC PAS QR code free online. Encode a GS1 company prefix-based labeler ID and product data in the HIBC PAS structure as a QR Code.",
+  "primaryKeyword": "hibc pas qr code generator",
+  "secondaryKeywords": ["hibc pas barcode", "hibc pas vs lic", "healthcare industry bar code pas structure", "gs1 prefix hibc labeler", "hibc pas qr format", "medical device pas labeling"],
+  "lead": "Generate an HIBC PAS QR Code that carries a GS1 company prefix-based Health Industry Bar Code record for medical product labeling.",
+  "sections": [
+    {
+      "h2": "What is HIBC PAS and why QR Code?",
+      "html": "<p>HIBC PAS (Provider Assigned/GS1-based structure) is the newer of HIBCC's two Health Industry Bar Code data structures. Instead of requesting a 4-character Labeler Identification Code directly from HIBCC — as the older LIC structure requires — a labeler using PAS builds its HIBC message around a GS1 Company Prefix it already holds. This means manufacturers who already participate in GS1 for GTIN assignment can produce HIBC-compliant labels without a separate registration with HIBCC.</p><p>HIBC PAS data can be carried in several symbologies, and QR Code is the 2D option of choice when a facility's scanning infrastructure or label layout favors a QR reader over Data Matrix or PDF417. As with all HIBC carriers, the QR Code itself is a standard symbol; what makes it \"HIBC PAS\" is the structured text payload it encodes.</p>"
+    },
+    {
+      "h2": "How HIBC PAS data is structured",
+      "html": "<p>An HIBC PAS message differs from LIC primarily in how the labeler is identified:</p><ul><li><strong>\"+\" data identifier</strong> — marks the payload as HIBC-formatted, same as HIBC LIC.</li><li><strong>GS1 Company Prefix-based labeler identifier</strong> — instead of a 4-character HIBCC-assigned LIC, PAS encodes an identifier derived from the labeler's existing GS1 Company Prefix, letting GS1 members reuse infrastructure they already maintain.</li><li><strong>Product/catalog number</strong> — the labeler's item identifier.</li><li><strong>Unit-of-measure digit</strong> — packaging level indicator.</li><li><strong>Optional secondary data</strong> — lot/batch number, expiry date and quantity for full traceability.</li><li><strong>Check character</strong> — validates the primary data string against transcription errors.</li></ul><p>Because the labeler identifier portion is longer under PAS (derived from a GS1 prefix rather than a fixed 4-character LIC), PAS messages are typically a bit longer than the equivalent LIC message for the same product data.</p>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>The QR Code carrier follows the standard ISO/IEC 18004 specification, typically at error correction level M or Q, identical to HIBC LIC QR Code. The HIBC PAS data structure, defined by HIBCC, replaces the LIC's fixed 4-character labeler code with a labeler identifier derived from the manufacturer's existing GS1 Company Prefix — which can run anywhere from roughly 6 to 9 digits depending on the prefix length GS1 originally issued — followed by the product/catalog number, unit-of-measure digit, optional secondary data (lot, expiry, quantity), and a check character over the primary string. Because the GS1-prefix-based identifier is generally longer than a fixed 4-character LIC, PAS messages of equivalent product detail typically require a higher QR Code version (more modules) than the LIC equivalent.</p>"
+    },
+    {
+      "h2": "Where HIBC PAS QR Codes are used",
+      "html": "<p>HIBC PAS QR Codes are increasingly common where:</p><ul><li>Manufacturers already hold a GS1 Company Prefix for GTIN assignment and want to extend it to HIBC-compliant labeling without a separate HIBCC registration.</li><li>Medical device labeling needs a 2D symbol with more capacity than a linear barcode, using QR Code specifically where a facility's readers are QR-oriented.</li><li>Healthcare organizations are transitioning from legacy HIBC LIC systems toward the GS1-aligned PAS structure as part of broader GS1 standardization efforts.</li><li>Hospital and distributor scanning systems that need to recognize both LIC and PAS structures during a phased migration.</li></ul><p>Manufacturers that sell into both GS1-driven retail channels and HIBC-driven healthcare channels increasingly favor PAS specifically because it lets a single GS1 Company Prefix administration process cover both labeling requirements, rather than maintaining a separate HIBCC LIC registration purely for healthcare-specific labeling.</p>"
+    },
+    {
+      "h2": "How to generate an HIBC PAS QR Code in Barcode Studio",
+      "html": "<p>To build the symbol:</p><ul><li>Select <strong>HIBC PAS QR Code</strong> from the barcode type list.</li><li>Enter your GS1 Company Prefix-based labeler identifier, product/catalog number, and unit of measure, plus lot number, expiry date and quantity if secondary traceability data is required.</li><li>Barcode Studio formats the string per the HIBC PAS structure, computes the check character, and encodes the result as a QR Code.</li><li>Choose an error-correction level suited to your label's handling environment — Medium or Quartile covers most healthcare labeling needs.</li><li>Export as SVG for label artwork or PNG for proofing, and use <strong>Bulk CSV → ZIP/PDF</strong> to generate a unique HIBC PAS QR Code per product or lot across a labeling run.</li><li>Call the REST API at <code>/barcode?type=hibcpasqrcode&data=...</code> to integrate generation into a label-printing or ERP workflow.</li></ul>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Print HIBC PAS QR Codes with the same discipline as other healthcare 2D symbols: high contrast, an intact quiet zone, and print-quality verification before a production run, since PAS's slightly longer data string can push the QR Code to a higher version (more modules) than an equivalent LIC message, which in turn shrinks the effective module size at a given print area. Confirm your scanning middleware distinguishes PAS from LIC messages correctly if your facility's systems process both during a migration period.</p>"
+    },
+    {
+      "h2": "HIBC PAS QR Code vs related HIBC carriers",
+      "html": "<p>Against <strong>HIBC LIC QR Code</strong>, the carrier symbol is identical — only the labeler-identification scheme differs, with PAS reusing an existing GS1 Company Prefix and LIC requiring a separate HIBCC-assigned code. Against <strong>HIBC PAS Data Matrix</strong>, QR Code is a reasonable choice for facilities with QR-oriented scanning infrastructure, though Data Matrix typically achieves a smaller footprint for the same PAS string, which matters more as the GS1-prefix-based identifier lengthens the payload. Against <strong>HIBC PAS PDF417</strong>, QR Code's roughly square aspect ratio suits compact labels better, while PDF417's rectangular shape and higher raw capacity suit wider labels carrying extensive secondary data.</p>"
+    }
+  ],
+  "uses": [
+    "GS1 Company Prefix holders extending to HIBC-compliant labeling",
+    "Medical device 2D labeling in QR-oriented scanning environments",
+    "Healthcare organizations migrating from HIBC LIC to PAS structure",
+    "Distributor and hospital systems supporting both LIC and PAS data",
+    "Manufacturers avoiding separate HIBCC labeler registration"
+  ],
+  "faq": [
+    {"q": "What is an HIBC PAS QR code generator used for?", "a": "<p>An hibc pas qr code generator creates a QR Code encoding a Health Industry Bar Code PAS record — a GS1 Company Prefix-based labeler identifier plus product and optional lot/expiry data — for healthcare labeling.</p>"},
+    {"q": "What does PAS stand for in HIBC PAS?", "a": "PAS stands for Provider Assigned/GS1-based structure — it lets a labeler identify itself using an existing GS1 Company Prefix instead of requesting a separate 4-character Labeler Identification Code from HIBCC."},
+    {"q": "How is HIBC PAS different from HIBC LIC?", "a": "<p>HIBC LIC uses a HIBCC-assigned 4-character labeler code, while HIBC PAS uses a longer identifier derived from the labeler's own GS1 Company Prefix, letting GS1 members skip a separate HIBCC registration.</p>"},
+    {"q": "Is a PAS-encoded QR Code larger than a LIC one?", "a": "Often slightly, yes — because the GS1 prefix-based labeler identifier under PAS is typically longer than the fixed 4-character LIC code, requiring a bit more capacity in the QR Code for the same product data."},
+    {"q": "Can I batch-generate HIBC PAS QR codes?", "a": "<p>Yes — use the bulk CSV to ZIP/PDF tool to generate a distinct HIBC PAS QR Code per product or lot row across a labeling run.</p>"}
+  ]
+}

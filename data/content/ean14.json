@@ -1,0 +1,52 @@
+{
+  "id": "ean14",
+  "title": "EAN-14 (GTIN-14) Barcode Generator | Barcode Studio",
+  "metaDescription": "Generate EAN-14/GTIN-14 carton barcodes free online for shipping cases and pallets. Enter 13 digits, check digit auto-added. PNG/SVG export and REST API.",
+  "primaryKeyword": "ean-14 barcode generator",
+  "secondaryKeywords": ["gtin-14 barcode", "itf-14 vs ean-14", "carton barcode generator", "shipping case barcode", "packaging indicator digit", "ean-14 check digit"],
+  "lead": "Enter 13 digits to generate an EAN-14 (GTIN-14) barcode for shipping cartons and pallets, with the check digit calculated automatically.",
+  "sections": [
+    {
+      "h2": "What Is an EAN-14 Barcode?",
+      "html": "<p>EAN-14, more precisely called GTIN-14, is a 14-digit identifier used on shipping cartons, cases, and other trade units that contain multiple consumer units — it's a carton-level code, not a retail-shelf barcode. Where an EAN-13 identifies one sellable item, a GTIN-14 identifies a fixed quantity grouping of that item (a case of 12, a pallet layer, and so on), letting distribution and logistics systems track cartons without opening them to scan individual products.</p><p>GTIN-14 is most commonly physically encoded using the ITF-14 symbology (Interleaved 2 of 5), which is why you'll often see \"EAN-14\" and \"ITF-14\" used loosely as if interchangeable — the digit structure (GTIN-14) is the data standard, while ITF-14 is the specific barcode symbology typically chosen to print it, favored for cartons because it tolerates the lower print quality of corrugated cardboard better than EAN-13's thinner bars would.</p>"
+    },
+    {
+      "h2": "How EAN-14 / GTIN-14 Encodes Data",
+      "html": "<p>A GTIN-14's 14 digits break down as:</p><ul><li><strong>Packaging indicator (1 digit)</strong> — a leading digit from 1–8 indicating the packaging level (case, pallet, inner pack, etc.) above the base unit; 9 is reserved for variable-measure trade items.</li><li><strong>Item reference (12 digits)</strong> — typically the same 12-digit base as the underlying EAN-13/UPC-A the carton contains, sometimes with the leading zero of a UPC-A base folded in.</li><li><strong>Check digit (1 digit)</strong> — calculated with the standard weighted modulo-10 algorithm across the preceding 13 digits.</li></ul><p>You enter the first 13 digits in Barcode Studio (packaging indicator plus the 12-digit item reference), and the 14th check digit is calculated and appended automatically.</p>"
+    },
+    {
+      "h2": "Technical Specifications",
+      "html": "<p>GTIN-14 is always 14 digits total, numeric only. The first digit — the packaging indicator — is not arbitrary: it signals to downstream systems how this carton relates to the base retail unit's own GTIN, and different indicator values are used to represent different pack configurations of the same underlying product. This is a key distinction from EAN-13: a single product can have one EAN-13 for retail sale but multiple valid GTIN-14s, one for each case-pack size it ships in (a 6-pack case vs. a 24-pack pallet layer, for instance). As with other GS1-issued identifiers, Barcode Studio generates a correctly formatted, scannable barcode from the digits you provide, but does not assign or register an official GTIN-14 — that still requires a GS1 company prefix.</p>"
+    },
+    {
+      "h2": "Where EAN-14 Is Used",
+      "html": "<ul><li><strong>Shipping cartons and cases</strong> — the primary use, letting warehouses and distribution centers scan a case without opening it to identify contents and quantity.</li><li><strong>Pallet and logistics labeling</strong> — often combined with an SSCC (Serial Shipping Container Code) on a GS1-128 label for full pallet-level tracking.</li><li><strong>EDI and supply chain systems</strong> — GTIN-14 is the standard reference used in electronic data interchange between manufacturers, distributors, and retailers for case-level ordering.</li><li><strong>Non-retail trade units</strong> — any grouping of consumer units that moves through the supply chain as a single handling unit, rather than being sold individually at a shelf.</li></ul>"
+    },
+    {
+      "h2": "How to Create an EAN-14 Barcode in Barcode Studio",
+      "html": "<p>Select <strong>EAN-14</strong> from the symbology list under Retail (EAN/UPC). Enter the packaging indicator digit followed by the 12-digit item reference (13 digits total) — the check digit is calculated and appended automatically, and the live preview shows the finished 14-digit barcode before export. From there:</p><ul><li>Adjust <strong>bar width and height</strong> for the larger format typical of carton labels — GTIN-14 barcodes are generally printed larger than retail EAN-13/UPC-A codes.</li><li>Keep <strong>human-readable text</strong> on so warehouse staff can verify the code visually or key it in manually if a scan fails.</li><li>Set a generous <strong>quiet zone</strong>, since carton printing (often flexographic, on corrugated stock) has more variance than retail label printing and needs extra margin tolerance.</li><li>Export as <strong>PNG, SVG, or PDF</strong> for case-label artwork, or use <strong>Copy</strong> for quick placement.</li><li>Use the <strong>bulk CSV → ZIP/PDF</strong> tool to generate GTIN-14 labels across multiple case-pack configurations from a spreadsheet.</li><li>Call the <strong>REST API</strong> — <code>/barcode?type=ean14&data=YOUR13DIGITS</code> — to generate EAN-14 images programmatically from a warehouse or ERP system.</li></ul>"
+    },
+    {
+      "h2": "Printing and Scanning Best Practices for Cartons",
+      "html": "<ul><li><strong>Size</strong>: print larger than a retail barcode — GS1 case-code guidelines call for a bigger nominal size than EAN-13, since carton scanners typically read from a greater distance on a conveyor or with a handheld unit at arm's length.</li><li><strong>Print method tolerance</strong>: corrugated cardboard and flexographic printing produce lower-resolution edges than retail label stock, which is why ITF-14's wider bar structure is preferred for this use case over thinner linear formats.</li><li><strong>Quiet zones</strong>: keep generous clear margins — carton graphics and tape can easily encroach on the barcode's scan zone if not planned for at the design stage.</li><li><strong>Orientation</strong>: a bearer bar (a border frame around the barcode) is commonly added to ITF-14 case codes to protect against ink spread during printing — check your printer's output against the specification before high-volume runs.</li></ul>"
+    },
+    {
+      "h2": "EAN-14 vs EAN-13 vs ITF-14",
+      "html": "<p>EAN-13 identifies a single sellable retail unit; GTIN-14 (EAN-14) identifies a fixed-quantity case, carton, or pallet grouping of that same unit, and the two operate at different levels of the supply chain rather than competing formats. ITF-14 isn't really a separate data standard from GTIN-14 — it's the specific barcode symbology (Interleaved 2 of 5) most commonly used to physically print a GTIN-14 number on cartons, chosen because its wider bars tolerate the lower print quality typical of corrugated packaging. In practice, when people say \"EAN-14 barcode,\" they usually mean a GTIN-14 rendered in ITF-14 symbology — the two terms are used almost interchangeably in casual conversation even though one refers to the number and the other to how it's drawn.</p>"
+    }
+  ],
+  "uses": [
+    "Shipping cartons and case-level packaging identification",
+    "Pallet and distribution center logistics labeling",
+    "EDI and supply chain case-level ordering between trading partners",
+    "Multi-pack and bulk trade unit tracking through the supply chain"
+  ],
+  "faq": [
+    {"q": "How many digits do I enter for an ean-14 barcode generator?", "a": "Enter 13 digits (a packaging indicator digit plus the 12-digit item reference); Barcode Studio calculates the 14th digit, the check digit, automatically."},
+    {"q": "Is EAN-14 the same as ITF-14?", "a": "<p>Not exactly. GTIN-14 (often called EAN-14) is the 14-digit data standard, while ITF-14 is the specific barcode symbology most commonly used to physically encode that data on shipping cartons.</p>"},
+    {"q": "What does the packaging indicator digit mean?", "a": "It's the leading digit of a GTIN-14, indicating the packaging level — such as a case or pallet layer — above the base retail unit; digits 1 through 8 represent different pack configurations, and 9 is reserved for variable-measure items."},
+    {"q": "Does this tool register an official GTIN-14 for me?", "a": "No. Barcode Studio generates a correctly formatted, scannable EAN-14 image from the digits you provide, but a genuinely unique GTIN-14 for commercial supply chain use still needs to be built from a GS1-issued company prefix."},
+    {"q": "Can I generate EAN-14 barcodes in bulk?", "a": "<p>Yes. Upload a CSV of 13-digit values to Barcode Studio's bulk tool to produce a ZIP of individual barcode images or a single print-ready PDF, one per carton configuration.</p>"},
+    {"q": "Is the EAN-14 generator free to use?", "a": "Yes, Barcode Studio's EAN-14 generator runs entirely in your browser at no cost, with no account required for standard PNG/SVG/PDF exports."}
+  ]
+}

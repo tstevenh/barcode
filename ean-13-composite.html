@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EAN-13 Composite Generator | Barcode Studio</title>
+<meta name="description" content="Generate an EAN-13 Composite barcode free online: a standard EAN-13 retail code plus a linked 2D component for extra GS1 data. Live preview and export." />
+<meta name="theme-color" content="#0b1220" />
+<link rel="canonical" href="https://lawbarcode.vercel.app/ean-13-composite" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="EAN-13 Composite Generator | Barcode Studio" />
+<meta property="og:description" content="Generate an EAN-13 Composite barcode free online: a standard EAN-13 retail code plus a linked 2D component for extra GS1 data. Live preview and export." />
+<meta property="og:url" content="https://lawbarcode.vercel.app/ean-13-composite" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1220'/%3E%3Cg fill='white'%3E%3Crect x='6' y='8' width='2' height='16'/%3E%3Crect x='9' y='8' width='1' height='16'/%3E%3Crect x='11' y='8' width='3' height='16'/%3E%3Crect x='15' y='8' width='1' height='16'/%3E%3Crect x='17' y='8' width='2' height='16'/%3E%3Crect x='20' y='8' width='1' height='16'/%3E%3Crect x='22' y='8' width='3' height='16'/%3E%3Crect x='26' y='8' width='1' height='16'/%3E%3C/g%3E%3C/svg%3E" />
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://lawbarcode.vercel.app/"},{"@type":"ListItem","position":2,"name":"Barcode Types","item":"https://lawbarcode.vercel.app/barcodes"},{"@type":"ListItem","position":3,"name":"EAN-13 Composite Generator","item":"https://lawbarcode.vercel.app/ean-13-composite"}]},{"@type":"SoftwareApplication","name":"EAN-13 Composite Generator","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://lawbarcode.vercel.app/ean-13-composite"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does the 2D part of an EAN-13 Composite actually add?","acceptedAnswer":{"@type":"Answer","text":"It carries supplementary GS1 data — like batch number, expiration date, or a unit serial number — that doesn't fit in the fixed 13-digit product code. The linear EAN-13 underneath still works on its own for pricing and lookup."}},{"@type":"Question","name":"Will a normal retail scanner read an EAN-13 Composite?","acceptedAnswer":{"@type":"Answer","text":"Yes, for the linear portion. A standard scanner reads the EAN-13 bars normally and simply doesn't process the 2D component above it, so point-of-sale checkout isn't affected."}},{"@type":"Question","name":"Is an EAN-13 composite generator free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes — Barcode Studio generates EAN-13 Composite barcodes free in your browser, with PNG, SVG, and PDF export at no cost."}},{"@type":"Question","name":"Do I need a special scanner to read the composite data?","acceptedAnswer":{"@type":"Answer","text":"Yes, decoding the 2D component requires an imager or scanner explicitly rated for GS1 Composite symbols; check your scanner's specification before relying on the composite data in production."}},{"@type":"Question","name":"How do I format the data for the 2D component?","acceptedAnswer":{"@type":"Answer","text":"Use GS1 Application Identifiers in parentheses followed by the value, such as (10) for batch/lot or (17) for expiration date, e.g. (10)LOT4521(17)261231."}},{"@type":"Question","name":"Can I generate EAN-13 Composite barcodes in bulk?","acceptedAnswer":{"@type":"Answer","text":"Yes — the bulk CSV tool accepts a GTIN and AI data string per row and outputs a ZIP or print-ready PDF of composite labels for an entire product run."}}]}]}</script>
+<link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="/css/bulk-api.css" />
+<script src="/js/qr-local.js"></script>
+<script>
+(function () {
+  function hasJsBarcode() { return typeof window.JsBarcode === "function"; }
+  function hasBwip() { return !!(window.bwipjs && typeof window.bwipjs.toCanvas === "function"); }
+  function hasPdf() { var ns = window.jspdf || window.jsPDF; return !!(ns && (ns.jsPDF || ns)); }
+  function loadScript(src, check, timeoutMs) {
+    return new Promise(function (resolve) {
+      if (check()) return resolve(true);
+      var done = false;
+      var s = document.createElement("script");
+      var t = setTimeout(function () { finish(check()); }, timeoutMs || 2500);
+      function finish(ok) {
+        if (done) return;
+        done = true;
+        clearTimeout(t);
+        try { if (!ok && s.parentNode) s.parentNode.removeChild(s); } catch (e) {}
+        resolve(!!ok || check());
+      }
+      s.async = false;
+      s.onload = function () { finish(true); };
+      s.onerror = function () { finish(false); };
+      s.src = src;
+      document.head.appendChild(s);
+    });
+  }
+  async function loadAny(urls, check) {
+    for (var i = 0; i < urls.length; i++) {
+      if (await loadScript(urls[i], check, 2500)) return true;
+    }
+    return check();
+  }
+  window.__barcodeLibs = {
+    jsbarcode: loadAny([
+      "https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js",
+      "https://unpkg.com/jsbarcode@3.11.6/dist/JsBarcode.all.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"
+    ], hasJsBarcode),
+    bwip: loadAny([
+      "https://cdn.jsdelivr.net/npm/bwip-js@4.11.1/dist/bwip-js-min.js",
+      "https://unpkg.com/bwip-js@4.11.1/dist/bwip-js-min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/bwip-js/4.7.0/bwip-js-min.js"
+    ], hasBwip),
+    pdf: loadAny([
+      "https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js",
+      "https://unpkg.com/jspdf@2.5.1/dist/jspdf.umd.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+    ], hasPdf)
+  };
+  window.__barcodeLibsReady = Promise.all([window.__barcodeLibs.jsbarcode, window.__barcodeLibs.bwip, window.__barcodeLibs.pdf]).then(function (r) {
+    return { jsbarcode: r[0], bwip: r[1], pdf: r[2], qr: !!(window.QRCode && typeof window.QRCode.toCanvas === "function") };
+  });
+})();
+</script>
+<script>window.BARCODE_HAS_API = true;</script>
+<script src="/js/i18n.js"></script>
+<script src="/js/i18n-extra.js"></script>
+</head>
+<body>
+  <div class="loader" id="loader"><div class="loader-bars"><span></span><span></span><span></span><span></span><span></span></div><p data-i18n="loaderText">Loading Barcode Studio…</p></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <div>
+        <h1>Barcode Studio</h1>
+        <p data-i18n="brandTagline">Free Online Barcode &amp; QR Code Generator</p>
+      </div>
+    </div>
+    <nav class="top-actions">
+      <a href="#generator" class="btn btn-ghost" data-i18n="navGenerator">Generator</a>
+      <a href="#bulk" class="btn btn-ghost" data-i18n="navBulk">Bulk</a>
+      <a href="/barcodes" class="btn btn-ghost" data-i18n="navTypes">All barcodes</a>
+      <a href="/api-docs.html" class="btn btn-ghost" data-i18n="navApi">API Docs</a>
+      <button class="btn btn-ghost" id="resetBtn" data-i18n="navReset">Reset</button>
+      <button class="btn btn-ghost" id="printBtn" data-i18n="navPrint">Print</button>
+      <div class="lang-wrap">
+        <span class="globe" aria-hidden="true">🌐</span>
+        <select id="langSelect" class="lang-select" aria-label="Language"></select>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-content">
+      <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/barcodes">Barcodes</a><span>/</span><span>EAN-13 Composite</span></nav>
+      <span class="eyebrow">Retail (EAN / UPC)</span>
+      <h1>EAN-13 Composite <span class="grad-text">Generator</span></h1>
+      <p>An EAN-13 Composite pairs the retail barcode you already scan at checkout with a small 2D component stacked above it that carries extra GS1 data.</p>
+      <a href="#generator" class="btn btn-primary btn-lg">Open the generator ↓</a>
+    </div>
+  </section>
+
+  <div class="app" id="generator">
+    <aside class="sidebar reveal">
+      <div class="sidebar-search">
+        <input type="text" id="typeSearch" data-i18n-ph="searchPh" placeholder="Search symbology…" />
+      </div>
+      <div class="type-list" id="typeList"></div>
+    </aside>
+
+    <main class="main">
+      <section class="card reveal">
+        <div class="card-head">
+          <h2 data-i18n="dataHeading">Data</h2>
+          <span class="pill" id="activeType">Code 128</span>
+        </div>
+        <div class="prop-row ct-row" id="contentTypeRow" hidden>
+          <label data-i18n="contentType">Content type</label>
+          <select id="ctSelect">
+            <option value="text" data-i18n="ctText">Text</option>
+            <option value="url" data-i18n="ctUrl">URL / Link</option>
+            <option value="wifi" data-i18n="ctWifi">WiFi network</option>
+            <option value="vcard" data-i18n="ctVcard">Contact (vCard)</option>
+            <option value="email" data-i18n="ctEmail">Email</option>
+            <option value="sms" data-i18n="ctSms">SMS</option>
+            <option value="tel" data-i18n="ctTel">Phone</option>
+            <option value="geo" data-i18n="ctGeo">Location</option>
+            <option value="event" data-i18n="ctEvent">Calendar event</option>
+          </select>
+        </div>
+        <textarea id="data" rows="3" data-i18n-ph="dataPh" placeholder="Enter the data to encode…">Barcode Studio</textarea>
+        <div class="builder" id="builderFields" hidden>
+          <div class="ct-block" data-ct="wifi">
+            <label class="fld"><span data-i18n="fSsid">Network name (SSID)</span><input type="text" id="wSsid" value="MyNetwork" /></label>
+            <label class="fld"><span data-i18n="fPassword">Password</span><input type="text" id="wPass" value="password123" /></label>
+            <label class="fld"><span data-i18n="fEncryption">Encryption</span>
+              <select id="wEnc"><option value="WPA">WPA/WPA2</option><option value="WEP">WEP</option><option value="nopass" data-i18n="encNone">None</option></select>
+            </label>
+            <label class="switch"><input type="checkbox" id="wHidden" /> <span data-i18n="fHidden">Hidden network</span></label>
+          </div>
+          <div class="ct-block" data-ct="vcard">
+            <label class="fld"><span data-i18n="fFirstName">First name</span><input type="text" id="vFirst" value="John" /></label>
+            <label class="fld"><span data-i18n="fLastName">Last name</span><input type="text" id="vLast" value="Doe" /></label>
+            <label class="fld"><span data-i18n="fOrg">Organization</span><input type="text" id="vOrg" /></label>
+            <label class="fld"><span data-i18n="fJobTitle">Job title</span><input type="text" id="vTitle" /></label>
+            <label class="fld"><span data-i18n="fPhone">Phone</span><input type="text" id="vPhone" value="+1 555 0100" /></label>
+            <label class="fld"><span data-i18n="fEmail">Email</span><input type="text" id="vEmail" value="john@example.com" /></label>
+            <label class="fld"><span data-i18n="fWebsite">Website</span><input type="text" id="vUrl" /></label>
+            <label class="fld"><span data-i18n="fAddress">Address</span><input type="text" id="vAddr" /></label>
+          </div>
+          <div class="ct-block" data-ct="email">
+            <label class="fld"><span data-i18n="fTo">To</span><input type="text" id="eTo" value="hello@example.com" /></label>
+            <label class="fld"><span data-i18n="fSubject">Subject</span><input type="text" id="eSub" /></label>
+            <label class="fld"><span data-i18n="fBody">Message</span><input type="text" id="eBody" /></label>
+          </div>
+          <div class="ct-block" data-ct="sms">
+            <label class="fld"><span data-i18n="fNumber">Number</span><input type="text" id="sNum" value="+15550100" /></label>
+            <label class="fld"><span data-i18n="fMessage">Message</span><input type="text" id="sMsg" value="Hello" /></label>
+          </div>
+          <div class="ct-block" data-ct="tel">
+            <label class="fld"><span data-i18n="fNumber">Number</span><input type="text" id="tNum" value="+15550100" /></label>
+          </div>
+          <div class="ct-block" data-ct="geo">
+            <label class="fld"><span data-i18n="fLat">Latitude</span><input type="text" id="gLat" value="40.7128" /></label>
+            <label class="fld"><span data-i18n="fLong">Longitude</span><input type="text" id="gLng" value="-74.0060" /></label>
+          </div>
+          <div class="ct-block" data-ct="event">
+            <label class="fld"><span data-i18n="fEventTitle">Event title</span><input type="text" id="cTitle" value="Meeting" /></label>
+            <label class="fld"><span data-i18n="fLocation">Location</span><input type="text" id="cLoc" /></label>
+            <label class="fld"><span data-i18n="fStart">Start</span><input type="datetime-local" id="cStart" /></label>
+            <label class="fld"><span data-i18n="fEnd">End</span><input type="datetime-local" id="cEnd" /></label>
+            <label class="fld"><span data-i18n="fDescription">Description</span><input type="text" id="cDesc" /></label>
+          </div>
+        </div>
+        <p class="hint" id="typeHint"></p>
+
+        <div class="seq">
+          <label class="switch">
+            <input type="checkbox" id="seqEnable" /> <span data-i18n="seqToggle">Batch / sequence mode</span>
+          </label>
+          <div class="seq-fields" id="seqFields">
+            <label><span data-i18n="seqCount">Count</span> <input type="number" id="seqCount" min="2" max="100" value="5" /></label>
+            <label><span data-i18n="seqStart">Start #</span> <input type="number" id="seqStart" value="1" /></label>
+            <label><span data-i18n="seqPrefix">Prefix</span> <input type="text" id="seqPrefix" placeholder="ABC-" /></label>
+            <label><span data-i18n="seqPad">Pad</span> <input type="number" id="seqPad" min="0" max="12" value="4" /></label>
+          </div>
+        </div>
+      </section>
+
+      <section class="card preview-card reveal">
+        <div class="card-head">
+          <h2 data-i18n="previewHeading">Preview</h2>
+          <div class="preview-tools">
+            <button class="chip" data-zoom="out" title="Zoom out">−</button>
+            <span id="zoomLabel">100%</span>
+            <button class="chip" data-zoom="in" title="Zoom in">+</button>
+          </div>
+        </div>
+        <div class="preview-stage">
+          <div id="preview" class="preview-inner"></div>
+        </div>
+        <div class="download-row">
+          <button class="btn btn-primary" id="dlPng">⬇ PNG</button>
+          <button class="btn btn-secondary" id="dlSvg">⬇ SVG</button>
+          <button class="btn btn-soft" id="copyBtn">📋 Copy</button>
+          <button class="btn btn-soft" id="dlZip" hidden>⬇ ZIP (batch)</button>
+        </div>
+      </section>
+
+      <section class="card bulk-card reveal" id="bulk">
+        <div class="card-head">
+          <h2 data-i18n="bulkHeading">Bulk generate</h2>
+          <span class="pill" data-i18n="bulkBadge">CSV \u2192 ZIP / PDF</span>
+        </div>
+        <p class="hint" data-i18n="bulkDesc">Upload a CSV/TXT file or paste values to generate hundreds of barcodes at once.</p>
+        <div class="bulk-grid">
+          <label class="bulk-file">
+            <input type="file" id="bulkFile" accept=".csv,.txt,text/csv,text/plain" />
+            <span data-i18n="bulkUpload">\u2b06 Upload CSV / TXT</span>
+          </label>
+          <textarea id="bulkPaste" rows="4" data-i18n-ph="bulkPastePh" placeholder="\u2026or paste values here, one per line"></textarea>
+        </div>
+        <div class="bulk-opts">
+          <label class="switch"><input type="checkbox" id="bulkHeader" /> <span data-i18n="bulkHeaderLbl">First row is a header</span></label>
+          <label class="bulk-sel"><span data-i18n="bulkDataColLbl">Data column</span><select id="bulkDataCol"></select></label>
+          <label class="bulk-sel"><span data-i18n="bulkLabelColLbl">Label / filename</span><select id="bulkLabelCol"></select></label>
+          <label class="bulk-sel"><span data-i18n="bulkPdfColsLbl">PDF columns</span><input type="number" id="bulkPdfCols" min="1" max="6" value="3" /></label>
+        </div>
+        <p class="bulk-info" id="bulkInfo"></p>
+        <div class="bulk-progress" id="bulkProgress" hidden><div class="bulk-bar" id="bulkBar"></div></div>
+        <div class="download-row">
+          <button class="btn btn-primary" id="bulkGenBtn" data-i18n="bulkGenerate">\u2699 Generate</button>
+          <button class="btn btn-secondary" id="bulkDlZip" hidden data-i18n="bulkDlZip">\u2b07 ZIP (PNG)</button>
+          <button class="btn btn-secondary" id="bulkDlPdf" hidden data-i18n="bulkDlPdf">\u2b07 PDF sheet</button>
+        </div>
+      </section>
+    </main>
+
+    <aside class="props reveal">
+      <h2 data-i18n="propsHeading">Properties</h2>
+
+      <div class="prop-group" id="linearProps">
+        <div class="prop-row">
+          <label data-i18n="pBarWidth">Bar width</label>
+          <input type="range" id="barWidth" min="1" max="6" step="0.5" value="2" />
+          <output id="barWidthV">2</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pHeight">Height</label>
+          <input type="range" id="barHeight" min="20" max="240" step="5" value="100" />
+          <output id="barHeightV">100</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pFontSize">Font size</label>
+          <input type="range" id="fontSize" min="8" max="40" step="1" value="18" />
+          <output id="fontSizeV">18</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pTextAlign">Text align</label>
+          <select id="textAlign">
+            <option value="center" selected data-i18n="optCenter">Center</option>
+            <option value="left" data-i18n="optLeft">Left</option>
+            <option value="right" data-i18n="optRight">Right</option>
+          </select>
+        </div>
+        <label class="switch"><input type="checkbox" id="displayValue" checked /> <span data-i18n="pShowText">Show human-readable text</span></label>
+      </div>
+
+      <div class="prop-group" id="qrProps" hidden>
+        <div class="prop-row">
+          <label data-i18n="pSize">Size</label>
+          <input type="range" id="qrSize" min="120" max="640" step="20" value="300" />
+          <output id="qrSizeV">300</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pErrCorr">Error corr.</label>
+          <select id="qrEcc">
+            <option value="L">L – 7%</option>
+            <option value="M" selected>M – 15%</option>
+            <option value="Q">Q – 25%</option>
+            <option value="H">H – 30%</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="prop-group" id="twoDProps" hidden>
+        <div class="prop-row">
+          <label data-i18n="pScale">Scale</label>
+          <input type="range" id="tdScale" min="2" max="10" step="1" value="4" />
+          <output id="tdScaleV">4</output>
+        </div>
+        <div class="prop-row" id="bwipHeightRow" style="display:none">
+          <label data-i18n="pHeightMm">Height (mm)</label>
+          <input type="range" id="bwipHeight" min="5" max="40" step="1" value="12" />
+          <output id="bwipHeightV">12</output>
+        </div>
+        <div class="prop-row" id="pdfColsRow">
+          <label data-i18n="pPdfCols">PDF columns</label>
+          <input type="range" id="pdfCols" min="0" max="12" step="1" value="0" />
+          <output id="pdfColsV">auto</output>
+        </div>
+        <label class="switch" id="bwipTextRow" style="display:none"><input type="checkbox" id="bwipText" /> <span data-i18n="pShowText">Show human-readable text</span></label>
+      </div>
+
+      <div class="prop-group">
+        <div class="prop-row two">
+          <div>
+            <label data-i18n="pForeground">Foreground</label>
+            <input type="color" id="fg" value="#000000" />
+          </div>
+          <div>
+            <label data-i18n="pBackground">Background</label>
+            <input type="color" id="bg" value="#ffffff" />
+          </div>
+        </div>
+        <label class="switch"><input type="checkbox" id="transparent" /> <span data-i18n="pTransparent">Transparent background</span></label>
+        <div class="prop-row">
+          <label data-i18n="pMargin">Margin</label>
+          <input type="range" id="margin" min="0" max="40" step="2" value="10" />
+          <output id="marginV">10</output>
+        </div>
+      </div>
+
+      <div class="prop-group">
+        <p class="prop-note" id="status"></p>
+      </div>
+    </aside>
+  </div>
+
+    <article class="seo-section">
+    <div class="seo-wrap">
+      <h2>What Is an EAN-13 Composite Barcode?</h2>
+      <p>An EAN-13 Composite is a two-part GS1 symbol: a standard 13-digit EAN-13 linear barcode on the bottom, plus a small 2D component — typically a MicroPDF417, or a full PDF417 for larger payloads — printed directly above it. The linear portion still encodes the same GTIN-13 that any point-of-sale scanner reads for pricing and inventory lookup. The 2D component rides on top and carries supplementary GS1 Application Identifier (AI) data that the linear code alone can't hold, such as batch/lot number, expiration date, or serial number.</p><p>The key idea is that these two symbols are linked, not independent. A composite-aware scanner reads both in a single pass and treats the result as one combined data string. A standard barcode scanner that only understands EAN-13 will still read the linear portion just fine and ignore the 2D component entirely — which is exactly why composites are used where backward compatibility with existing retail scanners matters.</p><p>GS1 defined this family of symbols — collectively called Composite Symbology — precisely to solve the problem of adding traceability data to products that already carry a fixed retail identifier. Rather than forcing every checkout lane to upgrade to a completely different barcode type, the composite approach lets the existing EAN-13 keep doing its job while the 2D component becomes optional infrastructure that only matters where traceability is required, such as a pharmacy back office or a recall audit, rather than at every register.</p>
+      <h2>How the Linear and 2D Components Work Together</h2>
+      <p>The EAN-13 portion follows the same structure as a standalone EAN-13: a GS1-issued prefix identifying the country or region of the issuing organization, a manufacturer code, a product reference, and a mod-10 check digit calculated automatically from the first twelve digits. Nothing about the linear symbol itself changes when you add a composite component — it's still fully valid as a plain EAN-13 to any scanner that ignores the 2D portion above it.</p><p>What the composite component adds is space for structured, variable data that changes per batch or unit rather than per product. Common examples include:</p><ul><li><strong>Batch or lot number</strong> (AI 10) — ties a specific unit back to a production run for recalls or quality tracking.</li><li><strong>Expiration or best-before date</strong> (AI 15/17) — critical for perishables and pharmaceuticals where the retail GTIN alone doesn't tell you shelf life.</li><li><strong>Serial number</strong> (AI 21) — gives an individual unit-level identity beyond the shared product GTIN.</li></ul><p>Because this data is variable and specific to a run or unit, it can't be baked into the fixed 13-digit product code — the composite component is the mechanism GS1 defined for attaching it without breaking compatibility with the linear symbol underneath.</p>
+      <h2>Where EAN-13 Composite Barcodes Are Used</h2>
+      <ul><li><strong>Pharmaceuticals and healthcare</strong> — retail-packaged medicines that need both a scannable GTIN for point-of-sale and batch/expiry data for traceability and recalls.</li><li><strong>Perishable grocery goods</strong> — fresh or short-shelf-life products where the expiration date needs to travel with the barcode rather than living only on a printed label.</li><li><strong>Cosmetics and regulated consumer goods</strong> — products subject to batch-recall requirements in markets that mandate lot traceability.</li><li><strong>Specialty retail supply chains</strong> — brands that want serialized unit-level tracking without switching away from a standard EAN-13 that every register already scans.</li></ul>
+      <h2>How to Create an EAN-13 Composite in Barcode Studio</h2>
+      <p>In Barcode Studio, select <strong>EAN-13 Composite</strong> from the Retail (EAN/UPC) group. You'll enter two pieces of data: the 12-digit EAN-13 product number (the check digit is calculated and appended automatically) and the composite data string, formatted with GS1 Application Identifiers such as <code>(10)LOT4521(17)261231</code>. The live preview renders both the linear EAN-13 and its linked 2D component together exactly as they'll print.</p><ul><li>Choose the composite type if offered (CC-A/MicroPDF417 for compact data, CC-C/PDF417 for larger payloads) based on how much AI data you need to encode.</li><li>Adjust bar width, symbol height, and the composite component's row count to fit your label size while keeping both parts scannable.</li><li>Set foreground/background colors and confirm the human-readable text under the EAN-13 portion displays the correct digits.</li><li>Keep the quiet zone clear on all sides — composite symbols are less forgiving of crowding than plain linear barcodes because scanners need to locate both components.</li><li>Export as <strong>PNG, SVG, or PDF</strong>, or use <strong>Copy</strong> for design tools.</li></ul><p>For multi-item runs, the <strong>bulk CSV → ZIP/PDF</strong> tool accepts one row per item with both the GTIN and the AI data string, producing a full batch of composite labels. The <strong>REST API</strong> also supports composite generation programmatically, e.g. <code>/barcode?type=ean13composite&data=...</code>, for integrating into a labeling pipeline.</p>
+      <h2>Print and Scan Best Practices</h2>
+      <p>Composite symbols demand more print precision than a plain EAN-13 because the 2D component has finer detail:</p><ul><li>Print at high enough resolution that the 2D component's individual cells are sharp — thermal printers set too low a DPI are the most common source of composite read failures.</li><li>Verify with a scanner or imager that specifically supports GS1 Composite symbols; older CCD laser scanners often can't decode the 2D portion at all.</li><li>Leave generous quiet zones above, below, and beside the full combined symbol — the composite component sits close to the linear bars and needs its own clear space to be located.</li><li>Double-check your AI-formatted data before mass printing; a malformed Application Identifier can make the 2D component unreadable even though the linear EAN-13 still scans fine.</li></ul>
+      <h2>Common uses</h2>
+      <ul class="seo-uses"><li>Pharmacy retail packs needing GTIN plus batch/expiry data</li><li>Perishable grocery items with embedded best-before dates</li><li>Cosmetics subject to lot-based recall tracking</li><li>Serialized specialty retail products</li><li>Supply chain traceability without replacing existing EAN-13 registers</li></ul>
+      <h2>Frequently asked questions</h2>
+      <div class="faq">
+        <details class="faq-item"><summary>What does the 2D part of an EAN-13 Composite actually add?</summary><div class="faq-a"><p>It carries supplementary GS1 data — like batch number, expiration date, or a unit serial number — that doesn't fit in the fixed 13-digit product code. The linear EAN-13 underneath still works on its own for pricing and lookup.</p></div></details>
+        <details class="faq-item"><summary>Will a normal retail scanner read an EAN-13 Composite?</summary><div class="faq-a">Yes, for the linear portion. A standard scanner reads the EAN-13 bars normally and simply doesn't process the 2D component above it, so point-of-sale checkout isn't affected.</div></details>
+        <details class="faq-item"><summary>Is an EAN-13 composite generator free to use?</summary><div class="faq-a">Yes — Barcode Studio generates EAN-13 Composite barcodes free in your browser, with PNG, SVG, and PDF export at no cost.</div></details>
+        <details class="faq-item"><summary>Do I need a special scanner to read the composite data?</summary><div class="faq-a"><p>Yes, decoding the 2D component requires an imager or scanner explicitly rated for GS1 Composite symbols; check your scanner's specification before relying on the composite data in production.</p></div></details>
+        <details class="faq-item"><summary>How do I format the data for the 2D component?</summary><div class="faq-a"><p>Use GS1 Application Identifiers in parentheses followed by the value, such as (10) for batch/lot or (17) for expiration date, e.g. (10)LOT4521(17)261231.</p></div></details>
+        <details class="faq-item"><summary>Can I generate EAN-13 Composite barcodes in bulk?</summary><div class="faq-a">Yes — the bulk CSV tool accepts a GTIN and AI data string per row and outputs a ZIP or print-ready PDF of composite labels for an entire product run.</div></details>
+      </div>
+      <h2>Related barcode types</h2>
+      <div class="seo-related"><a href="/ean-13">EAN-13</a><a href="/ean-8">EAN-8</a><a href="/ean-5-add-on">EAN-5 add-on</a><a href="/ean-2-add-on">EAN-2 add-on</a><a href="/upc-a">UPC-A</a><a href="/upc-e">UPC-E</a><a href="/ean-14">EAN-14</a><a href="/ean-8-composite">EAN-8 Composite</a><a href="/upc-a-composite">UPC-A Composite</a><a href="/upc-e-composite">UPC-E Composite</a><a href="/isbn">ISBN</a><a href="/isbn-13-plus-5-add-on">ISBN-13 + 5 add-on</a><a href="/issn">ISSN</a><a href="/issn-plus-2-add-on">ISSN + 2 add-on</a></div>
+      <p class="seo-all"><a href="/barcodes">Browse all 106 barcode &amp; QR types →</a></p>
+    </div>
+  </article>
+  <footer class="footer">
+    <span class="footer-brand">Barcode Studio</span> · <span data-i18n="footerText">made by Lawstore since 2026</span>
+  </footer>
+
+  <script>window.BARCODE_INITIAL_TYPE="ean13composite";</script>
+  <script src="/js/catalog.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

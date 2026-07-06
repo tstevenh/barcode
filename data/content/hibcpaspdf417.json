@@ -1,0 +1,52 @@
+{
+  "id": "hibcpaspdf417",
+  "title": "HIBC PAS PDF417 Generator – Healthcare | Barcode Studio",
+  "metaDescription": "Free HIBC PAS PDF417 generator for lot, expiration, and serial data on medical device labels. High-capacity 2D symbol with live preview and instant export.",
+  "primaryKeyword": "hibc pas pdf417 generator",
+  "secondaryKeywords": ["hibc pas pdf417 barcode", "hibc secondary data pdf417", "medical device 2d lot barcode", "hibc pas vs lic pdf417", "high capacity healthcare barcode", "pdf417 lot expiration code"],
+  "lead": "Generate an HIBC PAS PDF417 symbol to carry lot number, expiration date, serial number, and quantity data for a medical device unit in a single high-capacity 2D barcode.",
+  "sections": [
+    {
+      "h2": "What is an HIBC PAS PDF417 barcode?",
+      "html": "<p>HIBC PAS PDF417 encodes the same Health Industry Bar Code secondary data message as HIBC PAS Code 39 or Code 128 — a \"+\" flag character followed by variable unit-level data such as lot number, expiration date, serial number, and quantity — but places it inside a PDF417 symbol instead of a linear barcode. PDF417 is a stacked, high-capacity 2D symbology, and HIBCC's specification permits PAS messages to be encoded in Code 39, Code 128, or 2D symbologies including PDF417 and Data Matrix. Manufacturers reach for PDF417 specifically when a PAS message needs to carry more data than fits comfortably in a linear barcode, or when it needs to be combined with other information in a single scan.</p>"
+    },
+    {
+      "h2": "How PDF417 structures the PAS message",
+      "html": "<p>PDF417 arranges data into a grid of stacked rows, each containing multiple codewords, with built-in Reed–Solomon error correction that lets the symbol remain decodable even with some print damage or partial obstruction. The HIBC PAS payload — flag character, labeler-specific variable data fields, and check character — is encoded as a byte or text stream across this codeword grid rather than as a single linear sequence of bars. Because PDF417 has substantially higher data capacity than a linear symbology at a comparable footprint, it's the practical choice when a PAS message needs to carry an unusually long combination of lot, expiration, serial, and quantity data, or when a manufacturer wants to combine PAS data with additional free-text or numeric fields in one symbol rather than printing multiple separate barcodes.</p>"
+    },
+    {
+      "h2": "HIBC PAS PDF417 technical specifications",
+      "html": "<p>PDF417 is standardized under ISO/IEC 15438. It's a stacked linear symbology built from 3 to 90 rows, each containing 1 to 30 codewords, giving it a much higher data ceiling than any single-row linear barcode — up to roughly 1,100 bytes at maximum symbol size, though HIBC PAS payloads are typically a small fraction of that capacity. Error correction is configurable in levels from 0 to 8, with higher levels trading symbol size for greater damage tolerance; healthcare labeling generally uses a mid-to-high error correction level given the wear medical packaging can encounter. The HIBC PAS content itself follows the same structure regardless of carrier symbology: a \"+\" flag character, labeler-defined variable data fields for lot, expiration, serial number, and quantity, and a trailing HIBC check character.</p>"
+    },
+    {
+      "h2": "Where HIBC PAS PDF417 is used",
+      "html": "<p>HIBC PAS PDF417 appears where a medical device or pharmaceutical label needs to carry more secondary data than a linear PAS barcode can reasonably hold, or where the label already uses PDF417 for a primary LIC message and pairing with a matching PDF417 PAS symbol simplifies scanning software integration. It's found on device packaging, kit labels, and cartons where lot, expiration, serial number, and quantity all need to travel together in one scan, and on labels where space allows a 2D symbol but a manufacturer prefers PDF417's rectangular, easily row-scanned format over Data Matrix's square grid. Hospital receiving and pharmacy systems scan these symbols the same way they scan a PAS Code 39 or Code 128 message — to validate expiration status and log lot-level data for recall traceability.</p>"
+    },
+    {
+      "h2": "How to create an HIBC PAS PDF417 barcode in Barcode Studio",
+      "html": "<p>Select <strong>HIBC PAS PDF417</strong> from the 2D Code list, then enter your HIBC-formatted secondary data string starting with the \"+\" flag character, followed by lot number, expiration date, and any serial or quantity data, for example <code>+$$1015Z251231</code>. Barcode Studio calculates and appends the HIBC check character automatically and lays out the PDF417 grid for you. From there you can:</p><ul><li>Adjust <strong>row count, column count, and error correction level</strong> to balance symbol size against damage tolerance for your label material.</li><li>Set <strong>module width and height</strong> to fit vial, kit, or carton labels while staying within a reliably scannable size.</li><li>Choose <strong>colors</strong> while preserving strong contrast for hospital and pharmacy 2D imagers.</li><li>Export as <strong>PNG, SVG, or PDF</strong>, or copy the barcode into label design software.</li><li>Use <strong>Bulk CSV → ZIP/PDF</strong> to generate a distinct PAS PDF417 symbol per lot or serial number across a production run.</li><li>Call the REST API at <code>/barcode?type=hibcpaspdf417&data=+$$1015Z251231</code> to integrate generation into a labeling or manufacturing system.</li></ul>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>PDF417 requires a 2D imager rather than a laser scanner, so confirm your receiving and point-of-use scanning hardware supports it before standardizing on this symbology for PAS data. Keep the quiet zone intact on all four sides — PDF417's row structure is sensitive to margin violations at the top and bottom of the stack, not just the sides. Verify lot number and expiration date accuracy carefully before a production print run, since an error in a PAS message can cause a hospital system to misjudge expiration status. If pairing with a linked LIC message, keep the two symbols visually separated with distinct quiet zones so a scanner reads them as separate symbols.</p>"
+    },
+    {
+      "h2": "HIBC PAS PDF417 vs. related codes",
+      "html": "<p>Against <strong>HIBC PAS Code 39 or Code 128</strong>, PDF417 carries substantially more data in a comparable footprint and includes built-in error correction, but requires a 2D imager rather than the simpler laser scanners that read linear HIBC codes. Against <strong>HIBC PAS Data Matrix</strong>, both are high-capacity 2D options with similar error correction; PDF417's rectangular, multi-row format is often easier to align on wider labels or cartons, while Data Matrix's compact square footprint suits very small components better. Against a linked <strong>HIBC LIC PDF417</strong> message, PAS PDF417 carries the variable lot, expiration, and serial data for a specific unit, while LIC PDF417 carries the fixed product identity — the two are designed to be scanned together, not as alternatives.</p>"
+    }
+  ],
+  "uses": [
+    "High-capacity lot and expiration tracking on medical device and kit labels",
+    "Combining lot, expiration, serial, and quantity data in a single 2D scan",
+    "Cartons and kits where PDF417 pairs with an existing PDF417 LIC message",
+    "Recall traceability requiring more data than a linear PAS barcode can hold",
+    "Hospital pharmacy and point-of-use scanning with 2D imager hardware"
+  ],
+  "faq": [
+    {"q": "What is an HIBC PAS PDF417 generator used for?", "a": "<p>An hibc pas pdf417 generator creates a high-capacity 2D barcode encoding the HIBC PAS secondary message — lot number, expiration date, serial number, and quantity — for a specific medical device or pharmaceutical unit.</p>"},
+    {"q": "Why choose PDF417 over a linear HIBC PAS barcode?", "a": "PDF417 carries substantially more data in a comparable footprint and includes built-in error correction, making it the better choice when a PAS message combines several fields or needs extra damage tolerance."},
+    {"q": "Does scanning HIBC PAS PDF417 require special hardware?", "a": "<p>Yes — PDF417 is a 2D symbology that requires a 2D imager rather than a traditional laser barcode scanner, so confirm your receiving and point-of-use scanners support it.</p>"},
+    {"q": "Does an HIBC PAS PDF417 barcode replace the LIC message?", "a": "No, it's designed to be scanned alongside a linked primary LIC message so the variable lot and expiration data can be associated with the correct product identity."},
+    {"q": "Can I batch-generate HIBC PAS PDF417 codes?", "a": "<p>Yes — use Barcode Studio's bulk CSV → ZIP/PDF tool to generate a unique PAS PDF417 symbol per lot or unit across a production run.</p>"}
+  ]
+}

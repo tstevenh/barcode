@@ -1,0 +1,744 @@
+{
+ "qrcode": {
+  "name": "QR Code",
+  "candidates": [
+   "qr code generator",
+   "qr code barcode generator"
+  ]
+ },
+ "gs1qrcode": {
+  "name": "GS1 QR Code",
+  "candidates": [
+   "gs1 qr code generator",
+   "gs1 qr code barcode generator"
+  ]
+ },
+ "gs1dlqrcode": {
+  "name": "GS1 Digital Link QR Code",
+  "candidates": [
+   "gs1 digital link qr code generator",
+   "gs1 digital link qr code barcode generator"
+  ]
+ },
+ "gs1dldatamatrix": {
+  "name": "GS1 Digital Link Data Matrix",
+  "candidates": [
+   "gs1 digital link data matrix generator",
+   "gs1 digital link data matrix barcode generator"
+  ]
+ },
+ "datamatrix": {
+  "name": "Data Matrix",
+  "candidates": [
+   "data matrix generator",
+   "data matrix barcode generator"
+  ]
+ },
+ "gs1datamatrix": {
+  "name": "GS1 Data Matrix",
+  "candidates": [
+   "gs1 data matrix generator",
+   "gs1 data matrix barcode generator"
+  ]
+ },
+ "pdf417": {
+  "name": "PDF417",
+  "candidates": [
+   "pdf417 generator",
+   "pdf417 barcode generator"
+  ]
+ },
+ "micropdf417": {
+  "name": "MicroPDF417",
+  "candidates": [
+   "micropdf417 generator",
+   "micropdf417 barcode generator"
+  ]
+ },
+ "azteccode": {
+  "name": "Aztec",
+  "candidates": [
+   "aztec generator",
+   "aztec barcode generator"
+  ]
+ },
+ "microqr": {
+  "name": "Micro QR",
+  "candidates": [
+   "micro qr generator",
+   "micro qr barcode generator"
+  ]
+ },
+ "maxicode": {
+  "name": "MaxiCode",
+  "candidates": [
+   "maxicode generator",
+   "maxicode barcode generator"
+  ]
+ },
+ "dotcode": {
+  "name": "DotCode",
+  "candidates": [
+   "dotcode generator",
+   "dotcode barcode generator"
+  ]
+ },
+ "hanxin": {
+  "name": "Han Xin Code",
+  "candidates": [
+   "han xin code generator",
+   "han xin code barcode generator"
+  ]
+ },
+ "codablockf": {
+  "name": "Codablock-F",
+  "candidates": [
+   "codablock-f generator",
+   "codablock-f barcode generator"
+  ]
+ },
+ "mailmark2d": {
+  "name": "Royal Mail Mailmark 2D",
+  "candidates": [
+   "royal mail mailmark 2d generator",
+   "royal mail mailmark 2d barcode generator"
+  ]
+ },
+ "swissqrcode": {
+  "name": "Swiss QR Code",
+  "candidates": [
+   "swiss qr code generator",
+   "swiss qr code barcode generator"
+  ]
+ },
+ "zatcaqrcode": {
+  "name": "ZATCA QR Code",
+  "candidates": [
+   "zatca qr code generator",
+   "zatca qr code barcode generator"
+  ]
+ },
+ "epcqrcode": {
+  "name": "EPC QR Code",
+  "candidates": [
+   "epc qr code generator",
+   "epc qr code barcode generator"
+  ]
+ },
+ "mecard": {
+  "name": "MeCard",
+  "candidates": [
+   "mecard generator",
+   "mecard barcode generator"
+  ]
+ },
+ "ntin": {
+  "name": "NTIN Code",
+  "candidates": [
+   "ntin code generator",
+   "ntin code barcode generator"
+  ]
+ },
+ "ppn": {
+  "name": "PPN Code",
+  "candidates": [
+   "ppn code generator",
+   "ppn code barcode generator"
+  ]
+ },
+ "hibcqrcode": {
+  "name": "HIBC LIC QR Code",
+  "candidates": [
+   "hibc lic qr code generator",
+   "hibc lic qr code barcode generator"
+  ]
+ },
+ "hibcdatamatrix": {
+  "name": "HIBC LIC Data Matrix",
+  "candidates": [
+   "hibc lic data matrix generator",
+   "hibc lic data matrix barcode generator"
+  ]
+ },
+ "hibcpdf417": {
+  "name": "HIBC LIC PDF417",
+  "candidates": [
+   "hibc lic pdf417 generator",
+   "hibc lic pdf417 barcode generator"
+  ]
+ },
+ "hibccodablockf": {
+  "name": "HIBC LIC Codablock-F",
+  "candidates": [
+   "hibc lic codablock-f generator",
+   "hibc lic codablock-f barcode generator"
+  ]
+ },
+ "hibcpasqrcode": {
+  "name": "HIBC PAS QR Code",
+  "candidates": [
+   "hibc pas qr code generator",
+   "hibc pas qr code barcode generator"
+  ]
+ },
+ "hibcpasdatamatrix": {
+  "name": "HIBC PAS Data Matrix",
+  "candidates": [
+   "hibc pas data matrix generator",
+   "hibc pas data matrix barcode generator"
+  ]
+ },
+ "hibcpaspdf417": {
+  "name": "HIBC PAS PDF417",
+  "candidates": [
+   "hibc pas pdf417 generator",
+   "hibc pas pdf417 barcode generator"
+  ]
+ },
+ "CODE128": {
+  "name": "Code 128",
+  "candidates": [
+   "code 128 generator",
+   "code 128 barcode generator"
+  ]
+ },
+ "CODE128A": {
+  "name": "Code 128 A",
+  "candidates": [
+   "code 128 a generator",
+   "code 128 a barcode generator"
+  ]
+ },
+ "CODE128B": {
+  "name": "Code 128 B",
+  "candidates": [
+   "code 128 b generator",
+   "code 128 b barcode generator"
+  ]
+ },
+ "CODE128C": {
+  "name": "Code 128 C",
+  "candidates": [
+   "code 128 c generator",
+   "code 128 c barcode generator"
+  ]
+ },
+ "CODE39": {
+  "name": "Code 39",
+  "candidates": [
+   "code 39 generator",
+   "code 39 barcode generator"
+  ]
+ },
+ "code39ext": {
+  "name": "Code-39 Full ASCII",
+  "candidates": [
+   "code-39 full ascii generator",
+   "code-39 full ascii barcode generator"
+  ]
+ },
+ "code93": {
+  "name": "Code 93",
+  "candidates": [
+   "code 93 generator",
+   "code 93 barcode generator"
+  ]
+ },
+ "code11": {
+  "name": "Code 11",
+  "candidates": [
+   "code 11 generator",
+   "code 11 barcode generator"
+  ]
+ },
+ "code25": {
+  "name": "Standard 2 of 5",
+  "candidates": [
+   "standard 2 of 5 generator",
+   "standard 2 of 5 barcode generator"
+  ]
+ },
+ "flattermarken": {
+  "name": "Flattermarken",
+  "candidates": [
+   "flattermarken generator",
+   "flattermarken barcode generator"
+  ]
+ },
+ "ITF": {
+  "name": "Interleaved 2 of 5",
+  "candidates": [
+   "interleaved 2 of 5 generator",
+   "interleaved 2 of 5 barcode generator"
+  ]
+ },
+ "ITF14": {
+  "name": "ITF-14",
+  "candidates": [
+   "itf-14 generator",
+   "itf-14 barcode generator"
+  ]
+ },
+ "industrial2of5": {
+  "name": "Industrial 2 of 5",
+  "candidates": [
+   "industrial 2 of 5 generator",
+   "industrial 2 of 5 barcode generator"
+  ]
+ },
+ "iata2of5": {
+  "name": "IATA 2 of 5",
+  "candidates": [
+   "iata 2 of 5 generator",
+   "iata 2 of 5 barcode generator"
+  ]
+ },
+ "matrix2of5": {
+  "name": "Matrix 2 of 5",
+  "candidates": [
+   "matrix 2 of 5 generator",
+   "matrix 2 of 5 barcode generator"
+  ]
+ },
+ "dpdlabel": {
+  "name": "DPD Barcode / DPD Parcel Label",
+  "candidates": [
+   "dpd barcode dpd parcel label generator",
+   "dpd barcode dpd parcel label barcode generator"
+  ]
+ },
+ "upus10": {
+  "name": "UPU S10",
+  "candidates": [
+   "upu s10 generator",
+   "upu s10 barcode generator"
+  ]
+ },
+ "MSI": {
+  "name": "MSI",
+  "candidates": [
+   "msi generator",
+   "msi barcode generator"
+  ]
+ },
+ "MSI10": {
+  "name": "MSI Mod 10",
+  "candidates": [
+   "msi mod 10 generator",
+   "msi mod 10 barcode generator"
+  ]
+ },
+ "MSI11": {
+  "name": "MSI Mod 11",
+  "candidates": [
+   "msi mod 11 generator",
+   "msi mod 11 barcode generator"
+  ]
+ },
+ "code32": {
+  "name": "Code 32 (Italian)",
+  "candidates": [
+   "code 32 italian generator",
+   "code 32 italian barcode generator"
+  ]
+ },
+ "pharmacode": {
+  "name": "Pharmacode",
+  "candidates": [
+   "pharmacode generator",
+   "pharmacode barcode generator"
+  ]
+ },
+ "pharmacode2": {
+  "name": "Pharmacode 2-track",
+  "candidates": [
+   "pharmacode 2-track generator",
+   "pharmacode 2-track barcode generator"
+  ]
+ },
+ "codabar": {
+  "name": "Codabar",
+  "candidates": [
+   "codabar generator",
+   "codabar barcode generator"
+  ]
+ },
+ "telepen": {
+  "name": "Telepen",
+  "candidates": [
+   "telepen generator",
+   "telepen barcode generator"
+  ]
+ },
+ "channelcode": {
+  "name": "Channel Code",
+  "candidates": [
+   "channel code generator",
+   "channel code barcode generator"
+  ]
+ },
+ "bc412": {
+  "name": "BC412",
+  "candidates": [
+   "bc412 generator",
+   "bc412 barcode generator"
+  ]
+ },
+ "pzn": {
+  "name": "PZN (Pharma)",
+  "candidates": [
+   "pzn pharma generator",
+   "pzn pharma barcode generator"
+  ]
+ },
+ "gs1-128": {
+  "name": "GS1-128",
+  "candidates": [
+   "gs1-128 generator",
+   "gs1-128 barcode generator"
+  ]
+ },
+ "gs1-128composite": {
+  "name": "GS1-128 Composite Symbology",
+  "candidates": [
+   "gs1-128 composite symbology generator",
+   "gs1-128 composite symbology barcode generator"
+  ]
+ },
+ "hibccode39": {
+  "name": "HIBC LIC Code 39",
+  "candidates": [
+   "hibc lic code 39 generator",
+   "hibc lic code 39 barcode generator"
+  ]
+ },
+ "hibccode128": {
+  "name": "HIBC LIC Code 128",
+  "candidates": [
+   "hibc lic code 128 generator",
+   "hibc lic code 128 barcode generator"
+  ]
+ },
+ "hibcpascode39": {
+  "name": "HIBC PAS Code 39",
+  "candidates": [
+   "hibc pas code 39 generator",
+   "hibc pas code 39 barcode generator"
+  ]
+ },
+ "hibcpascode128": {
+  "name": "HIBC PAS Code 128",
+  "candidates": [
+   "hibc pas code 128 generator",
+   "hibc pas code 128 barcode generator"
+  ]
+ },
+ "databaromni": {
+  "name": "DataBar Omni",
+  "candidates": [
+   "databar omni generator",
+   "databar omni barcode generator"
+  ]
+ },
+ "databarstacked": {
+  "name": "DataBar Stacked",
+  "candidates": [
+   "databar stacked generator",
+   "databar stacked barcode generator"
+  ]
+ },
+ "databarstackedomni": {
+  "name": "DataBar Stacked Omni",
+  "candidates": [
+   "databar stacked omni generator",
+   "databar stacked omni barcode generator"
+  ]
+ },
+ "databartruncated": {
+  "name": "DataBar Truncated",
+  "candidates": [
+   "databar truncated generator",
+   "databar truncated barcode generator"
+  ]
+ },
+ "databarlimited": {
+  "name": "DataBar Limited",
+  "candidates": [
+   "databar limited generator",
+   "databar limited barcode generator"
+  ]
+ },
+ "databarexpanded": {
+  "name": "DataBar Expanded",
+  "candidates": [
+   "databar expanded generator",
+   "databar expanded barcode generator"
+  ]
+ },
+ "databarexpandedstacked": {
+  "name": "GS1 DataBar Expanded Stacked",
+  "candidates": [
+   "gs1 databar expanded stacked generator",
+   "gs1 databar expanded stacked barcode generator"
+  ]
+ },
+ "databaromnicomposite": {
+  "name": "GS1 DataBar Composite",
+  "candidates": [
+   "gs1 databar composite generator",
+   "gs1 databar composite barcode generator"
+  ]
+ },
+ "databarstackedcomposite": {
+  "name": "GS1 DataBar Stacked Composite",
+  "candidates": [
+   "gs1 databar stacked composite generator",
+   "gs1 databar stacked composite barcode generator"
+  ]
+ },
+ "databarstackedomnicomposite": {
+  "name": "GS1 DataBar Stacked Omni Composite",
+  "candidates": [
+   "gs1 databar stacked omni composite generator",
+   "gs1 databar stacked omni composite barcode generator"
+  ]
+ },
+ "databarlimitedcomposite": {
+  "name": "GS1 DataBar Limited Composite",
+  "candidates": [
+   "gs1 databar limited composite generator",
+   "gs1 databar limited composite barcode generator"
+  ]
+ },
+ "databartruncatedcomposite": {
+  "name": "GS1 DataBar Truncated Composite",
+  "candidates": [
+   "gs1 databar truncated composite generator",
+   "gs1 databar truncated composite barcode generator"
+  ]
+ },
+ "databarexpandedcomposite": {
+  "name": "GS1 DataBar Expanded Composite",
+  "candidates": [
+   "gs1 databar expanded composite generator",
+   "gs1 databar expanded composite barcode generator"
+  ]
+ },
+ "databarexpandedstackedcomposite": {
+  "name": "GS1 DataBar Expanded Stacked Composite",
+  "candidates": [
+   "gs1 databar expanded stacked composite generator",
+   "gs1 databar expanded stacked composite barcode generator"
+  ]
+ },
+ "gs1-cc": {
+  "name": "GS1 Composite 2D Component",
+  "candidates": [
+   "gs1 composite 2d component generator",
+   "gs1 composite 2d component barcode generator"
+  ]
+ },
+ "postnet": {
+  "name": "USPS POSTNET",
+  "candidates": [
+   "usps postnet generator",
+   "usps postnet barcode generator"
+  ]
+ },
+ "planet": {
+  "name": "USPS PLANET",
+  "candidates": [
+   "usps planet generator",
+   "usps planet barcode generator"
+  ]
+ },
+ "onecode": {
+  "name": "USPS Intelligent Mail",
+  "candidates": [
+   "usps intelligent mail generator",
+   "usps intelligent mail barcode generator"
+  ]
+ },
+ "uspsimpackage": {
+  "name": "USPS IM Package",
+  "candidates": [
+   "usps im package generator",
+   "usps im package barcode generator"
+  ]
+ },
+ "royalmail": {
+  "name": "Royal Mail 4-State",
+  "candidates": [
+   "royal mail 4-state generator",
+   "royal mail 4-state barcode generator"
+  ]
+ },
+ "mailmark4state": {
+  "name": "Royal Mail Mailmark 4-State",
+  "candidates": [
+   "royal mail mailmark 4-state generator",
+   "royal mail mailmark 4-state barcode generator"
+  ]
+ },
+ "daft": {
+  "name": "DAFT",
+  "candidates": [
+   "daft generator",
+   "daft barcode generator"
+  ]
+ },
+ "kix": {
+  "name": "Royal Dutch KIX",
+  "candidates": [
+   "royal dutch kix generator",
+   "royal dutch kix barcode generator"
+  ]
+ },
+ "auspost": {
+  "name": "Australia Post",
+  "candidates": [
+   "australia post generator",
+   "australia post barcode generator"
+  ]
+ },
+ "japanpost": {
+  "name": "Japan Post",
+  "candidates": [
+   "japan post generator",
+   "japan post barcode generator"
+  ]
+ },
+ "koreapost": {
+  "name": "Korean Postal Authority Code",
+  "candidates": [
+   "korean postal authority code generator",
+   "korean postal authority code barcode generator"
+  ]
+ },
+ "identcode": {
+  "name": "Deutsche Post Identcode",
+  "candidates": [
+   "deutsche post identcode generator",
+   "deutsche post identcode barcode generator"
+  ]
+ },
+ "leitcode": {
+  "name": "Deutsche Post Leitcode",
+  "candidates": [
+   "deutsche post leitcode generator",
+   "deutsche post leitcode barcode generator"
+  ]
+ },
+ "EAN13": {
+  "name": "EAN-13",
+  "candidates": [
+   "ean-13 generator",
+   "ean-13 barcode generator"
+  ]
+ },
+ "EAN8": {
+  "name": "EAN-8",
+  "candidates": [
+   "ean-8 generator",
+   "ean-8 barcode generator"
+  ]
+ },
+ "EAN5": {
+  "name": "EAN-5 add-on",
+  "candidates": [
+   "ean-5 add-on generator",
+   "ean-5 add-on barcode generator"
+  ]
+ },
+ "EAN2": {
+  "name": "EAN-2 add-on",
+  "candidates": [
+   "ean-2 add-on generator",
+   "ean-2 add-on barcode generator"
+  ]
+ },
+ "UPC": {
+  "name": "UPC-A",
+  "candidates": [
+   "upc-a generator",
+   "upc-a barcode generator"
+  ]
+ },
+ "UPCE": {
+  "name": "UPC-E",
+  "candidates": [
+   "upc-e generator",
+   "upc-e barcode generator"
+  ]
+ },
+ "ean14": {
+  "name": "EAN-14",
+  "candidates": [
+   "ean-14 generator",
+   "ean-14 barcode generator"
+  ]
+ },
+ "ean8composite": {
+  "name": "EAN-8 Composite",
+  "candidates": [
+   "ean-8 composite generator",
+   "ean-8 composite barcode generator"
+  ]
+ },
+ "ean13composite": {
+  "name": "EAN-13 Composite",
+  "candidates": [
+   "ean-13 composite generator",
+   "ean-13 composite barcode generator"
+  ]
+ },
+ "upcacomposite": {
+  "name": "UPC-A Composite",
+  "candidates": [
+   "upc-a composite generator",
+   "upc-a composite barcode generator"
+  ]
+ },
+ "upcecomposite": {
+  "name": "UPC-E Composite",
+  "candidates": [
+   "upc-e composite generator",
+   "upc-e composite barcode generator"
+  ]
+ },
+ "isbn": {
+  "name": "ISBN",
+  "candidates": [
+   "isbn generator",
+   "isbn barcode generator"
+  ]
+ },
+ "isbn13addon5": {
+  "name": "ISBN-13 + 5 add-on",
+  "candidates": [
+   "isbn-13 5 add-on generator",
+   "isbn-13 5 add-on barcode generator"
+  ]
+ },
+ "issn": {
+  "name": "ISSN",
+  "candidates": [
+   "issn generator",
+   "issn barcode generator"
+  ]
+ },
+ "issnaddon2": {
+  "name": "ISSN + 2 add-on",
+  "candidates": [
+   "issn 2 add-on generator",
+   "issn 2 add-on barcode generator"
+  ]
+ },
+ "ismn": {
+  "name": "ISMN",
+  "candidates": [
+   "ismn generator",
+   "ismn barcode generator"
+  ]
+ }
+}

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Data Matrix Generator - Free Online Tool | Barcode Studio</title>
+<meta name="description" content="Create a Data Matrix code free in your browser for small-item and industrial labeling. Adjust size, shape, and colors, then export PNG, SVG, or via API." />
+<meta name="theme-color" content="#0b1220" />
+<link rel="canonical" href="https://lawbarcode.vercel.app/data-matrix" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Data Matrix Generator | Barcode Studio" />
+<meta property="og:description" content="Create a Data Matrix code free in your browser for small-item and industrial labeling. Adjust size, shape, and colors, then export PNG, SVG, or via API." />
+<meta property="og:url" content="https://lawbarcode.vercel.app/data-matrix" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1220'/%3E%3Cg fill='white'%3E%3Crect x='6' y='8' width='2' height='16'/%3E%3Crect x='9' y='8' width='1' height='16'/%3E%3Crect x='11' y='8' width='3' height='16'/%3E%3Crect x='15' y='8' width='1' height='16'/%3E%3Crect x='17' y='8' width='2' height='16'/%3E%3Crect x='20' y='8' width='1' height='16'/%3E%3Crect x='22' y='8' width='3' height='16'/%3E%3Crect x='26' y='8' width='1' height='16'/%3E%3C/g%3E%3C/svg%3E" />
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://lawbarcode.vercel.app/"},{"@type":"ListItem","position":2,"name":"Barcode Types","item":"https://lawbarcode.vercel.app/barcodes"},{"@type":"ListItem","position":3,"name":"Data Matrix Generator","item":"https://lawbarcode.vercel.app/data-matrix"}]},{"@type":"SoftwareApplication","name":"Data Matrix Generator","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://lawbarcode.vercel.app/data-matrix"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the difference between Data Matrix and QR code?","acceptedAnswer":{"@type":"Answer","text":"Both are 2D matrix codes, but Data Matrix generally achieves a smaller physical footprint for the same amount of data, making it the preferred choice for direct part marking and tiny labels, while QR code is more widely recognized by consumer phone cameras and supports selectable error correction levels."}},{"@type":"Question","name":"Can Data Matrix be scanned by a smartphone?","acceptedAnswer":{"@type":"Answer","text":"Most modern phone camera apps and dedicated barcode scanner apps can read Data Matrix codes, though QR code remains more universally recognized for consumer-facing uses like marketing and menus."}},{"@type":"Question","name":"What is ECC200?","acceptedAnswer":{"@type":"Answer","text":"ECC200 is the current version of the Data Matrix standard that uses Reed-Solomon error correction at a fixed ratio per symbol size; it's the only version in active use today and what virtually all data matrix generator tools and scanners support."}},{"@type":"Question","name":"How small can a Data Matrix code be printed?","acceptedAnswer":{"@type":"Answer","text":"Data Matrix can be printed or etched extremely small, down to a few millimeters across for short data strings, which is why it's the standard choice for marking individual electronic components and small parts."}},{"@type":"Question","name":"Can I generate Data Matrix codes in bulk?","acceptedAnswer":{"@type":"Answer","text":"Yes, upload a CSV of values and Barcode Studio will bulk-generate a ZIP of image files or a print-ready PDF of labels in one pass, useful for serializing a full production run."}},{"@type":"Question","name":"Does Data Matrix let me choose an error correction level like QR code?","acceptedAnswer":{"@type":"Answer","text":"No, Data Matrix uses the ECC200 Reed-Solomon scheme with a fixed correction ratio determined by the symbol's size, so there's no L/M/Q/H selector to configure."}}]}]}</script>
+<link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="/css/bulk-api.css" />
+<script src="/js/qr-local.js"></script>
+<script>
+(function () {
+  function hasJsBarcode() { return typeof window.JsBarcode === "function"; }
+  function hasBwip() { return !!(window.bwipjs && typeof window.bwipjs.toCanvas === "function"); }
+  function hasPdf() { var ns = window.jspdf || window.jsPDF; return !!(ns && (ns.jsPDF || ns)); }
+  function loadScript(src, check, timeoutMs) {
+    return new Promise(function (resolve) {
+      if (check()) return resolve(true);
+      var done = false;
+      var s = document.createElement("script");
+      var t = setTimeout(function () { finish(check()); }, timeoutMs || 2500);
+      function finish(ok) {
+        if (done) return;
+        done = true;
+        clearTimeout(t);
+        try { if (!ok && s.parentNode) s.parentNode.removeChild(s); } catch (e) {}
+        resolve(!!ok || check());
+      }
+      s.async = false;
+      s.onload = function () { finish(true); };
+      s.onerror = function () { finish(false); };
+      s.src = src;
+      document.head.appendChild(s);
+    });
+  }
+  async function loadAny(urls, check) {
+    for (var i = 0; i < urls.length; i++) {
+      if (await loadScript(urls[i], check, 2500)) return true;
+    }
+    return check();
+  }
+  window.__barcodeLibs = {
+    jsbarcode: loadAny([
+      "https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js",
+      "https://unpkg.com/jsbarcode@3.11.6/dist/JsBarcode.all.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"
+    ], hasJsBarcode),
+    bwip: loadAny([
+      "https://cdn.jsdelivr.net/npm/bwip-js@4.11.1/dist/bwip-js-min.js",
+      "https://unpkg.com/bwip-js@4.11.1/dist/bwip-js-min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/bwip-js/4.7.0/bwip-js-min.js"
+    ], hasBwip),
+    pdf: loadAny([
+      "https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js",
+      "https://unpkg.com/jspdf@2.5.1/dist/jspdf.umd.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+    ], hasPdf)
+  };
+  window.__barcodeLibsReady = Promise.all([window.__barcodeLibs.jsbarcode, window.__barcodeLibs.bwip, window.__barcodeLibs.pdf]).then(function (r) {
+    return { jsbarcode: r[0], bwip: r[1], pdf: r[2], qr: !!(window.QRCode && typeof window.QRCode.toCanvas === "function") };
+  });
+})();
+</script>
+<script>window.BARCODE_HAS_API = true;</script>
+<script src="/js/i18n.js"></script>
+<script src="/js/i18n-extra.js"></script>
+</head>
+<body>
+  <div class="loader" id="loader"><div class="loader-bars"><span></span><span></span><span></span><span></span><span></span></div><p data-i18n="loaderText">Loading Barcode Studio…</p></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <div>
+        <h1>Barcode Studio</h1>
+        <p data-i18n="brandTagline">Free Online Barcode &amp; QR Code Generator</p>
+      </div>
+    </div>
+    <nav class="top-actions">
+      <a href="#generator" class="btn btn-ghost" data-i18n="navGenerator">Generator</a>
+      <a href="#bulk" class="btn btn-ghost" data-i18n="navBulk">Bulk</a>
+      <a href="/barcodes" class="btn btn-ghost" data-i18n="navTypes">All barcodes</a>
+      <a href="/api-docs.html" class="btn btn-ghost" data-i18n="navApi">API Docs</a>
+      <button class="btn btn-ghost" id="resetBtn" data-i18n="navReset">Reset</button>
+      <button class="btn btn-ghost" id="printBtn" data-i18n="navPrint">Print</button>
+      <div class="lang-wrap">
+        <span class="globe" aria-hidden="true">🌐</span>
+        <select id="langSelect" class="lang-select" aria-label="Language"></select>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-content">
+      <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/barcodes">Barcodes</a><span>/</span><span>Data Matrix</span></nav>
+      <span class="eyebrow">2D Code</span>
+      <h1>Data Matrix <span class="grad-text">Generator</span></h1>
+      <p>Generate a compact Data Matrix code built for tiny labels, direct part marking, and industrial traceability.</p>
+      <a href="#generator" class="btn btn-primary btn-lg">Open the generator ↓</a>
+    </div>
+  </section>
+
+  <div class="app" id="generator">
+    <aside class="sidebar reveal">
+      <div class="sidebar-search">
+        <input type="text" id="typeSearch" data-i18n-ph="searchPh" placeholder="Search symbology…" />
+      </div>
+      <div class="type-list" id="typeList"></div>
+    </aside>
+
+    <main class="main">
+      <section class="card reveal">
+        <div class="card-head">
+          <h2 data-i18n="dataHeading">Data</h2>
+          <span class="pill" id="activeType">Code 128</span>
+        </div>
+        <div class="prop-row ct-row" id="contentTypeRow" hidden>
+          <label data-i18n="contentType">Content type</label>
+          <select id="ctSelect">
+            <option value="text" data-i18n="ctText">Text</option>
+            <option value="url" data-i18n="ctUrl">URL / Link</option>
+            <option value="wifi" data-i18n="ctWifi">WiFi network</option>
+            <option value="vcard" data-i18n="ctVcard">Contact (vCard)</option>
+            <option value="email" data-i18n="ctEmail">Email</option>
+            <option value="sms" data-i18n="ctSms">SMS</option>
+            <option value="tel" data-i18n="ctTel">Phone</option>
+            <option value="geo" data-i18n="ctGeo">Location</option>
+            <option value="event" data-i18n="ctEvent">Calendar event</option>
+          </select>
+        </div>
+        <textarea id="data" rows="3" data-i18n-ph="dataPh" placeholder="Enter the data to encode…">Barcode Studio</textarea>
+        <div class="builder" id="builderFields" hidden>
+          <div class="ct-block" data-ct="wifi">
+            <label class="fld"><span data-i18n="fSsid">Network name (SSID)</span><input type="text" id="wSsid" value="MyNetwork" /></label>
+            <label class="fld"><span data-i18n="fPassword">Password</span><input type="text" id="wPass" value="password123" /></label>
+            <label class="fld"><span data-i18n="fEncryption">Encryption</span>
+              <select id="wEnc"><option value="WPA">WPA/WPA2</option><option value="WEP">WEP</option><option value="nopass" data-i18n="encNone">None</option></select>
+            </label>
+            <label class="switch"><input type="checkbox" id="wHidden" /> <span data-i18n="fHidden">Hidden network</span></label>
+          </div>
+          <div class="ct-block" data-ct="vcard">
+            <label class="fld"><span data-i18n="fFirstName">First name</span><input type="text" id="vFirst" value="John" /></label>
+            <label class="fld"><span data-i18n="fLastName">Last name</span><input type="text" id="vLast" value="Doe" /></label>
+            <label class="fld"><span data-i18n="fOrg">Organization</span><input type="text" id="vOrg" /></label>
+            <label class="fld"><span data-i18n="fJobTitle">Job title</span><input type="text" id="vTitle" /></label>
+            <label class="fld"><span data-i18n="fPhone">Phone</span><input type="text" id="vPhone" value="+1 555 0100" /></label>
+            <label class="fld"><span data-i18n="fEmail">Email</span><input type="text" id="vEmail" value="john@example.com" /></label>
+            <label class="fld"><span data-i18n="fWebsite">Website</span><input type="text" id="vUrl" /></label>
+            <label class="fld"><span data-i18n="fAddress">Address</span><input type="text" id="vAddr" /></label>
+          </div>
+          <div class="ct-block" data-ct="email">
+            <label class="fld"><span data-i18n="fTo">To</span><input type="text" id="eTo" value="hello@example.com" /></label>
+            <label class="fld"><span data-i18n="fSubject">Subject</span><input type="text" id="eSub" /></label>
+            <label class="fld"><span data-i18n="fBody">Message</span><input type="text" id="eBody" /></label>
+          </div>
+          <div class="ct-block" data-ct="sms">
+            <label class="fld"><span data-i18n="fNumber">Number</span><input type="text" id="sNum" value="+15550100" /></label>
+            <label class="fld"><span data-i18n="fMessage">Message</span><input type="text" id="sMsg" value="Hello" /></label>
+          </div>
+          <div class="ct-block" data-ct="tel">
+            <label class="fld"><span data-i18n="fNumber">Number</span><input type="text" id="tNum" value="+15550100" /></label>
+          </div>
+          <div class="ct-block" data-ct="geo">
+            <label class="fld"><span data-i18n="fLat">Latitude</span><input type="text" id="gLat" value="40.7128" /></label>
+            <label class="fld"><span data-i18n="fLong">Longitude</span><input type="text" id="gLng" value="-74.0060" /></label>
+          </div>
+          <div class="ct-block" data-ct="event">
+            <label class="fld"><span data-i18n="fEventTitle">Event title</span><input type="text" id="cTitle" value="Meeting" /></label>
+            <label class="fld"><span data-i18n="fLocation">Location</span><input type="text" id="cLoc" /></label>
+            <label class="fld"><span data-i18n="fStart">Start</span><input type="datetime-local" id="cStart" /></label>
+            <label class="fld"><span data-i18n="fEnd">End</span><input type="datetime-local" id="cEnd" /></label>
+            <label class="fld"><span data-i18n="fDescription">Description</span><input type="text" id="cDesc" /></label>
+          </div>
+        </div>
+        <p class="hint" id="typeHint"></p>
+
+        <div class="seq">
+          <label class="switch">
+            <input type="checkbox" id="seqEnable" /> <span data-i18n="seqToggle">Batch / sequence mode</span>
+          </label>
+          <div class="seq-fields" id="seqFields">
+            <label><span data-i18n="seqCount">Count</span> <input type="number" id="seqCount" min="2" max="100" value="5" /></label>
+            <label><span data-i18n="seqStart">Start #</span> <input type="number" id="seqStart" value="1" /></label>
+            <label><span data-i18n="seqPrefix">Prefix</span> <input type="text" id="seqPrefix" placeholder="ABC-" /></label>
+            <label><span data-i18n="seqPad">Pad</span> <input type="number" id="seqPad" min="0" max="12" value="4" /></label>
+          </div>
+        </div>
+      </section>
+
+      <section class="card preview-card reveal">
+        <div class="card-head">
+          <h2 data-i18n="previewHeading">Preview</h2>
+          <div class="preview-tools">
+            <button class="chip" data-zoom="out" title="Zoom out">−</button>
+            <span id="zoomLabel">100%</span>
+            <button class="chip" data-zoom="in" title="Zoom in">+</button>
+          </div>
+        </div>
+        <div class="preview-stage">
+          <div id="preview" class="preview-inner"></div>
+        </div>
+        <div class="download-row">
+          <button class="btn btn-primary" id="dlPng">⬇ PNG</button>
+          <button class="btn btn-secondary" id="dlSvg">⬇ SVG</button>
+          <button class="btn btn-soft" id="copyBtn">📋 Copy</button>
+          <button class="btn btn-soft" id="dlZip" hidden>⬇ ZIP (batch)</button>
+        </div>
+      </section>
+
+      <section class="card bulk-card reveal" id="bulk">
+        <div class="card-head">
+          <h2 data-i18n="bulkHeading">Bulk generate</h2>
+          <span class="pill" data-i18n="bulkBadge">CSV \u2192 ZIP / PDF</span>
+        </div>
+        <p class="hint" data-i18n="bulkDesc">Upload a CSV/TXT file or paste values to generate hundreds of barcodes at once.</p>
+        <div class="bulk-grid">
+          <label class="bulk-file">
+            <input type="file" id="bulkFile" accept=".csv,.txt,text/csv,text/plain" />
+            <span data-i18n="bulkUpload">\u2b06 Upload CSV / TXT</span>
+          </label>
+          <textarea id="bulkPaste" rows="4" data-i18n-ph="bulkPastePh" placeholder="\u2026or paste values here, one per line"></textarea>
+        </div>
+        <div class="bulk-opts">
+          <label class="switch"><input type="checkbox" id="bulkHeader" /> <span data-i18n="bulkHeaderLbl">First row is a header</span></label>
+          <label class="bulk-sel"><span data-i18n="bulkDataColLbl">Data column</span><select id="bulkDataCol"></select></label>
+          <label class="bulk-sel"><span data-i18n="bulkLabelColLbl">Label / filename</span><select id="bulkLabelCol"></select></label>
+          <label class="bulk-sel"><span data-i18n="bulkPdfColsLbl">PDF columns</span><input type="number" id="bulkPdfCols" min="1" max="6" value="3" /></label>
+        </div>
+        <p class="bulk-info" id="bulkInfo"></p>
+        <div class="bulk-progress" id="bulkProgress" hidden><div class="bulk-bar" id="bulkBar"></div></div>
+        <div class="download-row">
+          <button class="btn btn-primary" id="bulkGenBtn" data-i18n="bulkGenerate">\u2699 Generate</button>
+          <button class="btn btn-secondary" id="bulkDlZip" hidden data-i18n="bulkDlZip">\u2b07 ZIP (PNG)</button>
+          <button class="btn btn-secondary" id="bulkDlPdf" hidden data-i18n="bulkDlPdf">\u2b07 PDF sheet</button>
+        </div>
+      </section>
+    </main>
+
+    <aside class="props reveal">
+      <h2 data-i18n="propsHeading">Properties</h2>
+
+      <div class="prop-group" id="linearProps">
+        <div class="prop-row">
+          <label data-i18n="pBarWidth">Bar width</label>
+          <input type="range" id="barWidth" min="1" max="6" step="0.5" value="2" />
+          <output id="barWidthV">2</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pHeight">Height</label>
+          <input type="range" id="barHeight" min="20" max="240" step="5" value="100" />
+          <output id="barHeightV">100</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pFontSize">Font size</label>
+          <input type="range" id="fontSize" min="8" max="40" step="1" value="18" />
+          <output id="fontSizeV">18</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pTextAlign">Text align</label>
+          <select id="textAlign">
+            <option value="center" selected data-i18n="optCenter">Center</option>
+            <option value="left" data-i18n="optLeft">Left</option>
+            <option value="right" data-i18n="optRight">Right</option>
+          </select>
+        </div>
+        <label class="switch"><input type="checkbox" id="displayValue" checked /> <span data-i18n="pShowText">Show human-readable text</span></label>
+      </div>
+
+      <div class="prop-group" id="qrProps" hidden>
+        <div class="prop-row">
+          <label data-i18n="pSize">Size</label>
+          <input type="range" id="qrSize" min="120" max="640" step="20" value="300" />
+          <output id="qrSizeV">300</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pErrCorr">Error corr.</label>
+          <select id="qrEcc">
+            <option value="L">L – 7%</option>
+            <option value="M" selected>M – 15%</option>
+            <option value="Q">Q – 25%</option>
+            <option value="H">H – 30%</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="prop-group" id="twoDProps" hidden>
+        <div class="prop-row">
+          <label data-i18n="pScale">Scale</label>
+          <input type="range" id="tdScale" min="2" max="10" step="1" value="4" />
+          <output id="tdScaleV">4</output>
+        </div>
+        <div class="prop-row" id="bwipHeightRow" style="display:none">
+          <label data-i18n="pHeightMm">Height (mm)</label>
+          <input type="range" id="bwipHeight" min="5" max="40" step="1" value="12" />
+          <output id="bwipHeightV">12</output>
+        </div>
+        <div class="prop-row" id="pdfColsRow">
+          <label data-i18n="pPdfCols">PDF columns</label>
+          <input type="range" id="pdfCols" min="0" max="12" step="1" value="0" />
+          <output id="pdfColsV">auto</output>
+        </div>
+        <label class="switch" id="bwipTextRow" style="display:none"><input type="checkbox" id="bwipText" /> <span data-i18n="pShowText">Show human-readable text</span></label>
+      </div>
+
+      <div class="prop-group">
+        <div class="prop-row two">
+          <div>
+            <label data-i18n="pForeground">Foreground</label>
+            <input type="color" id="fg" value="#000000" />
+          </div>
+          <div>
+            <label data-i18n="pBackground">Background</label>
+            <input type="color" id="bg" value="#ffffff" />
+          </div>
+        </div>
+        <label class="switch"><input type="checkbox" id="transparent" /> <span data-i18n="pTransparent">Transparent background</span></label>
+        <div class="prop-row">
+          <label data-i18n="pMargin">Margin</label>
+          <input type="range" id="margin" min="0" max="40" step="2" value="10" />
+          <output id="marginV">10</output>
+        </div>
+      </div>
+
+      <div class="prop-group">
+        <p class="prop-note" id="status"></p>
+      </div>
+    </aside>
+  </div>
+
+    <article class="seo-section">
+    <div class="seo-wrap">
+      <h2>What is a Data Matrix code?</h2>
+      <p>Data Matrix is a two-dimensional matrix barcode standardized under ISO/IEC 16022 that packs data into a small square or rectangular grid, designed specifically for situations where label space is at a premium. It was developed in 1989 by International Data Matrix (later acquired by RVSI Acuity CiMatrix) and is now free to use under an open standard. The current version, ECC200, uses Reed-Solomon error correction and is the version virtually all modern generators and scanners produce; older ECC0-140 convolutional-code versions are effectively obsolete and rarely encountered outside legacy systems.</p>
+      <h2>How Data Matrix encodes data</h2>
+      <p>Every Data Matrix symbol has a distinctive solid black border in an "L" shape along two adjacent sides &mdash; the finder pattern &mdash; which lets a scanner instantly determine the code's position and orientation regardless of rotation. The two opposite sides carry an alternating black-and-white "clock track" pattern that tells the scanner exactly how many rows and columns of modules make up the grid, so the decoder knows the symbol's dimensions before it even reads a single data module. Inside that border, data is encoded using Reed-Solomon error correction, which allows the symbol to remain readable even with moderate damage, dirt, or printing defects &mdash; a critical property for parts that get handled, etched, or exposed to harsh environments. Unlike QR code's three separated finder squares, Data Matrix's single continuous L-border means the symbol keeps working even when a corner is obscured, as long as enough of the border and clock track survive.</p>
+      <h2>Technical specifications</h2>
+      <p>Data Matrix can encode plain text, numbers, and binary data, with symbol sizes ranging from a tiny 10&times;10 module grid up to 144&times;144 modules in square form, or in rectangular shapes (such as 8&times;18 or 16&times;48 modules) for labels with unusual proportions like cable wraps or narrow strips. Capacity scales with size: small symbols hold only a handful of characters, while the largest square symbols can hold roughly 2,000 alphanumeric characters or around 1,500 bytes of binary data, though real-world payloads for part marking and GS1 use are almost always far shorter. Error correction uses ECC200 Reed-Solomon coding at a fixed, symbol-size-dependent overhead rather than the user-selectable L/M/Q/H tiers found in QR code &mdash; you don't choose a correction level, the standard's built-in ratio for that symbol size handles it. Because of its compact footprint relative to data capacity, Data Matrix is frequently the smallest option among common 2D symbologies for a given amount of data, which is why it dominates direct part marking.</p><ul><li><strong>Shape:</strong> square or rectangular, chosen to fit the available label area</li><li><strong>Error correction:</strong> ECC200 (Reed-Solomon), fixed per symbol size, not user-adjustable</li><li><strong>Content:</strong> text, numeric data, or binary; no fixed structure unless GS1 Application Identifiers are used</li><li><strong>Standards body:</strong> ISO/IEC 16022, with GS1 General Specifications governing GS1-compliant payloads</li></ul>
+      <h2>Where Data Matrix is used</h2>
+      <p>Direct part marking on electronics, automotive components, and aerospace parts, where the code is laser-etched or dot-peened directly onto metal or plastic surfaces and must survive machining, heat, or corrosion; printed circuit board serialization for traceability from fabrication through assembly; medical device and pharmaceutical labeling where FDA UDI (Unique Device Identification) rules commonly point manufacturers toward Data Matrix or GS1 DataMatrix; small retail and cosmetic packaging where a UPC barcode would consume too much surface area relative to the product; and document and mail sorting systems that rely on its compact, high-density format to fit alongside other printed content on a page or envelope.</p>
+      <h2>How to create a Data Matrix code in Barcode Studio</h2>
+      <p>Select <strong>Data Matrix</strong> from the symbology list on the left and enter your text, numeric, or ID data directly &mdash; no special formatting is required unless you're targeting GS1 compliance, in which case use the separate GS1 Data Matrix type instead. Error correction is fixed at ECC200 (Reed-Solomon) for every symbol, so there's no L/M/Q/H setting to configure; the standard applies the appropriate redundancy automatically based on symbol size. From there you can:</p><ul><li>Choose square or rectangular symbol shape to match your available label area</li><li>Adjust module size, scale, and quiet zone for small or large-format printing</li><li>Set foreground and background colors while preserving enough contrast for reliable scanning</li><li>Export as PNG or SVG, or copy the code directly for use in packaging artwork or labeling software</li><li>Generate a batch or numbered sequence, or upload a CSV for bulk generation as a ZIP or print-ready PDF of labels</li><li>Call the REST API &mdash; <code>/barcode?type=datamatrix&amp;data=PART-00042</code> &mdash; to automate label generation from your own systems</li></ul>
+      <h2>Printing and scanning best practices</h2>
+      <p>Maintain a quiet zone on all four sides, though Data Matrix's solid-border finder pattern tolerates tighter surrounding print than symbologies with separated finder squares like QR code. For direct part marking, match your marking method &mdash; laser etching, dot-peen, chemical etch, or ink-jet &mdash; to the material and ensure sufficient contrast between the mark and the surface under the lighting your scanner will use; low-contrast etches on shiny metal are the most common source of read failures. Keep each module large enough for your scanner's optical resolution; very small or curved-surface codes typically need a dedicated imaging scanner rather than a basic laser barcode reader, since laser scanners can't reliably resolve a 2D grid. Grading against ISO/IEC 15415 print-quality standards is common in regulated or high-volume manufacturing settings. Test scans on the actual production surface and equipment before committing to a marking method at scale, since reflectivity, curvature, and material finish can significantly affect readability in ways a flat printed proof won't reveal.</p>
+      <h2>Data Matrix vs related codes</h2>
+      <p>Data Matrix and QR code are the two most common 2D matrix symbologies, but they optimize for different things: Data Matrix typically achieves a smaller physical footprint for the same data payload and is the standard choice for direct part marking, while QR code is far more widely recognized by consumer smartphone cameras and offers selectable error correction levels (L/M/Q/H) plus native support for logos and styling. Aztec code, like Data Matrix, needs no separate quiet zone in principle since its finder pattern sits at the symbol's center, and it's often chosen for transport tickets and boarding passes rather than industrial marking. PDF417, a stacked linear format rather than a true matrix code, holds far more data per symbol but requires a larger printed area, making it better suited to IDs and shipping labels than to tiny component marking. For structured supply-chain data specifically, GS1 Data Matrix layers GS1 Application Identifiers on top of the same physical Data Matrix symbol described here.</p>
+      <h2>Common uses</h2>
+      <ul class="seo-uses"><li>Direct part marking on electronics, automotive, and aerospace components</li><li>Medical device UDI labeling and pharmaceutical unit-dose packaging</li><li>Printed circuit board and small component serialization</li><li>Small retail and cosmetic packaging with limited label space</li><li>Document, mail, and parcel sorting systems</li><li>Industrial asset tags on tools and equipment</li></ul>
+      <h2>Frequently asked questions</h2>
+      <div class="faq">
+        <details class="faq-item"><summary>What is the difference between Data Matrix and QR code?</summary><div class="faq-a">Both are 2D matrix codes, but Data Matrix generally achieves a smaller physical footprint for the same amount of data, making it the preferred choice for direct part marking and tiny labels, while QR code is more widely recognized by consumer phone cameras and supports selectable error correction levels.</div></details>
+        <details class="faq-item"><summary>Can Data Matrix be scanned by a smartphone?</summary><div class="faq-a">Most modern phone camera apps and dedicated barcode scanner apps can read Data Matrix codes, though QR code remains more universally recognized for consumer-facing uses like marketing and menus.</div></details>
+        <details class="faq-item"><summary>What is ECC200?</summary><div class="faq-a">ECC200 is the current version of the Data Matrix standard that uses Reed-Solomon error correction at a fixed ratio per symbol size; it's the only version in active use today and what virtually all data matrix generator tools and scanners support.</div></details>
+        <details class="faq-item"><summary>How small can a Data Matrix code be printed?</summary><div class="faq-a">Data Matrix can be printed or etched extremely small, down to a few millimeters across for short data strings, which is why it's the standard choice for marking individual electronic components and small parts.</div></details>
+        <details class="faq-item"><summary>Can I generate Data Matrix codes in bulk?</summary><div class="faq-a">Yes, upload a CSV of values and Barcode Studio will bulk-generate a ZIP of image files or a print-ready PDF of labels in one pass, useful for serializing a full production run.</div></details>
+        <details class="faq-item"><summary>Does Data Matrix let me choose an error correction level like QR code?</summary><div class="faq-a">No, Data Matrix uses the ECC200 Reed-Solomon scheme with a fixed correction ratio determined by the symbol's size, so there's no L/M/Q/H selector to configure.</div></details>
+      </div>
+      <h2>Related barcode types</h2>
+      <div class="seo-related"><a href="/qr-code">QR Code</a><a href="/gs1-qr-code">GS1 QR Code</a><a href="/gs1-digital-link-qr-code">GS1 Digital Link QR Code</a><a href="/gs1-digital-link-data-matrix">GS1 Digital Link Data Matrix</a><a href="/gs1-data-matrix">GS1 Data Matrix</a><a href="/pdf417">PDF417</a><a href="/micropdf417">MicroPDF417</a><a href="/aztec">Aztec</a><a href="/micro-qr">Micro QR</a><a href="/maxicode">MaxiCode</a><a href="/dotcode">DotCode</a><a href="/han-xin-code">Han Xin Code</a><a href="/codablock-f">Codablock-F</a><a href="/royal-mail-mailmark-2d">Royal Mail Mailmark 2D</a></div>
+      <p class="seo-all"><a href="/barcodes">Browse all 106 barcode &amp; QR types →</a></p>
+    </div>
+  </article>
+  <footer class="footer">
+    <span class="footer-brand">Barcode Studio</span> · <span data-i18n="footerText">made by Lawstore since 2026</span>
+  </footer>
+
+  <script>window.BARCODE_INITIAL_TYPE="datamatrix";</script>
+  <script src="/js/catalog.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

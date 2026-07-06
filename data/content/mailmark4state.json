@@ -1,0 +1,53 @@
+{
+  "id": "mailmark4state",
+  "title": "Royal Mail Mailmark 4-State Generator | Barcode Studio",
+  "metaDescription": "Free royal mail mailmark 4-state generator for UK mail. Encode postcode, DPS, and mail class data with a 4-state barcode. PNG/SVG export plus REST API access.",
+  "primaryKeyword": "royal mail mailmark 4-state generator",
+  "secondaryKeywords": ["mailmark 4-state barcode", "royal mail mailmark barcode", "mailmark postal code uk", "4-state mailmark generator", "royal mail tracked mail barcode", "mailmark vs rm4scc"],
+  "lead": "Generate a Mailmark barcode with the royal mail mailmark 4-state generator in Barcode Studio, built for UK mail needing routing plus item tracking.",
+  "sections": [
+    {
+      "h2": "What Is a Royal Mail Mailmark 4-State Barcode?",
+      "html": "<p>The royal mail mailmark 4-state generator in Barcode Studio produces the newer of Royal Mail's two four-state postal barcode formats, introduced as part of the wider Mailmark program that also includes a 2D data matrix variant. Where the older RM4SCC barcode was built purely for postcode-based sortation, Mailmark 4-State keeps the same visual height-modulated bar structure but is designed to sit alongside Royal Mail's Mailmark tracking and mail-class infrastructure.</p><p>Visually, it looks like the row of short, uneven bars familiar from any UK 4-state postal code — full bars, ascenders, descenders, and trackers — printed on the envelope or wrapper. Mailers who need both automated sortation and Mailmark-level visibility into their mail's journey through the network use this format instead of, or alongside, the 2D Mailmark barcode.</p>"
+    },
+    {
+      "h2": "How Mailmark 4-State Encodes Data",
+      "html": "<p>Like RM4SCC, Mailmark 4-State uses the four-state bar alphabet — each bar printed as a full bar, ascender, descender, or tracker — with a start character, stop character, and check character framing the message for error detection. The core routing payload is the same kind of data as RM4SCC: a UK postcode plus delivery point suffix, which sorting equipment uses to route the item to a specific address.</p><p>What sets Mailmark 4-State apart in Royal Mail's broader system is its role within the Mailmark program: mail carrying a Mailmark barcode (whether 4-state or 2D) is registered against a mailer's Mailmark account, letting Royal Mail track service performance and mail class compliance at a program level, even though the 4-state variant itself still encodes postcode and DPS in the barcode bars.</p>"
+    },
+    {
+      "h2": "Technical Specifications",
+      "html": "<p>Mailmark 4-State shares its character set and four-state bar mechanics with RM4SCC — encoding the alphanumeric characters used in UK postcodes and delivery point suffixes, framed by start/stop/check characters. The practical difference is contextual rather than structural: Mailmark 4-State is used specifically within Royal Mail's Mailmark mailing framework, which requires mailers to hold a Mailmark licence and register their mail items for tracking and reporting purposes.</p><p>Barcode Studio renders Mailmark 4-State using the same reliable 4-state postal engine as RM4SCC, so the bar geometry, height ratios, and print tolerances you need to hit are consistent between the two formats — the distinction that matters is which Royal Mail service and account you're printing against.</p>"
+    },
+    {
+      "h2": "Where Mailmark 4-State Barcodes Are Used",
+      "html": "<p>This format applies specifically to UK mail sent through Royal Mail's Mailmark program:</p><ul><li><strong>Mailmark-registered bulk mail</strong> — businesses enrolled in Royal Mail's Mailmark mailing services print this barcode to combine sortation with program-level tracking.</li><li><strong>Transactional and marketing mail</strong> — UK companies sending statements, renewals, or direct mail through Mailmark-compliant channels use it for both routing and delivery reporting.</li><li><strong>Access and wholesale mail operators</strong> — downstream access providers handling UK mail on Royal Mail's network apply Mailmark barcodes to meet program requirements.</li><li><strong>High-volume transactional mailers</strong> — organizations that want visibility into induction and delivery timing alongside standard postcode sortation.</li></ul>"
+    },
+    {
+      "h2": "How to Create a Mailmark 4-State Barcode in Barcode Studio",
+      "html": "<p>Select <strong>Royal Mail Mailmark 4-State</strong> from the Postal Code group in the symbology list. Enter the UK postcode and delivery point suffix data for your mail piece — the live preview draws the four-state bar pattern immediately so you can check it before exporting. From there:</p><ul><li>Adjust <strong>bar height and spacing</strong> to match the placement zone required for Mailmark-compliant mail pieces.</li><li>Keep the barcode solid black on a light background; Royal Mail's optical readers need high contrast, the same as for standard RM4SCC.</li><li>Export as <strong>PNG or SVG</strong> for insertion into your mail production template, or use <strong>Copy</strong> to paste it directly into design or print software.</li><li>Use the <strong>bulk CSV → ZIP/PDF</strong> tool to generate one barcode per recipient across a full mailing list in a single export.</li><li>Call the <strong>REST API</strong> — <code>/barcode?type=mailmark4state&data=YOURPOSTCODEDPS</code> — to generate barcodes on demand from a mail production or fulfillment system.</li></ul>"
+    },
+    {
+      "h2": "Printing and Scanning Best Practices",
+      "html": "<p>Mailmark 4-State feeds the same high-speed automated sortation equipment as RM4SCC, so the same print discipline applies, with added weight given its role in a tracked mail program:</p><ul><li>Position the barcode exactly where Royal Mail's Mailmark specification requires for your mail format, since placement errors can affect both sortation and tracking accuracy.</li><li>Print in solid black ink on light, matte stock — avoid glossy finishes and low-contrast color schemes that scatter light from postal optical sensors.</li><li>Preserve full bar height fidelity; the four-state distinction between ascenders, descenders, and trackers is easy to blur on low-resolution thermal or inkjet output.</li><li>Leave a clear quiet zone around the barcode, free of other printed elements.</li><li>Run a verification pass before a production mailing — Mailmark compliance typically requires proof that barcodes meet Royal Mail's read-rate standards before large volumes are inducted into the network.</li></ul>"
+    },
+    {
+      "h2": "Mailmark 4-State vs Related Postal Codes",
+      "html": "<p>Mailmark 4-State and <strong>RM4SCC</strong> look identical on the page and use the same bar mechanics, but Mailmark 4-State is tied to Royal Mail's Mailmark program for mailers who want tracking and reporting on top of sortation, while RM4SCC is the simpler legacy format for pure postcode-based routing. Royal Mail's separate <strong>Mailmark 2D</strong> barcode is a data matrix symbol that can carry far more information than any 4-state format, at the cost of needing 2D imaging scanners rather than simple bar-height readers. Outside the UK, <strong>Australia Post's 4-State Customer Barcode</strong> and <strong>Japan Post's barcode</strong> apply the same four-state visual concept to entirely different national postal systems and are not compatible with UK Mailmark requirements.</p>"
+    }
+  ],
+  "uses": [
+    "Mailmark-registered bulk mail requiring routing and tracking",
+    "UK transactional and statement mail through Mailmark-compliant channels",
+    "Downstream access and wholesale mail operator handling",
+    "High-volume marketing mail needing delivery performance reporting",
+    "UK mail production workflows migrating from legacy RM4SCC"
+  ],
+  "faq": [
+    {"q": "What is a royal mail mailmark 4-state generator used for?", "a": "It's used to generate the 4-state barcode variant of Royal Mail's Mailmark program, encoding postcode and delivery point data for mail that also needs Mailmark-level tracking and reporting."},
+    {"q": "How is Mailmark 4-State different from RM4SCC?", "a": "<p>They share the same four-state bar structure and postcode/DPS data, but Mailmark 4-State is used within Royal Mail's Mailmark mailing program, which adds tracking and mail-class reporting that plain RM4SCC doesn't provide.</p>"},
+    {"q": "Do I need a Mailmark licence to print this barcode?", "a": "To use Mailmark 4-State for actual UK postage discounts and tracking, yes — Royal Mail requires mailers to register through its Mailmark program. You can generate the barcode format freely for testing or internal use."},
+    {"q": "Can I bulk-generate Mailmark 4-State barcodes from a spreadsheet?", "a": "<p>Yes. Upload a CSV of postcodes and delivery point suffixes to Barcode Studio's bulk tool to produce a ZIP of images or a single print-ready PDF, one barcode per row.</p>"},
+    {"q": "Is this royal mail mailmark 4-state generator free?", "a": "Yes, Barcode Studio's Mailmark 4-State generator runs entirely in your browser with no account required for standard PNG/SVG exports."},
+    {"q": "Can I call this generator from my own software?", "a": "Yes — call /barcode?type=mailmark4state&data=YOURDATA through the REST API to generate the barcode image directly from a mail production or fulfillment system."}
+  ]
+}

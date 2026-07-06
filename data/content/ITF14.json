@@ -1,0 +1,52 @@
+{
+  "id": "ITF14",
+  "title": "ITF-14 Barcode Generator | Barcode Studio",
+  "metaDescription": "Create ITF-14 barcodes free with our itf-14 barcode generator. Enter 13 digits, check digit auto-added. GS1 case coding with live preview and export.",
+  "primaryKeyword": "itf-14 barcode generator",
+  "secondaryKeywords": ["itf-14 barcode", "gs1 case code", "carton barcode generator", "itf-14 check digit calculator", "gtin-14 barcode", "shipping carton barcode"],
+  "lead": "ITF-14 is the GS1 standard for labeling shipping cases and cartons, encoding a 14-digit GTIN with the check digit calculated automatically.",
+  "sections": [
+    {
+      "h2": "What Is an ITF-14 Barcode?",
+      "html": "<p>ITF-14 is the GS1-standardized barcode used to identify cases, cartons, and other trade units in the shipping and distribution supply chain — the level above individual retail items, which typically use UPC or EAN codes. It's built on the Interleaved 2 of 5 (ITF) symbology but with a fixed structure: a 14-digit GTIN (Global Trade Item Number) where you supply the first 13 digits and the 14th is a check digit calculated automatically using a standard modulo-10 algorithm. ITF-14 barcodes are also typically printed with thick bounding bars — called bearer bars — around the entire symbol, which help protect against the print distortion common on corrugated cardboard.</p><p>If you've ever seen a barcode with heavy black borders on a shipping case, that's almost certainly ITF-14. It's designed from the ground up for exactly that use case: printing directly on cardboard cartons that move through warehouses and distribution centers.</p>"
+    },
+    {
+      "h2": "How ITF-14 Encodes Data",
+      "html": "<p>ITF-14 uses the same interleaved bars-and-spaces mechanism as general Interleaved 2 of 5, pairing two digits into each set of bars and spaces — but it fixes the total length at exactly 14 digits, which conveniently is always even and never requires padding. The structure typically breaks down as: a leading <strong>indicator digit</strong> (often representing packaging level, like a case versus an inner pack), the manufacturer's <strong>company prefix and item reference</strong> making up the middle digits, and a final <strong>check digit</strong> calculated over the preceding 13 digits using GS1's modulo-10 weighting (alternating multipliers of 3 and 1).</p><p>Because the check digit is mathematically derived, you should only supply the first 13 digits when generating an ITF-14 barcode — appending your own 14th digit risks creating an invalid or mismatched checksum. The mandatory bearer bars (the thick border framing the code) aren't just cosmetic; they're part of the GS1 specification and help the barcode survive the print distortion and handling wear typical of cardboard shipping cases.</p>"
+    },
+    {
+      "h2": "Where ITF-14 Is Used",
+      "html": "<p>ITF-14 is specifically the case/carton-level identifier in the GS1 supply chain hierarchy:</p><ul><li><strong>Shipping cartons and cases</strong> — the primary and defining use, identifying a case of multiple retail units as it moves through distribution.</li><li><strong>Pallet and mixed-case labeling</strong> in warehouse management systems, often alongside other GS1-128 data like batch number or ship date.</li><li><strong>Retail distribution centers</strong> scanning inbound cases against purchase orders and advance ship notices.</li><li><strong>Manufacturing and CPG (consumer packaged goods) logistics</strong> where products move from factory to distributor to retailer in standardized case quantities.</li><li><strong>Cross-docking operations</strong> where speed and scan reliability directly affect throughput.</li></ul>"
+    },
+    {
+      "h2": "ITF-14 Technical Specifications",
+      "html": "<p>ITF-14 is defined by GS1's General Specifications, built on the ISO/IEC 16390 Interleaved 2 of 5 symbology but constrained to exactly 14 digits — no more, no less. The first 13 digits comprise a packaging-level indicator digit followed by the GS1 Company Prefix and item reference; the 14th is a mandatory check digit calculated with GS1's standard modulo-10 algorithm using alternating weights of 3 and 1. Mandatory bearer bars (a thick rectangular border) frame the entire symbol per the GS1 specification, distinguishing ITF-14 visually from general-purpose ITF. GS1 also specifies minimum bar height, minimum quiet zone width, and minimum overall symbol dimensions scaled to typical case-scanning distances.</p>"
+    },
+    {
+      "h2": "How to Create an ITF-14 Barcode in Barcode Studio",
+      "html": "<p>Select <strong>ITF-14</strong> from Barcode Studio's symbology list. Enter the first <strong>13 digits</strong> of your GTIN — the 14th check digit is calculated and appended automatically, so don't include it yourself. The live preview renders the full 14-digit barcode, including the standard bearer bars, as you type. From there:</p><ul><li>Adjust <strong>bar width</strong> carefully — GS1 specifies minimum size requirements for ITF-14 to ensure scannability on cardboard, so avoid shrinking below recommended dimensions for your print substrate.</li><li>Set <strong>height</strong> and confirm <strong>human-readable text</strong> displays the full 14-digit number beneath the bars for manual verification.</li><li>Keep the default bearer bars enabled — they're part of the standard, not optional decoration, and help the code survive handling and print wear on cartons.</li><li>Confirm the <strong>quiet zone</strong> margin, which the bearer bars help enforce automatically in most GS1-compliant designs.</li><li>Export as <strong>PNG, SVG, or PDF</strong>, or use <strong>Copy</strong> to place directly into carton artwork files.</li></ul><p>For sequential case codes across a production run, use the <strong>batch/sequence</strong> tool. For generating labels for many different case GTINs at once, the <strong>bulk CSV → ZIP/PDF</strong> feature processes a spreadsheet of 13-digit values into a complete set of ITF-14 barcodes. Developers can integrate ITF-14 generation into ERP or warehouse systems via the <strong>REST API</strong> using <code>/barcode?type=itf14&data=YOURDATA</code>.</p>"
+    },
+    {
+      "h2": "Print and Scan Best Practices",
+      "html": "<p>Because ITF-14 is built specifically for cardboard case printing, GS1's own guidelines matter more here than general barcode advice:</p><ul><li>Follow GS1's minimum size specifications for ITF-14 — cases are typically scanned at a greater distance than retail items, and undersized codes are a common cause of failed reads on conveyor and forklift-mounted scanners.</li><li>Never remove or shrink the bearer bars; they're specifically designed to compensate for ink spread and print distortion on corrugated material.</li><li>Test actual printed samples on your real case material and printer, since flexographic printing on cardboard behaves differently from digital label printing.</li><li>Verify your 13-digit input is correct before mass production — since the 14th digit is calculated automatically, an error in your source GTIN will produce a barcode that's internally consistent but represents the wrong product.</li><li>Coordinate with your trading partners' receiving systems to confirm scan orientation and placement requirements, since GS1 also specifies where on the case the barcode should be printed relative to the bottom edge.</li></ul>"
+    },
+    {
+      "h2": "ITF-14 vs. Related Codes",
+      "html": "<p>Against general <strong>Interleaved 2 of 5</strong>, ITF-14 is a fixed 14-digit GS1 standard with a mandatory check digit and required bearer bars, while base ITF is variable-length with no check digit and no bearer-bar requirement — use ITF-14 specifically when GS1 case-coding compliance is required. Against <strong>UPC/EAN</strong>, ITF-14 sits one level up the supply-chain hierarchy: UPC and EAN identify individual retail units scanned at point of sale, while ITF-14 identifies the case or carton containing multiple such units. Against <strong>GS1-128</strong>, which can also encode a GTIN plus additional data like batch or expiry in one symbol, ITF-14 is simpler and printer-friendlier for cardboard but carries only the GTIN itself, with no room for supplementary application identifiers.</p>"
+    }
+  ],
+  "uses": [
+    "Shipping carton and case identification in the GS1 supply chain",
+    "Pallet and mixed-case warehouse labeling",
+    "Retail distribution center inbound scanning",
+    "CPG and manufacturing logistics case coding",
+    "Cross-docking and high-throughput scanning operations"
+  ],
+  "faq": [
+    {"q": "How many digits do I enter for an ITF-14 barcode generator?", "a": "You enter 13 digits — the itf-14 barcode generator calculates and appends the 14th check digit automatically using GS1's modulo-10 algorithm, so you should not add your own final digit."},
+    {"q": "What are the thick bars around an ITF-14 barcode?", "a": "<p>Those are bearer bars, a required part of the ITF-14 specification. They frame the barcode to help it withstand the print distortion and handling wear common on corrugated cardboard cases.</p>"},
+    {"q": "Is ITF-14 the same as a UPC barcode?", "a": "No. UPC identifies individual retail items sold at point of sale, while ITF-14 identifies cases or cartons containing multiple units, one level up in the supply chain hierarchy."},
+    {"q": "What happens if I enter the wrong 13 digits?", "a": "<p>The generator will still produce a valid, internally consistent ITF-14 barcode with a correct check digit — but it will represent the wrong product or case, since the check digit only validates the digits you entered, not their real-world accuracy.</p>"},
+    {"q": "Can I generate ITF-14 barcodes for multiple case types at once?", "a": "<p>Yes, use Barcode Studio's bulk CSV → ZIP/PDF tool to generate ITF-14 barcodes for a full list of 13-digit GTINs in one pass, or the batch/sequence tool for a numbered series.</p>"}
+  ]
+}

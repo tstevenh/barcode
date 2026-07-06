@@ -1,0 +1,54 @@
+{
+  "id": "databarexpanded",
+  "title": "DataBar Expanded Generator - Free GS1 AI Barcode",
+  "metaDescription": "Free DataBar Expanded generator for GTIN plus dates, lot numbers, and coupons. Enter GS1 AI data like (01)...(17)..., then export PNG, SVG, or bulk labels.",
+  "primaryKeyword": "databar expanded generator",
+  "secondaryKeywords": ["gs1 databar expanded", "databar for fresh food", "coupon barcode generator", "variable weight barcode", "gtin plus expiration date barcode", "gs1 application identifier barcode"],
+  "lead": "Build a GS1 DataBar Expanded barcode that carries a GTIN plus batch numbers, expiration dates, or coupon codes at the checkout lane.",
+  "sections": [
+    {
+      "h2": "What is DataBar Expanded?",
+      "html": "<p>DataBar Expanded is a single-row GS1 barcode that goes well beyond what DataBar Omni, Stacked, Truncated, or Limited can do: instead of carrying only a GTIN, it can encode a GTIN through Application Identifier (01) alongside additional GS1 Application Identifiers in the same symbol &mdash; things like (17) expiration date, (15) best-before date, (10) batch or lot number, (3100)&ndash;(3103) net weight, or (8110) coupon codes. That combination of identity data plus variable attributes in one linear symbol is the entire reason DataBar Expanded exists.</p>"
+    },
+    {
+      "h2": "How it differs from the GTIN-only DataBar variants",
+      "html": "<p>DataBar Omni, Stacked, Stacked Omni, Truncated, and Limited all share one property: they encode a GTIN and nothing else, because their symbol structure has no room for more. DataBar Expanded is built differently &mdash; it's a variable-length symbol that grows to accommodate however many Application Identifiers you pack into it, up to the symbology's maximum data capacity, which functionally makes it a retail-POS-scannable cousin of GS1-128 rather than a simple GTIN carrier.</p><p>That's the key distinction to keep straight: if a product just needs a GTIN on a small package, one of the GTIN-only DataBar symbols is the right tool. If it needs a GTIN plus something else that changes item to item &mdash; a lot number, a weight, an expiration date, a coupon value &mdash; DataBar Expanded (or its stacked form) is what carries that combination while still remaining scannable at a standard retail checkout lane, which GS1-128 was never designed for.</p>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>DataBar Expanded is standardized under ISO/IEC 24724 within the GS1 DataBar family and, unlike the GTIN-only variants, uses a variable-length symbol that grows with the number of Application Identifiers encoded, up to the GS1 General Specifications' maximum data capacity (roughly 74 numeric or 41 alphanumeric characters of AI data). It typically leads with AI (01) for the GTIN in retail use, with additional AIs concatenated using the same FNC1-style field-separator logic used across GS1 symbologies to mark where variable-length fields end. Height and quiet zone follow standard GS1 DataBar guidance, and the symbol remains readable by the same omnidirectional retail scanners already deployed for DataBar Omni.</p>"
+    },
+    {
+      "h2": "Where DataBar Expanded is used",
+      "html": "<p>Grocery scale labels are the classic use case: a package of deli meat or produce sold by weight needs a GTIN plus the actual net weight and often a sell-by date, all in one symbol a checkout scanner can read directly. Coupons are another major application &mdash; a DataBar Expanded symbol encoding AI (8110) lets a manufacturer's discount scan and apply automatically at checkout without a separate proprietary coupon barcode. It also shows up on perishable goods needing a batch or lot number for traceability and recall purposes, and on promotional multi-packs that need variable pricing data tied to a fixed GTIN.</p>"
+    },
+    {
+      "h2": "How to create a DataBar Expanded barcode in Barcode Studio",
+      "html": "<p>Select <strong>DataBar Expanded</strong> from the GS1 DataBar section of the symbology list, then build your data string with GS1 AI syntax, chaining multiple identifiers together &mdash; for example <code>(01)09521234543213(17)251231(10)LOT456</code> for a GTIN, expiration date, and lot number. Barcode Studio parses each AI segment and validates fixed-length fields like the date and GTIN.</p><ul><li>Add or remove Application Identifiers as your data changes, without switching symbologies</li><li>Adjust module width and overall scale for your label size</li><li>Set foreground/background colors and quiet zone margin</li><li>Export as PNG or SVG, or copy the barcode into a label template</li><li>Bulk-generate from a CSV where each row supplies a full AI data string, output as a ZIP or print-ready PDF</li><li>Automate with the REST API: <code>/barcode?type=databarexpanded&amp;data=(01)09521234543213(17)251231</code></li></ul>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Double-check AI syntax carefully &mdash; a malformed or missing parenthesis in a multi-AI string is the most common source of decode failures in DataBar Expanded labels, since the scanner relies on those identifiers to know where one field ends and the next begins. Keep fixed-length fields like GTIN (14 digits) and dates (YYMMDD) exactly the right length; GS1 parsers expect them to terminate predictably rather than by delimiter. As the symbol grows with more Application Identifiers, its width grows too, so leave enough label real estate, or switch to DataBar Expanded Stacked if horizontal space runs out.</p>"
+    },
+    {
+      "h2": "DataBar Expanded versus related codes",
+      "html": "<p>DataBar Expanded, GS1-128, and DataBar Composite all solve the \"GTIN plus extra data\" problem, but for different physical contexts. GS1-128 handles the same AI combinations on cartons and pallets where label space is generous and the scanner is a warehouse imager, not a checkout lane. DataBar Composite takes the opposite approach from Expanded: rather than growing a single linear row to fit more AIs, it keeps a compact GTIN-only linear component (Omni, Stacked, Limited, or Truncated) and adds a small 2D component above it to carry the supplementary data, which can be more space-efficient when the extra data is substantial. Choose DataBar Expanded when a single scannable row at retail checkout is the simplest path; choose Composite when the linear footprint needs to stay as small as one of the GTIN-only variants.</p>"
+    }
+  ],
+  "uses": [
+    "Fresh food and deli scale labels with GTIN plus net weight",
+    "Manufacturer coupons using AI (8110) for automatic checkout discounts",
+    "Perishable goods needing GTIN plus expiration or best-before date",
+    "Products requiring batch or lot numbers for traceability and recalls",
+    "Promotional multi-packs with variable pricing tied to a fixed GTIN",
+    "Any retail item needing a GTIN plus one or more supplementary Application Identifiers"
+  ],
+  "faq": [
+    {"q": "What can a DataBar Expanded generator encode besides a GTIN?", "a": "A DataBar Expanded generator can encode a GTIN plus additional GS1 Application Identifiers in the same symbol, such as expiration date, batch or lot number, net weight, or a coupon code."},
+    {"q": "Is DataBar Expanded the same as GS1-128?", "a": "They serve a similar purpose &mdash; carrying a GTIN plus supplementary Application Identifiers &mdash; but DataBar Expanded is sized and structured for retail point-of-sale scanning, while GS1-128 is typically used in logistics and shipping contexts rather than checkout lanes."},
+    {"q": "Can DataBar Expanded scan a coupon at checkout?", "a": "<p>Yes, DataBar Expanded encoding Application Identifier (8110) is the standard way manufacturer coupons scan and apply automatically at point-of-sale in the US.</p>"},
+    {"q": "Why would I use DataBar Expanded instead of DataBar Omni?", "a": "Use DataBar Expanded when you need more than just a GTIN &mdash; DataBar Omni only carries a GTIN, while Expanded can add expiration dates, lot numbers, weights, or coupon codes in the same symbol."},
+    {"q": "Can I bulk-generate DataBar Expanded barcodes with different Application Identifiers per row?", "a": "Yes, upload a CSV where each row contains its own full AI data string and Barcode Studio will generate the corresponding barcodes as a ZIP or print-ready PDF."},
+    {"q": "What happens if my DataBar Expanded label runs out of width?", "a": "If a long AI data string makes the single-row symbol too wide for your label, switch to DataBar Expanded Stacked, which carries the same data in a taller, multi-row form factor."}
+  ]
+}

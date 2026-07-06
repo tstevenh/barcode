@@ -1,0 +1,53 @@
+{
+  "id": "japanpost",
+  "title": "Japan Post Generator - 4-State Postal Barcode",
+  "metaDescription": "Generate Japan Post 4-State customer barcodes free online for mail and parcel sortation. Encode postal code and address number. PNG/SVG export plus REST API.",
+  "primaryKeyword": "japan post generator",
+  "secondaryKeywords": ["japan post barcode", "japan post 4-state code", "japanese postal barcode generator", "customer barcode japan post", "yubin barcode", "japan post sortation barcode"],
+  "lead": "Encode a Japanese postal code and address number into the four-state barcode Japan Post's sorting machines use to route mail automatically.",
+  "sections": [
+    {
+      "h2": "What Is a Japan Post Barcode?",
+      "html": "<p>A japan post generator produces a four-state postal symbology (also called the Japan Post Customs Barcode or Yubin barcode) developed for Japan Post's automated mail sortation network. As with other four-state postal codes, each bar can appear in one of four vertical positions — tall, ascender, descender, or short tracker — allowing more data density in a compact horizontal strip than a simple two-state barcode.</p><p>You'll recognize it as the row of thin, varying-height bars printed near the address block on Japanese mail and parcels. It's designed to be read at high speed by optical sorting equipment without requiring OCR of the printed address itself.</p>"
+    },
+    {
+      "h2": "How the Barcode Encodes Data",
+      "html": "<p>A Japan Post barcode encodes the seven-digit Japanese postal code (yūbin bangō, formatted like 123-4567) along with a portion of the street address number, translated into a numeric/alphanumeric string that the four-state pattern represents bar by bar. The symbology includes a checksum-style validation across its encoded characters, which helps sorting equipment reject a misprinted or damaged barcode rather than mis-sort the item. Start and stop markers frame the encoded data so scanning equipment can identify where the barcode begins and ends within the printed address area.</p>"
+    },
+    {
+      "h2": "Technical Specifications",
+      "html": "<p>The Japan Post barcode encodes digits 0–9 plus a small set of special characters used for the hyphen in a postal code and for indicating address-number formatting, mapped through the same four-state bar alphabet as other height-modulated postal codes — full bar, ascender, descender, and tracker. A dedicated start marker and stop marker frame the encoded data, and a check character is appended so sorting equipment can detect a corrupted read rather than silently misrouting an item.</p><p>Input is typically the seven-digit postal code (formatted as three digits, a hyphen, then four digits) followed by a numeric portion of the building or house number; the exact address-number length varies depending on how the mail piece was set up for the Japan Post barcode program the mailer is using. Unlike a general-purpose linear barcode, there's no user-selectable symbology option here — the character set and bar mapping are fixed by Japan Post's specification, so a compliant generator simply needs to accept the right input format and apply the correct lookup table.</p>"
+    },
+    {
+      "h2": "Where Japan Post Barcodes Are Used",
+      "html": "<p>This barcode format is specific to Japan's postal system:</p><ul><li><strong>Domestic letter and parcel mail</strong> — printed near the address on envelopes and parcel labels so Japan Post's sorting machines can route items without manual reading.</li><li><strong>Business bulk mail</strong> — companies sending large volumes of mail in Japan print these barcodes to qualify for automated-sortation postage discounts.</li><li><strong>E-commerce shipping labels</strong> — Japanese online retailers and logistics providers include Japan Post barcodes on shipping labels for parcels moving through the domestic postal network.</li><li><strong>Direct mail and statements</strong> — utility and financial mailings in Japan often carry this barcode for efficient processing.</li></ul>"
+    },
+    {
+      "h2": "How to Create a Japan Post Barcode in Barcode Studio",
+      "html": "<p>Select <strong>Japan Post</strong> from the Postal Code group in the symbology list. Enter the seven-digit postal code followed by the address number data in the format expected by Japan Post's specification — the live preview renders the bar pattern immediately so you can confirm it visually before exporting. From there:</p><ul><li>Adjust <strong>bar height and spacing</strong> to fit the designated barcode zone on your envelope or label layout.</li><li>Keep the barcode printed in solid black on a light background; Japan Post's optical sorters, like most postal scanning equipment, expect high-contrast printing rather than color or tinted variants.</li><li>Export as <strong>PNG or SVG</strong> for placement in a mail-merge template, or use <strong>Copy</strong> to insert the code directly into design software.</li><li>Use the <strong>bulk CSV → ZIP/PDF</strong> tool to generate a unique barcode per recipient across an entire mailing list in one pass.</li><li>Call the <strong>REST API</strong> — <code>/barcode?type=japanpost&data=YOURPOSTALDATA</code> — to generate these barcodes on demand from a mailing or fulfillment system.</li></ul>"
+    },
+    {
+      "h2": "Print and Scan Best Practices",
+      "html": "<p>Because Japan Post barcodes feed high-speed automated sortation, printing accuracy matters:</p><ul><li>Place the barcode in the standard location relative to the address block, following Japan Post's printing guidelines for the mail class you're using.</li><li>Print in solid black ink on light, non-glossy stock — glare and low contrast are common causes of misreads on optical postal scanners.</li><li>Double-check the postal code and address number data before a large print run; the barcode's checksum can catch some errors, but it can't correct an incorrect input.</li><li>Keep a clear quiet zone around the barcode, free from other printed text, stamps, or graphics that could interfere with automated reading.</li><li>Test a sample printout at full size before committing to a large mailing, since scaling issues are a common source of scan failures with four-state postal barcodes.</li></ul>"
+    },
+    {
+      "h2": "Japan Post vs Related Postal Codes",
+      "html": "<p>Japan Post's barcode shares the four-state bar mechanic used across postal automation worldwide, but its postal-code-plus-address-number data structure is unique to Japan's addressing system. <strong>Royal Mail's RM4SCC</strong> and <strong>Mailmark 4-State</strong> instead encode a UK postcode with a delivery point suffix, and <strong>Australia Post's 4-State Customer Barcode</strong> uses a Format Control Code with a Delivery Point Identifier — none of these formats are interchangeable with the Japan Post barcode or with each other. The generic <strong>DAFT</strong> notation describes the same four bar states (Descender, Ascender, Full, Tracker) that underlie all of them, without any country-specific character encoding. Generate the format that matches the postal service actually handling your mail.</p>"
+    }
+  ],
+  "uses": [
+    "Domestic letter and parcel mail routed through Japan Post's sorting network",
+    "Bulk business mail qualifying for automated-sortation postage discounts",
+    "E-commerce shipping labels for parcels moving within Japan",
+    "Utility and financial statement mailings processed by Japan Post",
+    "Direct mail campaigns using postal-code-based sortation"
+  ],
+  "faq": [
+    {"q": "What is a Japan Post barcode used for?", "a": "It's a four-state postal barcode that encodes a Japanese postal code and address number so Japan Post's automated sorting equipment can route mail and parcels without manually reading the printed address."},
+    {"q": "What data does a japan post generator need?", "a": "<p>Typically the seven-digit Japanese postal code plus a portion of the street address number, formatted according to Japan Post's barcode specification.</p>"},
+    {"q": "Does the Japan Post barcode include error checking?", "a": "Yes, the format includes a checksum-style validation across the encoded characters, which helps sorting equipment detect a damaged or misprinted barcode."},
+    {"q": "Can I generate Japan Post barcodes in bulk?", "a": "<p>Yes. Upload a CSV of postal codes and address data to Barcode Studio's bulk tool to produce a ZIP of individual barcode images or a single print-ready PDF, one per recipient.</p>"},
+    {"q": "Is this Japan Post barcode generator free to use?", "a": "Yes, Barcode Studio's Japan Post generator runs entirely in your browser with no account required for standard PNG/SVG exports."},
+    {"q": "Can I generate Japan Post barcodes from my own application?", "a": "Yes — call /barcode?type=japanpost&data=YOURDATA through the REST API to generate the barcode image directly from a mailing or shipping system."}
+  ]
+}

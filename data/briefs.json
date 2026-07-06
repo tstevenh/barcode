@@ -1,0 +1,850 @@
+[
+ {
+  "id": "qrcode",
+  "name": "QR Code",
+  "category": "2D Code",
+  "hint": "Any text, URL or data. Most popular 2D code.",
+  "primaryKeyword": "qr code generator",
+  "monthlyVolume": 823000
+ },
+ {
+  "id": "gs1qrcode",
+  "name": "GS1 QR Code",
+  "category": "2D Code",
+  "hint": "",
+  "primaryKeyword": "gs1 qr code generator",
+  "monthlyVolume": 30
+ },
+ {
+  "id": "gs1dlqrcode",
+  "name": "GS1 Digital Link QR Code",
+  "category": "2D Code",
+  "hint": "",
+  "primaryKeyword": "gs1 digital link qr code generator",
+  "monthlyVolume": 10
+ },
+ {
+  "id": "gs1dldatamatrix",
+  "name": "GS1 Digital Link Data Matrix",
+  "category": "2D Code",
+  "hint": "",
+  "primaryKeyword": "gs1 digital link data matrix generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "datamatrix",
+  "name": "Data Matrix",
+  "category": "2D Code",
+  "hint": "Compact 2D code, ideal for small items & industry.",
+  "primaryKeyword": "data matrix generator",
+  "monthlyVolume": 6600
+ },
+ {
+  "id": "gs1datamatrix",
+  "name": "GS1 Data Matrix",
+  "category": "2D Code",
+  "hint": "Data Matrix with GS1 Application Identifiers.",
+  "primaryKeyword": "gs1 data matrix generator",
+  "monthlyVolume": 90
+ },
+ {
+  "id": "pdf417",
+  "name": "PDF417",
+  "category": "2D Code",
+  "hint": "Stacked 2D code used on IDs and shipping labels.",
+  "primaryKeyword": "pdf417 barcode generator",
+  "monthlyVolume": 1000
+ },
+ {
+  "id": "micropdf417",
+  "name": "MicroPDF417",
+  "category": "2D Code",
+  "hint": "Smaller PDF417 for limited space.",
+  "primaryKeyword": "micropdf417 generator",
+  "monthlyVolume": 10
+ },
+ {
+  "id": "azteccode",
+  "name": "Aztec",
+  "category": "2D Code",
+  "hint": "2D code that needs no quiet zone. Used on tickets.",
+  "primaryKeyword": "aztec barcode generator",
+  "monthlyVolume": 590
+ },
+ {
+  "id": "microqr",
+  "name": "Micro QR",
+  "category": "2D Code",
+  "hint": "Smaller QR code for short data.",
+  "primaryKeyword": "micro qr generator",
+  "monthlyVolume": 390
+ },
+ {
+  "id": "maxicode",
+  "name": "MaxiCode",
+  "category": "2D Code",
+  "hint": "Fixed-size 2D code used by couriers (UPS).",
+  "primaryKeyword": "maxicode generator",
+  "monthlyVolume": 20
+ },
+ {
+  "id": "dotcode",
+  "name": "DotCode",
+  "category": "2D Code",
+  "hint": "High-speed 2D dot code for printing lines.",
+  "primaryKeyword": "dotcode generator",
+  "monthlyVolume": 320
+ },
+ {
+  "id": "hanxin",
+  "name": "Han Xin Code",
+  "category": "2D Code",
+  "hint": "2D code with strong Chinese character support.",
+  "primaryKeyword": "han xin code generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "codablockf",
+  "name": "Codablock-F",
+  "category": "2D Code",
+  "hint": "",
+  "primaryKeyword": "codablock-f generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "mailmark2d",
+  "name": "Royal Mail Mailmark 2D",
+  "category": "2D Code",
+  "hint": "",
+  "primaryKeyword": "royal mail mailmark 2d generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "swissqrcode",
+  "name": "Swiss QR Code",
+  "category": "2D Code",
+  "hint": "",
+  "primaryKeyword": "swiss qr code generator",
+  "monthlyVolume": 10
+ },
+ {
+  "id": "zatcaqrcode",
+  "name": "ZATCA QR Code",
+  "category": "2D Code",
+  "hint": "",
+  "primaryKeyword": "zatca qr code generator",
+  "monthlyVolume": 10
+ },
+ {
+  "id": "epcqrcode",
+  "name": "EPC QR Code",
+  "category": "2D Code",
+  "hint": "",
+  "primaryKeyword": "epc qr code generator",
+  "monthlyVolume": 10
+ },
+ {
+  "id": "mecard",
+  "name": "MeCard",
+  "category": "2D Code",
+  "hint": "",
+  "primaryKeyword": "mecard generator",
+  "monthlyVolume": 10
+ },
+ {
+  "id": "ntin",
+  "name": "NTIN Code",
+  "category": "2D Code",
+  "hint": "",
+  "primaryKeyword": "ntin code generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "ppn",
+  "name": "PPN Code",
+  "category": "2D Code",
+  "hint": "",
+  "primaryKeyword": "ppn code generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "hibcqrcode",
+  "name": "HIBC LIC QR Code",
+  "category": "2D Code",
+  "hint": "",
+  "primaryKeyword": "hibc lic qr code generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "hibcdatamatrix",
+  "name": "HIBC LIC Data Matrix",
+  "category": "2D Code",
+  "hint": "",
+  "primaryKeyword": "hibc lic data matrix generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "hibcpdf417",
+  "name": "HIBC LIC PDF417",
+  "category": "2D Code",
+  "hint": "",
+  "primaryKeyword": "hibc lic pdf417 generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "hibccodablockf",
+  "name": "HIBC LIC Codablock-F",
+  "category": "2D Code",
+  "hint": "",
+  "primaryKeyword": "hibc lic codablock-f generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "hibcpasqrcode",
+  "name": "HIBC PAS QR Code",
+  "category": "2D Code",
+  "hint": "",
+  "primaryKeyword": "hibc pas qr code generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "hibcpasdatamatrix",
+  "name": "HIBC PAS Data Matrix",
+  "category": "2D Code",
+  "hint": "",
+  "primaryKeyword": "hibc pas data matrix generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "hibcpaspdf417",
+  "name": "HIBC PAS PDF417",
+  "category": "2D Code",
+  "hint": "",
+  "primaryKeyword": "hibc pas pdf417 generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "CODE128",
+  "name": "Code 128",
+  "category": "Linear Barcode",
+  "hint": "Full ASCII. Compact, great for general use.",
+  "primaryKeyword": "code 128 barcode generator",
+  "monthlyVolume": 1900
+ },
+ {
+  "id": "CODE128A",
+  "name": "Code 128 A",
+  "category": "Linear Barcode",
+  "hint": "Code 128 charset A (uppercase + control).",
+  "primaryKeyword": "code 128 a barcode generator",
+  "monthlyVolume": 1900
+ },
+ {
+  "id": "CODE128B",
+  "name": "Code 128 B",
+  "category": "Linear Barcode",
+  "hint": "Code 128 charset B (full ASCII).",
+  "primaryKeyword": "code 128 b barcode generator",
+  "monthlyVolume": 1900
+ },
+ {
+  "id": "CODE128C",
+  "name": "Code 128 C",
+  "category": "Linear Barcode",
+  "hint": "Code 128 charset C (digit pairs only).",
+  "primaryKeyword": "code 128 c generator",
+  "monthlyVolume": 10
+ },
+ {
+  "id": "CODE39",
+  "name": "Code 39",
+  "category": "Linear Barcode",
+  "hint": "Uppercase, digits and - . $ / + % space.",
+  "primaryKeyword": "code 39 barcode generator",
+  "monthlyVolume": 1000
+ },
+ {
+  "id": "code39ext",
+  "name": "Code-39 Full ASCII",
+  "category": "Linear Barcode",
+  "hint": "",
+  "primaryKeyword": "code-39 full ascii barcode generator",
+  "monthlyVolume": 10
+ },
+ {
+  "id": "code93",
+  "name": "Code 93",
+  "category": "Linear Barcode",
+  "hint": "Compact alphanumeric, denser than Code 39.",
+  "primaryKeyword": "code 93 generator",
+  "monthlyVolume": 10
+ },
+ {
+  "id": "code11",
+  "name": "Code 11",
+  "category": "Linear Barcode",
+  "hint": "Digits and dash. Used in telecom.",
+  "primaryKeyword": "code 11 generator",
+  "monthlyVolume": 10
+ },
+ {
+  "id": "code25",
+  "name": "Standard 2 of 5",
+  "category": "Linear Barcode",
+  "hint": "Standard 2 of 5. Digits only.",
+  "primaryKeyword": "standard 2 of 5 generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "flattermarken",
+  "name": "Flattermarken",
+  "category": "Linear Barcode",
+  "hint": "",
+  "primaryKeyword": "flattermarken generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "ITF",
+  "name": "Interleaved 2 of 5",
+  "category": "Linear Barcode",
+  "hint": "Even number of digits only.",
+  "primaryKeyword": "interleaved 2 of 5 barcode generator",
+  "monthlyVolume": 50
+ },
+ {
+  "id": "ITF14",
+  "name": "ITF-14",
+  "category": "Linear Barcode",
+  "hint": "13 digits (14th check digit auto-added).",
+  "primaryKeyword": "itf-14 barcode generator",
+  "monthlyVolume": 390
+ },
+ {
+  "id": "industrial2of5",
+  "name": "Industrial 2 of 5",
+  "category": "Linear Barcode",
+  "hint": "Industrial 2 of 5. Digits only.",
+  "primaryKeyword": "industrial 2 of 5 generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "iata2of5",
+  "name": "IATA 2 of 5",
+  "category": "Linear Barcode",
+  "hint": "IATA 2 of 5. Used for air cargo.",
+  "primaryKeyword": "iata 2 of 5 generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "matrix2of5",
+  "name": "Matrix 2 of 5",
+  "category": "Linear Barcode",
+  "hint": "Matrix 2 of 5. Digits only.",
+  "primaryKeyword": "matrix 2 of 5 generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "dpdlabel",
+  "name": "DPD Barcode / DPD Parcel Label",
+  "category": "Linear Barcode",
+  "hint": "",
+  "primaryKeyword": "dpd barcode dpd parcel label generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "upus10",
+  "name": "UPU S10",
+  "category": "Linear Barcode",
+  "hint": "",
+  "primaryKeyword": "upu s10 barcode generator",
+  "monthlyVolume": 10
+ },
+ {
+  "id": "MSI",
+  "name": "MSI",
+  "category": "Linear Barcode",
+  "hint": "Digits only. Used in inventory.",
+  "primaryKeyword": "msi generator",
+  "monthlyVolume": 10
+ },
+ {
+  "id": "MSI10",
+  "name": "MSI Mod 10",
+  "category": "Linear Barcode",
+  "hint": "MSI with mod-10 check digit.",
+  "primaryKeyword": "msi mod 10 generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "MSI11",
+  "name": "MSI Mod 11",
+  "category": "Linear Barcode",
+  "hint": "MSI with mod-11 check digit.",
+  "primaryKeyword": "msi mod 11 generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "code32",
+  "name": "Code 32 (Italian)",
+  "category": "Linear Barcode",
+  "hint": "Italian pharmaceutical code (8 digits).",
+  "primaryKeyword": "code 32 italian generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "pharmacode",
+  "name": "Pharmacode",
+  "category": "Linear Barcode",
+  "hint": "A number from 3 to 131070.",
+  "primaryKeyword": "pharmacode generator",
+  "monthlyVolume": 30
+ },
+ {
+  "id": "pharmacode2",
+  "name": "Pharmacode 2-track",
+  "category": "Linear Barcode",
+  "hint": "Two-track pharmacode.",
+  "primaryKeyword": "pharmacode 2-track generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "codabar",
+  "name": "Codabar",
+  "category": "Linear Barcode",
+  "hint": "Digits and - $ : / . + , optional A-D wrap.",
+  "primaryKeyword": "codabar generator",
+  "monthlyVolume": 40
+ },
+ {
+  "id": "telepen",
+  "name": "Telepen",
+  "category": "Linear Barcode",
+  "hint": "Encodes full ASCII. Used in libraries.",
+  "primaryKeyword": "telepen barcode generator",
+  "monthlyVolume": 10
+ },
+ {
+  "id": "channelcode",
+  "name": "Channel Code",
+  "category": "Linear Barcode",
+  "hint": "Compact code for 2–7 digits.",
+  "primaryKeyword": "channel code generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "bc412",
+  "name": "BC412",
+  "category": "Linear Barcode",
+  "hint": "12-level code used in semiconductors.",
+  "primaryKeyword": "bc412 generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "pzn",
+  "name": "PZN (Pharma)",
+  "category": "Linear Barcode",
+  "hint": "German pharmaceutical number (PZN).",
+  "primaryKeyword": "pzn pharma generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "gs1-128",
+  "name": "GS1-128",
+  "category": "Linear Barcode",
+  "hint": "Code 128 with GS1 Application Identifiers.",
+  "primaryKeyword": "gs1-128 barcode generator",
+  "monthlyVolume": 140
+ },
+ {
+  "id": "gs1-128composite",
+  "name": "GS1-128 Composite Symbology",
+  "category": "Linear Barcode",
+  "hint": "",
+  "primaryKeyword": "gs1-128 composite symbology generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "hibccode39",
+  "name": "HIBC LIC Code 39",
+  "category": "Linear Barcode",
+  "hint": "",
+  "primaryKeyword": "hibc lic code 39 generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "hibccode128",
+  "name": "HIBC LIC Code 128",
+  "category": "Linear Barcode",
+  "hint": "",
+  "primaryKeyword": "hibc lic code 128 generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "hibcpascode39",
+  "name": "HIBC PAS Code 39",
+  "category": "Linear Barcode",
+  "hint": "",
+  "primaryKeyword": "hibc pas code 39 generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "hibcpascode128",
+  "name": "HIBC PAS Code 128",
+  "category": "Linear Barcode",
+  "hint": "",
+  "primaryKeyword": "hibc pas code 128 generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "databaromni",
+  "name": "DataBar Omni",
+  "category": "GS1 DataBar",
+  "hint": "GS1 DataBar Omnidirectional. Use GS1 AI (01)+GTIN, e.g. (01)09521234543213.",
+  "primaryKeyword": "databar omni generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "databarstacked",
+  "name": "DataBar Stacked",
+  "category": "GS1 DataBar",
+  "hint": "GS1 DataBar Stacked. Use GS1 AI (01)+GTIN, e.g. (01)09521234543213.",
+  "primaryKeyword": "databar stacked generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "databarstackedomni",
+  "name": "DataBar Stacked Omni",
+  "category": "GS1 DataBar",
+  "hint": "GS1 DataBar Stacked Omnidirectional.",
+  "primaryKeyword": "databar stacked omni generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "databartruncated",
+  "name": "DataBar Truncated",
+  "category": "GS1 DataBar",
+  "hint": "GS1 DataBar Truncated. Use GS1 AI (01)+GTIN, e.g. (01)09521234543213.",
+  "primaryKeyword": "databar truncated generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "databarlimited",
+  "name": "DataBar Limited",
+  "category": "GS1 DataBar",
+  "hint": "GS1 DataBar Limited. Use (01)+GTIN starting with 0 or 1.",
+  "primaryKeyword": "databar limited generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "databarexpanded",
+  "name": "DataBar Expanded",
+  "category": "GS1 DataBar",
+  "hint": "GS1 DataBar Expanded. AI data.",
+  "primaryKeyword": "databar expanded generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "databarexpandedstacked",
+  "name": "GS1 DataBar Expanded Stacked",
+  "category": "GS1 DataBar",
+  "hint": "",
+  "primaryKeyword": "gs1 databar expanded stacked generator",
+  "monthlyVolume": 10
+ },
+ {
+  "id": "databaromnicomposite",
+  "name": "GS1 DataBar Composite",
+  "category": "GS1 DataBar",
+  "hint": "",
+  "primaryKeyword": "gs1 databar composite generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "databarstackedcomposite",
+  "name": "GS1 DataBar Stacked Composite",
+  "category": "GS1 DataBar",
+  "hint": "",
+  "primaryKeyword": "gs1 databar stacked composite generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "databarstackedomnicomposite",
+  "name": "GS1 DataBar Stacked Omni Composite",
+  "category": "GS1 DataBar",
+  "hint": "",
+  "primaryKeyword": "gs1 databar stacked omni composite generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "databarlimitedcomposite",
+  "name": "GS1 DataBar Limited Composite",
+  "category": "GS1 DataBar",
+  "hint": "",
+  "primaryKeyword": "gs1 databar limited composite generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "databartruncatedcomposite",
+  "name": "GS1 DataBar Truncated Composite",
+  "category": "GS1 DataBar",
+  "hint": "",
+  "primaryKeyword": "gs1 databar truncated composite generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "databarexpandedcomposite",
+  "name": "GS1 DataBar Expanded Composite",
+  "category": "GS1 DataBar",
+  "hint": "",
+  "primaryKeyword": "gs1 databar expanded composite generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "databarexpandedstackedcomposite",
+  "name": "GS1 DataBar Expanded Stacked Composite",
+  "category": "GS1 DataBar",
+  "hint": "",
+  "primaryKeyword": "gs1 databar expanded stacked composite generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "gs1-cc",
+  "name": "GS1 Composite 2D Component",
+  "category": "GS1 DataBar",
+  "hint": "",
+  "primaryKeyword": "gs1 composite 2d component generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "postnet",
+  "name": "USPS POSTNET",
+  "category": "Postal Code",
+  "hint": "USPS POSTNET. ZIP digits.",
+  "primaryKeyword": "usps postnet barcode generator",
+  "monthlyVolume": 10
+ },
+ {
+  "id": "planet",
+  "name": "USPS PLANET",
+  "category": "Postal Code",
+  "hint": "USPS PLANET. Tracking digits.",
+  "primaryKeyword": "usps planet generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "onecode",
+  "name": "USPS Intelligent Mail",
+  "category": "Postal Code",
+  "hint": "USPS Intelligent Mail (IMb), 20–31 digits.",
+  "primaryKeyword": "usps intelligent mail barcode generator",
+  "monthlyVolume": 70
+ },
+ {
+  "id": "uspsimpackage",
+  "name": "USPS IM Package",
+  "category": "Postal Code",
+  "hint": "",
+  "primaryKeyword": "usps im package generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "royalmail",
+  "name": "Royal Mail 4-State",
+  "category": "Postal Code",
+  "hint": "Royal Mail 4-State (RM4SCC).",
+  "primaryKeyword": "royal mail 4-state generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "mailmark4state",
+  "name": "Royal Mail Mailmark 4-State",
+  "category": "Postal Code",
+  "hint": "",
+  "primaryKeyword": "royal mail mailmark 4-state generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "daft",
+  "name": "DAFT",
+  "category": "Postal Code",
+  "hint": "",
+  "primaryKeyword": "daft generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "kix",
+  "name": "Royal Dutch KIX",
+  "category": "Postal Code",
+  "hint": "Royal Dutch TNT KIX code.",
+  "primaryKeyword": "royal dutch kix generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "auspost",
+  "name": "Australia Post",
+  "category": "Postal Code",
+  "hint": "Australia Post 4-State customer code.",
+  "primaryKeyword": "australia post barcode generator",
+  "monthlyVolume": 10
+ },
+ {
+  "id": "japanpost",
+  "name": "Japan Post",
+  "category": "Postal Code",
+  "hint": "Japan Post 4-State code.",
+  "primaryKeyword": "japan post generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "koreapost",
+  "name": "Korean Postal Authority Code",
+  "category": "Postal Code",
+  "hint": "",
+  "primaryKeyword": "korean postal authority code generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "identcode",
+  "name": "Deutsche Post Identcode",
+  "category": "Postal Code",
+  "hint": "Deutsche Post Identcode.",
+  "primaryKeyword": "deutsche post identcode generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "leitcode",
+  "name": "Deutsche Post Leitcode",
+  "category": "Postal Code",
+  "hint": "Deutsche Post Leitcode.",
+  "primaryKeyword": "deutsche post leitcode generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "EAN13",
+  "name": "EAN-13",
+  "category": "Retail (EAN / UPC)",
+  "hint": "12 digits (13th check digit auto-added).",
+  "primaryKeyword": "ean-13 generator",
+  "monthlyVolume": 110
+ },
+ {
+  "id": "EAN8",
+  "name": "EAN-8",
+  "category": "Retail (EAN / UPC)",
+  "hint": "7 digits (8th check digit auto-added).",
+  "primaryKeyword": "ean-8 barcode generator",
+  "monthlyVolume": 20
+ },
+ {
+  "id": "EAN5",
+  "name": "EAN-5 add-on",
+  "category": "Retail (EAN / UPC)",
+  "hint": "Exactly 5 digits.",
+  "primaryKeyword": "ean-5 add-on generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "EAN2",
+  "name": "EAN-2 add-on",
+  "category": "Retail (EAN / UPC)",
+  "hint": "Exactly 2 digits.",
+  "primaryKeyword": "ean-2 add-on generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "UPC",
+  "name": "UPC-A",
+  "category": "Retail (EAN / UPC)",
+  "hint": "11 digits (12th check digit auto-added).",
+  "primaryKeyword": "upc-a generator",
+  "monthlyVolume": 40500
+ },
+ {
+  "id": "UPCE",
+  "name": "UPC-E",
+  "category": "Retail (EAN / UPC)",
+  "hint": "Compressed UPC, 6–11 digits.",
+  "primaryKeyword": "upc-e barcode generator",
+  "monthlyVolume": 30
+ },
+ {
+  "id": "ean14",
+  "name": "EAN-14",
+  "category": "Retail (EAN / UPC)",
+  "hint": "",
+  "primaryKeyword": "ean-14 barcode generator",
+  "monthlyVolume": 20
+ },
+ {
+  "id": "ean8composite",
+  "name": "EAN-8 Composite",
+  "category": "Retail (EAN / UPC)",
+  "hint": "",
+  "primaryKeyword": "ean-8 composite generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "ean13composite",
+  "name": "EAN-13 Composite",
+  "category": "Retail (EAN / UPC)",
+  "hint": "",
+  "primaryKeyword": "ean-13 composite generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "upcacomposite",
+  "name": "UPC-A Composite",
+  "category": "Retail (EAN / UPC)",
+  "hint": "",
+  "primaryKeyword": "upc-a composite generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "upcecomposite",
+  "name": "UPC-E Composite",
+  "category": "Retail (EAN / UPC)",
+  "hint": "",
+  "primaryKeyword": "upc-e composite generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "isbn",
+  "name": "ISBN",
+  "category": "Retail (EAN / UPC)",
+  "hint": "Book number (EAN-13 based).",
+  "primaryKeyword": "isbn barcode generator",
+  "monthlyVolume": 720
+ },
+ {
+  "id": "isbn13addon5",
+  "name": "ISBN-13 + 5 add-on",
+  "category": "Retail (EAN / UPC)",
+  "hint": "",
+  "primaryKeyword": "isbn-13 5 add-on generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "issn",
+  "name": "ISSN",
+  "category": "Retail (EAN / UPC)",
+  "hint": "Serial publication number.",
+  "primaryKeyword": "issn barcode generator",
+  "monthlyVolume": 390
+ },
+ {
+  "id": "issnaddon2",
+  "name": "ISSN + 2 add-on",
+  "category": "Retail (EAN / UPC)",
+  "hint": "",
+  "primaryKeyword": "issn 2 add-on generator",
+  "monthlyVolume": 0
+ },
+ {
+  "id": "ismn",
+  "name": "ISMN",
+  "category": "Retail (EAN / UPC)",
+  "hint": "Music publication number.",
+  "primaryKeyword": "ismn barcode generator",
+  "monthlyVolume": 10
+ }
+]

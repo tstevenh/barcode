@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ITF-14 Barcode Generator | Barcode Studio</title>
+<meta name="description" content="Create ITF-14 barcodes free with our itf-14 barcode generator. Enter 13 digits, check digit auto-added. GS1 case coding with live preview and export." />
+<meta name="theme-color" content="#0b1220" />
+<link rel="canonical" href="https://lawbarcode.vercel.app/itf-14" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="ITF-14 Generator | Barcode Studio" />
+<meta property="og:description" content="Create ITF-14 barcodes free with our itf-14 barcode generator. Enter 13 digits, check digit auto-added. GS1 case coding with live preview and export." />
+<meta property="og:url" content="https://lawbarcode.vercel.app/itf-14" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1220'/%3E%3Cg fill='white'%3E%3Crect x='6' y='8' width='2' height='16'/%3E%3Crect x='9' y='8' width='1' height='16'/%3E%3Crect x='11' y='8' width='3' height='16'/%3E%3Crect x='15' y='8' width='1' height='16'/%3E%3Crect x='17' y='8' width='2' height='16'/%3E%3Crect x='20' y='8' width='1' height='16'/%3E%3Crect x='22' y='8' width='3' height='16'/%3E%3Crect x='26' y='8' width='1' height='16'/%3E%3C/g%3E%3C/svg%3E" />
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://lawbarcode.vercel.app/"},{"@type":"ListItem","position":2,"name":"Barcode Types","item":"https://lawbarcode.vercel.app/barcodes"},{"@type":"ListItem","position":3,"name":"ITF-14 Generator","item":"https://lawbarcode.vercel.app/itf-14"}]},{"@type":"SoftwareApplication","name":"ITF-14 Generator","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://lawbarcode.vercel.app/itf-14"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many digits do I enter for an ITF-14 barcode generator?","acceptedAnswer":{"@type":"Answer","text":"You enter 13 digits — the itf-14 barcode generator calculates and appends the 14th check digit automatically using GS1's modulo-10 algorithm, so you should not add your own final digit."}},{"@type":"Question","name":"What are the thick bars around an ITF-14 barcode?","acceptedAnswer":{"@type":"Answer","text":"Those are bearer bars, a required part of the ITF-14 specification. They frame the barcode to help it withstand the print distortion and handling wear common on corrugated cardboard cases."}},{"@type":"Question","name":"Is ITF-14 the same as a UPC barcode?","acceptedAnswer":{"@type":"Answer","text":"No. UPC identifies individual retail items sold at point of sale, while ITF-14 identifies cases or cartons containing multiple units, one level up in the supply chain hierarchy."}},{"@type":"Question","name":"What happens if I enter the wrong 13 digits?","acceptedAnswer":{"@type":"Answer","text":"The generator will still produce a valid, internally consistent ITF-14 barcode with a correct check digit — but it will represent the wrong product or case, since the check digit only validates the digits you entered, not their real-world accuracy."}},{"@type":"Question","name":"Can I generate ITF-14 barcodes for multiple case types at once?","acceptedAnswer":{"@type":"Answer","text":"Yes, use Barcode Studio's bulk CSV → ZIP/PDF tool to generate ITF-14 barcodes for a full list of 13-digit GTINs in one pass, or the batch/sequence tool for a numbered series."}}]}]}</script>
+<link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="/css/bulk-api.css" />
+<script src="/js/qr-local.js"></script>
+<script>
+(function () {
+  function hasJsBarcode() { return typeof window.JsBarcode === "function"; }
+  function hasBwip() { return !!(window.bwipjs && typeof window.bwipjs.toCanvas === "function"); }
+  function hasPdf() { var ns = window.jspdf || window.jsPDF; return !!(ns && (ns.jsPDF || ns)); }
+  function loadScript(src, check, timeoutMs) {
+    return new Promise(function (resolve) {
+      if (check()) return resolve(true);
+      var done = false;
+      var s = document.createElement("script");
+      var t = setTimeout(function () { finish(check()); }, timeoutMs || 2500);
+      function finish(ok) {
+        if (done) return;
+        done = true;
+        clearTimeout(t);
+        try { if (!ok && s.parentNode) s.parentNode.removeChild(s); } catch (e) {}
+        resolve(!!ok || check());
+      }
+      s.async = false;
+      s.onload = function () { finish(true); };
+      s.onerror = function () { finish(false); };
+      s.src = src;
+      document.head.appendChild(s);
+    });
+  }
+  async function loadAny(urls, check) {
+    for (var i = 0; i < urls.length; i++) {
+      if (await loadScript(urls[i], check, 2500)) return true;
+    }
+    return check();
+  }
+  window.__barcodeLibs = {
+    jsbarcode: loadAny([
+      "https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js",
+      "https://unpkg.com/jsbarcode@3.11.6/dist/JsBarcode.all.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"
+    ], hasJsBarcode),
+    bwip: loadAny([
+      "https://cdn.jsdelivr.net/npm/bwip-js@4.11.1/dist/bwip-js-min.js",
+      "https://unpkg.com/bwip-js@4.11.1/dist/bwip-js-min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/bwip-js/4.7.0/bwip-js-min.js"
+    ], hasBwip),
+    pdf: loadAny([
+      "https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js",
+      "https://unpkg.com/jspdf@2.5.1/dist/jspdf.umd.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+    ], hasPdf)
+  };
+  window.__barcodeLibsReady = Promise.all([window.__barcodeLibs.jsbarcode, window.__barcodeLibs.bwip, window.__barcodeLibs.pdf]).then(function (r) {
+    return { jsbarcode: r[0], bwip: r[1], pdf: r[2], qr: !!(window.QRCode && typeof window.QRCode.toCanvas === "function") };
+  });
+})();
+</script>
+<script>window.BARCODE_HAS_API = true;</script>
+<script src="/js/i18n.js"></script>
+<script src="/js/i18n-extra.js"></script>
+</head>
+<body>
+  <div class="loader" id="loader"><div class="loader-bars"><span></span><span></span><span></span><span></span><span></span></div><p data-i18n="loaderText">Loading Barcode Studio…</p></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <div>
+        <h1>Barcode Studio</h1>
+        <p data-i18n="brandTagline">Free Online Barcode &amp; QR Code Generator</p>
+      </div>
+    </div>
+    <nav class="top-actions">
+      <a href="#generator" class="btn btn-ghost" data-i18n="navGenerator">Generator</a>
+      <a href="#bulk" class="btn btn-ghost" data-i18n="navBulk">Bulk</a>
+      <a href="/barcodes" class="btn btn-ghost" data-i18n="navTypes">All barcodes</a>
+      <a href="/api-docs.html" class="btn btn-ghost" data-i18n="navApi">API Docs</a>
+      <button class="btn btn-ghost" id="resetBtn" data-i18n="navReset">Reset</button>
+      <button class="btn btn-ghost" id="printBtn" data-i18n="navPrint">Print</button>
+      <div class="lang-wrap">
+        <span class="globe" aria-hidden="true">🌐</span>
+        <select id="langSelect" class="lang-select" aria-label="Language"></select>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-content">
+      <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/barcodes">Barcodes</a><span>/</span><span>ITF-14</span></nav>
+      <span class="eyebrow">Linear Barcode</span>
+      <h1>ITF-14 <span class="grad-text">Generator</span></h1>
+      <p>ITF-14 is the GS1 standard for labeling shipping cases and cartons, encoding a 14-digit GTIN with the check digit calculated automatically.</p>
+      <a href="#generator" class="btn btn-primary btn-lg">Open the generator ↓</a>
+    </div>
+  </section>
+
+  <div class="app" id="generator">
+    <aside class="sidebar reveal">
+      <div class="sidebar-search">
+        <input type="text" id="typeSearch" data-i18n-ph="searchPh" placeholder="Search symbology…" />
+      </div>
+      <div class="type-list" id="typeList"></div>
+    </aside>
+
+    <main class="main">
+      <section class="card reveal">
+        <div class="card-head">
+          <h2 data-i18n="dataHeading">Data</h2>
+          <span class="pill" id="activeType">Code 128</span>
+        </div>
+        <div class="prop-row ct-row" id="contentTypeRow" hidden>
+          <label data-i18n="contentType">Content type</label>
+          <select id="ctSelect">
+            <option value="text" data-i18n="ctText">Text</option>
+            <option value="url" data-i18n="ctUrl">URL / Link</option>
+            <option value="wifi" data-i18n="ctWifi">WiFi network</option>
+            <option value="vcard" data-i18n="ctVcard">Contact (vCard)</option>
+            <option value="email" data-i18n="ctEmail">Email</option>
+            <option value="sms" data-i18n="ctSms">SMS</option>
+            <option value="tel" data-i18n="ctTel">Phone</option>
+            <option value="geo" data-i18n="ctGeo">Location</option>
+            <option value="event" data-i18n="ctEvent">Calendar event</option>
+          </select>
+        </div>
+        <textarea id="data" rows="3" data-i18n-ph="dataPh" placeholder="Enter the data to encode…">Barcode Studio</textarea>
+        <div class="builder" id="builderFields" hidden>
+          <div class="ct-block" data-ct="wifi">
+            <label class="fld"><span data-i18n="fSsid">Network name (SSID)</span><input type="text" id="wSsid" value="MyNetwork" /></label>
+            <label class="fld"><span data-i18n="fPassword">Password</span><input type="text" id="wPass" value="password123" /></label>
+            <label class="fld"><span data-i18n="fEncryption">Encryption</span>
+              <select id="wEnc"><option value="WPA">WPA/WPA2</option><option value="WEP">WEP</option><option value="nopass" data-i18n="encNone">None</option></select>
+            </label>
+            <label class="switch"><input type="checkbox" id="wHidden" /> <span data-i18n="fHidden">Hidden network</span></label>
+          </div>
+          <div class="ct-block" data-ct="vcard">
+            <label class="fld"><span data-i18n="fFirstName">First name</span><input type="text" id="vFirst" value="John" /></label>
+            <label class="fld"><span data-i18n="fLastName">Last name</span><input type="text" id="vLast" value="Doe" /></label>
+            <label class="fld"><span data-i18n="fOrg">Organization</span><input type="text" id="vOrg" /></label>
+            <label class="fld"><span data-i18n="fJobTitle">Job title</span><input type="text" id="vTitle" /></label>
+            <label class="fld"><span data-i18n="fPhone">Phone</span><input type="text" id="vPhone" value="+1 555 0100" /></label>
+            <label class="fld"><span data-i18n="fEmail">Email</span><input type="text" id="vEmail" value="john@example.com" /></label>
+            <label class="fld"><span data-i18n="fWebsite">Website</span><input type="text" id="vUrl" /></label>
+            <label class="fld"><span data-i18n="fAddress">Address</span><input type="text" id="vAddr" /></label>
+          </div>
+          <div class="ct-block" data-ct="email">
+            <label class="fld"><span data-i18n="fTo">To</span><input type="text" id="eTo" value="hello@example.com" /></label>
+            <label class="fld"><span data-i18n="fSubject">Subject</span><input type="text" id="eSub" /></label>
+            <label class="fld"><span data-i18n="fBody">Message</span><input type="text" id="eBody" /></label>
+          </div>
+          <div class="ct-block" data-ct="sms">
+            <label class="fld"><span data-i18n="fNumber">Number</span><input type="text" id="sNum" value="+15550100" /></label>
+            <label class="fld"><span data-i18n="fMessage">Message</span><input type="text" id="sMsg" value="Hello" /></label>
+          </div>
+          <div class="ct-block" data-ct="tel">
+            <label class="fld"><span data-i18n="fNumber">Number</span><input type="text" id="tNum" value="+15550100" /></label>
+          </div>
+          <div class="ct-block" data-ct="geo">
+            <label class="fld"><span data-i18n="fLat">Latitude</span><input type="text" id="gLat" value="40.7128" /></label>
+            <label class="fld"><span data-i18n="fLong">Longitude</span><input type="text" id="gLng" value="-74.0060" /></label>
+          </div>
+          <div class="ct-block" data-ct="event">
+            <label class="fld"><span data-i18n="fEventTitle">Event title</span><input type="text" id="cTitle" value="Meeting" /></label>
+            <label class="fld"><span data-i18n="fLocation">Location</span><input type="text" id="cLoc" /></label>
+            <label class="fld"><span data-i18n="fStart">Start</span><input type="datetime-local" id="cStart" /></label>
+            <label class="fld"><span data-i18n="fEnd">End</span><input type="datetime-local" id="cEnd" /></label>
+            <label class="fld"><span data-i18n="fDescription">Description</span><input type="text" id="cDesc" /></label>
+          </div>
+        </div>
+        <p class="hint" id="typeHint"></p>
+
+        <div class="seq">
+          <label class="switch">
+            <input type="checkbox" id="seqEnable" /> <span data-i18n="seqToggle">Batch / sequence mode</span>
+          </label>
+          <div class="seq-fields" id="seqFields">
+            <label><span data-i18n="seqCount">Count</span> <input type="number" id="seqCount" min="2" max="100" value="5" /></label>
+            <label><span data-i18n="seqStart">Start #</span> <input type="number" id="seqStart" value="1" /></label>
+            <label><span data-i18n="seqPrefix">Prefix</span> <input type="text" id="seqPrefix" placeholder="ABC-" /></label>
+            <label><span data-i18n="seqPad">Pad</span> <input type="number" id="seqPad" min="0" max="12" value="4" /></label>
+          </div>
+        </div>
+      </section>
+
+      <section class="card preview-card reveal">
+        <div class="card-head">
+          <h2 data-i18n="previewHeading">Preview</h2>
+          <div class="preview-tools">
+            <button class="chip" data-zoom="out" title="Zoom out">−</button>
+            <span id="zoomLabel">100%</span>
+            <button class="chip" data-zoom="in" title="Zoom in">+</button>
+          </div>
+        </div>
+        <div class="preview-stage">
+          <div id="preview" class="preview-inner"></div>
+        </div>
+        <div class="download-row">
+          <button class="btn btn-primary" id="dlPng">⬇ PNG</button>
+          <button class="btn btn-secondary" id="dlSvg">⬇ SVG</button>
+          <button class="btn btn-soft" id="copyBtn">📋 Copy</button>
+          <button class="btn btn-soft" id="dlZip" hidden>⬇ ZIP (batch)</button>
+        </div>
+      </section>
+
+      <section class="card bulk-card reveal" id="bulk">
+        <div class="card-head">
+          <h2 data-i18n="bulkHeading">Bulk generate</h2>
+          <span class="pill" data-i18n="bulkBadge">CSV \u2192 ZIP / PDF</span>
+        </div>
+        <p class="hint" data-i18n="bulkDesc">Upload a CSV/TXT file or paste values to generate hundreds of barcodes at once.</p>
+        <div class="bulk-grid">
+          <label class="bulk-file">
+            <input type="file" id="bulkFile" accept=".csv,.txt,text/csv,text/plain" />
+            <span data-i18n="bulkUpload">\u2b06 Upload CSV / TXT</span>
+          </label>
+          <textarea id="bulkPaste" rows="4" data-i18n-ph="bulkPastePh" placeholder="\u2026or paste values here, one per line"></textarea>
+        </div>
+        <div class="bulk-opts">
+          <label class="switch"><input type="checkbox" id="bulkHeader" /> <span data-i18n="bulkHeaderLbl">First row is a header</span></label>
+          <label class="bulk-sel"><span data-i18n="bulkDataColLbl">Data column</span><select id="bulkDataCol"></select></label>
+          <label class="bulk-sel"><span data-i18n="bulkLabelColLbl">Label / filename</span><select id="bulkLabelCol"></select></label>
+          <label class="bulk-sel"><span data-i18n="bulkPdfColsLbl">PDF columns</span><input type="number" id="bulkPdfCols" min="1" max="6" value="3" /></label>
+        </div>
+        <p class="bulk-info" id="bulkInfo"></p>
+        <div class="bulk-progress" id="bulkProgress" hidden><div class="bulk-bar" id="bulkBar"></div></div>
+        <div class="download-row">
+          <button class="btn btn-primary" id="bulkGenBtn" data-i18n="bulkGenerate">\u2699 Generate</button>
+          <button class="btn btn-secondary" id="bulkDlZip" hidden data-i18n="bulkDlZip">\u2b07 ZIP (PNG)</button>
+          <button class="btn btn-secondary" id="bulkDlPdf" hidden data-i18n="bulkDlPdf">\u2b07 PDF sheet</button>
+        </div>
+      </section>
+    </main>
+
+    <aside class="props reveal">
+      <h2 data-i18n="propsHeading">Properties</h2>
+
+      <div class="prop-group" id="linearProps">
+        <div class="prop-row">
+          <label data-i18n="pBarWidth">Bar width</label>
+          <input type="range" id="barWidth" min="1" max="6" step="0.5" value="2" />
+          <output id="barWidthV">2</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pHeight">Height</label>
+          <input type="range" id="barHeight" min="20" max="240" step="5" value="100" />
+          <output id="barHeightV">100</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pFontSize">Font size</label>
+          <input type="range" id="fontSize" min="8" max="40" step="1" value="18" />
+          <output id="fontSizeV">18</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pTextAlign">Text align</label>
+          <select id="textAlign">
+            <option value="center" selected data-i18n="optCenter">Center</option>
+            <option value="left" data-i18n="optLeft">Left</option>
+            <option value="right" data-i18n="optRight">Right</option>
+          </select>
+        </div>
+        <label class="switch"><input type="checkbox" id="displayValue" checked /> <span data-i18n="pShowText">Show human-readable text</span></label>
+      </div>
+
+      <div class="prop-group" id="qrProps" hidden>
+        <div class="prop-row">
+          <label data-i18n="pSize">Size</label>
+          <input type="range" id="qrSize" min="120" max="640" step="20" value="300" />
+          <output id="qrSizeV">300</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pErrCorr">Error corr.</label>
+          <select id="qrEcc">
+            <option value="L">L – 7%</option>
+            <option value="M" selected>M – 15%</option>
+            <option value="Q">Q – 25%</option>
+            <option value="H">H – 30%</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="prop-group" id="twoDProps" hidden>
+        <div class="prop-row">
+          <label data-i18n="pScale">Scale</label>
+          <input type="range" id="tdScale" min="2" max="10" step="1" value="4" />
+          <output id="tdScaleV">4</output>
+        </div>
+        <div class="prop-row" id="bwipHeightRow" style="display:none">
+          <label data-i18n="pHeightMm">Height (mm)</label>
+          <input type="range" id="bwipHeight" min="5" max="40" step="1" value="12" />
+          <output id="bwipHeightV">12</output>
+        </div>
+        <div class="prop-row" id="pdfColsRow">
+          <label data-i18n="pPdfCols">PDF columns</label>
+          <input type="range" id="pdfCols" min="0" max="12" step="1" value="0" />
+          <output id="pdfColsV">auto</output>
+        </div>
+        <label class="switch" id="bwipTextRow" style="display:none"><input type="checkbox" id="bwipText" /> <span data-i18n="pShowText">Show human-readable text</span></label>
+      </div>
+
+      <div class="prop-group">
+        <div class="prop-row two">
+          <div>
+            <label data-i18n="pForeground">Foreground</label>
+            <input type="color" id="fg" value="#000000" />
+          </div>
+          <div>
+            <label data-i18n="pBackground">Background</label>
+            <input type="color" id="bg" value="#ffffff" />
+          </div>
+        </div>
+        <label class="switch"><input type="checkbox" id="transparent" /> <span data-i18n="pTransparent">Transparent background</span></label>
+        <div class="prop-row">
+          <label data-i18n="pMargin">Margin</label>
+          <input type="range" id="margin" min="0" max="40" step="2" value="10" />
+          <output id="marginV">10</output>
+        </div>
+      </div>
+
+      <div class="prop-group">
+        <p class="prop-note" id="status"></p>
+      </div>
+    </aside>
+  </div>
+
+    <article class="seo-section">
+    <div class="seo-wrap">
+      <h2>What Is an ITF-14 Barcode?</h2>
+      <p>ITF-14 is the GS1-standardized barcode used to identify cases, cartons, and other trade units in the shipping and distribution supply chain — the level above individual retail items, which typically use UPC or EAN codes. It's built on the Interleaved 2 of 5 (ITF) symbology but with a fixed structure: a 14-digit GTIN (Global Trade Item Number) where you supply the first 13 digits and the 14th is a check digit calculated automatically using a standard modulo-10 algorithm. ITF-14 barcodes are also typically printed with thick bounding bars — called bearer bars — around the entire symbol, which help protect against the print distortion common on corrugated cardboard.</p><p>If you've ever seen a barcode with heavy black borders on a shipping case, that's almost certainly ITF-14. It's designed from the ground up for exactly that use case: printing directly on cardboard cartons that move through warehouses and distribution centers.</p>
+      <h2>How ITF-14 Encodes Data</h2>
+      <p>ITF-14 uses the same interleaved bars-and-spaces mechanism as general Interleaved 2 of 5, pairing two digits into each set of bars and spaces — but it fixes the total length at exactly 14 digits, which conveniently is always even and never requires padding. The structure typically breaks down as: a leading <strong>indicator digit</strong> (often representing packaging level, like a case versus an inner pack), the manufacturer's <strong>company prefix and item reference</strong> making up the middle digits, and a final <strong>check digit</strong> calculated over the preceding 13 digits using GS1's modulo-10 weighting (alternating multipliers of 3 and 1).</p><p>Because the check digit is mathematically derived, you should only supply the first 13 digits when generating an ITF-14 barcode — appending your own 14th digit risks creating an invalid or mismatched checksum. The mandatory bearer bars (the thick border framing the code) aren't just cosmetic; they're part of the GS1 specification and help the barcode survive the print distortion and handling wear typical of cardboard shipping cases.</p>
+      <h2>Where ITF-14 Is Used</h2>
+      <p>ITF-14 is specifically the case/carton-level identifier in the GS1 supply chain hierarchy:</p><ul><li><strong>Shipping cartons and cases</strong> — the primary and defining use, identifying a case of multiple retail units as it moves through distribution.</li><li><strong>Pallet and mixed-case labeling</strong> in warehouse management systems, often alongside other GS1-128 data like batch number or ship date.</li><li><strong>Retail distribution centers</strong> scanning inbound cases against purchase orders and advance ship notices.</li><li><strong>Manufacturing and CPG (consumer packaged goods) logistics</strong> where products move from factory to distributor to retailer in standardized case quantities.</li><li><strong>Cross-docking operations</strong> where speed and scan reliability directly affect throughput.</li></ul>
+      <h2>ITF-14 Technical Specifications</h2>
+      <p>ITF-14 is defined by GS1's General Specifications, built on the ISO/IEC 16390 Interleaved 2 of 5 symbology but constrained to exactly 14 digits — no more, no less. The first 13 digits comprise a packaging-level indicator digit followed by the GS1 Company Prefix and item reference; the 14th is a mandatory check digit calculated with GS1's standard modulo-10 algorithm using alternating weights of 3 and 1. Mandatory bearer bars (a thick rectangular border) frame the entire symbol per the GS1 specification, distinguishing ITF-14 visually from general-purpose ITF. GS1 also specifies minimum bar height, minimum quiet zone width, and minimum overall symbol dimensions scaled to typical case-scanning distances.</p>
+      <h2>How to Create an ITF-14 Barcode in Barcode Studio</h2>
+      <p>Select <strong>ITF-14</strong> from Barcode Studio's symbology list. Enter the first <strong>13 digits</strong> of your GTIN — the 14th check digit is calculated and appended automatically, so don't include it yourself. The live preview renders the full 14-digit barcode, including the standard bearer bars, as you type. From there:</p><ul><li>Adjust <strong>bar width</strong> carefully — GS1 specifies minimum size requirements for ITF-14 to ensure scannability on cardboard, so avoid shrinking below recommended dimensions for your print substrate.</li><li>Set <strong>height</strong> and confirm <strong>human-readable text</strong> displays the full 14-digit number beneath the bars for manual verification.</li><li>Keep the default bearer bars enabled — they're part of the standard, not optional decoration, and help the code survive handling and print wear on cartons.</li><li>Confirm the <strong>quiet zone</strong> margin, which the bearer bars help enforce automatically in most GS1-compliant designs.</li><li>Export as <strong>PNG, SVG, or PDF</strong>, or use <strong>Copy</strong> to place directly into carton artwork files.</li></ul><p>For sequential case codes across a production run, use the <strong>batch/sequence</strong> tool. For generating labels for many different case GTINs at once, the <strong>bulk CSV → ZIP/PDF</strong> feature processes a spreadsheet of 13-digit values into a complete set of ITF-14 barcodes. Developers can integrate ITF-14 generation into ERP or warehouse systems via the <strong>REST API</strong> using <code>/barcode?type=itf14&data=YOURDATA</code>.</p>
+      <h2>Print and Scan Best Practices</h2>
+      <p>Because ITF-14 is built specifically for cardboard case printing, GS1's own guidelines matter more here than general barcode advice:</p><ul><li>Follow GS1's minimum size specifications for ITF-14 — cases are typically scanned at a greater distance than retail items, and undersized codes are a common cause of failed reads on conveyor and forklift-mounted scanners.</li><li>Never remove or shrink the bearer bars; they're specifically designed to compensate for ink spread and print distortion on corrugated material.</li><li>Test actual printed samples on your real case material and printer, since flexographic printing on cardboard behaves differently from digital label printing.</li><li>Verify your 13-digit input is correct before mass production — since the 14th digit is calculated automatically, an error in your source GTIN will produce a barcode that's internally consistent but represents the wrong product.</li><li>Coordinate with your trading partners' receiving systems to confirm scan orientation and placement requirements, since GS1 also specifies where on the case the barcode should be printed relative to the bottom edge.</li></ul>
+      <h2>ITF-14 vs. Related Codes</h2>
+      <p>Against general <strong>Interleaved 2 of 5</strong>, ITF-14 is a fixed 14-digit GS1 standard with a mandatory check digit and required bearer bars, while base ITF is variable-length with no check digit and no bearer-bar requirement — use ITF-14 specifically when GS1 case-coding compliance is required. Against <strong>UPC/EAN</strong>, ITF-14 sits one level up the supply-chain hierarchy: UPC and EAN identify individual retail units scanned at point of sale, while ITF-14 identifies the case or carton containing multiple such units. Against <strong>GS1-128</strong>, which can also encode a GTIN plus additional data like batch or expiry in one symbol, ITF-14 is simpler and printer-friendlier for cardboard but carries only the GTIN itself, with no room for supplementary application identifiers.</p>
+      <h2>Common uses</h2>
+      <ul class="seo-uses"><li>Shipping carton and case identification in the GS1 supply chain</li><li>Pallet and mixed-case warehouse labeling</li><li>Retail distribution center inbound scanning</li><li>CPG and manufacturing logistics case coding</li><li>Cross-docking and high-throughput scanning operations</li></ul>
+      <h2>Frequently asked questions</h2>
+      <div class="faq">
+        <details class="faq-item"><summary>How many digits do I enter for an ITF-14 barcode generator?</summary><div class="faq-a">You enter 13 digits — the itf-14 barcode generator calculates and appends the 14th check digit automatically using GS1's modulo-10 algorithm, so you should not add your own final digit.</div></details>
+        <details class="faq-item"><summary>What are the thick bars around an ITF-14 barcode?</summary><div class="faq-a"><p>Those are bearer bars, a required part of the ITF-14 specification. They frame the barcode to help it withstand the print distortion and handling wear common on corrugated cardboard cases.</p></div></details>
+        <details class="faq-item"><summary>Is ITF-14 the same as a UPC barcode?</summary><div class="faq-a">No. UPC identifies individual retail items sold at point of sale, while ITF-14 identifies cases or cartons containing multiple units, one level up in the supply chain hierarchy.</div></details>
+        <details class="faq-item"><summary>What happens if I enter the wrong 13 digits?</summary><div class="faq-a"><p>The generator will still produce a valid, internally consistent ITF-14 barcode with a correct check digit — but it will represent the wrong product or case, since the check digit only validates the digits you entered, not their real-world accuracy.</p></div></details>
+        <details class="faq-item"><summary>Can I generate ITF-14 barcodes for multiple case types at once?</summary><div class="faq-a"><p>Yes, use Barcode Studio's bulk CSV → ZIP/PDF tool to generate ITF-14 barcodes for a full list of 13-digit GTINs in one pass, or the batch/sequence tool for a numbered series.</p></div></details>
+      </div>
+      <h2>Related barcode types</h2>
+      <div class="seo-related"><a href="/code-128">Code 128</a><a href="/code-128-a">Code 128 A</a><a href="/code-128-b">Code 128 B</a><a href="/code-128-c">Code 128 C</a><a href="/code-39">Code 39</a><a href="/code-39-full-ascii">Code-39 Full ASCII</a><a href="/code-93">Code 93</a><a href="/code-11">Code 11</a><a href="/standard-2-of-5">Standard 2 of 5</a><a href="/flattermarken">Flattermarken</a><a href="/interleaved-2-of-5">Interleaved 2 of 5</a><a href="/industrial-2-of-5">Industrial 2 of 5</a><a href="/iata-2-of-5">IATA 2 of 5</a><a href="/matrix-2-of-5">Matrix 2 of 5</a></div>
+      <p class="seo-all"><a href="/barcodes">Browse all 106 barcode &amp; QR types →</a></p>
+    </div>
+  </article>
+  <footer class="footer">
+    <span class="footer-brand">Barcode Studio</span> · <span data-i18n="footerText">made by Lawstore since 2026</span>
+  </footer>
+
+  <script>window.BARCODE_INITIAL_TYPE="ITF14";</script>
+  <script src="/js/catalog.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

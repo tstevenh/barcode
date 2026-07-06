@@ -1,0 +1,52 @@
+{
+  "id": "ppn",
+  "title": "PPN Code Generator – Pharmacy Product Number",
+  "metaDescription": "Generate a PPN code free online. Encode a Pharmacy Product Number with IFA product code and check digits as a Data Matrix for pharma packaging.",
+  "primaryKeyword": "ppn code generator",
+  "secondaryKeywords": ["pharmacy product number barcode", "PPN data matrix", "IFA coding scheme", "PPN gs1 alternative", "PPN check digit", "pharma packaging identifier"],
+  "lead": "Create a PPN barcode encoding a Pharmacy Product Number for pharmaceutical and medical product packaging outside the GS1 GTIN system.",
+  "sections": [
+    {
+      "h2": "What is a PPN?",
+      "html": "<p>The Pharmacy Product Number (PPN) is a product identification scheme managed by IFA GmbH, Germany's pharmaceutical information center, used as an alternative to GS1's GTIN for identifying pharmaceutical and medical products — particularly items that don't fit neatly into standard GS1 trade-item numbering, such as compounded medicines, medical devices with variable configurations, or products distributed through pharmacy wholesale channels in Germany and other European markets.</p><p>A PPN is encoded as data content inside a barcode symbol — most commonly a Data Matrix, though it can also appear in linear symbologies like Code 39 or Code 128 — rather than being a symbology of its own. Barcode Studio's PPN builder assembles the correctly formatted PPN string and renders it as a Data Matrix suitable for pharmacy and healthcare product marking. PPN exists largely because Germany's pharmaceutical numbering predates and sits partly outside the GS1 ecosystem: rather than forcing every specialty or compounded product into a freshly assigned GTIN, IFA's scheme lets the existing national number carry forward into modern 2D barcode labeling.</p>"
+    },
+    {
+      "h2": "How PPN data is structured",
+      "html": "<p>A PPN string follows a defined structure managed by IFA:</p><ul><li><strong>PPN prefix</strong> — the literal characters \"PPN\" identifying the coding scheme, often written with a data identifier when embedded in a broader message.</li><li><strong>Product code</strong> — the core identifying number assigned by IFA or a national numbering authority (in Germany, this is frequently based on the PZN, the national pharmaceutical number).</li><li><strong>Two check digits</strong> — computed using a specified check algorithm to protect against transcription and scanning errors, distinguishing PPN from the single check digit used in a standard GTIN.</li></ul><p>Because PPN is designed to coexist with GS1 Application Identifiers on the same label — often alongside batch, expiry and serial number data for full traceability — the encoding typically follows a data-identifier or AI-style structure so scanning software can distinguish the PPN field from surrounding data.</p>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>A PPN is a variable-length alphanumeric string managed by IFA GmbH (Informationsstelle für Arzneispezialitäten), Germany's pharmaceutical information center, structured as a product code plus two check digits computed by an IFA-defined algorithm distinct from GS1's single modulo-10 check digit. Because PPN is not a GS1 standard, it has no GTIN-style fixed digit length; the underlying product code length depends on the source numbering scheme it wraps, most often Germany's 8-digit PZN. The carrier symbol is most commonly a Data Matrix (ISO/IEC 16022, ECC 200), chosen for the same compact, damage-tolerant footprint pharma packaging generally favors, though PPN data can also appear in linear Code 39 or Code 128 when a facility's labeling system predates 2D imaging.</p>"
+    },
+    {
+      "h2": "Where PPN is used",
+      "html": "<p>PPN appears mainly in German and broader European pharmaceutical and healthcare distribution:</p><ul><li>Pharmaceutical products distributed through pharmacy wholesale channels where IFA's coding scheme is the established standard.</li><li>Medical devices and healthcare products that need a stable product identifier independent of GS1 GTIN assignment.</li><li>Compounded or specialty pharmacy products that don't have a conventional retail GTIN.</li><li>Traceability labeling that combines a PPN product identifier with batch and expiry data for regulatory compliance in healthcare supply chains.</li></ul><p>It functions alongside — not typically instead of — GS1 identifiers in mixed pharmaceutical supply chains, since some products carry both a GTIN for retail/logistics purposes and a PPN for pharmacy-specific systems. Wholesalers and pharmacy dispensing systems in Germany in particular are built to recognize PPN-formatted data alongside standard GS1 identifiers, so a product carrying both can move through general logistics via its GTIN while still being looked up correctly at the pharmacy counter via its PPN.</p>"
+    },
+    {
+      "h2": "How to generate a PPN barcode in Barcode Studio",
+      "html": "<p>To create a PPN symbol:</p><ul><li>Select <strong>PPN Code</strong> from the barcode type list.</li><li>Enter the product code portion of the PPN — Barcode Studio computes and appends the required check digits automatically, so you don't need to calculate them by hand.</li><li>Choose the carrier symbology appropriate to your packaging — Data Matrix is standard for compact, high-density pharmaceutical labeling, though linear alternatives are available if your labeling system requires one.</li><li>Adjust module size to meet your product's minimum print area while staying within your regulatory verification grade requirements.</li><li>Export as SVG for packaging artwork integration or PNG for label proofing, and use <strong>Bulk CSV → ZIP/PDF</strong> to generate a PPN symbol per product line when labeling multiple SKUs at once.</li><li>Call the REST API at <code>/barcode?type=ppn&data=...</code> to integrate PPN generation into a packaging or labeling management system.</li></ul>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Because PPN-carrying Data Matrix symbols are typically small and printed on pharmaceutical packaging under the same regulatory scrutiny as GS1 pharma codes, follow the same print discipline: adequate contrast, a clean quiet zone, and print-quality verification against ISO/IEC 15415 grading before a production run. When a PPN appears alongside GS1 Application Identifiers on the same symbol, confirm your scanning and inventory systems are configured to correctly parse the mixed data-identifier structure rather than misreading the PPN as GS1 data or vice versa.</p>"
+    },
+    {
+      "h2": "PPN vs related pharma codes",
+      "html": "<p>PPN and <strong>NTIN</strong> both give a nationally numbered pharmaceutical product a machine-readable identifier, but PPN stays under IFA's own registry and two-check-digit scheme rather than converting into a GS1 GTIN — a manufacturer that already has a PZN can generate a PPN without a GS1 Company Prefix, while an NTIN specifically requires that GS1 mapping step. Compared with a standard <strong>GS1 Data Matrix</strong> carrying AI (01) plus batch and expiry, a PPN-based symbol may use a different data-identifier convention altogether, so systems built purely around GS1 parsing need explicit support added before they can read PPN correctly.</p>"
+    }
+  ],
+  "uses": [
+    "German and European pharmaceutical wholesale distribution labeling",
+    "Medical device identification independent of GS1 GTIN assignment",
+    "Compounded and specialty pharmacy product labeling",
+    "Healthcare traceability labels combining PPN with batch and expiry data",
+    "Mixed pharma supply chains using both GTIN and PPN identifiers"
+  ],
+  "faq": [
+    {"q": "What is a PPN code generator used for?", "a": "<p>A ppn code generator creates a Data Matrix or linear barcode encoding a Pharmacy Product Number — IFA's product identification scheme used for pharmaceutical and medical products, particularly in Germany.</p>"},
+    {"q": "How is PPN different from a GTIN?", "a": "PPN is managed by IFA rather than GS1, uses two check digits instead of one, and is used for pharmacy and healthcare products that may not fit standard GS1 trade-item numbering, such as compounded medicines."},
+    {"q": "Can a product have both a GTIN and a PPN?", "a": "<p>Yes — some pharmaceutical products carry a GTIN for retail and logistics purposes alongside a PPN for pharmacy-specific systems, often on the same label.</p>"},
+    {"q": "What symbology carries a PPN?", "a": "PPN is most commonly encoded in a Data Matrix for compact pharmaceutical labeling, but it can also be encoded in linear symbologies like Code 39 or Code 128 depending on the labeling system."},
+    {"q": "Does Barcode Studio calculate PPN check digits automatically?", "a": "<p>Yes — enter the product code and Barcode Studio computes the required check digits and formats the complete PPN string before rendering the barcode.</p>"}
+  ]
+}

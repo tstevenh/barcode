@@ -1,0 +1,47 @@
+{
+  "id": "gs1-128composite",
+  "title": "GS1-128 Composite Symbology Generator | Barcode Studio",
+  "metaDescription": "Generate a GS1-128 composite symbology online: a linear GS1-128 barcode paired with a stacked 2D component for extra data. Export PNG, SVG, or PDF free.",
+  "primaryKeyword": "gs1-128 composite symbology generator",
+  "secondaryKeywords": ["gs1 composite barcode", "cc-a cc-b cc-c component", "gs1-128 with 2d component", "composite symbology generator", "pdf417 composite barcode"],
+  "lead": "Pair a standard GS1-128 barcode with a stacked 2D component to carry more data without changing your label footprint.",
+  "sections": [
+    {
+      "h2": "What is a GS1-128 composite symbology?",
+      "html": "<p>A GS1-128 composite symbology is a linear GS1-128 barcode with a small two-dimensional component printed directly above it. The linear portion works exactly like a standalone GS1-128 barcode &mdash; it still opens with FNC1 and carries GS1 Application Identifiers &mdash; but the 2D component riding on top gives you room for supplementary data that wouldn't otherwise fit or that you don't want to force into the linear symbol. A scanner that only reads 1D barcodes ignores the 2D component and reads the linear part normally, while a 2D-capable imager reads both pieces as one combined message. That backward compatibility is the entire point: you can add data density without breaking existing scanning infrastructure.</p>"
+    },
+    {
+      "h2": "How the composite component is built",
+      "html": "<p>The 2D portion of a GS1 composite symbol is built from one of three component types, chosen automatically based on how much supplementary data needs to fit: <strong>CC-A</strong> is the smallest, based on a limited MicroPDF417 structure, and suits a few extra characters; <strong>CC-B</strong> is a larger MicroPDF417 variant for moderate amounts of data; and <strong>CC-C</strong> is a full PDF417-based component reserved for GS1-128 composites that need to carry substantially more data than CC-A or CC-B can hold. The linear GS1-128 base and the 2D component are linked at the encoding level, so the two pieces are always read and validated together as a single logical message, not as two independent barcodes.</p><p>Typical supplementary data placed in the composite component includes secondary Application Identifiers that support the primary GTIN or SSCC in the linear symbol &mdash; for example a best-before date, additional lot detail, or link data used in specific trading-partner programs where extra traceability information travels with the case but doesn't need to be in the primary scan path.</p>"
+    },
+    {
+      "h2": "Where composite symbology is used",
+      "html": "<p>Composite symbols show up where a business needs more data on a label than a linear GS1-128 barcode conveniently carries, but can't or won't switch to a full 2D-only format because part of the supply chain still relies on simple laser scanners. Perishable food logistics is a common case: the linear component might carry GTIN and lot number for compatibility with existing scanning infrastructure, while the composite component adds sell-by date or additional traceability data for systems that can read it. Some healthcare and specialty retail supply chains use composite symbology for the same reason &mdash; preserving compatibility with older 1D scanners already deployed at receiving docks while giving newer 2D-capable systems access to richer data from the same label.</p>"
+    },
+    {
+      "h2": "How to create a GS1-128 composite symbol in Barcode Studio",
+      "html": "<p>Select <strong>GS1-128 Composite Symbology</strong> from the Linear Barcode list, then enter your linear AI data using standard parenthesis syntax, such as <code>(01)10614141999996(17)251231</code>, and supply the supplementary data that should appear in the 2D component. Barcode Studio automatically selects the right composite component size based on how much supplementary data you provide and renders the linear and 2D portions together as a single compliant symbol. From there you can:</p><ul><li>Adjust the linear bar height and 2D module size independently to fit label constraints</li><li>Set colors and quiet zone while keeping enough contrast for both the linear and 2D scan paths</li><li>Export as PNG, SVG, or PDF for placement in label design software</li><li>Bulk-generate composite labels from a CSV of GTINs and supplementary fields, exported as a ZIP or print-ready PDF</li><li>Call the REST API &mdash; <code>/barcode?type=gs1-128composite&amp;data=(01)10614141999996(17)251231</code> &mdash; to generate labels from your own systems</li></ul>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Composite symbols demand more print precision than a plain linear barcode because the 2D component has finer modules stacked directly above the bars, so use a high-resolution thermal transfer or laser printer rather than low-resolution direct thermal when label longevity or the 2D component's legibility matters. Leave adequate quiet zone above, below, and to the sides of the entire combined symbol &mdash; not just around the linear bars &mdash; since scanners need clear space to distinguish the composite component from adjacent print. Verify with an actual 2D-capable scanner during setup, since a linear-only scanner will read successfully even if the 2D component is damaged or misprinted, potentially masking a defect that only shows up downstream where 2D scanning is expected.</p>"
+    },
+    {
+      "h2": "Deciding if you actually need composite symbology",
+      "html": "<p>Composite symbology adds real printing and verification overhead compared to a plain linear GS1-128 barcode, so it's worth confirming the supplementary data genuinely doesn't fit in your primary AI string before committing to it. If your trading partners and internal systems can already parse a longer linear GS1-128 string with all your required Application Identifiers concatenated together, you likely don't need the composite component at all &mdash; plain GS1-128 is simpler to print, verify, and troubleshoot. Composite symbology earns its complexity specifically when you're bridging two audiences at once: a legacy 1D scanning fleet that needs to keep working unmodified, and a newer 2D-capable system that needs access to richer data from the very same label, without printing two separate barcodes.</p><p>If every scanner in your supply chain is already 2D-capable, a standalone GS1 Data Matrix or GS1 QR code symbol is often a cleaner choice than a composite, since it avoids managing two linked components on one label. Composite symbology is best reserved for that specific transitional window where both scanning generations are still in active use.</p>"
+    }
+  ],
+  "uses": [
+    "Perishable food case labels needing best-before data alongside GTIN and lot",
+    "Supply chains transitioning from 1D to 2D scanning without reprinting existing infrastructure",
+    "Healthcare distribution labels carrying supplementary traceability data",
+    "Trading-partner programs requiring extra data fields beyond standard GS1-128 AIs",
+    "Specialty retail and grocery logistics with mixed 1D/2D scanner fleets"
+  ],
+  "faq": [
+    {"q": "What does a GS1-128 composite symbology generator produce?", "a": "It produces a linear GS1-128 barcode with a small 2D component (CC-A, CC-B, or CC-C) stacked above it, letting the label carry supplementary data that 2D scanners can read while remaining fully backward compatible with 1D-only scanners."},
+    {"q": "Do I need special hardware to scan a GS1-128 composite barcode?", "a": "No, a standard 1D laser scanner will still read the linear GS1-128 portion; you only need a 2D imaging scanner to also capture the data in the stacked composite component."},
+    {"q": "What's the difference between CC-A, CC-B, and CC-C components?", "a": "They're increasingly larger 2D component sizes: CC-A and CC-B are based on MicroPDF417 for small to moderate amounts of supplementary data, while CC-C is a full PDF417-based component used when the composite needs to carry substantially more data."},
+    {"q": "When should I use composite symbology instead of plain GS1-128?", "a": "Use it when you need to carry supplementary data, like an extra date field or additional traceability information, beyond what fits comfortably in your primary linear Application Identifiers, without giving up compatibility with existing 1D scanning equipment."}
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "id": "dotcode",
+  "title": "DotCode Generator - High-Speed 2D Barcode | Barcode Studio",
+  "metaDescription": "Generate a DotCode barcode free for high-speed inkjet printing on production lines. Export PNG or SVG, adjust size, or use the REST API.",
+  "primaryKeyword": "dotcode generator",
+  "secondaryKeywords": [
+    "dotcode barcode",
+    "tobacco industry barcode",
+    "high speed inkjet barcode",
+    "dot matrix 2d code",
+    "production line barcode",
+    "dotcode vs data matrix"
+  ],
+  "lead": "Generate a DotCode, the dot-based 2D symbol built for high-speed inkjet printing directly onto fast-moving production lines.",
+  "sections": [
+    {
+      "h2": "What is a DotCode?",
+      "html": "<p>DotCode is a two-dimensional barcode, standardized under AIM's DotCode specification and later ISO/IEC 21471, designed specifically for high-speed continuous inkjet (CIJ) printing &mdash; the kind of printer that marks lot codes, dates, and identifiers directly onto packages as they fly past on a production line. It was developed to solve a problem other 2D symbologies struggled with: printing a reliable, high-density 2D code at the speed and dot-based resolution that industrial inkjet printers operate at, where solid square modules used by codes like Data Matrix or QR can smear, merge, or lose crisp edges. A <strong>dotcode generator</strong> exists precisely because this niche needed its own symbology rather than reusing an existing square-module standard.</p>"
+    },
+    {
+      "h2": "How DotCode encodes data",
+      "html": "<p>Unlike matrix codes built from solid square modules, DotCode is made entirely of round dots arranged on a grid, with data represented by which dot positions are filled versus left empty &mdash; a structure that maps naturally onto how inkjet printers physically deposit ink, since a single ink droplet forms a dot far more reliably at speed than a printer head can render a crisp square edge. DotCode has no fixed, fully defined border or fixed aspect ratio the way QR or Data Matrix does; instead it uses an adaptable rectangular shape and relies on the pattern of filled and unfilled dot positions themselves, combined with Reed-Solomon error correction, to establish structure and correct for missing or smudged dots, which happen often at high print speeds. Because there's no dedicated finder-pattern region reserved purely for orientation, DotCode dedicates more of its total area to actual data compared to symbologies with large fixed finder patterns, which partly offsets the extra error correction overhead needed to tolerate the dropped or smeared dots that continuous inkjet printing produces more often than laser marking or thermal transfer.</p>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>DotCode supports numeric, alphanumeric, and byte-level data similarly to other modern 2D symbologies, and its rectangular, scalable grid lets it adapt to a range of aspect ratios, which matters when marking irregularly shaped or curved packaging like cigarette packs, bottle necks, or flexible film. It's commonly used to encode GS1 Application Identifier data (GTIN, batch, expiry) for product marking, much like GS1 DataMatrix, but chosen instead when the production line's printing method makes solid square modules impractical to render cleanly at speed. There's no single official maximum capacity the way there is for a fixed-size symbology like MaxiCode; instead the grid grows to fit the payload within practical printing limits, so heavier payloads simply produce a larger printed area rather than hitting a hard ceiling the way some fixed-format codes do. Error correction is Reed-Solomon based, protecting against the dot dropouts and smudging that are common at high-speed inkjet resolutions rather than the physical damage (scratches, dents) that other 2D codes are typically hardened against.</p><ul><li><strong>Structure:</strong> round dots on an adaptable grid, no fixed border pattern</li><li><strong>Best suited to:</strong> continuous inkjet (CIJ) printing at high line speeds</li><li><strong>Common payload:</strong> GS1 AI data (GTIN, batch, expiry) or general text/numeric data</li><li><strong>Standards body:</strong> AIM DotCode specification, later ISO/IEC 21471</li></ul>"
+    },
+    {
+      "h2": "Where DotCode is used",
+      "html": "<p>DotCode was popularized by the tobacco industry, where regulatory track-and-trace mandates (such as those tied to the EU Tobacco Products Directive) require unique identifiers printed at very high speed directly onto cigarette packs and cartons using CIJ printers &mdash; a use case that drove much of the symbology's early adoption and standardization, since existing 2D codes weren't reliably printable at the speed and resolution those production lines demand. It's also used in food and beverage packaging, pharmaceutical secondary packaging, and other fast-moving consumer goods lines where inkjet marking at speed is the norm and a square-module 2D code would be harder to print reliably. It has also seen adoption in some markets' tobacco and alcohol tax-stamp programs, where governments mandate a scannable, high-speed-printable unique identifier on every unit for revenue and anti-counterfeiting purposes. Anywhere a production line already relies on continuous inkjet for date and lot coding is a candidate for DotCode over a square-module alternative.</p>"
+    },
+    {
+      "h2": "How to create a DotCode in Barcode Studio",
+      "html": "<p>Select <strong>DotCode</strong> from the symbology list and enter your text, numeric, or GS1 AI-formatted data directly. From there you can:</p><ul><li>Adjust the symbol's aspect ratio to match your package or label geometry</li><li>Set dot size and spacing appropriate to your printing method's resolution</li><li>Set foreground and background colors while keeping enough contrast for the scanner reading the printed dots</li><li>Adjust the quiet zone margin around the symbol for your label layout</li><li>Export as PNG or SVG for production artwork, or copy the code directly</li><li>Use batch/sequence generation or CSV bulk upload to produce unique codes across a production run, exported as ZIP or PDF</li><li>Call the REST API &mdash; <code>/barcode?type=dotcode&amp;data=LOT-2026-0042</code> &mdash; to integrate DotCode generation into a production line control system</li></ul>"
+    },
+    {
+      "h2": "Printing and scanning best practices",
+      "html": "<p>Design the dot size and spacing around your actual printing method's real-world resolution &mdash; DotCode's advantage disappears if you design it assuming a printer resolution your line can't actually hit consistently at speed, since an inkjet head that struggles to place dots precisely will produce the same smudging problems DotCode was meant to avoid. Because DotCode has no fixed corner or border finder pattern, verify your specific scanning hardware and decode software are validated for DotCode, since not all general-purpose 2D scanners support it out of the box the way they support QR or Data Matrix. Test scan reliability at actual production line speed, not just on a static printed sample, since the entire point of the symbology is performance under high-speed, high-throughput marking conditions that a slow bench test won't reveal. Maintain good contrast between the printed dots and substrate, particularly on curved or non-flat packaging surfaces common in tobacco and consumer goods lines, where ink can pool or feather differently than on a flat label.</p>"
+    },
+    {
+      "h2": "DotCode vs related codes",
+      "html": "<p>DotCode's core distinction from Data Matrix and QR code is physical, not logical: all three can carry similar GS1 or general text payloads, but DotCode's dot-based construction is built for continuous inkjet printers that struggle to render the crisp square edges Data Matrix and QR require at high line speeds. Data Matrix remains the better choice when marking is done by laser etching, dot-peen, or high-resolution thermal transfer rather than inkjet, since those methods render square modules cleanly and Data Matrix's fixed ECC200 error correction is well proven for that context. QR code is rarely used in the same high-speed marking niche at all, since it targets general-purpose and consumer scanning rather than industrial line-speed printing. In practice, the decision usually isn't DotCode versus Data Matrix on data or capacity grounds &mdash; it's dictated by which printing technology a given production line already uses.</p>"
+    }
+  ],
+  "uses": [
+    "Tobacco industry track-and-trace marking on packs and cartons",
+    "Food and beverage packaging marked via continuous inkjet printing",
+    "Pharmaceutical secondary packaging on high-speed lines",
+    "Fast-moving consumer goods production lines using inkjet date/lot coding",
+    "GS1 AI-based product marking where square-module codes are impractical to print",
+    "Any high-speed production environment using continuous inkjet printers"
+  ],
+  "faq": [
+    {
+      "q": "Why use DotCode instead of Data Matrix?",
+      "a": "DotCode's dot-based structure maps naturally onto how continuous inkjet printers deposit ink, making it more reliable to print cleanly at high production line speeds than a square-module code like Data Matrix, which can smear or lose definition under the same conditions."
+    },
+    {
+      "q": "Does DotCode require special scanning equipment?",
+      "a": "Not all general-purpose 2D scanners support DotCode out of the box, so it's worth confirming your specific scanner and decode software are validated for it before deploying it on a production line."
+    },
+    {
+      "q": "Is DotCode only used in the tobacco industry?",
+      "a": "Tobacco track-and-trace marking drove much of DotCode's early adoption, but it's also used in food, beverage, and pharmaceutical packaging wherever high-speed continuous inkjet printing is the marking method."
+    },
+    {
+      "q": "Can DotCode encode GS1 data like GTIN and batch number?",
+      "a": "Yes, DotCode commonly carries GS1 Application Identifier data such as GTIN, batch, and expiration date, similar to GS1 DataMatrix, but is chosen when inkjet printing speed makes square-module codes impractical."
+    },
+    {
+      "q": "What makes DotCode different structurally from other 2D codes?",
+      "a": "DotCode is built from round dots on an adaptable rectangular grid rather than solid square modules with a fixed border pattern, a design chosen specifically to suit high-speed inkjet printing."
+    },
+    {
+      "q": "Is this dotcode generator suitable for testing a new production label?",
+      "a": "Yes, this dotcode generator produces standards-compliant DotCode symbols for design and layout testing; always validate final scan reliability on your actual inkjet printer and line-speed scanner before committing to full production."
+    }
+  ]
+}

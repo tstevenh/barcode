@@ -1,0 +1,52 @@
+{
+  "id": "zatcaqrcode",
+  "title": "ZATCA QR Code Generator (Saudi E-Invoice)",
+  "metaDescription": "Generate a ZATCA-compliant QR code free online. Encode seller name, VAT number, timestamp, total, and VAT amount as base64 TLV for Saudi e-invoicing.",
+  "primaryKeyword": "zatca qr code generator",
+  "secondaryKeywords": ["saudi e-invoice qr code", "zatca fatoora qr", "TLV base64 qr code", "saudi vat invoice barcode", "zatca phase 1 qr code", "e-invoicing saudi arabia"],
+  "lead": "Build a ZATCA-compliant QR code for Saudi Arabia e-invoices, encoded exactly as the TLV/base64 structure Fatoora requires.",
+  "sections": [
+    {
+      "h2": "What is a ZATCA QR Code?",
+      "html": "<p>A ZATCA QR Code is a standard QR Code that encodes invoice data in the specific binary format mandated by Saudi Arabia's Zakat, Tax and Customs Authority (ZATCA) under its Fatoora e-invoicing program. It is not a distinct barcode symbology — like the Swiss QR Code, it's a regular QR Code carrying a structured payload, in this case a Tag-Length-Value (TLV) byte sequence that is base64-encoded before being placed into the QR Code.</p><p>Every simplified tax invoice and simplified credit/debit note issued in Saudi Arabia must include this QR Code, whether the invoice is a printed paper receipt or a PDF. Its purpose is to let both a human's phone and the tax authority's systems instantly verify and read the core invoice details without parsing the full invoice document.</p>"
+    },
+    {
+      "h2": "How the TLV/base64 structure works",
+      "html": "<p>ZATCA's QR Code payload is built from a sequence of tags, each with a length byte and a value, then base64-encoded as a whole:</p><ul><li><strong>Tag 1</strong> — Seller's name.</li><li><strong>Tag 2</strong> — Seller's VAT registration number (15 digits).</li><li><strong>Tag 3</strong> — Invoice timestamp, in ISO 8601 format.</li><li><strong>Tag 4</strong> — Invoice total (including VAT).</li><li><strong>Tag 5</strong> — VAT amount.</li></ul><p>For Phase 2 (integration phase) e-invoices, ZATCA requires three additional cryptographic tags — the invoice hash, the digital signature, and the seller's certificate's public key (plus, where applicable, the certificate signature) — because Phase 2 invoices must be digitally signed and cleared or reported through ZATCA's systems. Each tag is: one byte for the tag number, one byte for the value's length in bytes, then the value itself. The full binary sequence is then base64-encoded to produce the string that gets placed into the QR Code.</p>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>A ZATCA QR Code is a standard ISO/IEC 18004 QR Code carrying a binary Tag-Length-Value (TLV) payload that is base64-encoded before being placed in the symbol — unlike the Swiss QR Code or EPC QR Code, the raw data is not human-readable plain text. Each tag consists of a one-byte tag number, a one-byte length (in bytes, not characters, which matters for multi-byte UTF-8 Arabic text), and the value itself; Phase 1 (generation phase) requires five tags, while Phase 2 (integration phase) adds three more for the cryptographic invoice hash, ECDSA digital signature, and the seller's certificate public key. ZATCA is Saudi Arabia's Zakat, Tax and Customs Authority, and the specification is published under its Fatoora e-invoicing program; there is no separate check digit on the QR data itself, since the digital signature in Phase 2 payloads serves as the cryptographic integrity and authenticity check.</p>"
+    },
+    {
+      "h2": "Where ZATCA QR Codes are used",
+      "html": "<p>ZATCA QR Codes are legally required on:</p><ul><li>Simplified tax invoices — typically B2C retail and point-of-sale receipts issued in Saudi Arabia.</li><li>Simplified credit and debit notes correcting a prior simplified invoice.</li><li>Both electronic and printed versions of these documents, since the QR Code must appear regardless of delivery format.</li></ul><p>Standard tax invoices (B2B) are not required to carry the same simplified QR Code under Phase 1, though ZATCA's broader e-invoicing rules govern their structure and, in Phase 2, their clearance process separately. Businesses generating simplified invoices integrate ZATCA QR generation directly into their point-of-sale or invoicing software.</p>"
+    },
+    {
+      "h2": "How to generate a ZATCA QR Code in Barcode Studio",
+      "html": "<p>To create a Phase 1–style ZATCA QR Code:</p><ul><li>Select <strong>ZATCA QR Code</strong> from the barcode type list to use the TLV-aware content builder.</li><li>Enter the seller name, 15-digit VAT registration number, invoice timestamp, invoice total, and VAT amount.</li><li>Barcode Studio encodes these fields as the correct TLV byte sequence and base64-encodes the result before rendering the QR Code — you don't need to build the binary payload by hand.</li><li>Export as PNG or SVG sized to fit your receipt or invoice template, keeping the module size legible at typical POS receipt print widths.</li><li>Use <strong>Bulk CSV → ZIP/PDF</strong> to generate a ZATCA QR Code per invoice row when batch-producing invoices from an export, or call the REST API at <code>/barcode?type=zatcaqrcode&data=...</code> to generate codes on demand from your billing system.</li></ul><p>This builder covers the five core Phase 1 tags. Phase 2 (integration phase) invoices require a cryptographically signed payload with invoice hash, digital signature and certificate data generated through ZATCA's compliance and clearance process — that signing must happen in a system integrated with ZATCA, not through a standalone QR generator.</p>"
+    },
+    {
+      "h2": "Compliance and scan best practices",
+      "html": "<p>ZATCA specifies the QR Code must be scannable and clearly visible on the invoice; print it with adequate size and quiet zone so both a customer's phone and any auditing tool can decode it cleanly. Because the payload is base64-encoded binary rather than plain text, double-check that your VAT number, timestamp format and amounts exactly match what appears elsewhere on the invoice — a mismatch between the QR data and the printed invoice fields is a common compliance flag during ZATCA audits. On thermal POS receipts, print at a large enough module size that repeated printing on the same roll doesn't degrade contrast over a shift, and confirm the QR Code survives common receipt-printer failure modes like faded ribbon or low paper quality.</p>"
+    },
+    {
+      "h2": "ZATCA QR Code vs related codes",
+      "html": "<p>A ZATCA QR Code differs from most other payment or invoice QR formats in carrying binary TLV data rather than delimited plain text — the <strong>Swiss QR Code</strong> and <strong>EPC QR Code</strong> both use newline-separated plain-text fields that a person can read directly from decoded output, while ZATCA's base64 string decodes first to raw bytes that must be parsed tag by tag. ZATCA QR Codes also serve a different function: Swiss and EPC QR Codes initiate a bank payment, while a ZATCA QR Code verifies and discloses the details of a tax invoice that has already been (or will be) paid through another channel, making it closer in purpose to a compliance stamp than a payment instruction.</p>"
+    }
+  ],
+  "uses": [
+    "Simplified tax invoices for Saudi Arabia retail and POS receipts",
+    "Simplified credit and debit notes under Fatoora e-invoicing rules",
+    "Printed and electronic receipt formats requiring VAT verification",
+    "POS and invoicing software generating ZATCA Phase 1 compliant codes",
+    "Batch invoice QR generation for accounting system exports"
+  ],
+  "faq": [
+    {"q": "What does a ZATCA QR code generator do?", "a": "<p>A zatca qr code generator encodes seller name, VAT number, invoice timestamp, total, and VAT amount into the TLV binary format ZATCA requires, then base64-encodes it into a scannable QR Code for Saudi e-invoices.</p>"},
+    {"q": "Is the ZATCA QR Code the same for Phase 1 and Phase 2 invoices?", "a": "No. Phase 1 requires five basic TLV tags (seller, VAT number, timestamp, total, VAT amount); Phase 2 adds cryptographic tags — invoice hash, digital signature and certificate data — generated through ZATCA's integrated clearance process."},
+    {"q": "Is a ZATCA QR Code mandatory on every Saudi invoice?", "a": "<p>It's mandatory on simplified tax invoices and simplified credit/debit notes, typically B2C transactions; standard B2B tax invoices follow separate e-invoicing requirements.</p>"},
+    {"q": "Why is the ZATCA QR Code base64-encoded instead of plain text?", "a": "The underlying data is a compact binary TLV (Tag-Length-Value) sequence; base64 encoding converts that binary data into text-safe characters that a QR Code can reliably store and any reader can decode consistently."},
+    {"q": "Can I generate ZATCA QR codes in bulk?", "a": "<p>Yes — Barcode Studio's bulk CSV to ZIP/PDF tool can generate a compliant QR Code per invoice row, useful for batch-producing receipts or invoices from an accounting export.</p>"}
+  ]
+}

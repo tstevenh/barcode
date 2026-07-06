@@ -1,0 +1,52 @@
+{
+  "id": "ITF",
+  "title": "Interleaved 2 of 5 Barcode Generator | Barcode Studio",
+  "metaDescription": "Generate Interleaved 2 of 5 barcodes free online with our ITF generator. Compact even-digit numeric encoding for cartons and cases, live preview, export.",
+  "primaryKeyword": "interleaved 2 of 5 barcode generator",
+  "secondaryKeywords": ["itf barcode generator", "interleaved 2 of 5 barcode", "itf carton label", "2 of 5 interleaved vs standard", "even digit barcode", "case carton barcode"],
+  "lead": "Interleaved 2 of 5 doubles the data density of Standard 2 of 5 by encoding digits in both bars and spaces, making it the compact standard for carton and case labels.",
+  "sections": [
+    {
+      "h2": "What Is an Interleaved 2 of 5 Barcode?",
+      "html": "<p>Interleaved 2 of 5 (ITF) is a numeric-only linear barcode symbology that encodes digits by interleaving two characters into one set of bars and spaces: the first digit is encoded in the bars, and the second digit is encoded in the spaces between them. This interleaving is what gives the symbology its name and its main advantage over the earlier Standard 2 of 5 — by using both bars and spaces to carry data instead of just bars, ITF roughly halves the physical length of the barcode for the same digit count.</p><p>Because digits are encoded in pairs, ITF requires an <strong>even number of digits</strong> in the data being encoded. If you have an odd-length numeric string, a leading zero is typically added to make the count even before encoding — Barcode Studio handles this automatically.</p>"
+    },
+    {
+      "h2": "How Interleaved 2 of 5 Encodes Data",
+      "html": "<p>Each pair of digits in ITF is represented by 5 bars (2 wide, 3 narrow) interleaved with 5 spaces (also 2 wide, 3 narrow) — the odd-position digit in a pair is encoded in the bars, and the even-position digit is encoded in the spaces. This interleaving mechanism is what distinguishes ITF from Standard 2 of 5, where spaces carry no data at all. The result is a significantly more compact barcode for equal-length numeric data, which is why ITF became the practical standard for shipping and logistics applications where label space is limited but numeric data (like GTINs or case codes) can be lengthy.</p><p>ITF doesn't include a mandatory check digit in its base form, though specific implementations — like ITF-14, a fixed-length 14-digit variant used for shipping cartons — layer a check digit on top for added reliability. Because encoding pairs digits together, any implementation must guarantee even-length input, which is the most common practical constraint to watch for when working with ITF.</p>"
+    },
+    {
+      "h2": "Interleaved 2 of 5 Technical Specifications",
+      "html": "<p>ITF is standardized as ISO/IEC 16390. It encodes digits 0–9 only, with no letters or symbols. Each pair of digits maps to 5 interleaved bars and 5 interleaved spaces, using two element widths (wide and narrow) with a fixed ratio between them, typically around 2:1 or 3:1 depending on the implementation. Data length must be even; there is no standard maximum length, though practical labels stay within a few dozen digits. The base ITF standard does not mandate a check digit, leaving error detection to be layered on by specific implementations such as ITF-14, which adds a modulo-10 checksum as part of its fixed 14-digit structure.</p>"
+    },
+    {
+      "h2": "Where Interleaved 2 of 5 Is Used",
+      "html": "<p>ITF's density and simplicity have made it a long-standing choice in numeric-heavy logistics contexts:</p><ul><li><strong>Distribution and warehouse case coding</strong> — labeling shipping cases and cartons with numeric identifiers more compactly than Standard 2 of 5 allows.</li><li><strong>Corrugated packaging</strong> — ITF prints reliably even on rougher cardboard surfaces, which is part of why it remains common on outer case packaging rather than retail-facing labels.</li><li><strong>Automotive and industrial parts numbering</strong> — internal numeric part codes where compactness matters.</li><li><strong>Photographic film canister coding</strong> and other legacy industrial numeric-tracking applications.</li><li><strong>As the foundation for ITF-14</strong> — the fixed 14-digit variant standardized by GS1 specifically for identifying cases and pallets in the supply chain.</li></ul>"
+    },
+    {
+      "h2": "How to Create an Interleaved 2 of 5 Barcode in Barcode Studio",
+      "html": "<p>Select <strong>Interleaved 2 of 5</strong> from Barcode Studio's symbology list. Enter your numeric data — only digits 0–9 are valid. If your data has an odd number of digits, the encoder will typically pad with a leading zero to reach an even count; double-check the resulting barcode matches your intended data if this applies to you. The live preview shows the compact bar/space pattern instantly. From there:</p><ul><li>Adjust <strong>bar width</strong> — ITF is meaningfully more compact than Standard 2 of 5 for the same digit count, so you often have more label space to work with.</li><li>Set <strong>height</strong> and toggle <strong>human-readable text</strong> to display the full digit string beneath the bars.</li><li>Customize <strong>colors</strong> for corrugated or case label stock, keeping good contrast since ITF is frequently printed directly onto cardboard.</li><li>Confirm the <strong>quiet zone</strong> margin — ITF's interleaved structure depends on clean detection of both bar and space widths, so adequate margin matters.</li><li>Export as <strong>PNG, SVG, or PDF</strong>, or use <strong>Copy</strong> for direct placement into packaging artwork.</li></ul><p>For sequential case numbers, use the <strong>batch/sequence</strong> tool. For a full run of case labels from a spreadsheet, the <strong>bulk CSV → ZIP/PDF</strong> feature generates every barcode at once — just confirm all values have an even digit count. Developers can generate ITF barcodes programmatically via the <strong>REST API</strong> using <code>/barcode?type=itf&data=YOURDATA</code>. If you specifically need the fixed 14-digit GS1 case-coding standard, see the dedicated ITF-14 option instead.</p>"
+    },
+    {
+      "h2": "Print and Scan Best Practices",
+      "html": "<p>ITF's interleaved bars-and-spaces encoding calls for a few specific print considerations:</p><ul><li>Corrugated cardboard absorbs ink differently than paper labels — test print quality directly on your actual case material, since ink spread (dot gain) on cardboard can distort both bar and space widths, which is more damaging to ITF than to bars-only symbologies.</li><li>Maintain a generous quiet zone, at least 10x the narrowest element width, since ITF's interleaved structure is more sensitive to quiet-zone violations than simpler barcodes.</li><li>Always verify even digit counts in your source data before bulk generation — this is the single most common ITF encoding error.</li><li>Print at the largest size your label or case allows; ITF on cardboard benefits from extra size tolerance compared to the same code printed on smooth label stock.</li><li>If you're encoding standard GS1 case or pallet identifiers, confirm whether ITF-14's fixed format and check digit are actually required instead of general-purpose ITF.</li></ul>"
+    },
+    {
+      "h2": "Interleaved 2 of 5 vs. Related Codes",
+      "html": "<p>Against <strong>Standard 2 of 5</strong>, ITF roughly halves barcode length for the same digit count by encoding data in spaces as well as bars, making it the clear choice for new numeric-only applications with no legacy constraint. Against <strong>ITF-14</strong>, general ITF is variable-length with no mandatory check digit, while ITF-14 fixes the length at 14 digits, adds a GS1 modulo-10 checksum, and requires bearer bars — use ITF-14 specifically for GS1-compliant case coding. Against <strong>Code 128 subset C</strong>, Code 128 C offers similar digit-pair density plus a mandatory check digit and doesn't require even-length padding, but ITF's simpler bar structure remains more forgiving when printed directly on rough cardboard.</p>"
+    }
+  ],
+  "uses": [
+    "Warehouse and distribution case coding",
+    "Corrugated cardboard carton labeling",
+    "Automotive and industrial parts numbering",
+    "Legacy photographic film canister tracking",
+    "Foundation encoding for GS1 ITF-14 case labels"
+  ],
+  "faq": [
+    {"q": "What is an interleaved 2 of 5 barcode generator used for?", "a": "An interleaved 2 of 5 barcode generator creates compact numeric barcodes for shipping cases, cartons, and industrial parts, encoding digit pairs in both bars and spaces for roughly half the length of Standard 2 of 5."},
+    {"q": "Why does ITF require an even number of digits?", "a": "<p>Because ITF encodes two digits at a time — one in the bars and one in the interleaved spaces — an odd-length string can't be paired evenly, so a leading zero is typically added to make the count even.</p>"},
+    {"q": "Is ITF the same as ITF-14?", "a": "<p>ITF-14 is a specific, fixed-length (14-digit) implementation of Interleaved 2 of 5 standardized by GS1 for case and pallet identification, including a mandatory check digit and bearer bars. General ITF supports variable-length even-digit data without those constraints.</p>"},
+    {"q": "Does Interleaved 2 of 5 have a check digit?", "a": "The base ITF standard doesn't require one, though specific implementations like ITF-14 add a mandatory check digit for extra reliability."},
+    {"q": "Can I print ITF barcodes directly on cardboard?", "a": "<p>Yes, ITF is commonly printed on corrugated cardboard case packaging, but test print quality carefully since ink spread on cardboard can distort bar and space widths more than on smooth label stock.</p>"}
+  ]
+}

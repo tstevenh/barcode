@@ -1,0 +1,53 @@
+{
+  "id": "hibcpascode39",
+  "title": "HIBC PAS Code 39 Generator - Free | Barcode Studio",
+  "metaDescription": "Free HIBC PAS Code 39 generator for lot, expiration, and serial data on medical labels. Enter your secondary message, then export PNG, SVG, or PDF.",
+  "primaryKeyword": "hibc pas code 39 generator",
+  "secondaryKeywords": ["hibc secondary data message", "hibc lot expiration barcode", "provider applications standard barcode", "hibc pas barcode generator", "medical device lot barcode"],
+  "lead": "Encode lot number, expiration date, and serial data for a specific medical product unit using HIBC's secondary PAS message in Code 39.",
+  "sections": [
+    {
+      "h2": "What is an HIBC PAS Code 39 barcode?",
+      "html": "<p>HIBC PAS Code 39 is a Health Industry Bar Code secondary data message, encoded in Code 39, that carries variable information about a specific unit of a product rather than the product's fixed identity. \"PAS\" stands for Provider Applications Standard, the part of the HIBCC specification that defines how to encode supplemental data like lot or batch number, expiration date, serial number, and quantity. Like every HIBC message, a PAS message begins with a \"+\" flag character, but its data content is structured differently from a LIC message &mdash; it's built around date, quantity, and lot/serial fields rather than a labeler identification code and product number.</p>"
+    },
+    {
+      "h2": "How PAS messages relate to LIC messages",
+      "html": "<p>A PAS message never stands alone in practice &mdash; it's meant to be printed alongside a primary LIC message and linked to it with a link character, so a scanner reading both barcodes together knows which specific lot, expiration date, or serial number belongs to which product. Think of the LIC message as answering \"what is this product and who made it,\" while the PAS message answers \"which specific lot or unit is this one.\" A hospital scanning both barcodes on a device package gets the complete picture needed for recall tracking, expiration monitoring, and inventory rotation &mdash; information that changes from production run to production run even though the underlying product identity in the LIC message stays the same.</p>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>A PAS message is not GS1-based &mdash; it follows the HIBCC Supplier Labeling Standard's own field structure rather than GS1 Application Identifiers, though both schemes exist to solve similar traceability problems. The data content typically packs a lot or batch number, an expiration date (and sometimes a manufacturing date), and optionally a quantity or serial number, all following fixed field-order conventions defined by HIBCC rather than delimited AI syntax. Like a LIC message, a PAS symbol begins with the \"+\" flag character and ends with a check character computed with the same modulo-43 algorithm Code 39 uses, followed by Code 39's mandatory stop pattern. There is no fixed physical size requirement beyond standard Code 39 quiet zone and X-dimension guidance from the HIBCC specification.</p>"
+    },
+    {
+      "h2": "Where HIBC PAS Code 39 is used",
+      "html": "<p>HIBC PAS Code 39 appears wherever a healthcare product's lot, expiration, or serial data needs to travel with the physical item for traceability &mdash; on pharmaceutical vials, reagent kits, implant packaging, and sterile surgical supplies where expiration monitoring and lot-based recall tracking are critical to patient safety. Hospital pharmacy and materials management systems scan the PAS message at receiving and again at point of use to confirm the product hasn't expired and to log exactly which lot was used on which patient or procedure, supporting recall response if a manufacturer later identifies a defective batch.</p>"
+    },
+    {
+      "h2": "How to create an HIBC PAS Code 39 barcode in Barcode Studio",
+      "html": "<p>Select <strong>HIBC PAS Code 39</strong> from the Linear Barcode list, then enter your HIBC-formatted secondary data string, beginning with the \"+\" flag character followed by your lot number, expiration date, and any quantity or serial data per the HIBC PAS structure, for example <code>+$$1015Z251231</code>. Barcode Studio computes the required HIBC check character automatically. From there you can:</p><ul><li>Adjust bar width, height, and quiet zone to fit vial, kit, or carton labels</li><li>Set colors while keeping strong contrast for hospital and pharmacy scanners</li><li>Export as PNG, SVG, or PDF, or copy the barcode into label design software</li><li>Bulk-generate PAS labels from a CSV of lot numbers and expiration dates as a ZIP or print-ready PDF</li><li>Call the REST API &mdash; <code>/barcode?type=hibcpascode39&amp;data=+$$1015Z251231</code> &mdash; to generate labels from your labeling system</li></ul>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Because a PAS message is only useful in context with its linked LIC message, print both barcodes together with clear, separate quiet zones so a scanner reads them as two distinct symbols rather than one garbled scan. Double-check date formatting and lot number accuracy carefully before a production print run &mdash; an incorrect expiration date encoded in a PAS message can cause a hospital system to flag good stock as expired, or worse, fail to flag stock that actually has expired. As with any Code 39 healthcare label, keep the quiet zone intact on both sides of the symbol, since HIBC labels are often applied to small, curved, or otherwise awkward packaging surfaces where print quality is already a challenge.</p>"
+    },
+    {
+      "h2": "Why lot and expiration data belongs in PAS, not LIC",
+      "html": "<p>It might seem simpler to just add a lot number or expiration date directly onto a LIC barcode rather than printing a second symbol, but HIBC deliberately keeps the two apart, and there's a practical reason for it. A LIC message identifies a product line that stays the same across every unit a manufacturer ever produces, so it's printed once per product design and reused indefinitely on packaging artwork. Lot number and expiration date, by contrast, change with every production run &mdash; sometimes multiple times a day on a busy manufacturing line &mdash; so baking them into the same barcode as the LIC message would mean regenerating and re-approving artwork constantly. Keeping PAS as a separate, independently generated barcode lets manufacturers hold LIC artwork constant while only the PAS barcode changes from batch to batch, which is far more practical on a real production floor.</p><p>This separation is also why hospital scanning software is built to expect two linked barcodes rather than one combined message: it mirrors how the data is actually generated and printed upstream.</p>"
+    }
+  ],
+  "uses": [
+    "Lot and expiration date tracking on pharmaceutical and reagent labels",
+    "Recall traceability for medical devices and surgical supplies",
+    "Serial number tracking for implantable devices",
+    "Hospital pharmacy expiration monitoring at point of use",
+    "Quantity tracking on multi-unit medical supply packaging"
+  ],
+  "faq": [
+    {"q": "What is an HIBC PAS Code 39 generator used for?", "a": "It generates the secondary Health Industry Bar Code message that carries variable data like lot number, expiration date, and serial number for a specific unit, encoded in Code 39."},
+    {"q": "What does PAS stand for in HIBC?", "a": "PAS stands for Provider Applications Standard, the part of the HIBC specification that defines how supplemental data such as lot number and expiration date is encoded."},
+    {"q": "Do I need a LIC barcode along with a PAS barcode?", "a": "Yes, a PAS message is meant to be printed alongside and linked to a primary LIC message so a scanner can associate the lot and expiration data with the correct product identity."},
+    {"q": "Can HIBC PAS Code 39 encode a serial number for an individual device?", "a": "Yes, the PAS message structure supports serial number fields in addition to lot number, expiration date, and quantity, which is important for tracking individual implantable or high-value devices."},
+    {"q": "Does HIBC PAS Code 39 use GS1 Application Identifiers?", "a": "No, HIBC PAS messages follow the HIBCC Supplier Labeling Standard's own field structure rather than GS1 Application Identifier syntax, though both schemes serve similar traceability purposes."},
+    {"q": "Can I bulk-generate HIBC PAS Code 39 labels for different lots?", "a": "Yes, upload a CSV where each row supplies its own lot number and expiration date, and Barcode Studio will generate the corresponding barcodes as a ZIP or print-ready PDF."}
+  ]
+}

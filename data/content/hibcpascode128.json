@@ -1,0 +1,56 @@
+{
+  "id": "hibcpascode128",
+  "title": "HIBC PAS Code 128 Generator - Free | Barcode Studio",
+  "metaDescription": "Free HIBC PAS Code 128 generator for compact lot, expiration, and serial labels on medical devices. Enter your data and export PNG, SVG, or PDF.",
+  "primaryKeyword": "hibc pas code 128 generator",
+  "secondaryKeywords": ["hibc secondary message code 128", "hibc lot expiration code 128", "compact medical lot barcode", "provider applications standard code 128", "hibc pas barcode maker"],
+  "lead": "Pack lot number, expiration date, and serial data into a denser HIBC PAS barcode using Code 128 for tight medical device labels.",
+  "sections": [
+    {
+      "h2": "What is an HIBC PAS Code 128 barcode?",
+      "html": "<p>HIBC PAS Code 128 is the same secondary Health Industry Bar Code data message as HIBC PAS Code 39 &mdash; a \"+\" flag character followed by variable data such as lot number, expiration date, serial number, and quantity per the Provider Applications Standard &mdash; but encoded in Code 128 for greater data density. As with the LIC message, HIBCC's specification permits PAS data to be encoded in Code 39, Code 128, or 2D symbologies, and manufacturers reach for Code 128 whenever the available label space is too small to comfortably fit the equivalent Code 39 barcode.</p>"
+    },
+    {
+      "h2": "Why Code 128 matters for lot and expiration data specifically",
+      "html": "<p>PAS messages tend to grow longer than LIC messages once you combine lot number, expiration date, and sometimes a serial number and quantity in a single string, which makes symbology density especially important here. Code 128's tighter character encoding keeps that combined string from ballooning the barcode's physical width, which matters most on small pharmaceutical vials, single-use device pouches, and unit-of-use packaging where there simply isn't room for a wide Code 39 symbol carrying the same information. Manufacturers printing PAS data on constrained packaging increasingly default to Code 128 for this reason, reserving Code 39 for larger cartons or legacy label formats.</p>"
+    },
+    {
+      "h2": "Pairing with a linked LIC message",
+      "html": "<p>Just like its Code 39 counterpart, an HIBC PAS Code 128 barcode is designed to be printed and scanned alongside a primary LIC message, linked by a shared link character so scanning software can associate the variable lot, expiration, and serial data with the correct fixed product identity. The two barcodes don't need to use the same symbology &mdash; a manufacturer might print a LIC message in Code 39 on a larger carton and a PAS message in Code 128 on the smaller unit-of-use item inside it &mdash; but they must be readable together by whatever system consumes them downstream, whether that's hospital receiving, pharmacy dispensing, or point-of-use scanning at the bedside.</p>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>Like HIBC PAS Code 39, a PAS Code 128 message follows the HIBCC Supplier Labeling Standard's own field structure rather than GS1 Application Identifiers &mdash; it packs lot or batch number, expiration date, and optionally manufacturing date, quantity, or serial number using fixed field-order conventions rather than delimited AI syntax. The message begins with the \"+\" flag character and ends with a HIBC check character computed with a modulo-43 algorithm before being encoded in the Code 128 symbology, using Code 128's own start/stop patterns and internal check character on top of the HIBC-level check. There's no fixed physical size mandated beyond standard Code 128 quiet zone and X-dimension guidance; the whole point of choosing Code 128 here is to shrink that footprint relative to Code 39 for the same data.</p>"
+    },
+    {
+      "h2": "Where HIBC PAS Code 128 is used",
+      "html": "<p>HIBC PAS Code 128 appears on compact pharmaceutical packaging, single-dose vials, implantable device pouches, and diagnostic test kits where lot and expiration tracking is required but label space is at a premium. Hospital pharmacy systems and point-of-use scanning stations rely on these labels for expiration checking and lot-level recall traceability, particularly for high-value or implantable items where knowing the exact lot and serial number used on a specific patient is a patient-safety requirement, not just an inventory convenience.</p>"
+    },
+    {
+      "h2": "How to create an HIBC PAS Code 128 barcode in Barcode Studio",
+      "html": "<p>Select <strong>HIBC PAS Code 128</strong> from the Linear Barcode list, then enter your HIBC-formatted secondary data string starting with the \"+\" flag character, followed by lot number, expiration date, and any serial or quantity data, for example <code>+$$1015Z251231</code>. Barcode Studio calculates and appends the HIBC check character automatically. From there you can:</p><ul><li>Adjust module width, bar height, and quiet zone for compact vial or pouch labels</li><li>Set colors while preserving contrast for pharmacy and point-of-use scanners</li><li>Export as PNG, SVG, or PDF, or copy the barcode into your label design software</li><li>Bulk-generate PAS labels from a CSV of lot numbers and expiration dates as a ZIP or print-ready PDF</li><li>Call the REST API &mdash; <code>/barcode?type=hibcpascode128&amp;data=+$$1015Z251231</code> &mdash; to generate labels from your labeling system</li></ul>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Verify date and lot fields carefully before mass printing &mdash; errors in a PAS message have direct patient-safety consequences if they cause a scanning system to miscalculate expiration status. Keep the required Code 128 quiet zone intact even under space pressure, since crowding a compact PAS barcode too close to text or a linked LIC symbol is a common cause of misreads on small packaging. When both a LIC and PAS message appear on the same label, print them with clearly separated quiet zones and test with the actual scanner hardware used at your point of care or point of receiving before finalizing the label design.</p>"
+    },
+    {
+      "h2": "Handling frequently changing PAS data in production",
+      "html": "<p>Because a PAS message's lot number and expiration date change with every production batch, generating it well usually means integrating directly with whatever system tracks batch records &mdash; a manufacturing execution system, ERP, or dedicated labeling software &mdash; rather than manually typing each new lot into a barcode generator by hand. Barcode Studio's REST API is built for exactly this: a production line or packaging system can call the API automatically each time a new lot starts, passing the current lot number and expiration date as the data parameter and receiving a print-ready barcode image back, with no manual data entry step to introduce a transcription error.</p><p>For smaller manufacturers without that level of system integration, the CSV bulk-upload workflow is a reasonable middle ground: export lot and expiration data from a spreadsheet or batch record system, upload it to Barcode Studio, and generate an entire run of PAS labels for a production batch in one pass rather than one barcode at a time.</p>"
+    }
+  ],
+  "uses": [
+    "Lot and expiration tracking on compact pharmaceutical and vial labels",
+    "Point-of-use scanning for implantable and high-value device traceability",
+    "Single-dose and unit-of-use packaging with limited label space",
+    "Pharmacy dispensing systems checking expiration at point of care",
+    "Recall traceability paired with a linked HIBC LIC identity message"
+  ],
+  "faq": [
+    {"q": "What is an HIBC PAS Code 128 generator used for?", "a": "It generates the secondary HIBC message carrying lot number, expiration date, serial number, or quantity for a specific product unit, encoded in the denser Code 128 symbology."},
+    {"q": "Why choose Code 128 over Code 39 for an HIBC PAS message?", "a": "PAS messages often combine several data fields into a longer string, and Code 128 encodes that string more compactly than Code 39, which matters on small pharmaceutical or device packaging."},
+    {"q": "Can an HIBC PAS Code 128 barcode stand alone without a LIC message?", "a": "It can be printed alone, but it's designed to be scanned together with a linked primary LIC message so the lot and expiration data can be associated with the correct product identity."},
+    {"q": "Is HIBC PAS Code 128 required for medical device labeling?", "a": "It's not universally required, but many hospital systems and manufacturers built around the HIBC standard rely on it for lot and expiration tracking, sometimes alongside newer FDA UDI barcodes."},
+    {"q": "Can I bulk-generate HIBC PAS Code 128 labels for a production batch?", "a": "Yes, upload a CSV of lot numbers and expiration dates, or call the REST API directly from a manufacturing system, and Barcode Studio will generate the corresponding barcodes as a ZIP or print-ready PDF."}
+  ]
+}

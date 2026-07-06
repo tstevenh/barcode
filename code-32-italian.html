@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Code 32 Generator - Italian Pharma Barcode | Barcode Studio</title>
+<meta name="description" content="Generate a Code 32 (Italian pharmaceutical) barcode free in your browser. Encode the 8-digit ministerial code and export PNG, SVG, or PDF instantly." />
+<meta name="theme-color" content="#0b1220" />
+<link rel="canonical" href="https://lawbarcode.vercel.app/code-32-italian" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Code 32 (Italian) Generator | Barcode Studio" />
+<meta property="og:description" content="Generate a Code 32 (Italian pharmaceutical) barcode free in your browser. Encode the 8-digit ministerial code and export PNG, SVG, or PDF instantly." />
+<meta property="og:url" content="https://lawbarcode.vercel.app/code-32-italian" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1220'/%3E%3Cg fill='white'%3E%3Crect x='6' y='8' width='2' height='16'/%3E%3Crect x='9' y='8' width='1' height='16'/%3E%3Crect x='11' y='8' width='3' height='16'/%3E%3Crect x='15' y='8' width='1' height='16'/%3E%3Crect x='17' y='8' width='2' height='16'/%3E%3Crect x='20' y='8' width='1' height='16'/%3E%3Crect x='22' y='8' width='3' height='16'/%3E%3Crect x='26' y='8' width='1' height='16'/%3E%3C/g%3E%3C/svg%3E" />
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://lawbarcode.vercel.app/"},{"@type":"ListItem","position":2,"name":"Barcode Types","item":"https://lawbarcode.vercel.app/barcodes"},{"@type":"ListItem","position":3,"name":"Code 32 (Italian) Generator","item":"https://lawbarcode.vercel.app/code-32-italian"}]},{"@type":"SoftwareApplication","name":"Code 32 (Italian) Generator","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://lawbarcode.vercel.app/code-32-italian"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a Code 32 Italian barcode used for?","acceptedAnswer":{"@type":"Answer","text":"Code 32 encodes the Italian Ministry of Health's pharmaceutical product code on medicine packaging, letting pharmacists and the national health system identify the exact registered product by scanning."}},{"@type":"Question","name":"Is Code 32 a completely different symbology from Code 39?","acceptedAnswer":{"@type":"Answer","text":"No, Code 32 is Code 39 with a specific numeric-to-base-32 conversion applied to the input first, so the visible bars are a valid Code 39 symbol that Code 32-aware software converts back to the original ministerial number."}},{"@type":"Question","name":"What data does Code 32 encode?","acceptedAnswer":{"@type":"Answer","text":"It encodes the 8-digit Italian pharmaceutical product code (the ministerial number) assigned by Italy's Ministry of Health, converted into a compact base-32 representation before being rendered as Code 39."}},{"@type":"Question","name":"Is Code 32 used outside Italy?","acceptedAnswer":{"@type":"Answer","text":"No, Code 32 is specific to the Italian pharmaceutical numbering system; other countries use their own pharma barcode standards, such as Germany's PZN or the international NTIN and PPN codes."}},{"@type":"Question","name":"Do I need to calculate the base-32 conversion myself?","acceptedAnswer":{"@type":"Answer","text":"No, Barcode Studio performs the numeric-to-base-32 conversion and Code 39 encoding automatically from the ministerial product code you enter."}},{"@type":"Question","name":"Can I generate Code 32 barcodes in bulk?","acceptedAnswer":{"@type":"Answer","text":"Yes, upload a CSV of ministerial product codes and Barcode Studio will generate a ZIP of image files or a print-ready PDF of packaging labels."}}]}]}</script>
+<link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="/css/bulk-api.css" />
+<script src="/js/qr-local.js"></script>
+<script>
+(function () {
+  function hasJsBarcode() { return typeof window.JsBarcode === "function"; }
+  function hasBwip() { return !!(window.bwipjs && typeof window.bwipjs.toCanvas === "function"); }
+  function hasPdf() { var ns = window.jspdf || window.jsPDF; return !!(ns && (ns.jsPDF || ns)); }
+  function loadScript(src, check, timeoutMs) {
+    return new Promise(function (resolve) {
+      if (check()) return resolve(true);
+      var done = false;
+      var s = document.createElement("script");
+      var t = setTimeout(function () { finish(check()); }, timeoutMs || 2500);
+      function finish(ok) {
+        if (done) return;
+        done = true;
+        clearTimeout(t);
+        try { if (!ok && s.parentNode) s.parentNode.removeChild(s); } catch (e) {}
+        resolve(!!ok || check());
+      }
+      s.async = false;
+      s.onload = function () { finish(true); };
+      s.onerror = function () { finish(false); };
+      s.src = src;
+      document.head.appendChild(s);
+    });
+  }
+  async function loadAny(urls, check) {
+    for (var i = 0; i < urls.length; i++) {
+      if (await loadScript(urls[i], check, 2500)) return true;
+    }
+    return check();
+  }
+  window.__barcodeLibs = {
+    jsbarcode: loadAny([
+      "https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js",
+      "https://unpkg.com/jsbarcode@3.11.6/dist/JsBarcode.all.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"
+    ], hasJsBarcode),
+    bwip: loadAny([
+      "https://cdn.jsdelivr.net/npm/bwip-js@4.11.1/dist/bwip-js-min.js",
+      "https://unpkg.com/bwip-js@4.11.1/dist/bwip-js-min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/bwip-js/4.7.0/bwip-js-min.js"
+    ], hasBwip),
+    pdf: loadAny([
+      "https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js",
+      "https://unpkg.com/jspdf@2.5.1/dist/jspdf.umd.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+    ], hasPdf)
+  };
+  window.__barcodeLibsReady = Promise.all([window.__barcodeLibs.jsbarcode, window.__barcodeLibs.bwip, window.__barcodeLibs.pdf]).then(function (r) {
+    return { jsbarcode: r[0], bwip: r[1], pdf: r[2], qr: !!(window.QRCode && typeof window.QRCode.toCanvas === "function") };
+  });
+})();
+</script>
+<script>window.BARCODE_HAS_API = true;</script>
+<script src="/js/i18n.js"></script>
+<script src="/js/i18n-extra.js"></script>
+</head>
+<body>
+  <div class="loader" id="loader"><div class="loader-bars"><span></span><span></span><span></span><span></span><span></span></div><p data-i18n="loaderText">Loading Barcode Studio…</p></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <div>
+        <h1>Barcode Studio</h1>
+        <p data-i18n="brandTagline">Free Online Barcode &amp; QR Code Generator</p>
+      </div>
+    </div>
+    <nav class="top-actions">
+      <a href="#generator" class="btn btn-ghost" data-i18n="navGenerator">Generator</a>
+      <a href="#bulk" class="btn btn-ghost" data-i18n="navBulk">Bulk</a>
+      <a href="/barcodes" class="btn btn-ghost" data-i18n="navTypes">All barcodes</a>
+      <a href="/api-docs.html" class="btn btn-ghost" data-i18n="navApi">API Docs</a>
+      <button class="btn btn-ghost" id="resetBtn" data-i18n="navReset">Reset</button>
+      <button class="btn btn-ghost" id="printBtn" data-i18n="navPrint">Print</button>
+      <div class="lang-wrap">
+        <span class="globe" aria-hidden="true">🌐</span>
+        <select id="langSelect" class="lang-select" aria-label="Language"></select>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-content">
+      <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/barcodes">Barcodes</a><span>/</span><span>Code 32 (Italian)</span></nav>
+      <span class="eyebrow">Linear Barcode</span>
+      <h1>Code 32 (Italian) <span class="grad-text">Generator</span></h1>
+      <p>Create a Code 32 barcode for Italian pharmaceutical packaging, encoding the 8-digit ministerial product code required by Italy's health authority.</p>
+      <a href="#generator" class="btn btn-primary btn-lg">Open the generator ↓</a>
+    </div>
+  </section>
+
+  <div class="app" id="generator">
+    <aside class="sidebar reveal">
+      <div class="sidebar-search">
+        <input type="text" id="typeSearch" data-i18n-ph="searchPh" placeholder="Search symbology…" />
+      </div>
+      <div class="type-list" id="typeList"></div>
+    </aside>
+
+    <main class="main">
+      <section class="card reveal">
+        <div class="card-head">
+          <h2 data-i18n="dataHeading">Data</h2>
+          <span class="pill" id="activeType">Code 128</span>
+        </div>
+        <div class="prop-row ct-row" id="contentTypeRow" hidden>
+          <label data-i18n="contentType">Content type</label>
+          <select id="ctSelect">
+            <option value="text" data-i18n="ctText">Text</option>
+            <option value="url" data-i18n="ctUrl">URL / Link</option>
+            <option value="wifi" data-i18n="ctWifi">WiFi network</option>
+            <option value="vcard" data-i18n="ctVcard">Contact (vCard)</option>
+            <option value="email" data-i18n="ctEmail">Email</option>
+            <option value="sms" data-i18n="ctSms">SMS</option>
+            <option value="tel" data-i18n="ctTel">Phone</option>
+            <option value="geo" data-i18n="ctGeo">Location</option>
+            <option value="event" data-i18n="ctEvent">Calendar event</option>
+          </select>
+        </div>
+        <textarea id="data" rows="3" data-i18n-ph="dataPh" placeholder="Enter the data to encode…">Barcode Studio</textarea>
+        <div class="builder" id="builderFields" hidden>
+          <div class="ct-block" data-ct="wifi">
+            <label class="fld"><span data-i18n="fSsid">Network name (SSID)</span><input type="text" id="wSsid" value="MyNetwork" /></label>
+            <label class="fld"><span data-i18n="fPassword">Password</span><input type="text" id="wPass" value="password123" /></label>
+            <label class="fld"><span data-i18n="fEncryption">Encryption</span>
+              <select id="wEnc"><option value="WPA">WPA/WPA2</option><option value="WEP">WEP</option><option value="nopass" data-i18n="encNone">None</option></select>
+            </label>
+            <label class="switch"><input type="checkbox" id="wHidden" /> <span data-i18n="fHidden">Hidden network</span></label>
+          </div>
+          <div class="ct-block" data-ct="vcard">
+            <label class="fld"><span data-i18n="fFirstName">First name</span><input type="text" id="vFirst" value="John" /></label>
+            <label class="fld"><span data-i18n="fLastName">Last name</span><input type="text" id="vLast" value="Doe" /></label>
+            <label class="fld"><span data-i18n="fOrg">Organization</span><input type="text" id="vOrg" /></label>
+            <label class="fld"><span data-i18n="fJobTitle">Job title</span><input type="text" id="vTitle" /></label>
+            <label class="fld"><span data-i18n="fPhone">Phone</span><input type="text" id="vPhone" value="+1 555 0100" /></label>
+            <label class="fld"><span data-i18n="fEmail">Email</span><input type="text" id="vEmail" value="john@example.com" /></label>
+            <label class="fld"><span data-i18n="fWebsite">Website</span><input type="text" id="vUrl" /></label>
+            <label class="fld"><span data-i18n="fAddress">Address</span><input type="text" id="vAddr" /></label>
+          </div>
+          <div class="ct-block" data-ct="email">
+            <label class="fld"><span data-i18n="fTo">To</span><input type="text" id="eTo" value="hello@example.com" /></label>
+            <label class="fld"><span data-i18n="fSubject">Subject</span><input type="text" id="eSub" /></label>
+            <label class="fld"><span data-i18n="fBody">Message</span><input type="text" id="eBody" /></label>
+          </div>
+          <div class="ct-block" data-ct="sms">
+            <label class="fld"><span data-i18n="fNumber">Number</span><input type="text" id="sNum" value="+15550100" /></label>
+            <label class="fld"><span data-i18n="fMessage">Message</span><input type="text" id="sMsg" value="Hello" /></label>
+          </div>
+          <div class="ct-block" data-ct="tel">
+            <label class="fld"><span data-i18n="fNumber">Number</span><input type="text" id="tNum" value="+15550100" /></label>
+          </div>
+          <div class="ct-block" data-ct="geo">
+            <label class="fld"><span data-i18n="fLat">Latitude</span><input type="text" id="gLat" value="40.7128" /></label>
+            <label class="fld"><span data-i18n="fLong">Longitude</span><input type="text" id="gLng" value="-74.0060" /></label>
+          </div>
+          <div class="ct-block" data-ct="event">
+            <label class="fld"><span data-i18n="fEventTitle">Event title</span><input type="text" id="cTitle" value="Meeting" /></label>
+            <label class="fld"><span data-i18n="fLocation">Location</span><input type="text" id="cLoc" /></label>
+            <label class="fld"><span data-i18n="fStart">Start</span><input type="datetime-local" id="cStart" /></label>
+            <label class="fld"><span data-i18n="fEnd">End</span><input type="datetime-local" id="cEnd" /></label>
+            <label class="fld"><span data-i18n="fDescription">Description</span><input type="text" id="cDesc" /></label>
+          </div>
+        </div>
+        <p class="hint" id="typeHint"></p>
+
+        <div class="seq">
+          <label class="switch">
+            <input type="checkbox" id="seqEnable" /> <span data-i18n="seqToggle">Batch / sequence mode</span>
+          </label>
+          <div class="seq-fields" id="seqFields">
+            <label><span data-i18n="seqCount">Count</span> <input type="number" id="seqCount" min="2" max="100" value="5" /></label>
+            <label><span data-i18n="seqStart">Start #</span> <input type="number" id="seqStart" value="1" /></label>
+            <label><span data-i18n="seqPrefix">Prefix</span> <input type="text" id="seqPrefix" placeholder="ABC-" /></label>
+            <label><span data-i18n="seqPad">Pad</span> <input type="number" id="seqPad" min="0" max="12" value="4" /></label>
+          </div>
+        </div>
+      </section>
+
+      <section class="card preview-card reveal">
+        <div class="card-head">
+          <h2 data-i18n="previewHeading">Preview</h2>
+          <div class="preview-tools">
+            <button class="chip" data-zoom="out" title="Zoom out">−</button>
+            <span id="zoomLabel">100%</span>
+            <button class="chip" data-zoom="in" title="Zoom in">+</button>
+          </div>
+        </div>
+        <div class="preview-stage">
+          <div id="preview" class="preview-inner"></div>
+        </div>
+        <div class="download-row">
+          <button class="btn btn-primary" id="dlPng">⬇ PNG</button>
+          <button class="btn btn-secondary" id="dlSvg">⬇ SVG</button>
+          <button class="btn btn-soft" id="copyBtn">📋 Copy</button>
+          <button class="btn btn-soft" id="dlZip" hidden>⬇ ZIP (batch)</button>
+        </div>
+      </section>
+
+      <section class="card bulk-card reveal" id="bulk">
+        <div class="card-head">
+          <h2 data-i18n="bulkHeading">Bulk generate</h2>
+          <span class="pill" data-i18n="bulkBadge">CSV \u2192 ZIP / PDF</span>
+        </div>
+        <p class="hint" data-i18n="bulkDesc">Upload a CSV/TXT file or paste values to generate hundreds of barcodes at once.</p>
+        <div class="bulk-grid">
+          <label class="bulk-file">
+            <input type="file" id="bulkFile" accept=".csv,.txt,text/csv,text/plain" />
+            <span data-i18n="bulkUpload">\u2b06 Upload CSV / TXT</span>
+          </label>
+          <textarea id="bulkPaste" rows="4" data-i18n-ph="bulkPastePh" placeholder="\u2026or paste values here, one per line"></textarea>
+        </div>
+        <div class="bulk-opts">
+          <label class="switch"><input type="checkbox" id="bulkHeader" /> <span data-i18n="bulkHeaderLbl">First row is a header</span></label>
+          <label class="bulk-sel"><span data-i18n="bulkDataColLbl">Data column</span><select id="bulkDataCol"></select></label>
+          <label class="bulk-sel"><span data-i18n="bulkLabelColLbl">Label / filename</span><select id="bulkLabelCol"></select></label>
+          <label class="bulk-sel"><span data-i18n="bulkPdfColsLbl">PDF columns</span><input type="number" id="bulkPdfCols" min="1" max="6" value="3" /></label>
+        </div>
+        <p class="bulk-info" id="bulkInfo"></p>
+        <div class="bulk-progress" id="bulkProgress" hidden><div class="bulk-bar" id="bulkBar"></div></div>
+        <div class="download-row">
+          <button class="btn btn-primary" id="bulkGenBtn" data-i18n="bulkGenerate">\u2699 Generate</button>
+          <button class="btn btn-secondary" id="bulkDlZip" hidden data-i18n="bulkDlZip">\u2b07 ZIP (PNG)</button>
+          <button class="btn btn-secondary" id="bulkDlPdf" hidden data-i18n="bulkDlPdf">\u2b07 PDF sheet</button>
+        </div>
+      </section>
+    </main>
+
+    <aside class="props reveal">
+      <h2 data-i18n="propsHeading">Properties</h2>
+
+      <div class="prop-group" id="linearProps">
+        <div class="prop-row">
+          <label data-i18n="pBarWidth">Bar width</label>
+          <input type="range" id="barWidth" min="1" max="6" step="0.5" value="2" />
+          <output id="barWidthV">2</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pHeight">Height</label>
+          <input type="range" id="barHeight" min="20" max="240" step="5" value="100" />
+          <output id="barHeightV">100</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pFontSize">Font size</label>
+          <input type="range" id="fontSize" min="8" max="40" step="1" value="18" />
+          <output id="fontSizeV">18</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pTextAlign">Text align</label>
+          <select id="textAlign">
+            <option value="center" selected data-i18n="optCenter">Center</option>
+            <option value="left" data-i18n="optLeft">Left</option>
+            <option value="right" data-i18n="optRight">Right</option>
+          </select>
+        </div>
+        <label class="switch"><input type="checkbox" id="displayValue" checked /> <span data-i18n="pShowText">Show human-readable text</span></label>
+      </div>
+
+      <div class="prop-group" id="qrProps" hidden>
+        <div class="prop-row">
+          <label data-i18n="pSize">Size</label>
+          <input type="range" id="qrSize" min="120" max="640" step="20" value="300" />
+          <output id="qrSizeV">300</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pErrCorr">Error corr.</label>
+          <select id="qrEcc">
+            <option value="L">L – 7%</option>
+            <option value="M" selected>M – 15%</option>
+            <option value="Q">Q – 25%</option>
+            <option value="H">H – 30%</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="prop-group" id="twoDProps" hidden>
+        <div class="prop-row">
+          <label data-i18n="pScale">Scale</label>
+          <input type="range" id="tdScale" min="2" max="10" step="1" value="4" />
+          <output id="tdScaleV">4</output>
+        </div>
+        <div class="prop-row" id="bwipHeightRow" style="display:none">
+          <label data-i18n="pHeightMm">Height (mm)</label>
+          <input type="range" id="bwipHeight" min="5" max="40" step="1" value="12" />
+          <output id="bwipHeightV">12</output>
+        </div>
+        <div class="prop-row" id="pdfColsRow">
+          <label data-i18n="pPdfCols">PDF columns</label>
+          <input type="range" id="pdfCols" min="0" max="12" step="1" value="0" />
+          <output id="pdfColsV">auto</output>
+        </div>
+        <label class="switch" id="bwipTextRow" style="display:none"><input type="checkbox" id="bwipText" /> <span data-i18n="pShowText">Show human-readable text</span></label>
+      </div>
+
+      <div class="prop-group">
+        <div class="prop-row two">
+          <div>
+            <label data-i18n="pForeground">Foreground</label>
+            <input type="color" id="fg" value="#000000" />
+          </div>
+          <div>
+            <label data-i18n="pBackground">Background</label>
+            <input type="color" id="bg" value="#ffffff" />
+          </div>
+        </div>
+        <label class="switch"><input type="checkbox" id="transparent" /> <span data-i18n="pTransparent">Transparent background</span></label>
+        <div class="prop-row">
+          <label data-i18n="pMargin">Margin</label>
+          <input type="range" id="margin" min="0" max="40" step="2" value="10" />
+          <output id="marginV">10</output>
+        </div>
+      </div>
+
+      <div class="prop-group">
+        <p class="prop-note" id="status"></p>
+      </div>
+    </aside>
+  </div>
+
+    <article class="seo-section">
+    <div class="seo-wrap">
+      <h2>What is Code 32?</h2>
+      <p>Code 32, also known as Codice Farmaceutico, is a numeric barcode symbology used specifically in Italy to encode the national pharmaceutical product code assigned by the Italian Ministry of Health. It's not a distinct symbology invented from scratch &mdash; structurally, Code 32 barcodes are encoded using Code 39, but with a specific numeric-to-alphanumeric conversion algorithm applied to the input digits first. The result is a barcode that looks like Code 39 to a generic scanner but represents a compact numeric identifier once decoded and converted back by pharmacy and distribution software that knows the Code 32 rules.</p>
+      <h2>How Code 32 encodes data</h2>
+      <p>Code 32 starts from a 9-digit Italian ministerial product code (8 digits plus a check digit). That 9-digit decimal number is converted into a base-32 representation using a defined alphabet of letters and digits (excluding easily confused characters like 0, 1, O, and I), producing a shorter alphanumeric string. This converted string is then encoded as a standard Code 39 symbol, prefixed with an "A" start character and suffixed with a checksum character calculated over the converted string. The net effect is a more compact barcode than encoding the original 9-digit number directly in Code 39, since the base-32 conversion packs more information per character.</p><p>Because the conversion step is specific to the Italian pharmaceutical numbering system, Code 32 isn't a general-purpose numeric barcode &mdash; it's meaningful only when both the label generator and the scanning/decoding software agree on the same base-32 conversion and checksum rules defined by Italian pharmaceutical regulation.</p>
+      <h2>Technical Specifications</h2>
+      <p>The input to Code 32 is an 8-digit Italian Ministry of Health product code (sometimes provided as 9 digits including a pre-existing check digit, depending on the source system). Internally, Barcode Studio applies the standard Code 32 numeric-to-base-32 conversion, then renders the result as Code 39 with its start/stop characters and calculated checksum. The visible barcode is therefore a valid Code 39 symbol, but the human-readable text conventionally shows the original 9-digit ministerial number (often prefixed with an "A" and suffixed with a check digit) rather than the raw converted Code 39 payload, matching how Italian pharmacy systems expect the code to be labeled.</p>
+      <h2>Where Code 32 is used</h2>
+      <p>Code 32 appears exclusively on Italian pharmaceutical packaging &mdash; prescription and over-the-counter medicine boxes sold through the Italian national health system and retail pharmacies. It's required by Italian regulation so that pharmacists, wholesalers, and the national health service's reimbursement and tracking systems can scan a package and immediately identify the exact registered pharmaceutical product. Outside of Italy's pharmaceutical supply chain, Code 32 has essentially no use, since other countries use different national or international pharma coding systems such as Germany's PZN or the broader NTIN/PPN standards.</p>
+      <h2>How to create a Code 32 barcode in Barcode Studio</h2>
+      <p>Select <strong>Code 32 (Italian)</strong> from the symbology list on the left, then enter the 8-digit ministerial product code. Barcode Studio applies the base-32 conversion and Code 39 encoding automatically, so you only need to supply the original numeric code. From there:</p><ul><li>Adjust bar width and height to fit your pharmaceutical packaging dimensions</li><li>Toggle human-readable text so the ministerial code is printed in a form pharmacists and wholesalers recognize</li><li>Set colors and quiet zone appropriate for small-format packaging, which often has limited barcode real estate</li><li>Export as PNG, SVG, or PDF for packaging artwork, or copy directly into a design tool</li><li>Use the batch or sequence tools if generating labels for a numbered product range</li><li>Upload a CSV of ministerial codes for bulk generation as a ZIP of image files or a print-ready PDF</li><li>Call the REST API &mdash; <code>/barcode?type=code32&amp;data=12345678</code> &mdash; for automated packaging or labeling pipelines</li></ul>
+      <h2>Printing &amp; scanning best practices</h2>
+      <p>Pharmaceutical packaging often has very limited space, so keep the barcode as compact as your printer and scanner combination reliably supports rather than maximizing size. Verify with your pharmacy or distribution partner's scanning system that it correctly decodes Code 32 and converts back to the original ministerial number &mdash; a generic Code 39 scanner will read the raw encoded string correctly, but only software aware of the Code 32 conversion will display the meaningful pharmaceutical code. Maintain adequate quiet zones despite space constraints, and confirm your printed check digit matches what Italian regulatory systems expect before mass-producing packaging.</p>
+      <h2>Code 32 vs. related codes</h2>
+      <p>Code 32 is built on Code 39 but is functionally distinct from plain Code 39 because of its numeric-to-base-32 conversion step &mdash; a generic Code 39 scanner reads the symbol correctly as a Code 39 string, but only Code 32-aware software converts that string back into the meaningful Italian ministerial code. It also serves a similar regulatory role to Germany's PZN (Pharmazentralnummer) and the international NTIN/PPN pharmaceutical numbering schemes, but each of these applies to a different country's or standard-body's own numbering system and encoding rules &mdash; they aren't interchangeable, and a product sold in multiple countries typically needs a different pharmaceutical barcode for each market.</p>
+      <h2>Common uses</h2>
+      <ul class="seo-uses"><li>Italian prescription and OTC pharmaceutical packaging</li><li>National health service (SSN) reimbursement and dispensing tracking</li><li>Pharmacy and wholesale distributor inventory scanning in Italy</li><li>Regulatory compliance labeling for medicines sold in Italy</li><li>Packaging artwork requiring the ministerial product code in scannable form</li></ul>
+      <h2>Frequently asked questions</h2>
+      <div class="faq">
+        <details class="faq-item"><summary>What is a Code 32 Italian barcode used for?</summary><div class="faq-a">Code 32 encodes the Italian Ministry of Health's pharmaceutical product code on medicine packaging, letting pharmacists and the national health system identify the exact registered product by scanning.</div></details>
+        <details class="faq-item"><summary>Is Code 32 a completely different symbology from Code 39?</summary><div class="faq-a">No, Code 32 is Code 39 with a specific numeric-to-base-32 conversion applied to the input first, so the visible bars are a valid Code 39 symbol that Code 32-aware software converts back to the original ministerial number.</div></details>
+        <details class="faq-item"><summary>What data does Code 32 encode?</summary><div class="faq-a">It encodes the 8-digit Italian pharmaceutical product code (the ministerial number) assigned by Italy's Ministry of Health, converted into a compact base-32 representation before being rendered as Code 39.</div></details>
+        <details class="faq-item"><summary>Is Code 32 used outside Italy?</summary><div class="faq-a">No, Code 32 is specific to the Italian pharmaceutical numbering system; other countries use their own pharma barcode standards, such as Germany's PZN or the international NTIN and PPN codes.</div></details>
+        <details class="faq-item"><summary>Do I need to calculate the base-32 conversion myself?</summary><div class="faq-a">No, Barcode Studio performs the numeric-to-base-32 conversion and Code 39 encoding automatically from the ministerial product code you enter.</div></details>
+        <details class="faq-item"><summary>Can I generate Code 32 barcodes in bulk?</summary><div class="faq-a">Yes, upload a CSV of ministerial product codes and Barcode Studio will generate a ZIP of image files or a print-ready PDF of packaging labels.</div></details>
+      </div>
+      <h2>Related barcode types</h2>
+      <div class="seo-related"><a href="/code-128">Code 128</a><a href="/code-128-a">Code 128 A</a><a href="/code-128-b">Code 128 B</a><a href="/code-128-c">Code 128 C</a><a href="/code-39">Code 39</a><a href="/code-39-full-ascii">Code-39 Full ASCII</a><a href="/code-93">Code 93</a><a href="/code-11">Code 11</a><a href="/standard-2-of-5">Standard 2 of 5</a><a href="/flattermarken">Flattermarken</a><a href="/interleaved-2-of-5">Interleaved 2 of 5</a><a href="/itf-14">ITF-14</a><a href="/industrial-2-of-5">Industrial 2 of 5</a><a href="/iata-2-of-5">IATA 2 of 5</a></div>
+      <p class="seo-all"><a href="/barcodes">Browse all 106 barcode &amp; QR types →</a></p>
+    </div>
+  </article>
+  <footer class="footer">
+    <span class="footer-brand">Barcode Studio</span> · <span data-i18n="footerText">made by Lawstore since 2026</span>
+  </footer>
+
+  <script>window.BARCODE_INITIAL_TYPE="code32";</script>
+  <script src="/js/catalog.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

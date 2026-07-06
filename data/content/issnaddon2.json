@@ -1,0 +1,53 @@
+{
+  "id": "issnaddon2",
+  "title": "ISSN + 2 Add-On Generator | Barcode Studio",
+  "metaDescription": "Generate an ISSN barcode with the 2-digit issue add-on free online. Encodes a periodical's ISSN plus its issue number in one scannable EAN-13 symbol.",
+  "primaryKeyword": "issn 2 add-on generator",
+  "secondaryKeywords": ["issn issue number barcode", "ean-2 magazine add-on", "periodical issue barcode", "issn add-on generator", "magazine cover barcode with issue number", "issn plus 2 digit code"],
+  "lead": "The small 2-digit code beside a magazine's cover barcode identifies the issue number, letting one ISSN barcode distinguish every issue of the same title.",
+  "sections": [
+    {
+      "h2": "What Is the ISSN + 2 Add-On?",
+      "html": "<p>This is a combined barcode: the standard ISSN-based EAN-13 (built from the periodical's 8-digit ISSN with the 977 prefix) printed alongside a smaller 2-digit EAN-2 supplement. The main barcode identifies the publication itself — the same on every issue — while the 2-digit add-on distinguishes which specific issue a copy belongs to, most commonly the issue or period number within the current volume or year.</p><p>This solves a real gap: an ISSN never changes across issues, so without an add-on, a scanner reading only the main barcode has no way to tell January's issue from February's. The EAN-2 add-on is the standard mechanism for attaching that per-issue distinction without needing a different ISSN for every single issue of a magazine or journal.</p>"
+    },
+    {
+      "h2": "How the ISSN and Add-On Are Structured",
+      "html": "<p>The ISSN portion is built exactly as a standalone ISSN barcode: your 8-digit ISSN is combined with the 977 prefix, and a new EAN-13 check digit is calculated over the resulting 12 digits automatically. Nothing about this part changes when an add-on is attached, and a scanner without add-on support simply reads the ISSN portion and ignores the smaller symbol beside it.</p><p>The add-on itself is exactly 2 digits, encoded with its own parity pattern rather than a calculated check digit — the two digits you enter are exactly what's visible. There's no single universal rule for what the 2 digits must mean; publishers commonly use them to represent:</p><ul><li><strong>Issue number within the year</strong> — e.g., 01 through 12 for a monthly, or 01 through 52 for a weekly.</li><li><strong>Month code</strong> — a simplified two-digit month representation for monthly publications.</li></ul><p>Whatever scheme you choose, consistency across issues matters more than the specific convention — the add-on's job is to let a scanner or inventory system tell issues apart, and any internal team relying on that data needs to agree on how the two digits map to actual issues.</p>"
+    },
+    {
+      "h2": "Technical Specifications",
+      "html": "<p>The combined symbol pairs two independently-structured barcodes:</p><ul><li><strong>Main symbol</strong>: ISSN-based EAN-13, built from the 8-digit ISSN with the 977 prefix and a freshly calculated mod-10 check digit, identical to a standalone ISSN barcode.</li><li><strong>Add-on</strong>: EAN-2 supplement, exactly 2 digits, encoded with its own parity pattern rather than a calculated check digit — the two digits you enter display exactly as typed.</li><li><strong>Meaning</strong>: no single standard governs what the 2 digits represent; common conventions include issue number within the year or a simplified month code, chosen and applied consistently by the publisher.</li></ul><p>Because the add-on carries no fixed universal meaning, downstream systems (distributors, library catalogs) need to agree with the publisher on the convention used.</p>"
+    },
+    {
+      "h2": "Where This Is Used",
+      "html": "<ul><li><strong>Weekly and monthly magazines</strong> distinguishing issues at retail without changing the underlying ISSN.</li><li><strong>Academic journals</strong> issued in numbered parts within a volume, where library systems need to track which specific issue a physical copy represents.</li><li><strong>Newsstand distribution and returns processing</strong> — distributors use the issue add-on to reconcile which specific issues sold versus were returned unsold.</li><li><strong>Subscription fulfillment centers</strong> matching physical copies to specific mailing cycles.</li></ul>"
+    },
+    {
+      "h2": "How to Create an ISSN + 2 Add-On in Barcode Studio",
+      "html": "<p>Select <strong>ISSN + 2 add-on</strong> from the Retail (EAN/UPC) group. Enter your 8-digit ISSN — the 977 prefix and EAN-13 check digit are handled automatically — and enter your 2-digit issue code separately, such as <code>07</code> for the seventh issue of the year. The live preview renders the full ISSN barcode with the add-on positioned beside it as it will appear on the cover.</p><ul><li>Decide on your issue-numbering convention before generating barcodes for a full year, and keep it consistent across every issue so downstream inventory systems interpret it correctly.</li><li>Adjust <strong>size</strong> so both the main barcode and the smaller add-on remain legible together; the add-on typically sits slightly higher and to the right, matching standard periodical cover layout.</li><li>Toggle <strong>human-readable text</strong> for both parts.</li><li>Set <strong>colors</strong> carefully if your cover isn't plain white, maintaining strong contrast for both symbols.</li><li>Preserve the <strong>quiet zone</strong> between the ISSN barcode and the add-on, and around the full combined symbol.</li><li>Export as <strong>PNG, SVG, or PDF</strong>, or <strong>Copy</strong> into your layout software.</li></ul><p>For a full publishing year or multi-title run, the <strong>bulk CSV → ZIP/PDF</strong> tool accepts one row per issue with the ISSN and its 2-digit code, generating every cover barcode in one batch. The <strong>REST API</strong> supports the same call pattern, e.g. <code>/barcode?type=issnaddon2&data=12345678+07</code>, for automated publishing pipelines.</p>"
+    },
+    {
+      "h2": "Print Placement Best Practices",
+      "html": "<ul><li>Keep the 2-digit add-on in the standard position to the right of the main ISSN barcode with clear separation, matching the layout readers and scanners expect.</li><li>Update the add-on for every single issue — reusing an old issue's add-on on a new cover will cause inventory and returns systems to misattribute the physical copy.</li><li>Maintain the same numbering convention year over year if possible; switching schemes mid-run (e.g., from issue number to month code) can confuse automated reconciliation at distributors.</li><li>Test a physical proof with an actual newsstand or library scanner before a full print run to confirm both the main barcode and add-on read cleanly together.</li></ul>"
+    },
+    {
+      "h2": "ISSN + 2 Add-On vs Related Codes",
+      "html": "<p>How this compares to nearby formats:</p><ul><li><strong>ISSN + 2 add-on vs plain ISSN</strong> — the plain ISSN barcode is fully valid without the add-on; the add-on exists purely to let scanners and inventory systems distinguish individual issues of the same title.</li><li><strong>ISSN + 2 add-on vs ISBN-13 + 5 add-on</strong> — books use a 5-digit add-on for currency and price; periodicals use a 2-digit add-on for issue number, reflecting the different information each format needs.</li><li><strong>ISSN + 2 add-on vs a printed issue date</strong> — a printed date on the cover is human-readable only, while the add-on makes the issue distinction machine-readable at checkout or during returns processing.</li></ul>"
+    }
+  ],
+  "uses": [
+    "Weekly and monthly magazine issue differentiation",
+    "Academic journal issue-within-volume tracking",
+    "Newsstand distribution and returns reconciliation",
+    "Subscription fulfillment cycle matching",
+    "Publisher inventory systems tracking specific issues"
+  ],
+  "faq": [
+    {"q": "What does the 2-digit add-on on a magazine barcode mean?", "a": "<p>It's an EAN-2 add-on that distinguishes one issue of a publication from another, since the ISSN itself stays the same across every issue of the same title.</p>"},
+    {"q": "Is the ISSN + 2 add-on required?", "a": "No, it's optional. The ISSN-based EAN-13 barcode is fully valid and scannable on its own; the add-on is used when a publisher wants issue-level distinction encoded in the barcode itself."},
+    {"q": "What should the 2 digits represent?", "a": "<p>There's no universal standard — publishers commonly use issue number within the year or a simplified month code, as long as the convention stays consistent across issues.</p>"},
+    {"q": "Is this ISSN + 2 add-on generator free to use?", "a": "Yes — Barcode Studio generates the combined ISSN and issue add-on barcode free in your browser, with PNG, SVG, and PDF export."},
+    {"q": "Do I need a new ISSN for every issue?", "a": "<p>No, the ISSN identifies the serial publication as a whole and doesn't change between issues; the 2-digit add-on is what differentiates individual issues.</p>"},
+    {"q": "Can I generate a full year of issue barcodes at once?", "a": "Yes — the bulk CSV tool accepts the ISSN and a 2-digit code per row, producing a ZIP or print-ready PDF covering an entire publishing year."}
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "id": "gs1-128",
+  "title": "GS1-128 Barcode Generator - Free | Barcode Studio",
+  "metaDescription": "Free GS1-128 barcode generator for shipping labels and SSCC pallet tags. Enter Application Identifiers like (01) and (17), then export PNG, SVG, or PDF.",
+  "primaryKeyword": "gs1-128 barcode generator",
+  "secondaryKeywords": ["gs1-128 label maker", "sscc barcode generator", "application identifier barcode", "ucc/ean-128 generator", "shipping carton barcode", "gs1-128 vs code 128"],
+  "lead": "Build a GS1-128 barcode with real Application Identifiers for cartons, pallets, and shipping labels, right in your browser.",
+  "sections": [
+    {
+      "h2": "What is a GS1-128 barcode?",
+      "html": "<p>GS1-128 (formerly known as UCC/EAN-128) is a Code 128 barcode that carries GS1 Application Identifiers (AIs) instead of plain text. The symbol looks identical to an ordinary Code 128 barcode, but it starts with a special FNC1 character in the first position, which tells a GS1-aware scanner \"the data that follows uses Application Identifiers, not raw text.\" That single flag is what turns a generic Code 128 barcode into a standardized, machine-readable logistics label that any GS1-compliant system in the world can parse correctly.</p><p>GS1-128 is not used at the retail point of sale &mdash; that's the job of EAN/UPC or GS1 DataBar. GS1-128 is built for the supply chain: cartons, cases, pallets, and shipments that move between trading partners, warehouses, and distribution centers.</p>"
+    },
+    {
+      "h2": "How Application Identifiers work",
+      "html": "<p>An Application Identifier is a numeric prefix, shown in parentheses, that tells the scanner what the following field means. Common AIs include <strong>(01)</strong> for the GTIN (Global Trade Item Number), <strong>(00)</strong> for the SSCC (Serial Shipping Container Code, an 18-digit number that uniquely identifies a single pallet or logistics unit), <strong>(10)</strong> for a batch or lot number, <strong>(11)</strong> for production date, <strong>(17)</strong> for expiration date, <strong>(21)</strong> for a serial number, and <strong>(37)</strong> for a count of trade items inside a logistics unit. Freight and location AIs like (410)&ndash;(415) and quantity AIs in the (310x)&ndash;(336x) range are also common on shipping labels.</p><p>Because AI fields have known formats, a single GS1-128 barcode can concatenate several of them &mdash; for example a GTIN, a lot number, and an expiration date &mdash; in one scan. Fixed-length fields (like a 14-digit GTIN) don't need a separator, but variable-length fields are terminated with another FNC1 character so the scanner knows where one field ends and the next begins. This is what lets a single label carry rich, structured supply-chain data instead of just one flat string.</p>"
+    },
+    {
+      "h2": "Where GS1-128 is used",
+      "html": "<p>GS1-128 shows up anywhere goods move between companies rather than across a retail scanner. A distribution center applies an SSCC-based GS1-128 label to a pallet so it can be tracked as a single unit through receiving, cross-docking, and shipping. A food producer encodes GTIN, batch number, and expiration date on a case label so a recall can trace exactly which lots shipped where. A 3PL uses GS1-128 on carton labels tied to an Advance Ship Notice (ASN) so the receiving warehouse can scan the label and automatically match it against the electronic shipment record. Apparel, electronics, and industrial supply chains all rely on GS1-128 the same way &mdash; it's the connective tissue between a physical case and its digital record in an ERP or WMS.</p>"
+    },
+    {
+      "h2": "How to create a GS1-128 barcode in Barcode Studio",
+      "html": "<p>Select <strong>GS1-128</strong> from the Linear Barcode list, then enter your data using standard AI syntax with parentheses around each Application Identifier, for example <code>(01)10614141999996(17)251231(10)LOT482</code>. Barcode Studio parses the AI structure and renders a compliant symbol with the FNC1 lead-in automatically inserted. From there you can:</p><ul><li>Adjust bar height, module width, and quiet zone to match your label stock or carrier specification</li><li>Set foreground/background colors while preserving enough contrast for warehouse scanners</li><li>Export as PNG, SVG, or PDF, or copy the barcode for use in your label design software</li><li>Generate a batch of GS1-128 labels from a CSV of GTINs, lots, and expiration dates as a ZIP or print-ready PDF</li><li>Call the REST API &mdash; <code>/barcode?type=gs1-128&amp;data=(01)10614141999996(17)251231</code> &mdash; to generate labels programmatically from your WMS or ERP</li></ul>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Follow your trading partner's routing guide or the GS1 General Specifications for symbol height and quiet zone &mdash; most carton labels use a taller bar height (around 1&ndash;1.5 in) than a typical retail barcode to keep scans reliable at conveyor-belt distances. Always double-check that fixed-length AIs like (01) contain exactly 14 digits (a GTIN padded with a leading zero if needed) and that the GS1 check digit is correct; a malformed AI string will cause receiving systems to reject the shipment. Keep the quiet zone clear of other text, logos, or carton tape, and verify the printed barcode with a barcode verifier or handheld scanner before running a full print job, since warehouse scan rates matter more for GS1-128 labels than almost any other barcode type.</p>"
+    },
+    {
+      "h2": "GS1-128 versus GS1 DataBar and GS1 Data Matrix",
+      "html": "<p>It's easy to mix up GS1-128 with the other GS1-standard symbologies, so it helps to be clear about the boundary lines. GS1-128 is the workhorse for cases, cartons, and pallets moving through a supply chain &mdash; anywhere a carrier or warehouse scans a label at a distance with a laser or handheld imager. GS1 DataBar, by contrast, is built for consumer units at the point of sale, especially small items like produce or cosmetics where a full UPC or GS1-128 symbol wouldn't fit. GS1 Data Matrix and GS1 QR codes cover 2D use cases &mdash; typically direct product marking on small parts, or scenarios where a single symbol needs to pack GTIN plus multiple AIs into a tiny physical footprint, like a syringe barrel or a small medical device.</p><p>If you're deciding which one to use, the deciding factors are usually the same three questions: is this a logistics unit or a consumer unit, how much physical space does the label have, and what kind of scanner will read it. Logistics units with reasonable label space and standard laser or imaging scanners point to GS1-128; consumer units with plenty of Application Identifier data but very little label space point toward a GS1 2D symbol instead.</p>"
+    }
+  ],
+  "uses": [
+    "SSCC pallet and logistics unit labeling for warehouse tracking",
+    "Carton and case labels linked to an Advance Ship Notice (ASN)",
+    "Food and pharmaceutical traceability with GTIN, lot number, and expiration date",
+    "Cross-docking and distribution center receiving automation",
+    "Retail supply chain compliance labels required by big-box trading partners",
+    "Work-in-process and inventory tracking in manufacturing"
+  ],
+  "faq": [
+    {"q": "What is a GS1-128 barcode generator used for?", "a": "A GS1-128 barcode generator builds Code 128 barcodes that encode GS1 Application Identifiers such as GTIN, SSCC, batch number, and expiration date, which is the standard format for shipping cartons and pallet labels in supply chain logistics."},
+    {"q": "What's the difference between GS1-128 and Code 128?", "a": "GS1-128 is a Code 128 barcode with a leading FNC1 character that signals the data uses GS1 Application Identifiers in a defined structure, while a plain Code 128 barcode just encodes raw text with no standardized meaning attached to it."},
+    {"q": "Can one GS1-128 barcode hold multiple pieces of data?", "a": "Yes, you can concatenate multiple Application Identifiers in a single barcode, such as GTIN, lot number, and expiration date together, as long as the total data fits within practical Code 128 length limits for reliable scanning."},
+    {"q": "Do I need a GS1 company prefix to make a GS1-128 barcode?", "a": "You need a licensed GS1 company prefix only if you're creating GTINs or SSCCs for real commercial shipments; Barcode Studio itself will generate a barcode for any valid AI data string you enter, but the numbers must come from GS1 to be usable in a real supply chain."},
+    {"q": "Is GS1-128 the same as a UPC barcode?", "a": "No, GS1-128 is used for cartons, pallets, and logistics units rather than individual retail items scanned at checkout, which is the role of UPC or EAN barcodes."}
+  ]
+}

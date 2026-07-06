@@ -1,0 +1,52 @@
+{
+  "id": "databarexpandedstackedcomposite",
+  "title": "GS1 DataBar Expanded Stacked Composite Generator",
+  "metaDescription": "Generate GS1 DataBar Expanded Stacked Composite barcodes free online. Fit multi-AI GTIN data and a 2D composite into a narrower, multi-row symbol shape.",
+  "primaryKeyword": "gs1 databar expanded stacked composite generator",
+  "secondaryKeywords": ["databar expanded stacked composite", "stacked expanded databar barcode", "gs1 composite multi-row barcode", "narrow variable data barcode", "databar expanded for narrow labels", "gs1 databar family symbologies"],
+  "lead": "Create a GS1 DataBar Expanded Stacked Composite symbol that fits rich multi-AI GTIN data into a narrower, multi-row shape with a 2D composite on top.",
+  "sections": [
+    {
+      "h2": "What is DataBar Expanded Stacked Composite?",
+      "html": "<p>GS1 DataBar Expanded Stacked Composite is DataBar Expanded arranged in a stacked, multi-row layout instead of a single horizontal row, with a 2D composite component printed above it. Plain DataBar Expanded lays its variable-length linear data out in one row, which can make the symbol quite wide when several Application Identifiers are encoded. The Stacked variant wraps that same linear data across two or more rows, trading extra height for reduced width — useful when a label is narrow but has room to spare vertically.</p><p>The composite tier on top works the same way as in other DataBar composites: it carries supplementary Application Identifiers that don't fit, or shouldn't be mixed, into the linear payload, such as a lot number or serial number kept separate from variable-measure retail data.</p>"
+    },
+    {
+      "h2": "Structure and specifications",
+      "html": "<p>The linear component encodes the same variable-length, multi-AI data as standard DataBar Expanded but splits it across multiple rows joined by finder patterns, similar in spirit to how DataBar Stacked relates to DataBar Omnidirectional.</p><ul><li><strong>Linear data:</strong> GTIN plus additional Application Identifiers (weight, price, dates, coupon codes), the same data capacity as linear DataBar Expanded, just reflowed into rows.</li><li><strong>Composite data:</strong> further AIs such as lot number, serial number, or expiration date encoded in the 2D tier above the stacked linear rows.</li><li><strong>Row count:</strong> the number of rows adjusts to the amount of linear data — more Application Identifiers mean either more rows or a taller stack, depending on how the encoder balances width against height.</li><li><strong>Use case fit:</strong> chosen specifically when label width is the binding constraint and a single-row DataBar Expanded Composite would be too wide to fit.</li></ul>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>The linear tier carries the same variable-length, multi-segment data model as single-row DataBar Expanded, but the encoder wraps segments across multiple rows (typically 2 to 11, in even-numbered segment groups) joined by finder patterns at each row boundary, trading symbol width for additional height. The composite component — CC-A, CC-B, or CC-C depending on payload size — sits above the topmost linear row, separated by the standard GS1 composite separator pattern. Because row count depends on total encoded data length, two labels with different Application Identifier payloads (say, a shorter weight-only string versus a longer weight-plus-lot string) can produce noticeably different symbol heights even though both use the same symbology.</p>"
+    },
+    {
+      "h2": "Where it's used",
+      "html": "<p>This is a niche but useful symbol for narrow-label products that still need extensive GS1 data:</p><ul><li>Narrow shelf-edge labels and small product tags where a single-row DataBar Expanded Composite would run off the edge of the available print area.</li><li>Variable-weight deli, meat, or produce labels printed on narrow scale-label stock that also require lot or traceability data via the composite tier.</li><li>Pharmaceutical or medical device packaging with constrained label width but sufficient height, needing GTIN, expiry, lot, and serial data together.</li><li>Any retail or logistics application migrating from a wide single-row DataBar Expanded Composite to a narrower package format without losing data capacity.</li></ul>"
+    },
+    {
+      "h2": "How to generate a DataBar Expanded Stacked Composite in Barcode Studio",
+      "html": "<p>Barcode Studio handles the row-wrapping and composite alignment automatically. To create one:</p><ul><li>Select <strong>GS1 DataBar Expanded Stacked Composite</strong> from the barcode type list.</li><li>Enter your GTIN and linear-tier Application Identifiers (weight, price, dates), then add supplementary AI data for the composite tier if needed.</li><li>Preview the stacked symbol — check the row count and overall height against your label's vertical space.</li><li>Adjust module size and margins so the symbol stays scannable within your available footprint.</li><li>Export as SVG for crisp print reproduction or PNG for quick mockups.</li><li>Use <strong>Bulk CSV → ZIP/PDF</strong> to generate a batch where each row differs in weight, lot, or expiry data, and the REST API at <code>/barcode?type=databarexpandedstackedcomposite&data=...</code> for automated generation.</li></ul><p>Because the stacked layout adds rows dynamically based on data length, test with your actual longest expected data string to confirm the symbol still fits your label height before finalizing packaging artwork.</p>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Stacked, multi-row DataBar Expanded symbols require careful vertical alignment between rows — print at high resolution and verify your label printer isn't introducing row-to-row skew, which is a common cause of failed reads on stacked symbologies. Preserve quiet zones around the entire symbol, including between the topmost linear row and the composite separator. Because this variant is less common than single-row DataBar Expanded Composite, confirm your scanning hardware and software explicitly support the stacked layout before rolling out a full production run. Run a physical sample through your actual label applicator and scan tunnel, since the added row count can change how the label sits on curved packaging compared to the flatter single-row version.</p>"
+    },
+    {
+      "h2": "DataBar Expanded Stacked Composite vs related codes",
+      "html": "<p>Compared to single-row <strong>DataBar Expanded Composite</strong>, the stacked variant carries identical data capacity but trades width for height — pick whichever orientation matches your label's available space. Compared to <strong>DataBar Stacked Omni Composite</strong>, which is fixed at GTIN-14, this variant supports multiple Application Identifiers in the linear tier, making it the better choice when variable-measure or promotional data needs to travel alongside the GTIN. Compared to <strong>GS1-128 Composite</strong> arranged in a similar narrow-and-tall layout, DataBar Expanded Stacked Composite is typically more compact for equivalent data, though GS1-128 support is more universal on legacy logistics scanning equipment.</p>"
+    }
+  ],
+  "uses": [
+    "Narrow shelf-edge labels needing more GTIN data than a single-row symbol allows",
+    "Variable-weight deli and produce labels on narrow scale-label stock with traceability data",
+    "Pharmaceutical and medical device packaging with limited width but available height",
+    "Migrating wide DataBar Expanded Composite designs to narrower package formats",
+    "Any label needing multiple GS1 Application Identifiers in a width-constrained layout"
+  ],
+  "faq": [
+    {"q": "What is a GS1 DataBar Expanded Stacked Composite generator used for?", "a": "<p>A gs1 databar expanded stacked composite generator creates a multi-row version of DataBar Expanded Composite, fitting the same multi-AI GTIN data and 2D composite tier into a narrower, taller symbol shape.</p>"},
+    {"q": "How is this different from regular DataBar Expanded Composite?", "a": "Both encode the same type and amount of data, but standard DataBar Expanded Composite lays the linear data out in one row, while the Stacked variant wraps it across multiple rows to reduce overall width at the cost of extra height."},
+    {"q": "When should I use the stacked layout instead of the single-row version?", "a": "<p>Choose the stacked layout when your label is too narrow for a single-row DataBar Expanded Composite symbol but has enough vertical space to accommodate additional rows.</p>"},
+    {"q": "Does the number of rows change automatically based on my data?", "a": "Yes — the encoder adjusts row count and symbol height based on how much data (GTIN plus additional Application Identifiers) you encode in the linear tier."},
+    {"q": "Can I bulk-generate these barcodes for different products?", "a": "<p>Yes — use Barcode Studio's bulk CSV to ZIP/PDF tool to supply varying weight, price, lot, or expiry data per row and generate a distinct symbol for each product automatically.</p>"}
+  ]
+}

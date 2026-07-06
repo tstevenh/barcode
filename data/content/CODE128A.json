@@ -1,0 +1,53 @@
+{
+  "id": "CODE128A",
+  "title": "Code 128 A Barcode Generator | Barcode Studio",
+  "metaDescription": "Generate Code 128 A barcodes free with our code 128 a barcode generator. Uppercase letters, digits, and control codes only — live preview, export, API access.",
+  "primaryKeyword": "code 128 a barcode generator",
+  "secondaryKeywords": ["code 128 subset a", "code 128 character set a", "code 128 uppercase barcode", "code 128 a vs b", "control character barcode", "fixed charset code 128"],
+  "lead": "Code 128 subset A locks the encoder to uppercase letters, digits, and control codes, giving you a predictable character set for systems that don't expect lowercase.",
+  "sections": [
+    {
+      "h2": "What Is a Code 128 A Barcode?",
+      "html": "<p>Code 128 A is the character-set-A variant of the Code 128 symbology, restricted to uppercase letters (A–Z), digits (0–9), standard punctuation and symbols, and ASCII control characters such as carriage return or line feed. Unlike plain Code 128 — which auto-selects whichever subset produces the shortest barcode — Code 128 A forces the encoder to stay in this single character set for the entire symbol. That predictability matters when a receiving system, database field, or legacy scanner configuration is built to expect only uppercase alphanumeric input and would choke on an unexpected subset switch or lowercase character.</p><p>Structurally, Code 128 A shares the exact same bar-and-space geometry, start/stop patterns, and modulo-103 check digit calculation as standard Code 128. The only difference is which characters are available to encode.</p>"
+    },
+    {
+      "h2": "Charset A vs. B vs. C: Where A Fits",
+      "html": "<p>The Code 128 standard defines three character sets that share one underlying symbology:</p><ul><li><strong>Subset A</strong> (this page) — uppercase letters, digits, symbols, and non-printable ASCII control characters (0x00–0x5F). No lowercase.</li><li><strong>Subset B</strong> — uppercase and lowercase letters plus digits and symbols, but no control characters. This is what most general text barcodes use.</li><li><strong>Subset C</strong> — digit pairs only, at double density, used for long numeric strings.</li></ul><p>Choose subset A specifically when your data is guaranteed to be uppercase-only and you need the option to embed control characters — for example, encoding a record separator or line-feed character as part of a structured data string that a legacy terminal or industrial scanner parses directly. If your data might include lowercase text, subset B is the correct choice instead; auto Code 128 will pick subset B for you automatically in that case.</p>"
+    },
+    {
+      "h2": "Where Code 128 A Is Used",
+      "html": "<p>Because it's a narrower-purpose variant, Code 128 A shows up in more specialized contexts than general Code 128:</p><ul><li><strong>Legacy industrial and warehouse systems</strong> configured decades ago around fixed uppercase part-number formats.</li><li><strong>Government and military asset tags</strong> that standardize on uppercase-only identifiers.</li><li><strong>Data streams requiring embedded control characters</strong>, such as field or record separators for older EDI-style formats.</li><li><strong>Manufacturing traceability codes</strong> where part numbers are defined in all-caps by internal standards.</li><li><strong>Fixed-format serial numbers</strong> in electronics or aerospace where the character set is contractually specified as uppercase alphanumeric.</li></ul>"
+    },
+    {
+      "h2": "Code 128 A Technical Specifications",
+      "html": "<p>Code 128 A is defined by ISO/IEC 15417, the same standard governing all three Code 128 subsets. Its character set covers uppercase letters A–Z, digits 0–9, standard punctuation and symbols, and ASCII control characters 0x00–0x1F plus a handful more, for 64 encodable values total. Each character is built from 11 modules across 3 bars and 3 spaces, plus a unique stop pattern. Length is variable — Code 128 A can encode as many characters as your label allows, with no fixed maximum defined by the standard itself, though practical label width imposes its own limit. A single mandatory check digit, calculated with a modulo-103 weighted sum of the encoded values (including the start character), is appended automatically; there is no optional or omittable checksum as with Code 39.</p>"
+    },
+    {
+      "h2": "How to Create a Code 128 A Barcode in Barcode Studio",
+      "html": "<p>In Barcode Studio, select <strong>Code 128 A</strong> from the symbology list — it's listed separately from plain Code 128 so you can force subset A explicitly rather than relying on auto-detection. Enter your data (uppercase letters, digits, and symbols); if you type a lowercase character, remember it falls outside subset A and won't encode correctly, so switch to Code 128 B or convert your text to uppercase first.</p><ul><li>Set <strong>bar width and height</strong> to fit your label dimensions.</li><li>Enable <strong>human-readable text</strong> so operators can visually verify the code without a scanner.</li><li>Adjust <strong>colors</strong> for your label stock, keeping strong contrast between bars and background.</li><li>Check the <strong>quiet zone</strong> margin — Code 128 relies on adequate white space to detect start and stop patterns reliably.</li><li>Export to <strong>PNG, SVG, or PDF</strong>, or use <strong>Copy</strong> for direct paste into design software.</li></ul><p>Need a run of sequential asset tags or part numbers? Use the <strong>batch/sequence</strong> generator to produce a numbered series automatically. For larger jobs, upload a spreadsheet through the <strong>bulk CSV → ZIP/PDF</strong> tool to generate every label in one pass. Developers integrating label generation into internal systems can call the <strong>REST API</strong> directly with <code>/barcode?type=code128a&data=YOURDATA</code>.</p>"
+    },
+    {
+      "h2": "Print and Scan Best Practices for Code 128 A",
+      "html": "<p>Because Code 128 A inherits the same dense bar structure as standard Code 128, the same print-quality rules apply, with a few subset-specific notes:</p><ul><li>Double-check your source data is genuinely uppercase-only before generating in bulk — a mixed-case value will either fail to encode or force an unwanted subset switch depending on the encoder.</li><li>Keep the quiet zone at least 10x the narrowest bar width on both sides of the symbol.</li><li>If your data includes control characters, confirm your scanner and downstream software are configured to handle them — some off-the-shelf scanner setups strip or misinterpret non-printable characters by default.</li><li>Test printed labels at actual production resolution before a full run; subset A's density means small printer calibration issues can produce unreadable bars just as easily as with standard Code 128.</li><li>Keep human-readable text enabled during any manual data-entry fallback process, since subset A codes often appear in industrial settings where scanners occasionally fail in dusty or high-glare environments.</li></ul>"
+    },
+    {
+      "h2": "Code 128 A vs. Related Codes",
+      "html": "<p>Against <strong>Code 128 B</strong>, subset A trades away lowercase letters for the ability to embed ASCII control characters — pick A only when your data is genuinely uppercase-only or needs those control codes, otherwise B (or auto Code 128) is the safer default. Against <strong>Code 128 C</strong>, subset A is far less dense for numeric strings, since C packs two digits per symbol character versus one for A. Against <strong>Code 39</strong>, subset A covers a similar uppercase-plus-symbols range but is meaningfully more compact and carries a mandatory check digit, whereas Code 39's checksum is optional. If your system needs to auto-detect and switch subsets rather than lock to one, plain Code 128 (not a fixed subset) is the better choice.</p>"
+    }
+  ],
+  "uses": [
+    "Legacy warehouse and industrial systems requiring uppercase-only identifiers",
+    "Government and military asset tags",
+    "Manufacturing part numbers standardized in all-caps",
+    "Structured data strings requiring embedded control characters",
+    "Fixed-format aerospace or electronics serial numbers",
+    "EDI-style record and field separator encoding"
+  ],
+  "faq": [
+    {"q": "What is a code 128 a barcode generator used for?", "a": "A code 128 a barcode generator produces Code 128 barcodes restricted to uppercase letters, digits, symbols, and control characters — ideal for legacy systems or fixed-format identifiers that never include lowercase text."},
+    {"q": "Can Code 128 A encode lowercase letters?", "a": "<p>No. Subset A does not include lowercase letters. If your data contains lowercase characters, use Code 128 B or plain Code 128, which auto-selects the correct subset.</p>"},
+    {"q": "Why would I choose Code 128 A over plain Code 128?", "a": "<p>Choose subset A when a receiving system expects a fixed, predictable character set with no subset switching, or when you need to embed ASCII control characters that other subsets don't support.</p>"},
+    {"q": "Does Code 128 A have a different check digit than standard Code 128?", "a": "No — all Code 128 variants use the same modulo-103 weighted checksum calculation. Barcode Studio calculates and appends it automatically."},
+    {"q": "Can I batch-generate Code 128 A barcodes?", "a": "<p>Yes, use the batch/sequence tool for numbered series or the bulk CSV → ZIP/PDF uploader to generate labels for an entire list of uppercase values at once.</p>"}
+  ]
+}

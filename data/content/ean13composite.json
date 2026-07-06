@@ -1,0 +1,45 @@
+{
+  "id": "ean13composite",
+  "title": "EAN-13 Composite Generator | Barcode Studio",
+  "metaDescription": "Generate an EAN-13 Composite barcode free online: a standard EAN-13 retail code plus a linked 2D component for extra GS1 data. Live preview and export.",
+  "primaryKeyword": "ean-13 composite generator",
+  "secondaryKeywords": ["ean-13 composite barcode", "gs1 composite symbol", "ean composite component", "linear plus 2d barcode", "gs1 application identifiers barcode", "composite symbology generator"],
+  "lead": "An EAN-13 Composite pairs the retail barcode you already scan at checkout with a small 2D component stacked above it that carries extra GS1 data.",
+  "sections": [
+    {
+      "h2": "What Is an EAN-13 Composite Barcode?",
+      "html": "<p>An EAN-13 Composite is a two-part GS1 symbol: a standard 13-digit EAN-13 linear barcode on the bottom, plus a small 2D component — typically a MicroPDF417, or a full PDF417 for larger payloads — printed directly above it. The linear portion still encodes the same GTIN-13 that any point-of-sale scanner reads for pricing and inventory lookup. The 2D component rides on top and carries supplementary GS1 Application Identifier (AI) data that the linear code alone can't hold, such as batch/lot number, expiration date, or serial number.</p><p>The key idea is that these two symbols are linked, not independent. A composite-aware scanner reads both in a single pass and treats the result as one combined data string. A standard barcode scanner that only understands EAN-13 will still read the linear portion just fine and ignore the 2D component entirely — which is exactly why composites are used where backward compatibility with existing retail scanners matters.</p><p>GS1 defined this family of symbols — collectively called Composite Symbology — precisely to solve the problem of adding traceability data to products that already carry a fixed retail identifier. Rather than forcing every checkout lane to upgrade to a completely different barcode type, the composite approach lets the existing EAN-13 keep doing its job while the 2D component becomes optional infrastructure that only matters where traceability is required, such as a pharmacy back office or a recall audit, rather than at every register.</p>"
+    },
+    {
+      "h2": "How the Linear and 2D Components Work Together",
+      "html": "<p>The EAN-13 portion follows the same structure as a standalone EAN-13: a GS1-issued prefix identifying the country or region of the issuing organization, a manufacturer code, a product reference, and a mod-10 check digit calculated automatically from the first twelve digits. Nothing about the linear symbol itself changes when you add a composite component — it's still fully valid as a plain EAN-13 to any scanner that ignores the 2D portion above it.</p><p>What the composite component adds is space for structured, variable data that changes per batch or unit rather than per product. Common examples include:</p><ul><li><strong>Batch or lot number</strong> (AI 10) — ties a specific unit back to a production run for recalls or quality tracking.</li><li><strong>Expiration or best-before date</strong> (AI 15/17) — critical for perishables and pharmaceuticals where the retail GTIN alone doesn't tell you shelf life.</li><li><strong>Serial number</strong> (AI 21) — gives an individual unit-level identity beyond the shared product GTIN.</li></ul><p>Because this data is variable and specific to a run or unit, it can't be baked into the fixed 13-digit product code — the composite component is the mechanism GS1 defined for attaching it without breaking compatibility with the linear symbol underneath.</p>"
+    },
+    {
+      "h2": "Where EAN-13 Composite Barcodes Are Used",
+      "html": "<ul><li><strong>Pharmaceuticals and healthcare</strong> — retail-packaged medicines that need both a scannable GTIN for point-of-sale and batch/expiry data for traceability and recalls.</li><li><strong>Perishable grocery goods</strong> — fresh or short-shelf-life products where the expiration date needs to travel with the barcode rather than living only on a printed label.</li><li><strong>Cosmetics and regulated consumer goods</strong> — products subject to batch-recall requirements in markets that mandate lot traceability.</li><li><strong>Specialty retail supply chains</strong> — brands that want serialized unit-level tracking without switching away from a standard EAN-13 that every register already scans.</li></ul>"
+    },
+    {
+      "h2": "How to Create an EAN-13 Composite in Barcode Studio",
+      "html": "<p>In Barcode Studio, select <strong>EAN-13 Composite</strong> from the Retail (EAN/UPC) group. You'll enter two pieces of data: the 12-digit EAN-13 product number (the check digit is calculated and appended automatically) and the composite data string, formatted with GS1 Application Identifiers such as <code>(10)LOT4521(17)261231</code>. The live preview renders both the linear EAN-13 and its linked 2D component together exactly as they'll print.</p><ul><li>Choose the composite type if offered (CC-A/MicroPDF417 for compact data, CC-C/PDF417 for larger payloads) based on how much AI data you need to encode.</li><li>Adjust bar width, symbol height, and the composite component's row count to fit your label size while keeping both parts scannable.</li><li>Set foreground/background colors and confirm the human-readable text under the EAN-13 portion displays the correct digits.</li><li>Keep the quiet zone clear on all sides — composite symbols are less forgiving of crowding than plain linear barcodes because scanners need to locate both components.</li><li>Export as <strong>PNG, SVG, or PDF</strong>, or use <strong>Copy</strong> for design tools.</li></ul><p>For multi-item runs, the <strong>bulk CSV → ZIP/PDF</strong> tool accepts one row per item with both the GTIN and the AI data string, producing a full batch of composite labels. The <strong>REST API</strong> also supports composite generation programmatically, e.g. <code>/barcode?type=ean13composite&data=...</code>, for integrating into a labeling pipeline.</p>"
+    },
+    {
+      "h2": "Print and Scan Best Practices",
+      "html": "<p>Composite symbols demand more print precision than a plain EAN-13 because the 2D component has finer detail:</p><ul><li>Print at high enough resolution that the 2D component's individual cells are sharp — thermal printers set too low a DPI are the most common source of composite read failures.</li><li>Verify with a scanner or imager that specifically supports GS1 Composite symbols; older CCD laser scanners often can't decode the 2D portion at all.</li><li>Leave generous quiet zones above, below, and beside the full combined symbol — the composite component sits close to the linear bars and needs its own clear space to be located.</li><li>Double-check your AI-formatted data before mass printing; a malformed Application Identifier can make the 2D component unreadable even though the linear EAN-13 still scans fine.</li></ul>"
+    }
+  ],
+  "uses": [
+    "Pharmacy retail packs needing GTIN plus batch/expiry data",
+    "Perishable grocery items with embedded best-before dates",
+    "Cosmetics subject to lot-based recall tracking",
+    "Serialized specialty retail products",
+    "Supply chain traceability without replacing existing EAN-13 registers"
+  ],
+  "faq": [
+    {"q": "What does the 2D part of an EAN-13 Composite actually add?", "a": "<p>It carries supplementary GS1 data — like batch number, expiration date, or a unit serial number — that doesn't fit in the fixed 13-digit product code. The linear EAN-13 underneath still works on its own for pricing and lookup.</p>"},
+    {"q": "Will a normal retail scanner read an EAN-13 Composite?", "a": "Yes, for the linear portion. A standard scanner reads the EAN-13 bars normally and simply doesn't process the 2D component above it, so point-of-sale checkout isn't affected."},
+    {"q": "Is an EAN-13 composite generator free to use?", "a": "Yes — Barcode Studio generates EAN-13 Composite barcodes free in your browser, with PNG, SVG, and PDF export at no cost."},
+    {"q": "Do I need a special scanner to read the composite data?", "a": "<p>Yes, decoding the 2D component requires an imager or scanner explicitly rated for GS1 Composite symbols; check your scanner's specification before relying on the composite data in production.</p>"},
+    {"q": "How do I format the data for the 2D component?", "a": "<p>Use GS1 Application Identifiers in parentheses followed by the value, such as (10) for batch/lot or (17) for expiration date, e.g. (10)LOT4521(17)261231.</p>"},
+    {"q": "Can I generate EAN-13 Composite barcodes in bulk?", "a": "Yes — the bulk CSV tool accepts a GTIN and AI data string per row and outputs a ZIP or print-ready PDF of composite labels for an entire product run."}
+  ]
+}

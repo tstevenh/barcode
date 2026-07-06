@@ -1,0 +1,53 @@
+{
+  "id": "telepen",
+  "title": "Telepen Barcode Generator - Free Online | Barcode Studio",
+  "metaDescription": "Generate a Telepen barcode free in your browser. Encode full ASCII text for library systems, adjust size, and export PNG, SVG, or PDF instantly.",
+  "primaryKeyword": "telepen barcode generator",
+  "secondaryKeywords": ["telepen barcode", "library barcode generator", "full ascii barcode", "telepen vs code 128", "telepen check digit"],
+  "lead": "Create a Telepen barcode, a compact full-ASCII symbology developed in the UK and still widely used by library systems.",
+  "sections": [
+    {
+      "h2": "What is Telepen?",
+      "html": "<p>Telepen is a linear barcode symbology developed in the United Kingdom in the late 1970s, designed to encode the full ASCII character set in a compact form at a time when most competing barcode formats were numeric-only. It became particularly popular in British library systems during the 1980s and 1990s, and many UK libraries still use Telepen today on borrower cards and book labels because of the long-standing infrastructure built around it. Telepen comes in two encoding modes &mdash; numeric-only (for pure digit strings, encoded more compactly) and full ASCII (for arbitrary text) &mdash; with the encoder typically choosing the more efficient mode automatically based on the input.</p><p>A Telepen barcode generator today serves a fairly specific audience: librarians, library-system integrators, and specialist inventory teams who need to produce or replace labels compatible with equipment and software that has been reading Telepen for decades, rather than anyone starting a symbology choice from scratch.</p>"
+    },
+    {
+      "h2": "How Telepen encodes data",
+      "html": "<p>Telepen represents each character using a pattern of wide and narrow bars and spaces, with the numeric mode packing two digits into each encoded symbol character for higher density on all-numeric data, and full-ASCII mode encoding one character per symbol character to support the complete character range. Every Telepen symbol includes a start and stop pattern and a single modulo-127 check digit calculated automatically over the encoded data, giving it built-in error detection without requiring the user to compute or append anything manually. This combination of full ASCII support and a mandatory check digit made Telepen a capable, self-validating option at a time when many competing symbologies were still numeric-only or lacked a checksum.</p><p>Because the encoder automatically chooses between numeric and full-ASCII mode based on the content you provide, generating a Telepen barcode is straightforward from a user's perspective &mdash; you don't need to specify which mode to use or format your input differently for digits versus text; the software determines the most compact valid encoding for whatever string you enter.</p>"
+    },
+    {
+      "h2": "Technical Specifications",
+      "html": "<p>Telepen encodes the full 128-character ASCII set in its standard mode, including letters, digits, punctuation, and control characters, or a more compact numeric-only mode for pure digit strings. It includes a mandatory single check digit calculated with a modulo-127 algorithm, computed and appended automatically by the encoder. There's no fixed maximum length defined by the specification, though library and inventory applications typically keep encoded strings short for practical label sizes. Telepen isn't governed by a formal international standards body like ISO or GS1; it originated as a proprietary UK symbology and has remained in use largely through entrenched library and specialist inventory systems rather than broad new adoption.</p><p>Because Telepen predates most modern barcode standardization efforts, you won't find it referenced in current ISO/IEC barcode specifications alongside symbologies like Code 128 or Code 39; documentation instead tends to live in library-system vendor manuals and legacy scanning-equipment datasheets, which is worth knowing if you're trying to track down an authoritative reference for a specific implementation detail.</p>"
+    },
+    {
+      "h2": "Where Telepen is used",
+      "html": "<p>Telepen's primary stronghold today is library systems, particularly in the United Kingdom, where it's used on borrower cards and book or media labels within library management software that was built around it decades ago and has continued supporting the format through successive system upgrades. It also appears in some specialist inventory and asset-tracking systems that adopted it during the same era for its full-ASCII capability and built-in check digit. Outside of these entrenched use cases, Telepen sees little new adoption, since Code 128 offers similar full-ASCII coverage with much broader international scanner and software support today.</p><p>Within a library, Telepen typically shows up in two places: on the borrower card itself, linking a scan to a patron account, and on the item label inside a book or media case, linking a scan to a catalog record. Both uses depend on decades-old but still-functioning infrastructure, which is exactly why replacement labels need to stay on the same symbology rather than switching formats mid-system.</p>"
+    },
+    {
+      "h2": "How to create a Telepen barcode in Barcode Studio",
+      "html": "<p>Select <strong>Telepen</strong> from the symbology list on the left, then type or paste your data &mdash; letters, digits, punctuation, or numeric-only strings are all supported. Barcode Studio calculates and appends the modulo-127 check digit automatically. From there:</p><ul><li>Adjust bar width, height, and quiet zone to match your library card or label format</li><li>Toggle human-readable text below the bars for manual entry when scanning fails</li><li>Export as PNG, SVG, or PDF, or copy the image directly into a card or label template</li><li>Use the batch or sequence tools to generate a numbered run of borrower or item codes at once</li><li>Upload a CSV of values for bulk generation as a ZIP of image files or a print-ready PDF of labels</li><li>Call the REST API &mdash; <code>/barcode?type=telepen&amp;data=LIB000123</code> &mdash; to generate codes programmatically from a library management system</li></ul><p>The bulk CSV workflow is especially useful for library replacement projects, where you might need to regenerate hundreds or thousands of worn borrower card or item labels in one pass rather than one at a time.</p>"
+    },
+    {
+      "h2": "Printing & scanning best practices",
+      "html": "<p>Because Telepen relies on precise wide/narrow bar and space ratios to distinguish characters, consistent print quality matters for reliable decoding, particularly on the smaller label formats typical of library cards and book spine labels. Keep the quiet zone clear on both sides, verify your library or inventory scanning hardware explicitly supports Telepen (many general retail scanners do not enable it by default and may need a configuration barcode scanned first), and print human-readable text as a fallback for manual entry when a card is worn or a scan fails, which is common on frequently-handled library materials.</p><p>If you're deploying new scanning hardware into an existing Telepen-based library system, confirm Telepen support and configuration steps with the scanner vendor before rollout &mdash; some handheld scanners ship with Telepen decoding disabled by default since it's a less common symbology, and enabling it typically requires scanning a specific setup barcode from the manufacturer's documentation.</p>"
+    },
+    {
+      "h2": "Telepen vs. related codes",
+      "html": "<p>Telepen and Code 128 both support the full ASCII character set and include a built-in check digit, which made them functionally similar competitors when both were developed. Code 128 went on to become the dominant general-purpose full-ASCII symbology worldwide, with far broader scanner and software support today, while Telepen's use narrowed mostly to the library systems and specialist applications that adopted it early and never migrated. If you're choosing a symbology for a new system with no existing Telepen requirement, Code 128 will generally offer better compatibility; Telepen remains the right choice specifically when integrating with, or replacing labels for, an existing Telepen-based library or inventory system.</p><p>Some libraries have migrated away from Telepen to Code 128 or 2D formats like QR codes and Data Matrix as they replace legacy management systems, but many others continue with Telepen simply because the cost of reissuing every borrower card and re-labeling every item in the collection outweighs the benefit of switching, especially when the existing system still works reliably.</p>"
+    }
+  ],
+  "uses": [
+    "UK library borrower card and book label systems",
+    "Library management software built around legacy Telepen infrastructure",
+    "Specialist inventory and asset tracking systems from the 1980s–1990s era",
+    "Replacing worn library card barcodes on the same symbology",
+    "Systems requiring full ASCII encoding with a mandatory check digit"
+  ],
+  "faq": [
+    {"q": "What is a Telepen barcode used for?", "a": "Telepen is used mainly in library systems, particularly in the UK, for borrower cards and book or media labels within library management software built around the format."},
+    {"q": "What characters can Telepen encode?", "a": "Telepen can encode the full 128-character ASCII set, including letters, digits, punctuation, and control characters, or use a more compact numeric-only mode for pure digit strings."},
+    {"q": "Does Telepen have a check digit?", "a": "Yes, every Telepen symbol includes a mandatory check digit calculated with a modulo-127 algorithm, computed and appended automatically by the encoder."},
+    {"q": "Is Telepen still widely used?", "a": "Its use has narrowed mostly to library systems and some specialist inventory applications that adopted it decades ago; Code 128 has become the more common choice for new full-ASCII barcode needs."},
+    {"q": "What's the difference between Telepen and Code 128?", "a": "Both support the full ASCII character set with a built-in check digit, but Code 128 has far broader modern scanner and software support, while Telepen persists mainly through entrenched library systems."},
+    {"q": "Can I bulk-generate Telepen barcodes?", "a": "Yes, upload a CSV of values and Barcode Studio will generate a ZIP of image files or a print-ready PDF of labels in one batch."}
+  ]
+}

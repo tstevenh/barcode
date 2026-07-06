@@ -1,0 +1,53 @@
+{
+  "id": "EAN8",
+  "title": "EAN-8 Barcode Generator – Free Tool | Barcode Studio",
+  "metaDescription": "Generate EAN-8 barcodes free online for small packaging. Enter 7 digits, the 8th check digit is added automatically. PNG/SVG export, bulk CSV, and REST API.",
+  "primaryKeyword": "ean-8 barcode generator",
+  "secondaryKeywords": ["ean-8 generator", "short barcode for small packaging", "ean-8 check digit", "gtin-8 barcode", "compact retail barcode", "ean-8 vs ean-13"],
+  "lead": "Enter 7 digits and get a compact EAN-8 barcode built for products too small for a full EAN-13, with the check digit added automatically.",
+  "sections": [
+    {
+      "h2": "What Is an EAN-8 Barcode?",
+      "html": "<p>EAN-8 is a shortened version of the standard EAN-13 retail barcode, designed specifically for products where packaging space is too limited to fit a full 13-digit code — think candy wrappers, small cosmetics, spice jars, or cigarette packs. It encodes an 8-digit Global Trade Item Number (GTIN-8): 7 data digits plus a check digit, roughly 5 digits shorter than EAN-13's payload.</p><p>EAN-8 isn't a general-purpose alternative to EAN-13 — GS1 issues GTIN-8 numbers only when a company can demonstrate that its packaging genuinely can't accommodate an EAN-13. It's a special-case format, not a default choice, and it's used far less often than EAN-13 or UPC-A. Barcode Studio renders a correctly formatted, scannable EAN-8 image from any 7 digits you provide, whether that's a real GS1-issued number or a placeholder for testing.</p>"
+    },
+    {
+      "h2": "How EAN-8 Encodes Data — Structure and Check Digit",
+      "html": "<p>An EAN-8 barcode's 8 digits break down as follows:</p><ul><li><strong>GS1 prefix (2–3 digits)</strong> — identifies the GS1 member organization that issued the number.</li><li><strong>Item reference (4–5 digits)</strong> — a much shorter product identifier than EAN-13 provides, reflecting GTIN-8's role as a space-constrained special case rather than a general numbering scheme.</li><li><strong>Check digit (1 digit)</strong> — calculated using the same weighted modulo-10 algorithm used for EAN-13 and UPC-A, letting scanners detect a misread digit.</li></ul><p>You only need to enter the first 7 digits in Barcode Studio; the 8th check digit is calculated and appended automatically, so the exported barcode is always valid. Structurally, EAN-8 uses the same guard-bar layout (start, center, and stop patterns) as EAN-13, just with fewer data digits between them, which is why it's visually recognizable as a smaller sibling of the standard retail code rather than an unrelated symbology.</p>"
+    },
+    {
+      "h2": "Technical Specifications",
+      "html": "<p>EAN-8 encodes exactly 8 numeric digits (0–9 only) with no support for letters or symbols. The final digit is always the check digit and is never entered manually — Barcode Studio computes it from the first 7. There is no separate GTIN-8 \"prefix range\" the way EAN-13 has country-based prefixes; instead, GS1 allocates GTIN-8 numbers directly to companies that qualify for the space-constrained exception, drawing from a shared, tightly managed numbering pool precisely because the format has so little room for hierarchy. Bar height and module width follow the same proportional guard-pattern structure as EAN-13, just scaled to a shorter overall symbol, which is what makes EAN-8 physically smaller while still machine-readable by standard retail scanners.</p>"
+    },
+    {
+      "h2": "Where EAN-8 Is Used",
+      "html": "<p>EAN-8 shows up specifically where package real estate is the limiting factor:</p><ul><li><strong>Small consumer packaged goods</strong> — single-serve candy, gum, small cosmetics, and travel-size toiletries too small for a full EAN-13.</li><li><strong>Cigarette and tobacco packaging</strong> — a common real-world use case where pack surface area is limited.</li><li><strong>Small bottles and jars</strong> — spice containers, sample-size products, and similarly compact retail packaging.</li><li><strong>Print media inserts</strong> — occasionally used on small coupons or tags where a full-length barcode won't fit.</li></ul>"
+    },
+    {
+      "h2": "How to Create an EAN-8 Barcode in Barcode Studio",
+      "html": "<p>Select <strong>EAN-8</strong> from the symbology list under Retail (EAN/UPC). Type your 7-digit number — a real GS1-issued GTIN-8 if you have official approval to use one, or any 7 digits for testing and mockups. The check digit calculates automatically as you type, and the live preview shows the finished barcode before export. From there:</p><ul><li>Adjust <strong>bar width and height</strong> carefully — since EAN-8 is used specifically on small packaging, you'll often be working near the minimum legible size, so test at actual print scale.</li><li>Keep <strong>human-readable text</strong> on if your label size allows it — it's expected at retail and lets staff key in the number if a scan fails, though very small packaging sometimes has to omit it for space.</li><li>Confirm the <strong>quiet zone</strong> is proportionally maintained even at small sizes — EAN-8 needs clear margin space to scan reliably, and it's easy to crowd on tiny packaging.</li><li>Export as <strong>PNG, SVG, or PDF</strong> for packaging artwork, or use <strong>Copy</strong> for quick placement.</li><li>Use the <strong>bulk CSV → ZIP/PDF</strong> tool to generate barcodes for an entire small-format product line from a spreadsheet in one pass.</li><li>Call the <strong>REST API</strong> — <code>/barcode?type=ean8&data=YOUR7DIGITS</code> — to generate EAN-8 images programmatically from a labeling or packaging pipeline.</li></ul>"
+    },
+    {
+      "h2": "Print and Scan Best Practices for Small Packaging",
+      "html": "<p>Because EAN-8 exists precisely for space-constrained labels, printing discipline matters more than usual:</p><ul><li><strong>Minimum size</strong>: don't shrink below the point where bars remain distinctly separated on your printer — small-format barcodes are especially prone to bars merging at low resolution.</li><li><strong>Quiet zones</strong>: keep proportional margins clear even on tiny packaging; this is the detail most often sacrificed when space is tight, and it's a top cause of scan failures.</li><li><strong>Contrast</strong>: use solid black on white or light backgrounds — small barcodes have less room to compensate for weak contrast than larger ones.</li><li><strong>Curved surfaces</strong>: many EAN-8 use cases involve small cylindrical packaging (tubes, small bottles) — keep the barcode on the flattest available surface to avoid bar distortion.</li><li><strong>Verification</strong>: test print at actual production size and scan with real retail hardware before a full print run, since small barcodes leave little margin for error.</li></ul>"
+    },
+    {
+      "h2": "EAN-8 vs EAN-13 vs UPC-E",
+      "html": "<p>EAN-8, EAN-13, and UPC-E all exist to solve variations on the same problem — fitting a scannable product number onto retail packaging — but they take different approaches. EAN-13 is the default 13-digit code used on most products worldwide and should be your first choice unless packaging genuinely can't fit it. EAN-8 is a true short-form GTIN with fewer digits and a smaller numbering pool, reserved for GS1-approved space-constrained cases. UPC-E takes a different route entirely: rather than using a shorter numbering scheme, it mathematically compresses an existing 12-digit UPC-A (when the digits fit a qualifying zero pattern) into a shorter printed form that scanners expand back to the full UPC-A. In short, EAN-8 is a genuinely smaller code, while UPC-E is a compressed encoding of a full-size one — they solve the same packaging problem but aren't interchangeable, and a product should use whichever one its numbering was actually issued under.</p>"
+    }
+  ],
+  "uses": [
+    "Small candy, gum, and single-serve confectionery packaging",
+    "Cigarette and tobacco product packaging",
+    "Travel-size cosmetics and toiletries",
+    "Small spice jars and sample-size product containers",
+    "Compact coupons or tags where a full EAN-13 won't fit"
+  ],
+  "faq": [
+    {"q": "How many digits do I enter for an ean-8 barcode generator?", "a": "Enter 7 digits; Barcode Studio calculates the 8th digit (the check digit) automatically using the same modulo-10 algorithm used for EAN-13 and UPC-A."},
+    {"q": "When should I use EAN-8 instead of EAN-13?", "a": "<p>Use EAN-8 only when your packaging is genuinely too small to fit an EAN-13 — GS1 issues GTIN-8 numbers specifically for this space-constrained case, not as a general substitute for EAN-13.</p>"},
+    {"q": "Does this tool register an official GTIN-8 for me?", "a": "No. Barcode Studio generates a correctly formatted, scannable EAN-8 image from any 7 digits you enter, but a genuinely unique GTIN-8 for commercial use must be requested through GS1, which evaluates space-constraint eligibility before issuing one."},
+    {"q": "Can I use a random 7-digit number for testing?", "a": "Yes, any 7 digits will produce a valid, scannable EAN-8 barcode for prototypes or internal testing — just don't use an untested number on packaging headed for real retail distribution."},
+    {"q": "Can I bulk-generate EAN-8 barcodes?", "a": "<p>Yes. Upload a CSV of 7-digit numbers to Barcode Studio's bulk tool to produce a ZIP of individual barcode images or a single print-ready PDF, one per row.</p>"},
+    {"q": "Is the EAN-8 generator free to use?", "a": "Yes, Barcode Studio's EAN-8 generator runs entirely in your browser at no cost, with no account required for standard PNG/SVG/PDF exports."}
+  ]
+}

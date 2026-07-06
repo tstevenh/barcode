@@ -1,0 +1,53 @@
+{
+  "id": "MSI",
+  "title": "MSI Barcode Generator - Free, No Login | Barcode Studio",
+  "metaDescription": "Generate an MSI (Modified Plessey) barcode free in your browser. Encode numeric inventory data, adjust size, and export PNG, SVG, or PDF in seconds.",
+  "primaryKeyword": "msi generator",
+  "secondaryKeywords": ["msi barcode", "modified plessey barcode", "msi plessey generator", "shelf label barcode", "inventory barcode numeric"],
+  "lead": "Create a plain MSI barcode for shelf labels and inventory tags, with no check digit, directly in your browser.",
+  "sections": [
+    {
+      "h2": "What is MSI?",
+      "html": "<p>MSI, short for Modified Plessey, is a numeric-only linear barcode originally developed by the Plessey Company in the United Kingdom in the 1970s and later modified by MSI Data Corporation, whose name it now carries. It encodes digits 0&ndash;9 using a binary pattern of bar widths, and it has long been a common choice for retail shelf-edge labels, inventory tags, and warehouse racking labels &mdash; environments where the barcode is generated and scanned within a single organization's own system, rather than shared across companies the way retail point-of-sale barcodes are. Because it's not a GS1-governed standard, MSI is best understood as a practical, closed-loop symbology rather than a public retail one.</p>"
+    },
+    {
+      "h2": "How MSI encodes data",
+      "html": "<p>Each digit in MSI is represented by four bits, encoded as a sequence of wide and narrow bar/space pairs &mdash; a binary 0 is a narrow bar followed by a wide space, and a binary 1 is a wide bar followed by a narrow space. Because every digit maps to a fixed 4-bit binary pattern, the symbol is essentially a string of binary-coded decimal values framed by a distinct start pattern and stop pattern, which is what lets a scanner recognize where the code begins and ends and read it in either direction.</p><p>This plain MSI variant, without any check digit, encodes exactly the digits you enter and nothing more &mdash; there's no built-in error detection. That's fine for closed-loop systems where the same organization controls both label printing and scanning and can rely on its own inventory database to catch mismatches, but it offers no protection if a label gets damaged or misread in a system with no independent validation. That's the exact gap that the MSI Mod 10 and MSI Mod 11 variants exist to close.</p>"
+    },
+    {
+      "h2": "Technical Specifications",
+      "html": "<p>MSI encodes the digits 0&ndash;9 only, with no letters, punctuation, or extended characters. There is no length limit imposed by the symbology itself, though practical labels are typically 4 to 14 digits. Each digit uses 4 binary-coded bits represented as bar/space width pairs, framed by a fixed start pattern (bar-space-bar-space) and stop pattern (bar-space-bar). Plain MSI carries no check digit at all &mdash; that's the defining difference from its MSI Mod 10 and MSI Mod 11 siblings. MSI isn't part of any GS1 or ISO retail standard; it's a de facto standard maintained by convention and by barcode equipment vendors rather than a formal standards body, which is why implementations can vary slightly between vendors on quiet zone and ratio recommendations.</p>"
+    },
+    {
+      "h2": "Where MSI is used",
+      "html": "<p>MSI shows up mainly in internal, closed-loop applications: retail shelf-edge price and stock labels, warehouse rack and bin location tags, library and video rental tracking in some older systems, and inventory control tags in manufacturing. It's less common in point-of-sale scanning of individual products (where UPC/EAN dominate) and less common in general logistics (where Code 128 dominates), because MSI isn't part of any GS1 standard and isn't recognized by most retail point-of-sale barcode readers out of the box &mdash; it's a symbology you choose when you control both ends of the label lifecycle.</p>"
+    },
+    {
+      "h2": "How to create an MSI barcode in Barcode Studio",
+      "html": "<p>Select <strong>MSI</strong> from the symbology list on the left, then enter your numeric string &mdash; digits 0&ndash;9 only, no check digit is added. From there you can:</p><ul><li>Adjust bar width, height, and quiet zone to fit your label size and scanner</li><li>Toggle human-readable text below the bars for visual verification</li><li>Export as PNG, SVG, or PDF, or copy the image directly into a label template</li><li>Use the batch or sequence tools to generate a numbered run of labels at once</li><li>Upload a CSV of numeric values for bulk generation as a ZIP of image files or a print-ready PDF of labels</li><li>Call the REST API &mdash; <code>/barcode?type=MSI&amp;data=123456</code> &mdash; to generate codes programmatically from your inventory or warehouse system</li></ul><p>If you want built-in error detection instead, use the MSI Mod 10 or MSI Mod 11 variants, which append a calculated check digit to the same underlying encoding.</p>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Since plain MSI has no check digit, print quality and scanner reliability matter more than with self-validating symbologies &mdash; a smudged or poorly printed label can be misread with no algorithmic way to catch the error. Keep bar width consistent and print at a resolution sharp enough to distinguish wide from narrow elements clearly, maintain a clean quiet zone on both sides of the symbol, and consider cross-checking scanned values against your inventory database as a practical substitute for a check digit. If your application can tolerate the extra digit, switching to MSI Mod 10 or MSI Mod 11 removes this risk at the source.</p>"
+    },
+    {
+      "h2": "MSI vs. MSI Mod 10 vs. MSI Mod 11",
+      "html": "<p>All three variants share the same binary bar-width encoding for digits 0&ndash;9; the only difference is whether, and how, a check digit is appended. Plain MSI adds nothing and trusts the surrounding system to catch errors. MSI Mod 10 appends one digit computed with a Luhn-style doubling algorithm &mdash; simple to calculate, and adequate for catching single-digit errors. MSI Mod 11 appends one digit computed with a weighted-sum algorithm that's statistically better at catching transposition errors (two digits swapped), at the cost of a slightly more complex calculation. Choose plain MSI only when your own system already validates scanned data some other way; otherwise Mod 10 or Mod 11 is almost always the safer default.</p>"
+    }
+  ],
+  "uses": [
+    "Retail shelf-edge price and stock labels",
+    "Warehouse rack and bin location tags",
+    "Manufacturing inventory control tags",
+    "Internal asset tracking within a single closed-loop system",
+    "Legacy library and rental tracking systems"
+  ],
+  "faq": [
+    {"q": "What is an MSI barcode used for?", "a": "MSI barcodes are mainly used for retail shelf labels, warehouse rack tags, and inventory control in closed-loop systems where the same organization controls both label printing and scanning."},
+    {"q": "Does the MSI barcode have a check digit?", "a": "The plain MSI symbology has no check digit; if you need built-in error detection, use the MSI Mod 10 or MSI Mod 11 variants instead, which add a calculated check digit to the encoded data."},
+    {"q": "What characters can MSI encode?", "a": "MSI encodes numeric digits only, 0 through 9. It cannot encode letters or special characters."},
+    {"q": "Is MSI the same as Modified Plessey?", "a": "Yes, MSI is the common name for what was originally the Modified Plessey code, developed from the Plessey Company's original Plessey code and later adopted and named by MSI Data Corporation."},
+    {"q": "Can retail point-of-sale scanners read MSI barcodes?", "a": "Many can, but MSI isn't part of the GS1 retail barcode standards (like UPC or EAN), so it's typically used for internal store operations rather than at checkout scanning of individual products."},
+    {"q": "Can I bulk-generate MSI barcodes?", "a": "Yes, upload a CSV of numeric values and Barcode Studio will generate a ZIP of image files or a print-ready PDF of labels in one batch, or use the sequence tool for a numbered run."}
+  ]
+}

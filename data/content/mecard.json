@@ -1,0 +1,52 @@
+{
+  "id": "mecard",
+  "title": "MeCard Generator – QR Code Contact Card",
+  "metaDescription": "Generate a MeCard QR code free online. Encode name, phone, email, and address in the compact MeCard format for instant contact sharing on any phone.",
+  "primaryKeyword": "mecard generator",
+  "secondaryKeywords": ["mecard qr code", "mecard vs vcard", "contact qr code generator", "business card qr code", "mecard format", "qr code phone number email"],
+  "lead": "Create a MeCard QR code that saves your name, phone, email, and address to a contact list with a single scan.",
+  "sections": [
+    {
+      "h2": "What is MeCard?",
+      "html": "<p>MeCard is a compact plain-text format for encoding contact information into a QR Code, originally developed for Japanese feature phones and still supported by virtually every modern smartphone camera and QR scanner. When someone scans a MeCard QR Code, their phone recognizes the format and offers to save the contact directly — name, phone number, email and address — without opening a browser or app first.</p><p>Technically, MeCard is not a barcode symbology of its own; it's a QR Code (or sometimes a Data Matrix) encoding text in the MeCard syntax, the same way a URL QR Code is a QR Code encoding a web address. Barcode Studio lists it as its own type because the specific field structure and colon/semicolon syntax matter for phones to parse it correctly.</p>"
+    },
+    {
+      "h2": "MeCard format and fields",
+      "html": "<p>A MeCard payload starts with <code>MECARD:</code> and packs fields as short two-letter codes separated by semicolons, ending with a final double semicolon:</p><ul><li><strong>N</strong> — name, formatted as Last,First.</li><li><strong>TEL</strong> — phone number (can repeat for multiple numbers).</li><li><strong>EMAIL</strong> — email address.</li><li><strong>ADR</strong> — address, structured similarly to vCard's address components.</li><li><strong>URL</strong> — a website or profile link.</li><li><strong>NOTE</strong> — free-text note.</li><li><strong>BDAY</strong> — birthday, in YYYYMMDD format.</li></ul><p>A typical MeCard string looks like <code>MECARD:N:Smith,Jane;TEL:15551234567;EMAIL:jane@example.com;;</code>. Special characters like commas and semicolons within a field value must be escaped with a backslash so the phone's parser doesn't misread field boundaries.</p>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>MeCard is a plain-text data format, not a barcode symbology itself — Barcode Studio renders it as a standard ISO/IEC 18004 QR Code (Model 2), though the same text could technically go into a Data Matrix or other 2D symbol. There is no formal international standards body governing MeCard the way GS1 governs Application Identifiers; it originated as a de facto convention from Japanese feature-phone QR readers (NTT DoCoMo's i-mode ecosystem) and has since been widely, if informally, adopted by smartphone camera apps. Field values have no fixed maximum length in the specification itself, but practical length is bounded by the QR Code's own capacity — up to roughly 4,296 alphanumeric characters at the lowest error-correction level, far more than any real contact record needs. There is no check digit; data integrity relies entirely on the QR Code's built-in Reed–Solomon error correction.</p>"
+    },
+    {
+      "h2": "MeCard vs vCard: which to use",
+      "html": "<p>MeCard and vCard both let a QR Code save a contact, but they differ in scope and compatibility. MeCard is a lightweight, Japan-originated format with a small, fixed field set — it produces a shorter, denser QR Code, which is useful when you want the smallest possible symbol or are targeting older/simpler QR readers. vCard (the format behind Barcode Studio's separate vCard-based QR builder) is the internet-standard contact format (based on RFC 6350) and supports a much richer set of fields — organization, title, multiple phone types, photos — at the cost of a larger encoded payload.</p><p>In practice, most modern phones parse both formats fine. Choose MeCard when you want a compact code with just the essentials (name, phone, email, address); choose vCard when you need full business-card detail like job title, company, or multiple contact channels.</p>"
+    },
+    {
+      "h2": "How to generate a MeCard QR Code in Barcode Studio",
+      "html": "<p>To build a MeCard QR Code:</p><ul><li>Select <strong>QR Code</strong> from the barcode type list, then choose the <strong>MeCard</strong> content-type builder from the 2D content options.</li><li>Fill in name, phone number(s), email, address and any optional fields like URL, birthday or a note.</li><li>Barcode Studio assembles the fields into the correct <code>MECARD:...;;</code> syntax, escaping special characters automatically, and encodes it as a QR Code.</li><li>Choose an error-correction level — Medium or Quartile is a good default for a contact card that might be printed small on a business card or badge.</li><li>Adjust size, colors and margin to match your business card or flyer design, then export as SVG for print-quality reproduction or PNG for digital sharing.</li><li>Use <strong>Bulk CSV → ZIP/PDF</strong> to generate individual MeCard QR codes for an entire team or event roster — one row per person, each producing a unique contact QR Code — or call the REST API at <code>/barcode?type=mecard&data=...</code> to generate them from an HR or CRM system.</li></ul>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Because MeCard QR Codes often end up small — on a business card, name badge, or email signature — use a higher error-correction level (Quartile or High) so the code stays scannable even if printed at a compact size or slightly smudged. Test the finished code with both iOS and Android native camera apps before printing in volume, since contact-saving behavior (and which fields get recognized) can vary slightly between phone platforms. Keep a comfortable quiet zone around the code even on a crowded business card layout, and avoid placing it over a fold line or perforation on a badge insert, since a crease across the QR Code's finder patterns is a common cause of failed scans on printed cards.</p>"
+    },
+    {
+      "h2": "MeCard vs related contact and QR formats",
+      "html": "<p>Against <strong>vCard</strong>, MeCard trades richness for compactness: vCard supports organization, title, multiple typed phone numbers, and even embedded photos, while MeCard sticks to a small fixed field set that keeps the resulting QR Code smaller and easier to scan reliably at tiny print sizes. Against a plain <strong>URL QR Code</strong> that links to an online contact page or vCard file, MeCard works fully offline — the phone saves the contact directly from the scanned text with no network request required, which matters for badges or cards used in venues with poor connectivity. Choose MeCard for a lean, dependable contact card; choose vCard when the extra fields are worth a larger, denser code.</p>"
+    }
+  ],
+  "uses": [
+    "Business cards with a scan-to-save contact QR code",
+    "Conference badges and event name tags",
+    "Email signatures with a compact contact QR code",
+    "Networking flyers and trade show handouts",
+    "Bulk-generated staff directories or team rosters"
+  ],
+  "faq": [
+    {"q": "What is a MeCard generator used for?", "a": "<p>A mecard generator creates a QR Code that encodes contact details — name, phone, email, address — in the MeCard text format so any phone camera can scan it and offer to save the contact instantly.</p>"},
+    {"q": "What's the difference between MeCard and vCard QR codes?", "a": "MeCard is a compact format with a smaller field set that produces a denser, smaller QR Code, while vCard is the richer internet-standard contact format supporting fields like job title and company at the cost of a larger code."},
+    {"q": "Do all phones support scanning MeCard QR codes?", "a": "<p>Most modern iOS and Android native camera apps recognize the MECARD: prefix and offer to save the contact, though it's worth testing on your target devices since recognition can vary slightly by OS version.</p>"},
+    {"q": "Can a MeCard QR code include a photo?", "a": "No — MeCard's field set covers name, phone, email, address, URL, note and birthday, but it does not support embedding a photo; vCard is a better choice if a photo is required."},
+    {"q": "Can I generate MeCard QR codes for a whole team at once?", "a": "<p>Yes — upload a CSV with each person's contact details to Barcode Studio's bulk tool to generate a unique MeCard QR code per row, packaged as a ZIP or PDF.</p>"}
+  ]
+}

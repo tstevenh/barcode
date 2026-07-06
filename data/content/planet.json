@@ -1,0 +1,52 @@
+{
+  "id": "planet",
+  "title": "USPS PLANET Barcode Generator | Barcode Studio",
+  "metaDescription": "Generate USPS PLANET barcodes free online for mail tracking codes. PLANET is a discontinued USPS format — see Intelligent Mail for current tracking barcodes.",
+  "primaryKeyword": "usps planet generator",
+  "secondaryKeywords": ["planet barcode", "postal alpha numeric encoding technique", "planet vs postnet", "usps tracking barcode legacy", "planet code generator", "deprecated usps tracking format"],
+  "lead": "Create a USPS PLANET barcode for tracking codes — a discontinued format once used to time-stamp mail as it moved through the postal network.",
+  "sections": [
+    {
+      "h2": "What is USPS PLANET?",
+      "html": "<p>PLANET (Postal Alpha Numeric Encoding Technique) is a height-modulated barcode the USPS introduced as a companion to POSTNET, but for a different purpose: instead of encoding a destination ZIP code, PLANET encoded a tracking/service-type ID and a routing code used to record when a piece of mail passed specific points in the postal network, primarily for USPS's Confirm services (Delivery Confirmation and Signature Confirmation predecessors). It shares POSTNET's core bar structure — five bars per digit, two heights, mod-10 check digit — but the data it carries is tracking information rather than a delivery address.</p><p>Like POSTNET, PLANET is retired. USPS replaced both formats with the Intelligent Mail barcode (IMb), which consolidates address, routing, and tracking data into a single, more capable barcode. This generator supports reproducing or referencing PLANET-coded mail from the era before that consolidation.</p>"
+    },
+    {
+      "h2": "Structure and encoding",
+      "html": "<p>PLANET uses the same visual bar-height scheme as POSTNET — each digit is five bars, a mix of tall and short, framed by guard bars — but the digit content is different:</p><ul><li><strong>12 or 14-digit format:</strong> PLANET codes typically carried either a 12-digit or 14-digit numeric string, structured as a service type/tracking identifier plus a sequence number, rather than a geographic ZIP code.</li><li><strong>Check digit:</strong> like POSTNET, a mod-10 check digit is calculated across the encoded digits and appended automatically.</li><li><strong>Shared physical spec:</strong> bar height, spacing, and clear-zone requirements mirror POSTNET's since both were designed for the same generation of USPS optical scanning equipment.</li></ul><p>Visually, a PLANET and a POSTNET barcode look identical in structure — the only way to tell them apart is by decoding the digit content, since the encoding scheme itself doesn't distinguish the two use cases.</p>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>PLANET uses the identical five-bar-per-digit, two-height cell structure as POSTNET, with a full-height guard bar framing each end of the symbol and a mod-10 check digit appended after the data digits. Where POSTNET's data digits represent a ZIP-derived value, PLANET's digits represent a numeric tracking/service-type identifier and sequence number, typically totaling 11 or 13 data digits (12- or 14-digit symbol length once the check digit is added). Because the two formats are visually indistinguishable without decoding, USPS relied on placement conventions on the mail piece and processing context to know which barcode was PLANET and which was POSTNET.</p>"
+    },
+    {
+      "h2": "Where PLANET was used",
+      "html": "<p>PLANET's use was narrower and shorter-lived than POSTNET's:</p><ul><li>USPS Confirm services (the precursor to today's tracking and delivery confirmation programs) printed PLANET codes on mail pieces and confirmation labels to log scan events as mail moved through processing.</li><li>Return or reply mail pieces from mailers enrolled in early USPS tracking programs, where the PLANET code let USPS record transit milestones separately from the delivery-address POSTNET code on the same piece.</li><li>Legacy mail tracking systems and historical mail archives from the 1990s–2000s era of USPS automation.</li></ul><p>PLANET was discontinued well before POSTNET, as USPS tracking capability migrated to Delivery Confirmation and Intelligent Mail package barcodes with far greater data capacity. There is no current live USPS use case for PLANET, and mail management software vendors dropped support for generating it years ago, leaving reproduction tools like this one as one of the few remaining ways to recreate the format accurately.</p>"
+    },
+    {
+      "h2": "How to generate a PLANET barcode in Barcode Studio",
+      "html": "<p>To create a PLANET barcode:</p><ul><li>Select <strong>USPS PLANET</strong> from the barcode type list.</li><li>Enter your 12 or 14-digit tracking/service-type code — Barcode Studio calculates and appends the check digit automatically.</li><li>Adjust bar height and spacing to match your print target, keeping the same care around height differentiation that POSTNET requires.</li><li>Export as SVG or PNG depending on whether you need vector reproduction or a quick reference image.</li><li>Use <strong>Bulk CSV → ZIP/PDF</strong> if reproducing a batch of historical PLANET codes, or the REST API at <code>/barcode?type=planet&data=...</code> for programmatic generation.</li></ul><p>For any current tracking need, use a modern format — USPS Intelligent Mail Package Barcode (IMpb) for packages, or Intelligent Mail barcode (IMb) for letter mail — since PLANET carries no live functionality in today's postal system. This generator exists for accurate historical reproduction and reference, not for producing something USPS will process today.</p>"
+    },
+    {
+      "h2": "Print and scan considerations",
+      "html": "<p>PLANET shares POSTNET's print sensitivity: bar height must be consistent and well-differentiated for optical readers to distinguish tall from short bars, and a clean quiet zone is needed on both sides of the symbol. Since PLANET has no active USPS processing role today, these considerations are primarily relevant to accurately reproducing historical mail artifacts, testing legacy decoding software, or archival and educational purposes rather than live mail production.</p>"
+    },
+    {
+      "h2": "PLANET vs related postal codes",
+      "html": "<p>Compared to <strong>POSTNET</strong>, PLANET is structurally identical but carries tracking/service data instead of a ZIP-derived delivery address — the two were meant to be read together on mail enrolled in early USPS tracking programs, one for routing, one for tracking. Compared to <strong>USPS Intelligent Mail (IMb)</strong>, PLANET's function — carrying a tracking/service identifier — was fully absorbed into IMb's combined routing-plus-tracking design, which is why PLANET was discontinued even earlier than POSTNET. Compared to the modern <strong>USPS IM Package Barcode (IMpb)</strong> used on packages, PLANET tracked letter mail milestones with an 11-14 digit height-modulated code, while IMpb is a linear Code 128 barcode encoding a full USPS package tracking number.</p>"
+    }
+  ],
+  "uses": [
+    "Historical reproduction of USPS Confirm-era tracking mail pieces",
+    "Archival and educational reference for early USPS automation barcodes",
+    "Legacy mail-tracking system testing and documentation",
+    "Distinguishing PLANET-coded artifacts from POSTNET in historical mail research",
+    "Software migration projects moving legacy tracking data toward Intelligent Mail"
+  ],
+  "faq": [
+    {"q": "What is a USPS PLANET generator used for?", "a": "<p>A usps planet generator recreates the PLANET barcode format USPS once used to encode tracking and service-type codes on mail pieces enrolled in early Confirm tracking services — a discontinued format today.</p>"},
+    {"q": "What's the difference between PLANET and POSTNET?", "a": "Both use the identical bar-height encoding scheme, but POSTNET encodes a destination ZIP/delivery point code while PLANET encoded a tracking/service-type identifier used for USPS Confirm services. They serve different data purposes despite looking structurally the same."},
+    {"q": "Is PLANET still used by USPS today?", "a": "<p>No. PLANET was discontinued as USPS moved tracking functionality to Delivery Confirmation and later the Intelligent Mail barcode, which now handles both address and tracking data in one format.</p>"},
+    {"q": "How many digits does a PLANET barcode encode?", "a": "PLANET codes typically carried 12 or 14 digits representing a service type and tracking sequence, plus an appended mod-10 check digit."},
+    {"q": "What should I use instead of PLANET for tracking mail today?", "a": "<p>Use USPS Intelligent Mail barcode (IMb) for letter mail or Intelligent Mail Package Barcode (IMpb) for packages — both are the current, actively supported USPS tracking and routing formats.</p>"}
+  ]
+}

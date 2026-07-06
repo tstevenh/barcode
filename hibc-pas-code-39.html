@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HIBC PAS Code 39 Generator - Free | Barcode Studio</title>
+<meta name="description" content="Free HIBC PAS Code 39 generator for lot, expiration, and serial data on medical labels. Enter your secondary message, then export PNG, SVG, or PDF." />
+<meta name="theme-color" content="#0b1220" />
+<link rel="canonical" href="https://lawbarcode.vercel.app/hibc-pas-code-39" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="HIBC PAS Code 39 Generator | Barcode Studio" />
+<meta property="og:description" content="Free HIBC PAS Code 39 generator for lot, expiration, and serial data on medical labels. Enter your secondary message, then export PNG, SVG, or PDF." />
+<meta property="og:url" content="https://lawbarcode.vercel.app/hibc-pas-code-39" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1220'/%3E%3Cg fill='white'%3E%3Crect x='6' y='8' width='2' height='16'/%3E%3Crect x='9' y='8' width='1' height='16'/%3E%3Crect x='11' y='8' width='3' height='16'/%3E%3Crect x='15' y='8' width='1' height='16'/%3E%3Crect x='17' y='8' width='2' height='16'/%3E%3Crect x='20' y='8' width='1' height='16'/%3E%3Crect x='22' y='8' width='3' height='16'/%3E%3Crect x='26' y='8' width='1' height='16'/%3E%3C/g%3E%3C/svg%3E" />
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://lawbarcode.vercel.app/"},{"@type":"ListItem","position":2,"name":"Barcode Types","item":"https://lawbarcode.vercel.app/barcodes"},{"@type":"ListItem","position":3,"name":"HIBC PAS Code 39 Generator","item":"https://lawbarcode.vercel.app/hibc-pas-code-39"}]},{"@type":"SoftwareApplication","name":"HIBC PAS Code 39 Generator","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://lawbarcode.vercel.app/hibc-pas-code-39"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an HIBC PAS Code 39 generator used for?","acceptedAnswer":{"@type":"Answer","text":"It generates the secondary Health Industry Bar Code message that carries variable data like lot number, expiration date, and serial number for a specific unit, encoded in Code 39."}},{"@type":"Question","name":"What does PAS stand for in HIBC?","acceptedAnswer":{"@type":"Answer","text":"PAS stands for Provider Applications Standard, the part of the HIBC specification that defines how supplemental data such as lot number and expiration date is encoded."}},{"@type":"Question","name":"Do I need a LIC barcode along with a PAS barcode?","acceptedAnswer":{"@type":"Answer","text":"Yes, a PAS message is meant to be printed alongside and linked to a primary LIC message so a scanner can associate the lot and expiration data with the correct product identity."}},{"@type":"Question","name":"Can HIBC PAS Code 39 encode a serial number for an individual device?","acceptedAnswer":{"@type":"Answer","text":"Yes, the PAS message structure supports serial number fields in addition to lot number, expiration date, and quantity, which is important for tracking individual implantable or high-value devices."}},{"@type":"Question","name":"Does HIBC PAS Code 39 use GS1 Application Identifiers?","acceptedAnswer":{"@type":"Answer","text":"No, HIBC PAS messages follow the HIBCC Supplier Labeling Standard's own field structure rather than GS1 Application Identifier syntax, though both schemes serve similar traceability purposes."}},{"@type":"Question","name":"Can I bulk-generate HIBC PAS Code 39 labels for different lots?","acceptedAnswer":{"@type":"Answer","text":"Yes, upload a CSV where each row supplies its own lot number and expiration date, and Barcode Studio will generate the corresponding barcodes as a ZIP or print-ready PDF."}}]}]}</script>
+<link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="/css/bulk-api.css" />
+<script src="/js/qr-local.js"></script>
+<script>
+(function () {
+  function hasJsBarcode() { return typeof window.JsBarcode === "function"; }
+  function hasBwip() { return !!(window.bwipjs && typeof window.bwipjs.toCanvas === "function"); }
+  function hasPdf() { var ns = window.jspdf || window.jsPDF; return !!(ns && (ns.jsPDF || ns)); }
+  function loadScript(src, check, timeoutMs) {
+    return new Promise(function (resolve) {
+      if (check()) return resolve(true);
+      var done = false;
+      var s = document.createElement("script");
+      var t = setTimeout(function () { finish(check()); }, timeoutMs || 2500);
+      function finish(ok) {
+        if (done) return;
+        done = true;
+        clearTimeout(t);
+        try { if (!ok && s.parentNode) s.parentNode.removeChild(s); } catch (e) {}
+        resolve(!!ok || check());
+      }
+      s.async = false;
+      s.onload = function () { finish(true); };
+      s.onerror = function () { finish(false); };
+      s.src = src;
+      document.head.appendChild(s);
+    });
+  }
+  async function loadAny(urls, check) {
+    for (var i = 0; i < urls.length; i++) {
+      if (await loadScript(urls[i], check, 2500)) return true;
+    }
+    return check();
+  }
+  window.__barcodeLibs = {
+    jsbarcode: loadAny([
+      "https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js",
+      "https://unpkg.com/jsbarcode@3.11.6/dist/JsBarcode.all.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"
+    ], hasJsBarcode),
+    bwip: loadAny([
+      "https://cdn.jsdelivr.net/npm/bwip-js@4.11.1/dist/bwip-js-min.js",
+      "https://unpkg.com/bwip-js@4.11.1/dist/bwip-js-min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/bwip-js/4.7.0/bwip-js-min.js"
+    ], hasBwip),
+    pdf: loadAny([
+      "https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js",
+      "https://unpkg.com/jspdf@2.5.1/dist/jspdf.umd.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+    ], hasPdf)
+  };
+  window.__barcodeLibsReady = Promise.all([window.__barcodeLibs.jsbarcode, window.__barcodeLibs.bwip, window.__barcodeLibs.pdf]).then(function (r) {
+    return { jsbarcode: r[0], bwip: r[1], pdf: r[2], qr: !!(window.QRCode && typeof window.QRCode.toCanvas === "function") };
+  });
+})();
+</script>
+<script>window.BARCODE_HAS_API = true;</script>
+<script src="/js/i18n.js"></script>
+<script src="/js/i18n-extra.js"></script>
+</head>
+<body>
+  <div class="loader" id="loader"><div class="loader-bars"><span></span><span></span><span></span><span></span><span></span></div><p data-i18n="loaderText">Loading Barcode Studio…</p></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <div>
+        <h1>Barcode Studio</h1>
+        <p data-i18n="brandTagline">Free Online Barcode &amp; QR Code Generator</p>
+      </div>
+    </div>
+    <nav class="top-actions">
+      <a href="#generator" class="btn btn-ghost" data-i18n="navGenerator">Generator</a>
+      <a href="#bulk" class="btn btn-ghost" data-i18n="navBulk">Bulk</a>
+      <a href="/barcodes" class="btn btn-ghost" data-i18n="navTypes">All barcodes</a>
+      <a href="/api-docs.html" class="btn btn-ghost" data-i18n="navApi">API Docs</a>
+      <button class="btn btn-ghost" id="resetBtn" data-i18n="navReset">Reset</button>
+      <button class="btn btn-ghost" id="printBtn" data-i18n="navPrint">Print</button>
+      <div class="lang-wrap">
+        <span class="globe" aria-hidden="true">🌐</span>
+        <select id="langSelect" class="lang-select" aria-label="Language"></select>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-content">
+      <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/barcodes">Barcodes</a><span>/</span><span>HIBC PAS Code 39</span></nav>
+      <span class="eyebrow">Linear Barcode</span>
+      <h1>HIBC PAS Code 39 <span class="grad-text">Generator</span></h1>
+      <p>Encode lot number, expiration date, and serial data for a specific medical product unit using HIBC's secondary PAS message in Code 39.</p>
+      <a href="#generator" class="btn btn-primary btn-lg">Open the generator ↓</a>
+    </div>
+  </section>
+
+  <div class="app" id="generator">
+    <aside class="sidebar reveal">
+      <div class="sidebar-search">
+        <input type="text" id="typeSearch" data-i18n-ph="searchPh" placeholder="Search symbology…" />
+      </div>
+      <div class="type-list" id="typeList"></div>
+    </aside>
+
+    <main class="main">
+      <section class="card reveal">
+        <div class="card-head">
+          <h2 data-i18n="dataHeading">Data</h2>
+          <span class="pill" id="activeType">Code 128</span>
+        </div>
+        <div class="prop-row ct-row" id="contentTypeRow" hidden>
+          <label data-i18n="contentType">Content type</label>
+          <select id="ctSelect">
+            <option value="text" data-i18n="ctText">Text</option>
+            <option value="url" data-i18n="ctUrl">URL / Link</option>
+            <option value="wifi" data-i18n="ctWifi">WiFi network</option>
+            <option value="vcard" data-i18n="ctVcard">Contact (vCard)</option>
+            <option value="email" data-i18n="ctEmail">Email</option>
+            <option value="sms" data-i18n="ctSms">SMS</option>
+            <option value="tel" data-i18n="ctTel">Phone</option>
+            <option value="geo" data-i18n="ctGeo">Location</option>
+            <option value="event" data-i18n="ctEvent">Calendar event</option>
+          </select>
+        </div>
+        <textarea id="data" rows="3" data-i18n-ph="dataPh" placeholder="Enter the data to encode…">Barcode Studio</textarea>
+        <div class="builder" id="builderFields" hidden>
+          <div class="ct-block" data-ct="wifi">
+            <label class="fld"><span data-i18n="fSsid">Network name (SSID)</span><input type="text" id="wSsid" value="MyNetwork" /></label>
+            <label class="fld"><span data-i18n="fPassword">Password</span><input type="text" id="wPass" value="password123" /></label>
+            <label class="fld"><span data-i18n="fEncryption">Encryption</span>
+              <select id="wEnc"><option value="WPA">WPA/WPA2</option><option value="WEP">WEP</option><option value="nopass" data-i18n="encNone">None</option></select>
+            </label>
+            <label class="switch"><input type="checkbox" id="wHidden" /> <span data-i18n="fHidden">Hidden network</span></label>
+          </div>
+          <div class="ct-block" data-ct="vcard">
+            <label class="fld"><span data-i18n="fFirstName">First name</span><input type="text" id="vFirst" value="John" /></label>
+            <label class="fld"><span data-i18n="fLastName">Last name</span><input type="text" id="vLast" value="Doe" /></label>
+            <label class="fld"><span data-i18n="fOrg">Organization</span><input type="text" id="vOrg" /></label>
+            <label class="fld"><span data-i18n="fJobTitle">Job title</span><input type="text" id="vTitle" /></label>
+            <label class="fld"><span data-i18n="fPhone">Phone</span><input type="text" id="vPhone" value="+1 555 0100" /></label>
+            <label class="fld"><span data-i18n="fEmail">Email</span><input type="text" id="vEmail" value="john@example.com" /></label>
+            <label class="fld"><span data-i18n="fWebsite">Website</span><input type="text" id="vUrl" /></label>
+            <label class="fld"><span data-i18n="fAddress">Address</span><input type="text" id="vAddr" /></label>
+          </div>
+          <div class="ct-block" data-ct="email">
+            <label class="fld"><span data-i18n="fTo">To</span><input type="text" id="eTo" value="hello@example.com" /></label>
+            <label class="fld"><span data-i18n="fSubject">Subject</span><input type="text" id="eSub" /></label>
+            <label class="fld"><span data-i18n="fBody">Message</span><input type="text" id="eBody" /></label>
+          </div>
+          <div class="ct-block" data-ct="sms">
+            <label class="fld"><span data-i18n="fNumber">Number</span><input type="text" id="sNum" value="+15550100" /></label>
+            <label class="fld"><span data-i18n="fMessage">Message</span><input type="text" id="sMsg" value="Hello" /></label>
+          </div>
+          <div class="ct-block" data-ct="tel">
+            <label class="fld"><span data-i18n="fNumber">Number</span><input type="text" id="tNum" value="+15550100" /></label>
+          </div>
+          <div class="ct-block" data-ct="geo">
+            <label class="fld"><span data-i18n="fLat">Latitude</span><input type="text" id="gLat" value="40.7128" /></label>
+            <label class="fld"><span data-i18n="fLong">Longitude</span><input type="text" id="gLng" value="-74.0060" /></label>
+          </div>
+          <div class="ct-block" data-ct="event">
+            <label class="fld"><span data-i18n="fEventTitle">Event title</span><input type="text" id="cTitle" value="Meeting" /></label>
+            <label class="fld"><span data-i18n="fLocation">Location</span><input type="text" id="cLoc" /></label>
+            <label class="fld"><span data-i18n="fStart">Start</span><input type="datetime-local" id="cStart" /></label>
+            <label class="fld"><span data-i18n="fEnd">End</span><input type="datetime-local" id="cEnd" /></label>
+            <label class="fld"><span data-i18n="fDescription">Description</span><input type="text" id="cDesc" /></label>
+          </div>
+        </div>
+        <p class="hint" id="typeHint"></p>
+
+        <div class="seq">
+          <label class="switch">
+            <input type="checkbox" id="seqEnable" /> <span data-i18n="seqToggle">Batch / sequence mode</span>
+          </label>
+          <div class="seq-fields" id="seqFields">
+            <label><span data-i18n="seqCount">Count</span> <input type="number" id="seqCount" min="2" max="100" value="5" /></label>
+            <label><span data-i18n="seqStart">Start #</span> <input type="number" id="seqStart" value="1" /></label>
+            <label><span data-i18n="seqPrefix">Prefix</span> <input type="text" id="seqPrefix" placeholder="ABC-" /></label>
+            <label><span data-i18n="seqPad">Pad</span> <input type="number" id="seqPad" min="0" max="12" value="4" /></label>
+          </div>
+        </div>
+      </section>
+
+      <section class="card preview-card reveal">
+        <div class="card-head">
+          <h2 data-i18n="previewHeading">Preview</h2>
+          <div class="preview-tools">
+            <button class="chip" data-zoom="out" title="Zoom out">−</button>
+            <span id="zoomLabel">100%</span>
+            <button class="chip" data-zoom="in" title="Zoom in">+</button>
+          </div>
+        </div>
+        <div class="preview-stage">
+          <div id="preview" class="preview-inner"></div>
+        </div>
+        <div class="download-row">
+          <button class="btn btn-primary" id="dlPng">⬇ PNG</button>
+          <button class="btn btn-secondary" id="dlSvg">⬇ SVG</button>
+          <button class="btn btn-soft" id="copyBtn">📋 Copy</button>
+          <button class="btn btn-soft" id="dlZip" hidden>⬇ ZIP (batch)</button>
+        </div>
+      </section>
+
+      <section class="card bulk-card reveal" id="bulk">
+        <div class="card-head">
+          <h2 data-i18n="bulkHeading">Bulk generate</h2>
+          <span class="pill" data-i18n="bulkBadge">CSV \u2192 ZIP / PDF</span>
+        </div>
+        <p class="hint" data-i18n="bulkDesc">Upload a CSV/TXT file or paste values to generate hundreds of barcodes at once.</p>
+        <div class="bulk-grid">
+          <label class="bulk-file">
+            <input type="file" id="bulkFile" accept=".csv,.txt,text/csv,text/plain" />
+            <span data-i18n="bulkUpload">\u2b06 Upload CSV / TXT</span>
+          </label>
+          <textarea id="bulkPaste" rows="4" data-i18n-ph="bulkPastePh" placeholder="\u2026or paste values here, one per line"></textarea>
+        </div>
+        <div class="bulk-opts">
+          <label class="switch"><input type="checkbox" id="bulkHeader" /> <span data-i18n="bulkHeaderLbl">First row is a header</span></label>
+          <label class="bulk-sel"><span data-i18n="bulkDataColLbl">Data column</span><select id="bulkDataCol"></select></label>
+          <label class="bulk-sel"><span data-i18n="bulkLabelColLbl">Label / filename</span><select id="bulkLabelCol"></select></label>
+          <label class="bulk-sel"><span data-i18n="bulkPdfColsLbl">PDF columns</span><input type="number" id="bulkPdfCols" min="1" max="6" value="3" /></label>
+        </div>
+        <p class="bulk-info" id="bulkInfo"></p>
+        <div class="bulk-progress" id="bulkProgress" hidden><div class="bulk-bar" id="bulkBar"></div></div>
+        <div class="download-row">
+          <button class="btn btn-primary" id="bulkGenBtn" data-i18n="bulkGenerate">\u2699 Generate</button>
+          <button class="btn btn-secondary" id="bulkDlZip" hidden data-i18n="bulkDlZip">\u2b07 ZIP (PNG)</button>
+          <button class="btn btn-secondary" id="bulkDlPdf" hidden data-i18n="bulkDlPdf">\u2b07 PDF sheet</button>
+        </div>
+      </section>
+    </main>
+
+    <aside class="props reveal">
+      <h2 data-i18n="propsHeading">Properties</h2>
+
+      <div class="prop-group" id="linearProps">
+        <div class="prop-row">
+          <label data-i18n="pBarWidth">Bar width</label>
+          <input type="range" id="barWidth" min="1" max="6" step="0.5" value="2" />
+          <output id="barWidthV">2</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pHeight">Height</label>
+          <input type="range" id="barHeight" min="20" max="240" step="5" value="100" />
+          <output id="barHeightV">100</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pFontSize">Font size</label>
+          <input type="range" id="fontSize" min="8" max="40" step="1" value="18" />
+          <output id="fontSizeV">18</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pTextAlign">Text align</label>
+          <select id="textAlign">
+            <option value="center" selected data-i18n="optCenter">Center</option>
+            <option value="left" data-i18n="optLeft">Left</option>
+            <option value="right" data-i18n="optRight">Right</option>
+          </select>
+        </div>
+        <label class="switch"><input type="checkbox" id="displayValue" checked /> <span data-i18n="pShowText">Show human-readable text</span></label>
+      </div>
+
+      <div class="prop-group" id="qrProps" hidden>
+        <div class="prop-row">
+          <label data-i18n="pSize">Size</label>
+          <input type="range" id="qrSize" min="120" max="640" step="20" value="300" />
+          <output id="qrSizeV">300</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pErrCorr">Error corr.</label>
+          <select id="qrEcc">
+            <option value="L">L – 7%</option>
+            <option value="M" selected>M – 15%</option>
+            <option value="Q">Q – 25%</option>
+            <option value="H">H – 30%</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="prop-group" id="twoDProps" hidden>
+        <div class="prop-row">
+          <label data-i18n="pScale">Scale</label>
+          <input type="range" id="tdScale" min="2" max="10" step="1" value="4" />
+          <output id="tdScaleV">4</output>
+        </div>
+        <div class="prop-row" id="bwipHeightRow" style="display:none">
+          <label data-i18n="pHeightMm">Height (mm)</label>
+          <input type="range" id="bwipHeight" min="5" max="40" step="1" value="12" />
+          <output id="bwipHeightV">12</output>
+        </div>
+        <div class="prop-row" id="pdfColsRow">
+          <label data-i18n="pPdfCols">PDF columns</label>
+          <input type="range" id="pdfCols" min="0" max="12" step="1" value="0" />
+          <output id="pdfColsV">auto</output>
+        </div>
+        <label class="switch" id="bwipTextRow" style="display:none"><input type="checkbox" id="bwipText" /> <span data-i18n="pShowText">Show human-readable text</span></label>
+      </div>
+
+      <div class="prop-group">
+        <div class="prop-row two">
+          <div>
+            <label data-i18n="pForeground">Foreground</label>
+            <input type="color" id="fg" value="#000000" />
+          </div>
+          <div>
+            <label data-i18n="pBackground">Background</label>
+            <input type="color" id="bg" value="#ffffff" />
+          </div>
+        </div>
+        <label class="switch"><input type="checkbox" id="transparent" /> <span data-i18n="pTransparent">Transparent background</span></label>
+        <div class="prop-row">
+          <label data-i18n="pMargin">Margin</label>
+          <input type="range" id="margin" min="0" max="40" step="2" value="10" />
+          <output id="marginV">10</output>
+        </div>
+      </div>
+
+      <div class="prop-group">
+        <p class="prop-note" id="status"></p>
+      </div>
+    </aside>
+  </div>
+
+    <article class="seo-section">
+    <div class="seo-wrap">
+      <h2>What is an HIBC PAS Code 39 barcode?</h2>
+      <p>HIBC PAS Code 39 is a Health Industry Bar Code secondary data message, encoded in Code 39, that carries variable information about a specific unit of a product rather than the product's fixed identity. "PAS" stands for Provider Applications Standard, the part of the HIBCC specification that defines how to encode supplemental data like lot or batch number, expiration date, serial number, and quantity. Like every HIBC message, a PAS message begins with a "+" flag character, but its data content is structured differently from a LIC message &mdash; it's built around date, quantity, and lot/serial fields rather than a labeler identification code and product number.</p>
+      <h2>How PAS messages relate to LIC messages</h2>
+      <p>A PAS message never stands alone in practice &mdash; it's meant to be printed alongside a primary LIC message and linked to it with a link character, so a scanner reading both barcodes together knows which specific lot, expiration date, or serial number belongs to which product. Think of the LIC message as answering "what is this product and who made it," while the PAS message answers "which specific lot or unit is this one." A hospital scanning both barcodes on a device package gets the complete picture needed for recall tracking, expiration monitoring, and inventory rotation &mdash; information that changes from production run to production run even though the underlying product identity in the LIC message stays the same.</p>
+      <h2>Technical specifications</h2>
+      <p>A PAS message is not GS1-based &mdash; it follows the HIBCC Supplier Labeling Standard's own field structure rather than GS1 Application Identifiers, though both schemes exist to solve similar traceability problems. The data content typically packs a lot or batch number, an expiration date (and sometimes a manufacturing date), and optionally a quantity or serial number, all following fixed field-order conventions defined by HIBCC rather than delimited AI syntax. Like a LIC message, a PAS symbol begins with the "+" flag character and ends with a check character computed with the same modulo-43 algorithm Code 39 uses, followed by Code 39's mandatory stop pattern. There is no fixed physical size requirement beyond standard Code 39 quiet zone and X-dimension guidance from the HIBCC specification.</p>
+      <h2>Where HIBC PAS Code 39 is used</h2>
+      <p>HIBC PAS Code 39 appears wherever a healthcare product's lot, expiration, or serial data needs to travel with the physical item for traceability &mdash; on pharmaceutical vials, reagent kits, implant packaging, and sterile surgical supplies where expiration monitoring and lot-based recall tracking are critical to patient safety. Hospital pharmacy and materials management systems scan the PAS message at receiving and again at point of use to confirm the product hasn't expired and to log exactly which lot was used on which patient or procedure, supporting recall response if a manufacturer later identifies a defective batch.</p>
+      <h2>How to create an HIBC PAS Code 39 barcode in Barcode Studio</h2>
+      <p>Select <strong>HIBC PAS Code 39</strong> from the Linear Barcode list, then enter your HIBC-formatted secondary data string, beginning with the "+" flag character followed by your lot number, expiration date, and any quantity or serial data per the HIBC PAS structure, for example <code>+$1015Z251231</code>. Barcode Studio computes the required HIBC check character automatically. From there you can:</p><ul><li>Adjust bar width, height, and quiet zone to fit vial, kit, or carton labels</li><li>Set colors while keeping strong contrast for hospital and pharmacy scanners</li><li>Export as PNG, SVG, or PDF, or copy the barcode into label design software</li><li>Bulk-generate PAS labels from a CSV of lot numbers and expiration dates as a ZIP or print-ready PDF</li><li>Call the REST API &mdash; <code>/barcode?type=hibcpascode39&amp;data=+$1015Z251231</code> &mdash; to generate labels from your labeling system</li></ul>
+      <h2>Print and scan best practices</h2>
+      <p>Because a PAS message is only useful in context with its linked LIC message, print both barcodes together with clear, separate quiet zones so a scanner reads them as two distinct symbols rather than one garbled scan. Double-check date formatting and lot number accuracy carefully before a production print run &mdash; an incorrect expiration date encoded in a PAS message can cause a hospital system to flag good stock as expired, or worse, fail to flag stock that actually has expired. As with any Code 39 healthcare label, keep the quiet zone intact on both sides of the symbol, since HIBC labels are often applied to small, curved, or otherwise awkward packaging surfaces where print quality is already a challenge.</p>
+      <h2>Why lot and expiration data belongs in PAS, not LIC</h2>
+      <p>It might seem simpler to just add a lot number or expiration date directly onto a LIC barcode rather than printing a second symbol, but HIBC deliberately keeps the two apart, and there's a practical reason for it. A LIC message identifies a product line that stays the same across every unit a manufacturer ever produces, so it's printed once per product design and reused indefinitely on packaging artwork. Lot number and expiration date, by contrast, change with every production run &mdash; sometimes multiple times a day on a busy manufacturing line &mdash; so baking them into the same barcode as the LIC message would mean regenerating and re-approving artwork constantly. Keeping PAS as a separate, independently generated barcode lets manufacturers hold LIC artwork constant while only the PAS barcode changes from batch to batch, which is far more practical on a real production floor.</p><p>This separation is also why hospital scanning software is built to expect two linked barcodes rather than one combined message: it mirrors how the data is actually generated and printed upstream.</p>
+      <h2>Common uses</h2>
+      <ul class="seo-uses"><li>Lot and expiration date tracking on pharmaceutical and reagent labels</li><li>Recall traceability for medical devices and surgical supplies</li><li>Serial number tracking for implantable devices</li><li>Hospital pharmacy expiration monitoring at point of use</li><li>Quantity tracking on multi-unit medical supply packaging</li></ul>
+      <h2>Frequently asked questions</h2>
+      <div class="faq">
+        <details class="faq-item"><summary>What is an HIBC PAS Code 39 generator used for?</summary><div class="faq-a">It generates the secondary Health Industry Bar Code message that carries variable data like lot number, expiration date, and serial number for a specific unit, encoded in Code 39.</div></details>
+        <details class="faq-item"><summary>What does PAS stand for in HIBC?</summary><div class="faq-a">PAS stands for Provider Applications Standard, the part of the HIBC specification that defines how supplemental data such as lot number and expiration date is encoded.</div></details>
+        <details class="faq-item"><summary>Do I need a LIC barcode along with a PAS barcode?</summary><div class="faq-a">Yes, a PAS message is meant to be printed alongside and linked to a primary LIC message so a scanner can associate the lot and expiration data with the correct product identity.</div></details>
+        <details class="faq-item"><summary>Can HIBC PAS Code 39 encode a serial number for an individual device?</summary><div class="faq-a">Yes, the PAS message structure supports serial number fields in addition to lot number, expiration date, and quantity, which is important for tracking individual implantable or high-value devices.</div></details>
+        <details class="faq-item"><summary>Does HIBC PAS Code 39 use GS1 Application Identifiers?</summary><div class="faq-a">No, HIBC PAS messages follow the HIBCC Supplier Labeling Standard's own field structure rather than GS1 Application Identifier syntax, though both schemes serve similar traceability purposes.</div></details>
+        <details class="faq-item"><summary>Can I bulk-generate HIBC PAS Code 39 labels for different lots?</summary><div class="faq-a">Yes, upload a CSV where each row supplies its own lot number and expiration date, and Barcode Studio will generate the corresponding barcodes as a ZIP or print-ready PDF.</div></details>
+      </div>
+      <h2>Related barcode types</h2>
+      <div class="seo-related"><a href="/code-128">Code 128</a><a href="/code-128-a">Code 128 A</a><a href="/code-128-b">Code 128 B</a><a href="/code-128-c">Code 128 C</a><a href="/code-39">Code 39</a><a href="/code-39-full-ascii">Code-39 Full ASCII</a><a href="/code-93">Code 93</a><a href="/code-11">Code 11</a><a href="/standard-2-of-5">Standard 2 of 5</a><a href="/flattermarken">Flattermarken</a><a href="/interleaved-2-of-5">Interleaved 2 of 5</a><a href="/itf-14">ITF-14</a><a href="/industrial-2-of-5">Industrial 2 of 5</a><a href="/iata-2-of-5">IATA 2 of 5</a></div>
+      <p class="seo-all"><a href="/barcodes">Browse all 106 barcode &amp; QR types →</a></p>
+    </div>
+  </article>
+  <footer class="footer">
+    <span class="footer-brand">Barcode Studio</span> · <span data-i18n="footerText">made by Lawstore since 2026</span>
+  </footer>
+
+  <script>window.BARCODE_INITIAL_TYPE="hibcpascode39";</script>
+  <script src="/js/catalog.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

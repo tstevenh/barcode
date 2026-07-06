@@ -1,0 +1,52 @@
+{
+  "id": "databarexpandedcomposite",
+  "title": "GS1 DataBar Expanded Composite Generator",
+  "metaDescription": "Generate GS1 DataBar Expanded Composite barcodes free online. Combine a full-width DataBar Expanded linear symbol with a 2D composite for rich variable data.",
+  "primaryKeyword": "gs1 databar expanded composite generator",
+  "secondaryKeywords": ["databar expanded composite", "gs1 databar variable measure barcode", "expanded databar with 2d component", "gtin plus weight and expiry barcode", "gs1 application identifiers barcode", "databar expanded vs gs1-128"],
+  "lead": "Create a GS1 DataBar Expanded Composite symbol that carries a GTIN with variable-measure or promotional data, plus a 2D component for even richer supplementary data.",
+  "sections": [
+    {
+      "h2": "What is GS1 DataBar Expanded Composite?",
+      "html": "<p>GS1 DataBar Expanded Composite combines the linear DataBar Expanded symbol — the largest-capacity member of the DataBar family — with a 2D composite component printed above it. DataBar Expanded on its own already carries more than a bare GTIN: it's designed to encode multiple GS1 Application Identifiers in a single linear symbol, such as GTIN plus net weight, GTIN plus a coupon code, or GTIN plus a use-by date. Adding the composite tier extends that capacity further, letting a single label carry even more variable data than the linear symbol alone can hold.</p><p>This makes DataBar Expanded Composite the highest-capacity option in the DataBar family, used when a product needs multiple pieces of application data attached to its identifier and a standard linear DataBar or DataBar Composite variant runs out of room.</p>"
+    },
+    {
+      "h2": "Structure and specifications",
+      "html": "<p>DataBar Expanded's linear component is variable-length — unlike DataBar Omnidirectional, Stacked, or Limited, which are fixed at GTIN-14, Expanded scales its width to the amount of data encoded, up to several GS1 Application Identifiers per symbol.</p><ul><li><strong>Linear data:</strong> multiple AIs in one symbol, commonly GTIN (01) combined with variable weight (310x/320x), price, use-by date (15/17), or a coupon/promotion AI.</li><li><strong>Composite data:</strong> additional AIs that don't fit in the linear portion, encoded in a CC-A, CC-B, or (for the largest payloads) CC-C 2D structure above the linear symbol.</li><li><strong>Variable width:</strong> because the linear component grows with data length, DataBar Expanded Composite symbols vary in width more than other DataBar variants — plan label width around your longest expected data string.</li><li><strong>Stacked layout option:</strong> when horizontal space is tight, the linear portion can also be arranged in a stacked, multi-row format (see DataBar Expanded Stacked Composite) rather than a single row.</li></ul>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>DataBar Expanded's linear width scales with content, generally ranging from roughly 100 modules for a single AI up to several hundred modules for a full multi-AI payload, split into segments (up to 22 in the widest configuration) that a decoder reassembles automatically. The composite tier — CC-A, CC-B, or occasionally CC-C for the densest payloads — sits above it, joined by the standard GS1 separator. Because both tiers must stay proportionally sized to each other, the encoder recalculates composite structure whenever the linear content length changes, so testing with your actual longest data string (not a short placeholder) is important before finalizing print dimensions.</p>"
+    },
+    {
+      "h2": "Where DataBar Expanded Composite is used",
+      "html": "<p>This symbology fits products and processes that need rich variable data attached to a GTIN in one scan:</p><ul><li>Variable-weight retail items like deli meats, cheese, and bulk foods, where price and weight are encoded alongside the GTIN and a composite tier adds lot or pack-date traceability.</li><li>Manufacturer coupons that need a GTIN, offer code, and expiration data combined for point-of-sale redemption and fraud control.</li><li>Fresh and perishable goods requiring both variable-measure retail data and food-safety traceability data (lot, harvest date) in a single symbol.</li><li>Healthcare and medical device labeling where GTIN, lot, expiry, and serial number must all travel together and a linear-only DataBar Expanded symbol isn't sufficient.</li></ul>"
+    },
+    {
+      "h2": "How to generate a DataBar Expanded Composite in Barcode Studio",
+      "html": "<p>Barcode Studio builds the variable-length linear component and 2D composite together. To create one:</p><ul><li>Select <strong>GS1 DataBar Expanded Composite</strong> from the barcode type list.</li><li>Enter your GTIN and any additional Application Identifiers for the linear tier (weight, price, dates), then add further AI data for the composite tier if your payload exceeds the linear symbol's capacity.</li><li>Preview the rendered symbol — since width scales with data length, check how it fits your label before finalizing.</li><li>Adjust module size and quiet zone to balance readability against available label space.</li><li>Export as SVG for production printing or PNG for proofing.</li><li>Use <strong>Bulk CSV → ZIP/PDF</strong> when each item in a batch has different variable data (weight, lot, expiry), and call the REST API at <code>/barcode?type=databarexpandedcomposite&data=...</code> for automated generation from a labeling system.</li></ul><p>Because this symbol can carry several Application Identifiers at once, double-check AI formatting and field lengths against the GS1 General Specifications before printing — a malformed AI string is the most common reason a composite scanner rejects an otherwise well-printed symbol.</p>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Because DataBar Expanded Composite's width varies with data content, design labels with margin to spare rather than a fixed width, especially if variable-weight or promotional data length isn't fully predictable. Keep the quiet zone intact on both ends of the linear symbol and don't let the composite tier's separator get cropped or covered by other label elements. Test with a composite-capable imager under your real scanning conditions, since a longer, denser DataBar Expanded Composite symbol has less margin for print skew or low contrast than a shorter fixed-length DataBar variant.</p>"
+    },
+    {
+      "h2": "DataBar Expanded Composite vs related codes",
+      "html": "<p>Compared to fixed-length variants like <strong>DataBar Omnidirectional Composite</strong> or <strong>DataBar Limited Composite</strong>, Expanded trades a predictable footprint for far greater linear data capacity — use it whenever the linear symbol itself needs to carry more than a bare GTIN. Compared to <strong>DataBar Expanded Stacked Composite</strong>, this single-row layout is wider but shorter; choose the stacked variant when label width, not height, is the binding constraint. Compared to <strong>GS1-128 Composite</strong>, DataBar Expanded Composite is generally more compact for the same multi-AI payload, though GS1-128 remains common on shipping and logistics labels where its own established scanning infrastructure is already in place.</p>"
+    }
+  ],
+  "uses": [
+    "Variable-weight deli, meat, and bulk food items with price, weight, and lot data",
+    "Manufacturer coupons combining GTIN, offer code, and expiration for redemption",
+    "Fresh and perishable goods needing both retail and food-safety traceability data",
+    "Medical device and healthcare labels carrying GTIN, lot, expiry, and serial together",
+    "Any product needing multiple GS1 Application Identifiers in a single scannable symbol"
+  ],
+  "faq": [
+    {"q": "What is a GS1 DataBar Expanded Composite generator used for?", "a": "<p>A gs1 databar expanded composite generator creates the highest-capacity DataBar barcode, combining a variable-length linear symbol carrying multiple GS1 Application Identifiers with a 2D composite component for additional data.</p>"},
+    {"q": "How is DataBar Expanded different from DataBar Omnidirectional?", "a": "DataBar Omnidirectional is fixed-length and encodes only a GTIN-14. DataBar Expanded is variable-length and can encode a GTIN plus additional Application Identifiers such as weight, price, or dates within the linear symbol itself."},
+    {"q": "When do I need the composite tier instead of just DataBar Expanded?", "a": "<p>Add the composite tier when your data — GTIN plus weight plus lot plus expiry, for example — exceeds what the linear Expanded symbol alone can hold, or when your process requires traceability data separate from the point-of-sale data.</p>"},
+    {"q": "Does the symbol's size change based on the data I enter?", "a": "Yes — because DataBar Expanded is variable-length, longer data strings produce a wider linear component, so label layouts should allow for some width variation rather than assuming a fixed size."},
+    {"q": "Can I bulk-generate DataBar Expanded Composite barcodes with different data per item?", "a": "<p>Yes — Barcode Studio's bulk CSV to ZIP/PDF tool generates a distinct symbol per row, ideal for variable-weight items or lots where price, weight, or expiry differs from item to item.</p>"}
+  ]
+}

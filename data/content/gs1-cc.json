@@ -1,0 +1,52 @@
+{
+  "id": "gs1-cc",
+  "title": "GS1 Composite 2D Component Generator",
+  "metaDescription": "Generate a standalone GS1 Composite 2D Component free online. Render the CC-A, CC-B, or CC-C composite tier used alongside DataBar and GS1-128 barcodes.",
+  "primaryKeyword": "gs1 composite 2d component generator",
+  "secondaryKeywords": ["gs1 composite component", "cc-a cc-b cc-c barcode", "2d component for databar", "gs1 composite symbology", "micropdf417 composite tier", "gs1-128 composite 2d"],
+  "lead": "Generate the standalone GS1 Composite 2D Component — the CC-A, CC-B, or CC-C tier that pairs with a linear GS1 barcode to carry supplementary data.",
+  "sections": [
+    {
+      "h2": "What is the GS1 Composite 2D Component?",
+      "html": "<p>The GS1 Composite 2D Component is the 2D portion that GS1 composite symbologies attach to a linear barcode. Rather than a symbology in its own right that stands alone at retail, it's the shared building block behind every GS1 Composite variant — DataBar Omnidirectional Composite, DataBar Stacked Composite, DataBar Expanded Composite, EAN-13 Composite, UPC-A Composite, and GS1-128 Composite all use the same underlying 2D component technology, just sized differently to match their linear partner.</p><p>This generator lets you render that 2D component structure directly — useful for understanding its data capacity, testing composite designs, or working with systems and packaging workflows that reference the 2D component as a distinct piece before it's combined with a specific linear symbol.</p>"
+    },
+    {
+      "h2": "CC-A, CC-B, and CC-C: the three component types",
+      "html": "<p>GS1 defines three sizes of the 2D composite component, chosen automatically based on how much supplementary data needs to be encoded and which linear symbol it's paired with:</p><ul><li><strong>CC-A</strong> — the smallest structure, based on a reduced-capacity MicroPDF417-like layout, used when only a small amount of supplementary data (like a short lot code) needs to travel with the linear GTIN.</li><li><strong>CC-B</strong> — a fuller MicroPDF417 structure with more rows and columns, used when the supplementary data (multiple AIs, longer lot/serial strings) exceeds CC-A's capacity.</li><li><strong>CC-C</strong> — the largest structure, based on full PDF417, and used exclusively alongside GS1-128 linear symbols where the combined payload is too large for CC-A or CC-B.</li></ul><p>Which type is generated for a given composite symbol is determined by the amount of data supplied and the linear component it accompanies — a DataBar Limited Composite will never use CC-C, for instance, since DataBar Limited's compact intended footprint pairs only with the smaller component sizes.</p>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>CC-A is derived from a reduced MicroPDF417 structure, typically 4 columns wide with a small row count, holding roughly up to 56 encodable digits or fewer alphanumeric characters — enough for a short lot code or date. CC-B expands that to a fuller MicroPDF417 grid, typically up to 8 or more columns and additional rows, supporting well over 300 characters of supplementary data for combined lot, date, and serial strings. CC-C is built on full PDF417 rather than MicroPDF417, with a much larger row/column grid capable of holding well over 2,000 characters, but is only valid paired with GS1-128 linear symbols due to the alignment and separator requirements defined in the GS1 General Specifications. All three types share the same basic error-correction and separator-pattern rules that let a composite-aware scanner locate and decode the 2D tier relative to its linear partner.</p>"
+    },
+    {
+      "h2": "Where the GS1 Composite 2D Component is used",
+      "html": "<p>You'll encounter this component wherever any GS1 Composite symbol is deployed:</p><ul><li>Retail and grocery packaging using DataBar Composite variants for variable-weight items, coupons, or fresh food traceability.</li><li>Logistics and shipping labels using GS1-128 Composite, where the CC-C component adds serial number or batch data alongside a GS1-128 linear symbol's shipment or carton identifiers.</li><li>Healthcare and pharmaceutical packaging combining EAN-13, UPC-A, or DataBar Composite formats with lot and expiry data for regulatory traceability.</li><li>Systems documentation, testing, and packaging design workflows where engineers need to inspect or validate the 2D component's structure and capacity independent of a specific linear pairing.</li></ul>"
+    },
+    {
+      "h2": "How to generate a GS1 Composite 2D Component in Barcode Studio",
+      "html": "<p>Barcode Studio can render the 2D composite component on its own or as part of a full composite symbol. To generate one:</p><ul><li>Select <strong>GS1 Composite 2D Component</strong> from the barcode type list.</li><li>Enter the supplementary Application Identifier data you want the component to carry — for example, a batch/lot number, expiration date, or serial number.</li><li>Barcode Studio determines the appropriate structure (CC-A, CC-B, or CC-C) based on the data length you provide.</li><li>Adjust module size and margins, then export as SVG or PNG.</li><li>For production labeling, most workflows will use one of the full composite symbologies (e.g., GS1 DataBar Omnidirectional Composite, GS1-128 Composite) rather than the standalone 2D component, since retail and logistics scanners expect the linear and 2D tiers together as a single connected symbol.</li><li>Use the REST API at <code>/barcode?type=gs1-cc&data=...</code> for programmatic generation, or the <strong>Bulk CSV → ZIP/PDF</strong> tool for batches.</li></ul><p>If you're building a label for real-world scanning rather than testing or documentation, choose the specific composite symbology that matches your linear barcode (DataBar variant, EAN/UPC, or GS1-128) so the 2D component is generated already aligned and paired correctly.</p>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>The 2D composite component has tighter print tolerances than most linear barcodes because it packs more information into a smaller area using stacked rows of narrow modules. Print at high resolution, keep contrast sharp, and preserve the full quiet zone around the component — since it's typically paired with a linear symbol below it, also make sure the separator pattern between the two tiers isn't cropped or obscured. Always test with a composite-capable scanner or imager, as many standard linear-only scanners will not decode the 2D component at all.</p>"
+    },
+    {
+      "h2": "GS1 Composite 2D Component vs related codes",
+      "html": "<p>Compared to a standalone <strong>MicroPDF417</strong> or <strong>PDF417</strong> symbol, the GS1 Composite 2D Component isn't meant to be scanned or used independently — it exists specifically to attach to a GS1 linear symbol, whereas MicroPDF417 and PDF417 are complete, self-sufficient symbologies in their own right. Compared to a full composite symbol like <strong>GS1 DataBar Omnidirectional Composite</strong> or <strong>GS1-128 Composite</strong>, this generator isolates just the 2D tier, useful for testing or documentation, while the full composite symbologies produce the linear and 2D tiers together, correctly paired and aligned for real-world scanning.</p>"
+    }
+  ],
+  "uses": [
+    "Understanding or testing the CC-A/CC-B/CC-C structure before building a full composite symbol",
+    "Retail packaging using DataBar Composite for variable-weight or coupon data",
+    "Logistics labels using GS1-128 Composite with CC-C for serial and batch data",
+    "Healthcare packaging combining EAN/UPC or DataBar Composite with lot and expiry tracking",
+    "Systems and packaging design documentation referencing the 2D component independently"
+  ],
+  "faq": [
+    {"q": "What is a GS1 Composite 2D Component generator used for?", "a": "<p>A gs1 composite 2d component generator renders the CC-A, CC-B, or CC-C structure that GS1 composite symbols use to carry supplementary data alongside a linear GTIN barcode.</p>"},
+    {"q": "What's the difference between CC-A, CC-B, and CC-C?", "a": "CC-A is the smallest capacity, CC-B is a larger MicroPDF417-based structure for more data, and CC-C is the largest, based on full PDF417, used exclusively with GS1-128 linear symbols for the highest data capacity."},
+    {"q": "Should I generate the 2D component on its own for a retail label?", "a": "<p>Generally no — for real-world scanning, use the full composite symbology (like GS1 DataBar Omnidirectional Composite) so the linear and 2D tiers are generated together and properly aligned as one connected symbol.</p>"},
+    {"q": "Which linear symbols does the 2D component pair with?", "a": "It pairs with GS1 DataBar variants, EAN-13, EAN-8, UPC-A, UPC-E, and GS1-128, each producing a full composite symbol named after the linear component it's attached to."},
+    {"q": "Does every barcode scanner read the 2D composite component?", "a": "<p>No — only composite-aware scanners and imagers decode the 2D tier. Standard linear-only scanners will read the linear barcode beneath it but ignore the composite data entirely.</p>"}
+  ]
+}

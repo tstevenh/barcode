@@ -1,0 +1,52 @@
+{
+  "id": "ean8composite",
+  "title": "EAN-8 Composite Barcode Generator | Barcode Studio",
+  "metaDescription": "Create an EAN-8 Composite barcode free online: a compact EAN-8 plus a linked 2D component for batch, expiry, or serial data. Instant preview and export.",
+  "primaryKeyword": "ean-8 composite generator",
+  "secondaryKeywords": ["ean-8 composite barcode", "gs1 composite ean-8", "small package composite barcode", "ean-8 plus 2d code", "gtin-8 composite", "composite symbol small packaging"],
+  "lead": "An EAN-8 Composite keeps the compact 8-digit code your retail scanner already reads and adds a small 2D component above it for GS1 data the linear code has no room for.",
+  "sections": [
+    {
+      "h2": "What Is an EAN-8 Composite Barcode?",
+      "html": "<p>An EAN-8 Composite pairs a standard EAN-8 linear barcode with a small 2D component — typically MicroPDF417 — printed directly above it. The EAN-8 portion still encodes the same 8-digit GTIN-8 (7 data digits plus a check digit) that a normal EAN-8 generator would produce, unchanged in how it functions at the point of sale. The composite component layers supplementary GS1 Application Identifier data on top, without altering how the linear code scans.</p><p>This is a GS1 Composite symbol built specifically for the same space-constrained packaging that EAN-8 itself targets — small candy, cosmetics, or pharmaceutical packaging where there's no room for a second, separate barcode but where regulatory or quality-tracking requirements still call for batch or expiry data.</p>"
+    },
+    {
+      "h2": "How the EAN-8 and Composite Component Work Together",
+      "html": "<p>The linear EAN-8 follows the standard EAN-8 structure — a GS1 prefix, item reference, and a mod-10 check digit calculated automatically — exactly as it would in a standalone EAN-8 barcode. That part identifies the product itself.</p><p>The 2D component above it carries variable, per-unit or per-batch information using GS1 Application Identifiers, most commonly:</p><ul><li><strong>Batch or lot number</strong> (AI 10) — ties a unit back to its production run.</li><li><strong>Expiration date</strong> (AI 15/17) — relevant for small-format pharmaceuticals or perishables carrying an EAN-8.</li><li><strong>Serial number</strong> (AI 21) — distinguishes an individual unit for traceability.</li></ul><p>Because a single GTIN-8 covers every unit of that product, none of this variable, unit-specific data can live in the 8 fixed digits alone — the composite component is what carries it without requiring extra label space that small packaging simply doesn't have.</p>"
+    },
+    {
+      "h2": "Technical Specifications",
+      "html": "<p>The linear portion of an EAN-8 Composite is exactly 8 digits, numeric only, following the same GS1 prefix / item reference / check-digit structure as standard EAN-8. The 2D component is typically MicroPDF417 given the space constraints inherent to EAN-8 use cases, though the underlying GS1 Composite specification also allows CC-A and CC-B variants depending on how much supplementary data needs to be encoded. Because EAN-8 packaging is already tight on space by definition, the composite component adds real design pressure — expect to need more vertical clearance above the linear barcode than a typical EAN-8-only label requires.</p>"
+    },
+    {
+      "h2": "Where EAN-8 Composite Barcodes Are Used",
+      "html": "<ul><li><strong>Small-format pharmaceuticals</strong> — over-the-counter products in packaging too small for a full EAN-13 that still require lot and expiration tracking.</li><li><strong>Compact cosmetics and personal care items</strong> — travel-size or sample products subject to batch recall requirements.</li><li><strong>Small confectionery and specialty foods</strong> — space-constrained packaging where a best-before date needs to be machine-readable.</li><li><strong>Any EAN-8 product</strong> needing unit-level or batch-level traceability without abandoning the compact code the packaging depends on.</li></ul>"
+    },
+    {
+      "h2": "How to Create an EAN-8 Composite in Barcode Studio",
+      "html": "<p>Select <strong>EAN-8 Composite</strong> from the Retail (EAN/UPC) group. Enter the 7-digit EAN-8 data (the check digit is added automatically) along with your composite data string using GS1 Application Identifiers, for example <code>(10)LOT4(17)261201</code>. The live preview shows the linear EAN-8 and its linked 2D component together as they'll appear on the finished label.</p><ul><li>Given the already-tight space, favor <strong>MicroPDF417</strong> for the composite component to keep the combined symbol as compact as possible.</li><li>Adjust bar width and overall symbol size carefully — you're stacking two dense codes into packaging that was already space-constrained to begin with.</li><li>Confirm the human-readable digits and composite text remain legible at your target print size before committing to artwork.</li><li>Maintain a clean quiet zone around the entire combined symbol; composite barcodes need more surrounding white space than a plain linear EAN-8.</li><li>Export as <strong>PNG, SVG, or PDF</strong>, or use <strong>Copy</strong> for quick placement into packaging design software.</li></ul><p>For production runs, use the <strong>bulk CSV → ZIP/PDF</strong> tool with one row per unit or batch, or call the <strong>REST API</strong> — <code>/barcode?type=ean8composite&data=...</code> — from a labeling or ERP system.</p>"
+    },
+    {
+      "h2": "Printing and Scanning Best Practices",
+      "html": "<ul><li>Print at the highest resolution your packaging process supports — the 2D component's small cells are far less forgiving of print quality than the linear EAN-8 bars, especially on already-tiny packaging.</li><li>Confirm your scanning hardware explicitly supports GS1 Composite decoding; a plain EAN-8 scanner reads only the linear portion and simply ignores the 2D component above it.</li><li>Keep quiet zones generous relative to the overall symbol size, even though that competes directly with the space savings that made you choose EAN-8 in the first place.</li><li>Validate Application Identifier formatting carefully before a full print run — a malformed AI string can silently corrupt the composite data while the linear EAN-8 still scans normally at checkout.</li></ul>"
+    },
+    {
+      "h2": "EAN-8 Composite vs Plain EAN-8 vs UPC-A Composite",
+      "html": "<p>A plain EAN-8 identifies the product and nothing else — no batch, no expiry, no serial data. An EAN-8 Composite adds exactly that supplementary layer via a linked 2D component, while leaving the underlying linear code's function unchanged for any scanner that only reads the linear portion. Compared to a UPC-A Composite, the core difference is simply which base linear code is being extended: UPC-A Composite pairs the 2D component with a full 12-digit UPC-A used on standard-size North American retail packaging, while EAN-8 Composite pairs it with the shorter 8-digit code reserved for genuinely space-constrained packaging. Choose EAN-8 Composite only when both conditions apply — your packaging already qualifies for EAN-8, and you also need batch, expiry, or serial tracking on top of it.</p>"
+    }
+  ],
+  "uses": [
+    "Small-format OTC pharmaceuticals needing lot and expiration tracking",
+    "Compact cosmetics and personal care products under recall requirements",
+    "Small confectionery packaging with machine-readable best-before dates",
+    "Any EAN-8 product needing unit-level traceability without extra label space"
+  ],
+  "faq": [
+    {"q": "What extra data does an EAN-8 Composite carry over a plain EAN-8?", "a": "<p>The 2D component above the bars adds GS1 Application Identifier data like batch/lot number, expiration date, or serial number — information the fixed 8-digit EAN-8 alone can't hold.</p>"},
+    {"q": "Will a standard EAN-8 scanner still read a Composite version?", "a": "Yes, a standard scanner reads the linear EAN-8 portion normally and simply doesn't process the 2D component sitting above it."},
+    {"q": "What 2D symbology is used for the composite component?", "a": "Typically MicroPDF417, chosen for its compactness given that EAN-8 is used specifically on space-constrained packaging."},
+    {"q": "Is an ean-8 composite generator free to use?", "a": "Yes — Barcode Studio's EAN-8 Composite generator is free in the browser, with PNG, SVG, and PDF export included."},
+    {"q": "How is the composite data formatted?", "a": "<p>Using GS1 Application Identifiers in parentheses followed by the value, for example (10) for lot number or (17) for expiration date, such as (10)LOT4(17)261201.</p>"},
+    {"q": "Can I bulk-generate EAN-8 Composite labels from a spreadsheet?", "a": "Yes — upload a CSV with each product's 7-digit EAN-8 data and composite string, and the bulk tool outputs a ZIP or print-ready PDF for the entire batch."}
+  ]
+}

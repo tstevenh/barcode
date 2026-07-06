@@ -1,0 +1,54 @@
+{
+  "id": "pdf417",
+  "title": "PDF417 Barcode Generator - Free Online | Barcode Studio",
+  "metaDescription": "Generate a PDF417 barcode free for driver's licenses, boarding passes, and shipping labels. Adjust rows, columns, and error correction, export PNG or SVG.",
+  "primaryKeyword": "pdf417 barcode generator",
+  "secondaryKeywords": ["pdf417 generator online", "pdf417 barcode maker", "drivers license barcode", "boarding pass barcode", "stacked linear barcode", "pdf417 error correction"],
+  "lead": "Create a high-capacity PDF417 barcode for IDs, boarding passes, and shipping labels, right in your browser.",
+  "sections": [
+    {
+      "h2": "What is a PDF417 barcode?",
+      "html": "<p>PDF417 is a stacked linear barcode, standardized under ISO/IEC 15438, that arranges multiple rows of a 1D-style barcode pattern on top of each other to create a compact, high-capacity 2D symbol. The name comes from its structure: every codeword pattern consists of 4 bars and spaces across 17 modules (\"PDF\" stands for Portable Data File). It was developed by Symbol Technologies in 1991 and is now a public-domain, royalty-free standard widely used wherever a large amount of data needs to travel on a single printed label, such as a driver's license or shipping form. Any free PDF417 barcode generator that supports adjustable error correction and row/column tuning, like Barcode Studio, can reproduce the format to spec.</p>"
+    },
+    {
+      "h2": "How PDF417 encodes data",
+      "html": "<p>Unlike a matrix code such as QR or Data Matrix, PDF417 is not a grid of independently addressable modules — it's built from discrete rows, and each row looks like its own small linear barcode with a start pattern, a row-indicator codeword, several data codewords, and a stop pattern. Stacking anywhere from 3 to 90 of these rows, each containing 1 to 30 codewords, lets the symbol scale from a small tag to a dense block holding over a thousand characters. Reed-Solomon error correction is calculated across the entire symbol at one of nine selectable levels, so higher levels reconstruct data even when part of the label is smudged, torn, or unreadable, at the cost of consuming codewords that could otherwise carry more data.</p><p>Because a decoder effectively has to identify and read each row in sequence rather than parse one uniform grid, PDF417 historically relied on raster or laser-based linear scanners doing multiple passes; modern 2D camera-based imagers handle the whole symbol in a single frame, which is why PDF417 now works fine with ordinary smartphone-class scanning hardware.</p>"
+    },
+    {
+      "h2": "What PDF417 encodes and key specs",
+      "html": "<p>PDF417 can hold up to about 1,850 alphanumeric characters, around 2,700 digits, or roughly 1,100 bytes of binary data in its largest configuration, though real-world uses like driver's licenses typically encode a few hundred characters of structured text rather than pushing toward the theoretical maximum. It supports numeric, alphanumeric (text), and byte compaction modes, and the encoder switches between them automatically within a single symbol to maximize density — for example packing a numeric ID more efficiently than the surrounding text fields. A compact variant, Truncated PDF417, removes the right-hand guard pattern to save horizontal space in controlled printing environments, though this sacrifices some of the symbol's damage tolerance and orientation redundancy, so it's best reserved for situations where you control both the printer and the scanner.</p><ul><li><strong>Rows:</strong> 3 to 90, each holding 1 to 30 codewords</li><li><strong>Error correction:</strong> 9 selectable levels (0-8) of Reed-Solomon protection</li><li><strong>Capacity:</strong> up to ~1,850 text characters or ~2,700 digits at maximum size</li><li><strong>Standard:</strong> ISO/IEC 15438, public domain and royalty-free</li></ul>"
+    },
+    {
+      "h2": "Where PDF417 is used",
+      "html": "<p>U.S. and Canadian driver's licenses and state ID cards encode the AAMVA standard data set — name, date of birth, license number, address, and license class — on the back using PDF417, which is why it's often called \"the barcode on the back of a driver's license.\" Airline boarding passes follow IATA's Bar Coded Boarding Pass (BCBP) standard, which also uses PDF417 for paper passes. USPS and other postal or parcel carriers print it on shipping and customs labels to carry structured tracking data. Manufacturing and logistics operations use it for parts tracking where a single label needs to carry more structured data than a simple linear barcode allows, and many government forms, permits, and visas use it to encode substantial text data compactly on a single printed page.</p>"
+    },
+    {
+      "h2": "How to create a PDF417 barcode in Barcode Studio",
+      "html": "<p>Select <strong>PDF417</strong> from the symbology list on the left and enter your text or structured data directly — PDF417 isn't part of the 2D content-type builder used for QR codes, so you type or paste the raw string you want encoded. From there you can:</p><ul><li>Adjust the number of rows and columns, or let the generator auto-size based on your data length</li><li>Set the error correction level (0-8) to balance data capacity against damage tolerance</li><li>Adjust module width, row height, colors, and quiet zone for your label format</li><li>Export as PNG or SVG, or copy the code directly for use in ID card or shipping label templates</li><li>Generate a batch or numbered sequence, or upload a CSV for bulk generation as a ZIP or print-ready PDF of labels</li><li>Call the REST API &mdash; <code>/barcode?type=pdf417&amp;data=Shipment%20ID%2012345</code> &mdash; to automate barcode generation for a logistics or ID system</li></ul>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Keep a quiet zone of at least two modules on the left and right of the symbol (PDF417's guard bars need clear space to be located correctly), and don't use the truncated variant unless you control both printing and scanning equipment closely, since it removes some damage tolerance. Choose a higher error correction level for labels that will be handled, folded, or exposed to weather, such as shipping labels, and a lower level when maximizing capacity matters more, such as dense ID card data. Print at a module width appropriate to your scanner's resolution — PDF417's row structure means it's less forgiving of low-resolution printing than a matrix code like QR at the same physical size, since a single blurred row can cost an entire codeword sequence rather than a few scattered modules. Test with the actual scanner hardware your use case requires, since laser-based and camera-based PDF417 readers can behave differently on borderline print quality, and verify AAMVA or BCBP compliance against the issuing authority's own spec if you're producing ID or boarding-pass labels.</p>"
+    },
+    {
+      "h2": "PDF417 vs related codes",
+      "html": "<p>PDF417 stands apart from QR code, Data Matrix, and Aztec in one key way: those three are true matrix codes with an even grid of modules, while PDF417 is a stacked linear symbology built from rows that read more like a sequence of small 1D barcodes. That structure gives PDF417 very high raw capacity for its footprint and made it a natural fit for ID and boarding-pass systems that were originally built around linear-scanning hardware. Compared with MicroPDF417, its own compact sibling, standard PDF417 supports a larger data payload and more rows/columns, while MicroPDF417 trims overhead to fit dramatically smaller labels at a lower capacity ceiling. Compared with Aztec — which needs no quiet zone and is common on transit tickets — or QR code, which is the most universally scannable by consumer phone cameras, PDF417 remains the default choice specifically where a governing standard (AAMVA, IATA BCBP) already mandates it.</p>"
+    }
+  ],
+  "uses": [
+    "U.S. and Canadian driver's license and ID card back-of-card data (AAMVA standard)",
+    "Airline boarding passes (IATA Bar Coded Boarding Pass standard)",
+    "USPS and shipping/logistics labels carrying structured tracking data",
+    "Government forms and permits requiring compact high-volume text encoding",
+    "Manufacturing and parts tracking labels with detailed structured data",
+    "Event tickets and access credentials with embedded verification data"
+  ],
+  "faq": [
+    {"q": "What does PDF417 stand for?", "a": "PDF stands for Portable Data File, and 417 refers to each codeword pattern consisting of 4 bars and spaces spanning 17 modules, which is the structural building block of the symbol."},
+    {"q": "How much data can a PDF417 barcode hold?", "a": "At maximum size, PDF417 can hold roughly 1,850 alphanumeric characters, about 2,700 digits, or around 1,100 bytes of binary data, though most real-world uses encode a few hundred characters."},
+    {"q": "Is PDF417 the same as the barcode on my driver's license?", "a": "Yes, most U.S. and Canadian driver's licenses use PDF417 on the back to encode a standardized AAMVA data set including name, date of birth, and license number."},
+    {"q": "Can a smartphone scan a PDF417 barcode?", "a": "Yes, most modern barcode scanning apps and camera-based scanners can read PDF417, though it was originally designed for laser-based linear scanners due to its row-based structure."},
+    {"q": "What's the difference between PDF417 and QR code?", "a": "PDF417 is a stacked linear symbology built from rows of barcode-like patterns, while QR code is a true matrix symbol; PDF417 is more common for large structured text data like ID cards, while QR code is more common for URLs and consumer-facing content."},
+    {"q": "Can I use this PDF417 barcode generator for free in bulk?", "a": "Yes, this PDF417 barcode generator is free with no login; upload a CSV of data values and Barcode Studio will bulk-generate a ZIP of image files or a print-ready PDF of labels."}
+  ]
+}

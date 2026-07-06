@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Interleaved 2 of 5 Barcode Generator | Barcode Studio</title>
+<meta name="description" content="Generate Interleaved 2 of 5 barcodes free online with our ITF generator. Compact even-digit numeric encoding for cartons and cases, live preview, export." />
+<meta name="theme-color" content="#0b1220" />
+<link rel="canonical" href="https://lawbarcode.vercel.app/interleaved-2-of-5" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Interleaved 2 of 5 Generator | Barcode Studio" />
+<meta property="og:description" content="Generate Interleaved 2 of 5 barcodes free online with our ITF generator. Compact even-digit numeric encoding for cartons and cases, live preview, export." />
+<meta property="og:url" content="https://lawbarcode.vercel.app/interleaved-2-of-5" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1220'/%3E%3Cg fill='white'%3E%3Crect x='6' y='8' width='2' height='16'/%3E%3Crect x='9' y='8' width='1' height='16'/%3E%3Crect x='11' y='8' width='3' height='16'/%3E%3Crect x='15' y='8' width='1' height='16'/%3E%3Crect x='17' y='8' width='2' height='16'/%3E%3Crect x='20' y='8' width='1' height='16'/%3E%3Crect x='22' y='8' width='3' height='16'/%3E%3Crect x='26' y='8' width='1' height='16'/%3E%3C/g%3E%3C/svg%3E" />
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://lawbarcode.vercel.app/"},{"@type":"ListItem","position":2,"name":"Barcode Types","item":"https://lawbarcode.vercel.app/barcodes"},{"@type":"ListItem","position":3,"name":"Interleaved 2 of 5 Generator","item":"https://lawbarcode.vercel.app/interleaved-2-of-5"}]},{"@type":"SoftwareApplication","name":"Interleaved 2 of 5 Generator","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://lawbarcode.vercel.app/interleaved-2-of-5"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an interleaved 2 of 5 barcode generator used for?","acceptedAnswer":{"@type":"Answer","text":"An interleaved 2 of 5 barcode generator creates compact numeric barcodes for shipping cases, cartons, and industrial parts, encoding digit pairs in both bars and spaces for roughly half the length of Standard 2 of 5."}},{"@type":"Question","name":"Why does ITF require an even number of digits?","acceptedAnswer":{"@type":"Answer","text":"Because ITF encodes two digits at a time — one in the bars and one in the interleaved spaces — an odd-length string can't be paired evenly, so a leading zero is typically added to make the count even."}},{"@type":"Question","name":"Is ITF the same as ITF-14?","acceptedAnswer":{"@type":"Answer","text":"ITF-14 is a specific, fixed-length (14-digit) implementation of Interleaved 2 of 5 standardized by GS1 for case and pallet identification, including a mandatory check digit and bearer bars. General ITF supports variable-length even-digit data without those constraints."}},{"@type":"Question","name":"Does Interleaved 2 of 5 have a check digit?","acceptedAnswer":{"@type":"Answer","text":"The base ITF standard doesn't require one, though specific implementations like ITF-14 add a mandatory check digit for extra reliability."}},{"@type":"Question","name":"Can I print ITF barcodes directly on cardboard?","acceptedAnswer":{"@type":"Answer","text":"Yes, ITF is commonly printed on corrugated cardboard case packaging, but test print quality carefully since ink spread on cardboard can distort bar and space widths more than on smooth label stock."}}]}]}</script>
+<link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="/css/bulk-api.css" />
+<script src="/js/qr-local.js"></script>
+<script>
+(function () {
+  function hasJsBarcode() { return typeof window.JsBarcode === "function"; }
+  function hasBwip() { return !!(window.bwipjs && typeof window.bwipjs.toCanvas === "function"); }
+  function hasPdf() { var ns = window.jspdf || window.jsPDF; return !!(ns && (ns.jsPDF || ns)); }
+  function loadScript(src, check, timeoutMs) {
+    return new Promise(function (resolve) {
+      if (check()) return resolve(true);
+      var done = false;
+      var s = document.createElement("script");
+      var t = setTimeout(function () { finish(check()); }, timeoutMs || 2500);
+      function finish(ok) {
+        if (done) return;
+        done = true;
+        clearTimeout(t);
+        try { if (!ok && s.parentNode) s.parentNode.removeChild(s); } catch (e) {}
+        resolve(!!ok || check());
+      }
+      s.async = false;
+      s.onload = function () { finish(true); };
+      s.onerror = function () { finish(false); };
+      s.src = src;
+      document.head.appendChild(s);
+    });
+  }
+  async function loadAny(urls, check) {
+    for (var i = 0; i < urls.length; i++) {
+      if (await loadScript(urls[i], check, 2500)) return true;
+    }
+    return check();
+  }
+  window.__barcodeLibs = {
+    jsbarcode: loadAny([
+      "https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js",
+      "https://unpkg.com/jsbarcode@3.11.6/dist/JsBarcode.all.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"
+    ], hasJsBarcode),
+    bwip: loadAny([
+      "https://cdn.jsdelivr.net/npm/bwip-js@4.11.1/dist/bwip-js-min.js",
+      "https://unpkg.com/bwip-js@4.11.1/dist/bwip-js-min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/bwip-js/4.7.0/bwip-js-min.js"
+    ], hasBwip),
+    pdf: loadAny([
+      "https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js",
+      "https://unpkg.com/jspdf@2.5.1/dist/jspdf.umd.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+    ], hasPdf)
+  };
+  window.__barcodeLibsReady = Promise.all([window.__barcodeLibs.jsbarcode, window.__barcodeLibs.bwip, window.__barcodeLibs.pdf]).then(function (r) {
+    return { jsbarcode: r[0], bwip: r[1], pdf: r[2], qr: !!(window.QRCode && typeof window.QRCode.toCanvas === "function") };
+  });
+})();
+</script>
+<script>window.BARCODE_HAS_API = true;</script>
+<script src="/js/i18n.js"></script>
+<script src="/js/i18n-extra.js"></script>
+</head>
+<body>
+  <div class="loader" id="loader"><div class="loader-bars"><span></span><span></span><span></span><span></span><span></span></div><p data-i18n="loaderText">Loading Barcode Studio…</p></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <div>
+        <h1>Barcode Studio</h1>
+        <p data-i18n="brandTagline">Free Online Barcode &amp; QR Code Generator</p>
+      </div>
+    </div>
+    <nav class="top-actions">
+      <a href="#generator" class="btn btn-ghost" data-i18n="navGenerator">Generator</a>
+      <a href="#bulk" class="btn btn-ghost" data-i18n="navBulk">Bulk</a>
+      <a href="/barcodes" class="btn btn-ghost" data-i18n="navTypes">All barcodes</a>
+      <a href="/api-docs.html" class="btn btn-ghost" data-i18n="navApi">API Docs</a>
+      <button class="btn btn-ghost" id="resetBtn" data-i18n="navReset">Reset</button>
+      <button class="btn btn-ghost" id="printBtn" data-i18n="navPrint">Print</button>
+      <div class="lang-wrap">
+        <span class="globe" aria-hidden="true">🌐</span>
+        <select id="langSelect" class="lang-select" aria-label="Language"></select>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-content">
+      <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/barcodes">Barcodes</a><span>/</span><span>Interleaved 2 of 5</span></nav>
+      <span class="eyebrow">Linear Barcode</span>
+      <h1>Interleaved 2 of 5 <span class="grad-text">Generator</span></h1>
+      <p>Interleaved 2 of 5 doubles the data density of Standard 2 of 5 by encoding digits in both bars and spaces, making it the compact standard for carton and case labels.</p>
+      <a href="#generator" class="btn btn-primary btn-lg">Open the generator ↓</a>
+    </div>
+  </section>
+
+  <div class="app" id="generator">
+    <aside class="sidebar reveal">
+      <div class="sidebar-search">
+        <input type="text" id="typeSearch" data-i18n-ph="searchPh" placeholder="Search symbology…" />
+      </div>
+      <div class="type-list" id="typeList"></div>
+    </aside>
+
+    <main class="main">
+      <section class="card reveal">
+        <div class="card-head">
+          <h2 data-i18n="dataHeading">Data</h2>
+          <span class="pill" id="activeType">Code 128</span>
+        </div>
+        <div class="prop-row ct-row" id="contentTypeRow" hidden>
+          <label data-i18n="contentType">Content type</label>
+          <select id="ctSelect">
+            <option value="text" data-i18n="ctText">Text</option>
+            <option value="url" data-i18n="ctUrl">URL / Link</option>
+            <option value="wifi" data-i18n="ctWifi">WiFi network</option>
+            <option value="vcard" data-i18n="ctVcard">Contact (vCard)</option>
+            <option value="email" data-i18n="ctEmail">Email</option>
+            <option value="sms" data-i18n="ctSms">SMS</option>
+            <option value="tel" data-i18n="ctTel">Phone</option>
+            <option value="geo" data-i18n="ctGeo">Location</option>
+            <option value="event" data-i18n="ctEvent">Calendar event</option>
+          </select>
+        </div>
+        <textarea id="data" rows="3" data-i18n-ph="dataPh" placeholder="Enter the data to encode…">Barcode Studio</textarea>
+        <div class="builder" id="builderFields" hidden>
+          <div class="ct-block" data-ct="wifi">
+            <label class="fld"><span data-i18n="fSsid">Network name (SSID)</span><input type="text" id="wSsid" value="MyNetwork" /></label>
+            <label class="fld"><span data-i18n="fPassword">Password</span><input type="text" id="wPass" value="password123" /></label>
+            <label class="fld"><span data-i18n="fEncryption">Encryption</span>
+              <select id="wEnc"><option value="WPA">WPA/WPA2</option><option value="WEP">WEP</option><option value="nopass" data-i18n="encNone">None</option></select>
+            </label>
+            <label class="switch"><input type="checkbox" id="wHidden" /> <span data-i18n="fHidden">Hidden network</span></label>
+          </div>
+          <div class="ct-block" data-ct="vcard">
+            <label class="fld"><span data-i18n="fFirstName">First name</span><input type="text" id="vFirst" value="John" /></label>
+            <label class="fld"><span data-i18n="fLastName">Last name</span><input type="text" id="vLast" value="Doe" /></label>
+            <label class="fld"><span data-i18n="fOrg">Organization</span><input type="text" id="vOrg" /></label>
+            <label class="fld"><span data-i18n="fJobTitle">Job title</span><input type="text" id="vTitle" /></label>
+            <label class="fld"><span data-i18n="fPhone">Phone</span><input type="text" id="vPhone" value="+1 555 0100" /></label>
+            <label class="fld"><span data-i18n="fEmail">Email</span><input type="text" id="vEmail" value="john@example.com" /></label>
+            <label class="fld"><span data-i18n="fWebsite">Website</span><input type="text" id="vUrl" /></label>
+            <label class="fld"><span data-i18n="fAddress">Address</span><input type="text" id="vAddr" /></label>
+          </div>
+          <div class="ct-block" data-ct="email">
+            <label class="fld"><span data-i18n="fTo">To</span><input type="text" id="eTo" value="hello@example.com" /></label>
+            <label class="fld"><span data-i18n="fSubject">Subject</span><input type="text" id="eSub" /></label>
+            <label class="fld"><span data-i18n="fBody">Message</span><input type="text" id="eBody" /></label>
+          </div>
+          <div class="ct-block" data-ct="sms">
+            <label class="fld"><span data-i18n="fNumber">Number</span><input type="text" id="sNum" value="+15550100" /></label>
+            <label class="fld"><span data-i18n="fMessage">Message</span><input type="text" id="sMsg" value="Hello" /></label>
+          </div>
+          <div class="ct-block" data-ct="tel">
+            <label class="fld"><span data-i18n="fNumber">Number</span><input type="text" id="tNum" value="+15550100" /></label>
+          </div>
+          <div class="ct-block" data-ct="geo">
+            <label class="fld"><span data-i18n="fLat">Latitude</span><input type="text" id="gLat" value="40.7128" /></label>
+            <label class="fld"><span data-i18n="fLong">Longitude</span><input type="text" id="gLng" value="-74.0060" /></label>
+          </div>
+          <div class="ct-block" data-ct="event">
+            <label class="fld"><span data-i18n="fEventTitle">Event title</span><input type="text" id="cTitle" value="Meeting" /></label>
+            <label class="fld"><span data-i18n="fLocation">Location</span><input type="text" id="cLoc" /></label>
+            <label class="fld"><span data-i18n="fStart">Start</span><input type="datetime-local" id="cStart" /></label>
+            <label class="fld"><span data-i18n="fEnd">End</span><input type="datetime-local" id="cEnd" /></label>
+            <label class="fld"><span data-i18n="fDescription">Description</span><input type="text" id="cDesc" /></label>
+          </div>
+        </div>
+        <p class="hint" id="typeHint"></p>
+
+        <div class="seq">
+          <label class="switch">
+            <input type="checkbox" id="seqEnable" /> <span data-i18n="seqToggle">Batch / sequence mode</span>
+          </label>
+          <div class="seq-fields" id="seqFields">
+            <label><span data-i18n="seqCount">Count</span> <input type="number" id="seqCount" min="2" max="100" value="5" /></label>
+            <label><span data-i18n="seqStart">Start #</span> <input type="number" id="seqStart" value="1" /></label>
+            <label><span data-i18n="seqPrefix">Prefix</span> <input type="text" id="seqPrefix" placeholder="ABC-" /></label>
+            <label><span data-i18n="seqPad">Pad</span> <input type="number" id="seqPad" min="0" max="12" value="4" /></label>
+          </div>
+        </div>
+      </section>
+
+      <section class="card preview-card reveal">
+        <div class="card-head">
+          <h2 data-i18n="previewHeading">Preview</h2>
+          <div class="preview-tools">
+            <button class="chip" data-zoom="out" title="Zoom out">−</button>
+            <span id="zoomLabel">100%</span>
+            <button class="chip" data-zoom="in" title="Zoom in">+</button>
+          </div>
+        </div>
+        <div class="preview-stage">
+          <div id="preview" class="preview-inner"></div>
+        </div>
+        <div class="download-row">
+          <button class="btn btn-primary" id="dlPng">⬇ PNG</button>
+          <button class="btn btn-secondary" id="dlSvg">⬇ SVG</button>
+          <button class="btn btn-soft" id="copyBtn">📋 Copy</button>
+          <button class="btn btn-soft" id="dlZip" hidden>⬇ ZIP (batch)</button>
+        </div>
+      </section>
+
+      <section class="card bulk-card reveal" id="bulk">
+        <div class="card-head">
+          <h2 data-i18n="bulkHeading">Bulk generate</h2>
+          <span class="pill" data-i18n="bulkBadge">CSV \u2192 ZIP / PDF</span>
+        </div>
+        <p class="hint" data-i18n="bulkDesc">Upload a CSV/TXT file or paste values to generate hundreds of barcodes at once.</p>
+        <div class="bulk-grid">
+          <label class="bulk-file">
+            <input type="file" id="bulkFile" accept=".csv,.txt,text/csv,text/plain" />
+            <span data-i18n="bulkUpload">\u2b06 Upload CSV / TXT</span>
+          </label>
+          <textarea id="bulkPaste" rows="4" data-i18n-ph="bulkPastePh" placeholder="\u2026or paste values here, one per line"></textarea>
+        </div>
+        <div class="bulk-opts">
+          <label class="switch"><input type="checkbox" id="bulkHeader" /> <span data-i18n="bulkHeaderLbl">First row is a header</span></label>
+          <label class="bulk-sel"><span data-i18n="bulkDataColLbl">Data column</span><select id="bulkDataCol"></select></label>
+          <label class="bulk-sel"><span data-i18n="bulkLabelColLbl">Label / filename</span><select id="bulkLabelCol"></select></label>
+          <label class="bulk-sel"><span data-i18n="bulkPdfColsLbl">PDF columns</span><input type="number" id="bulkPdfCols" min="1" max="6" value="3" /></label>
+        </div>
+        <p class="bulk-info" id="bulkInfo"></p>
+        <div class="bulk-progress" id="bulkProgress" hidden><div class="bulk-bar" id="bulkBar"></div></div>
+        <div class="download-row">
+          <button class="btn btn-primary" id="bulkGenBtn" data-i18n="bulkGenerate">\u2699 Generate</button>
+          <button class="btn btn-secondary" id="bulkDlZip" hidden data-i18n="bulkDlZip">\u2b07 ZIP (PNG)</button>
+          <button class="btn btn-secondary" id="bulkDlPdf" hidden data-i18n="bulkDlPdf">\u2b07 PDF sheet</button>
+        </div>
+      </section>
+    </main>
+
+    <aside class="props reveal">
+      <h2 data-i18n="propsHeading">Properties</h2>
+
+      <div class="prop-group" id="linearProps">
+        <div class="prop-row">
+          <label data-i18n="pBarWidth">Bar width</label>
+          <input type="range" id="barWidth" min="1" max="6" step="0.5" value="2" />
+          <output id="barWidthV">2</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pHeight">Height</label>
+          <input type="range" id="barHeight" min="20" max="240" step="5" value="100" />
+          <output id="barHeightV">100</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pFontSize">Font size</label>
+          <input type="range" id="fontSize" min="8" max="40" step="1" value="18" />
+          <output id="fontSizeV">18</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pTextAlign">Text align</label>
+          <select id="textAlign">
+            <option value="center" selected data-i18n="optCenter">Center</option>
+            <option value="left" data-i18n="optLeft">Left</option>
+            <option value="right" data-i18n="optRight">Right</option>
+          </select>
+        </div>
+        <label class="switch"><input type="checkbox" id="displayValue" checked /> <span data-i18n="pShowText">Show human-readable text</span></label>
+      </div>
+
+      <div class="prop-group" id="qrProps" hidden>
+        <div class="prop-row">
+          <label data-i18n="pSize">Size</label>
+          <input type="range" id="qrSize" min="120" max="640" step="20" value="300" />
+          <output id="qrSizeV">300</output>
+        </div>
+        <div class="prop-row">
+          <label data-i18n="pErrCorr">Error corr.</label>
+          <select id="qrEcc">
+            <option value="L">L – 7%</option>
+            <option value="M" selected>M – 15%</option>
+            <option value="Q">Q – 25%</option>
+            <option value="H">H – 30%</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="prop-group" id="twoDProps" hidden>
+        <div class="prop-row">
+          <label data-i18n="pScale">Scale</label>
+          <input type="range" id="tdScale" min="2" max="10" step="1" value="4" />
+          <output id="tdScaleV">4</output>
+        </div>
+        <div class="prop-row" id="bwipHeightRow" style="display:none">
+          <label data-i18n="pHeightMm">Height (mm)</label>
+          <input type="range" id="bwipHeight" min="5" max="40" step="1" value="12" />
+          <output id="bwipHeightV">12</output>
+        </div>
+        <div class="prop-row" id="pdfColsRow">
+          <label data-i18n="pPdfCols">PDF columns</label>
+          <input type="range" id="pdfCols" min="0" max="12" step="1" value="0" />
+          <output id="pdfColsV">auto</output>
+        </div>
+        <label class="switch" id="bwipTextRow" style="display:none"><input type="checkbox" id="bwipText" /> <span data-i18n="pShowText">Show human-readable text</span></label>
+      </div>
+
+      <div class="prop-group">
+        <div class="prop-row two">
+          <div>
+            <label data-i18n="pForeground">Foreground</label>
+            <input type="color" id="fg" value="#000000" />
+          </div>
+          <div>
+            <label data-i18n="pBackground">Background</label>
+            <input type="color" id="bg" value="#ffffff" />
+          </div>
+        </div>
+        <label class="switch"><input type="checkbox" id="transparent" /> <span data-i18n="pTransparent">Transparent background</span></label>
+        <div class="prop-row">
+          <label data-i18n="pMargin">Margin</label>
+          <input type="range" id="margin" min="0" max="40" step="2" value="10" />
+          <output id="marginV">10</output>
+        </div>
+      </div>
+
+      <div class="prop-group">
+        <p class="prop-note" id="status"></p>
+      </div>
+    </aside>
+  </div>
+
+    <article class="seo-section">
+    <div class="seo-wrap">
+      <h2>What Is an Interleaved 2 of 5 Barcode?</h2>
+      <p>Interleaved 2 of 5 (ITF) is a numeric-only linear barcode symbology that encodes digits by interleaving two characters into one set of bars and spaces: the first digit is encoded in the bars, and the second digit is encoded in the spaces between them. This interleaving is what gives the symbology its name and its main advantage over the earlier Standard 2 of 5 — by using both bars and spaces to carry data instead of just bars, ITF roughly halves the physical length of the barcode for the same digit count.</p><p>Because digits are encoded in pairs, ITF requires an <strong>even number of digits</strong> in the data being encoded. If you have an odd-length numeric string, a leading zero is typically added to make the count even before encoding — Barcode Studio handles this automatically.</p>
+      <h2>How Interleaved 2 of 5 Encodes Data</h2>
+      <p>Each pair of digits in ITF is represented by 5 bars (2 wide, 3 narrow) interleaved with 5 spaces (also 2 wide, 3 narrow) — the odd-position digit in a pair is encoded in the bars, and the even-position digit is encoded in the spaces. This interleaving mechanism is what distinguishes ITF from Standard 2 of 5, where spaces carry no data at all. The result is a significantly more compact barcode for equal-length numeric data, which is why ITF became the practical standard for shipping and logistics applications where label space is limited but numeric data (like GTINs or case codes) can be lengthy.</p><p>ITF doesn't include a mandatory check digit in its base form, though specific implementations — like ITF-14, a fixed-length 14-digit variant used for shipping cartons — layer a check digit on top for added reliability. Because encoding pairs digits together, any implementation must guarantee even-length input, which is the most common practical constraint to watch for when working with ITF.</p>
+      <h2>Interleaved 2 of 5 Technical Specifications</h2>
+      <p>ITF is standardized as ISO/IEC 16390. It encodes digits 0–9 only, with no letters or symbols. Each pair of digits maps to 5 interleaved bars and 5 interleaved spaces, using two element widths (wide and narrow) with a fixed ratio between them, typically around 2:1 or 3:1 depending on the implementation. Data length must be even; there is no standard maximum length, though practical labels stay within a few dozen digits. The base ITF standard does not mandate a check digit, leaving error detection to be layered on by specific implementations such as ITF-14, which adds a modulo-10 checksum as part of its fixed 14-digit structure.</p>
+      <h2>Where Interleaved 2 of 5 Is Used</h2>
+      <p>ITF's density and simplicity have made it a long-standing choice in numeric-heavy logistics contexts:</p><ul><li><strong>Distribution and warehouse case coding</strong> — labeling shipping cases and cartons with numeric identifiers more compactly than Standard 2 of 5 allows.</li><li><strong>Corrugated packaging</strong> — ITF prints reliably even on rougher cardboard surfaces, which is part of why it remains common on outer case packaging rather than retail-facing labels.</li><li><strong>Automotive and industrial parts numbering</strong> — internal numeric part codes where compactness matters.</li><li><strong>Photographic film canister coding</strong> and other legacy industrial numeric-tracking applications.</li><li><strong>As the foundation for ITF-14</strong> — the fixed 14-digit variant standardized by GS1 specifically for identifying cases and pallets in the supply chain.</li></ul>
+      <h2>How to Create an Interleaved 2 of 5 Barcode in Barcode Studio</h2>
+      <p>Select <strong>Interleaved 2 of 5</strong> from Barcode Studio's symbology list. Enter your numeric data — only digits 0–9 are valid. If your data has an odd number of digits, the encoder will typically pad with a leading zero to reach an even count; double-check the resulting barcode matches your intended data if this applies to you. The live preview shows the compact bar/space pattern instantly. From there:</p><ul><li>Adjust <strong>bar width</strong> — ITF is meaningfully more compact than Standard 2 of 5 for the same digit count, so you often have more label space to work with.</li><li>Set <strong>height</strong> and toggle <strong>human-readable text</strong> to display the full digit string beneath the bars.</li><li>Customize <strong>colors</strong> for corrugated or case label stock, keeping good contrast since ITF is frequently printed directly onto cardboard.</li><li>Confirm the <strong>quiet zone</strong> margin — ITF's interleaved structure depends on clean detection of both bar and space widths, so adequate margin matters.</li><li>Export as <strong>PNG, SVG, or PDF</strong>, or use <strong>Copy</strong> for direct placement into packaging artwork.</li></ul><p>For sequential case numbers, use the <strong>batch/sequence</strong> tool. For a full run of case labels from a spreadsheet, the <strong>bulk CSV → ZIP/PDF</strong> feature generates every barcode at once — just confirm all values have an even digit count. Developers can generate ITF barcodes programmatically via the <strong>REST API</strong> using <code>/barcode?type=itf&data=YOURDATA</code>. If you specifically need the fixed 14-digit GS1 case-coding standard, see the dedicated ITF-14 option instead.</p>
+      <h2>Print and Scan Best Practices</h2>
+      <p>ITF's interleaved bars-and-spaces encoding calls for a few specific print considerations:</p><ul><li>Corrugated cardboard absorbs ink differently than paper labels — test print quality directly on your actual case material, since ink spread (dot gain) on cardboard can distort both bar and space widths, which is more damaging to ITF than to bars-only symbologies.</li><li>Maintain a generous quiet zone, at least 10x the narrowest element width, since ITF's interleaved structure is more sensitive to quiet-zone violations than simpler barcodes.</li><li>Always verify even digit counts in your source data before bulk generation — this is the single most common ITF encoding error.</li><li>Print at the largest size your label or case allows; ITF on cardboard benefits from extra size tolerance compared to the same code printed on smooth label stock.</li><li>If you're encoding standard GS1 case or pallet identifiers, confirm whether ITF-14's fixed format and check digit are actually required instead of general-purpose ITF.</li></ul>
+      <h2>Interleaved 2 of 5 vs. Related Codes</h2>
+      <p>Against <strong>Standard 2 of 5</strong>, ITF roughly halves barcode length for the same digit count by encoding data in spaces as well as bars, making it the clear choice for new numeric-only applications with no legacy constraint. Against <strong>ITF-14</strong>, general ITF is variable-length with no mandatory check digit, while ITF-14 fixes the length at 14 digits, adds a GS1 modulo-10 checksum, and requires bearer bars — use ITF-14 specifically for GS1-compliant case coding. Against <strong>Code 128 subset C</strong>, Code 128 C offers similar digit-pair density plus a mandatory check digit and doesn't require even-length padding, but ITF's simpler bar structure remains more forgiving when printed directly on rough cardboard.</p>
+      <h2>Common uses</h2>
+      <ul class="seo-uses"><li>Warehouse and distribution case coding</li><li>Corrugated cardboard carton labeling</li><li>Automotive and industrial parts numbering</li><li>Legacy photographic film canister tracking</li><li>Foundation encoding for GS1 ITF-14 case labels</li></ul>
+      <h2>Frequently asked questions</h2>
+      <div class="faq">
+        <details class="faq-item"><summary>What is an interleaved 2 of 5 barcode generator used for?</summary><div class="faq-a">An interleaved 2 of 5 barcode generator creates compact numeric barcodes for shipping cases, cartons, and industrial parts, encoding digit pairs in both bars and spaces for roughly half the length of Standard 2 of 5.</div></details>
+        <details class="faq-item"><summary>Why does ITF require an even number of digits?</summary><div class="faq-a"><p>Because ITF encodes two digits at a time — one in the bars and one in the interleaved spaces — an odd-length string can't be paired evenly, so a leading zero is typically added to make the count even.</p></div></details>
+        <details class="faq-item"><summary>Is ITF the same as ITF-14?</summary><div class="faq-a"><p>ITF-14 is a specific, fixed-length (14-digit) implementation of Interleaved 2 of 5 standardized by GS1 for case and pallet identification, including a mandatory check digit and bearer bars. General ITF supports variable-length even-digit data without those constraints.</p></div></details>
+        <details class="faq-item"><summary>Does Interleaved 2 of 5 have a check digit?</summary><div class="faq-a">The base ITF standard doesn't require one, though specific implementations like ITF-14 add a mandatory check digit for extra reliability.</div></details>
+        <details class="faq-item"><summary>Can I print ITF barcodes directly on cardboard?</summary><div class="faq-a"><p>Yes, ITF is commonly printed on corrugated cardboard case packaging, but test print quality carefully since ink spread on cardboard can distort bar and space widths more than on smooth label stock.</p></div></details>
+      </div>
+      <h2>Related barcode types</h2>
+      <div class="seo-related"><a href="/code-128">Code 128</a><a href="/code-128-a">Code 128 A</a><a href="/code-128-b">Code 128 B</a><a href="/code-128-c">Code 128 C</a><a href="/code-39">Code 39</a><a href="/code-39-full-ascii">Code-39 Full ASCII</a><a href="/code-93">Code 93</a><a href="/code-11">Code 11</a><a href="/standard-2-of-5">Standard 2 of 5</a><a href="/flattermarken">Flattermarken</a><a href="/itf-14">ITF-14</a><a href="/industrial-2-of-5">Industrial 2 of 5</a><a href="/iata-2-of-5">IATA 2 of 5</a><a href="/matrix-2-of-5">Matrix 2 of 5</a></div>
+      <p class="seo-all"><a href="/barcodes">Browse all 106 barcode &amp; QR types →</a></p>
+    </div>
+  </article>
+  <footer class="footer">
+    <span class="footer-brand">Barcode Studio</span> · <span data-i18n="footerText">made by Lawstore since 2026</span>
+  </footer>
+
+  <script>window.BARCODE_INITIAL_TYPE="ITF";</script>
+  <script src="/js/catalog.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

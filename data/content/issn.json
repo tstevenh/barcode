@@ -1,0 +1,53 @@
+{
+  "id": "issn",
+  "title": "ISSN Barcode Generator | Barcode Studio",
+  "metaDescription": "Free ISSN barcode generator: convert an ISSN into a scannable EAN-13 barcode for magazines, journals, and newsletters. Check digit added automatically.",
+  "primaryKeyword": "issn barcode generator",
+  "secondaryKeywords": ["issn to barcode", "magazine barcode generator", "periodical barcode", "issn ean-13", "journal barcode generator", "newsstand barcode"],
+  "lead": "Magazines, journals, and other periodicals scan at the newsstand using an EAN-13 built from the publication's ISSN, not a separate barcode standard.",
+  "sections": [
+    {
+      "h2": "What Is an ISSN Barcode?",
+      "html": "<p>An ISSN barcode is an EAN-13 barcode that encodes a periodical's International Standard Serial Number for retail scanning. The ISSN itself is an 8-digit identifier assigned to a specific serial publication — a magazine title, academic journal, or newsletter — and it stays fixed across every issue of that publication. To make it scannable at a newsstand or bookstore, the ISSN is embedded into a 13-digit EAN-13 using the reserved <strong>977</strong> prefix (the periodical equivalent of the 978/979 Bookland prefix used for books).</p><p>Unlike an ISBN, which identifies one specific title and edition permanently, an ISSN identifies the ongoing serial as a whole — every issue of the same magazine carries the same ISSN. What changes issue to issue is typically an optional 2-digit add-on (covered separately) that encodes the issue number, not the ISSN itself.</p>"
+    },
+    {
+      "h2": "ISSN Structure, Conversion to EAN-13, and the Check Digit",
+      "html": "<p>An ISSN is formatted as two groups of four digits (e.g., 1234-5678), where the final digit is a check character calculated with its own weighted modulo-11 scheme distinct from EAN-13's algorithm — occasionally that check character is the letter X. To build the retail barcode, the first seven digits of the ISSN are combined with the 977 prefix and a two-digit placeholder (commonly 00), forming the first 12 digits of a new EAN-13. A fresh EAN-13 check digit is then calculated over those 12 digits using the standard mod-10 method — it is not the same as the ISSN's own check character.</p><p>You only need to provide your 8-digit ISSN in Barcode Studio; the 977 prefix insertion and the new EAN-13 check digit calculation happen automatically. This two-layer check digit structure — one for the ISSN itself, another for the resulting EAN-13 — is a common point of confusion, so if you're verifying a barcode by hand, remember the visible barcode's check digit won't match the ISSN's own trailing check character.</p>"
+    },
+    {
+      "h2": "Technical Specifications",
+      "html": "<p>Key facts about the ISSN barcode format:</p><ul><li><strong>Source identifier</strong>: 8-digit ISSN (format NNNN-NNNN), with its own modulo-11 check character — occasionally the letter X.</li><li><strong>Barcode symbology</strong>: EAN-13, built by combining the first 7 ISSN digits with the reserved <strong>977</strong> prefix and a 2-digit placeholder (commonly 00) to form 12 digits.</li><li><strong>Barcode check digit</strong>: a new, separate mod-10 EAN-13 check digit calculated over those 12 digits — distinct from the ISSN's own check character.</li><li><strong>Optional add-on</strong>: a 2-digit EAN-2 supplement encoding the issue number, available via the ISSN + 2 add-on format.</li></ul><p>ISSN assignment itself comes exclusively from the ISSN International Centre or a national ISSN agency; Barcode Studio only renders the barcode image from an ISSN you already hold.</p>"
+    },
+    {
+      "h2": "Where ISSN Barcodes Are Used",
+      "html": "<ul><li><strong>Newsstand and retail magazine sales</strong> — the barcode on a magazine's cover is what a convenience store or bookstore scans at checkout.</li><li><strong>Academic and scholarly journals</strong> — libraries and subscription services use the ISSN-based barcode for physical issue tracking and circulation.</li><li><strong>Subscription fulfillment</strong> — publishers use it internally to identify which serial a physical copy belongs to, separate from subscriber-specific data.</li><li><strong>Newsletter and trade publication distribution</strong> — smaller circulation serials that still go through retail or library channels benefit from a standard scannable barcode.</li></ul>"
+    },
+    {
+      "h2": "How to Create an ISSN Barcode in Barcode Studio",
+      "html": "<p>Select <strong>ISSN</strong> from the Retail (EAN/UPC) group. Enter your 8-digit ISSN (with or without the hyphen) — Barcode Studio inserts the 977 prefix, builds the 12-digit base, and calculates the correct EAN-13 check digit automatically, so you never need to compute it by hand. The live preview shows the resulting barcode exactly as it will print on the cover.</p><ul><li>If your publication needs the issue number encoded as well, switch to <strong>ISSN + 2 add-on</strong> to append the two-digit issue code.</li><li>Adjust <strong>size</strong> to fit your masthead layout — cover barcodes are often placed in a small corner box, so verify legibility at your intended print dimensions.</li><li>Toggle <strong>human-readable text</strong> so the digits display below the bars, standard practice for periodical covers.</li><li>Set <strong>colors</strong> if your cover isn't plain white; keep contrast strong since magazine covers often use busy imagery near the barcode box.</li><li>Confirm the <strong>quiet zone</strong> is free of cover text, images, or the masthead itself.</li><li>Export as <strong>PNG, SVG, or PDF</strong> for your print file, or <strong>Copy</strong> straight into layout software.</li></ul><p>Publishers producing multiple titles or serials can use the <strong>bulk CSV → ZIP/PDF</strong> tool to generate barcodes across an entire catalog in one pass, or call the <strong>REST API</strong> — e.g. <code>/barcode?type=issn&data=12345678</code> — directly from a publishing workflow. Note that the ISSN number itself is assigned by the ISSN International Centre or your national ISSN agency, not by this tool; Barcode Studio only renders the barcode image from a number you already hold.</p>"
+    },
+    {
+      "h2": "Print and Scan Best Practices for Periodicals",
+      "html": "<ul><li>Place the barcode in a dedicated white or high-contrast box on the cover — periodicals with photographic or full-bleed covers need a clean background behind the barcode to scan reliably.</li><li>Keep the barcode box away from spine folds or perforations on the physical issue, since bends across the bars are a common cause of newsstand scan failures.</li><li>Don't shrink the barcode to squeeze it into a crowded cover design; undersized bars are the most frequent reason retail scanners reject a magazine at checkout.</li><li>If you print an issue-number add-on alongside the ISSN barcode, keep it in its standard position to the right with its own quiet zone.</li><li>Get a physical proof scanned before a full print run — the same barcode can look fine on screen but fail at actual print resolution.</li></ul>"
+    },
+    {
+      "h2": "ISSN vs Related Codes",
+      "html": "<p>Publishing identifiers overlap in mechanics but differ in purpose:</p><ul><li><strong>ISSN vs ISBN</strong> — ISSN identifies an ongoing serial (the same number across every issue); ISBN identifies one specific book edition and never changes for reprints of that exact edition.</li><li><strong>ISSN vs ISSN + 2 add-on</strong> — the plain ISSN barcode identifies the publication only; adding the 2-digit add-on lets a scanner or inventory system also tell individual issues apart.</li><li><strong>ISSN vs ISMN</strong> — ISMN is the equivalent identifier for printed music rather than periodicals, using the 979-0 prefix instead of ISSN's 977.</li></ul>"
+    }
+  ],
+  "uses": [
+    "Newsstand and convenience store magazine checkout",
+    "Academic and scholarly journal physical issue tracking",
+    "Library serial circulation and cataloging",
+    "Publisher internal subscription fulfillment systems",
+    "Trade publication and newsletter retail distribution"
+  ],
+  "faq": [
+    {"q": "How is an ISSN turned into a scannable barcode?", "a": "<p>The 8-digit ISSN is embedded into an EAN-13 using the reserved 977 prefix, then a new EAN-13 check digit is calculated over the resulting 12 digits — a process Barcode Studio's issn barcode generator handles automatically.</p>"},
+    {"q": "Is the ISSN's own check digit the same as the barcode's check digit?", "a": "No. The ISSN has its own check character (sometimes the letter X) under a different algorithm; the visible EAN-13 barcode uses a separate check digit calculated after the 977 prefix is added."},
+    {"q": "Does the ISSN change with every issue of a magazine?", "a": "<p>No, the ISSN stays the same for every issue of a given serial. Issue-specific numbering is typically handled with an optional 2-digit add-on rather than a new ISSN.</p>"},
+    {"q": "Where do I get an ISSN for my publication?", "a": "<p>ISSNs are assigned by the ISSN International Centre or your national ISSN agency, not by a barcode generator — this tool only renders the barcode once you already have a valid ISSN.</p>"},
+    {"q": "Is this ISSN barcode generator free to use?", "a": "Yes — Barcode Studio generates ISSN barcodes free in your browser, with PNG, SVG, and PDF export at no cost."},
+    {"q": "Can I generate ISSN barcodes for multiple publications at once?", "a": "Yes, upload a CSV of ISSNs to the bulk tool and it will output a ZIP of barcode files or one print-ready PDF sheet for your whole catalog."}
+  ]
+}

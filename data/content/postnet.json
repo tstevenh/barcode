@@ -1,0 +1,74 @@
+{
+ "id": "postnet",
+ "title": "USPS POSTNET Barcode Generator | Barcode Studio",
+ "metaDescription": "Generate USPS POSTNET barcodes free online for ZIP, ZIP+4, or delivery-point codes. POSTNET is deprecated by USPS — use Intelligent Mail instead.",
+ "primaryKeyword": "usps postnet barcode generator",
+ "secondaryKeywords": [
+  "postnet barcode",
+  "zip code barcode generator",
+  "postnet vs intelligent mail",
+  "usps zip+4 barcode",
+  "deprecated postal barcode",
+  "delivery point barcode"
+ ],
+ "lead": "Create a USPS POSTNET barcode for ZIP, ZIP+4, or delivery point codes — a legacy format now replaced by Intelligent Mail for live mailings.",
+ "sections": [
+  {
+   "h2": "What is USPS POSTNET?",
+   "html": "<p>POSTNET (Postal Numeric Encoding Technique) is a height-modulated barcode the United States Postal Service used for decades to encode ZIP codes for automated mail sorting. Each digit is represented by five vertical bars of two heights — a pattern of two full-height and three half-height bars per digit — plus a mandatory checksum digit calculated from the sum of the encoded digits. POSTNET could encode a 5-digit ZIP code, a ZIP+4 (9 digits), or a full 11-digit delivery point code that pinpoints an individual address down to the specific mail receptacle.</p><p>Importantly, POSTNET is a deprecated format. The USPS phased it out in favor of the Intelligent Mail barcode (IMb), and mail pieces bearing only a POSTNET barcode no longer qualify for the automation postal rate discounts that made POSTNET valuable in the first place. This generator is useful for legacy systems, historical reference, education, or non-postal applications that still use the POSTNET pattern, but new mail production should use Intelligent Mail instead.</p>"
+  },
+  {
+   "h2": "Structure and encoding",
+   "html": "<p>POSTNET encodes each digit 0–9 as a unique combination of two tall bars and three short bars among five total bars, framed by a full-height guard bar (a single tall \"frame\" bar) at each end of the symbol.</p><ul><li><strong>5-digit ZIP:</strong> encodes the basic ZIP code plus a check digit — 6 digits' worth of bar groups plus start/stop frame bars.</li><li><strong>ZIP+4:</strong> encodes the 5-digit ZIP plus the 4-digit add-on that narrows delivery to a carrier route or group of addresses, plus a check digit calculated across all 9 digits.</li><li><strong>Delivery Point (11-digit):</strong> adds a 2-digit delivery point code (often derived from the last two digits of the street address) to pinpoint an individual mailbox, plus its own check digit.</li><li><strong>Check digit:</strong> calculated so that the sum of all encoded digits plus the check digit is evenly divisible by 10 — a simple mod-10 checksum.</li></ul>"
+  },
+  {
+   "h2": "Technical specifications",
+   "html": "<p>Each POSTNET digit occupies a fixed cell of five bars, two full-height and three half-height in a pattern unique to that digit (0–9), bounded by a single full-height guard bar at the start and end of the symbol. Bar width, spacing, and the tall/short height ratio were tightly specified in the USPS Domestic Mail Manual so optical character/bar readers of that era could distinguish the two heights reliably at postal processing speeds. Total digit count is 5 (ZIP), 9 (ZIP+4), or 11 (delivery point), always with one trailing mod-10 check digit appended after the data digits, for symbol lengths of 32, 52, or 62 bars respectively including guard bars.</p>"
+  },
+  {
+   "h2": "Where POSTNET was — and still is — used",
+   "html": "<p>Historically, POSTNET appeared on virtually every piece of U.S. bulk and business mail from the late 1980s through the 2000s and into the early 2010s:</p><ul><li>Return address ZIP+4 codes printed by mail-merge software on business correspondence and invoices.</li><li>Bulk mail and bill-pay reply envelopes pre-printed with the recipient's delivery point code for automated sorting.</li><li>Legacy print shops, mailing houses, and archival document systems that still generate or reproduce older mail formats.</li><li>Non-postal or educational contexts — some inventory or internal tracking systems adopted the POSTNET pattern for its simple height-modulated structure, unrelated to actual USPS mail processing.</li></ul><p>For any current U.S. mailing intended to earn USPS automation rates or be processed by modern sorting equipment, use Intelligent Mail barcode instead — POSTNET is not accepted for that purpose today.</p>"
+  },
+  {
+   "h2": "How to generate a POSTNET barcode in Barcode Studio",
+   "html": "<p>To create a POSTNET barcode:</p><ul><li>Select <strong>USPS POSTNET</strong> from the barcode type list.</li><li>Enter your ZIP code, ZIP+4, or full 11-digit delivery point number — Barcode Studio calculates and appends the check digit automatically.</li><li>Adjust bar height and spacing to match your target print size; POSTNET's short bars need clean, consistent height differentiation to remain readable.</li><li>Export as SVG for print-ready reproduction or PNG for digital use and reference.</li><li>Use <strong>Bulk CSV → ZIP/PDF</strong> to generate POSTNET codes for a list of addresses, useful for historical document reproduction or legacy system migration testing.</li><li>Call the REST API at <code>/barcode?type=postnet&data=...</code> for programmatic generation.</li></ul><p>If your goal is a working postal barcode for real mail today, use the <strong>USPS Intelligent Mail</strong> generator instead — it's the current standard and the only format that qualifies for USPS automation discounts.</p>"
+  },
+  {
+   "h2": "Print and scan considerations",
+   "html": "<p>Because POSTNET relies on precise bar height differences to distinguish tall from short bars, print resolution and consistency matter more than for many linear barcodes — low-resolution printing can blur the height distinction and make the code unreadable by optical mail-sorting equipment. POSTNET also requires clear space above and below the bars and a defined clear zone on either side, historically specified by the USPS in its domestic mail manual. Since POSTNET is retired for live USPS processing, these considerations mainly apply to reproducing historical mail pieces accurately or testing legacy scanning systems.</p>"
+  },
+  {
+   "h2": "POSTNET vs related postal codes",
+   "html": "<p>Compared to <strong>PLANET</strong>, POSTNET encodes a geographic ZIP/delivery point code while PLANET encoded a tracking/service-type identifier — both use an identical two-height bar structure but carry different data. Compared to <strong>USPS Intelligent Mail (IMb)</strong>, POSTNET is limited to 11 digits of pure address data and offers no tracking or mailer identification, whereas IMb's 4-state design folds routing, tracking, and mailer ID into one 20-to-31-digit barcode — which is why IMb replaced both POSTNET and PLANET outright. Compared to international 4-state postal codes like <strong>Royal Mail 4-State</strong>, POSTNET's two-height encoding is structurally simpler and carries far less data per symbol.</p>"
+  }
+ ],
+ "uses": [
+  "Historical reproduction of pre-2013 U.S. mail pieces and archival documents",
+  "Legacy mailing software and print systems still generating older mail formats",
+  "Education and reference material explaining USPS barcode history",
+  "Non-postal systems that adopted the POSTNET pattern for internal tracking",
+  "Testing and migrating legacy systems toward Intelligent Mail barcode"
+ ],
+ "faq": [
+  {
+   "q": "What is a USPS POSTNET barcode generator used for?",
+   "a": "<p>A usps postnet barcode generator creates the height-modulated barcode USPS once used to encode ZIP, ZIP+4, or delivery point codes for automated mail sorting — a format now deprecated in favor of Intelligent Mail.</p>"
+  },
+  {
+   "q": "Is POSTNET still used by USPS?",
+   "a": "No. USPS has phased out POSTNET, and mail pieces printed with only a POSTNET barcode no longer qualify for automation-rate discounts. Intelligent Mail barcode (IMb) is the current standard."
+  },
+  {
+   "q": "What's the difference between POSTNET and Intelligent Mail?",
+   "a": "<p>POSTNET encodes only ZIP-related digits using a two-height bar pattern. Intelligent Mail is a newer 4-state (bar-height) barcode that encodes more data — including routing, service type, and mailer ID — and is the format USPS currently requires for automation discounts.</p>"
+  },
+  {
+   "q": "How many digits can a POSTNET barcode hold?",
+   "a": "POSTNET can encode a 5-digit ZIP code, a 9-digit ZIP+4, or an 11-digit delivery point code, each with an appended check digit calculated by Barcode Studio automatically."
+  },
+  {
+   "q": "Should I use POSTNET for a new mailing today?",
+   "a": "<p>No — use the USPS Intelligent Mail barcode generator instead. POSTNET is useful for historical reproduction, education, or legacy systems, but doesn't qualify for current USPS automation processing.</p>"
+  }
+ ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "CODE128",
+  "title": "Code 128 Barcode Generator | Barcode Studio",
+  "metaDescription": "Create Code 128 barcodes free online with our code 128 barcode generator. Full ASCII support, live preview, PNG/SVG/PDF export, batch mode, and REST API.",
+  "primaryKeyword": "code 128 barcode generator",
+  "secondaryKeywords": ["code 128 barcode", "generate code 128 online", "code 128 vs code 39", "code 128 check digit", "shipping label barcode", "code 128 font alternative"],
+  "lead": "Code 128 packs any letter, number, or symbol into one of the most compact linear barcodes available, which is why shippers and warehouses default to it.",
+  "sections": [
+    {
+      "h2": "What Is a Code 128 Barcode?",
+      "html": "<p>Code 128 is a high-density linear barcode symbology capable of encoding all 128 characters of the ASCII table, including letters, digits, punctuation, and non-printable control codes. It was designed in the 1980s as a replacement for older, bulkier symbologies when a label needed to hold mixed alphanumeric data in the smallest possible space. Today it's one of the most widely used barcodes in shipping, logistics, and retail because a single symbol can carry a serial number, a product code, and a date in far less horizontal space than Code 39 would need for the same data.</p><p>When people say \"Code 128\" without qualification, they usually mean the auto-switching version: an encoder that picks whichever of the three internal character sets (A, B, or C) produces the shortest, most efficient barcode for the data you type. Barcode Studio's Code 128 option does exactly this automatically, so you don't have to think about subsets unless you have a specific reason to lock one in.</p>"
+    },
+    {
+      "h2": "How Code 128 Encodes Data",
+      "html": "<p>Code 128 is built from a series of bars and spaces where each encoded character maps to a pattern of 3 bars and 3 spaces spanning 11 modules. What makes it different from earlier symbologies is that it can switch mid-symbol between three character sets:</p><ul><li><strong>Subset A</strong> — uppercase letters, digits, punctuation, and ASCII control characters (useful for things like line feeds in structured data).</li><li><strong>Subset B</strong> — uppercase and lowercase letters, digits, and punctuation. This is the subset most general-purpose text uses.</li><li><strong>Subset C</strong> — pairs of digits (00–99) compressed into a single symbol character, roughly doubling density for numeric-only strings.</li></ul><p>A smart encoder inserts shift and code-set characters automatically wherever switching subsets saves space — for example, encoding a long numeric run in subset C even inside a string that starts in subset B. Every Code 128 symbol also carries a mandatory checksum character calculated with a weighted modulo-103 algorithm, plus dedicated start, stop, and quiet zone requirements, which is a major reason it reads reliably even on lower-quality thermal prints.</p>"
+    },
+    {
+      "h2": "Where Code 128 Is Used",
+      "html": "<p>Code 128 shows up anywhere labels need to be compact but data-rich:</p><ul><li><strong>Shipping and logistics</strong> — it's the base symbology behind GS1-128 (formerly UCC/EAN-128), used on pallet and carton labels to encode application identifiers like batch number, weight, and expiration date.</li><li><strong>Retail and inventory management</strong> — internal SKUs, price tags, and warehouse bin labels where the code needs to hold more than digits.</li><li><strong>Healthcare</strong> — patient wristbands and specimen labels, often paired with subset C for numeric IDs.</li><li><strong>Ticketing and access control</strong> — event tickets and badges that encode alphanumeric confirmation codes.</li><li><strong>Asset tracking</strong> — equipment tags where a single barcode needs to store an asset ID and a location code together.</li></ul>"
+    },
+    {
+      "h2": "How to Create a Code 128 Barcode in Barcode Studio",
+      "html": "<p>Open Barcode Studio and select <strong>Code 128</strong> from the symbology list on the left — it's grouped under linear barcodes alongside Code 128 A, B, and C if you need explicit subset control. Type or paste your data into the input field; the preview updates live as you type, so you can confirm the encoded result before exporting. From there:</p><ul><li>Adjust <strong>bar width</strong> and <strong>height</strong> to match your label size — narrower bars fit more data on small labels but require a sharper printer.</li><li>Toggle the <strong>human-readable text</strong> below the bars on or off, and pick a font size that stays legible without crowding the code.</li><li>Set foreground/background <strong>colors</strong> if your label uses branded stock, keeping contrast high for scan reliability.</li><li>Confirm the <strong>quiet zone</strong> (margin) — Code 128 needs clear space on both sides for scanners to detect the start/stop patterns correctly.</li><li>Export as <strong>PNG, SVG, or PDF</strong>, or use <strong>Copy</strong> to paste directly into a design tool.</li></ul><p>For runs of sequential serial numbers or SKUs, use the <strong>batch/sequence</strong> feature to generate a numbered series in one pass. If you're labeling hundreds of items from a spreadsheet, the <strong>bulk CSV → ZIP/PDF</strong> tool turns a column of values into a folder of individual barcode files or one print-ready PDF sheet. Developers can skip the UI entirely and call the <strong>REST API</strong> directly, e.g. <code>/barcode?type=code128&data=YOURDATA</code>, to generate barcodes on demand from any backend.</p>"
+    },
+    {
+      "h2": "Printing and Scanning Best Practices",
+      "html": "<p>Code 128's density is a strength but also means print quality matters more than with simpler barcodes. A few practical rules:</p><ul><li>Print at a resolution where the narrowest bar is at least 2–3 pixels wide on a thermal or laser printer — undersized narrow bars are the most common cause of misreads.</li><li>Keep the quiet zone (the blank margin on either side of the code) at least 10x the width of the narrowest bar; crowding text or graphics into that space breaks scanner detection.</li><li>Avoid shrinking the barcode past the point where the human-readable text becomes unreadable — that text is your fallback when a scanner fails.</li><li>Test with the actual scanner hardware you'll use in production; older laser scanners can be pickier about contrast and skew angle than modern camera-based imagers.</li><li>If you're encoding data governed by GS1 standards (shipping, healthcare), verify your application identifiers and check digit against GS1 specifications before mass-printing labels.</li></ul>"
+    }
+  ],
+  "uses": [
+    "Shipping carton and pallet labels (GS1-128)",
+    "Warehouse bin and shelf location tags",
+    "Retail SKU and price labels with mixed alphanumeric codes",
+    "Patient wristbands and lab specimen tracking",
+    "Event ticket and badge confirmation codes",
+    "Equipment and asset tags with combined ID + location data"
+  ],
+  "faq": [
+    {"q": "What's the difference between Code 128 and Code 128 A/B/C?", "a": "<p>Plain Code 128 auto-selects the best character subset (A, B, or C) for your data to keep the barcode as short as possible. Code 128 A, B, and C lock the encoder into one specific subset — useful when a downstream system expects a fixed character set rather than an auto-switching one.</p>"},
+    {"q": "Is a code 128 barcode generator free to use?", "a": "Yes — Barcode Studio's Code 128 barcode generator runs entirely in your browser at no cost, with no account required for standard PNG/SVG/PDF exports."},
+    {"q": "How much data can a Code 128 barcode hold?", "a": "<p>There's no hard character limit in the standard, but practically most implementations stay under 80 characters to keep the barcode a reasonable physical width. Longer strings work but produce a wider, harder-to-scan symbol.</p>"},
+    {"q": "Does Code 128 include a check digit?", "a": "Yes, every Code 128 symbol includes a mandatory checksum character calculated automatically by the encoder — you never need to add it to your input data yourself."},
+    {"q": "Can I generate Code 128 barcodes in bulk from a spreadsheet?", "a": "<p>Yes. Upload a CSV of values to Barcode Studio's bulk tool and it will output a ZIP of individual barcode images or a single print-ready PDF sheet, one barcode per row.</p>"},
+    {"q": "Can I call Code 128 generation from my own application?", "a": "Yes — Barcode Studio's REST API accepts requests like /barcode?type=code128&data=YOURDATA and returns the barcode image directly, so you can generate labels programmatically from any backend or script."}
+  ]
+}

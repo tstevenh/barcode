@@ -1,0 +1,74 @@
+{
+ "id": "databarstackedomnicomposite",
+ "title": "GS1 DataBar Stacked Omni Composite Generator",
+ "metaDescription": "Generate GS1 DataBar Stacked Omni Composite barcodes free online — an omnidirectional linear GTIN plus a 2D composite for lot and expiry data.",
+ "primaryKeyword": "gs1 databar stacked omni composite generator",
+ "secondaryKeywords": [
+  "databar stacked omni composite",
+  "omnidirectional databar composite",
+  "gs1 composite symbol",
+  "databar with lot number",
+  "produce barcode with expiry date",
+  "gs1 databar 2d component"
+ ],
+ "lead": "Create a GS1 DataBar Stacked Omnidirectional Composite that adds lot, expiry, or serial data to a GTIN readable by omnidirectional retail scanners.",
+ "sections": [
+  {
+   "h2": "What is DataBar Stacked Omnidirectional Composite?",
+   "html": "<p>GS1 DataBar Stacked Omnidirectional Composite pairs the stacked, two-row version of DataBar Omnidirectional with a 2D composite component printed on top. The 'omnidirectional' distinction matters: this linear component is built and finder-patterned so laser scanners can read it in any orientation as it passes over a scan window, the same way a standard retail UPC/EAN works at checkout. Plain DataBar Stacked (non-omni) is designed for less demanding, more controlled scanning angles, such as handheld imagers in a pharmacy or stockroom.</p><p>By stacking the omnidirectional linear rows and adding a composite 2D tier, this symbol lets a single label serve two purposes at once: fast checkout scanning off the GTIN, and traceability lookups off the composite data, without needing separate barcodes or a wider label.</p>"
+  },
+  {
+   "h2": "Structure and data capacity",
+   "html": "<p>The linear tier encodes a 14-digit GTIN using GS1 DataBar Omnidirectional's stacked layout — two rows separated by a finder pattern engineered for omnidirectional laser scanning, with area roughly comparable to a UPC-A symbol despite the two-row stack. The 2D composite sits above it, connected by a required separator pattern, and holds supplementary GS1 Application Identifiers.</p><ul><li><strong>Linear data:</strong> GTIN-14 via AI (01) — mandatory, this is what checkout systems read.</li><li><strong>Composite data:</strong> optional AIs such as (17) expiration date, (10) batch/lot, (21) serial number, or (13) packaging date, sized to fit CC-A or CC-B composite structure depending on data length.</li><li><strong>Scan orientation:</strong> the omnidirectional linear tier tolerates the barcode passing through a scanner's beam at any angle, unlike the plain Stacked variant.</li><li><strong>Print footprint:</strong> comparable to standard DataBar Stacked Composite, making it suitable for small-item labeling where a wide GS1-128 composite won't fit.</li></ul>"
+  },
+  {
+   "h2": "Technical specifications",
+   "html": "<p>The linear tier is a 96-module-wide, two-row stacked rendering of GS1 DataBar Omnidirectional, encoding a 14-digit GTIN under Application Identifier (01) with a built-in check digit — total symbol height runs roughly 33 modules once both rows and the finder/guard patterns are included. The 2D composite sits above the linear rows, separated by a mandatory two-row separator pattern, and is built from CC-A (smaller AI payloads) or CC-B (larger payloads) MicroPDF417-derived structures. Minimum X-dimension and quiet-zone requirements follow the GS1 General Specifications for DataBar Composite, and both tiers must be printed and verified together — the composite is not valid as a partial or cropped symbol.</p>"
+  },
+  {
+   "h2": "Where it's used",
+   "html": "<p>DataBar Stacked Omnidirectional Composite targets retail items that must scan reliably at a standard point-of-sale laser scanner while also carrying traceability data:</p><ul><li>Loose produce and weighed items where a price-embedded or plain GTIN must pass checkout scanning and also carry a pack date or lot for recall tracking.</li><li>Meat, poultry, and seafood packaging subject to food-safety traceability regulations that require lot and date information alongside the retail identifier.</li><li>Health and beauty aids sold at general retail, where checkout speed matters but the manufacturer also wants expiry data embedded for shelf-life management.</li><li>Retailers transitioning legacy UPC-only checkout scanners to GS1 DataBar as part of the 2D/DataBar retail migration, using the omnidirectional variant to keep compatibility with existing laser scan tunnels.</li></ul>"
+  },
+  {
+   "h2": "How to generate one in Barcode Studio",
+   "html": "<p>Barcode Studio renders the linear and composite tiers as a single connected symbol. To build one:</p><ul><li>Select <strong>GS1 DataBar Stacked Omni Composite</strong> from the barcode type list.</li><li>Enter the GTIN-14 for the linear component and the supplementary AI data (lot, expiry, serial, etc.) for the composite tier.</li><li>Preview the rendered symbol and adjust module size, bar height, and margins to fit your label while preserving the required separator between tiers.</li><li>Export as SVG for production-quality vector printing or PNG for quick proofs.</li><li>Use <strong>Bulk CSV → ZIP/PDF</strong> to generate one symbol per row when a batch of items each needs a distinct lot number or expiration date.</li><li>Call the REST API at <code>/barcode?type=databarstackedomnicomposite&data=...</code> to integrate generation into a labeling or packaging line.</li></ul><p>Because this symbol is meant to work at standard checkout scan angles, test it on the same scan hardware your retail partner uses before committing to a print run — a symbol that verifies correctly on a bench scanner can still behave differently on a live scan tunnel if module size or contrast is marginal.</p>"
+  },
+  {
+   "h2": "Print and scan best practices",
+   "html": "<p>Keep the linear tier's module width and bar height within GS1 DataBar's specified ranges — reducing size too far to save label space is the most common reason this symbology fails to scan reliably at retail. Preserve full quiet zones on both sides of the combined symbol and don't let anything (price stickers, tape, packaging seams) cross the separator pattern between the linear and composite tiers. Print at high resolution on your final label stock, and if the item will pass through a laser scan tunnel at variable angles and speeds, verify the symbol under those real conditions rather than relying solely on a static handheld scan.</p>"
+  },
+  {
+   "h2": "DataBar Stacked Omni Composite vs related codes",
+   "html": "<p>Compared to plain <strong>GS1 DataBar Stacked Omnidirectional</strong> (no composite), this format adds a 2D tier for supplementary data at the cost of extra print height and stricter separator alignment — choose the plain version when only the GTIN needs to scan. Compared to <strong>DataBar Truncated Composite</strong>, the omnidirectional linear tier is taller and finder-patterned for any-angle laser scanning, while Truncated favors the smallest possible height for handheld imager use in back-of-store settings. Compared to <strong>GS1-128 Composite</strong>, this symbol is far more compact and better suited to small packaging, though GS1-128's linear tier alone can carry more Application Identifier data without needing the composite component at all.</p>"
+  }
+ ],
+ "uses": [
+  "Loose produce and weighed items needing checkout scan plus pack-date tracking",
+  "Meat, poultry, and seafood packaging under food-safety traceability rules",
+  "Health and beauty items sold at general retail with embedded expiry data",
+  "Retail migration from UPC-only scanning to GS1 DataBar with backward compatibility",
+  "Small-item labels needing both fast checkout reads and lot-level recall tracking"
+ ],
+ "faq": [
+  {
+   "q": "What is a GS1 DataBar Stacked Omni Composite generator used for?",
+   "a": "<p>A gs1 databar stacked omni composite generator creates a barcode combining an omnidirectional-scannable stacked GTIN with a 2D composite component that carries extra data like batch number or expiration date.</p>"
+  },
+  {
+   "q": "How is this different from DataBar Stacked Composite (non-omni)?",
+   "a": "The omnidirectional version's linear tier uses a finder pattern designed for standard retail laser scanners reading the barcode at any angle, while plain DataBar Stacked Composite is intended for more controlled scanning by handheld imagers."
+  },
+  {
+   "q": "Will a normal checkout scanner read the composite data too?",
+   "a": "<p>A standard laser scanner reads the linear GTIN for checkout, but decoding the 2D composite portion requires a scanner or imager that specifically supports GS1 composite symbols.</p>"
+  },
+  {
+   "q": "What supplementary data is typically added to the composite tier?",
+   "a": "Common choices include expiration date, batch or lot number, serial number, or packaging date — whatever traceability data your product category requires beyond the base GTIN."
+  },
+  {
+   "q": "Can I generate a batch of these barcodes for a production run?",
+   "a": "<p>Yes — use Barcode Studio's bulk CSV to ZIP/PDF tool to supply a GTIN and varying lot/expiry data per row, producing one symbol per item automatically.</p>"
+  }
+ ]
+}

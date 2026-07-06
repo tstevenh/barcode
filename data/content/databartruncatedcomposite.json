@@ -1,0 +1,52 @@
+{
+  "id": "databartruncatedcomposite",
+  "title": "GS1 DataBar Truncated Composite Generator",
+  "metaDescription": "Generate GS1 DataBar Truncated Composite barcodes free online. Reduced-height DataBar GTIN plus a 2D composite for lot or expiry data on compact retail labels.",
+  "primaryKeyword": "gs1 databar truncated composite generator",
+  "secondaryKeywords": ["databar truncated composite", "reduced height databar barcode", "gs1 databar composite for small labels", "databar truncated with expiry data", "gtin barcode short height", "gs1 databar family comparison"],
+  "lead": "Create a GS1 DataBar Truncated Composite symbol that shortens the linear barcode's height while still carrying lot, expiry, or serial data in a 2D component.",
+  "sections": [
+    {
+      "h2": "What is GS1 DataBar Truncated Composite?",
+      "html": "<p>GS1 DataBar Truncated Composite combines DataBar Truncated — a shorter-height version of DataBar Omnidirectional's linear structure — with a 2D composite component printed above it. DataBar Truncated uses the same bar-width encoding pattern as DataBar Omnidirectional but reduces the symbol height, which saves vertical label space at the cost of scan robustness: because the finder pattern's full height contributes to reliable omnidirectional decoding, truncating it means the symbol is meant for controlled, close-range handheld scanning rather than high-speed retail scan tunnels.</p><p>The composite tier addresses the same need as other DataBar composites: the ability to attach supplementary data — lot numbers, expiration dates, serial numbers — to a GTIN without moving to a wider linear symbology like GS1-128.</p>"
+    },
+    {
+      "h2": "Structure and specifications",
+      "html": "<p>The linear component keeps DataBar Omnidirectional's bar-width pattern and finder structure but at reduced height, giving DataBar Truncated a shorter, more rectangular profile than its full-height sibling.</p><ul><li><strong>Linear data:</strong> GTIN-14 via AI (01), encoded using the same underlying bar pattern as DataBar Omnidirectional.</li><li><strong>Composite data:</strong> supplementary Application Identifiers such as (17) expiry, (10) batch/lot, or (21) serial number, in a CC-A or CC-B 2D structure.</li><li><strong>Height trade-off:</strong> the reduced symbol height limits scan angle tolerance, so DataBar Truncated Composite is generally scanned by handheld imagers at close, controlled range rather than by omnidirectional laser scanners.</li><li><strong>Footprint:</strong> narrower height than DataBar Stacked Omni Composite while retaining the same GTIN-14 capacity, useful when vertical space is the binding constraint rather than width.</li></ul>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>DataBar Truncated shares its bar-width and finder-pattern logic with DataBar Omnidirectional, encoding a fixed GTIN-14 under AI (01), but its linear row height is reduced to roughly 13 modules versus Omnidirectional's 33, saving vertical space at the cost of the wider decode-angle tolerance the full-height finder pattern provides. The composite tier — CC-A or CC-B — is joined above the linear row by the standard GS1 separator pattern, following the same General Specifications rules as other DataBar composites. Because the reduced height narrows the margin for print defects, GS1 print-quality guidance recommends verifying Truncated symbols at a higher grade threshold than full-height DataBar variants.</p>"
+    },
+    {
+      "h2": "Where DataBar Truncated Composite is used",
+      "html": "<p>This variant serves items where label height, not width, is the limiting factor:</p><ul><li>Small jars, tubes, and cylindrical packaging where a tall barcode would wrap awkwardly around the curved surface.</li><li>Pharmacy and supplement bottles that need a GTIN plus lot/expiry data but have limited vertical label real estate above or below other required text.</li><li>Specialty retail items with narrow label bands, such as blister cards or narrow shelf tags, where composite traceability data is still required.</li><li>Internal warehouse or manufacturing labels scanned by handheld imagers at short, controlled distances, where the reduced height doesn't compromise reliability the way it might on a retail scan tunnel.</li></ul>"
+    },
+    {
+      "h2": "How to generate a DataBar Truncated Composite in Barcode Studio",
+      "html": "<p>Barcode Studio renders the linear and composite tiers as a single unit. To build one:</p><ul><li>Select <strong>GS1 DataBar Truncated Composite</strong> from the barcode type list.</li><li>Enter your GTIN-14 for the linear tier, then add the supplementary AI data (lot, expiry, serial, etc.) for the composite tier.</li><li>Preview the rendered symbol and adjust module width and reduced bar height to fit your label's vertical constraint, while keeping the separator between tiers intact.</li><li>Export as SVG for vector-quality label printing or PNG for quick mockups.</li><li>Use <strong>Bulk CSV → ZIP/PDF</strong> to generate a batch of symbols where each row carries a distinct lot number or expiration date.</li><li>Call the REST API at <code>/barcode?type=databartruncatedcomposite&data=...</code> to automate generation from your labeling workflow.</li></ul><p>Because the reduced height narrows scan angle tolerance, test with the actual handheld imager your operation uses before finalizing label dimensions — a symbol that decodes fine dead-on may fail at the skewed angles a real scanning workflow introduces.</p>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Since DataBar Truncated sacrifices height for space savings, compensate by keeping print resolution and contrast as high as possible — this symbology has less margin for print defects than its full-height counterparts. Maintain full quiet zones on both sides and don't crop the separator between the linear and composite tiers. Scan with a handheld imager at a controlled, near-perpendicular angle rather than expecting omnidirectional performance, and validate on your actual label stock and curved or flat surface before committing to a production run. If your labels move through more than one facility, confirm that every scanning station along the way uses composite-capable hardware, since a truncated symbol that scans fine on your own equipment can still fail downstream on a scanner configured only for standard linear barcodes.</p>"
+    },
+    {
+      "h2": "DataBar Truncated Composite vs related codes",
+      "html": "<p>Compared to <strong>DataBar Stacked Omni Composite</strong>, Truncated has a lower profile but sacrifices the wide-angle, omnidirectional decode reliability that Stacked Omni's taller finder pattern provides — pick Truncated only when vertical space is genuinely the binding constraint. Compared to <strong>DataBar Limited Composite</strong>, Truncated has no indicator-digit restriction, so it accepts any valid GTIN-14, while Limited is restricted to indicator digit 0 or 1. Compared to <strong>DataBar Expanded Composite</strong>, Truncated's linear tier holds only a bare GTIN, while Expanded can carry multiple Application Identifiers directly in the linear symbol — use Truncated when a compact fixed GTIN plus composite data is all you need.</p>"
+    }
+  ],
+  "uses": [
+    "Small jars, tubes, and cylindrical packaging with limited vertical label space",
+    "Pharmacy and supplement bottles needing GTIN plus lot/expiry in a short barcode",
+    "Blister cards and narrow shelf tags requiring composite traceability data",
+    "Warehouse and manufacturing labels scanned by handheld imagers at close range",
+    "Any packaging where label height, not width, is the binding constraint"
+  ],
+  "faq": [
+    {"q": "What is a GS1 DataBar Truncated Composite generator used for?", "a": "<p>A gs1 databar truncated composite generator creates a reduced-height DataBar barcode carrying a GTIN, paired with a 2D composite component for supplementary data like lot number or expiration date.</p>"},
+    {"q": "How does DataBar Truncated differ from DataBar Omnidirectional?", "a": "Both use the same bar-width encoding pattern, but DataBar Truncated has a shorter height, trading some omnidirectional scan robustness for a smaller vertical footprint on the label."},
+    {"q": "Can DataBar Truncated Composite be read by a retail scan tunnel?", "a": "<p>It's not optimized for high-speed omnidirectional scanning the way full-height DataBar Omnidirectional is. It's best scanned by a handheld imager at a controlled, near-perpendicular angle.</p>"},
+    {"q": "What supplementary data goes in the composite tier?", "a": "Common additions include expiration date, batch or lot number, or serial number — any GS1 Application Identifier data your traceability process requires beyond the base GTIN."},
+    {"q": "Can Barcode Studio bulk-generate these barcodes?", "a": "<p>Yes — the bulk CSV to ZIP/PDF tool generates one DataBar Truncated Composite symbol per row, letting you assign a distinct lot or expiry value to each item in a batch.</p>"}
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "id": "gs1dldatamatrix",
+  "title": "GS1 Digital Link Data Matrix Generator | Barcode Studio",
+  "metaDescription": "Generate a GS1 Digital Link Data Matrix code combining a scannable web URL with GTIN traceability data. Free tool with PNG/SVG export and REST API.",
+  "primaryKeyword": "gs1 digital link data matrix generator",
+  "secondaryKeywords": ["gs1 digital link datamatrix", "gtin data matrix url", "smart label data matrix", "gs1 2d barcode pharma", "data matrix web link", "gs1 traceability barcode"],
+  "lead": "Pack a GTIN, batch, and expiry into a tiny Data Matrix code that also resolves as a live web link when scanned.",
+  "sections": [
+    {
+      "h2": "What is a GS1 Digital Link Data Matrix code?",
+      "html": "<p>GS1 Digital Link Data Matrix combines two GS1 standards into one symbol: the Data Matrix format (ISO/IEC 16022), a compact square 2D barcode long used for direct part marking and small-item labeling, carrying a GS1 Digital Link URL instead of a plain GS1 Application Identifier string. The result is a code small enough for tiny components or blister packs that also opens as a normal webpage when scanned with a phone camera, while still parsing as structured GTIN, batch, and expiry data for GS1-aware scanning systems. It's part of GS1's broader push, often referred to under the industry shorthand \"Sunrise 2027,\" to migrate retail and supply-chain barcodes toward 2D symbols carrying resolvable web links alongside traditional identification data.</p>"
+    },
+    {
+      "h2": "How the data is structured",
+      "html": "<p>A Data Matrix symbol is built from a solid black \"L\"-shaped finder pattern along two adjacent edges, which fixes the code's orientation, and an alternating black-and-white clock track along the other two edges, which tells the scanner how many rows and columns of data modules to expect before it reads a single bit of payload. Inside that border, Reed-Solomon error correction (ECC200) protects the payload against dirt, scratches, and print defects, which is a major reason Data Matrix is favored for direct part marking on metal or plastic components.</p><p>The payload itself is a GS1 Digital Link URL &mdash; typically structured as <code>https://domain/01/{GTIN}/10/{batch}/17/{expiry}</code> &mdash; where each numbered path segment corresponds to the same Application Identifiers (01 for GTIN, 10 for batch, 17 for expiry) used in classic GS1-128 or GS1 DataMatrix encoding, just expressed as a URL path instead of a bracketed AI string. A GS1-conformant resolver at that domain can then serve different content depending on who's scanning &mdash; a consumer gets product information, while a supply-chain system extracts the raw AI values from the URL structure itself.</p>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>Data Matrix supports both square and rectangular symbol shapes ranging from as few as 10&times;10 modules up to 144&times;144 modules, and can encode alphanumeric text, digits, and binary data, making it well suited to the URL-based payload Digital Link requires. Because Data Matrix achieves very high data density for its physical footprint, a full Digital Link URL with GTIN, batch, and expiry can fit into a symbol just a few millimeters across &mdash; smaller than the equivalent GS1 Digital Link QR code would typically need for the same data. As with plain Data Matrix, error correction is the fixed ECC200 Reed-Solomon scheme tied to symbol size; there is no separate selectable error-correction level the way there is with QR-family codes.</p><ul><li><strong>GTIN (01):</strong> required identifier as a URL path segment</li><li><strong>Batch/lot (10), expiry (17), serial (21):</strong> optional traceability path segments</li><li><strong>Symbol sizes:</strong> square or rectangular, scalable to very small physical footprints</li><li><strong>Standards body:</strong> GS1 Digital Link standard on top of ISO/IEC 16022 Data Matrix</li></ul>"
+    },
+    {
+      "h2": "Where GS1 Digital Link Data Matrix is used",
+      "html": "<p>Pharmaceutical unit-dose packaging and medical devices, where space is extremely limited but full traceability data plus a link to patient safety information is required; small electronic components and industrial parts marked directly for lifecycle tracking; cosmetics and small consumer goods packaging adopting GS1's 2D transition while needing a compact footprint that a QR code's larger minimum size wouldn't allow; and any application already using GS1 DataMatrix for regulatory compliance that wants to add a working consumer-facing link without switching symbologies or requalifying a marking process.</p>"
+    },
+    {
+      "h2": "How to create a GS1 Digital Link Data Matrix code in Barcode Studio",
+      "html": "<p>Select <strong>GS1 Digital Link Data Matrix</strong> from the symbology list and use the Digital Link builder to enter your resolver domain along with GTIN, batch, and expiry; Barcode Studio constructs the properly formatted URL path (e.g. <code>/01/{gtin}/10/{batch}/17/{expiry}</code>) automatically so you don't need to hand-assemble the path segments. Error correction stays fixed at ECC200 (Reed-Solomon), the same as plain Data Matrix, so there's no correction-level setting to adjust. From there you can:</p><ul><li>Choose square or rectangular symbol shape and adjust module size and quiet zone for your label footprint</li><li>Preview the resolved URL to confirm it routes correctly before export</li><li>Export as PNG or SVG for packaging or direct part-marking artwork, or copy the code</li><li>Use batch/sequence generation or CSV bulk upload to produce unique codes per unit across a production run, exported as ZIP or PDF</li><li>Call the REST API &mdash; <code>/barcode?type=gs1dldatamatrix&amp;data=https://example.com/01/09501234567890/17/261231</code> &mdash; to integrate into an automated labeling line</li></ul>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Data Matrix requires a quiet zone on all four sides just like other 2D codes, but because its finder pattern is solid rather than made of separated squares, it tolerates tighter placement near other print elements than QR code often does. For direct part marking, use laser etching or dot-peen marking methods rated for the material, and verify contrast under the specific lighting the scanner will use in production, since low-contrast marks on reflective metal are the most common cause of failed reads. Keep individual modules large enough for your scanner's resolution &mdash; very small Data Matrix codes on curved or reflective surfaces need higher-resolution imaging scanners rather than basic laser barcode readers. Always test the resolver URL live in a browser and with a phone camera, since a Digital Link code that fails to open as a webpage undermines the consumer-facing half of its purpose even if the underlying GS1 data parses correctly for supply-chain systems.</p>"
+    },
+    {
+      "h2": "GS1 Digital Link Data Matrix vs related codes",
+      "html": "<p>GS1 Digital Link Data Matrix and plain GS1 Data Matrix encode the same core AI data (GTIN, batch, expiry), but the Digital Link variant wraps it in a resolvable URL so a regular phone camera resolves it as a webpage while a GS1-aware system still extracts the structured identifiers &mdash; plain GS1 Data Matrix is AI data only, unreadable as a link by a generic scanner app. GS1 Digital Link QR Code carries the identical URL-based payload in a QR symbol instead, which needs more physical space for the same data but is more familiar to consumers and easier to scan from a distance or on a screen. Choosing between the two Digital Link symbologies usually comes down to available label space: Data Matrix wins on tiny components and unit-dose packaging, while QR code is preferred where consumer recognition and easy phone scanning matter more than raw compactness.</p>"
+    }
+  ],
+  "uses": [
+    "Pharmaceutical unit-dose and blister pack labeling with traceability and safety links",
+    "Direct part marking on small electronic components and industrial parts",
+    "Medical device labeling combining regulatory data with a consumer information link",
+    "Cosmetics and small consumer goods adopting GS1's 2D barcode transition",
+    "Compact retail packaging where a full-size QR code won't fit",
+    "Production lines needing serialized, scannable, web-resolvable unit identifiers"
+  ],
+  "faq": [
+    {"q": "Why use Data Matrix instead of QR code for GS1 Digital Link?", "a": "Data Matrix achieves higher data density in a smaller physical footprint than QR code, making it the better choice when label space is extremely limited, such as on small components or unit-dose pharmaceutical packaging."},
+    {"q": "Does a GS1 Digital Link Data Matrix code still work as a GS1 identifier?", "a": "Yes, because the URL follows the standardized Digital Link path structure, GS1-aware scanning systems can extract the GTIN, batch, and expiry directly from the URL, just as they would from a classic GS1 DataMatrix payload."},
+    {"q": "Can this code be scanned by a regular phone camera?", "a": "Yes, since the payload is a real web URL, any phone camera app that reads Data Matrix codes will resolve it as a normal link and open the webpage, which is the core benefit a gs1 digital link data matrix generator provides over a plain GS1 Data Matrix."},
+    {"q": "What's the smallest size this code can be printed at?", "a": "It depends on your printer and scanner resolution, but Data Matrix's compact grid structure allows GS1 Digital Link payloads to be printed at just a few millimeters across, smaller than an equivalent QR code carrying the same URL."},
+    {"q": "Can I bulk-generate these codes for a production run?", "a": "Yes, upload a CSV with per-unit GTIN, batch, and serial data and Barcode Studio will generate a ZIP or PDF of individually coded Data Matrix labels."},
+    {"q": "What is Sunrise 2027 and how does this code relate to it?", "a": "Sunrise 2027 is the retail industry's informal target for widespread adoption of GS1's 2D barcodes carrying Digital Link URLs; GS1 Digital Link Data Matrix is one of the compact symbologies businesses can use to meet that transition where label space is too small for a QR code."}
+  ]
+}

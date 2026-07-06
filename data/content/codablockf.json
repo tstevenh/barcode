@@ -1,0 +1,53 @@
+{
+  "id": "codablockf",
+  "title": "Codablock-F Generator – Multi-Row Barcode",
+  "metaDescription": "Generate a Codablock-F barcode free online. Stack Code 128 rows into one dense, high-capacity linear-stacked symbol for logistics and lab labeling.",
+  "primaryKeyword": "codablock-f generator",
+  "secondaryKeywords": ["codablock-f barcode", "stacked linear barcode", "codablock f vs pdf417", "multi-row code 128", "codablock f format", "high capacity linear barcode"],
+  "lead": "Create a Codablock-F barcode that stacks multiple Code 128 rows into a single dense block for data that won't fit a single-line barcode.",
+  "sections": [
+    {
+      "h2": "What is Codablock-F?",
+      "html": "<p>Codablock-F is a stacked linear symbology that arranges two or more rows of Code 128-style barcode data into one rectangular block, letting a label hold far more data than a single-row Code 128 while still being readable by many linear (laser) scanners as well as 2D imagers. Each row is itself a self-contained Code 128 structure with added row-indicator characters, so a scanner (or an operator rastering a laser scanner across the block) can reassemble the rows into the original message in any order they're read.</p><p>Codablock-F sits between simple linear barcodes and full 2D symbols like Data Matrix or PDF417: it trades some of the compactness of a true 2D code for broader compatibility with legacy linear scanning equipment already deployed in many labs, warehouses and healthcare facilities.</p>"
+    },
+    {
+      "h2": "How it works and how the data is structured",
+      "html": "<p>A Codablock-F symbol is built from a defined header, one or more data rows, and row/column indicators:</p><ul><li><strong>Start and stop patterns</strong> — each row uses standard Code 128 start/stop characters (from subsets A, B or C) so it decodes as valid Code 128 on its own.</li><li><strong>Row indicator</strong> — encoded within each row, this tells the decoder which row it's reading and how many rows the full symbol contains, enabling reassembly when rows are scanned out of sequence.</li><li><strong>Data content</strong> — the message is split across rows using the full Code 128 character set (uppercase/lowercase letters, digits, punctuation and control characters), so Codablock-F can encode the same broad character range as Code 128 itself.</li><li><strong>Check characters</strong> — each row carries its own Code 128 checksum, and the overall symbol can include an additional check character across the full message for extra integrity.</li></ul><p>The number of rows and columns is generally chosen automatically based on the message length and the label width available, balancing a wider, shorter block against a narrower, taller one.</p>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>Codablock-F encodes the full Code 128 character set — ASCII 0–127, covering uppercase and lowercase letters, digits and symbols — across 2 to 44 rows, with each row holding up to 62 data characters, giving a theoretical capacity well beyond what a single-row Code 128 barcode can practically print. There is no single universal error-correction scheme comparable to Reed–Solomon in Data Matrix or PDF417; integrity instead relies on each row's own Code 128 check character plus an optional overall checksum. Codablock-F is not managed by a single global standards body the way GS1 or ISO barcodes are — it originated as a de facto industry format (developed for laboratory and blood-bank labeling) and is documented in symbology reference specifications rather than a single ISO standard, though it is explicitly supported as a HIBC carrier symbology by the Health Industry Business Communications Council.</p>"
+    },
+    {
+      "h2": "Where it's used",
+      "html": "<p>Codablock-F is most established in:</p><ul><li>Clinical laboratory and blood-bank specimen labeling, one of its earliest and most persistent use cases, often under the ISBT 128 standard for blood products.</li><li>Healthcare product labeling under the HIBC standard (see HIBC LIC Codablock-F and HIBC PAS Codablock-F), where it serves as a linear-scanner-friendly alternative to Data Matrix or PDF417.</li><li>Logistics and warehouse labels needing more data than single-row Code 128 within a fixed label width, particularly in facilities that haven't fully converted to 2D imaging scanners.</li><li>European industrial and pharmaceutical supply chains, where Codablock-F saw earlier adoption than in some other regions.</li></ul>"
+    },
+    {
+      "h2": "How to create a Codablock-F barcode in Barcode Studio",
+      "html": "<p>To generate a Codablock-F symbol:</p><ul><li>Select <strong>Codablock-F</strong> from the barcode type list.</li><li>Enter the data you want to encode — letters, digits, and punctuation are all supported, same as Code 128.</li><li>Barcode Studio automatically splits the message across the required number of rows and adds the row indicators and check characters needed for correct reassembly.</li><li>Adjust module width and row height to fit your label dimensions, keeping bars wide enough for your scanning hardware's resolution.</li><li>Export as SVG for label artwork or PNG for quick proofing, and use <strong>Bulk CSV → ZIP/PDF</strong> to generate a unique Codablock-F symbol per row when labeling a batch of samples or shipments.</li><li>Call the REST API at <code>/barcode?type=codablockf&data=...</code> to generate symbols on demand from a lab information system or warehouse application.</li></ul>"
+    },
+    {
+      "h2": "Printing and scanning best practices",
+      "html": "<p>Because Codablock-F depends on evenly spaced, correctly aligned rows, print at a resolution high enough to keep bar widths and inter-row gaps consistent — low-quality thermal printing can blur row boundaries and cause misreads or partial decodes. Maintain a clear quiet zone on all four sides of the block, not just left and right as with a single-row barcode, since the top and bottom rows need their own margin too. Confirm your scanning hardware, whether a linear laser scanner in raster mode or a 2D imager, is configured to handle multi-row decoding, and verify symbol quality against your industry's applicable grading standard before a full print run, especially for lab specimen labels where a misread has real consequences.</p>"
+    },
+    {
+      "h2": "Codablock-F vs related codes",
+      "html": "<p>Compared with a single-row <strong>Code 128</strong>, Codablock-F holds far more data in the same label width by stacking rows, at the cost of needing a taller label and, ideally, a scanner that handles multi-row decoding. Compared with <strong>PDF417</strong>, Codablock-F is generally readable by more legacy linear laser scanners, while PDF417 offers stronger built-in Reed–Solomon error correction and is more forgiving of print or surface damage. Compared with <strong>Data Matrix</strong>, Codablock-F needs a larger physical footprint for equivalent data but doesn't require a 2D imaging scanner, making it a practical bridge format for facilities transitioning their scanning infrastructure gradually rather than all at once.</p>"
+    }
+  ],
+  "uses": [
+    "Clinical laboratory and blood-bank specimen labeling (ISBT 128)",
+    "HIBC healthcare product labeling (see HIBC LIC/PAS Codablock-F)",
+    "Warehouse and logistics labels needing more data than single-row Code 128",
+    "European industrial and pharmaceutical supply chain labeling",
+    "Facilities transitioning from linear scanners to 2D imaging"
+  ],
+  "faq": [
+    {"q": "What is a Codablock-F generator used for?", "a": "<p>A codablock-f generator creates a stacked linear barcode that arranges multiple Code 128-style rows into one block, letting a label hold far more data than a single-row Code 128 while remaining readable by many linear laser scanners.</p>"},
+    {"q": "What character set does Codablock-F support?", "a": "Codablock-F supports the full Code 128 character set — uppercase and lowercase letters, digits, punctuation and control characters — spread across 2 to 44 rows."},
+    {"q": "Can a regular barcode scanner read Codablock-F?", "a": "<p>Many linear laser scanners can raster-read Codablock-F's stacked rows and reassemble the message, though 2D imaging scanners generally decode it faster and more reliably.</p>"},
+    {"q": "Is Codablock-F the same as Code 128?", "a": "No — each row of a Codablock-F symbol is structured like Code 128, but the overall symbol adds row indicators and checksums so multiple rows combine into one larger message, which plain Code 128 cannot do."},
+    {"q": "Does Codablock-F have a check digit?", "a": "<p>Each row carries its own Code 128 check character, and the full symbol can include an additional overall checksum for extra data integrity.</p>"},
+    {"q": "Can I batch-generate Codablock-F barcodes?", "a": "Yes — use Barcode Studio's bulk CSV to ZIP/PDF tool to generate a unique Codablock-F symbol per row, useful for labeling a batch of lab samples, products, or shipments."}
+  ]
+}

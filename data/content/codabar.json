@@ -1,0 +1,53 @@
+{
+  "id": "codabar",
+  "title": "Codabar Generator - Free Barcode Tool | Barcode Studio",
+  "metaDescription": "Generate a Codabar barcode free in your browser. Encode digits and symbols with optional A-D start/stop characters, export PNG, SVG, or PDF instantly.",
+  "primaryKeyword": "codabar generator",
+  "secondaryKeywords": ["codabar barcode", "nw-7 barcode", "blood bank barcode", "library barcode codabar", "codabar vs code 39"],
+  "lead": "Create a Codabar barcode, one of the oldest self-checking symbologies, still used in blood banks, libraries, and package tracking.",
+  "sections": [
+    {
+      "h2": "What is Codabar?",
+      "html": "<p>Codabar (also known as NW-7, USD-4, or Ames Code) is a linear barcode symbology introduced in 1972, making it one of the earliest barcodes still in active commercial use. It encodes digits 0&ndash;9 along with the symbols &minus; $ : / . + and requires each symbol to start and end with one of four special characters, conventionally labeled A, B, C, and D, which also let a single system distinguish between different data formats sharing the same barcode type. Codabar's design goal was simplicity: it can be printed and decoded reliably by even basic, older hardware, which is part of why it's persisted for decades in a few specific industries even as more capable symbologies emerged.</p>"
+    },
+    {
+      "h2": "How Codabar encodes data",
+      "html": "<p>Each character in Codabar is represented by a unique pattern of 4 bars and 3 spaces, with each element being either wide or narrow &mdash; giving a self-checking structure where the ratio of wide to narrow elements per character helps a scanner validate that it decoded the symbol correctly, without needing a separate checksum digit (though optional check digits are used in some implementations, such as certain blood bank formats). The mandatory start and stop characters (one of A, B, C, or D at each end) aren't part of the encoded data itself; they're structural markers that also let downstream systems key off which start/stop pair was used to distinguish between different data types printed on the same kind of label.</p>"
+    },
+    {
+      "h2": "Technical Specifications",
+      "html": "<p>Codabar encodes the digits 0&ndash;9 plus the six symbols &minus; $ : / . +, with no letters. Every symbol must begin and end with a start/stop character chosen from A, B, C, or D (or their historical alternates a, b, c, d / t, n, *, e in some implementations), and these bookend characters are typically excluded from the interpreted data itself. There's no length limit imposed by the specification, though real-world Codabar codes are usually short, in the 8&ndash;15 character range. The base standard has no mandatory check digit, though several industry-specific implementations &mdash; notably some blood bank and courier applications &mdash; layer on an optional modulo-16 or modulo-11 check digit by convention rather than by the core Codabar spec.</p>"
+    },
+    {
+      "h2": "Where Codabar is used",
+      "html": "<p>Codabar's largest remaining strongholds are blood banks and healthcare, where it's used in the ISBT 128-predecessor labeling systems for blood products and specimen tracking, and libraries, where many library systems still print Codabar on patron cards and book spine labels because of decades-old infrastructure built around it. It also appears in some courier and package-tracking systems, particularly older FedEx airbill formats historically used Codabar-family encoding. Its self-checking structure and simple hardware requirements made it a natural fit for these lower-throughput, reliability-sensitive environments, even though most new barcode deployments today choose Code 128 or Code 39 instead.</p>"
+    },
+    {
+      "h2": "How to create a Codabar barcode in Barcode Studio",
+      "html": "<p>Select <strong>Codabar</strong> from the symbology list on the left, then enter your data using digits 0&ndash;9 and the symbols &minus; $ : / . +. Add the appropriate start and stop characters (A, B, C, or D) at the beginning and end if your receiving system expects them explicitly. From there you can:</p><ul><li>Adjust bar width, height, and quiet zone to match your label size and scanner</li><li>Toggle human-readable text below the bars for visual verification, particularly useful for older systems without reliable scanning</li><li>Export as PNG, SVG, or PDF, or copy the image directly into a label template</li><li>Use the batch or sequence tools to generate a numbered run of labels at once</li><li>Upload a CSV of values for bulk generation as a ZIP of image files or a print-ready PDF of labels</li><li>Call the REST API &mdash; <code>/barcode?type=codabar&amp;data=A12345B</code> &mdash; to generate codes programmatically from a library, courier, or lab system</li></ul>"
+    },
+    {
+      "h2": "Printing & scanning best practices",
+      "html": "<p>Codabar's self-checking wide/narrow ratio per character means print consistency matters for accurate decoding &mdash; a printer that doesn't maintain a sharp, consistent wide-to-narrow bar ratio can produce a symbol that still looks plausible but decodes incorrectly. Keep the quiet zone clear on both sides, since Codabar's start/stop character detection relies on it, and always confirm which start/stop character convention (A/B/C/D vs. legacy alternates) your specific receiving system expects, since blood bank, library, and courier implementations don't always agree on the same convention. Where the application allows it, add an optional check digit for extra protection, since the base standard doesn't require one.</p>"
+    },
+    {
+      "h2": "Codabar vs. related codes",
+      "html": "<p>Codabar and Code 39 are often compared because both are older, self-checking symbologies with modest character sets, but Codabar's character set is numeric-plus-symbols (no letters), while Code 39 supports uppercase letters, digits, and several symbols &mdash; a broader alphabet in a similarly simple structure. Compared to Code 128, Codabar is far less space-efficient and has a much smaller character set, but it remains entrenched in blood banks and libraries purely due to installed-base inertia rather than any technical advantage. If you're building a new system without a legacy Codabar requirement, Code 39 or Code 128 will generally serve better.</p>"
+    }
+  ],
+  "uses": [
+    "Blood bank and blood product labeling",
+    "Library patron card and book spine barcodes",
+    "Historical and some current courier airbill tracking",
+    "Clinical specimen tracking in some laboratory systems",
+    "Legacy inventory systems built around Codabar hardware"
+  ],
+  "faq": [
+    {"q": "What characters can Codabar encode?", "a": "Codabar encodes digits 0 through 9 plus the symbols minus, dollar sign, colon, slash, period, and plus, along with mandatory start/stop characters chosen from A, B, C, or D."},
+    {"q": "Why do Codabar barcodes need start and stop characters?", "a": "The start and stop characters (A, B, C, or D) frame the symbol so a scanner knows where it begins and ends, and they can also let a system distinguish between different types of data using the same barcode format."},
+    {"q": "Does Codabar have a check digit?", "a": "The base Codabar standard doesn't require one, though some industry-specific implementations, such as certain blood bank systems, add an optional check digit by convention."},
+    {"q": "Is Codabar still commonly used?", "a": "Its use has narrowed mainly to blood banks, some library systems, and legacy courier applications; most new barcode deployments choose Code 39 or Code 128 instead."},
+    {"q": "What's the difference between Codabar and Code 39?", "a": "Codabar encodes digits and a limited set of symbols with mandatory A-D start/stop characters, while Code 39 supports uppercase letters, digits, and several symbols with a single universal start/stop character."},
+    {"q": "Can I bulk-generate Codabar barcodes?", "a": "Yes, upload a CSV of values and Barcode Studio will generate a ZIP of image files or a print-ready PDF of labels in one batch."}
+  ]
+}

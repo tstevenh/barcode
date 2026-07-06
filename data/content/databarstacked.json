@@ -1,0 +1,54 @@
+{
+  "id": "databarstacked",
+  "title": "DataBar Stacked Generator - Free GS1 Barcode Tool",
+  "metaDescription": "Free DataBar Stacked generator for narrow, tall GS1 GTIN labels. Enter (01)+GTIN data, adjust size and colors, and export PNG, SVG, or bulk labels.",
+  "primaryKeyword": "databar stacked generator",
+  "secondaryKeywords": ["gs1 databar stacked", "rss-14 stacked barcode", "narrow gtin barcode", "small item barcode generator", "databar for handheld scanners", "two-row gtin barcode"],
+  "lead": "Generate a two-row GS1 DataBar Stacked barcode for labels too narrow for a wide DataBar Omni symbol.",
+  "sections": [
+    {
+      "h2": "What is DataBar Stacked?",
+      "html": "<p>GS1 DataBar Stacked takes the same GTIN-only data as DataBar Omnidirectional and folds it into two rows instead of one continuous line, so the resulting symbol is much narrower but taller. It encodes a GTIN through Application Identifier (01), the same as <code>(01)09521234543213</code>, but where DataBar Omni is a wide, flat symbol, DataBar Stacked squeezes onto labels where width is the scarce resource, not height.</p>"
+    },
+    {
+      "h2": "How stacking changes the symbol &mdash; and the tradeoff",
+      "html": "<p>The top row of DataBar Stacked carries the left half of the encoded GTIN data, and the bottom row carries the right half, connected by a finder pattern that lets a scanner reassemble the two halves into one GTIN. This is the same underlying RSS-14 data structure as DataBar Omni, just physically rearranged.</p><p>The tradeoff is scan direction: because the data is split across two vertically stacked rows rather than laid out along a single sweep line, DataBar Stacked is not built for full omnidirectional sweep-scanning at a busy retail checkout the way DataBar Omni is. It's intended more for handheld or fixed-position scanning where an operator can aim carefully, rather than for high-throughput lanes where a cashier drags every item across a scanner in an unpredictable direction. If a label needs to stay narrow AND remain reliably omnidirectional at POS, DataBar Stacked Omni is the better fit &mdash; it adds height specifically to preserve full-direction scanning, which plain DataBar Stacked does not guarantee.</p>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>DataBar Stacked encodes GS1 Application Identifier (01) with a 14-digit GTIN split across two rows, standardized under ISO/IEC 24724 alongside the rest of the GS1 DataBar family. Total data capacity matches DataBar Omni exactly &mdash; it's the same GTIN-only payload, just rearranged into a taller, narrower physical footprint with a two-row separator/finder pattern instead of a single continuous guard bar. GS1 General Specifications define minimum quiet zone and row-separation requirements for the stacked layout, since cropping either can prevent the scanner from reassembling the two halves. As with DataBar Omni, there's no room for supplementary Application Identifiers in this symbol.</p>"
+    },
+    {
+      "h2": "Where DataBar Stacked is used",
+      "html": "<p>DataBar Stacked shows up on narrow packaging where a wide DataBar Omni symbol simply won't fit across the label &mdash; small cosmetic tubes, narrow jewelry tags, compact electronics accessories, and specialty pharmacy or supplement packaging with a tall, thin label area. It's common in scenarios where a stockroom or pharmacy worker scans items one at a time with a handheld imager rather than sweeping items past a fixed lane scanner, since that use case tolerates the more deliberate aiming that a stacked, non-omnidirectional symbol requires.</p>"
+    },
+    {
+      "h2": "How to create a DataBar Stacked barcode in Barcode Studio",
+      "html": "<p>Choose <strong>DataBar Stacked</strong> from the GS1 DataBar group in the symbology list, then enter the GTIN using AI syntax, such as <code>(01)09521234543213)</code>. Barcode Studio checks the digit sequence and lays out the two-row symbol automatically.</p><ul><li>Adjust module width and row height independently to fit a narrow, tall label footprint</li><li>Set foreground/background colors while preserving scan contrast</li><li>Fine-tune the quiet zone margin around the stacked symbol</li><li>Export to PNG or SVG, or copy the barcode for a label template</li><li>Bulk-generate from a CSV of GTINs into a ZIP or print-ready PDF</li><li>Use the REST API for automated generation: <code>/barcode?type=databarstacked&amp;data=(01)09521234543213</code></li></ul>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Because DataBar Stacked is typically read by a handheld or fixed scanner rather than a sweep lane, make sure whatever scanning hardware you're deploying is confirmed to support DataBar symbologies before printing a large label run. Keep the gap between the two rows and the quiet zone margin intact &mdash; cropping either will break the finder pattern the scanner relies on to stitch the two halves back into one GTIN. Print at a resolution that keeps the narrowest bar elements crisp, since a blurred module in either row can corrupt the whole decode.</p>"
+    },
+    {
+      "h2": "When to upgrade to DataBar Stacked Omni instead",
+      "html": "<p>The single most common mistake in choosing DataBar Stacked is assuming it will work at a standard retail checkout lane simply because it's part of the DataBar family. It's worth double-checking, early in a labeling project, exactly how the item will be scanned in production: if there's any chance the product ends up at a self-checkout kiosk or a manned lane where a cashier sweeps items past the scanner at an unpredictable angle, DataBar Stacked Omni is almost certainly the safer choice even though it requires slightly more vertical space. Plain DataBar Stacked is best reserved for scenarios you can control &mdash; a warehouse pick station, a pharmacy counter, or a back-office relabeling process &mdash; where an operator can take the extra half-second to aim the scanner deliberately.</p><p>If you're unsure which scanning environment your product will end up in, it's generally cheaper to design the label around DataBar Stacked Omni from the start than to discover a scanning failure rate problem after a large print run has already shipped to retail partners.</p>"
+    }
+  ],
+  "uses": [
+    "Narrow cosmetic tubes and compact packaging",
+    "Jewelry tags too tall-and-thin for a wide DataBar Omni symbol",
+    "Pharmacy and supplement packaging scanned by handheld imagers",
+    "Small electronics accessories with limited label width",
+    "Stockroom items scanned one at a time rather than swept through a lane",
+    "Any small package needing a full GTIN in a narrow vertical footprint"
+  ],
+  "faq": [
+    {"q": "What is a DataBar Stacked generator used for?", "a": "A DataBar Stacked generator produces a two-row GS1 barcode that encodes a full GTIN via Application Identifier (01) on packaging too narrow for a wide, single-row DataBar Omni symbol."},
+    {"q": "Is DataBar Stacked omnidirectional like DataBar Omni?", "a": "No, plain DataBar Stacked is intended for handheld or fixed-position scanning rather than full sweep-lane checkout scanning. If you need both a narrow footprint and omnidirectional POS scanning, use DataBar Stacked Omni instead."},
+    {"q": "Can DataBar Stacked carry more than a GTIN?", "a": "No, DataBar Stacked only carries a GTIN through AI (01). For batch numbers, dates, or other Application Identifiers, use DataBar Expanded Stacked or a DataBar Composite symbol."},
+    {"q": "How is DataBar Stacked different from DataBar Truncated?", "a": "DataBar Stacked splits the GTIN data into two full-height rows for a narrow, tall label, while DataBar Truncated keeps the single-row layout of DataBar Omni but shortens the bar height, trading omnidirectional reliability for vertical space savings in a different way."},
+    {"q": "Can I bulk-generate DataBar Stacked barcodes?", "a": "Yes, upload a CSV of GTINs and Barcode Studio produces a ZIP of image files or a print-ready PDF of labels in one pass."},
+    {"q": "Does DataBar Stacked need a licensed GS1 prefix?", "a": "Yes, for real commercial use the GTIN encoded in a DataBar Stacked symbol should come from a GTIN issued under your organization's licensed GS1 Company Prefix so it doesn't collide with another company's product identifier."}
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "id": "onecode",
+  "title": "USPS Intelligent Mail Barcode Generator (IMb)",
+  "metaDescription": "Generate USPS Intelligent Mail barcodes (IMb) free online. Encode 20-31 digit routing, tracking, and mailer ID data as the current 4-state USPS standard.",
+  "primaryKeyword": "usps intelligent mail barcode generator",
+  "secondaryKeywords": ["intelligent mail barcode", "imb generator", "usps onecode", "4-state barcode usps", "mailer id barcode", "usps automation barcode"],
+  "lead": "Create a USPS Intelligent Mail barcode (IMb) — the current 4-state standard that replaced POSTNET and PLANET for U.S. letter mail routing and tracking.",
+  "sections": [
+    {
+      "h2": "What is the USPS Intelligent Mail barcode?",
+      "html": "<p>The Intelligent Mail barcode (IMb), also known by its development name OneCode, is the current USPS standard for encoding routing, service, and tracking information on U.S. letter mail. It replaced both POSTNET and PLANET with a single format that does the job of each: it carries a destination ZIP/ZIP+4/delivery point code (like POSTNET did) and a tracking/service-type identifier (like PLANET did), plus mailer identification, all in one 65-bar barcode.</p><p>Unlike POSTNET and PLANET's simple two-height bars, IMb is a \"4-state\" barcode — each bar can be one of four types: ascender (tall), descender (extends below baseline), tracker (full height), or full-height combination. This four-state encoding packs far more information into a similarly compact printed footprint, which is why IMb can carry 20 to 31 digits worth of data where POSTNET topped out at 11.</p>"
+    },
+    {
+      "h2": "Structure and data fields",
+      "html": "<p>An Intelligent Mail barcode always contains exactly 65 bars encoding a fixed set of fields:</p><ul><li><strong>Barcode Identifier (2 digits):</strong> indicates the mail class and any special service (e.g., certified, return receipt).</li><li><strong>Service Type Identifier (3 digits):</strong> specifies the mail service and endorsement combination requested by the mailer.</li><li><strong>Mailer ID (6 or 9 digits):</strong> a unique identifier USPS assigns to the mailing organization.</li><li><strong>Serial Number (6 or 9 digits):</strong> a unique sequence number the mailer assigns per piece, enabling individual piece tracking.</li><li><strong>Routing Code (0, 5, 9, or 11 digits):</strong> optional ZIP, ZIP+4, or delivery point code for automated sortation — omitting it is valid for tracking-only use cases.</li></ul><p>These fields combine into a 20-, 25-, 29-, or 31-digit numeric string depending on whether the shorter or longer Mailer ID/Serial Number format is used and how much routing data is included, which the barcode then encodes using its 4-state bar pattern and built-in checksum.</p>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>An IMb symbol always uses exactly 65 vertical bars, each independently classified as one of four states — full (both ascender and descender), ascender-only, descender-only, or tracker (short, centered) — encoded via a combination of a 4-state table and a Reed-Solomon-based check-digit scheme called the Fletcher checksum algorithm, distinct from POSTNET's simple mod-10 check. The 65 bars pack a 5-bit-per-bar equivalent density far higher than POSTNET's, which is how IMb fits 20 to 31 decimal digits' worth of routing, tracking, and mailer data into a symbol not much wider than a POSTNET ZIP+4 code. USPS specifies bar height, width, pitch, and clear-zone tolerances precisely in its Intelligent Mail Barcode technical guide, and mail claiming automation rates must pass USPS's own barcode quality verification.</p>"
+    },
+    {
+      "h2": "Where Intelligent Mail is used",
+      "html": "<p>IMb is the barcode behind nearly all USPS-processed letter mail today:</p><ul><li>Business reply mail and courtesy reply envelopes, where the routing portion enables automated sortation and delivery.</li><li>Bulk and presort mail claiming USPS automation-rate discounts, which require a correctly formatted IMb for eligibility.</li><li>USPS tracking services for letters and flats, using the Mailer ID and Serial Number fields to track individual pieces through the mail stream.</li><li>Full-Service Intelligent Mail participation, where mailers get visibility into induction, processing, and delivery scan events tied to each unique serial number.</li></ul><p>If you handle U.S. mail production of any volume today, IMb (not POSTNET or PLANET) is the barcode your mail management system should be generating.</p>"
+    },
+    {
+      "h2": "How to generate an Intelligent Mail barcode in Barcode Studio",
+      "html": "<p>To create an IMb symbol:</p><ul><li>Select <strong>USPS Intelligent Mail</strong> from the barcode type list.</li><li>Enter your full data string — Barcode Identifier, Service Type ID, Mailer ID, Serial Number, and optional routing code — totaling 20 to 31 digits per USPS specification. If you don't yet have a Mailer ID, you'll need to register with USPS Business Customer Gateway before producing live mail.</li><li>Barcode Studio renders the 4-state bar pattern and calculates the required checksum automatically.</li><li>Adjust bar height and spacing to match USPS's specified physical dimensions for reliable optical scanning.</li><li>Export as SVG for print production or PNG for proofing.</li><li>Use <strong>Bulk CSV → ZIP/PDF</strong> to generate a unique IMb per mail piece across a large mailing, incrementing the serial number for each row, and the REST API at <code>/barcode?type=onecode&data=...</code> for automated generation from mail-merge or fulfillment systems.</li></ul><p>Before a live mailing, validate your IMb output against USPS's Mail.dat or Intelligent Mail barcode testing tools — an incorrectly structured field will cause automation-rate mail to lose its discount eligibility or be rejected at induction.</p>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>USPS specifies precise bar height, width, and spacing tolerances for the four bar states — ascenders, descenders, trackers, and full bars must all be clearly distinguishable for optical scanning equipment to decode correctly. Maintain the required clear zone around the barcode and avoid placing it near perforations, folds, or other print elements that could obscure any bar. Print at high resolution on quality stock, since IMb's four-state design has less visual redundancy per bar than POSTNET's simpler two-height scheme, making crisp, consistent printing more important for automation-rate mail.</p>"
+    },
+    {
+      "h2": "Intelligent Mail vs related postal codes",
+      "html": "<p>Compared to <strong>POSTNET</strong> and <strong>PLANET</strong>, IMb is the current, actively supported replacement for both — it's a 4-state rather than 2-state design, and it consolidates address routing and piece-level tracking into one barcode instead of requiring two separate legacy symbols. Compared to the <strong>USPS IM Package Barcode (IMpb)</strong>, IMb is used on letter mail and flats and is height-modulated, while IMpb is a linear Code 128 barcode used on package labels — both share the Mailer ID concept but serve different mail classes and use different physical encodings. Compared to international 4-state formats like <strong>Royal Mail 4-State</strong> or <strong>Royal Mail Mailmark</strong>, IMb is USPS-specific and structurally distinct, though all these formats share the general 4-state bar-height design philosophy that succeeded simpler height-modulated postal codes worldwide.</p>"
+    }
+  ],
+  "uses": [
+    "Business reply mail and courtesy reply envelopes with automated sortation",
+    "Bulk and presort mail claiming USPS automation-rate discounts",
+    "USPS tracking and Full-Service Intelligent Mail participation for letters and flats",
+    "Mail merge and fulfillment systems generating unique serials per mail piece",
+    "Any current U.S. mail production requiring routing, service, and tracking data"
+  ],
+  "faq": [
+    {"q": "What is a USPS Intelligent Mail barcode generator used for?", "a": "<p>A usps intelligent mail barcode generator creates the 4-state IMb barcode that encodes routing, service type, mailer ID, and tracking serial number data — the current USPS standard for letter mail automation and tracking.</p>"},
+    {"q": "How is Intelligent Mail different from POSTNET and PLANET?", "a": "IMb combines what POSTNET (routing/ZIP) and PLANET (tracking) did separately into one 4-state, 65-bar barcode with far greater data capacity — 20 to 31 digits versus POSTNET's maximum of 11."},
+    {"q": "Do I need a USPS Mailer ID to use Intelligent Mail?", "a": "<p>Yes, for live mail production you need a Mailer ID registered through the USPS Business Customer Gateway. You can generate and preview IMb symbols without one, but a real mailing requires a valid, USPS-assigned Mailer ID.</p>"},
+    {"q": "How many digits does an Intelligent Mail barcode encode?", "a": "IMb encodes 20, 25, 29, or 31 digits depending on Mailer ID length and whether a routing/ZIP code is included, combining barcode ID, service type, mailer ID, serial number, and optional routing data."},
+    {"q": "Can Barcode Studio generate a batch of Intelligent Mail barcodes with unique serial numbers?", "a": "<p>Yes — the bulk CSV to ZIP/PDF tool lets you increment the serial number field per row, producing a unique, trackable IMb for every piece in a mailing.</p>"}
+  ]
+}

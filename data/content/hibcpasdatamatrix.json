@@ -1,0 +1,52 @@
+{
+  "id": "hibcpasdatamatrix",
+  "title": "HIBC PAS Data Matrix Generator – Healthcare",
+  "metaDescription": "Generate an HIBC PAS Data Matrix free online. Encode a GS1 prefix-based labeler ID and product data in a compact 2D symbol for medical device labeling.",
+  "primaryKeyword": "hibc pas data matrix generator",
+  "secondaryKeywords": ["hibc pas data matrix barcode", "gs1 prefix hibc data matrix", "hibc pas direct part marking", "medical device pas 2d symbol", "hibc pas vs lic data matrix", "healthcare industry bar code pas"],
+  "lead": "Generate an HIBC PAS Data Matrix that fits a GS1 prefix-based Health Industry Bar Code record into a tiny, high-density 2D symbol.",
+  "sections": [
+    {
+      "h2": "What is HIBC PAS Data Matrix?",
+      "html": "<p>HIBC PAS Data Matrix pairs HIBCC's newer PAS (Provider Applications Standard) data format with the Data Matrix symbology, which is the go-to choice when label space is at a premium — small medical device components, ampoules, and surgical instruments. PAS lets a manufacturer build its labeler identifier from a GS1 Company Prefix it already holds, avoiding the need for a separate registration with HIBCC to obtain a 4-character Labeler Identification Code, which is how the older HIBC LIC structure works.</p><p>Data Matrix's dense, error-corrected encoding makes it well suited to direct part marking and very small package labeling, and the PAS structure is increasingly the preferred choice for manufacturers who already maintain GS1 infrastructure for GTIN and other product identifiers.</p><p>An <strong>hibc pas data matrix generator</strong> earns its keep here because the PAS message string has several concatenated fields with strict formatting rules and a computed check character — building that string by hand invites exactly the kind of transcription error a check character is meant to catch. HIBCC introduced PAS specifically so manufacturers already investing in GS1 numbering for retail and logistics wouldn't need to maintain a second, parallel identifier scheme purely for healthcare labeling.</p>"
+    },
+    {
+      "h2": "How HIBC PAS data is structured",
+      "html": "<p>The message content follows HIBC's PAS record format:</p><ul><li><strong>\"+\" data identifier</strong> — marks the payload as HIBC-formatted.</li><li><strong>GS1 Company Prefix-based labeler identifier</strong> — built from the labeler's existing GS1 prefix rather than a HIBCC-issued LIC.</li><li><strong>Product/catalog number</strong> — the labeler's item identifier.</li><li><strong>Unit-of-measure digit</strong> — packaging level.</li><li><strong>Optional secondary data</strong> — lot/batch number, expiry date and quantity.</li><li><strong>Check character</strong> — validates the primary data string.</li></ul><p>Data Matrix's strong Reed–Solomon error correction means this PAS-structured string stays reliably decodable even printed at the very small sizes typical of medical device component marking, or when part of the symbol is obscured by handling wear or sterilization residue.</p>"
+    },
+    {
+      "h2": "Where HIBC PAS Data Matrix is used",
+      "html": "<p>This combination is used where both space constraints and GS1 alignment matter:</p><ul><li>Small medical device components and single-use instruments marked by manufacturers already using GS1 Company Prefixes.</li><li>Direct part marking on reusable surgical instruments that need a durable, space-efficient 2D symbol.</li><li>Ampoules, vials, and other compact pharmaceutical containers where PAS lets the labeler skip a separate HIBCC registration.</li><li>Healthcare organizations standardizing on GS1-aligned identification across both retail/logistics GTINs and clinical HIBC labeling.</li><li>Dental and orthopedic implant components, where the marking surface is often only a few millimeters wide and a linear barcode simply won't fit legibly.</li></ul><p>It's also common in hospital central sterile processing departments, where instrument trays are tracked through repeated sterilization cycles and a durable, high-density mark is needed on individual instruments rather than just the tray. Distributors and group purchasing organizations that receive product from multiple manufacturers also benefit from PAS, since it lets each supplier's existing GS1 prefix carry through into the HIBC labeling without a manual cross-reference to a separately issued LIC code.</p>"
+    },
+    {
+      "h2": "HIBC PAS Data Matrix technical specifications",
+      "html": "<p>HIBC PAS Data Matrix combines HIBCC's PAS message syntax with the ECC 200 version of Data Matrix, standardized under ISO/IEC 16022. Data Matrix's Reed–Solomon error correction can recover the symbol even if a meaningful percentage of modules are damaged or obscured, which is central to why it's favored for direct part marking. The PAS payload begins with a \"+\" data identifier, followed by a variable-length GS1 Company Prefix-based labeler identifier, product/catalog number, unit-of-measure digit, and optional lot, expiry, and quantity fields, closed with a single HIBC check character validating the primary string. Symbol size scales with data length and error-correction level, typically ranging from roughly 10x10 to 20x20 modules for a typical PAS payload at standard ECC 200 settings.</p>"
+    },
+    {
+      "h2": "How to generate an HIBC PAS Data Matrix in Barcode Studio",
+      "html": "<p>To build the symbol:</p><ul><li>Select <strong>HIBC PAS Data Matrix</strong> from the barcode type list.</li><li>Enter your GS1 Company Prefix-based labeler identifier, product/catalog number, and unit of measure, plus lot number, expiry date, and quantity for full secondary data.</li><li>Barcode Studio formats the PAS structure, computes the check character, and renders the completed string as a Data Matrix symbol.</li><li>Set module size and shape to fit your smallest labeling constraint while staying within a scannable size for your marking method — laser etching, inkjet, or thermal transfer.</li><li>Export as SVG for direct part marking artwork or PNG for label proofing, and use <strong>Bulk CSV → ZIP/PDF</strong> to generate a distinct HIBC PAS Data Matrix per component or lot across a production run.</li><li>Call the REST API at <code>/barcode?type=hibcpasdatamatrix&data=...</code> to integrate generation into a manufacturing or label-management system.</li></ul><p>Because Barcode Studio computes the HIBC check character automatically from whatever labeler identifier, product number, and secondary fields you enter, there's no need to look up the check-character algorithm yourself — just make sure the labeler identifier you enter matches your registered GS1 Company Prefix exactly, since that field anchors the entire PAS record.</p>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Because the PAS labeler identifier is generally longer than the fixed-length LIC code, a PAS Data Matrix carrying the same product data may need slightly more modules than its LIC equivalent — factor this into your minimum print size calculations. As with any healthcare Data Matrix, verify print quality against ISO/IEC 15415 grading, and for instruments subject to repeated sterilization, confirm your marking method is rated to keep the symbol above a scannable grade over the instrument's service life.</p><p>Confirm early that the scanners and hospital information systems downstream can actually parse HIBC PAS syntax specifically — some legacy healthcare scanning infrastructure was built and validated only against the older LIC format and needs a firmware or configuration update to recognize a GS1 prefix-based labeler identifier correctly. Testing this before a full label conversion avoids a scenario where instruments are marked correctly but simply can't be read by receiving or point-of-use scanners.</p>"
+    },
+    {
+      "h2": "HIBC PAS Data Matrix vs. related codes",
+      "html": "<p>Against <strong>HIBC LIC Data Matrix</strong>, PAS carries variable unit-level data (lot, expiry, quantity) while LIC carries the fixed product identity built from a labeler code and product number — the two are typically printed and scanned together, not as substitutes for each other. Against <strong>HIBC PAS Code 39 or Code 128</strong>, Data Matrix packs the same PAS payload into a far smaller footprint, which matters most on small device components where a linear barcode simply won't fit. Against a plain <strong>GS1 DataMatrix</strong> encoding a GTIN and application identifiers, HIBC PAS Data Matrix follows the older HIBCC syntax rather than GS1 Application Identifier syntax, so the two aren't interchangeable even though both use the same underlying Data Matrix symbology.</p>"
+    }
+  ],
+  "uses": [
+    "Small medical device component marking by GS1 prefix-based labelers",
+    "Direct part marking on reusable, sterilizable surgical instruments",
+    "Ampoules and small pharmaceutical container labeling under PAS",
+    "Manufacturers avoiding separate HIBCC labeler registration",
+    "Healthcare organizations standardizing on GS1-aligned HIBC labeling"
+  ],
+  "faq": [
+    {"q": "What is an HIBC PAS Data Matrix generator used for?", "a": "<p>An hibc pas data matrix generator creates a compact 2D Data Matrix symbol encoding a Health Industry Bar Code PAS record — a GS1 prefix-based labeler identifier, product number, and optional lot/expiry data — for space-constrained medical device labeling.</p>"},
+    {"q": "Why choose PAS over LIC for Data Matrix labeling?", "a": "PAS lets a manufacturer that already holds a GS1 Company Prefix build its HIBC labeler identifier from that prefix, avoiding a separate registration with HIBCC that the LIC structure requires."},
+    {"q": "Is HIBC PAS Data Matrix suitable for direct part marking?", "a": "<p>Yes — Data Matrix's error correction makes it well suited to direct part marking on small or curved medical device surfaces, whether using the LIC or PAS data structure.</p>"},
+    {"q": "Does a PAS Data Matrix need to be larger than a LIC one?", "a": "It can — since the GS1 prefix-based labeler identifier under PAS is typically longer than the fixed 4-character LIC code, the resulting Data Matrix may need slightly more modules for the same product data."},
+    {"q": "Can I batch-generate HIBC PAS Data Matrix codes?", "a": "<p>Yes — use Barcode Studio's bulk CSV to ZIP/PDF tool to generate a unique symbol per component or lot across a production run.</p>"}
+  ]
+}

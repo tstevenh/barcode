@@ -1,0 +1,53 @@
+{
+  "id": "koreapost",
+  "title": "Korean Postal Authority Code Generator | Barcode Studio",
+  "metaDescription": "Generate Korean Postal Authority Code barcodes free online for South Korean mail sortation. Encode postal routing digits with live preview, export, and API.",
+  "primaryKeyword": "korean postal authority code generator",
+  "secondaryKeywords": ["korea post barcode generator", "korean postal code barcode", "south korea mail barcode", "korea post sortation code", "postal authority barcode korea", "korean postcode barcode"],
+  "lead": "Turn a South Korean postal routing number into the linear barcode format used by Korea Post's mail sorting systems.",
+  "sections": [
+    {
+      "h2": "What Is the Korean Postal Authority Code?",
+      "html": "<p>The Korean Postal Authority Code is a barcode symbology developed for South Korea's postal service to encode postal routing information on mail pieces. Unlike four-state postal codes used by the Netherlands, Australia, or Japan, this format is a numeric barcode built from a defined set of bar/space patterns representing digits, designed to be printed on envelopes and parcels for machine sortation within the Korean postal network.</p><p>It's a niche, country-specific symbology — you'll rarely encounter it outside of mail sent through Korea's domestic postal system, but for businesses or logistics providers handling Korean mail volume, encoding it correctly with a reliable korean postal authority code generator is what allows automated equipment to route pieces without manual address reading. Because so few tools support it, most senders reach for a general-purpose barcode generator rather than a dedicated postal application whenever they need to produce one of these codes for a mailing project.</p><p>Like other postal barcode formats around the world, it exists because manual address reading doesn't scale to national mail volumes. A machine-readable numeric pattern lets sortation equipment move a piece through the correct chute in a fraction of a second, something a human sorter simply cannot match at the throughput a national postal service requires.</p>"
+    },
+    {
+      "h2": "How the Code Encodes Data",
+      "html": "<p>The Korean Postal Authority Code encodes a numeric postal routing string — typically derived from the destination postal code — into a series of bars representing each digit according to the symbology's defined pattern table. As with most single-purpose postal barcodes, the input is strictly numeric, and the barcode is meant to be read by fixed sortation equipment rather than general-purpose handheld scanners, so its bar widths and spacing follow the postal authority's own technical specification rather than a general commercial barcode standard.</p><p>Each digit maps to a fixed bar-and-space pattern, and the digits are laid out sequentially from left to right with defined start and stop markers framing the data so a scanner can locate where the routing information begins and ends. There is no user-configurable structure beyond the digits themselves — the symbology's job is narrow and mechanical: take a postal routing number and render it as a pattern a sorting machine can read at speed, nothing more.</p>"
+    },
+    {
+      "h2": "Technical Specifications",
+      "html": "<p>The Korean Postal Authority Code accepts numeric input only — no letters, punctuation, or symbols. The exact digit length corresponds to the postal routing data you're encoding, generally tied to the destination postal code format used by Korea Post. As a linear (1D) symbology, it renders as a single row of bars and spaces rather than a 2D grid, and it carries no error-correction layer the way 2D codes like QR or Data Matrix do; instead, reliability comes from consistent print quality and adherence to the postal authority's bar-width tolerances. There is no user-facing checksum step to manage in Barcode Studio — you supply the routing digits, and the generator renders the corresponding bar pattern directly.</p>"
+    },
+    {
+      "h2": "Where the Korean Postal Authority Code Is Used",
+      "html": "<p>This symbology has a narrow, specific application:</p><ul><li><strong>Domestic Korean mail sortation</strong> — printed on envelopes and parcels handled within Korea Post's automated processing centers.</li><li><strong>Bulk mail and direct marketing</strong> — Korean businesses sending large mail volumes use postal barcodes to speed up sortation and potentially reduce processing costs.</li><li><strong>Logistics and fulfillment</strong> — companies shipping through Korea's domestic postal network may need this barcode on labels destined for postal (rather than private courier) delivery.</li><li><strong>Mail-merge and print shops</strong> — service bureaus producing large mailing runs for Korean clients sometimes need to generate this barcode alongside address data pulled from a customer database.</li></ul>"
+    },
+    {
+      "h2": "How to Create a Korean Postal Authority Code in Barcode Studio",
+      "html": "<p>Select <strong>Korean Postal Authority Code</strong> from the Postal Code group in the symbology list. Enter the numeric postal routing data for your destination — the live preview updates as you type so you can confirm the bar pattern before export. From there:</p><ul><li>Adjust <strong>bar width and height</strong> to fit the space allotted on your envelope or label template.</li><li>Set the <strong>margin/quiet zone</strong> generously around the code, since fixed sortation equipment relies on clean white space to locate the barcode boundaries.</li><li>Keep the barcode in solid black on a light background for maximum contrast, since postal sortation scanners are tuned for high-contrast printing rather than color variants.</li><li>Export as <strong>PNG or SVG</strong> for direct use in a mail-merge or label design tool, or use <strong>Copy</strong> for quick placement.</li><li>Use the <strong>bulk CSV → ZIP/PDF</strong> tool to generate a unique barcode for every address in a mailing list from a single spreadsheet upload.</li><li>Call the <strong>REST API</strong> — <code>/barcode?type=koreapost&data=YOURPOSTALDATA</code> — to generate these barcodes programmatically from a mailing or shipping system.</li></ul>"
+    },
+    {
+      "h2": "Print and Scan Best Practices",
+      "html": "<p>Because this barcode is read by fixed postal sortation equipment, printing consistency matters:</p><ul><li>Place the barcode in the location specified by Korea Post's mailing guidelines relative to the address block.</li><li>Print in solid black ink on non-glossy, light-colored stock to avoid glare or low contrast interfering with optical readers.</li><li>Verify your postal routing digits against the actual destination postal code before a large mail run, since a barcode-only routing error can misdirect the piece.</li><li>Maintain a clear quiet zone around the barcode, free of stamps, other printed marks, or overlapping text.</li><li>Print and test a sample piece at actual size before a full production run to confirm the barcode is legible to the equipment you expect to process it.</li><li>Avoid resizing the barcode disproportionately (stretching width without height, or vice versa) since that distorts the bar-width ratios the scanner depends on to distinguish one digit's pattern from another.</li></ul>"
+    },
+    {
+      "h2": "Korean Postal Authority Code vs Other Postal Barcodes",
+      "html": "<p>Most national postal services have settled on four-state barcode formats — patterns using bars of varying height (ascender, descender, tracker, full bar) — for their own routing codes, as seen in Australia Post's 4-State Customer Code, Japan Post's 4-State code, and Royal Mail's RM4SCC. The Korean Postal Authority Code instead follows a more traditional bar/space linear structure, closer in spirit to the numeric symbologies used by Deutsche Post's Identcode and Leitcode than to its four-state postal peers. None of these postal formats are interchangeable: each is tied to a specific national postal authority's sortation equipment and technical specification, so a barcode generated for use within Korea Post's network won't be recognized or processed correctly by a different country's mail sorting system. If you're shipping internationally and need multiple countries' postal barcodes, you'll generate each one separately using its own dedicated symbology rather than a single universal postal code.</p>"
+    }
+  ],
+  "uses": [
+    "Domestic South Korean mail sortation through Korea Post processing centers",
+    "Bulk business mail and direct marketing sent within Korea",
+    "Logistics labels for parcels shipped through Korea's postal network",
+    "Mail-merge systems generating postal routing barcodes for Korean addresses",
+    "Print shops and service bureaus producing large Korean mailing runs"
+  ],
+  "faq": [
+    {"q": "What is the Korean Postal Authority Code used for?", "a": "It's a barcode symbology used by Korea Post to encode postal routing data on mail and parcels for automated sortation within South Korea's domestic postal network."},
+    {"q": "What data does a korean postal authority code generator need?", "a": "<p>A numeric postal routing string, typically derived from the South Korean destination postal code, entered exactly as required by Korea Post's specification.</p>"},
+    {"q": "Is this barcode used outside of Korea?", "a": "No, the Korean Postal Authority Code is specific to South Korea's domestic postal sortation system and isn't used by other countries' postal services."},
+    {"q": "Can I bulk-generate these barcodes from a spreadsheet?", "a": "<p>Yes, upload a CSV of postal routing data to Barcode Studio's bulk tool to generate a ZIP of individual barcode images or a single print-ready PDF, one per address.</p>"},
+    {"q": "Is the Korean Postal Authority Code generator free?", "a": "Yes, Barcode Studio's generator runs entirely in your browser with no account required for standard PNG/SVG exports."},
+    {"q": "Can I generate this barcode from my own software?", "a": "Yes — call /barcode?type=koreapost&data=YOURDATA through the REST API to generate the barcode image directly from a mailing or logistics application."}
+  ]
+}

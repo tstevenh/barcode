@@ -1,0 +1,52 @@
+{
+  "id": "epcqrcode",
+  "title": "EPC QR Code Generator (SEPA Payment QR)",
+  "metaDescription": "Generate an EPC QR Code free online for SEPA credit transfers. Encode IBAN, BIC, amount, and remittance info in the EPC069-12 format banks recognize.",
+  "primaryKeyword": "epc qr code generator",
+  "secondaryKeywords": ["sepa qr code", "EPC069-12 format", "girocode generator", "sepa credit transfer qr", "european payment qr code", "iban qr code"],
+  "lead": "Generate an EPC QR Code that lets any SEPA banking app scan and initiate a euro credit transfer automatically.",
+  "sections": [
+    {
+      "h2": "What is an EPC QR Code?",
+      "html": "<p>An EPC QR Code is a standard QR Code that encodes payment instructions in the format defined by the European Payments Council (EPC) under guideline EPC069-12, commonly known by its German name Girocode. Scanning it with a SEPA-region banking app pre-fills a euro credit transfer — recipient IBAN, name, amount and reference — so the payer just confirms and sends, without typing account numbers by hand.</p><p>Like the Swiss QR Code and ZATCA QR Code, an EPC QR Code is a plain QR Code (typically Model 2, error correction level M) carrying a specific plain-text data structure. What makes it usable for payment is that European banking apps recognize the EPC069-12 field order and parse it automatically.</p>"
+    },
+    {
+      "h2": "How the EPC069-12 payload is structured",
+      "html": "<p>The EPC QR Code payload is a sequence of newline-separated fields in a fixed order:</p><ul><li><strong>Service tag</strong> — the literal string \"BCD\".</li><li><strong>Version</strong> — \"001\" or \"002\" of the EPC069-12 specification.</li><li><strong>Character set</strong> — a numeric code for the text encoding used (commonly UTF-8).</li><li><strong>Identification</strong> — the literal string \"SCT\" (SEPA Credit Transfer).</li><li><strong>BIC</strong> — the recipient bank's BIC/SWIFT code (optional under version 2 for domestic SEPA transfers).</li><li><strong>Beneficiary name</strong> — the account holder's name, up to 70 characters.</li><li><strong>IBAN</strong> — the recipient's International Bank Account Number.</li><li><strong>Amount</strong> — in euros, prefixed with \"EUR\", or left blank for the payer to enter.</li><li><strong>Purpose, remittance reference/text, and an optional information field</strong> — used to identify what the payment is for, either a structured creditor reference or free text.</li></ul><p>Because SEPA only covers euro-denominated transfers within the SEPA zone, the currency field is always EUR — an EPC QR Code cannot encode other currencies.</p>"
+    },
+    {
+      "h2": "Technical specifications",
+      "html": "<p>An EPC QR Code is a standard ISO/IEC 18004 QR Code, typically Model 2 at error correction level M, encoding plain UTF-8 (or the more restrictive ISO 8859-1) text under version 001 or 002 of the European Payments Council's EPC069-12 guideline. Field lengths are bounded — beneficiary name up to 70 characters, remittance reference up to 35 characters — and the practical overall message length is limited by how much text a given banking app is willing to parse, commonly cited around 300 characters. There is no separate checksum on the EPC069-12 text itself; validation happens at the IBAN level (IBAN includes its own two-digit check via the MOD 97-10 algorithm) and again when the receiving bank processes the transfer.</p>"
+    },
+    {
+      "h2": "Where EPC QR Codes are used",
+      "html": "<p>EPC QR Codes (Girocode) are common on:</p><ul><li>Invoices issued by German, Austrian and other eurozone businesses that want frictionless bank-transfer payment.</li><li>Donation appeals from European charities and NGOs, where scanning pre-fills the donation amount and reference.</li><li>Membership dues and subscription renewal notices from clubs and associations.</li><li>Point-of-sale and restaurant bill payment in markets where instant SEPA transfer is preferred over card payment.</li></ul><p>Adoption is strongest in Germany and Austria, where Girocode is widely supported by nearly every major bank's mobile app, but the format works with any SEPA-region bank that implements EPC069-12 scanning.</p>"
+    },
+    {
+      "h2": "How to generate an EPC QR Code in Barcode Studio",
+      "html": "<p>To build a valid EPC QR Code:</p><ul><li>Select <strong>EPC QR Code</strong> from the barcode type list to open the EPC069-12 content builder.</li><li>Enter the beneficiary name, IBAN, and BIC (if you want to include it), then the amount in EUR and an optional remittance reference or free-text note.</li><li>Barcode Studio assembles these into the correctly ordered EPC069-12 text block and encodes it as a QR Code — you don't need to format the raw payload manually.</li><li>Export as SVG for placement in an invoice template, or PNG for quick sharing on a payment request page or printed flyer.</li><li>Use <strong>Bulk CSV → ZIP/PDF</strong> to generate a distinct EPC QR Code per invoice or donor row, pulling IBAN, amount and reference from a billing or fundraising export.</li><li>Or call the REST API at <code>/barcode?type=epcqrcode&data=...</code> to generate payment QR codes programmatically as part of an invoicing workflow.</li></ul><p>Test a sample code with at least one major SEPA banking app before rolling it out broadly — while EPC069-12 is a published standard, individual banks vary slightly in which optional fields (like BIC) they require versus ignore.</p>"
+    },
+    {
+      "h2": "Print and scan best practices",
+      "html": "<p>Print the EPC QR Code in solid black on a white background with a clear quiet zone, and size it generously enough for a phone camera to focus at typical invoice-reading distance — a small code crammed into a corner of an A4 invoice is a common cause of failed scans. Keep the encoded text under the roughly 300-character practical limit some banking apps enforce by using short, clear remittance text rather than long free-form notes. Avoid non-Latin characters and unusual punctuation in the beneficiary name and reference fields, since some banking apps' EPC069-12 parsers are stricter about character encoding than the QR Code standard itself.</p>"
+    },
+    {
+      "h2": "EPC QR Code vs related payment codes",
+      "html": "<p>The EPC QR Code (Girocode) plays the same structural role as the <strong>Swiss QR Code</strong> — both are plain-text QR Codes that pre-fill a bank transfer — but they target different payment rails: EPC069-12 works only for euro-denominated SEPA credit transfers, while the Swiss QR Code's SPC format supports Swiss franc and euro payments through Switzerland's own IBAN/QR-IBAN and reference system, and the two are not cross-compatible. Compared with a <strong>MeCard</strong> or <strong>vCard</strong> QR Code, which simply save contact information, an EPC QR Code carries payment-execution data that a banking app actively parses and acts on, so accuracy in the IBAN and amount fields matters far more than in a typical informational QR Code.</p>"
+    }
+  ],
+  "uses": [
+    "Eurozone business invoices with scan-to-pay bank transfer",
+    "Charity and NGO donation appeals with pre-filled amounts",
+    "Membership dues and subscription renewal notices",
+    "Point-of-sale SEPA transfer payment in Germany and Austria",
+    "Automated payment QR generation from invoicing software"
+  ],
+  "faq": [
+    {"q": "What does an EPC QR code generator produce?", "a": "<p>An epc qr code generator produces a QR Code encoding SEPA credit transfer details — IBAN, beneficiary name, amount and reference — formatted to the EPC069-12 standard so European banking apps can scan and initiate the payment.</p>"},
+    {"q": "Is EPC QR Code the same as Girocode?", "a": "Yes — Girocode is the common name for the EPC QR Code standard, particularly in Germany and Austria where it originated and sees the widest bank support."},
+    {"q": "Can an EPC QR Code be used outside the eurozone?", "a": "<p>No — EPC069-12 is built specifically for SEPA credit transfers in euros, so the recipient IBAN and currency must be within the SEPA zone for banking apps to process it.</p>"},
+    {"q": "Is the BIC required in an EPC QR Code?", "a": "Under version 2 of the EPC069-12 spec, BIC can be omitted for most domestic SEPA transfers, though including it improves compatibility with older banking apps."},
+    {"q": "Can I generate EPC QR codes for multiple invoices at once?", "a": "<p>Yes — use the bulk CSV to ZIP/PDF tool to generate one EPC QR Code per row, ideal for batch invoice runs or donation campaign mailers.</p>"}
+  ]
+}
