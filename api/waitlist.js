@@ -22,6 +22,23 @@ const FEATURES = new Set([
   "no-watermark", "commercial-license", "bulk-csv",
   "vector-export", "api-access", "dynamic-qr", "high-res", "team"
 ]);
+const ALLOWED_LOCALES = new Set(["en", "de", "pl", "nl", "fr", "ja"]);
+
+// Localized confirmation email (subject + plain-text body), keyed by locale.
+const EMAIL_I18N = {
+  en: { subject: "You're on the Barcode APIs early list",
+    body: "Thanks for joining the Barcode APIs early list.\n\nWe'll email you the moment it's ready — early-list members get first access and launch pricing.\n\n— Barcode APIs" },
+  de: { subject: "Sie stehen auf der Barcode APIs Early-Access-Liste",
+    body: "Danke, dass Sie sich für die Early-Access-Liste von Barcode APIs eingetragen haben.\n\nWir melden uns per E-Mail, sobald es so weit ist — Mitglieder der Liste erhalten zuerst Zugang und exklusive Launch-Preise.\n\n— Barcode APIs" },
+  pl: { subject: "Jesteś na liście wczesnego dostępu Barcode APIs",
+    body: "Dziękujemy za zapisanie się na listę wczesnego dostępu Barcode APIs.\n\nNapiszemy do Ciebie, gdy tylko będzie gotowe — członkowie listy otrzymują dostęp jako pierwsi oraz ceny na start.\n\n— Barcode APIs" },
+  nl: { subject: "Je staat op de early-accesslijst van Barcode APIs",
+    body: "Bedankt voor je aanmelding voor de early-accesslijst van Barcode APIs.\n\nWe mailen je zodra het zover is — leden van de lijst krijgen als eerste toegang en lanceerprijzen.\n\n— Barcode APIs" },
+  fr: { subject: "Vous êtes sur la liste d'accès anticipé de Barcode APIs",
+    body: "Merci de vous être inscrit à la liste d'accès anticipé de Barcode APIs.\n\nNous vous écrirons dès que ce sera prêt — les membres de la liste bénéficient d'un accès prioritaire et de tarifs de lancement.\n\n— Barcode APIs" },
+  ja: { subject: "Barcode APIs 先行アクセスリストにご登録いただきました",
+    body: "Barcode APIs の先行アクセスリストにご登録いただきありがとうございます。\n\n準備が整い次第、メールでお知らせします。先行リストのメンバーは、いち早くご利用いただけるほか、限定の提供開始価格をご案内します。\n\n— Barcode APIs" }
+};
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -65,27 +82,17 @@ async function storeSupabase(row) {
   }
 }
 
-async function sendConfirmation(email, tier) {
+async function sendConfirmation(email, locale) {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.WAITLIST_FROM_EMAIL;
   if (!apiKey || !from) return; // Resend optional — silently skip if unconfigured.
-  const label = tier === "api" ? "the API" : tier ? `${tier[0].toUpperCase()}${tier.slice(1)}` : "Pro";
+  const copy = EMAIL_I18N[locale] || EMAIL_I18N.en;
   const to = [email];
   if (process.env.WAITLIST_NOTIFY_EMAIL) to.push(process.env.WAITLIST_NOTIFY_EMAIL);
   await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
-    body: JSON.stringify({
-      from,
-      to,
-      subject: "You're on the Barcode APIs early list",
-      text:
-        `Thanks for your interest in ${label}.\n\n` +
-        `You're on the early-access list — we'll email you the moment it's ready, ` +
-        `and early-list members get first access and launch pricing.\n\n` +
-        `In the meantime the free generator and REST API stay free to use.\n\n` +
-        `— Barcode APIs`
-    })
+    body: JSON.stringify({ from, to, subject: copy.subject, text: copy.body })
   }).catch(() => {}); // never let email failure fail the signup
 }
 
@@ -115,6 +122,7 @@ module.exports = async (req, res) => {
   const features = Array.isArray(body.features)
     ? [...new Set(body.features.map(String).filter((f) => FEATURES.has(f)))].slice(0, 12)
     : [];
+  const locale = ALLOWED_LOCALES.has(String(body.locale)) ? String(body.locale) : "en";
   // Honeypot: bots fill hidden fields. Silently accept without storing.
   if (body.company) { res.status(200).json({ ok: true }); return; }
 
@@ -129,7 +137,7 @@ module.exports = async (req, res) => {
 
   try {
     await storeSupabase(row);
-    await sendConfirmation(email, tier);
+    await sendConfirmation(email, locale);
     res.status(200).json({ ok: true });
   } catch (e) {
     const status = e && e.status ? e.status : 500;

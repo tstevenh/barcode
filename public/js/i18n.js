@@ -714,4 +714,17 @@
   Object.keys(PRO_I18N).forEach(function (c) {
     if (window.I18N.ui[c]) { for (var k in PRO_I18N[c]) { window.I18N.ui[c][k] = PRO_I18N[c][k]; } }
   });
+
+  // Transient waitlist form status messages (set by pro-waitlist.js at runtime).
+  var MSG_I18N = {
+    en: { proMsgInvalidEmail: "Please enter a valid email address.", proMsgPending: "Adding you…", proMsgSuccess: "You're on the list — we'll email you the moment it launches.", proMsgError: "Something went wrong — please try again.", proMsgNetwork: "Network error — please try again." },
+    de: { proMsgInvalidEmail: "Bitte geben Sie eine gültige E-Mail-Adresse ein.", proMsgPending: "Wird hinzugefügt…", proMsgSuccess: "Sie sind auf der Liste — wir melden uns per E-Mail, sobald es losgeht.", proMsgError: "Etwas ist schiefgelaufen — bitte versuchen Sie es erneut.", proMsgNetwork: "Netzwerkfehler — bitte versuchen Sie es erneut." },
+    pl: { proMsgInvalidEmail: "Podaj prawidłowy adres e-mail.", proMsgPending: "Dodawanie…", proMsgSuccess: "Jesteś na liście — napiszemy, gdy tylko wystartujemy.", proMsgError: "Coś poszło nie tak — spróbuj ponownie.", proMsgNetwork: "Błąd sieci — spróbuj ponownie." },
+    nl: { proMsgInvalidEmail: "Voer een geldig e-mailadres in.", proMsgPending: "Bezig met toevoegen…", proMsgSuccess: "Je staat op de lijst — we mailen je zodra het live gaat.", proMsgError: "Er ging iets mis — probeer het opnieuw.", proMsgNetwork: "Netwerkfout — probeer het opnieuw." },
+    fr: { proMsgInvalidEmail: "Veuillez saisir une adresse e-mail valide.", proMsgPending: "Ajout en cours…", proMsgSuccess: "Vous êtes sur la liste — nous vous écrirons dès le lancement.", proMsgError: "Une erreur s'est produite — veuillez réessayer.", proMsgNetwork: "Erreur réseau — veuillez réessayer." },
+    ja: { proMsgInvalidEmail: "有効なメールアドレスを入力してください。", proMsgPending: "登録中…", proMsgSuccess: "登録が完了しました — 提供開始時にメールでお知らせします。", proMsgError: "問題が発生しました — もう一度お試しください。", proMsgNetwork: "ネットワークエラー — もう一度お試しください。" }
+  };
+  Object.keys(MSG_I18N).forEach(function (c) {
+    if (window.I18N.ui[c]) { for (var k in MSG_I18N[c]) { window.I18N.ui[c][k] = MSG_I18N[c][k]; } }
+  });
 })();

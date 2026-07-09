@@ -15,6 +15,16 @@
   var msg = form.querySelector(".pro-msg");
   var submitBtn = form.querySelector('button[type="submit"]');
   var selectedTier = "pro";
+  var LOCALE = (window.BARCODE_LOCALE || "en");
+
+  // Localized string lookup (dicts live in i18n.js, already loaded in <head>).
+  function t(key, fallback) {
+    var ui = (window.I18N && window.I18N.ui) || {};
+    var d = ui[LOCALE] || ui.en || {};
+    if (d[key] != null) return d[key];
+    if (ui.en && ui.en[key] != null) return ui.en[key];
+    return fallback;
+  }
 
   function setTier(t) {
     selectedTier = t;
@@ -54,7 +64,7 @@
     e.preventDefault();
     var email = (emailInput && emailInput.value || "").trim();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      show("error", "Please enter a valid email address.");
+      show("error", t("proMsgInvalidEmail", "Please enter a valid email address."));
       if (emailInput) emailInput.focus();
       return;
     }
@@ -68,11 +78,12 @@
       tier: selectedTier,
       features: features,
       source: location.pathname,
+      locale: LOCALE,
       company: honeypot ? honeypot.value : ""
     };
 
     submitBtn.disabled = true;
-    show("pending", "Adding you…");
+    show("pending", t("proMsgPending", "Adding you…"));
 
     fetch("/api/waitlist", {
       method: "POST",
@@ -83,15 +94,15 @@
       .then(function (res) {
         if (res.ok) {
           form.setAttribute("data-done", "true");
-          show("success", "You're on the list — we'll email you the moment it launches.");
+          show("success", t("proMsgSuccess", "You're on the list — we'll email you the moment it launches."));
         } else {
           submitBtn.disabled = false;
-          show("error", (res.d && res.d.error) || "Something went wrong — please try again.");
+          show("error", t("proMsgError", "Something went wrong — please try again."));
         }
       })
       .catch(function () {
         submitBtn.disabled = false;
-        show("error", "Network error — please try again.");
+        show("error", t("proMsgNetwork", "Network error — please try again."));
       });
   });
 
