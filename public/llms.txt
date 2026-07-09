@@ -6,7 +6,7 @@
 
 - [Barcode & QR code generator](https://barcodeapis.com/): Generate any of 100+ barcode types in the browser with live preview.
 - [All barcode types](https://barcodeapis.com/barcodes): Browse every supported symbology.
-- [API documentation](https://barcodeapis.com/api-docs.html): REST API for generating barcodes programmatically.
+- [API documentation](https://barcodeapis.com/api-docs): REST API for generating barcodes programmatically.
 - [About](https://barcodeapis.com/about)
 - [Contact](https://barcodeapis.com/contact)
 - [Privacy](https://barcodeapis.com/privacy)

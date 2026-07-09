@@ -335,7 +335,7 @@ ${secs}
 const TEMPLATE = fs.readFileSync(path.join(ROOT, "templates/app-shell.html"), "utf8");
 const absolutize = (html) => html
   .replace(/href="css\//g, 'href="/css/')
-  .replace(/href="api-docs\.html"/g, 'href="/api-docs.html"')
+  .replace(/href="api-docs\.html"/g, 'href="/api-docs"')
   .replace(/src="js\//g, 'src="/js/');
 
 function injectLocaleScript(html, locale, extra = "") {
@@ -458,7 +458,7 @@ ${alternates(HUB)}
     </a>
     <nav class="top-actions">
       <a href="${localePath(locale)}" class="btn btn-ghost">${esc(locale.navGenerator)}</a>
-      <a href="/api-docs.html" class="btn btn-ghost">${esc(locale.navApi)}</a>
+      <a href="/api-docs" class="btn btn-ghost">${esc(locale.navApi)}</a>
     </nav>
   </header>
   <section class="hero">
@@ -546,7 +546,7 @@ function footerHtml(locale) {
         <a href="/privacy">${esc(f.privacy)}</a>
         <a href="/terms">${esc(f.terms)}</a>
         <a href="/disclaimer">${esc(f.disclaimer)}</a>
-        <a href="/api-docs.html">${esc(f.apiDocs)}</a>
+        <a href="/api-docs">${esc(f.apiDocs)}</a>
       </nav>
       <nav class="footer-nav footer-sub" aria-label="Resources">
         <a href="/sitemap.xml">${esc(f.sitemap)}</a>
@@ -601,7 +601,7 @@ function staticPageHtml(page) {
     <nav class="top-actions">
       <a href="/barcodes" class="btn btn-ghost">All barcodes</a>
       <a href="/#pro" class="btn btn-ghost">Pro &amp; API</a>
-      <a href="/api-docs.html" class="btn btn-ghost">API Docs</a>
+      <a href="/api-docs" class="btn btn-ghost">API Docs</a>
     </nav>
   </header>
   <section class="hero">
@@ -628,7 +628,7 @@ function llmsTxt() {
   lines.push("## Pages", "");
   lines.push(`- [Barcode & QR code generator](${BASE}/): Generate any of 100+ barcode types in the browser with live preview.`);
   lines.push(`- [All barcode types](${BASE}/${HUB}): Browse every supported symbology.`);
-  lines.push(`- [API documentation](${BASE}/api-docs.html): REST API for generating barcodes programmatically.`);
+  lines.push(`- [API documentation](${BASE}/api-docs): REST API for generating barcodes programmatically.`);
   lines.push(`- [About](${BASE}/about)`, `- [Contact](${BASE}/contact)`, `- [Privacy](${BASE}/privacy)`, `- [Terms](${BASE}/terms)`, `- [Disclaimer](${BASE}/disclaimer)`, "");
   lines.push("## Barcode generators", "");
   for (const it of ITEMS) {
@@ -664,7 +664,7 @@ function llmsFullTxt() {
 
 function sitemap() {
   const urls = [];
-  urls.push(`${BASE}/`, `${BASE}/${HUB}`, `${BASE}/api-docs.html`);
+  urls.push(`${BASE}/`, `${BASE}/${HUB}`, `${BASE}/api-docs`);
   for (const page of STATIC_PAGES) urls.push(`${BASE}/${page.slug}`);
   for (const it of ITEMS) urls.push(pageUrl(LOCALES[0], it));
   for (const locale of LOCALES.slice(1)) {
