@@ -7,6 +7,7 @@ import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 import { createRequire } from "node:module";
+import { FOOTER_I18N, STATIC_PAGES } from "../data/site-pages.mjs";
 
 const require = createRequire(import.meta.url);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -408,6 +409,7 @@ function buildPage(it, locale, leaf = it.slug) {
   html = injectLocaleScript(html, locale);
   html = localizeStaticShell(html, locale);
   html = localizeShellLinks(html, locale);
+  html = withFooter(html, locale);
   return { html, words: wordCount(articleFor(it, c, locale)), primaryKeyword: c.primaryKeyword };
 }
 
@@ -470,7 +472,7 @@ ${alternates(HUB)}
   <main class="hub">
 ${groups}
   </main>
-  <footer class="footer"><span class="footer-brand">${esc(SITE_NAME)}</span> · ${esc(locale.footerText)}</footer>
+${footerHtml(locale)}
 </body>
 </html>
 `;
@@ -521,12 +523,149 @@ function localizedHome(locale) {
   html = injectLocaleScript(html, locale);
   html = localizeStaticShell(html, locale);
   html = localizeShellLinks(html, locale);
+  html = withFooter(html, locale);
   return html;
+}
+
+const FONTS = "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&display=swap";
+
+// Shared expanded footer. Content-page links (about/contact/…) are English-only
+// and shared across locales; hub/home links are localized.
+function footerHtml(locale) {
+  const f = FOOTER_I18N[locale.code] || FOOTER_I18N.en;
+  return `  <footer class="site-footer">
+    <div class="footer-wrap">
+      <a class="footer-brand-row" href="${localePath(locale)}">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span class="footer-name">${esc(SITE_NAME)}</span>
+      </a>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="${localePath(locale, HUB)}">${esc(f.allBarcodes)}</a>
+        <a href="/about">${esc(f.about)}</a>
+        <a href="/contact">${esc(f.contact)}</a>
+        <a href="/privacy">${esc(f.privacy)}</a>
+        <a href="/terms">${esc(f.terms)}</a>
+        <a href="/disclaimer">${esc(f.disclaimer)}</a>
+        <a href="/api-docs.html">${esc(f.apiDocs)}</a>
+      </nav>
+      <nav class="footer-nav footer-sub" aria-label="Resources">
+        <a href="/sitemap.xml">${esc(f.sitemap)}</a>
+        <a href="/llms.txt">LLMS.TXT</a>
+        <a href="/llms-full.txt">LLMS-FULL.TXT</a>
+      </nav>
+      <p class="footer-tag">${esc(f.tagline)}</p>
+      <p class="footer-copy">© 2026 ${esc(SITE_NAME)}</p>
+    </div>
+  </footer>`;
+}
+
+function withFooter(html, locale) {
+  return html.replace(/<footer class="footer">[\s\S]*?<\/footer>/, () => footerHtml(locale));
+}
+
+// English-only content pages (About / Contact / Privacy / Terms / Disclaimer).
+function staticPageHtml(page) {
+  const en = LOCALES[0];
+  const url = `${BASE}/${page.slug}`;
+  const ld = { "@context": "https://schema.org", "@graph": jsonLdSiteGraph(en, url, page.title, page.description, [
+    { "@type": "WebPage", url, name: cleanText(page.title), description: cleanText(page.description) }
+  ]) };
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="${FONTS}" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="${FONTS}" /></noscript>
+<title>${esc(page.title)}</title>
+<meta name="description" content="${attr(page.description)}" />
+<meta name="theme-color" content="#0b1220" />
+<link rel="canonical" href="${url}" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="${attr(page.title)}" />
+<meta property="og:description" content="${attr(page.description)}" />
+<meta property="og:url" content="${url}" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="${FAVICON}" />
+<script type="application/ld+json">${JSON.stringify(ld)}</script>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" style="text-decoration:none;color:inherit">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <div><span class="brand-title">${esc(SITE_NAME)}</span><p>Free Online Barcode &amp; QR Code Generator</p></div>
+    </a>
+    <nav class="top-actions">
+      <a href="/barcodes" class="btn btn-ghost">All barcodes</a>
+      <a href="/#pro" class="btn btn-ghost">Pro &amp; API</a>
+      <a href="/api-docs.html" class="btn btn-ghost">API Docs</a>
+    </nav>
+  </header>
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-content">
+      <span class="eyebrow">${esc(page.eyebrow)}</span>
+      <h1>${esc(page.h1)}</h1>
+      <p>${esc(page.lead)}</p>
+    </div>
+  </section>
+  <article class="seo-section doc"><div class="seo-wrap">
+${page.bodyHtml}
+  </div></article>
+${footerHtml(en)}
+</body>
+</html>
+`;
+}
+
+function llmsTxt() {
+  const lines = [];
+  lines.push(`# ${SITE_NAME}`, "");
+  lines.push(`> Free online barcode & QR code generator — 100+ symbologies (QR, Data Matrix, PDF417, EAN, UPC, GS1, Code 128 and more) with live preview and PNG / SVG export, plus a REST API.`, "");
+  lines.push("## Pages", "");
+  lines.push(`- [Barcode & QR code generator](${BASE}/): Generate any of 100+ barcode types in the browser with live preview.`);
+  lines.push(`- [All barcode types](${BASE}/${HUB}): Browse every supported symbology.`);
+  lines.push(`- [API documentation](${BASE}/api-docs.html): REST API for generating barcodes programmatically.`);
+  lines.push(`- [About](${BASE}/about)`, `- [Contact](${BASE}/contact)`, `- [Privacy](${BASE}/privacy)`, `- [Terms](${BASE}/terms)`, `- [Disclaimer](${BASE}/disclaimer)`, "");
+  lines.push("## Barcode generators", "");
+  for (const it of ITEMS) {
+    const hint = (HINTS[it.id] || "").replace(/\s+/g, " ").trim();
+    lines.push(`- [${it.name} Generator](${BASE}/${it.slug})${hint ? ": " + hint : ""}`);
+  }
+  lines.push("");
+  return lines.join("\n");
+}
+
+function llmsFullTxt() {
+  const en = LOCALES[0];
+  const out = [];
+  out.push(`# ${SITE_NAME} — full content export`, "");
+  out.push(`> Full text of every barcode generator page, for LLM / AI consumption. Generated from the same source as the live pages.`, "");
+  for (const it of ITEMS) {
+    const c = contentFor(it, en);
+    out.push(`## ${it.name}`, "");
+    out.push(`URL: ${BASE}/${it.slug}`, `Keyword: ${cleanText(c.primaryKeyword)}`, "");
+    out.push(cleanText(c.desc), "");
+    if (c.lead) out.push(cleanText(c.lead), "");
+    for (const s of c.sections) {
+      out.push(`### ${cleanText(s.h2)}`, "", cleanText(s.html), "");
+    }
+    if (c.faq && c.faq.length) {
+      out.push(`### FAQ`, "");
+      for (const q of c.faq) out.push(`**${cleanText(q.q)}** ${cleanText(q.a)}`, "");
+    }
+    out.push("---", "");
+  }
+  return out.join("\n");
 }
 
 function sitemap() {
   const urls = [];
   urls.push(`${BASE}/`, `${BASE}/${HUB}`, `${BASE}/api-docs.html`);
+  for (const page of STATIC_PAGES) urls.push(`${BASE}/${page.slug}`);
   for (const it of ITEMS) urls.push(pageUrl(LOCALES[0], it));
   for (const locale of LOCALES.slice(1)) {
     urls.push(localeUrl(locale), localeUrl(locale, HUB));
@@ -564,10 +703,13 @@ for (const locale of LOCALES) {
   const hubFile = locale.code === "en" ? "barcodes.html" : `${locale.prefix}/barcodes.html`;
   writeGenerated(hubFile, hubPage(locale), written);
 }
+for (const page of STATIC_PAGES) writeGenerated(`${page.slug}.html`, staticPageHtml(page), written);
+writeGenerated("llms.txt", llmsTxt(), written);
+writeGenerated("llms-full.txt", llmsFullTxt(), written);
 writeGenerated("sitemap.xml", sitemap(), written);
 writeGenerated("robots.txt", robots, written);
 fs.writeFileSync(MANIFEST, JSON.stringify(written, null, 0));
 
-console.log(`Built ${pageCount} landing pages + ${LOCALES.length} hubs + ${LOCALES.length} homepages + sitemap + robots.`);
+console.log(`Built ${pageCount} landing pages + ${LOCALES.length} hubs + ${LOCALES.length} homepages + ${STATIC_PAGES.length} static pages + llms.txt + llms-full.txt + sitemap + robots.`);
 console.log(`Word counts: min ${minW === Infinity ? 0 : minW}; pages under 800 words: ${thin}/${pageCount}`);
 console.log(`Sample: /${ITEMS[0].slug}, /de/${ITEMS.find((x) => x.id === "pdf417").slug}, /ja/${ITEMS.find((x) => x.id === "EAN13").slug}`);
