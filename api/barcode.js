@@ -6,6 +6,31 @@ const bwipjs = require("bwip-js");
 const drawsvg = require("./drawing-svg");
 const rateLimit = require("./_rate-limit");
 
+// --- Access control --------------------------------------------------------
+// The public /barcode endpoint is gated: first-party calls from our own
+// generator are allowed; every other caller needs a valid API key. Keys are
+// provisioned via the BARCODE_API_KEYS env var (comma-separated) until the
+// account-based key system ships. With no keys configured, only first-party
+// calls succeed — which is what we want pre-launch.
+const API_KEYS = new Set(String(process.env.BARCODE_API_KEYS || "").split(",").map((s) => s.trim()).filter(Boolean));
+const FIRST_PARTY_HOSTS = ["barcodeapis.com", "www.barcodeapis.com", "localhost", "127.0.0.1"];
+function hostOf(u) { try { return new URL(u).hostname; } catch (e) { return ""; } }
+function isAllowedHost(h) { return !!h && (FIRST_PARTY_HOSTS.includes(h) || h.endsWith(".vercel.app")); }
+function isFirstParty(req) {
+  // Sec-Fetch-Site is set by the browser and cannot be forged by page scripts;
+  // it reliably marks the generator's own same-origin image/fetch requests.
+  const sfs = req.headers["sec-fetch-site"];
+  if (sfs === "same-origin" || sfs === "same-site") return true;
+  const o = req.headers.origin, r = req.headers.referer;
+  if (o && isAllowedHost(hostOf(o))) return true;
+  if (r && isAllowedHost(hostOf(r))) return true;
+  return false;
+}
+function apiKeyOf(req, get) {
+  const h = req.headers["x-api-key"];
+  return String((Array.isArray(h) ? h[0] : h) || get("key") || "").trim();
+}
+
 const ALIASES = {
   qr: "qrcode", qrcode: "qrcode", microqr: "microqrcode",
   datamatrix: "datamatrix", dm: "datamatrix", gs1datamatrix: "gs1datamatrix",
@@ -298,8 +323,16 @@ function buildOpts(get) {
 }
 
 module.exports = async (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  // CORS: reflect our own / preview origins only (no more wildcard). First-party
+  // same-origin image & fetch calls don't rely on CORS, so the generator is
+  // unaffected; this just stops other sites' browser JS from calling us.
+  const origin = String(req.headers.origin || "");
+  if (isAllowedHost(hostOf(origin))) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+    res.setHeader("Vary", "Origin");
+  }
   res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "x-api-key");
   if (req.method === "OPTIONS") {
     res.status(204).end();
     return;
@@ -318,6 +351,11 @@ module.exports = async (req, res) => {
     if (v == null) return null;
     return String(Array.isArray(v) ? v[0] : v);
   };
+  // Gate: first-party generator calls pass; anyone else needs a valid API key.
+  if (!isFirstParty(req) && !API_KEYS.has(apiKeyOf(req, get))) {
+    res.status(401).json({ error: "An API key is required. The Barcode APIs API launches with paid plans — join the early list at https://barcodeapis.com/#pro" });
+    return;
+  }
   // Resolve output format: explicit ?format= wins, else infer from a .svg/.png
   // path suffix (so /barcode.svg and /barcode.png honour their contract), else png.
   const rawUrl = String(req.url || "");

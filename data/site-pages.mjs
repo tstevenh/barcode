@@ -7,17 +7,17 @@ export const CONTACT_EMAIL = "hello@barcodeapis.com"; // TODO: replace with the 
 
 // Footer link labels + tagline per locale.
 export const FOOTER_I18N = {
-  en: { about: "About", contact: "Contact", privacy: "Privacy", terms: "Terms", disclaimer: "Disclaimer", allBarcodes: "All barcodes", apiDocs: "API Docs", sitemap: "Sitemap",
+  en: { about: "About", contact: "Contact", privacy: "Privacy", terms: "Terms", disclaimer: "Disclaimer", allBarcodes: "All barcodes", apiDocs: "API", sitemap: "Sitemap",
     tagline: "Barcode APIs — a fast, free online barcode & QR code generator. 100+ symbologies, live preview, instant PNG & SVG export." },
-  de: { about: "Über uns", contact: "Kontakt", privacy: "Datenschutz", terms: "AGB", disclaimer: "Haftungsausschluss", allBarcodes: "Alle Barcodes", apiDocs: "API-Doku", sitemap: "Sitemap",
+  de: { about: "Über uns", contact: "Kontakt", privacy: "Datenschutz", terms: "AGB", disclaimer: "Haftungsausschluss", allBarcodes: "Alle Barcodes", apiDocs: "API", sitemap: "Sitemap",
     tagline: "Barcode APIs — ein schneller, kostenloser Online-Barcode- & QR-Code-Generator. 100+ Symbologien, Live-Vorschau, sofortiger PNG- & SVG-Export." },
-  pl: { about: "O nas", contact: "Kontakt", privacy: "Prywatność", terms: "Regulamin", disclaimer: "Zastrzeżenia", allBarcodes: "Wszystkie kody", apiDocs: "Dokumentacja API", sitemap: "Mapa strony",
+  pl: { about: "O nas", contact: "Kontakt", privacy: "Prywatność", terms: "Regulamin", disclaimer: "Zastrzeżenia", allBarcodes: "Wszystkie kody", apiDocs: "API", sitemap: "Mapa strony",
     tagline: "Barcode APIs — szybki, darmowy generator kodów kreskowych i QR online. 100+ symbolik, podgląd na żywo, natychmiastowy eksport PNG i SVG." },
-  nl: { about: "Over ons", contact: "Contact", privacy: "Privacy", terms: "Voorwaarden", disclaimer: "Disclaimer", allBarcodes: "Alle barcodes", apiDocs: "API-docs", sitemap: "Sitemap",
+  nl: { about: "Over ons", contact: "Contact", privacy: "Privacy", terms: "Voorwaarden", disclaimer: "Disclaimer", allBarcodes: "Alle barcodes", apiDocs: "API", sitemap: "Sitemap",
     tagline: "Barcode APIs — een snelle, gratis online barcode- & QR-codegenerator. 100+ symbologieën, live preview, directe PNG- & SVG-export." },
-  fr: { about: "À propos", contact: "Contact", privacy: "Confidentialité", terms: "Conditions", disclaimer: "Avertissement", allBarcodes: "Tous les codes-barres", apiDocs: "Doc API", sitemap: "Plan du site",
+  fr: { about: "À propos", contact: "Contact", privacy: "Confidentialité", terms: "Conditions", disclaimer: "Avertissement", allBarcodes: "Tous les codes-barres", apiDocs: "API", sitemap: "Plan du site",
     tagline: "Barcode APIs — un générateur de codes-barres et QR en ligne, rapide et gratuit. Plus de 100 symbologies, aperçu en direct, export PNG et SVG instantané." },
-  ja: { about: "概要", contact: "お問い合わせ", privacy: "プライバシー", terms: "利用規約", disclaimer: "免責事項", allBarcodes: "すべてのバーコード", apiDocs: "API ドキュメント", sitemap: "サイトマップ",
+  ja: { about: "概要", contact: "お問い合わせ", privacy: "プライバシー", terms: "利用規約", disclaimer: "免責事項", allBarcodes: "すべてのバーコード", apiDocs: "API", sitemap: "サイトマップ",
     tagline: "Barcode APIs — 高速で無料のオンライン・バーコード & QR コードジェネレーター。100+ の規格、ライブプレビュー、PNG・SVG を即時に書き出し。" }
 };
 
