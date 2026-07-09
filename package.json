@@ -12,6 +12,11 @@
   "scripts": {
     "build": "node scripts/build-pages.mjs",
     "start": "node scripts/build-pages.mjs && node server.js",
-    "dev": "node scripts/build-pages.mjs && node server.js"
+    "dev": "node scripts/build-pages.mjs && node server.js",
+    "verify:decode": "node scripts/verify-decode.mjs"
+  },
+  "devDependencies": {
+    "pngjs": "^7.0.0",
+    "zxing-wasm": "^3.1.0"
   }
 }
