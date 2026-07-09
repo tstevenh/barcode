@@ -37,7 +37,7 @@ const LOCALES = LOCALE_CODES.map((code) => {
 const SITE_NAME = SEO.site.name;
 const BUILD_DATE = "2026-07-07";
 
-const FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1220'/%3E%3Cg fill='white'%3E%3Crect x='6' y='8' width='2' height='16'/%3E%3Crect x='9' y='8' width='1' height='16'/%3E%3Crect x='11' y='8' width='3' height='16'/%3E%3Crect x='15' y='8' width='1' height='16'/%3E%3Crect x='17' y='8' width='2' height='16'/%3E%3Crect x='20' y='8' width='1' height='16'/%3E%3Crect x='22' y='8' width='3' height='16'/%3E%3Crect x='26' y='8' width='1' height='16'/%3E%3C/g%3E%3C/svg%3E";
+const FAVICON = "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20role%3D%22img%22%20aria-label%3D%22Barcode%20APIs%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%230b1220%22%2F%3E%3Cg%20fill%3D%22%23ffffff%22%3E%3Crect%20x%3D%2211%22%20y%3D%2211%22%20width%3D%222%22%20height%3D%2210%22%2F%3E%3Crect%20x%3D%2214%22%20y%3D%2211%22%20width%3D%221%22%20height%3D%2210%22%2F%3E%3Crect%20x%3D%2216%22%20y%3D%2211%22%20width%3D%222%22%20height%3D%2210%22%2F%3E%3Crect%20x%3D%2219%22%20y%3D%2211%22%20width%3D%222%22%20height%3D%2210%22%2F%3E%3C%2Fg%3E%3Cg%20stroke%3D%22%232d50e6%22%20stroke-width%3D%221.7%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M11%206%20H6%20V11%22%2F%3E%3Cpath%20d%3D%22M21%206%20H26%20V11%22%2F%3E%3Cpath%20d%3D%22M11%2026%20H6%20V21%22%2F%3E%3Cpath%20d%3D%22M21%2026%20H26%20V21%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E";
 
 function readJSON(p) {
   try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch (e) { return null; }
@@ -290,6 +290,10 @@ function headFor(it, c, locale, leaf = it.slug) {
     `<meta property="og:description" content="${attr(c.desc)}" />`,
     `<meta property="og:url" content="${url}" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
+    `<meta property="og:image" content="${BASE}/og/og-default.png" />`,
+    `<meta property="og:image:width" content="1200" />`,
+    `<meta property="og:image:height" content="630" />`,
+    `<meta name="twitter:image" content="${BASE}/og/og-default.png" />`,
     `<link rel="icon" href="${FAVICON}" />`,
     `<script type="application/ld+json">${JSON.stringify(ld)}</script>`,
     ``
@@ -446,6 +450,10 @@ ${alternates(HUB)}
 <meta property="og:description" content="${attr(desc)}" />
 <meta property="og:url" content="${url}" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="og:image" content="${BASE}/og/og-hub.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:image" content="${BASE}/og/og-hub.png" />
 <link rel="icon" href="${FAVICON}" />
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
 <link rel="stylesheet" href="/css/style.css" />
@@ -497,6 +505,10 @@ function homeHead(locale, c = null) {
     `<meta property="og:description" content="${attr(locale.homeDescription)}" />`,
     `<meta property="og:url" content="${url}" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
+    `<meta property="og:image" content="${BASE}/og/og-default.png" />`,
+    `<meta property="og:image:width" content="1200" />`,
+    `<meta property="og:image:height" content="630" />`,
+    `<meta name="twitter:image" content="${BASE}/og/og-default.png" />`,
     `<link rel="icon" href="${FAVICON}" />`,
     `<script type="application/ld+json">${JSON.stringify(ld)}</script>`,
     ``
@@ -588,6 +600,10 @@ function staticPageHtml(page) {
 <meta property="og:description" content="${attr(page.description)}" />
 <meta property="og:url" content="${url}" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta property="og:image" content="${BASE}/og/og-default.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:image" content="${BASE}/og/og-default.png" />
 <link rel="icon" href="${FAVICON}" />
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
 <link rel="stylesheet" href="/css/style.css" />
