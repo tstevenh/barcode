@@ -48,7 +48,7 @@ const ALIASES = {
   itf: "interleaved2of5", itf14: "itf14", code25: "code2of5",
   flattermarken: "flattermarken", dpd: "code128", dpdlabel: "code128",
   upus10: "code128", s10: "code128", koreapost: "code128",
-  msi: "msi", code32: "code32", pharmacode: "pharmacode", telepen: "telepen",
+  msi: "msi", msi10: "msi", msi11: "msi", code32: "code32", pharmacode: "pharmacode", telepen: "telepen",
   ean13: "ean13", ean8: "ean8", ean5: "ean5", ean2: "ean2", ean14: "ean14",
   ean8composite: "ean8composite", ean13composite: "ean13composite",
   upc: "upca", upca: "upca", upce: "upce", upcacomposite: "upcacomposite", upcecomposite: "upcecomposite",
