@@ -34,8 +34,9 @@
     });
   });
 
-  // Card CTAs pre-select a tier and bring the form into view.
-  Array.prototype.slice.call(root.querySelectorAll("[data-notify]")).forEach(function (btn) {
+  // Card CTAs and locked-feature teasers (anywhere on the page) pre-select a
+  // tier and bring the form into view.
+  Array.prototype.slice.call(document.querySelectorAll("[data-notify]")).forEach(function (btn) {
     btn.addEventListener("click", function () {
       setTier(btn.getAttribute("data-notify"));
       form.scrollIntoView({ behavior: "smooth", block: "center" });
