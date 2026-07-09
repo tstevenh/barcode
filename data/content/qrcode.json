@@ -1,6 +1,6 @@
 {
   "id": "qrcode",
-  "title": "QR Code Generator - Free, No Login | Barcode Studio",
+  "title": "QR Code Generator - Free, No Login | Barcode APIs",
   "metaDescription": "Create a QR code free in your browser: URLs, WiFi, vCards, email, SMS. Adjust error correction, colors, and size, then export PNG or SVG in seconds.",
   "primaryKeyword": "qr code generator",
   "secondaryKeywords": ["free qr code generator", "qr code maker", "create qr code online", "qr code for url", "custom qr code", "qr code with logo"],
@@ -23,8 +23,8 @@
       "html": "<p>QR codes are everywhere because a phone camera can read one without any extra app: restaurant menus, product packaging that links to care instructions or authenticity checks, event and boarding-pass tickets, marketing posters and print ads, payment and peer-to-peer transfer apps, WiFi onboarding cards at cafes and offices, and warehouse or asset-tracking labels where a URL or ID needs to travel with a physical item. Retailers also use them on shelf tags to link to extended product information, and event organizers use them for contactless check-in. Manufacturers increasingly print a QR code directly on product housings for warranty registration and support, and city governments use them on parking meters, transit stops, and public signage to route visitors to a mobile-friendly page instead of building a dedicated app.</p>"
     },
     {
-      "h2": "How to create a QR code in Barcode Studio",
-      "html": "<p>Select <strong>QR Code</strong> from the symbology list on the left, then choose a content type from the built-in 2D content builder &mdash; plain text, URL, WiFi, vCard, email, SMS, geo-location, or calendar event &mdash; and fill in the fields; Barcode Studio formats the underlying data string for you automatically. From there you can:</p><ul><li>Set the error correction level (L/M/Q/H) to balance data density against damage tolerance</li><li>Adjust module size, scale, and quiet zone (the blank margin around the code)</li><li>Pick foreground and background colors, keeping enough contrast for reliable scanning</li><li>Export as PNG or SVG, or copy the code directly for use elsewhere</li><li>Generate a batch or numbered sequence of QR codes at once, or upload a CSV for bulk generation as a ZIP or PDF of labels</li><li>Call the REST API directly &mdash; <code>/barcode?type=qrcode&amp;data=https://example.com</code> &mdash; to generate codes programmatically from your own app or script</li></ul>"
+      "h2": "How to create a QR code in Barcode APIs",
+      "html": "<p>Select <strong>QR Code</strong> from the symbology list on the left, then choose a content type from the built-in 2D content builder &mdash; plain text, URL, WiFi, vCard, email, SMS, geo-location, or calendar event &mdash; and fill in the fields; Barcode APIs formats the underlying data string for you automatically. From there you can:</p><ul><li>Set the error correction level (L/M/Q/H) to balance data density against damage tolerance</li><li>Adjust module size, scale, and quiet zone (the blank margin around the code)</li><li>Pick foreground and background colors, keeping enough contrast for reliable scanning</li><li>Export as PNG or SVG, or copy the code directly for use elsewhere</li><li>Generate a batch or numbered sequence of QR codes at once, or upload a CSV for bulk generation as a ZIP or PDF of labels</li><li>Call the REST API directly &mdash; <code>/barcode?type=qrcode&amp;data=https://example.com</code> &mdash; to generate codes programmatically from your own app or script</li></ul>"
     },
     {
       "h2": "Printing and scanning best practices",
@@ -44,11 +44,11 @@
     "Warehouse and asset tags linking a physical item to a digital record"
   ],
   "faq": [
-    {"q": "Is this QR code generator free?", "a": "Yes, Barcode Studio's QR code generator is free to use in your browser with no login or watermark, and you can export unlimited PNG or SVG files."},
-    {"q": "Can I add a logo to my QR code?", "a": "Barcode Studio doesn't overlay logos automatically, but generating your code at error correction level Q or H leaves enough redundancy that you can safely place a small logo over the center in an image editor and still have it scan."},
+    {"q": "Is this QR code generator free?", "a": "Yes, Barcode APIs's QR code generator is free to use in your browser with no login or watermark, and you can export unlimited PNG or SVG files."},
+    {"q": "Can I add a logo to my QR code?", "a": "Barcode APIs doesn't overlay logos automatically, but generating your code at error correction level Q or H leaves enough redundancy that you can safely place a small logo over the center in an image editor and still have it scan."},
     {"q": "What's the difference between a QR code and a regular barcode?", "a": "A QR code is two-dimensional and stores data both horizontally and vertically, so it holds far more information in the same space than a traditional 1D barcode like UPC or Code 128, which only reads left to right."},
     {"q": "Will my QR code expire?", "a": "A QR code generated for static content (like a vCard or WiFi credentials) never expires because the data is embedded directly in the code. It only stops working if it links to a URL that later goes offline."},
-    {"q": "Can I generate many QR codes at once?", "a": "Yes, upload a CSV of data values and Barcode Studio will bulk-generate a ZIP of image files or a print-ready PDF of labels, or use the sequence feature to generate a numbered batch."},
+    {"q": "Can I generate many QR codes at once?", "a": "Yes, upload a CSV of data values and Barcode APIs will bulk-generate a ZIP of image files or a print-ready PDF of labels, or use the sequence feature to generate a numbered batch."},
     {"q": "How much data can a QR code hold?", "a": "It depends on the symbol version and error correction level, but the largest QR codes can hold several thousand alphanumeric characters or nearly 3,000 bytes of data."}
   ]
 }

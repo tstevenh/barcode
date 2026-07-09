@@ -1,6 +1,6 @@
 {
   "id": "MSI",
-  "title": "MSI Barcode Generator - Free, No Login | Barcode Studio",
+  "title": "MSI Barcode Generator - Free, No Login | Barcode APIs",
   "metaDescription": "Generate an MSI (Modified Plessey) barcode free in your browser. Encode numeric inventory data, adjust size, and export PNG, SVG, or PDF in seconds.",
   "primaryKeyword": "msi generator",
   "secondaryKeywords": ["msi barcode", "modified plessey barcode", "msi plessey generator", "shelf label barcode", "inventory barcode numeric"],
@@ -23,7 +23,7 @@
       "html": "<p>MSI shows up mainly in internal, closed-loop applications: retail shelf-edge price and stock labels, warehouse rack and bin location tags, library and video rental tracking in some older systems, and inventory control tags in manufacturing. It's less common in point-of-sale scanning of individual products (where UPC/EAN dominate) and less common in general logistics (where Code 128 dominates), because MSI isn't part of any GS1 standard and isn't recognized by most retail point-of-sale barcode readers out of the box &mdash; it's a symbology you choose when you control both ends of the label lifecycle.</p>"
     },
     {
-      "h2": "How to create an MSI barcode in Barcode Studio",
+      "h2": "How to create an MSI barcode in Barcode APIs",
       "html": "<p>Select <strong>MSI</strong> from the symbology list on the left, then enter your numeric string &mdash; digits 0&ndash;9 only, no check digit is added. From there you can:</p><ul><li>Adjust bar width, height, and quiet zone to fit your label size and scanner</li><li>Toggle human-readable text below the bars for visual verification</li><li>Export as PNG, SVG, or PDF, or copy the image directly into a label template</li><li>Use the batch or sequence tools to generate a numbered run of labels at once</li><li>Upload a CSV of numeric values for bulk generation as a ZIP of image files or a print-ready PDF of labels</li><li>Call the REST API &mdash; <code>/barcode?type=MSI&amp;data=123456</code> &mdash; to generate codes programmatically from your inventory or warehouse system</li></ul><p>If you want built-in error detection instead, use the MSI Mod 10 or MSI Mod 11 variants, which append a calculated check digit to the same underlying encoding.</p>"
     },
     {
@@ -48,6 +48,6 @@
     {"q": "What characters can MSI encode?", "a": "MSI encodes numeric digits only, 0 through 9. It cannot encode letters or special characters."},
     {"q": "Is MSI the same as Modified Plessey?", "a": "Yes, MSI is the common name for what was originally the Modified Plessey code, developed from the Plessey Company's original Plessey code and later adopted and named by MSI Data Corporation."},
     {"q": "Can retail point-of-sale scanners read MSI barcodes?", "a": "Many can, but MSI isn't part of the GS1 retail barcode standards (like UPC or EAN), so it's typically used for internal store operations rather than at checkout scanning of individual products."},
-    {"q": "Can I bulk-generate MSI barcodes?", "a": "Yes, upload a CSV of numeric values and Barcode Studio will generate a ZIP of image files or a print-ready PDF of labels in one batch, or use the sequence tool for a numbered run."}
+    {"q": "Can I bulk-generate MSI barcodes?", "a": "Yes, upload a CSV of numeric values and Barcode APIs will generate a ZIP of image files or a print-ready PDF of labels in one batch, or use the sequence tool for a numbered run."}
   ]
 }

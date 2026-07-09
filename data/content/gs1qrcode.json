@@ -1,6 +1,6 @@
 {
   "id": "gs1qrcode",
-  "title": "GS1 QR Code Generator | Barcode Studio",
+  "title": "GS1 QR Code Generator | Barcode APIs",
   "metaDescription": "Generate a GS1 QR code with GS1 Application Identifiers (GTIN, batch, expiry) for retail and healthcare. Free browser tool with PNG/SVG export and API.",
   "primaryKeyword": "gs1 qr code generator",
   "secondaryKeywords": ["gs1 qr code", "gs1 application identifiers qr", "gtin qr code", "qr code with ai", "2d retail barcode gs1", "gs1 general specifications qr"],
@@ -23,8 +23,8 @@
       "html": "<p>Grocery and retail packaging moving toward 2D-at-checkout under GS1's Sunrise 2027 program, pharmaceutical and medical device labels that must carry lot and expiry data for traceability and recalls, healthcare supply chain and hospital inventory systems, and consumer-facing packaging that wants a single code to serve both point-of-sale scanning and a link to product information. Because the QR format is also camera-readable, brands can point the same code at a marketing landing page while still satisfying GS1 data requirements for the supply chain. Some national health authorities and pharmacy networks already require GS1-structured 2D codes on dispensed medication packaging for dispensing verification.</p>"
     },
     {
-      "h2": "How to create a GS1 QR code in Barcode Studio",
-      "html": "<p>Select <strong>GS1 QR Code</strong> from the symbology list, then enter your data using GS1 Application Identifier syntax &mdash; for example <code>(01)09501234567890(17)261231(10)LOT42A</code>. Barcode Studio validates AI formats and required lengths as you type, and inserts the necessary separators between variable-length fields automatically. From there you can:</p><ul><li>Adjust error correction level, module size, and quiet zone just as with a standard QR code</li><li>Set foreground and background colors while keeping enough contrast for point-of-sale scanners</li><li>Export as PNG or SVG for packaging artwork, or copy the code for immediate use</li><li>Generate a batch or CSV-driven bulk run to produce unique GTIN/batch/expiry codes for an entire product line as a ZIP or PDF</li><li>Call the REST API &mdash; <code>/barcode?type=gs1qrcode&amp;data=(01)09501234567890(17)261231</code> &mdash; to integrate GS1 QR generation into a labeling pipeline</li></ul>"
+      "h2": "How to create a GS1 QR code in Barcode APIs",
+      "html": "<p>Select <strong>GS1 QR Code</strong> from the symbology list, then enter your data using GS1 Application Identifier syntax &mdash; for example <code>(01)09501234567890(17)261231(10)LOT42A</code>. Barcode APIs validates AI formats and required lengths as you type, and inserts the necessary separators between variable-length fields automatically. From there you can:</p><ul><li>Adjust error correction level, module size, and quiet zone just as with a standard QR code</li><li>Set foreground and background colors while keeping enough contrast for point-of-sale scanners</li><li>Export as PNG or SVG for packaging artwork, or copy the code for immediate use</li><li>Generate a batch or CSV-driven bulk run to produce unique GTIN/batch/expiry codes for an entire product line as a ZIP or PDF</li><li>Call the REST API &mdash; <code>/barcode?type=gs1qrcode&amp;data=(01)09501234567890(17)261231</code> &mdash; to integrate GS1 QR generation into a labeling pipeline</li></ul>"
     },
     {
       "h2": "Print and scan best practices for GS1 QR",
@@ -48,7 +48,7 @@
     {"q": "Can a GS1 QR code replace a UPC barcode?", "a": "Under GS1's Sunrise 2027 initiative, retailers are moving toward accepting 2D codes like GS1 QR at checkout, so a properly encoded GS1 QR containing the GTIN can eventually be scanned in place of a traditional UPC, though many retailers still require both during the transition."},
     {"q": "Do I need a GS1 company prefix to use this generator?", "a": "You need a licensed GS1 company prefix to create a valid GTIN for commercial use, but you can use the generator freely to test formatting and layout with any GTIN-formatted number."},
     {"q": "What Application Identifiers can I include?", "a": "You can include any standard GS1 AI, but GTIN (01), batch/lot (10), production date (11), and expiration date (17) are the most common for product and healthcare labeling."},
-    {"q": "Can I bulk-generate GS1 QR codes for a product line?", "a": "Yes, upload a CSV with each product's GTIN, batch, and expiry values and Barcode Studio will generate a ZIP or PDF of individually coded labels in one pass."},
+    {"q": "Can I bulk-generate GS1 QR codes for a product line?", "a": "Yes, upload a CSV with each product's GTIN, batch, and expiry values and Barcode APIs will generate a ZIP or PDF of individually coded labels in one pass."},
     {"q": "How is a GS1 QR code generator different from a plain QR code generator?", "a": "A GS1 QR code generator validates and formats your input according to GS1 Application Identifier rules, inserting required separators and checking field lengths, which a general-purpose QR code generator won't do."}
   ]
 }

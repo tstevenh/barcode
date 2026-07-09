@@ -1,6 +1,6 @@
 {
   "id": "hibccode39",
-  "title": "HIBC LIC Code 39 Generator - Free | Barcode Studio",
+  "title": "HIBC LIC Code 39 Generator - Free | Barcode APIs",
   "metaDescription": "Free HIBC LIC Code 39 generator for medical device and pharmaceutical labeling. Enter labeler ID and product data, then export PNG, SVG, or PDF instantly.",
   "primaryKeyword": "hibc lic code 39 generator",
   "secondaryKeywords": ["hibc labeler identification code", "healthcare industry bar code", "hibcc code 39 barcode", "medical device labeling barcode", "udi code 39"],
@@ -19,8 +19,8 @@
       "html": "<p>HIBC LIC Code 39 labels appear throughout hospital and medical supply chains: on surgical instrument packaging, diagnostic reagent bottles, medical device unit cartons, and dental or laboratory supply items where a hospital's materials management system needs to identify the exact product and manufacturer at receiving, point of use, or reorder. Many healthcare providers built their inventory and procurement systems around HIBC identifiers well before UDI (Unique Device Identification) requirements existed, and legacy systems in hospital supply chains, group purchasing organizations, and some device manufacturers continue to print HIBC LIC labels today, often alongside newer UDI-compliant barcodes required by the FDA.</p>"
     },
     {
-      "h2": "How to create an HIBC LIC Code 39 barcode in Barcode Studio",
-      "html": "<p>Select <strong>HIBC LIC Code 39</strong> from the Linear Barcode list, then enter your HIBC-formatted data string, beginning with the \"+\" flag character followed by your assigned labeler identification code and product number, for example <code>+A99912345/$$</code>. Barcode Studio encodes the check character automatically per the HIBC specification. From there you can:</p><ul><li>Adjust bar width, height, and quiet zone to fit small medical packaging or carton labels</li><li>Set foreground and background colors while keeping strong contrast for handheld hospital scanners</li><li>Export as PNG, SVG, or PDF, or copy the barcode for use in label design software</li><li>Bulk-generate HIBC LIC labels from a CSV of labeler codes and product numbers as a ZIP or print-ready PDF</li><li>Call the REST API &mdash; <code>/barcode?type=hibccode39&amp;data=+A99912345/$$</code> &mdash; to generate labels programmatically from your labeling system</li></ul>"
+      "h2": "How to create an HIBC LIC Code 39 barcode in Barcode APIs",
+      "html": "<p>Select <strong>HIBC LIC Code 39</strong> from the Linear Barcode list, then enter your HIBC-formatted data string, beginning with the \"+\" flag character followed by your assigned labeler identification code and product number, for example <code>+A99912345/$$</code>. Barcode APIs encodes the check character automatically per the HIBC specification. From there you can:</p><ul><li>Adjust bar width, height, and quiet zone to fit small medical packaging or carton labels</li><li>Set foreground and background colors while keeping strong contrast for handheld hospital scanners</li><li>Export as PNG, SVG, or PDF, or copy the barcode for use in label design software</li><li>Bulk-generate HIBC LIC labels from a CSV of labeler codes and product numbers as a ZIP or print-ready PDF</li><li>Call the REST API &mdash; <code>/barcode?type=hibccode39&amp;data=+A99912345/$$</code> &mdash; to generate labels programmatically from your labeling system</li></ul>"
     },
     {
       "h2": "Print and scan best practices",
@@ -43,6 +43,6 @@
     {"q": "What does LIC stand for in HIBC?", "a": "LIC stands for Labeler Identification Code, the manufacturer or labeler identifier assigned by HIBCC that anchors the primary HIBC data message."},
     {"q": "What's the difference between HIBC LIC and HIBC PAS?", "a": "LIC is the primary message identifying the product and manufacturer, while PAS is a secondary message carrying variable data like lot number, expiration date, and serial number for a specific unit of that product."},
     {"q": "Why does HIBC use Code 39 instead of Code 128?", "a": "Code 39 was HIBC's original symbology because HIBC data fits entirely within Code 39's character set; Code 128 versions of HIBC exist too and are increasingly used where higher data density is needed on smaller labels."},
-    {"q": "Do I need a HIBCC-assigned labeler code to generate a real HIBC barcode?", "a": "Yes, for a barcode to be valid in a real healthcare supply chain you need a labeler identification code issued by HIBCC, though Barcode Studio will generate a properly formatted barcode for any HIBC-structured string you enter."}
+    {"q": "Do I need a HIBCC-assigned labeler code to generate a real HIBC barcode?", "a": "Yes, for a barcode to be valid in a real healthcare supply chain you need a labeler identification code issued by HIBCC, though Barcode APIs will generate a properly formatted barcode for any HIBC-structured string you enter."}
   ]
 }

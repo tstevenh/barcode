@@ -1,6 +1,6 @@
 {
   "id": "EAN2",
-  "title": "EAN-2 Add-On Barcode Generator | Barcode Studio",
+  "title": "EAN-2 Add-On Barcode Generator | Barcode APIs",
   "metaDescription": "Generate an EAN-2 add-on barcode free online to encode a magazine issue number next to a main EAN-13/UPC-A code. Instant preview, export, and REST API.",
   "primaryKeyword": "ean-2 add-on generator",
   "secondaryKeywords": ["ean-2 supplement barcode", "2 digit barcode add-on", "magazine issue number barcode", "ean-2 vs ean-5", "periodical barcode add-on", "ean-13 supplement code"],
@@ -16,14 +16,14 @@
     },
     {
       "h2": "Technical Specifications",
-      "html": "<p>EAN-2 is always exactly 2 digits, numeric only, with no independent check digit — as with EAN-5, its brief parity pattern serves as a light integrity check rather than a calculated final digit. It functions strictly as a supplement: Barcode Studio generates it as an add-on component meant to be placed beside a main EAN-13 or UPC-A barcode, not as a standalone symbology capable of identifying a product by itself.</p>"
+      "html": "<p>EAN-2 is always exactly 2 digits, numeric only, with no independent check digit — as with EAN-5, its brief parity pattern serves as a light integrity check rather than a calculated final digit. It functions strictly as a supplement: Barcode APIs generates it as an add-on component meant to be placed beside a main EAN-13 or UPC-A barcode, not as a standalone symbology capable of identifying a product by itself.</p>"
     },
     {
       "h2": "Where EAN-2 Is Used",
       "html": "<ul><li><strong>Magazines and newspapers</strong> — the primary use case, encoding a weekly or periodic issue number alongside the publication's main barcode.</li><li><strong>Serialized print publications</strong> — comics, journals, and other regularly issued print goods sometimes use the 2-digit field to indicate edition sequence.</li><li><strong>Limited variant tracking</strong> — occasionally repurposed by publishers for a small enumerated value other than an issue number, since the field itself is just 2 raw digits.</li></ul>"
     },
     {
-      "h2": "How to Create an EAN-2 Add-On in Barcode Studio",
+      "h2": "How to Create an EAN-2 Add-On in Barcode APIs",
       "html": "<p>Select <strong>EAN-2 add-on</strong> from the symbology list under Retail (EAN/UPC). Enter exactly 2 digits representing your issue number or other short enumerated value — the live preview shows the add-on's compact bar pattern immediately so you can confirm it before export. From there:</p><ul><li>Generate your main <strong>EAN-13</strong> or <strong>UPC-A</strong> barcode separately, then place the EAN-2 add-on to its right with the standard supplemental spacing between the two.</li><li>Match <strong>bar height</strong> proportionally to the main barcode's guard-pattern height so the combined symbol reads as a single unit visually.</li><li>Export as <strong>PNG or SVG</strong> for direct placement in cover or masthead design software, or use <strong>Copy</strong> for quick insertion.</li><li>Use the <strong>bulk CSV → ZIP/PDF</strong> tool to generate issue-numbered add-ons across an entire run of periodicals in one pass.</li><li>Call the <strong>REST API</strong> — <code>/barcode?type=ean2&data=YOUR2DIGITS</code> — to generate the add-on programmatically from a publishing workflow.</li></ul>"
     },
     {
@@ -46,7 +46,7 @@
     {"q": "Can EAN-2 be used as a standalone barcode?", "a": "<p>No. EAN-2 is a supplemental add-on printed next to a main EAN-13 or UPC-A barcode — it cannot identify a product by itself.</p>"},
     {"q": "How many values can EAN-2 represent?", "a": "EAN-2 covers 100 possible values, from 00 to 99, which is enough range for most periodical issue-numbering needs within a cycle."},
     {"q": "Will every barcode scanner read the EAN-2 add-on?", "a": "Not necessarily — many retail and newsstand scanners are configured to read only the primary barcode and ignore supplemental add-ons unless specifically set up to capture them."},
-    {"q": "Is the EAN-2 add-on generator free to use?", "a": "Yes, Barcode Studio's EAN-2 generator runs entirely in your browser with no account required for standard PNG/SVG exports."},
-    {"q": "Can I generate EAN-2 add-ons in bulk for a publication run?", "a": "<p>Yes. Upload a CSV of 2-digit issue numbers to Barcode Studio's bulk tool to produce a ZIP of individual add-on images or a single print-ready PDF, one per issue.</p>"}
+    {"q": "Is the EAN-2 add-on generator free to use?", "a": "Yes, Barcode APIs's EAN-2 generator runs entirely in your browser with no account required for standard PNG/SVG exports."},
+    {"q": "Can I generate EAN-2 add-ons in bulk for a publication run?", "a": "<p>Yes. Upload a CSV of 2-digit issue numbers to Barcode APIs's bulk tool to produce a ZIP of individual add-on images or a single print-ready PDF, one per issue.</p>"}
   ]
 }

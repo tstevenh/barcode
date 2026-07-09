@@ -1,6 +1,6 @@
 {
   "id": "datamatrix",
-  "title": "Data Matrix Generator - Free Online Tool | Barcode Studio",
+  "title": "Data Matrix Generator - Free Online Tool | Barcode APIs",
   "metaDescription": "Create a Data Matrix code free in your browser for small-item and industrial labeling. Adjust size, shape, and colors, then export PNG, SVG, or via API.",
   "primaryKeyword": "data matrix generator",
   "secondaryKeywords": ["data matrix barcode maker", "ecc200 data matrix", "data matrix vs qr code", "direct part marking barcode", "2d matrix code generator", "small barcode for parts"],
@@ -23,7 +23,7 @@
       "html": "<p>Direct part marking on electronics, automotive components, and aerospace parts, where the code is laser-etched or dot-peened directly onto metal or plastic surfaces and must survive machining, heat, or corrosion; printed circuit board serialization for traceability from fabrication through assembly; medical device and pharmaceutical labeling where FDA UDI (Unique Device Identification) rules commonly point manufacturers toward Data Matrix or GS1 DataMatrix; small retail and cosmetic packaging where a UPC barcode would consume too much surface area relative to the product; and document and mail sorting systems that rely on its compact, high-density format to fit alongside other printed content on a page or envelope.</p>"
     },
     {
-      "h2": "How to create a Data Matrix code in Barcode Studio",
+      "h2": "How to create a Data Matrix code in Barcode APIs",
       "html": "<p>Select <strong>Data Matrix</strong> from the symbology list on the left and enter your text, numeric, or ID data directly &mdash; no special formatting is required unless you're targeting GS1 compliance, in which case use the separate GS1 Data Matrix type instead. Error correction is fixed at ECC200 (Reed-Solomon) for every symbol, so there's no L/M/Q/H setting to configure; the standard applies the appropriate redundancy automatically based on symbol size. From there you can:</p><ul><li>Choose square or rectangular symbol shape to match your available label area</li><li>Adjust module size, scale, and quiet zone for small or large-format printing</li><li>Set foreground and background colors while preserving enough contrast for reliable scanning</li><li>Export as PNG or SVG, or copy the code directly for use in packaging artwork or labeling software</li><li>Generate a batch or numbered sequence, or upload a CSV for bulk generation as a ZIP or print-ready PDF of labels</li><li>Call the REST API &mdash; <code>/barcode?type=datamatrix&amp;data=PART-00042</code> &mdash; to automate label generation from your own systems</li></ul>"
     },
     {
@@ -48,7 +48,7 @@
     {"q": "Can Data Matrix be scanned by a smartphone?", "a": "Most modern phone camera apps and dedicated barcode scanner apps can read Data Matrix codes, though QR code remains more universally recognized for consumer-facing uses like marketing and menus."},
     {"q": "What is ECC200?", "a": "ECC200 is the current version of the Data Matrix standard that uses Reed-Solomon error correction at a fixed ratio per symbol size; it's the only version in active use today and what virtually all data matrix generator tools and scanners support."},
     {"q": "How small can a Data Matrix code be printed?", "a": "Data Matrix can be printed or etched extremely small, down to a few millimeters across for short data strings, which is why it's the standard choice for marking individual electronic components and small parts."},
-    {"q": "Can I generate Data Matrix codes in bulk?", "a": "Yes, upload a CSV of values and Barcode Studio will bulk-generate a ZIP of image files or a print-ready PDF of labels in one pass, useful for serializing a full production run."},
+    {"q": "Can I generate Data Matrix codes in bulk?", "a": "Yes, upload a CSV of values and Barcode APIs will bulk-generate a ZIP of image files or a print-ready PDF of labels in one pass, useful for serializing a full production run."},
     {"q": "Does Data Matrix let me choose an error correction level like QR code?", "a": "No, Data Matrix uses the ECC200 Reed-Solomon scheme with a fixed correction ratio determined by the symbol's size, so there's no L/M/Q/H selector to configure."}
   ]
 }

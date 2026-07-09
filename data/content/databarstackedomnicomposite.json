@@ -30,8 +30,8 @@
    "html": "<p>DataBar Stacked Omnidirectional Composite targets retail items that must scan reliably at a standard point-of-sale laser scanner while also carrying traceability data:</p><ul><li>Loose produce and weighed items where a price-embedded or plain GTIN must pass checkout scanning and also carry a pack date or lot for recall tracking.</li><li>Meat, poultry, and seafood packaging subject to food-safety traceability regulations that require lot and date information alongside the retail identifier.</li><li>Health and beauty aids sold at general retail, where checkout speed matters but the manufacturer also wants expiry data embedded for shelf-life management.</li><li>Retailers transitioning legacy UPC-only checkout scanners to GS1 DataBar as part of the 2D/DataBar retail migration, using the omnidirectional variant to keep compatibility with existing laser scan tunnels.</li></ul>"
   },
   {
-   "h2": "How to generate one in Barcode Studio",
-   "html": "<p>Barcode Studio renders the linear and composite tiers as a single connected symbol. To build one:</p><ul><li>Select <strong>GS1 DataBar Stacked Omni Composite</strong> from the barcode type list.</li><li>Enter the GTIN-14 for the linear component and the supplementary AI data (lot, expiry, serial, etc.) for the composite tier.</li><li>Preview the rendered symbol and adjust module size, bar height, and margins to fit your label while preserving the required separator between tiers.</li><li>Export as SVG for production-quality vector printing or PNG for quick proofs.</li><li>Use <strong>Bulk CSV → ZIP/PDF</strong> to generate one symbol per row when a batch of items each needs a distinct lot number or expiration date.</li><li>Call the REST API at <code>/barcode?type=databarstackedomnicomposite&data=...</code> to integrate generation into a labeling or packaging line.</li></ul><p>Because this symbol is meant to work at standard checkout scan angles, test it on the same scan hardware your retail partner uses before committing to a print run — a symbol that verifies correctly on a bench scanner can still behave differently on a live scan tunnel if module size or contrast is marginal.</p>"
+   "h2": "How to generate one in Barcode APIs",
+   "html": "<p>Barcode APIs renders the linear and composite tiers as a single connected symbol. To build one:</p><ul><li>Select <strong>GS1 DataBar Stacked Omni Composite</strong> from the barcode type list.</li><li>Enter the GTIN-14 for the linear component and the supplementary AI data (lot, expiry, serial, etc.) for the composite tier.</li><li>Preview the rendered symbol and adjust module size, bar height, and margins to fit your label while preserving the required separator between tiers.</li><li>Export as SVG for production-quality vector printing or PNG for quick proofs.</li><li>Use <strong>Bulk CSV → ZIP/PDF</strong> to generate one symbol per row when a batch of items each needs a distinct lot number or expiration date.</li><li>Call the REST API at <code>/barcode?type=databarstackedomnicomposite&data=...</code> to integrate generation into a labeling or packaging line.</li></ul><p>Because this symbol is meant to work at standard checkout scan angles, test it on the same scan hardware your retail partner uses before committing to a print run — a symbol that verifies correctly on a bench scanner can still behave differently on a live scan tunnel if module size or contrast is marginal.</p>"
   },
   {
    "h2": "Print and scan best practices",
@@ -68,7 +68,7 @@
   },
   {
    "q": "Can I generate a batch of these barcodes for a production run?",
-   "a": "<p>Yes — use Barcode Studio's bulk CSV to ZIP/PDF tool to supply a GTIN and varying lot/expiry data per row, producing one symbol per item automatically.</p>"
+   "a": "<p>Yes — use Barcode APIs's bulk CSV to ZIP/PDF tool to supply a GTIN and varying lot/expiry data per row, producing one symbol per item automatically.</p>"
   }
  ]
 }

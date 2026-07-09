@@ -1,6 +1,7 @@
 {
   "version": 2,
   "cleanUrls": true,
+  "outputDirectory": "public",
   "rewrites": [
     { "source": "/barcode", "destination": "/api/barcode" },
     { "source": "/barcode.png", "destination": "/api/barcode?format=png" },

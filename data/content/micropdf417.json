@@ -1,6 +1,6 @@
 {
   "id": "micropdf417",
-  "title": "MicroPDF417 Generator - Compact 2D Barcode | Barcode Studio",
+  "title": "MicroPDF417 Generator - Compact 2D Barcode | Barcode APIs",
   "metaDescription": "Generate a MicroPDF417 barcode online free, a compact PDF417 variant for small labels and ID cards. Adjust size and error correction, export PNG or SVG.",
   "primaryKeyword": "micropdf417 generator",
   "secondaryKeywords": ["micro pdf417 barcode", "compact pdf417", "small 2d barcode generator", "micropdf417 vs pdf417", "id card barcode small", "space saving stacked barcode"],
@@ -8,7 +8,7 @@
   "sections": [
     {
       "h2": "What is a MicroPDF417 barcode?",
-      "html": "<p>MicroPDF417 is a compact variant of PDF417, standardized alongside it under ISO/IEC 24728, designed for applications where label space is too limited for a full-size PDF417 symbol. Any MicroPDF417 generator, including Barcode Studio, keeps the same stacked-row structure and Reed-Solomon error correction philosophy as PDF417 but uses a simplified set of row and column configurations optimized to minimize overhead, making it noticeably smaller for the same amount of data than a standard PDF417 symbol at its smallest practical size.</p>"
+      "html": "<p>MicroPDF417 is a compact variant of PDF417, standardized alongside it under ISO/IEC 24728, designed for applications where label space is too limited for a full-size PDF417 symbol. Any MicroPDF417 generator, including Barcode APIs, keeps the same stacked-row structure and Reed-Solomon error correction philosophy as PDF417 but uses a simplified set of row and column configurations optimized to minimize overhead, making it noticeably smaller for the same amount of data than a standard PDF417 symbol at its smallest practical size.</p>"
     },
     {
       "h2": "How MicroPDF417 encodes data",
@@ -23,7 +23,7 @@
       "html": "<p>Compact ID and membership cards use MicroPDF417 where a full PDF417 symbol would crowd the available print area, since ID cards, unlike shipping labels, often have very little unused surface to spare. Small parts and component labeling in electronics and manufacturing rely on it when a part needs a structured, scannable identifier but the physical marking area is only a few millimeters across. Postal and courier services use it on tracking labels with tight space budgets, and pharmaceutical unit packaging uses it when structured text data is required but label real estate is minimal, such as on a single blister-pack unit. It also shows up in retrofit scenarios where a system already parses PDF417-style codewords but a redesigned package or card needs a smaller physical symbol to fit new dimensions.</p>"
     },
     {
-      "h2": "How to create a MicroPDF417 barcode in Barcode Studio",
+      "h2": "How to create a MicroPDF417 barcode in Barcode APIs",
       "html": "<p>Select <strong>MicroPDF417</strong> from the symbology list and enter your text or structured data directly — like PDF417, it isn't part of the 2D content-type builder, so you supply the raw data string yourself. From there you can:</p><ul><li>Adjust row and column count, or let the generator choose the smallest configuration that fits your data</li><li>Set the error correction level appropriate to your printing and handling conditions</li><li>Adjust module width, colors, and quiet zone to fit tightly constrained label dimensions</li><li>Export as PNG or SVG, or copy the code directly for use in card or label templates</li><li>Use batch/sequence generation or CSV bulk upload for producing many unique small-format codes at once, exported as ZIP or PDF</li><li>Call the REST API &mdash; <code>/barcode?type=micropdf417&amp;data=ID-00042</code> &mdash; to integrate into a card printing or labeling workflow</li></ul>"
     },
     {

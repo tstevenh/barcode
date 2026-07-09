@@ -1,4 +1,4 @@
-// Local development / self-host server for Barcode Studio.
+// Local development / self-host server for Barcode APIs.
 //
 // Serves the static site AND runs the /api serverless handlers in one process,
 // so `npm start` gives full dev/prod parity at http://localhost:3000 without
@@ -9,6 +9,26 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = __dirname;
+// Static files are served from the public/ docroot (mirrors Vercel's
+// outputDirectory). API handlers live in ./api and are routed separately.
+const WEBROOT = path.join(ROOT, "public");
+
+// Minimal .env loader (no dependency). Reads .env.local then .env; never
+// overrides variables already set in the real environment. On Vercel this
+// file isn't run, so production env comes from the dashboard.
+for (const name of [".env.local", ".env"]) {
+  try {
+    const txt = fs.readFileSync(path.join(ROOT, name), "utf8");
+    for (const line of txt.split("\n")) {
+      const m = line.match(/^\s*([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*)\s*$/);
+      if (!m || line.trim().startsWith("#")) continue;
+      const key = m[1];
+      let val = m[2].replace(/^["']|["']$/g, "");
+      if (process.env[key] === undefined && val !== "") process.env[key] = val;
+    }
+  } catch { /* file optional */ }
+}
+
 const PORT = process.env.PORT || 3000;
 
 const MIME = {
@@ -32,7 +52,8 @@ const API_ROUTES = {
   "/api/barcode": "./api/barcode.js",
   "/barcode": "./api/barcode.js",
   "/barcode.png": "./api/barcode.js",
-  "/barcode.svg": "./api/barcode.js"
+  "/barcode.svg": "./api/barcode.js",
+  "/api/waitlist": "./api/waitlist.js"
 };
 
 // Give the Node response the Vercel-style helpers the handlers expect.
@@ -63,9 +84,9 @@ function firstFile(candidates) {
 function serveStatic(req, res, pathname) {
   let rel = decodeURIComponent(pathname);
   if (rel === "/") rel = "/index.html";
-  const base = path.normalize(path.join(ROOT, rel));
-  // Block path traversal outside the project root.
-  if (base !== ROOT && !base.startsWith(ROOT + path.sep)) {
+  const base = path.normalize(path.join(WEBROOT, rel));
+  // Block path traversal outside the docroot.
+  if (base !== WEBROOT && !base.startsWith(WEBROOT + path.sep)) {
     res.statusCode = 403; res.end("Forbidden"); return;
   }
   // Clean-URL resolution (mirrors Vercel cleanUrls): exact file, then .html, then dir index.
@@ -109,5 +130,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log("Barcode Studio running at http://localhost:" + PORT);
+  console.log("Barcode APIs running at http://localhost:" + PORT);
 });

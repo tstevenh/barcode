@@ -11,8 +11,14 @@ import { createRequire } from "node:module";
 const require = createRequire(import.meta.url);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
+// Generated pages, sitemap, robots are written into the public/ docroot that
+// Vercel serves (outputDirectory: "public"). The client assets css/ and js/
+// live in public/ too (js/ doubles as a build input: catalog + i18n). Source
+// that is NOT served — templates/, data/, api/ — stays at ROOT. The manifest
+// lives at ROOT as build metadata.
+const OUTDIR = path.join(ROOT, "public");
 
-const CATALOG = require(path.join(ROOT, "js/catalog.js"));
+const CATALOG = require(path.join(OUTDIR, "js/catalog.js"));
 const SEO = require(path.join(ROOT, "data/seo-content.js"));
 const KW = readJSON(path.join(ROOT, "data/keywords.json")) || {};
 const BUILD_I18N = readJSON(path.join(ROOT, "data/i18n-build.json"));
@@ -27,6 +33,8 @@ const LOCALES = LOCALE_CODES.map((code) => {
   if (!cfg) throw new Error(`Missing build i18n locale: ${code}`);
   return { code, ...cfg };
 });
+const SITE_NAME = SEO.site.name;
+const BUILD_DATE = "2026-07-07";
 
 const FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1220'/%3E%3Cg fill='white'%3E%3Crect x='6' y='8' width='2' height='16'/%3E%3Crect x='9' y='8' width='1' height='16'/%3E%3Crect x='11' y='8' width='3' height='16'/%3E%3Crect x='15' y='8' width='1' height='16'/%3E%3Crect x='17' y='8' width='2' height='16'/%3E%3Crect x='20' y='8' width='1' height='16'/%3E%3Crect x='22' y='8' width='3' height='16'/%3E%3Crect x='26' y='8' width='1' height='16'/%3E%3C/g%3E%3C/svg%3E";
 
@@ -35,10 +43,55 @@ function readJSON(p) {
 }
 const esc = (s) => String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const attr = (s) => esc(s).replace(/\s+/g, " ").trim();
-const wordCount = (html) => (String(html).replace(/<[^>]+>/g, " ").replace(/&[a-z]+;/g, " ").match(/\b[\w'-]+\b/g) || []).length;
+const wordCount = (html) => {
+  const text = String(html).replace(/<[^>]+>/g, " ").replace(/&[a-z0-9#]+;/gi, " ");
+  const latin = text.match(/\b[\p{Script=Latin}\p{N}'-]+\b/gu) || [];
+  const cjk = text.match(/[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}ー]/gu) || [];
+  return latin.length + cjk.length;
+};
 
 function fmt(s, vars = {}) {
   return String(s == null ? "" : s).replace(/\{(\w+)\}/g, (_, key) => vars[key] ?? "");
+}
+
+function cleanText(s) {
+  return String(s == null ? "" : s).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+}
+
+function normalized(s) {
+  return cleanText(s).toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+}
+
+// Title-case an English keyword phrase while preserving standard/acronym casing.
+const KEYWORD_ACRONYMS = new Set([
+  "qr", "ean", "upc", "gs1", "pdf417", "isbn", "issn", "ismn", "hibc", "epc", "zatca",
+  "msi", "itf", "dpd", "usps", "kix", "ntin", "ppn", "pzn", "iata", "nve", "sscc",
+  "gtin", "vin", "daft", "bc412", "ascii", "2d", "1d", "lic", "pas", "dl", "id",
+  "url", "sms", "png", "svg", "pdf", "csv", "api", "planet", "postnet", "upu"
+]);
+function titleCaseKeyword(s) {
+  return String(s).split(/(\s+|-)/).map((tok) => {
+    if (/^\s+$/.test(tok) || tok === "-") return tok;
+    const lower = tok.toLowerCase();
+    if (KEYWORD_ACRONYMS.has(lower)) return tok.toUpperCase();
+    return tok.charAt(0).toUpperCase() + tok.slice(1).toLowerCase();
+  }).join("");
+}
+
+function seoTitleFor(it, primaryKeyword) {
+  const keyword = cleanText(primaryKeyword);
+  const name = cleanText(it.name);
+  const nKeyword = normalized(keyword);
+  const nName = normalized(name);
+  const core = nKeyword && nName && !nKeyword.includes(nName) ? `${keyword} ${name}` : keyword;
+  return `${core} | ${SITE_NAME}`;
+}
+
+function seoDescriptionFor(it, primaryKeyword, locale) {
+  const template = locale.metaDescriptionTemplate || LOCALES[0].metaDescriptionTemplate;
+  return fmt(template, { keyword: cleanText(primaryKeyword), name: cleanText(it.name), brand: SITE_NAME })
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 function slugify(name) {
@@ -46,7 +99,7 @@ function slugify(name) {
 }
 
 function loadHints() {
-  const src = fs.readFileSync(path.join(ROOT, "js/i18n.js"), "utf8");
+  const src = fs.readFileSync(path.join(OUTDIR, "js/i18n.js"), "utf8");
   const start = src.indexOf("var HINTS_EN = {");
   const b = src.indexOf("{", start);
   let depth = 0, end = -1;
@@ -65,8 +118,8 @@ const UI = loadRuntimeI18n();
 function loadRuntimeI18n() {
   const context = { window: {}, console };
   context.window.window = context.window;
-  vm.runInNewContext(fs.readFileSync(path.join(ROOT, "js/i18n.js"), "utf8"), context);
-  vm.runInNewContext(fs.readFileSync(path.join(ROOT, "js/i18n-extra.js"), "utf8"), context);
+  vm.runInNewContext(fs.readFileSync(path.join(OUTDIR, "js/i18n.js"), "utf8"), context);
+  vm.runInNewContext(fs.readFileSync(path.join(OUTDIR, "js/i18n-extra.js"), "utf8"), context);
   return context.window.I18N?.ui || {};
 }
 
@@ -133,10 +186,12 @@ function contentFor(it, locale) {
   const hint = HINTS[it.id] || "";
   const kw = KW[it.id] || {};
 
-  let title = source.title || ov.title || `${it.name} Generator — Free Online | ${SEO.site.name}`;
-  const desc = (source.metaDescription || ov.description ||
-    `Generate a scannable ${it.name} online, free. ${hint || cat.lede} Live preview with PNG, SVG and PDF export — no signup.`)
-    .replace(/\s+/g, " ").trim();
+  let primaryKeyword = source.primaryKeyword || kw.primary || `${it.name.toLowerCase()} generator`;
+  // EN keyword strings are authored lowercase; present them Title-Cased (acronyms preserved).
+  // Localized keywords are authored with correct casing already, so leave them untouched.
+  if (locale.code === "en") primaryKeyword = titleCaseKeyword(primaryKeyword);
+  const title = seoTitleFor(it, primaryKeyword);
+  const desc = seoDescriptionFor(it, primaryKeyword, locale);
   const lead = source.lead || ov.lead || firstSentence(hint) || firstSentence(cat.lede);
   const uses = source.uses || ov.uses || cat.uses;
 
@@ -146,10 +201,6 @@ function contentFor(it, locale) {
     sections = [{ h2: `About the ${it.name}`, html: `<p>${esc(about)}</p>` }];
   }
   const faq = source.faq || [];
-  const primaryKeyword = source.primaryKeyword || kw.primary || `${it.name.toLowerCase()} generator`;
-  if (locale.code !== "en" && !String(title).toLowerCase().includes(String(primaryKeyword).toLowerCase())) {
-    title = `${primaryKeyword} | ${SEO.site.name}`;
-  }
   return {
     cat: localizedCat,
     title,
@@ -163,19 +214,65 @@ function contentFor(it, locale) {
   };
 }
 
-function headFor(it, c, locale) {
-  const url = pageUrl(locale, it);
+function jsonLdSiteGraph(locale, url, title, desc, extra = []) {
+  const orgId = `${BASE}/#organization`;
+  const siteId = `${BASE}/#website`;
+  const pageId = `${url}#webpage`;
+  return [
+    { "@type": "Organization", "@id": orgId, name: SITE_NAME, url: `${BASE}/` },
+    { "@type": "WebSite", "@id": siteId, name: SITE_NAME, url: `${BASE}/`, publisher: { "@id": orgId }, inLanguage: locale.htmlLang },
+    {
+      "@type": "WebPage",
+      "@id": pageId,
+      url,
+      name: cleanText(title),
+      description: cleanText(desc),
+      isPartOf: { "@id": siteId },
+      publisher: { "@id": orgId },
+      inLanguage: locale.htmlLang
+    },
+    ...extra
+  ];
+}
+
+function howToFor(it, c, locale, url) {
+  const hasHowSection = (c.sections || []).some((s) => /how|utworz|erstell|maak|crée|créer|作成/i.test(cleanText(s.h2)));
+  if (!hasHowSection || !Array.isArray(locale.howToSteps) || !locale.howToSteps.length) return null;
+  return {
+    "@type": "HowTo",
+    name: fmt(locale.howToName, { keyword: cleanText(c.primaryKeyword), name: cleanText(it.name) }),
+    description: cleanText(c.lead),
+    totalTime: "PT1M",
+    tool: [{ "@type": "HowToTool", name: SITE_NAME }],
+    supply: [{ "@type": "HowToSupply", name: cleanText(locale.howToSupply || it.name) }],
+    step: locale.howToSteps.map((text, idx) => ({
+      "@type": "HowToStep",
+      position: idx + 1,
+      name: fmt(text.name, { keyword: cleanText(c.primaryKeyword), name: cleanText(it.name) }),
+      text: fmt(text.text, { keyword: cleanText(c.primaryKeyword), name: cleanText(it.name), brand: SITE_NAME }),
+      url: `${url}#generator`
+    }))
+  };
+}
+
+function headFor(it, c, locale, leaf = it.slug) {
+  const url = localeUrl(locale, leaf);
   const hubUrl = localeUrl(locale, HUB);
   const homeUrl = localeUrl(locale);
-  const graph = [
+  const breadcrumb = { "@type": "BreadcrumbList", itemListElement: [
+    { "@type": "ListItem", position: 1, name: locale.home, item: homeUrl },
+    { "@type": "ListItem", position: 2, name: locale.barcodeTypes, item: hubUrl },
+    { "@type": "ListItem", position: 3, name: cleanText(c.primaryKeyword), item: url }
+  ]};
+  const graph = jsonLdSiteGraph(locale, url, c.title, c.desc, [
     { "@type": "BreadcrumbList", itemListElement: [
-      { "@type": "ListItem", position: 1, name: locale.home, item: homeUrl },
-      { "@type": "ListItem", position: 2, name: locale.barcodeTypes, item: hubUrl },
-      { "@type": "ListItem", position: 3, name: `${it.name} ${locale.generatorWord}`, item: url }
+      ...breadcrumb.itemListElement
     ]},
-    { "@type": "SoftwareApplication", name: `${it.name} ${locale.generatorWord}`, applicationCategory: "UtilitiesApplication",
-      operatingSystem: "Web", offers: { "@type": "Offer", price: "0", priceCurrency: "USD" }, url }
-  ];
+    { "@type": "SoftwareApplication", name: cleanText(c.primaryKeyword), applicationCategory: "UtilitiesApplication",
+      operatingSystem: "Web", offers: { "@type": "Offer", price: "0", priceCurrency: "USD" }, url, publisher: { "@id": `${BASE}/#organization` } }
+  ]);
+  const howTo = howToFor(it, c, locale, url);
+  if (howTo) graph.push(howTo);
   if (c.faq && c.faq.length) {
     graph.push({ "@type": "FAQPage", mainEntity: c.faq.map((f) => ({
       "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: String(f.a).replace(/<[^>]+>/g, "") } })) });
@@ -186,7 +283,7 @@ function headFor(it, c, locale) {
     `<meta name="description" content="${attr(c.desc)}" />`,
     `<meta name="theme-color" content="#0b1220" />`,
     `<link rel="canonical" href="${url}" />`,
-    alternates(it.slug),
+    alternates(leaf),
     `<meta property="og:type" content="website" />`,
     `<meta property="og:title" content="${attr(c.title)}" />`,
     `<meta property="og:description" content="${attr(c.desc)}" />`,
@@ -204,7 +301,7 @@ function heroFor(it, c, locale) {
     <div class="hero-content">
       <nav class="crumb" aria-label="${attr(locale.barcodeTypes)}"><a href="${localePath(locale)}">${esc(locale.home)}</a><span>/</span><a href="${localePath(locale, HUB)}">${esc(locale.barcodes)}</a><span>/</span><span>${esc(it.name)}</span></nav>
       <span class="eyebrow">${esc(c.cat.label)}</span>
-      <h1>${esc(it.name)} <span class="grad-text">${esc(locale.generatorWord)}</span></h1>
+      <h1>${esc(c.primaryKeyword)}</h1>
       <p>${esc(c.lead)}</p>
       <a href="#generator" class="btn btn-primary btn-lg">${esc(locale.generatorCta)}</a>
     </div>
@@ -213,7 +310,7 @@ function heroFor(it, c, locale) {
 
 function relatedFor(it, locale) {
   const sibs = ITEMS.filter((o) => o.group === it.group && o.id !== it.id).slice(0, 14);
-  return sibs.map((o) => `<a href="${pageHref(locale, o)}">${esc(o.name)}</a>`).join("");
+  return sibs.map((o) => `<a href="${pageHref(locale, o)}">${esc(o.name)} ${esc(locale.generatorWord)}</a>`).join("");
 }
 
 function articleFor(it, c, locale) {
@@ -234,7 +331,7 @@ ${secs}
 `;
 }
 
-const TEMPLATE = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+const TEMPLATE = fs.readFileSync(path.join(ROOT, "templates/app-shell.html"), "utf8");
 const absolutize = (html) => html
   .replace(/href="css\//g, 'href="/css/')
   .replace(/href="api-docs\.html"/g, 'href="/api-docs.html"')
@@ -248,10 +345,17 @@ function injectLocaleScript(html, locale, extra = "") {
 function localizeStaticShell(html, locale) {
   if (locale.code === "en") return html;
   const dict = UI[locale.code] || {};
+  if (dict.heroTitleHtml) {
+    html = html.replace(
+      /<h1 class="reveal" data-i18n-html="heroTitleHtml">[\s\S]*?<\/h1>/,
+      `<h1 class="reveal" data-i18n-html="heroTitleHtml">${dict.heroTitleHtml}</h1>`
+    );
+  }
   html = html.replace(/(<[^>]+data-i18n="([^"]+)"[^>]*>)([^<]*)(<\/[^>]+>)/g, (m, open, key, _text, close) => (
     Object.prototype.hasOwnProperty.call(dict, key) ? `${open}${esc(dict[key])}${close}` : m
   ));
   html = html.replace(/(<[^>]+data-i18n-html="([^"]+)"[^>]*>)([\s\S]*?)(<\/[^>]+>)/g, (m, open, key, _text, close) => (
+    key === "heroTitleHtml" ? m :
     Object.prototype.hasOwnProperty.call(dict, key) ? `${open}${dict[key]}${close}` : m
   ));
   html = html.replace(/data-i18n-ph="([^"]+)" placeholder="[^"]*"/g, (m, key) => (
@@ -268,8 +372,8 @@ function localizeStaticShell(html, locale) {
   }[locale.code];
   return html
     .replace(/aria-label="Language"/g, `aria-label="${attr(dict.langLabel || locale.name)}"`)
-    .replace(/>📋 Copy</g, `>📋 ${esc(dict.btnCopy || "Copy")}<`)
-    .replace(/>⬇ ZIP \(batch\)</g, `>⬇ ${esc(dict.btnZip || "ZIP")}<`)
+    .replace(/>Copy</g, `>${esc(dict.btnCopy || "Copy")}<`)
+    .replace(/>↓ ZIP</g, `>↓ ${esc(dict.btnZip || "ZIP")}<`)
     .replace(/title="Zoom out"/g, `title="${attr(zoomOut)}"`)
     .replace(/title="Zoom in"/g, `title="${attr(zoomIn)}"`)
     .replace(/value="MyNetwork"/g, `value="${attr(sample.network)}"`)
@@ -287,13 +391,13 @@ function localizeShellLinks(html, locale) {
     .replace(/href="\/"/g, `href="${localePath(locale)}"`);
 }
 
-function buildPage(it, locale) {
+function buildPage(it, locale, leaf = it.slug) {
   const c = contentFor(it, locale);
   let html = TEMPLATE;
   html = html.replace('<html lang="en">', `<html lang="${attr(locale.htmlLang)}">`);
   const headStart = html.indexOf("<title>");
   const cssMarker = html.indexOf('<link rel="stylesheet" href="css/style.css"');
-  html = html.slice(0, headStart) + headFor(it, c, locale) + html.slice(cssMarker);
+  html = html.slice(0, headStart) + headFor(it, c, locale, leaf) + html.slice(cssMarker);
   const hStart = html.indexOf('<section class="hero">');
   const hEnd = html.indexOf("</section>", hStart) + "</section>".length;
   html = html.slice(0, hStart) + heroFor(it, c, locale).trimStart() + html.slice(hEnd);
@@ -317,27 +421,38 @@ function hubPage(locale) {
     return `    <section class="hub-group">\n      <h2>${esc(label)}</h2>\n      <div class="hub-grid">\n${rows}\n      </div>\n    </section>`;
   }).join("\n");
   const url = localeUrl(locale, HUB);
+  const desc = fmt(locale.hubDescription, { n: TOTAL });
+  const ld = { "@context": "https://schema.org", "@graph": jsonLdSiteGraph(locale, url, fmt(locale.hubTitle, { n: TOTAL }), desc, [
+    { "@type": "CollectionPage", url, name: fmt(locale.hubTitle, { n: TOTAL }), description: desc }
+  ]) };
   return `<!DOCTYPE html>
 <html lang="${attr(locale.htmlLang)}">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" /></noscript>
 <title>${esc(fmt(locale.hubTitle, { n: TOTAL }))}</title>
-<meta name="description" content="${attr(fmt(locale.hubDescription, { n: TOTAL }))}" />
+<meta name="description" content="${attr(desc)}" />
 <meta name="theme-color" content="#0b1220" />
 <link rel="canonical" href="${url}" />
 ${alternates(HUB)}
 <meta property="og:type" content="website" />
 <meta property="og:title" content="${attr(locale.hubOgTitle)}" />
+<meta property="og:description" content="${attr(desc)}" />
 <meta property="og:url" content="${url}" />
+<meta name="twitter:card" content="summary_large_image" />
 <link rel="icon" href="${FAVICON}" />
+<script type="application/ld+json">${JSON.stringify(ld)}</script>
 <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
   <header class="topbar">
     <a class="brand" href="${localePath(locale)}" style="text-decoration:none;color:inherit">
       <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-      <div><h1>Barcode Studio</h1><p>${esc(locale.brandTagline)}</p></div>
+      <div><span class="brand-title">${esc(SITE_NAME)}</span><p>${esc(locale.brandTagline)}</p></div>
     </a>
     <nav class="top-actions">
       <a href="${localePath(locale)}" class="btn btn-ghost">${esc(locale.navGenerator)}</a>
@@ -355,14 +470,20 @@ ${alternates(HUB)}
   <main class="hub">
 ${groups}
   </main>
-  <footer class="footer"><span class="footer-brand">Barcode Studio</span> · ${esc(locale.footerText)}</footer>
+  <footer class="footer"><span class="footer-brand">${esc(SITE_NAME)}</span> · ${esc(locale.footerText)}</footer>
 </body>
 </html>
 `;
 }
 
-function homeHead(locale) {
+function homeHead(locale, c = null) {
   const url = localeUrl(locale);
+  const extra = [];
+  if (c && c.faq && c.faq.length) {
+    extra.push({ "@type": "FAQPage", mainEntity: c.faq.map((f) => ({
+      "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: String(f.a).replace(/<[^>]+>/g, "") } })) });
+  }
+  const ld = { "@context": "https://schema.org", "@graph": jsonLdSiteGraph(locale, url, locale.homeTitle, locale.homeDescription, extra) };
   return [
     `<title>${esc(locale.homeTitle)}</title>`,
     `<meta name="description" content="${attr(locale.homeDescription)}" />`,
@@ -375,16 +496,27 @@ function homeHead(locale) {
     `<meta property="og:url" content="${url}" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
     `<link rel="icon" href="${FAVICON}" />`,
+    `<script type="application/ld+json">${JSON.stringify(ld)}</script>`,
     ``
   ].join("\n");
 }
 
+// The homepage keeps its broad hero + head, but is enriched with the QR Code
+// landing content (article + FAQ) so "/" is a substantial, rankable page and the
+// generator defaults to QR Code.
 function localizedHome(locale) {
+  const homeItem = ITEMS.find((x) => x.id === "qrcode");
+  const c = homeItem ? contentFor(homeItem, locale) : null;
   let html = TEMPLATE;
   html = html.replace('<html lang="en">', `<html lang="${attr(locale.htmlLang)}">`);
   const headStart = html.indexOf("<title>");
   const cssMarker = html.indexOf('<link rel="stylesheet" href="css/style.css"');
-  html = html.slice(0, headStart) + homeHead(locale) + html.slice(cssMarker);
+  html = html.slice(0, headStart) + homeHead(locale, c) + html.slice(cssMarker);
+  if (homeItem && c) {
+    html = html.replace('<script src="js/catalog.js"></script>',
+      `<script>window.BARCODE_INITIAL_TYPE=${JSON.stringify(homeItem.id)};</script>\n  <script src="js/catalog.js"></script>`);
+    html = html.replace('<footer class="footer">', articleFor(homeItem, c, locale) + '  <footer class="footer">');
+  }
   html = absolutize(html);
   html = injectLocaleScript(html, locale);
   html = localizeStaticShell(html, locale);
@@ -400,12 +532,12 @@ function sitemap() {
     urls.push(localeUrl(locale), localeUrl(locale, HUB));
     for (const it of ITEMS) urls.push(pageUrl(locale, it));
   }
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${u}</loc></url>`).join("\n")}\n</urlset>\n`;
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${u}</loc><lastmod>${BUILD_DATE}</lastmod></url>`).join("\n")}\n</urlset>\n`;
 }
 const robots = `User-agent: *\nAllow: /\n\nSitemap: ${BASE}/sitemap.xml\n`;
 
 function writeGenerated(rel, html, written) {
-  const target = path.join(ROOT, rel);
+  const target = path.join(OUTDIR, rel);
   fs.mkdirSync(path.dirname(target), { recursive: true });
   fs.writeFileSync(target, html);
   written.push(rel);
@@ -413,16 +545,14 @@ function writeGenerated(rel, html, written) {
 
 const prev = readJSON(MANIFEST) || [];
 for (const f of prev) {
-  try { fs.rmSync(path.join(ROOT, f), { force: true }); } catch (e) {}
+  try { fs.rmSync(path.join(OUTDIR, f), { force: true }); } catch (e) {}
 }
-fs.rmSync(path.join(ROOT, "barcodes"), { recursive: true, force: true });
+fs.rmSync(path.join(OUTDIR, "barcodes"), { recursive: true, force: true });
 
 const written = [];
 let thin = 0, minW = Infinity, pageCount = 0;
 for (const locale of LOCALES) {
-  if (locale.code !== "en") {
-    writeGenerated(`${locale.prefix}/index.html`, localizedHome(locale), written);
-  }
+  writeGenerated(locale.code === "en" ? "index.html" : `${locale.prefix}/index.html`, localizedHome(locale), written);
   for (const it of ITEMS) {
     const { html, words } = buildPage(it, locale);
     const file = locale.code === "en" ? `${it.slug}.html` : `${locale.prefix}/${it.slug}.html`;
@@ -438,6 +568,6 @@ writeGenerated("sitemap.xml", sitemap(), written);
 writeGenerated("robots.txt", robots, written);
 fs.writeFileSync(MANIFEST, JSON.stringify(written, null, 0));
 
-console.log(`Built ${pageCount} landing pages + ${LOCALES.length} hubs + ${LOCALES.length - 1} localized homepages + sitemap + robots.`);
+console.log(`Built ${pageCount} landing pages + ${LOCALES.length} hubs + ${LOCALES.length} homepages + sitemap + robots.`);
 console.log(`Word counts: min ${minW === Infinity ? 0 : minW}; pages under 800 words: ${thin}/${pageCount}`);
 console.log(`Sample: /${ITEMS[0].slug}, /de/${ITEMS.find((x) => x.id === "pdf417").slug}, /ja/${ITEMS.find((x) => x.id === "EAN13").slug}`);

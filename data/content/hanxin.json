@@ -1,6 +1,6 @@
 {
   "id": "hanxin",
-  "title": "Han Xin Code Generator - Chinese 2D Barcode | Barcode Studio",
+  "title": "Han Xin Code Generator - Chinese 2D Barcode | Barcode APIs",
   "metaDescription": "Generate a Han Xin Code online free, the 2D barcode built for efficient Chinese character encoding. Export PNG or SVG or use the REST API.",
   "primaryKeyword": "han xin code generator",
   "secondaryKeywords": ["han xin barcode", "chinese qr code alternative", "gb standard 2d barcode", "hanzi barcode generator", "chinese character barcode", "han xin code specs"],
@@ -23,8 +23,8 @@
       "html": "<p>Han Xin Code is used within China for applications where Chinese-language content needs to be encoded efficiently, including logistics and postal tracking, government and identity documentation, product labeling and traceability where Chinese product names or descriptions are part of the payload, and manufacturing applications where domestic Chinese standards are specified for 2D marking. Because it's a national and now also international standard, it appears wherever Chinese regulatory or industry specifications call for a GB/T 21049-compliant 2D barcode rather than a general international format like QR code or Data Matrix, particularly in sectors where the encoded data is expected to be primarily in Chinese rather than Latin script.</p>"
     },
     {
-      "h2": "How to create a Han Xin Code in Barcode Studio",
-      "html": "<p>Select <strong>Han Xin Code</strong> from the symbology list and enter your text or Chinese-language content directly; Barcode Studio accepts UTF-8 text so Hanzi characters can be typed or pasted alongside Latin text or numbers in the same string. From there you can:</p><ul><li>Adjust symbol size/version based on your data length</li><li>Set the error correction level to balance data capacity against damage tolerance</li><li>Adjust module size, scale, and quiet zone for your label format</li><li>Set foreground and background colors while preserving contrast for reliable scanning</li><li>Export as PNG or SVG, or copy the code directly for use in packaging or documentation</li><li>Use batch/sequence generation or CSV bulk upload for producing many unique codes at once, exported as ZIP or PDF</li><li>Call the REST API &mdash; <code>/barcode?type=hanxin&amp;data=%E4%BA%A7%E5%93%81%E7%BC%96%E5%8F%B7</code> &mdash; to integrate Han Xin Code generation into a labeling system</li></ul>"
+      "h2": "How to create a Han Xin Code in Barcode APIs",
+      "html": "<p>Select <strong>Han Xin Code</strong> from the symbology list and enter your text or Chinese-language content directly; Barcode APIs accepts UTF-8 text so Hanzi characters can be typed or pasted alongside Latin text or numbers in the same string. From there you can:</p><ul><li>Adjust symbol size/version based on your data length</li><li>Set the error correction level to balance data capacity against damage tolerance</li><li>Adjust module size, scale, and quiet zone for your label format</li><li>Set foreground and background colors while preserving contrast for reliable scanning</li><li>Export as PNG or SVG, or copy the code directly for use in packaging or documentation</li><li>Use batch/sequence generation or CSV bulk upload for producing many unique codes at once, exported as ZIP or PDF</li><li>Call the REST API &mdash; <code>/barcode?type=hanxin&amp;data=%E4%BA%A7%E5%93%81%E7%BC%96%E5%8F%B7</code> &mdash; to integrate Han Xin Code generation into a labeling system</li></ul>"
     },
     {
       "h2": "Printing and scanning best practices",

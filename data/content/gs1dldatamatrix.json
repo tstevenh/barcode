@@ -1,6 +1,6 @@
 {
   "id": "gs1dldatamatrix",
-  "title": "GS1 Digital Link Data Matrix Generator | Barcode Studio",
+  "title": "GS1 Digital Link Data Matrix Generator | Barcode APIs",
   "metaDescription": "Generate a GS1 Digital Link Data Matrix code combining a scannable web URL with GTIN traceability data. Free tool with PNG/SVG export and REST API.",
   "primaryKeyword": "gs1 digital link data matrix generator",
   "secondaryKeywords": ["gs1 digital link datamatrix", "gtin data matrix url", "smart label data matrix", "gs1 2d barcode pharma", "data matrix web link", "gs1 traceability barcode"],
@@ -23,8 +23,8 @@
       "html": "<p>Pharmaceutical unit-dose packaging and medical devices, where space is extremely limited but full traceability data plus a link to patient safety information is required; small electronic components and industrial parts marked directly for lifecycle tracking; cosmetics and small consumer goods packaging adopting GS1's 2D transition while needing a compact footprint that a QR code's larger minimum size wouldn't allow; and any application already using GS1 DataMatrix for regulatory compliance that wants to add a working consumer-facing link without switching symbologies or requalifying a marking process.</p>"
     },
     {
-      "h2": "How to create a GS1 Digital Link Data Matrix code in Barcode Studio",
-      "html": "<p>Select <strong>GS1 Digital Link Data Matrix</strong> from the symbology list and use the Digital Link builder to enter your resolver domain along with GTIN, batch, and expiry; Barcode Studio constructs the properly formatted URL path (e.g. <code>/01/{gtin}/10/{batch}/17/{expiry}</code>) automatically so you don't need to hand-assemble the path segments. Error correction stays fixed at ECC200 (Reed-Solomon), the same as plain Data Matrix, so there's no correction-level setting to adjust. From there you can:</p><ul><li>Choose square or rectangular symbol shape and adjust module size and quiet zone for your label footprint</li><li>Preview the resolved URL to confirm it routes correctly before export</li><li>Export as PNG or SVG for packaging or direct part-marking artwork, or copy the code</li><li>Use batch/sequence generation or CSV bulk upload to produce unique codes per unit across a production run, exported as ZIP or PDF</li><li>Call the REST API &mdash; <code>/barcode?type=gs1dldatamatrix&amp;data=https://example.com/01/09501234567890/17/261231</code> &mdash; to integrate into an automated labeling line</li></ul>"
+      "h2": "How to create a GS1 Digital Link Data Matrix code in Barcode APIs",
+      "html": "<p>Select <strong>GS1 Digital Link Data Matrix</strong> from the symbology list and use the Digital Link builder to enter your resolver domain along with GTIN, batch, and expiry; Barcode APIs constructs the properly formatted URL path (e.g. <code>/01/{gtin}/10/{batch}/17/{expiry}</code>) automatically so you don't need to hand-assemble the path segments. Error correction stays fixed at ECC200 (Reed-Solomon), the same as plain Data Matrix, so there's no correction-level setting to adjust. From there you can:</p><ul><li>Choose square or rectangular symbol shape and adjust module size and quiet zone for your label footprint</li><li>Preview the resolved URL to confirm it routes correctly before export</li><li>Export as PNG or SVG for packaging or direct part-marking artwork, or copy the code</li><li>Use batch/sequence generation or CSV bulk upload to produce unique codes per unit across a production run, exported as ZIP or PDF</li><li>Call the REST API &mdash; <code>/barcode?type=gs1dldatamatrix&amp;data=https://example.com/01/09501234567890/17/261231</code> &mdash; to integrate into an automated labeling line</li></ul>"
     },
     {
       "h2": "Print and scan best practices",
@@ -48,7 +48,7 @@
     {"q": "Does a GS1 Digital Link Data Matrix code still work as a GS1 identifier?", "a": "Yes, because the URL follows the standardized Digital Link path structure, GS1-aware scanning systems can extract the GTIN, batch, and expiry directly from the URL, just as they would from a classic GS1 DataMatrix payload."},
     {"q": "Can this code be scanned by a regular phone camera?", "a": "Yes, since the payload is a real web URL, any phone camera app that reads Data Matrix codes will resolve it as a normal link and open the webpage, which is the core benefit a gs1 digital link data matrix generator provides over a plain GS1 Data Matrix."},
     {"q": "What's the smallest size this code can be printed at?", "a": "It depends on your printer and scanner resolution, but Data Matrix's compact grid structure allows GS1 Digital Link payloads to be printed at just a few millimeters across, smaller than an equivalent QR code carrying the same URL."},
-    {"q": "Can I bulk-generate these codes for a production run?", "a": "Yes, upload a CSV with per-unit GTIN, batch, and serial data and Barcode Studio will generate a ZIP or PDF of individually coded Data Matrix labels."},
+    {"q": "Can I bulk-generate these codes for a production run?", "a": "Yes, upload a CSV with per-unit GTIN, batch, and serial data and Barcode APIs will generate a ZIP or PDF of individually coded Data Matrix labels."},
     {"q": "What is Sunrise 2027 and how does this code relate to it?", "a": "Sunrise 2027 is the retail industry's informal target for widespread adoption of GS1's 2D barcodes carrying Digital Link URLs; GS1 Digital Link Data Matrix is one of the compact symbologies businesses can use to meet that transition where label space is too small for a QR code."}
   ]
 }

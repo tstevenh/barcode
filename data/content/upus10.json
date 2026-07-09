@@ -1,6 +1,6 @@
 {
   "id": "upus10",
-  "title": "UPU S10 Barcode Generator - Postal Tracking | Barcode Studio",
+  "title": "UPU S10 Barcode Generator - Postal Tracking | Barcode APIs",
   "metaDescription": "Generate a UPU S10 postal tracking barcode free in your browser. Encode the 13-character S10 identifier in Code 128 and export PNG, SVG, or PDF instantly.",
   "primaryKeyword": "upu s10 barcode generator",
   "secondaryKeywords": ["upu s10 format", "international mail tracking barcode", "ems tracking number barcode", "s10 postal identifier", "universal postal union barcode"],
@@ -27,7 +27,7 @@
       "html": "<p>You'll see S10 identifiers on international registered mail, EMS express parcels, small packet items with tracking, and customs declaration forms (like CN 22/CN 23) that accompany cross-border shipments. National postal services &mdash; USPS, Royal Mail, Deutsche Post, La Poste, and others &mdash; all issue and recognize S10 numbers for items entering the international network, and it's the number you enter on the UPU's own international tracking tool as well as on most national postal tracking websites when the item originated or is transiting abroad.</p>"
     },
     {
-      "h2": "How to create a UPU S10 barcode in Barcode Studio",
+      "h2": "How to create a UPU S10 barcode in Barcode APIs",
       "html": "<p>Select <strong>UPU S10</strong> from the symbology list on the left, which renders your input as Code 128. Enter the full 13-character identifier (two letters, eight digits including the check digit, two letters), then:</p><ul><li>Adjust bar width, height, and quiet zone to fit your label size</li><li>Toggle human-readable text below the bars so postal staff can read the code if a scan fails</li><li>Export as PNG, SVG, or PDF, or copy the image directly into a customs form or label template</li><li>Use the batch or sequence tools to generate barcodes for a range of tracking numbers at once</li><li>Upload a CSV of S10 identifiers for bulk generation as a ZIP of image files or a print-ready PDF of labels</li><li>Call the REST API &mdash; <code>/barcode?type=upus10&amp;data=RR123456785US</code> &mdash; to generate labels programmatically from your own shipping or fulfillment software</li></ul>"
     },
     {
@@ -52,6 +52,6 @@
     {"q": "How is the S10 check digit calculated?", "a": "It uses a weighted modulo-10 calculation defined in the UPU standard, applied to the seven-digit serial number, so postal systems can detect a mistyped or misscanned digit before the item is misrouted."},
     {"q": "Can I create an S10 number myself, or do I need one issued by a postal operator?", "a": "You need a valid identifier issued by a postal operator or your shipping platform's international mail integration &mdash; you can't invent a working one, since it must correspond to a real tracked item in the postal network."},
     {"q": "Is UPU S10 the same as a domestic tracking number?", "a": "No, S10 is specifically the international standard format recognized across UPU member countries, while individual postal operators may use different formats for purely domestic mail that never crosses a border."},
-    {"q": "Can I bulk-generate UPU S10 barcodes?", "a": "Yes, upload a CSV of S10 identifiers and Barcode Studio will generate a ZIP of image files or a print-ready PDF of labels in one batch."}
+    {"q": "Can I bulk-generate UPU S10 barcodes?", "a": "Yes, upload a CSV of S10 identifiers and Barcode APIs will generate a ZIP of image files or a print-ready PDF of labels in one batch."}
   ]
 }

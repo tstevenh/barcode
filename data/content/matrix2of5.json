@@ -1,6 +1,6 @@
 {
   "id": "matrix2of5",
-  "title": "Matrix 2 of 5 Generator - Free Barcode | Barcode Studio",
+  "title": "Matrix 2 of 5 Generator - Free Barcode | Barcode APIs",
   "metaDescription": "Generate Matrix 2 of 5 barcodes free in your browser. Encode numeric data, adjust bar width and height, and export PNG, SVG, or PDF in seconds.",
   "primaryKeyword": "matrix 2 of 5 generator",
   "secondaryKeywords": ["matrix 2 of 5 barcode", "2 of 5 barcode types", "numeric only barcode generator", "industrial 2 of 5", "matrix 2 of 5 vs interleaved 2 of 5"],
@@ -23,7 +23,7 @@
       "html": "<p>Matrix 2 of 5 is largely a legacy symbology at this point. You'll mostly encounter it in older warehouse management systems, some airline ticket stock, and photofinishing envelope tracking &mdash; industries that adopted it decades ago and have kept the underlying label formats unchanged rather than migrate to newer standards. If you're generating a Matrix 2 of 5 barcode today, it's almost always because you're integrating with, or replacing labels for, an existing legacy system that specifically expects this format rather than choosing it fresh for a new application.</p><p>For new numeric-only barcode needs, Code 128 or Interleaved 2 of 5 are generally more practical choices because of their better data density and wider scanner support, but Matrix 2 of 5 remains necessary wherever a downstream system was built to read it.</p>"
     },
     {
-      "h2": "How to create a Matrix 2 of 5 barcode in Barcode Studio",
+      "h2": "How to create a Matrix 2 of 5 barcode in Barcode APIs",
       "html": "<p>Select <strong>Matrix 2 of 5</strong> from the symbology list on the left, then type your numeric string into the data field &mdash; only digits 0&ndash;9 are accepted. From there you can:</p><ul><li>Adjust bar width and height to match the label size and scanner requirements of your legacy system</li><li>Set the quiet zone (blank margin) on both sides so scanners can reliably locate the start and stop patterns</li><li>Toggle human-readable text below the bars for visual verification</li><li>Export as PNG, SVG, or PDF, or copy the barcode image directly into another document</li><li>Use the batch or sequence tools to generate a numbered run of codes at once</li><li>Upload a CSV of numeric values for bulk generation as a ZIP of image files or a print-ready PDF of labels</li><li>Call the REST API &mdash; <code>/barcode?type=matrix2of5&amp;data=1234567890</code> &mdash; to generate codes programmatically from your own scripts or systems</li></ul>"
     },
     {
@@ -48,6 +48,6 @@
     {"q": "Can Matrix 2 of 5 encode letters?", "a": "No, Matrix 2 of 5 only encodes the digits 0 through 9. If you need to encode letters or mixed alphanumeric data, use Code 39 or Code 128 instead."},
     {"q": "Is Matrix 2 of 5 still commonly used?", "a": "It's largely a legacy symbology today, kept alive mainly by older systems that were built around it decades ago. New applications generally use Interleaved 2 of 5 or Code 128 for numeric data instead."},
     {"q": "Does Matrix 2 of 5 have a check digit?", "a": "Matrix 2 of 5 itself doesn't mandate a specific check digit scheme the way some other symbologies do; whether a check digit is appended depends on the conventions of the system you're integrating with."},
-    {"q": "Can I generate many Matrix 2 of 5 barcodes at once?", "a": "Yes, upload a CSV of numeric values and Barcode Studio will bulk-generate a ZIP of image files or a print-ready PDF of labels, or use the sequence tool for a numbered batch."}
+    {"q": "Can I generate many Matrix 2 of 5 barcodes at once?", "a": "Yes, upload a CSV of numeric values and Barcode APIs will bulk-generate a ZIP of image files or a print-ready PDF of labels, or use the sequence tool for a numbered batch."}
   ]
 }

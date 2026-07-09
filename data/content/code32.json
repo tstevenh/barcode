@@ -1,6 +1,6 @@
 {
   "id": "code32",
-  "title": "Code 32 Generator - Italian Pharma Barcode | Barcode Studio",
+  "title": "Code 32 Generator - Italian Pharma Barcode | Barcode APIs",
   "metaDescription": "Generate a Code 32 (Italian pharmaceutical) barcode free in your browser. Encode the 8-digit ministerial code and export PNG, SVG, or PDF instantly.",
   "primaryKeyword": "code 32 italian generator",
   "secondaryKeywords": ["code 32 barcode", "italian pharmaceutical barcode", "codice farmaceutico", "code 32 vs code 39", "italian pharma code generator"],
@@ -16,15 +16,15 @@
     },
     {
       "h2": "Technical Specifications",
-      "html": "<p>The input to Code 32 is an 8-digit Italian Ministry of Health product code (sometimes provided as 9 digits including a pre-existing check digit, depending on the source system). Internally, Barcode Studio applies the standard Code 32 numeric-to-base-32 conversion, then renders the result as Code 39 with its start/stop characters and calculated checksum. The visible barcode is therefore a valid Code 39 symbol, but the human-readable text conventionally shows the original 9-digit ministerial number (often prefixed with an \"A\" and suffixed with a check digit) rather than the raw converted Code 39 payload, matching how Italian pharmacy systems expect the code to be labeled.</p>"
+      "html": "<p>The input to Code 32 is an 8-digit Italian Ministry of Health product code (sometimes provided as 9 digits including a pre-existing check digit, depending on the source system). Internally, Barcode APIs applies the standard Code 32 numeric-to-base-32 conversion, then renders the result as Code 39 with its start/stop characters and calculated checksum. The visible barcode is therefore a valid Code 39 symbol, but the human-readable text conventionally shows the original 9-digit ministerial number (often prefixed with an \"A\" and suffixed with a check digit) rather than the raw converted Code 39 payload, matching how Italian pharmacy systems expect the code to be labeled.</p>"
     },
     {
       "h2": "Where Code 32 is used",
       "html": "<p>Code 32 appears exclusively on Italian pharmaceutical packaging &mdash; prescription and over-the-counter medicine boxes sold through the Italian national health system and retail pharmacies. It's required by Italian regulation so that pharmacists, wholesalers, and the national health service's reimbursement and tracking systems can scan a package and immediately identify the exact registered pharmaceutical product. Outside of Italy's pharmaceutical supply chain, Code 32 has essentially no use, since other countries use different national or international pharma coding systems such as Germany's PZN or the broader NTIN/PPN standards.</p>"
     },
     {
-      "h2": "How to create a Code 32 barcode in Barcode Studio",
-      "html": "<p>Select <strong>Code 32 (Italian)</strong> from the symbology list on the left, then enter the 8-digit ministerial product code. Barcode Studio applies the base-32 conversion and Code 39 encoding automatically, so you only need to supply the original numeric code. From there:</p><ul><li>Adjust bar width and height to fit your pharmaceutical packaging dimensions</li><li>Toggle human-readable text so the ministerial code is printed in a form pharmacists and wholesalers recognize</li><li>Set colors and quiet zone appropriate for small-format packaging, which often has limited barcode real estate</li><li>Export as PNG, SVG, or PDF for packaging artwork, or copy directly into a design tool</li><li>Use the batch or sequence tools if generating labels for a numbered product range</li><li>Upload a CSV of ministerial codes for bulk generation as a ZIP of image files or a print-ready PDF</li><li>Call the REST API &mdash; <code>/barcode?type=code32&amp;data=12345678</code> &mdash; for automated packaging or labeling pipelines</li></ul>"
+      "h2": "How to create a Code 32 barcode in Barcode APIs",
+      "html": "<p>Select <strong>Code 32 (Italian)</strong> from the symbology list on the left, then enter the 8-digit ministerial product code. Barcode APIs applies the base-32 conversion and Code 39 encoding automatically, so you only need to supply the original numeric code. From there:</p><ul><li>Adjust bar width and height to fit your pharmaceutical packaging dimensions</li><li>Toggle human-readable text so the ministerial code is printed in a form pharmacists and wholesalers recognize</li><li>Set colors and quiet zone appropriate for small-format packaging, which often has limited barcode real estate</li><li>Export as PNG, SVG, or PDF for packaging artwork, or copy directly into a design tool</li><li>Use the batch or sequence tools if generating labels for a numbered product range</li><li>Upload a CSV of ministerial codes for bulk generation as a ZIP of image files or a print-ready PDF</li><li>Call the REST API &mdash; <code>/barcode?type=code32&amp;data=12345678</code> &mdash; for automated packaging or labeling pipelines</li></ul>"
     },
     {
       "h2": "Printing & scanning best practices",
@@ -47,7 +47,7 @@
     {"q": "Is Code 32 a completely different symbology from Code 39?", "a": "No, Code 32 is Code 39 with a specific numeric-to-base-32 conversion applied to the input first, so the visible bars are a valid Code 39 symbol that Code 32-aware software converts back to the original ministerial number."},
     {"q": "What data does Code 32 encode?", "a": "It encodes the 8-digit Italian pharmaceutical product code (the ministerial number) assigned by Italy's Ministry of Health, converted into a compact base-32 representation before being rendered as Code 39."},
     {"q": "Is Code 32 used outside Italy?", "a": "No, Code 32 is specific to the Italian pharmaceutical numbering system; other countries use their own pharma barcode standards, such as Germany's PZN or the international NTIN and PPN codes."},
-    {"q": "Do I need to calculate the base-32 conversion myself?", "a": "No, Barcode Studio performs the numeric-to-base-32 conversion and Code 39 encoding automatically from the ministerial product code you enter."},
-    {"q": "Can I generate Code 32 barcodes in bulk?", "a": "Yes, upload a CSV of ministerial product codes and Barcode Studio will generate a ZIP of image files or a print-ready PDF of packaging labels."}
+    {"q": "Do I need to calculate the base-32 conversion myself?", "a": "No, Barcode APIs performs the numeric-to-base-32 conversion and Code 39 encoding automatically from the ministerial product code you enter."},
+    {"q": "Can I generate Code 32 barcodes in bulk?", "a": "Yes, upload a CSV of ministerial product codes and Barcode APIs will generate a ZIP of image files or a print-ready PDF of packaging labels."}
   ]
 }

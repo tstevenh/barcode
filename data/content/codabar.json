@@ -1,6 +1,6 @@
 {
   "id": "codabar",
-  "title": "Codabar Generator - Free Barcode Tool | Barcode Studio",
+  "title": "Codabar Generator - Free Barcode Tool | Barcode APIs",
   "metaDescription": "Generate a Codabar barcode free in your browser. Encode digits and symbols with optional A-D start/stop characters, export PNG, SVG, or PDF instantly.",
   "primaryKeyword": "codabar generator",
   "secondaryKeywords": ["codabar barcode", "nw-7 barcode", "blood bank barcode", "library barcode codabar", "codabar vs code 39"],
@@ -23,7 +23,7 @@
       "html": "<p>Codabar's largest remaining strongholds are blood banks and healthcare, where it's used in the ISBT 128-predecessor labeling systems for blood products and specimen tracking, and libraries, where many library systems still print Codabar on patron cards and book spine labels because of decades-old infrastructure built around it. It also appears in some courier and package-tracking systems, particularly older FedEx airbill formats historically used Codabar-family encoding. Its self-checking structure and simple hardware requirements made it a natural fit for these lower-throughput, reliability-sensitive environments, even though most new barcode deployments today choose Code 128 or Code 39 instead.</p>"
     },
     {
-      "h2": "How to create a Codabar barcode in Barcode Studio",
+      "h2": "How to create a Codabar barcode in Barcode APIs",
       "html": "<p>Select <strong>Codabar</strong> from the symbology list on the left, then enter your data using digits 0&ndash;9 and the symbols &minus; $ : / . +. Add the appropriate start and stop characters (A, B, C, or D) at the beginning and end if your receiving system expects them explicitly. From there you can:</p><ul><li>Adjust bar width, height, and quiet zone to match your label size and scanner</li><li>Toggle human-readable text below the bars for visual verification, particularly useful for older systems without reliable scanning</li><li>Export as PNG, SVG, or PDF, or copy the image directly into a label template</li><li>Use the batch or sequence tools to generate a numbered run of labels at once</li><li>Upload a CSV of values for bulk generation as a ZIP of image files or a print-ready PDF of labels</li><li>Call the REST API &mdash; <code>/barcode?type=codabar&amp;data=A12345B</code> &mdash; to generate codes programmatically from a library, courier, or lab system</li></ul>"
     },
     {
@@ -48,6 +48,6 @@
     {"q": "Does Codabar have a check digit?", "a": "The base Codabar standard doesn't require one, though some industry-specific implementations, such as certain blood bank systems, add an optional check digit by convention."},
     {"q": "Is Codabar still commonly used?", "a": "Its use has narrowed mainly to blood banks, some library systems, and legacy courier applications; most new barcode deployments choose Code 39 or Code 128 instead."},
     {"q": "What's the difference between Codabar and Code 39?", "a": "Codabar encodes digits and a limited set of symbols with mandatory A-D start/stop characters, while Code 39 supports uppercase letters, digits, and several symbols with a single universal start/stop character."},
-    {"q": "Can I bulk-generate Codabar barcodes?", "a": "Yes, upload a CSV of values and Barcode Studio will generate a ZIP of image files or a print-ready PDF of labels in one batch."}
+    {"q": "Can I bulk-generate Codabar barcodes?", "a": "Yes, upload a CSV of values and Barcode APIs will generate a ZIP of image files or a print-ready PDF of labels in one batch."}
   ]
 }

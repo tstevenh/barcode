@@ -1,6 +1,6 @@
 {
   "id": "leitcode",
-  "title": "Deutsche Post Leitcode Generator | Barcode Studio",
+  "title": "Deutsche Post Leitcode Generator | Barcode APIs",
   "metaDescription": "Generate Deutsche Post Leitcode barcodes free online for German mail routing and sortation. 13-digit numeric code with auto check digit, export, and API.",
   "primaryKeyword": "deutsche post leitcode generator",
   "secondaryKeywords": ["leitcode barcode generator", "deutsche post routing barcode", "german postal routing code", "leitcode check digit", "leitcode vs identcode", "deutsche post interleaved 2 of 5"],
@@ -12,7 +12,7 @@
     },
     {
       "h2": "How Leitcode Encodes Data",
-      "html": "<p>A Leitcode is 13 digits in its finished, encoded form, structured to carry German postal routing detail: postal code, street code, house number, and a building/sub-location identifier, followed by a check digit calculated with a weighted modulo-10 algorithm. Because it shares Interleaved 2 of 5 structure with Identcode, Leitcode requires an even digit count and pairs digits together for bar/space encoding, with fixed start and stop patterns framing the data so sortation scanners can locate the barcode boundaries reliably.</p><p>Barcode Studio calculates the check digit automatically, so you enter the 12-digit routing data and the generator appends the 13th digit for you, updating the live preview as soon as valid digits are entered.</p>"
+      "html": "<p>A Leitcode is 13 digits in its finished, encoded form, structured to carry German postal routing detail: postal code, street code, house number, and a building/sub-location identifier, followed by a check digit calculated with a weighted modulo-10 algorithm. Because it shares Interleaved 2 of 5 structure with Identcode, Leitcode requires an even digit count and pairs digits together for bar/space encoding, with fixed start and stop patterns framing the data so sortation scanners can locate the barcode boundaries reliably.</p><p>Barcode APIs calculates the check digit automatically, so you enter the 12-digit routing data and the generator appends the 13th digit for you, updating the live preview as soon as valid digits are entered.</p>"
     },
     {
       "h2": "Technical Specifications",
@@ -23,7 +23,7 @@
       "html": "<p>Leitcode is specific to German postal routing and sortation:</p><ul><li><strong>Deutsche Post / DHL mail and parcel routing</strong> — printed on labels so automated sortation equipment can direct the piece to the correct regional facility, street, and delivery point without manual address reading.</li><li><strong>Bulk business mail</strong> — companies sending large mail volumes through Deutsche Post use Leitcode to speed up routing and reduce manual handling.</li><li><strong>Combined with Identcode</strong> — many German shipping and mailing labels carry both codes, Leitcode for destination and Identcode for item identification.</li><li><strong>Address-based logistics systems</strong> — German fulfillment operations sometimes generate Leitcode-compatible routing data as part of an integrated shipping pipeline.</li></ul>"
     },
     {
-      "h2": "How to Create a Leitcode in Barcode Studio",
+      "h2": "How to Create a Leitcode in Barcode APIs",
       "html": "<p>Select <strong>Deutsche Post Leitcode</strong> from the Postal Code group in the symbology list. Enter your 12-digit routing data (postal code, street code, house number, and location identifier) — the check digit is calculated and appended automatically, and the live preview updates as you type so you can confirm the finished 13-digit barcode before exporting. From there:</p><ul><li>Adjust <strong>bar width and height</strong> to fit the label layout you're printing to.</li><li>Toggle <strong>human-readable text</strong> below the bars so warehouse or mailroom staff can verify the routing digits without scanning.</li><li>Keep the barcode in solid black on a light background — postal sortation scanners require high contrast and don't reliably read color variants.</li><li>Export as <strong>PNG or SVG</strong> for label design, or use <strong>Copy</strong> to insert directly into a template.</li><li>Use the <strong>bulk CSV → ZIP/PDF</strong> tool to generate unique Leitcodes for an entire mailing or shipment batch from a spreadsheet of address data.</li><li>Call the <strong>REST API</strong> — <code>/barcode?type=leitcode&data=YOURROUTINGDATA</code> — to generate Leitcodes on demand from a shipping or mail-merge system.</li></ul>"
     },
     {
@@ -44,9 +44,9 @@
   "faq": [
     {"q": "How many digits are in a Deutsche Post Leitcode?", "a": "A Leitcode is 13 digits total in its finished form, encoding postal code, street code, house number, and location detail, plus a check digit calculated automatically."},
     {"q": "What's the difference between Leitcode and Identcode?", "a": "<p>Leitcode encodes routing and destination information (postal code, street, house number) to direct a piece to the correct location, while Identcode gives an individual parcel or mail item a unique serial identifier. The two are often used together on the same label.</p>"},
-    {"q": "Do I need to calculate the Leitcode check digit myself?", "a": "No, Barcode Studio's deutsche post leitcode generator calculates the modulo-10 check digit automatically from the 12 digits you enter and appends it to complete the 13-digit code."},
-    {"q": "Can I bulk-generate Leitcodes for a mailing?", "a": "<p>Yes. Upload a CSV of routing data to Barcode Studio's bulk tool to produce a ZIP of individual barcode images or a single print-ready PDF, one per address.</p>"},
-    {"q": "Is the Leitcode generator free to use?", "a": "Yes, Barcode Studio's Leitcode generator runs entirely in your browser with no account required for standard PNG/SVG exports."},
+    {"q": "Do I need to calculate the Leitcode check digit myself?", "a": "No, Barcode APIs's deutsche post leitcode generator calculates the modulo-10 check digit automatically from the 12 digits you enter and appends it to complete the 13-digit code."},
+    {"q": "Can I bulk-generate Leitcodes for a mailing?", "a": "<p>Yes. Upload a CSV of routing data to Barcode APIs's bulk tool to produce a ZIP of individual barcode images or a single print-ready PDF, one per address.</p>"},
+    {"q": "Is the Leitcode generator free to use?", "a": "Yes, Barcode APIs's Leitcode generator runs entirely in your browser with no account required for standard PNG/SVG exports."},
     {"q": "Can I generate Leitcodes from my own mailing software?", "a": "Yes — call /barcode?type=leitcode&data=YOURDATA through the REST API to generate the barcode image directly from a shipping or mail-merge application."}
   ]
 }

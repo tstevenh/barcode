@@ -1,10 +1,10 @@
 {
   "id": "daft",
-  "title": "DAFT Generator - 4-State Postal Barcode | Barcode Studio",
+  "title": "DAFT Generator - 4-State Postal Barcode | Barcode APIs",
   "metaDescription": "Free daft generator for custom 4-state postal barcodes. Build Descender/Ascender/Full/Tracker bar patterns for postal code testing. PNG/SVG plus REST API.",
   "primaryKeyword": "daft generator",
   "secondaryKeywords": ["daft barcode", "4-state postal barcode generator", "descender ascender full tracker", "custom postal barcode", "4-state bar pattern generator", "postal barcode testing tool"],
-  "lead": "Build raw 4-state bar patterns with the daft generator in Barcode Studio, using the Descender/Ascender/Full/Tracker letters behind every 4-state postal code.",
+  "lead": "Build raw 4-state bar patterns with the daft generator in Barcode APIs, using the Descender/Ascender/Full/Tracker letters behind every 4-state postal code.",
   "sections": [
     {
       "h2": "What Is DAFT?",
@@ -23,7 +23,7 @@
       "html": "<p>DAFT notation shows up primarily in technical and development contexts rather than on finished mail pieces:</p><ul><li><strong>Barcode library and encoder development</strong> — engineers building or testing 4-state barcode rendering libraries use DAFT strings to verify bar-drawing logic independent of postal encoding tables.</li><li><strong>Postal specification documentation</strong> — technical specs for RM4SCC, Mailmark, Australia Post, and Japan Post barcodes often describe example bar patterns using D/A/F/T notation.</li><li><strong>Print and scanner calibration</strong> — print shops and equipment vendors use known DAFT sequences to test that a printer or scanner correctly reproduces and reads all four bar states.</li><li><strong>Educational and reference material</strong> — DAFT is a common way to explain 4-state postal barcodes conceptually without requiring readers to know a specific country's data-encoding rules.</li></ul>"
     },
     {
-      "h2": "How to Create a DAFT Barcode in Barcode Studio",
+      "h2": "How to Create a DAFT Barcode in Barcode APIs",
       "html": "<p>Select <strong>DAFT</strong> from the Postal Code group in the symbology list. Type a string of D, A, F, and T characters directly — each letter renders as one bar in the live preview, updating instantly as you type so you can see exactly how a given sequence looks before exporting. From there:</p><ul><li>Adjust <strong>bar height and spacing</strong> to test how a sequence would appear at different print scales.</li><li>Use solid black on a light background to match how postal scanners actually read 4-state bars, even though DAFT output itself isn't tied to a live postal service.</li><li>Export as <strong>PNG or SVG</strong> for use in documentation, encoder test suites, or print calibration sheets, or use <strong>Copy</strong> to paste the image into other tools.</li><li>Use the <strong>bulk CSV → ZIP/PDF</strong> tool if you need to generate and export multiple DAFT test patterns in one batch.</li><li>Call the <strong>REST API</strong> — <code>/barcode?type=daft&data=YOURDAFTSTRING</code> — to generate DAFT bar patterns programmatically from a test harness or documentation pipeline.</li></ul>"
     },
     {
@@ -46,8 +46,8 @@
     {"q": "What does a daft generator actually produce?", "a": "It renders a 4-state bar pattern directly from a string of D, A, F, and T letters, where each letter sets one bar to Descender, Ascender, Full, or Tracker height."},
     {"q": "Is DAFT the same as a real postal barcode like RM4SCC?", "a": "<p>No. DAFT is the notation used to describe bar states in any 4-state postal barcode, but it has no checksum or character-encoding rules of its own, so it isn't a production postal symbology by itself.</p>"},
     {"q": "Who typically uses a DAFT generator?", "a": "Developers building or testing 4-state barcode encoders, print shops calibrating equipment, and anyone documenting or learning how 4-state postal barcodes are structured."},
-    {"q": "Can I bulk-generate DAFT patterns from a spreadsheet?", "a": "<p>Yes. Upload a CSV of DAFT strings to Barcode Studio's bulk tool to produce a ZIP of images or a single PDF, one bar pattern per row.</p>"},
-    {"q": "Is this daft generator free to use?", "a": "Yes, Barcode Studio's DAFT generator runs entirely in your browser with no account required for standard PNG/SVG exports."},
+    {"q": "Can I bulk-generate DAFT patterns from a spreadsheet?", "a": "<p>Yes. Upload a CSV of DAFT strings to Barcode APIs's bulk tool to produce a ZIP of images or a single PDF, one bar pattern per row.</p>"},
+    {"q": "Is this daft generator free to use?", "a": "Yes, Barcode APIs's DAFT generator runs entirely in your browser with no account required for standard PNG/SVG exports."},
     {"q": "Can I generate DAFT patterns from my own application?", "a": "Yes — call /barcode?type=daft&data=YOURDAFTSTRING through the REST API to generate the bar pattern image directly from a test or documentation pipeline."}
   ]
 }

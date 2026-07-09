@@ -1,6 +1,6 @@
 {
   "id": "ean8composite",
-  "title": "EAN-8 Composite Barcode Generator | Barcode Studio",
+  "title": "EAN-8 Composite Barcode Generator | Barcode APIs",
   "metaDescription": "Create an EAN-8 Composite barcode free online: a compact EAN-8 plus a linked 2D component for batch, expiry, or serial data. Instant preview and export.",
   "primaryKeyword": "ean-8 composite generator",
   "secondaryKeywords": ["ean-8 composite barcode", "gs1 composite ean-8", "small package composite barcode", "ean-8 plus 2d code", "gtin-8 composite", "composite symbol small packaging"],
@@ -23,7 +23,7 @@
       "html": "<ul><li><strong>Small-format pharmaceuticals</strong> — over-the-counter products in packaging too small for a full EAN-13 that still require lot and expiration tracking.</li><li><strong>Compact cosmetics and personal care items</strong> — travel-size or sample products subject to batch recall requirements.</li><li><strong>Small confectionery and specialty foods</strong> — space-constrained packaging where a best-before date needs to be machine-readable.</li><li><strong>Any EAN-8 product</strong> needing unit-level or batch-level traceability without abandoning the compact code the packaging depends on.</li></ul>"
     },
     {
-      "h2": "How to Create an EAN-8 Composite in Barcode Studio",
+      "h2": "How to Create an EAN-8 Composite in Barcode APIs",
       "html": "<p>Select <strong>EAN-8 Composite</strong> from the Retail (EAN/UPC) group. Enter the 7-digit EAN-8 data (the check digit is added automatically) along with your composite data string using GS1 Application Identifiers, for example <code>(10)LOT4(17)261201</code>. The live preview shows the linear EAN-8 and its linked 2D component together as they'll appear on the finished label.</p><ul><li>Given the already-tight space, favor <strong>MicroPDF417</strong> for the composite component to keep the combined symbol as compact as possible.</li><li>Adjust bar width and overall symbol size carefully — you're stacking two dense codes into packaging that was already space-constrained to begin with.</li><li>Confirm the human-readable digits and composite text remain legible at your target print size before committing to artwork.</li><li>Maintain a clean quiet zone around the entire combined symbol; composite barcodes need more surrounding white space than a plain linear EAN-8.</li><li>Export as <strong>PNG, SVG, or PDF</strong>, or use <strong>Copy</strong> for quick placement into packaging design software.</li></ul><p>For production runs, use the <strong>bulk CSV → ZIP/PDF</strong> tool with one row per unit or batch, or call the <strong>REST API</strong> — <code>/barcode?type=ean8composite&data=...</code> — from a labeling or ERP system.</p>"
     },
     {
@@ -45,7 +45,7 @@
     {"q": "What extra data does an EAN-8 Composite carry over a plain EAN-8?", "a": "<p>The 2D component above the bars adds GS1 Application Identifier data like batch/lot number, expiration date, or serial number — information the fixed 8-digit EAN-8 alone can't hold.</p>"},
     {"q": "Will a standard EAN-8 scanner still read a Composite version?", "a": "Yes, a standard scanner reads the linear EAN-8 portion normally and simply doesn't process the 2D component sitting above it."},
     {"q": "What 2D symbology is used for the composite component?", "a": "Typically MicroPDF417, chosen for its compactness given that EAN-8 is used specifically on space-constrained packaging."},
-    {"q": "Is an ean-8 composite generator free to use?", "a": "Yes — Barcode Studio's EAN-8 Composite generator is free in the browser, with PNG, SVG, and PDF export included."},
+    {"q": "Is an ean-8 composite generator free to use?", "a": "Yes — Barcode APIs's EAN-8 Composite generator is free in the browser, with PNG, SVG, and PDF export included."},
     {"q": "How is the composite data formatted?", "a": "<p>Using GS1 Application Identifiers in parentheses followed by the value, for example (10) for lot number or (17) for expiration date, such as (10)LOT4(17)261201.</p>"},
     {"q": "Can I bulk-generate EAN-8 Composite labels from a spreadsheet?", "a": "Yes — upload a CSV with each product's 7-digit EAN-8 data and composite string, and the bulk tool outputs a ZIP or print-ready PDF for the entire batch."}
   ]

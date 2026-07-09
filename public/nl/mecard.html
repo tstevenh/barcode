@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" /></noscript>
+<title>MeCard generator | Barcode APIs</title>
+<meta name="description" content="MeCard generator voor MeCard: maak online scanbare codes zonder registratie. Voorbeeld, CSV-batches en export als PNG, SVG of PDF." />
+<meta name="theme-color" content="#0b1220" />
+<link rel="canonical" href="https://barcodeapis.com/nl/mecard" />
+<link rel="alternate" hreflang="en" href="https://barcodeapis.com/mecard" />
+<link rel="alternate" hreflang="pl-PL" href="https://barcodeapis.com/pl/mecard" />
+<link rel="alternate" hreflang="de-DE" href="https://barcodeapis.com/de/mecard" />
+<link rel="alternate" hreflang="nl-NL" href="https://barcodeapis.com/nl/mecard" />
+<link rel="alternate" hreflang="fr-FR" href="https://barcodeapis.com/fr/mecard" />
+<link rel="alternate" hreflang="ja-JP" href="https://barcodeapis.com/ja/mecard" />
+<link rel="alternate" hreflang="x-default" href="https://barcodeapis.com/mecard" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="MeCard generator | Barcode APIs" />
+<meta property="og:description" content="MeCard generator voor MeCard: maak online scanbare codes zonder registratie. Voorbeeld, CSV-batches en export als PNG, SVG of PDF." />
+<meta property="og:url" content="https://barcodeapis.com/nl/mecard" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1220'/%3E%3Cg fill='white'%3E%3Crect x='6' y='8' width='2' height='16'/%3E%3Crect x='9' y='8' width='1' height='16'/%3E%3Crect x='11' y='8' width='3' height='16'/%3E%3Crect x='15' y='8' width='1' height='16'/%3E%3Crect x='17' y='8' width='2' height='16'/%3E%3Crect x='20' y='8' width='1' height='16'/%3E%3Crect x='22' y='8' width='3' height='16'/%3E%3Crect x='26' y='8' width='1' height='16'/%3E%3C/g%3E%3C/svg%3E" />
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://barcodeapis.com/#organization","name":"Barcode APIs","url":"https://barcodeapis.com/"},{"@type":"WebSite","@id":"https://barcodeapis.com/#website","name":"Barcode APIs","url":"https://barcodeapis.com/","publisher":{"@id":"https://barcodeapis.com/#organization"},"inLanguage":"nl"},{"@type":"WebPage","@id":"https://barcodeapis.com/nl/mecard#webpage","url":"https://barcodeapis.com/nl/mecard","name":"MeCard generator | Barcode APIs","description":"MeCard generator voor MeCard: maak online scanbare codes zonder registratie. Voorbeeld, CSV-batches en export als PNG, SVG of PDF.","isPartOf":{"@id":"https://barcodeapis.com/#website"},"publisher":{"@id":"https://barcodeapis.com/#organization"},"inLanguage":"nl"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Startpagina","item":"https://barcodeapis.com/nl/"},{"@type":"ListItem","position":2,"name":"Barcodetypen","item":"https://barcodeapis.com/nl/barcodes"},{"@type":"ListItem","position":3,"name":"MeCard generator","item":"https://barcodeapis.com/nl/mecard"}]},{"@type":"SoftwareApplication","name":"MeCard generator","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://barcodeapis.com/nl/mecard","publisher":{"@id":"https://barcodeapis.com/#organization"}},{"@type":"HowTo","name":"MeCard generator maken","description":"Maak MeCard als 2D-code, controleer de leesbaarheid direct in het voorbeeld en bereid uitvoer voor etiketten, documenten, verpakkingen of API-processen voor.","totalTime":"PT1M","tool":[{"@type":"HowToTool","name":"Barcode APIs"}],"supply":[{"@type":"HowToSupply","name":"Barcodegegevens"}],"step":[{"@type":"HowToStep","position":1,"name":"Kies het barcodetype","text":"Open Barcode APIs en kies MeCard uit de lijst met barcodetypen.","url":"https://barcodeapis.com/nl/mecard#generator"},{"@type":"HowToStep","position":2,"name":"Voer de gegevens in","text":"Plak of typ de waarde die in de MeCard generator moet worden gecodeerd.","url":"https://barcodeapis.com/nl/mecard#generator"},{"@type":"HowToStep","position":3,"name":"Pas afdrukinstellingen aan","text":"Stel formaat, kleuren, marge en batchopties in zodat de code op je label of document past.","url":"https://barcodeapis.com/nl/mecard#generator"},{"@type":"HowToStep","position":4,"name":"Exporteer en test de scan","text":"Download PNG, SVG of PDF en scan het resultaat voordat je in productie print.","url":"https://barcodeapis.com/nl/mecard#generator"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Werkt MeCard generator in de browser","acceptedAnswer":{"@type":"Answer","text":"Ja. Barcode APIs maakt MeCard zonder installatie en laat je het resultaat opslaan als PNG, SVG of PDF."}},{"@type":"Question","name":"Welke gegevens kan ik invoeren","acceptedAnswer":{"@type":"Answer","text":"De gegevens moeten voldoen aan de regels van MeCard. Als cijfers, lengte of GS1-structuur nodig zijn, behoud dan de exacte bronwaarde."}},{"@type":"Question","name":"Kan ik veel codes tegelijk maken","acceptedAnswer":{"@type":"Answer","text":"Ja. In batchmodus kun je een lijst plakken of CSV laden en daarna ZIP of PDF downloaden."}},{"@type":"Question","name":"Is de code geschikt voor drukwerk","acceptedAnswer":{"@type":"Answer","text":"Ja, maar maak vóór seriegebruik een proefdruk en test met het doelmateriaal en de scanner."}},{"@type":"Question","name":"Wanneer kies ik SVG in plaats van PNG","acceptedAnswer":{"@type":"Answer","text":"SVG is geschikt voor opmaak en schalen, PNG voor snel gebruik in documenten of applicaties."}}]}]}</script>
+<link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="/css/bulk-api.css" />
+<script src="/js/qr-local.js"></script>
+<script>
+(function () {
+  function hasJsBarcode() { return typeof window.JsBarcode === "function"; }
+  function hasBwip() { return !!(window.bwipjs && typeof window.bwipjs.toCanvas === "function"); }
+  function hasPdf() { var ns = window.jspdf || window.jsPDF; return !!(ns && (ns.jsPDF || ns)); }
+  function loadScript(src, check, timeoutMs) {
+    return new Promise(function (resolve) {
+      if (check()) return resolve(true);
+      var done = false;
+      var s = document.createElement("script");
+      var t = setTimeout(function () { finish(check()); }, timeoutMs || 2500);
+      function finish(ok) {
+        if (done) return;
+        done = true;
+        clearTimeout(t);
+        try { if (!ok && s.parentNode) s.parentNode.removeChild(s); } catch (e) {}
+        resolve(!!ok || check());
+      }
+      s.async = false;
+      s.onload = function () { finish(true); };
+      s.onerror = function () { finish(false); };
+      s.src = src;
+      document.head.appendChild(s);
+    });
+  }
+  async function loadAny(urls, check) {
+    for (var i = 0; i < urls.length; i++) {
+      if (await loadScript(urls[i], check, 2500)) return true;
+    }
+    return check();
+  }
+  window.__barcodeLibs = {
+    jsbarcode: loadAny([
+      "https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js",
+      "https://unpkg.com/jsbarcode@3.11.6/dist/JsBarcode.all.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"
+    ], hasJsBarcode),
+    bwip: loadAny([
+      "https://cdn.jsdelivr.net/npm/bwip-js@4.11.1/dist/bwip-js-min.js",
+      "https://unpkg.com/bwip-js@4.11.1/dist/bwip-js-min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/bwip-js/4.7.0/bwip-js-min.js"
+    ], hasBwip),
+    pdf: loadAny([
+      "https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js",
+      "https://unpkg.com/jspdf@2.5.1/dist/jspdf.umd.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+    ], hasPdf)
+  };
+  window.__barcodeLibsReady = Promise.all([window.__barcodeLibs.jsbarcode, window.__barcodeLibs.bwip, window.__barcodeLibs.pdf]).then(function (r) {
+    return { jsbarcode: r[0], bwip: r[1], pdf: r[2], qr: !!(window.QRCode && typeof window.QRCode.toCanvas === "function") };
+  });
+})();
+</script>
+<script>window.BARCODE_HAS_API = true;</script>
+<script>window.BARCODE_LOCALE="nl";</script>
+<script src="/js/i18n.js"></script>
+<script src="/js/i18n-extra.js"></script>
+</head>
+<body>
+  <div class="loader" id="loader"><div class="loader-bars"><span></span><span></span><span></span><span></span><span></span></div><p data-i18n="loaderText">Barcode APIs laden…</p></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <div>
+        <span class="brand-title">Barcode APIs</span>
+        <p data-i18n="brandTagline">Barcode- en QR-code generator online</p>
+      </div>
+    </div>
+    <nav class="top-actions">
+      <a href="/nl/barcodes" class="btn btn-ghost" data-i18n="navTypes">Alle barcodes</a>
+      <a href="#bulk" class="btn btn-ghost" data-i18n="navBulk">Batch</a>
+      <a href="/api-docs.html" class="btn btn-ghost" data-i18n="navApi">API-documentatie</a>
+      <button class="btn btn-ghost" id="resetBtn" data-i18n="navReset">Resetten</button>
+      <button class="btn btn-ghost" id="printBtn" data-i18n="navPrint">Afdrukken</button>
+      <div class="lang-wrap">
+        <span class="globe" aria-hidden="true">🌐</span>
+        <select id="langSelect" class="lang-select" aria-label="Taal"></select>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-content">
+      <nav class="crumb" aria-label="Barcodetypen"><a href="/nl/">Startpagina</a><span>/</span><a href="/nl/barcodes">Codes</a><span>/</span><span>MeCard</span></nav>
+      <span class="eyebrow">2D-codes</span>
+      <h1>MeCard generator</h1>
+      <p>Maak MeCard als 2D-code, controleer de leesbaarheid direct in het voorbeeld en bereid uitvoer voor etiketten, documenten, verpakkingen of API-processen voor.</p>
+      <a href="#generator" class="btn btn-primary btn-lg">Generator openen ↓</a>
+    </div>
+  </section>
+
+  <div class="studio" id="generator">
+    <!-- LEFT: the Specimen (sticky live proof) -->
+    <div class="specimen-col">
+      <div class="specimen-head">
+        <span class="eyebrow" data-i18n="previewHeading">Voorbeeld</span>
+        <div class="preview-tools">
+          <button class="chip" data-zoom="out" title="Uitzoomen" aria-label="Zoom out">−</button>
+          <span id="zoomLabel">100%</span>
+          <button class="chip" data-zoom="in" title="Inzoomen" aria-label="Zoom in">+</button>
+        </div>
+      </div>
+
+      <div class="specimen">
+        <div class="plate">
+          <div class="plate-ruler" aria-hidden="true"></div>
+          <div class="preview-stage">
+            <div class="scan-line" aria-hidden="true"></div>
+            <div id="preview" class="preview-inner"></div>
+          </div>
+          <p class="plate-caption" id="plateCaption" aria-hidden="true"></p>
+        </div>
+      </div>
+
+      <div class="readout" id="readout" data-state="idle">
+        <span class="rd-dot" aria-hidden="true"><i></i></span>
+        <p class="prop-note" id="status"></p>
+      </div>
+
+      <div class="download-row">
+        <button class="btn btn-primary" id="dlPng">↓ PNG</button>
+        <button class="btn btn-secondary" id="dlSvg">↓ SVG</button>
+        <button class="btn btn-soft" id="copyBtn">Kopiëren</button>
+        <button class="btn btn-soft" id="dlZip" hidden>↓ ZIP (batch)</button>
+      </div>
+    </div>
+
+    <!-- RIGHT: numbered spec-sheet controls -->
+    <div class="controls">
+
+      <!-- 01 — Symbology -->
+      <section class="step reveal" id="symbology">
+        <div class="step-head">
+          <span class="step-num">01</span>
+          <h2 data-i18n="navTypes">Alle barcodes</h2>
+          <span class="pill" id="activeType">Code 128</span>
+        </div>
+        <div class="quickpick" id="quickpick">
+          <button class="qp" data-type="qrcode">QR Code</button>
+          <button class="qp" data-type="CODE128">Code 128</button>
+          <button class="qp" data-type="EAN13">EAN-13</button>
+          <button class="qp" data-type="UPC">UPC-A</button>
+          <button class="qp" data-type="datamatrix">Data Matrix</button>
+          <a class="qp-all" href="/nl/barcodes">All 106 →</a>
+        </div>
+        <aside class="sidebar">
+          <div class="sidebar-search">
+            <input type="text" id="typeSearch" data-i18n-ph="searchPh" placeholder="Symbologie zoeken…" />
+          </div>
+          <div class="type-list" id="typeList"></div>
+        </aside>
+      </section>
+
+      <!-- 02 — Data -->
+      <section class="step card reveal">
+        <div class="step-head">
+          <span class="step-num">02</span>
+          <h2 data-i18n="dataHeading">Gegevens</h2>
+        </div>
+        <div class="prop-row ct-row" id="contentTypeRow" hidden>
+          <label data-i18n="contentType">Inhoudstype</label>
+          <select id="ctSelect">
+            <option value="text" data-i18n="ctText">Tekst</option>
+            <option value="url" data-i18n="ctUrl">URL / link</option>
+            <option value="wifi" data-i18n="ctWifi">WiFi-netwerk</option>
+            <option value="vcard" data-i18n="ctVcard">Contact (vCard)</option>
+            <option value="email" data-i18n="ctEmail">E-mail</option>
+            <option value="sms" data-i18n="ctSms">SMS</option>
+            <option value="tel" data-i18n="ctTel">Telefoon</option>
+            <option value="geo" data-i18n="ctGeo">Locatie</option>
+            <option value="event" data-i18n="ctEvent">Agenda-afspraak</option>
+          </select>
+        </div>
+        <textarea id="data" rows="3" data-i18n-ph="dataPh" placeholder="Voer de te coderen gegevens in…">Barcode APIs</textarea>
+        <div class="builder" id="builderFields" hidden>
+          <div class="ct-block" data-ct="wifi">
+            <label class="fld"><span data-i18n="fSsid">Netwerknaam (SSID)</span><input type="text" id="wSsid" value="Netwerk" /></label>
+            <label class="fld"><span data-i18n="fPassword">Wachtwoord</span><input type="text" id="wPass" value="wachtwoord123" /></label>
+            <label class="fld"><span data-i18n="fEncryption">Versleuteling</span>
+              <select id="wEnc"><option value="WPA">WPA/WPA2</option><option value="WEP">WEP</option><option value="nopass" data-i18n="encNone">Geen</option></select>
+            </label>
+            <label class="switch"><input type="checkbox" id="wHidden" /> <span data-i18n="fHidden">Verborgen netwerk</span></label>
+          </div>
+          <div class="ct-block" data-ct="vcard">
+            <label class="fld"><span data-i18n="fFirstName">Voornaam</span><input type="text" id="vFirst" value="Jan" /></label>
+            <label class="fld"><span data-i18n="fLastName">Achternaam</span><input type="text" id="vLast" value="Jansen" /></label>
+            <label class="fld"><span data-i18n="fOrg">Organisatie</span><input type="text" id="vOrg" /></label>
+            <label class="fld"><span data-i18n="fJobTitle">Functie</span><input type="text" id="vTitle" /></label>
+            <label class="fld"><span data-i18n="fPhone">Telefoon</span><input type="text" id="vPhone" value="+1 555 0100" /></label>
+            <label class="fld"><span data-i18n="fEmail">E-mail</span><input type="text" id="vEmail" value="john@example.com" /></label>
+            <label class="fld"><span data-i18n="fWebsite">Website</span><input type="text" id="vUrl" /></label>
+            <label class="fld"><span data-i18n="fAddress">Adres</span><input type="text" id="vAddr" /></label>
+          </div>
+          <div class="ct-block" data-ct="email">
+            <label class="fld"><span data-i18n="fTo">Aan</span><input type="text" id="eTo" value="hello@example.com" /></label>
+            <label class="fld"><span data-i18n="fSubject">Onderwerp</span><input type="text" id="eSub" /></label>
+            <label class="fld"><span data-i18n="fBody">Bericht</span><input type="text" id="eBody" /></label>
+          </div>
+          <div class="ct-block" data-ct="sms">
+            <label class="fld"><span data-i18n="fNumber">Nummer</span><input type="text" id="sNum" value="+15550100" /></label>
+            <label class="fld"><span data-i18n="fMessage">Bericht</span><input type="text" id="sMsg" value="Bericht" /></label>
+          </div>
+          <div class="ct-block" data-ct="tel">
+            <label class="fld"><span data-i18n="fNumber">Nummer</span><input type="text" id="tNum" value="+15550100" /></label>
+          </div>
+          <div class="ct-block" data-ct="geo">
+            <label class="fld"><span data-i18n="fLat">Breedtegraad</span><input type="text" id="gLat" value="40.7128" /></label>
+            <label class="fld"><span data-i18n="fLong">Lengtegraad</span><input type="text" id="gLng" value="-74.0060" /></label>
+          </div>
+          <div class="ct-block" data-ct="event">
+            <label class="fld"><span data-i18n="fEventTitle">Titel afspraak</span><input type="text" id="cTitle" value="Afspraak" /></label>
+            <label class="fld"><span data-i18n="fLocation">Locatie</span><input type="text" id="cLoc" /></label>
+            <label class="fld"><span data-i18n="fStart">Begin</span><input type="datetime-local" id="cStart" /></label>
+            <label class="fld"><span data-i18n="fEnd">Einde</span><input type="datetime-local" id="cEnd" /></label>
+            <label class="fld"><span data-i18n="fDescription">Beschrijving</span><input type="text" id="cDesc" /></label>
+          </div>
+        </div>
+        <p class="hint" id="typeHint"></p>
+
+        <div class="seq">
+          <label class="switch">
+            <input type="checkbox" id="seqEnable" /> <span data-i18n="seqToggle">Batch- / reeksmodus</span>
+          </label>
+          <div class="seq-fields" id="seqFields">
+            <label><span data-i18n="seqCount">Aantal</span> <input type="number" id="seqCount" min="2" max="100" value="5" /></label>
+            <label><span data-i18n="seqStart">Start #</span> <input type="number" id="seqStart" value="1" /></label>
+            <label><span data-i18n="seqPrefix">Voorvoegsel</span> <input type="text" id="seqPrefix" placeholder="ABC-" /></label>
+            <label><span data-i18n="seqPad">Opvullen</span> <input type="number" id="seqPad" min="0" max="12" value="4" /></label>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 — Options -->
+      <section class="step card reveal">
+        <div class="step-head">
+          <span class="step-num">03</span>
+          <h2 data-i18n="propsHeading">Eigenschappen</h2>
+        </div>
+        <div class="props">
+          <h2 data-i18n="propsHeading">Eigenschappen</h2>
+
+          <div class="prop-group" id="linearProps">
+            <div class="prop-row">
+              <label data-i18n="pBarWidth">Balkbreedte</label>
+              <input type="range" id="barWidth" min="1" max="6" step="0.5" value="2" />
+              <output id="barWidthV">2</output>
+            </div>
+            <div class="prop-row">
+              <label data-i18n="pHeight">Hoogte</label>
+              <input type="range" id="barHeight" min="20" max="240" step="5" value="100" />
+              <output id="barHeightV">100</output>
+            </div>
+            <div class="prop-row">
+              <label data-i18n="pFontSize">Lettergrootte</label>
+              <input type="range" id="fontSize" min="8" max="40" step="1" value="18" />
+              <output id="fontSizeV">18</output>
+            </div>
+            <div class="prop-row">
+              <label data-i18n="pTextAlign">Tekstuitlijning</label>
+              <select id="textAlign">
+                <option value="center" selected data-i18n="optCenter">Midden</option>
+                <option value="left" data-i18n="optLeft">Links</option>
+                <option value="right" data-i18n="optRight">Rechts</option>
+              </select>
+            </div>
+            <label class="switch"><input type="checkbox" id="displayValue" checked /> <span data-i18n="pShowText">Leesbare tekst tonen</span></label>
+          </div>
+
+          <div class="prop-group" id="qrProps" hidden>
+            <div class="prop-row">
+              <label data-i18n="pSize">Grootte</label>
+              <input type="range" id="qrSize" min="120" max="640" step="20" value="300" />
+              <output id="qrSizeV">300</output>
+            </div>
+            <div class="prop-row">
+              <label data-i18n="pErrCorr">Foutcorrectie</label>
+              <select id="qrEcc">
+                <option value="L">L – 7%</option>
+                <option value="M" selected>M – 15%</option>
+                <option value="Q">Q – 25%</option>
+                <option value="H">H – 30%</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="prop-group" id="twoDProps" hidden>
+            <div class="prop-row">
+              <label data-i18n="pScale">Schaal</label>
+              <input type="range" id="tdScale" min="2" max="10" step="1" value="4" />
+              <output id="tdScaleV">4</output>
+            </div>
+            <div class="prop-row" id="bwipHeightRow" style="display:none">
+              <label data-i18n="pHeightMm">Hoogte (mm)</label>
+              <input type="range" id="bwipHeight" min="5" max="40" step="1" value="12" />
+              <output id="bwipHeightV">12</output>
+            </div>
+            <div class="prop-row" id="pdfColsRow">
+              <label data-i18n="pPdfCols">PDF-kolommen</label>
+              <input type="range" id="pdfCols" min="0" max="12" step="1" value="0" />
+              <output id="pdfColsV">auto</output>
+            </div>
+            <label class="switch" id="bwipTextRow" style="display:none"><input type="checkbox" id="bwipText" /> <span data-i18n="pShowText">Leesbare tekst tonen</span></label>
+          </div>
+
+          <div class="prop-group">
+            <div class="prop-row two">
+              <div>
+                <label data-i18n="pForeground">Voorgrond</label>
+                <input type="color" id="fg" value="#000000" />
+              </div>
+              <div>
+                <label data-i18n="pBackground">Achtergrond</label>
+                <input type="color" id="bg" value="#ffffff" />
+              </div>
+            </div>
+            <label class="switch"><input type="checkbox" id="transparent" /> <span data-i18n="pTransparent">Transparante achtergrond</span></label>
+            <div class="prop-row">
+              <label data-i18n="pMargin">Marge</label>
+              <input type="range" id="margin" min="0" max="40" step="2" value="10" />
+              <output id="marginV">10</output>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 — Bulk -->
+      <section class="step card bulk-card reveal" id="bulk">
+        <div class="step-head">
+          <span class="step-num">04</span>
+          <h2 data-i18n="bulkHeading">Batch maken</h2>
+          <span class="pill" data-i18n="bulkBadge">CSV → ZIP / PDF</span>
+        </div>
+        <p class="hint" data-i18n="bulkDesc">Upload een CSV/TXT-bestand of plak waarden om veel codes tegelijk te maken met de hierboven gekozen symbologie en stijl. Download daarna een ZIP met PNG's of één PDF-vel.</p>
+        <div class="bulk-grid">
+          <label class="bulk-file">
+            <input type="file" id="bulkFile" accept=".csv,.txt,text/csv,text/plain" />
+            <span data-i18n="bulkUpload">⬆ CSV / TXT uploaden</span>
+          </label>
+          <textarea id="bulkPaste" rows="4" data-i18n-ph="bulkPastePh" placeholder="…of plak hier waarden, één per regel"></textarea>
+        </div>
+        <div class="bulk-opts">
+          <label class="switch"><input type="checkbox" id="bulkHeader" /> <span data-i18n="bulkHeaderLbl">Eerste rij bevat koppen</span></label>
+          <label class="bulk-sel"><span data-i18n="bulkDataColLbl">Gegevenskolom</span><select id="bulkDataCol"></select></label>
+          <label class="bulk-sel"><span data-i18n="bulkLabelColLbl">Label / bestandsnaam</span><select id="bulkLabelCol"></select></label>
+          <label class="bulk-sel"><span data-i18n="bulkPdfColsLbl">PDF-kolommen</span><input type="number" id="bulkPdfCols" min="1" max="6" value="3" /></label>
+        </div>
+        <p class="bulk-info" id="bulkInfo"></p>
+        <div class="bulk-progress" id="bulkProgress" hidden><div class="bulk-bar" id="bulkBar"></div></div>
+        <div class="download-row">
+          <button class="btn btn-primary" id="bulkGenBtn" data-i18n="bulkGenerate">⚙ Maken</button>
+          <button class="btn btn-secondary" id="bulkDlZip" hidden data-i18n="bulkDlZip">⬇ ZIP (PNG)</button>
+          <button class="btn btn-secondary" id="bulkDlPdf" hidden data-i18n="bulkDlPdf">⬇ PDF-vel</button>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Pro / API — painted-door waitlist -->
+  <section class="pro" id="pro" aria-labelledby="proHeading">
+    <div class="pro-wrap">
+      <div class="pro-head">
+        <span class="eyebrow">Launching soon</span>
+        <h2 id="proHeading">Pro &amp; API — join the early list</h2>
+        <p class="pro-lead">The generator stays free, forever. We're building paid tiers for the teams and developers who need more — commercial licensing, vector &amp; high-res export, and a metered REST API. Tell us what you'd actually use and we'll email you first, with early-access launch pricing.</p>
+      </div>
+
+      <div class="pro-tiers">
+        <article class="pro-card">
+          <div class="pro-card-top">
+            <span class="pro-tier-name">Free</span>
+            <span class="pro-price"><b>$0</b><span>/forever</span></span>
+          </div>
+          <p class="pro-card-for">What you're using right now</p>
+          <ul class="pro-feats">
+            <li>100+ barcode &amp; QR symbologies</li>
+            <li>Live preview &amp; full customization</li>
+            <li>PNG &amp; SVG export, no login</li>
+            <li>Bulk CSV → ZIP / PDF</li>
+            <li>Public REST API (rate-limited)</li>
+          </ul>
+          <span class="pro-cta-now">Available now ✓</span>
+        </article>
+
+        <article class="pro-card is-featured">
+          <span class="pro-badge">Most requested</span>
+          <div class="pro-card-top">
+            <span class="pro-tier-name">Pro</span>
+            <span class="pro-price"><b>$12</b><span>/mo</span></span>
+          </div>
+          <p class="pro-card-for">For designers &amp; teams</p>
+          <ul class="pro-feats">
+            <li>No watermark + commercial license</li>
+            <li>Vector export — PDF &amp; EPS</li>
+            <li>High-resolution, print-ready output</li>
+            <li>Saved templates &amp; brand colors</li>
+            <li>Dynamic QR + scan analytics</li>
+          </ul>
+          <button type="button" class="btn btn-primary pro-notify" data-notify="pro">Notify me →</button>
+        </article>
+
+        <article class="pro-card">
+          <div class="pro-card-top">
+            <span class="pro-tier-name">API</span>
+            <span class="pro-price"><b>$49</b><span>/mo</span></span>
+          </div>
+          <p class="pro-card-for">For developers</p>
+          <ul class="pro-feats">
+            <li>API keys &amp; usage dashboard</li>
+            <li>500k requests / month</li>
+            <li>Higher rate limits, priority</li>
+            <li>Batch generation endpoint</li>
+            <li>Commercial use, no attribution</li>
+          </ul>
+          <button type="button" class="btn btn-secondary pro-notify" data-notify="api">Notify me →</button>
+        </article>
+      </div>
+
+      <form class="pro-form" novalidate>
+        <p class="pro-form-title">Get early access + launch pricing</p>
+        <div class="pro-tier-select" role="group" aria-label="Which are you interested in?">
+          <button type="button" class="pro-pill" data-tier="pro" aria-pressed="true">Pro</button>
+          <button type="button" class="pro-pill" data-tier="api" aria-pressed="false">API</button>
+        </div>
+        <p class="pro-vote-label">Which features would you actually use? <span>(optional — it helps us decide what to build first)</span></p>
+        <div class="pro-chips">
+          <button type="button" class="pro-chip" data-feature="no-watermark" aria-pressed="false">No watermark</button>
+          <button type="button" class="pro-chip" data-feature="commercial-license" aria-pressed="false">Commercial license</button>
+          <button type="button" class="pro-chip" data-feature="bulk-csv" aria-pressed="false">Bulk CSV</button>
+          <button type="button" class="pro-chip" data-feature="vector-export" aria-pressed="false">Vector export</button>
+          <button type="button" class="pro-chip" data-feature="api-access" aria-pressed="false">API access</button>
+          <button type="button" class="pro-chip" data-feature="dynamic-qr" aria-pressed="false">Dynamic QR</button>
+          <button type="button" class="pro-chip" data-feature="high-res" aria-pressed="false">High-res print</button>
+          <button type="button" class="pro-chip" data-feature="team" aria-pressed="false">Team seats</button>
+        </div>
+        <div class="pro-submit-row">
+          <input type="email" inputmode="email" autocomplete="email" placeholder="you@company.com" aria-label="Email address" required />
+          <input type="text" name="company" class="pro-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <button type="submit" class="btn btn-primary">Join the early list</button>
+        </div>
+        <p class="pro-msg" data-kind="" role="status" aria-live="polite"></p>
+        <p class="pro-fineprint">No spam — one email when it launches. The free tool isn't going anywhere.</p>
+      </form>
+    </div>
+  </section>
+
+    <article class="seo-section">
+    <div class="seo-wrap">
+      <h2>Wat is MeCard</h2>
+      <p>MeCard generator helpt om MeCard te maken zonder aparte desktopsoftware. Het formaat hoort bij 2D-code en is geschikt wanneer scannercompatibiliteit, vaste geometrie en controle over afmetingen belangrijk zijn. Je voert de gegevens in, bekijkt het voorbeeld en ziet direct of het symbool op het etiket of document past.</p><p>Het gaat niet alleen om een afbeelding. Modulegrootte, marge, contrast en eventueel leesbare tekst moeten samen kloppen. Barcode APIs toont deze instellingen vóór de export, zodat PNG, SVG of PDF direct bruikbaar is in een ontwerp, labeltemplate of intern systeem.</p><p>De gegevens voor MeCard moeten passen bij de regels van de symbologie. Sommige formaten accepteren tekst, andere alleen cijfers, een even aantal tekens of GS1-structuur met Application Identifiers. Bij producten, pakketten of officiële documenten moet het originele nummer exact behouden blijven.</p><p>In operationele processen telt herhaalbaarheid. Dezelfde gegevens moeten steeds hetzelfde symbool opleveren, en vectoruitvoer maakt afdrukken op meerdere formaten betrouwbaarder. Voor reeksen etiketten kun je CSV gebruiken, zodat veel codes met dezelfde stijl worden gemaakt.</p><p>De workflow is overzichtelijk: kies MeCard, plak de gegevens, controleer de validatie en stel de maat af op de beschikbare ruimte. Gebruik PNG voor snel plaatsen, SVG voor vormgeving en PDF voor printvellen. Voor integraties kan de REST-endpoint direct een code-afbeelding leveren via een URL.</p>
+      <h2>Hoe MeCard gegevens codeert</h2>
+      <p>Het gaat niet alleen om een afbeelding. Modulegrootte, marge, contrast en eventueel leesbare tekst moeten samen kloppen. Barcode APIs toont deze instellingen vóór de export, zodat PNG, SVG of PDF direct bruikbaar is in een ontwerp, labeltemplate of intern systeem.</p><p>De gegevens voor MeCard moeten passen bij de regels van de symbologie. Sommige formaten accepteren tekst, andere alleen cijfers, een even aantal tekens of GS1-structuur met Application Identifiers. Bij producten, pakketten of officiële documenten moet het originele nummer exact behouden blijven.</p><p>In operationele processen telt herhaalbaarheid. Dezelfde gegevens moeten steeds hetzelfde symbool opleveren, en vectoruitvoer maakt afdrukken op meerdere formaten betrouwbaarder. Voor reeksen etiketten kun je CSV gebruiken, zodat veel codes met dezelfde stijl worden gemaakt.</p><p>De workflow is overzichtelijk: kies MeCard, plak de gegevens, controleer de validatie en stel de maat af op de beschikbare ruimte. Gebruik PNG voor snel plaatsen, SVG voor vormgeving en PDF voor printvellen. Voor integraties kan de REST-endpoint direct een code-afbeelding leveren via een URL.</p><p>Maak vóór grootschalig gebruik altijd een proefdruk. De achtergrond moet licht zijn, randen moeten scherp blijven en de vrije marge mag niet worden gevuld met tekst, lijnen of illustraties. Test met dezelfde scanner en vergelijkbare omstandigheden als op de werkplek.</p>
+      <h2>Welke gegevens erin passen</h2>
+      <p>De gegevens voor MeCard moeten passen bij de regels van de symbologie. Sommige formaten accepteren tekst, andere alleen cijfers, een even aantal tekens of GS1-structuur met Application Identifiers. Bij producten, pakketten of officiële documenten moet het originele nummer exact behouden blijven.</p><p>In operationele processen telt herhaalbaarheid. Dezelfde gegevens moeten steeds hetzelfde symbool opleveren, en vectoruitvoer maakt afdrukken op meerdere formaten betrouwbaarder. Voor reeksen etiketten kun je CSV gebruiken, zodat veel codes met dezelfde stijl worden gemaakt.</p><p>De workflow is overzichtelijk: kies MeCard, plak de gegevens, controleer de validatie en stel de maat af op de beschikbare ruimte. Gebruik PNG voor snel plaatsen, SVG voor vormgeving en PDF voor printvellen. Voor integraties kan de REST-endpoint direct een code-afbeelding leveren via een URL.</p><p>Maak vóór grootschalig gebruik altijd een proefdruk. De achtergrond moet licht zijn, randen moeten scherp blijven en de vrije marge mag niet worden gevuld met tekst, lijnen of illustraties. Test met dezelfde scanner en vergelijkbare omstandigheden als op de werkplek.</p><p>MeCard vergelijk je het best met verwante formaten op gegevensdichtheid, benodigde ruimte en scannereisen. Voor meer inhoud kan een 2D-formaat beter zijn. Voor kassa, magazijn of bestaande logistieke afspraken is een lineaire standaard vaak de veiligere keuze.</p>
+      <h2>Waar dit formaat wordt gebruikt</h2>
+      <p>In operationele processen telt herhaalbaarheid. Dezelfde gegevens moeten steeds hetzelfde symbool opleveren, en vectoruitvoer maakt afdrukken op meerdere formaten betrouwbaarder. Voor reeksen etiketten kun je CSV gebruiken, zodat veel codes met dezelfde stijl worden gemaakt.</p><p>De workflow is overzichtelijk: kies MeCard, plak de gegevens, controleer de validatie en stel de maat af op de beschikbare ruimte. Gebruik PNG voor snel plaatsen, SVG voor vormgeving en PDF voor printvellen. Voor integraties kan de REST-endpoint direct een code-afbeelding leveren via een URL.</p><p>Maak vóór grootschalig gebruik altijd een proefdruk. De achtergrond moet licht zijn, randen moeten scherp blijven en de vrije marge mag niet worden gevuld met tekst, lijnen of illustraties. Test met dezelfde scanner en vergelijkbare omstandigheden als op de werkplek.</p><p>MeCard vergelijk je het best met verwante formaten op gegevensdichtheid, benodigde ruimte en scannereisen. Voor meer inhoud kan een 2D-formaat beter zijn. Voor kassa, magazijn of bestaande logistieke afspraken is een lineaire standaard vaak de veiligere keuze.</p><p>MeCard generator helpt om MeCard te maken zonder aparte desktopsoftware. Het formaat hoort bij 2D-code en is geschikt wanneer scannercompatibiliteit, vaste geometrie en controle over afmetingen belangrijk zijn. Je voert de gegevens in, bekijkt het voorbeeld en ziet direct of het symbool op het etiket of document past.</p>
+      <h2>Zo maak je de code in Barcode APIs</h2>
+      <p>De workflow is overzichtelijk: kies MeCard, plak de gegevens, controleer de validatie en stel de maat af op de beschikbare ruimte. Gebruik PNG voor snel plaatsen, SVG voor vormgeving en PDF voor printvellen. Voor integraties kan de REST-endpoint direct een code-afbeelding leveren via een URL.</p><p>Maak vóór grootschalig gebruik altijd een proefdruk. De achtergrond moet licht zijn, randen moeten scherp blijven en de vrije marge mag niet worden gevuld met tekst, lijnen of illustraties. Test met dezelfde scanner en vergelijkbare omstandigheden als op de werkplek.</p><p>MeCard vergelijk je het best met verwante formaten op gegevensdichtheid, benodigde ruimte en scannereisen. Voor meer inhoud kan een 2D-formaat beter zijn. Voor kassa, magazijn of bestaande logistieke afspraken is een lineaire standaard vaak de veiligere keuze.</p><p>MeCard generator helpt om MeCard te maken zonder aparte desktopsoftware. Het formaat hoort bij 2D-code en is geschikt wanneer scannercompatibiliteit, vaste geometrie en controle over afmetingen belangrijk zijn. Je voert de gegevens in, bekijkt het voorbeeld en ziet direct of het symbool op het etiket of document past.</p><p>Het gaat niet alleen om een afbeelding. Modulegrootte, marge, contrast en eventueel leesbare tekst moeten samen kloppen. Barcode APIs toont deze instellingen vóór de export, zodat PNG, SVG of PDF direct bruikbaar is in een ontwerp, labeltemplate of intern systeem.</p>
+      <h2>Afdrukken en scannen</h2>
+      <p>Maak vóór grootschalig gebruik altijd een proefdruk. De achtergrond moet licht zijn, randen moeten scherp blijven en de vrije marge mag niet worden gevuld met tekst, lijnen of illustraties. Test met dezelfde scanner en vergelijkbare omstandigheden als op de werkplek.</p><p>MeCard vergelijk je het best met verwante formaten op gegevensdichtheid, benodigde ruimte en scannereisen. Voor meer inhoud kan een 2D-formaat beter zijn. Voor kassa, magazijn of bestaande logistieke afspraken is een lineaire standaard vaak de veiligere keuze.</p><p>MeCard generator helpt om MeCard te maken zonder aparte desktopsoftware. Het formaat hoort bij 2D-code en is geschikt wanneer scannercompatibiliteit, vaste geometrie en controle over afmetingen belangrijk zijn. Je voert de gegevens in, bekijkt het voorbeeld en ziet direct of het symbool op het etiket of document past.</p><p>Het gaat niet alleen om een afbeelding. Modulegrootte, marge, contrast en eventueel leesbare tekst moeten samen kloppen. Barcode APIs toont deze instellingen vóór de export, zodat PNG, SVG of PDF direct bruikbaar is in een ontwerp, labeltemplate of intern systeem.</p><p>De gegevens voor MeCard moeten passen bij de regels van de symbologie. Sommige formaten accepteren tekst, andere alleen cijfers, een even aantal tekens of GS1-structuur met Application Identifiers. Bij producten, pakketten of officiële documenten moet het originele nummer exact behouden blijven.</p>
+      <h2>Vergelijking met verwante formaten</h2>
+      <p>MeCard vergelijk je het best met verwante formaten op gegevensdichtheid, benodigde ruimte en scannereisen. Voor meer inhoud kan een 2D-formaat beter zijn. Voor kassa, magazijn of bestaande logistieke afspraken is een lineaire standaard vaak de veiligere keuze.</p><p>MeCard generator helpt om MeCard te maken zonder aparte desktopsoftware. Het formaat hoort bij 2D-code en is geschikt wanneer scannercompatibiliteit, vaste geometrie en controle over afmetingen belangrijk zijn. Je voert de gegevens in, bekijkt het voorbeeld en ziet direct of het symbool op het etiket of document past.</p><p>Het gaat niet alleen om een afbeelding. Modulegrootte, marge, contrast en eventueel leesbare tekst moeten samen kloppen. Barcode APIs toont deze instellingen vóór de export, zodat PNG, SVG of PDF direct bruikbaar is in een ontwerp, labeltemplate of intern systeem.</p><p>De gegevens voor MeCard moeten passen bij de regels van de symbologie. Sommige formaten accepteren tekst, andere alleen cijfers, een even aantal tekens of GS1-structuur met Application Identifiers. Bij producten, pakketten of officiële documenten moet het originele nummer exact behouden blijven.</p><p>In operationele processen telt herhaalbaarheid. Dezelfde gegevens moeten steeds hetzelfde symbool opleveren, en vectoruitvoer maakt afdrukken op meerdere formaten betrouwbaarder. Voor reeksen etiketten kun je CSV gebruiken, zodat veel codes met dezelfde stijl worden gemaakt.</p>
+      <h2>Veelgebruikte toepassingen</h2>
+      <ul class="seo-uses"><li>productetiketten en verpakkingen</li><li>magazijn en inventaris</li><li>documenten, tickets en formulieren</li><li>batchafdruk vanuit CSV</li><li>API-integraties</li></ul>
+      <h2>Veelgestelde vragen</h2>
+      <div class="faq">
+        <details class="faq-item"><summary>Werkt MeCard generator in de browser</summary><div class="faq-a">Ja. Barcode APIs maakt MeCard zonder installatie en laat je het resultaat opslaan als PNG, SVG of PDF.</div></details>
+        <details class="faq-item"><summary>Welke gegevens kan ik invoeren</summary><div class="faq-a">De gegevens moeten voldoen aan de regels van MeCard. Als cijfers, lengte of GS1-structuur nodig zijn, behoud dan de exacte bronwaarde.</div></details>
+        <details class="faq-item"><summary>Kan ik veel codes tegelijk maken</summary><div class="faq-a">Ja. In batchmodus kun je een lijst plakken of CSV laden en daarna ZIP of PDF downloaden.</div></details>
+        <details class="faq-item"><summary>Is de code geschikt voor drukwerk</summary><div class="faq-a">Ja, maar maak vóór seriegebruik een proefdruk en test met het doelmateriaal en de scanner.</div></details>
+        <details class="faq-item"><summary>Wanneer kies ik SVG in plaats van PNG</summary><div class="faq-a">SVG is geschikt voor opmaak en schalen, PNG voor snel gebruik in documenten of applicaties.</div></details>
+      </div>
+      <h2>Gerelateerde barcodetypen</h2>
+      <div class="seo-related"><a href="/nl/qr-code">QR Code Generator</a><a href="/nl/gs1-qr-code">GS1 QR Code Generator</a><a href="/nl/gs1-digital-link-qr-code">GS1 Digital Link QR Code Generator</a><a href="/nl/gs1-digital-link-data-matrix">GS1 Digital Link Data Matrix Generator</a><a href="/nl/data-matrix">Data Matrix Generator</a><a href="/nl/gs1-data-matrix">GS1 Data Matrix Generator</a><a href="/nl/pdf417">PDF417 Generator</a><a href="/nl/micropdf417">MicroPDF417 Generator</a><a href="/nl/aztec">Aztec Generator</a><a href="/nl/micro-qr">Micro QR Generator</a><a href="/nl/maxicode">MaxiCode Generator</a><a href="/nl/dotcode">DotCode Generator</a><a href="/nl/han-xin-code">Han Xin Code Generator</a><a href="/nl/codablock-f">Codablock-F Generator</a></div>
+      <p class="seo-all"><a href="/nl/barcodes">Bekijk alle 106 barcode- en QR-typen →</a></p>
+    </div>
+  </article>
+  <footer class="footer">
+    <span class="footer-brand">Barcode APIs</span> · <span data-i18n="footerText">© 2026 Barcode APIs</span>
+  </footer>
+
+  <script>window.BARCODE_INITIAL_TYPE="mecard";</script>
+  <script src="/js/catalog.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/living-ink.js"></script>
+  <script src="/js/pro-waitlist.js"></script>
+</body>
+</html>

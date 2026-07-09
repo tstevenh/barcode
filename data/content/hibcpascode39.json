@@ -1,6 +1,6 @@
 {
   "id": "hibcpascode39",
-  "title": "HIBC PAS Code 39 Generator - Free | Barcode Studio",
+  "title": "HIBC PAS Code 39 Generator - Free | Barcode APIs",
   "metaDescription": "Free HIBC PAS Code 39 generator for lot, expiration, and serial data on medical labels. Enter your secondary message, then export PNG, SVG, or PDF.",
   "primaryKeyword": "hibc pas code 39 generator",
   "secondaryKeywords": ["hibc secondary data message", "hibc lot expiration barcode", "provider applications standard barcode", "hibc pas barcode generator", "medical device lot barcode"],
@@ -23,8 +23,8 @@
       "html": "<p>HIBC PAS Code 39 appears wherever a healthcare product's lot, expiration, or serial data needs to travel with the physical item for traceability &mdash; on pharmaceutical vials, reagent kits, implant packaging, and sterile surgical supplies where expiration monitoring and lot-based recall tracking are critical to patient safety. Hospital pharmacy and materials management systems scan the PAS message at receiving and again at point of use to confirm the product hasn't expired and to log exactly which lot was used on which patient or procedure, supporting recall response if a manufacturer later identifies a defective batch.</p>"
     },
     {
-      "h2": "How to create an HIBC PAS Code 39 barcode in Barcode Studio",
-      "html": "<p>Select <strong>HIBC PAS Code 39</strong> from the Linear Barcode list, then enter your HIBC-formatted secondary data string, beginning with the \"+\" flag character followed by your lot number, expiration date, and any quantity or serial data per the HIBC PAS structure, for example <code>+$$1015Z251231</code>. Barcode Studio computes the required HIBC check character automatically. From there you can:</p><ul><li>Adjust bar width, height, and quiet zone to fit vial, kit, or carton labels</li><li>Set colors while keeping strong contrast for hospital and pharmacy scanners</li><li>Export as PNG, SVG, or PDF, or copy the barcode into label design software</li><li>Bulk-generate PAS labels from a CSV of lot numbers and expiration dates as a ZIP or print-ready PDF</li><li>Call the REST API &mdash; <code>/barcode?type=hibcpascode39&amp;data=+$$1015Z251231</code> &mdash; to generate labels from your labeling system</li></ul>"
+      "h2": "How to create an HIBC PAS Code 39 barcode in Barcode APIs",
+      "html": "<p>Select <strong>HIBC PAS Code 39</strong> from the Linear Barcode list, then enter your HIBC-formatted secondary data string, beginning with the \"+\" flag character followed by your lot number, expiration date, and any quantity or serial data per the HIBC PAS structure, for example <code>+$$1015Z251231</code>. Barcode APIs computes the required HIBC check character automatically. From there you can:</p><ul><li>Adjust bar width, height, and quiet zone to fit vial, kit, or carton labels</li><li>Set colors while keeping strong contrast for hospital and pharmacy scanners</li><li>Export as PNG, SVG, or PDF, or copy the barcode into label design software</li><li>Bulk-generate PAS labels from a CSV of lot numbers and expiration dates as a ZIP or print-ready PDF</li><li>Call the REST API &mdash; <code>/barcode?type=hibcpascode39&amp;data=+$$1015Z251231</code> &mdash; to generate labels from your labeling system</li></ul>"
     },
     {
       "h2": "Print and scan best practices",
@@ -48,6 +48,6 @@
     {"q": "Do I need a LIC barcode along with a PAS barcode?", "a": "Yes, a PAS message is meant to be printed alongside and linked to a primary LIC message so a scanner can associate the lot and expiration data with the correct product identity."},
     {"q": "Can HIBC PAS Code 39 encode a serial number for an individual device?", "a": "Yes, the PAS message structure supports serial number fields in addition to lot number, expiration date, and quantity, which is important for tracking individual implantable or high-value devices."},
     {"q": "Does HIBC PAS Code 39 use GS1 Application Identifiers?", "a": "No, HIBC PAS messages follow the HIBCC Supplier Labeling Standard's own field structure rather than GS1 Application Identifier syntax, though both schemes serve similar traceability purposes."},
-    {"q": "Can I bulk-generate HIBC PAS Code 39 labels for different lots?", "a": "Yes, upload a CSV where each row supplies its own lot number and expiration date, and Barcode Studio will generate the corresponding barcodes as a ZIP or print-ready PDF."}
+    {"q": "Can I bulk-generate HIBC PAS Code 39 labels for different lots?", "a": "Yes, upload a CSV where each row supplies its own lot number and expiration date, and Barcode APIs will generate the corresponding barcodes as a ZIP or print-ready PDF."}
   ]
 }

@@ -1,6 +1,6 @@
 {
   "id": "pdf417",
-  "title": "PDF417 Barcode Generator - Free Online | Barcode Studio",
+  "title": "PDF417 Barcode Generator - Free Online | Barcode APIs",
   "metaDescription": "Generate a PDF417 barcode free for driver's licenses, boarding passes, and shipping labels. Adjust rows, columns, and error correction, export PNG or SVG.",
   "primaryKeyword": "pdf417 barcode generator",
   "secondaryKeywords": ["pdf417 generator online", "pdf417 barcode maker", "drivers license barcode", "boarding pass barcode", "stacked linear barcode", "pdf417 error correction"],
@@ -8,7 +8,7 @@
   "sections": [
     {
       "h2": "What is a PDF417 barcode?",
-      "html": "<p>PDF417 is a stacked linear barcode, standardized under ISO/IEC 15438, that arranges multiple rows of a 1D-style barcode pattern on top of each other to create a compact, high-capacity 2D symbol. The name comes from its structure: every codeword pattern consists of 4 bars and spaces across 17 modules (\"PDF\" stands for Portable Data File). It was developed by Symbol Technologies in 1991 and is now a public-domain, royalty-free standard widely used wherever a large amount of data needs to travel on a single printed label, such as a driver's license or shipping form. Any free PDF417 barcode generator that supports adjustable error correction and row/column tuning, like Barcode Studio, can reproduce the format to spec.</p>"
+      "html": "<p>PDF417 is a stacked linear barcode, standardized under ISO/IEC 15438, that arranges multiple rows of a 1D-style barcode pattern on top of each other to create a compact, high-capacity 2D symbol. The name comes from its structure: every codeword pattern consists of 4 bars and spaces across 17 modules (\"PDF\" stands for Portable Data File). It was developed by Symbol Technologies in 1991 and is now a public-domain, royalty-free standard widely used wherever a large amount of data needs to travel on a single printed label, such as a driver's license or shipping form. Any free PDF417 barcode generator that supports adjustable error correction and row/column tuning, like Barcode APIs, can reproduce the format to spec.</p>"
     },
     {
       "h2": "How PDF417 encodes data",
@@ -23,7 +23,7 @@
       "html": "<p>U.S. and Canadian driver's licenses and state ID cards encode the AAMVA standard data set — name, date of birth, license number, address, and license class — on the back using PDF417, which is why it's often called \"the barcode on the back of a driver's license.\" Airline boarding passes follow IATA's Bar Coded Boarding Pass (BCBP) standard, which also uses PDF417 for paper passes. USPS and other postal or parcel carriers print it on shipping and customs labels to carry structured tracking data. Manufacturing and logistics operations use it for parts tracking where a single label needs to carry more structured data than a simple linear barcode allows, and many government forms, permits, and visas use it to encode substantial text data compactly on a single printed page.</p>"
     },
     {
-      "h2": "How to create a PDF417 barcode in Barcode Studio",
+      "h2": "How to create a PDF417 barcode in Barcode APIs",
       "html": "<p>Select <strong>PDF417</strong> from the symbology list on the left and enter your text or structured data directly — PDF417 isn't part of the 2D content-type builder used for QR codes, so you type or paste the raw string you want encoded. From there you can:</p><ul><li>Adjust the number of rows and columns, or let the generator auto-size based on your data length</li><li>Set the error correction level (0-8) to balance data capacity against damage tolerance</li><li>Adjust module width, row height, colors, and quiet zone for your label format</li><li>Export as PNG or SVG, or copy the code directly for use in ID card or shipping label templates</li><li>Generate a batch or numbered sequence, or upload a CSV for bulk generation as a ZIP or print-ready PDF of labels</li><li>Call the REST API &mdash; <code>/barcode?type=pdf417&amp;data=Shipment%20ID%2012345</code> &mdash; to automate barcode generation for a logistics or ID system</li></ul>"
     },
     {
@@ -49,6 +49,6 @@
     {"q": "Is PDF417 the same as the barcode on my driver's license?", "a": "Yes, most U.S. and Canadian driver's licenses use PDF417 on the back to encode a standardized AAMVA data set including name, date of birth, and license number."},
     {"q": "Can a smartphone scan a PDF417 barcode?", "a": "Yes, most modern barcode scanning apps and camera-based scanners can read PDF417, though it was originally designed for laser-based linear scanners due to its row-based structure."},
     {"q": "What's the difference between PDF417 and QR code?", "a": "PDF417 is a stacked linear symbology built from rows of barcode-like patterns, while QR code is a true matrix symbol; PDF417 is more common for large structured text data like ID cards, while QR code is more common for URLs and consumer-facing content."},
-    {"q": "Can I use this PDF417 barcode generator for free in bulk?", "a": "Yes, this PDF417 barcode generator is free with no login; upload a CSV of data values and Barcode Studio will bulk-generate a ZIP of image files or a print-ready PDF of labels."}
+    {"q": "Can I use this PDF417 barcode generator for free in bulk?", "a": "Yes, this PDF417 barcode generator is free with no login; upload a CSV of data values and Barcode APIs will bulk-generate a ZIP of image files or a print-ready PDF of labels."}
   ]
 }

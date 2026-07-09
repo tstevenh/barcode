@@ -1,6 +1,6 @@
 {
   "id": "dotcode",
-  "title": "DotCode Generator - High-Speed 2D Barcode | Barcode Studio",
+  "title": "DotCode Generator - High-Speed 2D Barcode | Barcode APIs",
   "metaDescription": "Generate a DotCode barcode free for high-speed inkjet printing on production lines. Export PNG or SVG, adjust size, or use the REST API.",
   "primaryKeyword": "dotcode generator",
   "secondaryKeywords": [
@@ -30,7 +30,7 @@
       "html": "<p>DotCode was popularized by the tobacco industry, where regulatory track-and-trace mandates (such as those tied to the EU Tobacco Products Directive) require unique identifiers printed at very high speed directly onto cigarette packs and cartons using CIJ printers &mdash; a use case that drove much of the symbology's early adoption and standardization, since existing 2D codes weren't reliably printable at the speed and resolution those production lines demand. It's also used in food and beverage packaging, pharmaceutical secondary packaging, and other fast-moving consumer goods lines where inkjet marking at speed is the norm and a square-module 2D code would be harder to print reliably. It has also seen adoption in some markets' tobacco and alcohol tax-stamp programs, where governments mandate a scannable, high-speed-printable unique identifier on every unit for revenue and anti-counterfeiting purposes. Anywhere a production line already relies on continuous inkjet for date and lot coding is a candidate for DotCode over a square-module alternative.</p>"
     },
     {
-      "h2": "How to create a DotCode in Barcode Studio",
+      "h2": "How to create a DotCode in Barcode APIs",
       "html": "<p>Select <strong>DotCode</strong> from the symbology list and enter your text, numeric, or GS1 AI-formatted data directly. From there you can:</p><ul><li>Adjust the symbol's aspect ratio to match your package or label geometry</li><li>Set dot size and spacing appropriate to your printing method's resolution</li><li>Set foreground and background colors while keeping enough contrast for the scanner reading the printed dots</li><li>Adjust the quiet zone margin around the symbol for your label layout</li><li>Export as PNG or SVG for production artwork, or copy the code directly</li><li>Use batch/sequence generation or CSV bulk upload to produce unique codes across a production run, exported as ZIP or PDF</li><li>Call the REST API &mdash; <code>/barcode?type=dotcode&amp;data=LOT-2026-0042</code> &mdash; to integrate DotCode generation into a production line control system</li></ul>"
     },
     {
