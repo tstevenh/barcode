@@ -363,11 +363,11 @@
         <span class="lock-badge" data-notify="pro" role="button" tabindex="0">🔒 Pro</span>
         <div class="step-head">
           <span class="step-num">04</span>
-          <h2>Bulk &amp; batch generate</h2>
-          <span class="pill">CSV → ZIP / PDF</span>
+          <h2 data-i18n="bulkProHeading">Génération en masse et par lots</h2>
+          <span class="pill" data-i18n="bulkBadge">CSV → ZIP / PDF</span>
         </div>
-        <p class="hint">Turn a CSV — or a numbered sequence — into hundreds of barcodes at once, exported as a ZIP of images or a print-ready PDF sheet. Launching with Pro.</p>
-        <button type="button" class="btn btn-primary lock-cta" data-notify="pro">Unlock with Pro — join the early list →</button>
+        <p class="hint" data-i18n="bulkProDesc">Transformez un CSV — ou une séquence numérotée — en des centaines de codes-barres d'un coup, exportés en ZIP d'images ou en feuille PDF prête à imprimer. Bientôt disponible avec Pro.</p>
+        <button type="button" class="btn btn-primary lock-cta" data-notify="pro" data-i18n="bulkProCta">Débloquez avec Pro — rejoignez la liste anticipée →</button>
         <div class="locked-body" inert aria-hidden="true">
         <div class="bulk-grid">
           <label class="bulk-file">
@@ -399,87 +399,87 @@
   <section class="pro" id="pro" aria-labelledby="proHeading">
     <div class="pro-wrap">
       <div class="pro-head">
-        <span class="eyebrow">Launching soon</span>
-        <h2 id="proHeading">Pro &amp; API — join the early list</h2>
-        <p class="pro-lead">The generator stays free, forever. We're building paid tiers for the teams and developers who need more — commercial licensing, vector &amp; high-res export, and a metered REST API. Tell us what you'd actually use and we'll email you first, with early-access launch pricing.</p>
+        <span class="eyebrow" data-i18n="proEyebrow">Bientôt disponible</span>
+        <h2 id="proHeading" data-i18n="proHeading">Pro et API — rejoignez la liste anticipée</h2>
+        <p class="pro-lead" data-i18n="proLead">Le générateur reste gratuit, pour toujours. Nous concevons des formules payantes pour les équipes et les développeurs qui ont besoin de plus — licence commerciale, export vectoriel et haute résolution, et une API REST à l'usage. Dites-nous ce que vous utiliseriez vraiment et nous vous écrirons en priorité, avec des tarifs de lancement en accès anticipé.</p>
       </div>
 
       <div class="pro-tiers">
         <article class="pro-card">
           <div class="pro-card-top">
-            <span class="pro-tier-name">Free</span>
-            <span class="pro-price"><b>$0</b><span>/forever</span></span>
+            <span class="pro-tier-name" data-i18n="proFreeName">Gratuit</span>
+            <span class="pro-price"><b>$0</b><span data-i18n="proForever">/pour toujours</span></span>
           </div>
-          <p class="pro-card-for">What you're using right now</p>
+          <p class="pro-card-for" data-i18n="proFreeFor">Ce que vous utilisez en ce moment</p>
           <ul class="pro-feats">
-            <li>100+ barcode &amp; QR symbologies</li>
-            <li>One barcode at a time</li>
-            <li>Live preview &amp; customization</li>
-            <li>PNG &amp; SVG export, no login</li>
-            <li>Copy to clipboard</li>
+            <li data-i18n="proFreeF1">100+ symbologies de codes-barres et QR</li>
+            <li data-i18n="proFreeF2">Un code-barres à la fois</li>
+            <li data-i18n="proFreeF3">Aperçu en direct et personnalisation</li>
+            <li data-i18n="proFreeF4">Export PNG et SVG, sans connexion</li>
+            <li data-i18n="proFreeF5">Copier dans le presse-papiers</li>
           </ul>
-          <span class="pro-cta-now">Available now ✓</span>
+          <span class="pro-cta-now" data-i18n="proAvailNow">Disponible maintenant ✓</span>
         </article>
 
         <article class="pro-card is-featured">
-          <span class="pro-badge">Most requested</span>
+          <span class="pro-badge" data-i18n="proBadge">Le plus demandé</span>
           <div class="pro-card-top">
             <span class="pro-tier-name">Pro</span>
-            <span class="pro-price"><b>$12</b><span>/mo</span></span>
+            <span class="pro-price"><b>$12</b><span data-i18n="proPerMo">/mois</span></span>
           </div>
-          <p class="pro-card-for">For designers &amp; teams</p>
+          <p class="pro-card-for" data-i18n="proProFor">Pour les designers et les équipes</p>
           <ul class="pro-feats">
-            <li>Bulk CSV &amp; batch generation</li>
-            <li>No watermark + commercial license</li>
-            <li>Vector export — PDF &amp; EPS</li>
-            <li>High-resolution, print-ready output</li>
-            <li>Saved templates &amp; brand colors</li>
-            <li>Dynamic QR + scan analytics</li>
+            <li data-i18n="proProF1">Génération en masse par CSV et par lots</li>
+            <li data-i18n="proProF2">Sans filigrane + licence commerciale</li>
+            <li data-i18n="proProF3">Export vectoriel — PDF et EPS</li>
+            <li data-i18n="proProF4">Sortie haute résolution, prête à imprimer</li>
+            <li data-i18n="proProF5">Modèles enregistrés et couleurs de marque</li>
+            <li data-i18n="proProF6">QR dynamique + analyses de scans</li>
           </ul>
-          <button type="button" class="btn btn-primary pro-notify" data-notify="pro">Notify me →</button>
+          <button type="button" class="btn btn-primary pro-notify" data-notify="pro" data-i18n="proNotify">Prévenez-moi →</button>
         </article>
 
         <article class="pro-card">
           <div class="pro-card-top">
             <span class="pro-tier-name">API</span>
-            <span class="pro-price"><b>$49</b><span>/mo</span></span>
+            <span class="pro-price"><b>$49</b><span data-i18n="proPerMo">/mois</span></span>
           </div>
-          <p class="pro-card-for">For developers</p>
+          <p class="pro-card-for" data-i18n="proApiFor">Pour les développeurs</p>
           <ul class="pro-feats">
-            <li>API keys &amp; usage dashboard</li>
-            <li>500k requests / month</li>
-            <li>Higher rate limits, priority</li>
-            <li>Batch generation endpoint</li>
-            <li>Commercial use, no attribution</li>
+            <li data-i18n="proApiF1">Clés API et tableau de bord d'utilisation</li>
+            <li data-i18n="proApiF2">500k requêtes / mois</li>
+            <li data-i18n="proApiF3">Limites de débit plus élevées, en priorité</li>
+            <li data-i18n="proApiF4">Point de terminaison de génération par lots</li>
+            <li data-i18n="proApiF5">Usage commercial, sans attribution</li>
           </ul>
-          <button type="button" class="btn btn-secondary pro-notify" data-notify="api">Notify me →</button>
+          <button type="button" class="btn btn-secondary pro-notify" data-notify="api" data-i18n="proNotify">Prévenez-moi →</button>
         </article>
       </div>
 
       <form class="pro-form" novalidate>
-        <p class="pro-form-title">Get early access + launch pricing</p>
+        <p class="pro-form-title" data-i18n="proFormTitle">Obtenez l'accès anticipé + les tarifs de lancement</p>
         <div class="pro-tier-select" role="group" aria-label="Which are you interested in?">
           <button type="button" class="pro-pill" data-tier="pro" aria-pressed="true">Pro</button>
           <button type="button" class="pro-pill" data-tier="api" aria-pressed="false">API</button>
         </div>
-        <p class="pro-vote-label">Which features would you actually use? <span>(optional — it helps us decide what to build first)</span></p>
+        <p class="pro-vote-label" data-i18n-html="proVoteLabel">Quelles fonctionnalités utiliseriez-vous vraiment ? <span>(facultatif — cela nous aide à décider quoi construire en premier)</span></span></p>
         <div class="pro-chips">
-          <button type="button" class="pro-chip" data-feature="no-watermark" aria-pressed="false">No watermark</button>
-          <button type="button" class="pro-chip" data-feature="commercial-license" aria-pressed="false">Commercial license</button>
-          <button type="button" class="pro-chip" data-feature="bulk-csv" aria-pressed="false">Bulk CSV</button>
-          <button type="button" class="pro-chip" data-feature="vector-export" aria-pressed="false">Vector export</button>
-          <button type="button" class="pro-chip" data-feature="api-access" aria-pressed="false">API access</button>
-          <button type="button" class="pro-chip" data-feature="dynamic-qr" aria-pressed="false">Dynamic QR</button>
-          <button type="button" class="pro-chip" data-feature="high-res" aria-pressed="false">High-res print</button>
-          <button type="button" class="pro-chip" data-feature="team" aria-pressed="false">Team seats</button>
+          <button type="button" class="pro-chip" data-feature="no-watermark" aria-pressed="false" data-i18n="proChipNoWatermark">Sans filigrane</button>
+          <button type="button" class="pro-chip" data-feature="commercial-license" aria-pressed="false" data-i18n="proChipCommercial">Licence commerciale</button>
+          <button type="button" class="pro-chip" data-feature="bulk-csv" aria-pressed="false" data-i18n="proChipBulk">CSV en masse</button>
+          <button type="button" class="pro-chip" data-feature="vector-export" aria-pressed="false" data-i18n="proChipVector">Export vectoriel</button>
+          <button type="button" class="pro-chip" data-feature="api-access" aria-pressed="false" data-i18n="proChipApi">Accès API</button>
+          <button type="button" class="pro-chip" data-feature="dynamic-qr" aria-pressed="false" data-i18n="proChipDynamicQr">QR dynamique</button>
+          <button type="button" class="pro-chip" data-feature="high-res" aria-pressed="false" data-i18n="proChipHighRes">Impression haute résolution</button>
+          <button type="button" class="pro-chip" data-feature="team" aria-pressed="false" data-i18n="proChipTeam">Sièges d'équipe</button>
         </div>
         <div class="pro-submit-row">
           <input type="email" inputmode="email" autocomplete="email" placeholder="you@company.com" aria-label="Email address" required />
           <input type="text" name="company" class="pro-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
-          <button type="submit" class="btn btn-primary">Join the early list</button>
+          <button type="submit" class="btn btn-primary" data-i18n="proSubmit">Rejoindre la liste anticipée</button>
         </div>
         <p class="pro-msg" data-kind="" role="status" aria-live="polite"></p>
-        <p class="pro-fineprint">No spam — one email when it launches. The free tool isn't going anywhere.</p>
+        <p class="pro-fineprint" data-i18n="proFineprint">Pas de spam — un seul e-mail au lancement. L'outil gratuit ne disparaîtra pas.</p>
       </form>
     </div>
   </section>
