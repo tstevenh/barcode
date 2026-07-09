@@ -921,23 +921,79 @@
     updateHint();
   }
   function buildLangSelect() {
-    const sel = $("langSelect"); if (!sel) return;
-    sel.innerHTML = "";
+    const wrap = $("langWrap"), btn = $("langBtn"), menu = $("langMenu"), current = $("langCurrent");
+    if (!wrap || !btn || !menu) return;
+
+    const active = DICT.meta.langs.find((l) => l.code === lang) || DICT.meta.langs[0];
+    if (current && active) current.textContent = active.label;
+
+    menu.innerHTML = "";
     DICT.meta.langs.forEach((l) => {
-      const o = document.createElement("option"); o.value = l.code; o.textContent = l.label;
-      if (l.code === lang) o.selected = true; sel.appendChild(o);
+      const li = document.createElement("li");
+      li.className = "lang-opt";
+      li.setAttribute("role", "option");
+      li.dataset.code = l.code;
+      li.tabIndex = -1;
+      const selected = l.code === lang;
+      li.setAttribute("aria-selected", selected ? "true" : "false");
+      li.innerHTML = '<span class="lang-opt-label"></span><span class="check" aria-hidden="true">✓</span>';
+      li.querySelector(".lang-opt-label").textContent = l.label;
+      li.addEventListener("click", () => choose(l.code));
+      menu.appendChild(li);
     });
-    sel.addEventListener("change", function () {
-      const nextLang = this.value;
+
+    function opts() { return Array.prototype.slice.call(menu.querySelectorAll(".lang-opt")); }
+
+    function open() {
+      menu.classList.add("open");
+      btn.setAttribute("aria-expanded", "true");
+      const cur = menu.querySelector('.lang-opt[aria-selected="true"]') || opts()[0];
+      if (cur) cur.focus();
+    }
+    function close(focusBtn) {
+      menu.classList.remove("open");
+      btn.setAttribute("aria-expanded", "false");
+      if (focusBtn) btn.focus();
+    }
+    function isOpen() { return menu.classList.contains("open"); }
+
+    function choose(nextLang) {
       localStorage.setItem("bcs_lang", nextLang);
       const nextUrl = localizedUrlFor(nextLang);
-      if (nextUrl) {
-        window.location.assign(nextUrl);
-        return;
-      }
+      if (nextUrl) { window.location.assign(nextUrl); return; }
       lang = nextLang;
+      close(true);
+      buildLangSelect();
       applyLang(); render();
-    });
+    }
+
+    // Persistent listeners on the stable btn/menu elements are wired once; only
+    // the menu items above are rebuilt per call. (open/close/choose close over
+    // stable elements and the module-level `lang`, so first-call versions stay valid.)
+    if (!buildLangSelect._bound) {
+      buildLangSelect._bound = true;
+      btn.addEventListener("click", (e) => { e.stopPropagation(); isOpen() ? close() : open(); });
+      menu.addEventListener("keydown", (e) => {
+        const list = opts();
+        const i = list.indexOf(document.activeElement);
+        if (e.key === "ArrowDown") { e.preventDefault(); (list[i + 1] || list[0]).focus(); }
+        else if (e.key === "ArrowUp") { e.preventDefault(); (list[i - 1] || list[list.length - 1]).focus(); }
+        else if (e.key === "Enter" || e.key === " ") { e.preventDefault(); if (list[i]) choose(list[i].dataset.code); }
+        else if (e.key === "Escape") { e.preventDefault(); close(true); }
+        else if (e.key === "Home") { e.preventDefault(); list[0].focus(); }
+        else if (e.key === "End") { e.preventDefault(); list[list.length - 1].focus(); }
+      });
+      btn.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowDown" || e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
+      });
+      document.addEventListener("click", (e) => {
+        const w = $("langWrap"); const m = $("langMenu");
+        if (w && m && !w.contains(e.target)) { m.classList.remove("open"); const b = $("langBtn"); if (b) b.setAttribute("aria-expanded", "false"); }
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") { const m = $("langMenu"); if (m) m.classList.remove("open"); const b = $("langBtn"); if (b) b.setAttribute("aria-expanded", "false"); }
+      });
+    }
   }
 
   function localizedUrlFor(nextLang) {

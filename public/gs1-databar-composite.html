@@ -102,9 +102,13 @@
       <a href="#pro" class="btn btn-ghost">Pro &amp; API</a>
       <button class="btn btn-ghost" id="resetBtn" data-i18n="navReset">Reset</button>
       <button class="btn btn-ghost" id="printBtn" data-i18n="navPrint">Print</button>
-      <div class="lang-wrap">
-        <span class="globe" aria-hidden="true">🌐</span>
-        <select id="langSelect" class="lang-select" aria-label="Language"></select>
+      <div class="lang-wrap" id="langWrap">
+        <button type="button" id="langBtn" class="lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+          <span class="globe" aria-hidden="true">🌐</span>
+          <span class="lang-current" id="langCurrent">English</span>
+          <span class="lang-caret" aria-hidden="true">▾</span>
+        </button>
+        <ul class="lang-menu" id="langMenu" role="listbox" aria-label="Language" tabindex="-1"></ul>
       </div>
     </nav>
   </header>
