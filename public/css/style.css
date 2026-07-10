@@ -631,6 +631,25 @@ input[type=range] { width: 100%; accent-color: var(--accent); }
   .top-actions { flex-wrap: wrap; justify-content: flex-end; }
 }
 
+/* Phones: keep the sticky bar to a single compact row. Drop the tool-only
+   buttons (Reset / Print — not useful on a phone) and tighten everything. */
+@media (max-width: 640px) {
+  .topbar { flex-wrap: nowrap; gap: 8px; padding: 9px 14px; }
+  .brand { gap: 8px; min-width: 0; }
+  .brand-mark { width: 26px; height: 26px; }
+  .brand-title { font-size: 13px; }
+  #resetBtn, #printBtn { display: none; }
+  .top-actions { flex-wrap: nowrap; gap: 2px; }
+  .top-actions .btn-ghost { font-size: 10px; padding: 6px 7px; letter-spacing: .03em; }
+  .lang-btn { padding: 6px 8px; font-size: 10px; gap: 5px; }
+  .lang-current { max-width: 0; overflow: hidden; opacity: 0; }  /* globe + caret only; full name in the menu */
+  .lang-menu { min-width: 150px; }
+}
+@media (max-width: 380px) {
+  .brand-title { font-size: 0; }   /* logo mark only on the tightest screens */
+  .brand-mark { width: 28px; height: 28px; }
+}
+
 /* ---------- Print ---------- */
 @media print {
   body::before, .topbar, .hero, .controls, .footer, .site-footer, .download-row, .preview-tools, .readout, .plate-ruler, .seq, .loader, .seo-section, .specimen-head { display: none !important; }
@@ -709,6 +728,11 @@ input[type=range] { width: 100%; accent-color: var(--accent); }
 .seq { display: none !important; }
 
 .locked-feature { position: relative; }
+/* Keep the step heading clear of the absolute "Pro" badge, and drop the pill
+   (redundant with the badge) so they never overlap — notably when the heading
+   wraps on mobile. */
+.locked-feature .step-head { padding-right: 62px; }
+.locked-feature .step-head .pill { display: none; }
 .lock-badge {
   position: absolute; top: 14px; right: 16px; z-index: 2;
   font-family: var(--mono); font-size: 11px; letter-spacing: .06em; font-weight: 600;
