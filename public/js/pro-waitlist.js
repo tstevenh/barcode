@@ -6,6 +6,16 @@
 (function () {
   var root = document.getElementById("pro");
   if (!root) return;
+
+  // Billing period toggle (monthly / annual) — swaps which price spans show.
+  var billOpts = Array.prototype.slice.call(root.querySelectorAll(".bill-opt"));
+  billOpts.forEach(function (b) {
+    b.addEventListener("click", function () {
+      root.setAttribute("data-bill", b.getAttribute("data-bill"));
+      billOpts.forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+    });
+  });
+
   var form = root.querySelector(".pro-form");
   if (!form) return;
 

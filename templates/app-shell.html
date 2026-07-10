@@ -385,12 +385,17 @@
   </div>
 
   <!-- Pro / API — painted-door waitlist -->
-  <section class="pro" id="pro" aria-labelledby="proHeading">
+  <section class="pro" id="pro" data-bill="mo" aria-labelledby="proHeading">
     <div class="pro-wrap">
       <div class="pro-head">
         <span class="eyebrow" data-i18n="proEyebrow">Launching soon</span>
         <h2 id="proHeading" data-i18n="proHeading">Pricing — join the early list</h2>
         <p class="pro-lead" data-i18n="proLead">The browser generator stays free forever. Paid plans are for teams who need bulk output and developers who need the REST API at scale — commercial license included. Tell us what you'd use; early-list members get first access and launch pricing.</p>
+      </div>
+
+      <div class="bill-toggle" role="group" aria-label="Billing period">
+        <button type="button" class="bill-opt" data-bill="mo" aria-pressed="true" data-i18n="billMonthly">Monthly</button>
+        <button type="button" class="bill-opt" data-bill="yr" aria-pressed="false"><span data-i18n="billAnnual">Annual</span> <span class="bill-save" data-i18n="billSave">2 months free</span></button>
       </div>
 
       <h3 class="pro-subhead" data-i18n="proWebHead">For the generator</h3>
@@ -414,7 +419,7 @@
           <span class="pro-badge" data-i18n="proBadge">Most requested</span>
           <div class="pro-card-top">
             <span class="pro-tier-name">Pro</span>
-            <span class="pro-price"><b>$12</b><span data-i18n="proPerMo">/mo</span></span>
+            <span class="pro-price"><span class="bill-mo"><b>$12</b><span data-i18n="proPerMo">/mo</span></span><span class="bill-yr"><b>$120</b><span data-i18n="proPerYr">/yr</span></span></span>
           </div>
           <p class="pro-card-for" data-i18n="proProFor">For designers &amp; teams</p>
           <ul class="pro-feats">
@@ -434,17 +439,17 @@
         <div class="api-plan">
           <span class="api-name">Small</span>
           <span class="api-vol"><b>500</b> <span data-i18n="proReqMo">req / mo</span></span>
-          <span class="api-price">$199<span data-i18n="proPerYr">/yr</span></span>
+          <span class="api-price"><span class="bill-mo">$19<span data-i18n="proPerMo">/mo</span></span><span class="bill-yr">$190<span data-i18n="proPerYr">/yr</span></span></span>
         </div>
         <div class="api-plan is-featured">
           <span class="api-name">Medium</span>
           <span class="api-vol"><b>5K</b> <span data-i18n="proReqMo">req / mo</span></span>
-          <span class="api-price">$999<span data-i18n="proPerYr">/yr</span></span>
+          <span class="api-price"><span class="bill-mo">$99<span data-i18n="proPerMo">/mo</span></span><span class="bill-yr">$990<span data-i18n="proPerYr">/yr</span></span></span>
         </div>
         <div class="api-plan">
           <span class="api-name">Large</span>
           <span class="api-vol"><b>50K</b> <span data-i18n="proReqMo">req / mo</span></span>
-          <span class="api-price">$4,999<span data-i18n="proPerYr">/yr</span></span>
+          <span class="api-price"><span class="bill-mo">$499<span data-i18n="proPerMo">/mo</span></span><span class="bill-yr">$4,990<span data-i18n="proPerYr">/yr</span></span></span>
         </div>
         <div class="api-plan">
           <span class="api-name">Enterprise</span>

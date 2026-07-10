@@ -752,4 +752,17 @@
   // Annual price suffix for the API tiers.
   var YR_I18N = { en: "/yr", de: "/Jahr", pl: "/rok", nl: "/jr", fr: "/an", ja: "/年" };
   Object.keys(YR_I18N).forEach(function (c) { if (window.I18N.ui[c]) window.I18N.ui[c].proPerYr = YR_I18N[c]; });
+
+  // Billing period toggle labels.
+  var BILL_I18N = {
+    en: { billMonthly: "Monthly", billAnnual: "Annual", billSave: "2 months free" },
+    de: { billMonthly: "Monatlich", billAnnual: "Jährlich", billSave: "2 Monate gratis" },
+    pl: { billMonthly: "Miesięcznie", billAnnual: "Rocznie", billSave: "2 miesiące gratis" },
+    nl: { billMonthly: "Maandelijks", billAnnual: "Jaarlijks", billSave: "2 maanden gratis" },
+    fr: { billMonthly: "Mensuel", billAnnual: "Annuel", billSave: "2 mois offerts" },
+    ja: { billMonthly: "月額", billAnnual: "年額", billSave: "2か月無料" }
+  };
+  Object.keys(BILL_I18N).forEach(function (c) {
+    if (window.I18N.ui[c]) { for (var k in BILL_I18N[c]) { window.I18N.ui[c][k] = BILL_I18N[c][k]; } }
+  });
 })();
