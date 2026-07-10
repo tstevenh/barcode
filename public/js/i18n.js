@@ -748,4 +748,8 @@
   Object.keys(PRICING_I18N).forEach(function (c) {
     if (window.I18N.ui[c]) { for (var k in PRICING_I18N[c]) { window.I18N.ui[c][k] = PRICING_I18N[c][k]; } }
   });
+
+  // Annual price suffix for the API tiers.
+  var YR_I18N = { en: "/yr", de: "/Jahr", pl: "/rok", nl: "/jr", fr: "/an", ja: "/年" };
+  Object.keys(YR_I18N).forEach(function (c) { if (window.I18N.ui[c]) window.I18N.ui[c].proPerYr = YR_I18N[c]; });
 })();

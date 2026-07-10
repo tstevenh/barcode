@@ -728,6 +728,7 @@ input[type=range] { width: 100%; accent-color: var(--accent); }
 .pro-tiers-2 { grid-template-columns: repeat(2, 1fr); max-width: 680px; margin-bottom: 38px; }
 .pro-subnote { font-size: 14px; color: var(--muted); margin: -4px 0 18px; max-width: 60ch; }
 .api-plans { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 16px; }
+.api-plans-4 { grid-template-columns: repeat(4, 1fr); max-width: 820px; }
 .api-plan { position: relative; border: 1px solid var(--border-strong); border-radius: var(--radius); padding: 16px 14px; display: flex; flex-direction: column; gap: 7px; min-height: 128px; }
 .api-plan.is-featured { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
 .api-name { font-family: var(--mono); font-size: 12px; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
