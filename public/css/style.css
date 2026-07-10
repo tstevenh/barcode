@@ -732,10 +732,11 @@ input[type=range] { width: 100%; accent-color: var(--accent); }
 .api-plan { position: relative; border: 1px solid var(--border-strong); border-radius: var(--radius); padding: 16px 14px; display: flex; flex-direction: column; gap: 7px; min-height: 128px; }
 .api-plan.is-featured { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
 .api-name { font-family: var(--mono); font-size: 12px; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
-.api-vol { color: var(--ink-strong); font-size: 12px; }
-.api-vol b { display: block; font-size: 23px; font-weight: 800; letter-spacing: -.02em; line-height: 1.1; }
-.api-price { font-family: var(--font); font-weight: 800; color: var(--ink-strong); font-size: 17px; margin-top: auto; }
-.api-price span { font-size: 11px; font-family: var(--mono); color: var(--muted); font-weight: 500; }
+.api-price { color: var(--ink-strong); line-height: 1; margin-top: 2px; }
+.api-price b { font-family: var(--font); font-weight: 800; font-size: 30px; letter-spacing: -.03em; }
+.api-price b + span { font-size: 12px; font-family: var(--mono); color: var(--muted); font-weight: 500; }
+.api-vol { color: var(--muted); font-size: 13px; margin-top: auto; }
+.api-vol b { font-weight: 700; color: var(--ink); }
 .api-note { font-size: 12px; color: var(--muted); font-family: var(--mono); margin-top: auto; }
 .api-cta { margin-bottom: 36px; }
 
