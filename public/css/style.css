@@ -722,6 +722,24 @@ input[type=range] { width: 100%; accent-color: var(--accent); }
 
 @media (max-width: 860px) { .pro-tiers { grid-template-columns: 1fr; } }
 
+/* Pricing: section subheads + request-based API plan row */
+.pro-subhead { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin: 10px 0 16px; display: flex; align-items: center; gap: 12px; }
+.pro-subhead::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+.pro-tiers-2 { grid-template-columns: repeat(2, 1fr); max-width: 680px; margin-bottom: 38px; }
+.pro-subnote { font-size: 14px; color: var(--muted); margin: -4px 0 18px; max-width: 60ch; }
+.api-plans { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 16px; }
+.api-plan { position: relative; border: 1px solid var(--border-strong); border-radius: var(--radius); padding: 16px 14px; display: flex; flex-direction: column; gap: 7px; min-height: 128px; }
+.api-plan.is-featured { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.api-name { font-family: var(--mono); font-size: 12px; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.api-vol { color: var(--ink-strong); font-size: 12px; }
+.api-vol b { display: block; font-size: 23px; font-weight: 800; letter-spacing: -.02em; line-height: 1.1; }
+.api-price { font-family: var(--font); font-weight: 800; color: var(--ink-strong); font-size: 17px; margin-top: auto; }
+.api-price span { font-size: 11px; font-family: var(--mono); color: var(--muted); font-weight: 500; }
+.api-note { font-size: 12px; color: var(--muted); font-family: var(--mono); margin-top: auto; }
+.api-cta { margin-bottom: 36px; }
+@media (max-width: 780px) { .api-plans { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .pro-tiers-2 { grid-template-columns: 1fr; } .api-plans { grid-template-columns: repeat(2, 1fr); } }
+
 /* ---------- Locked (Pro) features on the free generator ---------- */
 /* Batch / sequence mode is a Pro feature: kept in the DOM (app.js manages
    #seqEnable) but never shown on the free tool. */

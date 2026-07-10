@@ -595,8 +595,15 @@
       bulkProDesc: "Turn a CSV — or a numbered sequence — into hundreds of barcodes at once, exported as a ZIP of images or a print-ready PDF sheet. Launching with Pro.",
       bulkProCta: "Unlock with Pro — join the early list →",
       proEyebrow: "Launching soon",
-      proHeading: "Pro & API — join the early list",
-      proLead: "The generator stays free, forever. We're building paid tiers for the teams and developers who need more — commercial licensing, vector & high-res export, and a metered REST API. Tell us what you'd actually use and we'll email you first, with early-access launch pricing.",
+      proHeading: "Pricing — join the early list",
+      proLead: "The browser generator stays free forever. Paid plans are for teams who need bulk output and developers who need the REST API at scale — commercial license included. Tell us what you'd use; early-list members get first access and launch pricing.",
+      proWebHead: "For the generator",
+      proApiHead: "For developers — REST API",
+      proApiNote: "Priced by requests. Commercial license and self-serve keys included; usage dashboard at launch.",
+      proReqDay: "req / day", proReqMo: "req / mo",
+      apiFreeName: "Free", apiFreeNote: "Non-commercial", apiCustom: "Custom", apiContact: "Contact us",
+      proNotifyApi: "Notify me about the API →",
+      proProIncl: "Everything in Free, plus:", proProLicense: "Commercial license",
       proFreeName: "Free", proForever: "/forever", proPerMo: "/mo",
       proFreeFor: "What you're using right now",
       proFreeF1: "100+ barcode & QR symbologies", proFreeF2: "One barcode at a time", proFreeF3: "Live preview & customization", proFreeF4: "PNG & SVG export, no login", proFreeF5: "Copy to clipboard",
@@ -726,5 +733,19 @@
   };
   Object.keys(MSG_I18N).forEach(function (c) {
     if (window.I18N.ui[c]) { for (var k in MSG_I18N[c]) { window.I18N.ui[c][k] = MSG_I18N[c][k]; } }
+  });
+
+  // Request-based pricing redesign strings. Merged last so it overrides the
+  // earlier proHeading/proLead and adds the new API-tier keys in every locale.
+  var PRICING_I18N = {
+    en: { proHeading: "Pricing — join the early list", proLead: "The browser generator stays free forever. Paid plans are for teams who need bulk output and developers who need the REST API at scale — commercial license included. Tell us what you'd use; early-list members get first access and launch pricing.", proWebHead: "For the generator", proApiHead: "For developers — REST API", proApiNote: "Priced by requests. Commercial license and self-serve keys included; usage dashboard at launch.", proReqDay: "req / day", proReqMo: "req / mo", apiFreeName: "Free", apiFreeNote: "Non-commercial", apiCustom: "Custom", apiContact: "Contact us", proNotifyApi: "Notify me about the API →", proProIncl: "Everything in Free, plus:", proProLicense: "Commercial license" },
+    de: { proHeading: "Preise — jetzt auf die Early-List setzen", proLead: "Der Browser-Generator bleibt für immer kostenlos. Die kostenpflichtigen Tarife richten sich an Teams, die Massenausgaben benötigen, und an Entwickler, die die REST API im großen Maßstab nutzen — kommerzielle Lizenz inklusive. Sagen Sie uns, wofür Sie sie einsetzen würden; Mitglieder der Early-List erhalten frühzeitigen Zugang und Launch-Preise.", proWebHead: "Für den Generator", proApiHead: "Für Entwickler — REST API", proApiNote: "Abrechnung nach Anfragen. Kommerzielle Lizenz und Self-Service-Keys inklusive; Nutzungs-Dashboard zum Launch.", proReqDay: "Anfr. / Tag", proReqMo: "Anfr. / Mon.", apiFreeName: "Free", apiFreeNote: "Nicht-kommerziell", apiCustom: "Individuell", apiContact: "Kontakt aufnehmen", proNotifyApi: "Über die API benachrichtigen →", proProIncl: "Alles aus Free, plus:", proProLicense: "Kommerzielle Lizenz" },
+    pl: { proHeading: "Cennik — dołącz do listy pierwszeństwa", proLead: "Generator w przeglądarce pozostanie darmowy na zawsze. Plany płatne są dla zespołów, które potrzebują masowego generowania, oraz dla programistów korzystających z REST API na dużą skalę — licencja komercyjna w cenie. Powiedz nam, do czego byś go użył; członkowie listy pierwszeństwa otrzymają wcześniejszy dostęp i cenę startową.", proWebHead: "Do generatora", proApiHead: "Dla programistów — REST API", proApiNote: "Rozliczenie według liczby zapytań. Licencja komercyjna i samoobsługowe klucze w cenie; panel użycia dostępny na starcie.", proReqDay: "zap. / dzień", proReqMo: "zap. / mies.", apiFreeName: "Free", apiFreeNote: "Niekomercyjne", apiCustom: "Indywidualny", apiContact: "Skontaktuj się", proNotifyApi: "Powiadom mnie o API →", proProIncl: "Wszystko z Free, plus:", proProLicense: "Licencja komercyjna" },
+    nl: { proHeading: "Prijzen — schrijf je in voor de wachtlijst", proLead: "De browsergenerator blijft voor altijd gratis. Betaalde abonnementen zijn voor teams die bulkuitvoer nodig hebben en ontwikkelaars die de REST API op schaal gebruiken — commerciële licentie inbegrepen. Vertel ons waarvoor je het zou gebruiken; wie zich vroeg inschrijft, krijgt als eerste toegang en profiteert van lanceringsprijzen.", proWebHead: "Voor de generator", proApiHead: "Voor ontwikkelaars — REST API", proApiNote: "Geprijsd per verzoek. Commerciële licentie en zelfbediende sleutels inbegrepen; gebruiksdashboard bij lancering.", proReqDay: "req / dag", proReqMo: "req / mnd", apiFreeName: "Free", apiFreeNote: "Niet-commercieel", apiCustom: "Op maat", apiContact: "Neem contact op", proNotifyApi: "Houd me op de hoogte van de API →", proProIncl: "Alles uit Free, plus:", proProLicense: "Commerciële licentie" },
+    fr: { proHeading: "Tarifs — inscrivez-vous à la liste anticipée", proLead: "Le générateur en ligne reste gratuit pour toujours. Les forfaits payants s'adressent aux équipes qui ont besoin de production en masse et aux développeurs qui utilisent la REST API à grande échelle — licence commerciale incluse. Dites-nous ce que vous en feriez ; les membres de la liste anticipée bénéficient d'un accès prioritaire et des tarifs de lancement.", proWebHead: "Pour le générateur", proApiHead: "Pour les développeurs — REST API", proApiNote: "Tarification à la requête. Licence commerciale et clés en libre-service incluses ; tableau de bord d'utilisation au lancement.", proReqDay: "req / jour", proReqMo: "req / mois", apiFreeName: "Free", apiFreeNote: "Non commercial", apiCustom: "Sur mesure", apiContact: "Contactez-nous", proNotifyApi: "Prévenez-moi pour l'API →", proProIncl: "Tout ce qui est inclus dans Free, plus :", proProLicense: "Licence commerciale" },
+    ja: { proHeading: "料金 — 先行リストに登録", proLead: "ブラウザ版ジェネレーターは今後もずっと無料です。有料プランは、大量出力が必要なチームや、REST API を大規模に利用したい開発者向けで、商用ライセンスも含まれます。ご利用予定をお聞かせください。先行リスト登録者は優先アクセスとローンチ価格をご利用いただけます。", proWebHead: "ジェネレーター向け", proApiHead: "開発者向け — REST API", proApiNote: "リクエスト数に応じた料金です。商用ライセンスとセルフサービス方式のキーを含み、利用状況ダッシュボードはローンチ時に提供します。", proReqDay: "リクエスト/日", proReqMo: "リクエスト/月", apiFreeName: "Free", apiFreeNote: "非商用", apiCustom: "カスタム", apiContact: "お問い合わせ", proNotifyApi: "API のお知らせを受け取る →", proProIncl: "Free のすべてに加えて：", proProLicense: "商用ライセンス" }
+  };
+  Object.keys(PRICING_I18N).forEach(function (c) {
+    if (window.I18N.ui[c]) { for (var k in PRICING_I18N[c]) { window.I18N.ui[c][k] = PRICING_I18N[c][k]; } }
   });
 })();
