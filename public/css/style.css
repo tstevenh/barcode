@@ -570,7 +570,7 @@ input[type=range] { width: 100%; accent-color: var(--accent); }
 
 /* Expanded site footer */
 .site-footer { border-top: 1px solid var(--ink-strong); padding: 40px clamp(16px,4vw,40px) 48px; }
-.footer-wrap { max-width: 1040px; margin: 0 auto; }
+.footer-wrap { max-width: 720px; margin: 0 auto; }
 .footer-brand-row { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink-strong); margin-bottom: 22px; }
 .footer-name { font-weight: 800; letter-spacing: -.02em; font-size: 17px; }
 .footer-nav { display: flex; flex-wrap: wrap; gap: 9px 20px; margin-bottom: 12px; }
