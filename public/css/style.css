@@ -749,10 +749,9 @@ input[type=range] { width: 100%; accent-color: var(--accent); }
 /* Keep the step heading clear of the absolute "Pro" badge, and drop the pill
    (redundant with the badge) so they never overlap — notably when the heading
    wraps on mobile. */
-.locked-feature .step-head { padding-right: 62px; }
 .locked-feature .step-head .pill { display: none; }
 .lock-badge {
-  position: absolute; top: 14px; right: 16px; z-index: 2;
+  margin-left: auto; flex: none; align-self: center;
   font-family: var(--mono); font-size: 11px; letter-spacing: .06em; font-weight: 600;
   background: var(--ink-strong); color: var(--paper);
   padding: 4px 10px; border-radius: var(--radius-sm); cursor: pointer;
