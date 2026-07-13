@@ -4,7 +4,7 @@
   "private": true,
   "description": "Fast Vercel deploy for barcode web + API.",
   "engines": {
-    "node": "20.x"
+    "node": "24.x"
   },
   "dependencies": {
     "bwip-js": "4.11.1"
