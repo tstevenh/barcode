@@ -1,6 +1,6 @@
 {
   "id": "hibccode128",
-  "title": "HIBC LIC Code 128 Generator - Free | Barcode APIs",
+  "title": "HIBC LIC Code 128 Generator - Free | Barcode Mint",
   "metaDescription": "Free HIBC LIC Code 128 generator for compact medical device labels. Enter labeler ID and product number, then export PNG, SVG, or PDF for print.",
   "primaryKeyword": "hibc lic code 128 generator",
   "secondaryKeywords": ["hibc code 128 barcode", "hibcc labeler code 128", "medical device barcode generator", "hibc primary data message", "compact healthcare barcode"],
@@ -23,8 +23,8 @@
       "html": "<p>HIBC LIC Code 128 labels are common on compact medical device packaging, single-use surgical supplies, implant trays, and diagnostic kits where every millimeter of label space counts. Hospital receiving and materials management systems that were built around HIBC identifiers use these labels the same way they use the Code 39 variant &mdash; to identify manufacturer and product at receiving, point of use, and reorder &mdash; but manufacturers increasingly print the denser Code 128 version specifically because it fits smaller unit-of-use packaging without shrinking the barcode below a reliably scannable size.</p>"
     },
     {
-      "h2": "How to create an HIBC LIC Code 128 barcode in Barcode APIs",
-      "html": "<p>Select <strong>HIBC LIC Code 128</strong> from the Linear Barcode list, then enter your HIBC-formatted string starting with the \"+\" flag character, your assigned labeler identification code, and your product number, for example <code>+A99912345/$$</code>. Barcode APIs computes and appends the required HIBC check character automatically. From there you can:</p><ul><li>Adjust bar height, module width, and quiet zone to fit compact device or vial labels</li><li>Set colors while preserving enough contrast for handheld hospital and warehouse scanners</li><li>Export as PNG, SVG, or PDF, or copy the barcode into your label design software</li><li>Bulk-generate labels from a CSV of labeler codes and product numbers, exported as a ZIP or print-ready PDF</li><li>Call the REST API &mdash; <code>/barcode?type=hibccode128&amp;data=+A99912345/$$</code> &mdash; to generate labels from your labeling or ERP system</li></ul>"
+      "h2": "How to create an HIBC LIC Code 128 barcode in Barcode Mint",
+      "html": "<p>Select <strong>HIBC LIC Code 128</strong> from the Linear Barcode list, then enter your HIBC-formatted string starting with the \"+\" flag character, your assigned labeler identification code, and your product number, for example <code>+A99912345/$$</code>. Barcode Mint computes and appends the required HIBC check character automatically. From there you can:</p><ul><li>Adjust bar height, module width, and quiet zone to fit compact device or vial labels</li><li>Set colors while preserving enough contrast for handheld hospital and warehouse scanners</li><li>Export as PNG, SVG, or PDF, or copy the barcode into your label design software</li><li>Bulk-generate labels from a CSV of labeler codes and product numbers, exported as a ZIP or print-ready PDF</li><li>Call the REST API &mdash; <code>/barcode?type=hibccode128&amp;data=+A99912345/$$</code> &mdash; to generate labels from your labeling or ERP system</li></ul>"
     },
     {
       "h2": "Print and scan best practices",

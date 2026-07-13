@@ -28,7 +28,7 @@ const MARKERS = [
   "How to", "What is", ...HTML_HEADINGS
 ];
 const WHITELIST = [
-  "Barcode APIs", "QR", "Data Matrix", "PDF417", "Aztec", "Code 128", "EAN", "UPC", "GS1", "GTIN",
+  "Barcode Mint", "QR", "Data Matrix", "PDF417", "Aztec", "Code 128", "EAN", "UPC", "GS1", "GTIN",
   "ISO", "IEC", "ISO/IEC", "AAMVA", "HIBC", "RM4SCC", "PNG", "SVG", "PDF", "CSV", "ZIP", "API", "URL", "REST",
   "USPS", "Royal Mail", "Australia Post", "Japan Post", "Deutsche Post", "DataBar", "MaxiCode", "DotCode",
   "MicroPDF417", "Micro QR", "Han Xin", "Codablock", "Pharmacode", "PZN", "ISBN", "ISSN", "ISMN", "BC412"

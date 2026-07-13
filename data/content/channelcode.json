@@ -1,6 +1,6 @@
 {
   "id": "channelcode",
-  "title": "Channel Code Generator - Free Barcode Tool | Barcode APIs",
+  "title": "Channel Code Generator - Free Barcode Tool | Barcode Mint",
   "metaDescription": "Generate a Channel Code barcode free in your browser. Encode 2-7 digit numeric data in a compact format and export PNG, SVG, or PDF instantly.",
   "primaryKeyword": "channel code generator",
   "secondaryKeywords": ["channel code barcode", "compact numeric barcode", "channel code vs code 39", "short digit barcode generator", "channel code specification"],
@@ -23,7 +23,7 @@
       "html": "<p>Channel Code sees limited but specific use in applications where a short numeric value must be printed in an unusually tight space &mdash; small component labeling, certain specialized industrial marking applications, and niche inventory systems that specifically adopted it for its compactness on short numeric codes. It isn't a mainstream retail, logistics, or healthcare barcode, and you're unlikely to encounter it unless you're integrating with a system that was specifically built to use it. If you control both label generation and scanning and just need a compact numeric code, Channel Code is worth considering, but for anything requiring broad scanner compatibility, more common symbologies like Code 39 or Code 128 are safer choices.</p>"
     },
     {
-      "h2": "How to create a Channel Code barcode in Barcode APIs",
+      "h2": "How to create a Channel Code barcode in Barcode Mint",
       "html": "<p>Select <strong>Channel Code</strong> from the symbology list on the left, then enter a numeric value between 2 and 7 digits long. From there you can:</p><ul><li>Adjust bar width and height to fit your compact labeling requirements</li><li>Set the quiet zone according to your scanner's specification, keeping in mind Channel Code's already-tight footprint</li><li>Toggle human-readable text below the bars for visual verification</li><li>Export as PNG, SVG, or PDF, or copy the image directly into a label template</li><li>Use the batch or sequence tools to generate a numbered run of codes at once</li><li>Upload a CSV of short numeric values for bulk generation as a ZIP of image files or a print-ready PDF of labels</li><li>Call the REST API &mdash; <code>/barcode?type=channelcode&amp;data=1234</code> &mdash; to generate codes programmatically from your own labeling system</li></ul>"
     },
     {
@@ -48,6 +48,6 @@
     {"q": "Can Channel Code encode letters?", "a": "No, Channel Code encodes numeric values only and cannot represent letters or special characters."},
     {"q": "Does Channel Code have a check digit?", "a": "No, Channel Code doesn't include a built-in check digit; its fixed combinatorial bar structure per digit length already constrains what counts as a valid symbol."},
     {"q": "Is Channel Code widely supported by barcode scanners?", "a": "No, it has narrower vendor support than mainstream symbologies like Code 39 or Code 128, so it's best used in closed-loop systems where you control both printing and scanning."},
-    {"q": "Can I bulk-generate Channel Code barcodes?", "a": "Yes, upload a CSV of short numeric values and Barcode APIs will generate a ZIP of image files or a print-ready PDF of labels in one batch."}
+    {"q": "Can I bulk-generate Channel Code barcodes?", "a": "Yes, upload a CSV of short numeric values and Barcode Mint will generate a ZIP of image files or a print-ready PDF of labels in one batch."}
   ]
 }

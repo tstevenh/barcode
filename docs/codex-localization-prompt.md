@@ -1,4 +1,4 @@
-# TASK: Fully localize the Barcode APIs SEO pages into 5 languages
+# TASK: Fully localize the Barcode Mint SEO pages into 5 languages
 
 You are working in the repo at `/Users/tsth/Coding/barcode` (Node, static site + Vercel serverless API). Do NOT change the barcode engine, the API, or the English pages' behavior. Your job is to add complete, native-quality localized versions of the generated landing pages in 5 languages, with ZERO English leakage.
 
@@ -39,7 +39,7 @@ For EACH of the 5 languages, produce:
 - **Translate COMPLETELY** — do not summarize, cut, or thin any section. Each localized page must keep the full depth of its English source (aim for the same length; the English pages are 800+ words).
 - **Native-quality**, not machine-literal. Read naturally to a native speaker in that market.
 - **Keyword localization:** the `title`, `metaDescription`, `lead`, first section, and ≥1 FAQ must use the natural in-language search term for that barcode (e.g. DE "QR-Code Generator", "Code 128 Generator"; FR "générateur de QR code", "générateur Code 128"; PL "generator kodów QR", "generator Code 128"; NL "QR-code generator"; JA "QRコード 作成", "Code 128 作成"). Set `primaryKeyword`/`secondaryKeywords` to the localized terms. Use the head-term seeds above on the homepage/hub. Do NOT keyword-stuff.
-- **Keep UNTRANSLATED** (these are not leaks): the brand "Barcode APIs"; symbology proper names and standards (QR, Data Matrix, PDF417, Aztec, Code 128, EAN, UPC, GS1, GTIN, ISO/IEC numbers, AAMVA, HIBC, RM4SCC); file formats (PNG, SVG, PDF, CSV, ZIP); acronyms (API, URL, REST); code/example strings like `/barcode?type=<id>&data=...` and AI syntax like `(01)…`; numbers. Everything else translates.
+- **Keep UNTRANSLATED** (these are not leaks): the brand "Barcode Mint"; symbology proper names and standards (QR, Data Matrix, PDF417, Aztec, Code 128, EAN, UPC, GS1, GTIN, ISO/IEC numbers, AAMVA, HIBC, RM4SCC); file formats (PNG, SVG, PDF, CSV, ZIP); acronyms (API, URL, REST); code/example strings like `/barcode?type=<id>&data=...` and AI syntax like `(01)…`; numbers. Everything else translates.
 - **Preserve all HTML tags** and structure inside `html` fields — translate the text, keep the markup, keep `<strong>`, `<ul><li>`, `<h3>`, `<p>`.
 - **Meta length:** keep localized `title` ≤ ~60 characters where the language allows (Japanese counts by character), `metaDescription` ≈ 140–160 characters (Japanese ≈ 60–90 chars is fine). Valid JSON only.
 

@@ -1,6 +1,6 @@
 {
   "id": "hibcpaspdf417",
-  "title": "HIBC PAS PDF417 Generator – Healthcare | Barcode APIs",
+  "title": "HIBC PAS PDF417 Generator – Healthcare | Barcode Mint",
   "metaDescription": "Free HIBC PAS PDF417 generator for lot, expiration, and serial data on medical device labels. High-capacity 2D symbol with live preview and instant export.",
   "primaryKeyword": "hibc pas pdf417 generator",
   "secondaryKeywords": ["hibc pas pdf417 barcode", "hibc secondary data pdf417", "medical device 2d lot barcode", "hibc pas vs lic pdf417", "high capacity healthcare barcode", "pdf417 lot expiration code"],
@@ -23,8 +23,8 @@
       "html": "<p>HIBC PAS PDF417 appears where a medical device or pharmaceutical label needs to carry more secondary data than a linear PAS barcode can reasonably hold, or where the label already uses PDF417 for a primary LIC message and pairing with a matching PDF417 PAS symbol simplifies scanning software integration. It's found on device packaging, kit labels, and cartons where lot, expiration, serial number, and quantity all need to travel together in one scan, and on labels where space allows a 2D symbol but a manufacturer prefers PDF417's rectangular, easily row-scanned format over Data Matrix's square grid. Hospital receiving and pharmacy systems scan these symbols the same way they scan a PAS Code 39 or Code 128 message — to validate expiration status and log lot-level data for recall traceability.</p>"
     },
     {
-      "h2": "How to create an HIBC PAS PDF417 barcode in Barcode APIs",
-      "html": "<p>Select <strong>HIBC PAS PDF417</strong> from the 2D Code list, then enter your HIBC-formatted secondary data string starting with the \"+\" flag character, followed by lot number, expiration date, and any serial or quantity data, for example <code>+$$1015Z251231</code>. Barcode APIs calculates and appends the HIBC check character automatically and lays out the PDF417 grid for you. From there you can:</p><ul><li>Adjust <strong>row count, column count, and error correction level</strong> to balance symbol size against damage tolerance for your label material.</li><li>Set <strong>module width and height</strong> to fit vial, kit, or carton labels while staying within a reliably scannable size.</li><li>Choose <strong>colors</strong> while preserving strong contrast for hospital and pharmacy 2D imagers.</li><li>Export as <strong>PNG, SVG, or PDF</strong>, or copy the barcode into label design software.</li><li>Use <strong>Bulk CSV → ZIP/PDF</strong> to generate a distinct PAS PDF417 symbol per lot or serial number across a production run.</li><li>Call the REST API at <code>/barcode?type=hibcpaspdf417&data=+$$1015Z251231</code> to integrate generation into a labeling or manufacturing system.</li></ul>"
+      "h2": "How to create an HIBC PAS PDF417 barcode in Barcode Mint",
+      "html": "<p>Select <strong>HIBC PAS PDF417</strong> from the 2D Code list, then enter your HIBC-formatted secondary data string starting with the \"+\" flag character, followed by lot number, expiration date, and any serial or quantity data, for example <code>+$$1015Z251231</code>. Barcode Mint calculates and appends the HIBC check character automatically and lays out the PDF417 grid for you. From there you can:</p><ul><li>Adjust <strong>row count, column count, and error correction level</strong> to balance symbol size against damage tolerance for your label material.</li><li>Set <strong>module width and height</strong> to fit vial, kit, or carton labels while staying within a reliably scannable size.</li><li>Choose <strong>colors</strong> while preserving strong contrast for hospital and pharmacy 2D imagers.</li><li>Export as <strong>PNG, SVG, or PDF</strong>, or copy the barcode into label design software.</li><li>Use <strong>Bulk CSV → ZIP/PDF</strong> to generate a distinct PAS PDF417 symbol per lot or serial number across a production run.</li><li>Call the REST API at <code>/barcode?type=hibcpaspdf417&data=+$$1015Z251231</code> to integrate generation into a labeling or manufacturing system.</li></ul>"
     },
     {
       "h2": "Print and scan best practices",
@@ -47,6 +47,6 @@
     {"q": "Why choose PDF417 over a linear HIBC PAS barcode?", "a": "PDF417 carries substantially more data in a comparable footprint and includes built-in error correction, making it the better choice when a PAS message combines several fields or needs extra damage tolerance."},
     {"q": "Does scanning HIBC PAS PDF417 require special hardware?", "a": "<p>Yes — PDF417 is a 2D symbology that requires a 2D imager rather than a traditional laser barcode scanner, so confirm your receiving and point-of-use scanners support it.</p>"},
     {"q": "Does an HIBC PAS PDF417 barcode replace the LIC message?", "a": "No, it's designed to be scanned alongside a linked primary LIC message so the variable lot and expiration data can be associated with the correct product identity."},
-    {"q": "Can I batch-generate HIBC PAS PDF417 codes?", "a": "<p>Yes — use Barcode APIs's bulk CSV → ZIP/PDF tool to generate a unique PAS PDF417 symbol per lot or unit across a production run.</p>"}
+    {"q": "Can I batch-generate HIBC PAS PDF417 codes?", "a": "<p>Yes — use Barcode Mint's bulk CSV → ZIP/PDF tool to generate a unique PAS PDF417 symbol per lot or unit across a production run.</p>"}
   ]
 }

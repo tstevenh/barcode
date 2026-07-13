@@ -1,6 +1,6 @@
 {
   "id": "gs1-128composite",
-  "title": "GS1-128 Composite Symbology Generator | Barcode APIs",
+  "title": "GS1-128 Composite Symbology Generator | Barcode Mint",
   "metaDescription": "Generate a GS1-128 composite symbology online: a linear GS1-128 barcode paired with a stacked 2D component for extra data. Export PNG, SVG, or PDF free.",
   "primaryKeyword": "gs1-128 composite symbology generator",
   "secondaryKeywords": ["gs1 composite barcode", "cc-a cc-b cc-c component", "gs1-128 with 2d component", "composite symbology generator", "pdf417 composite barcode"],
@@ -19,8 +19,8 @@
       "html": "<p>Composite symbols show up where a business needs more data on a label than a linear GS1-128 barcode conveniently carries, but can't or won't switch to a full 2D-only format because part of the supply chain still relies on simple laser scanners. Perishable food logistics is a common case: the linear component might carry GTIN and lot number for compatibility with existing scanning infrastructure, while the composite component adds sell-by date or additional traceability data for systems that can read it. Some healthcare and specialty retail supply chains use composite symbology for the same reason &mdash; preserving compatibility with older 1D scanners already deployed at receiving docks while giving newer 2D-capable systems access to richer data from the same label.</p>"
     },
     {
-      "h2": "How to create a GS1-128 composite symbol in Barcode APIs",
-      "html": "<p>Select <strong>GS1-128 Composite Symbology</strong> from the Linear Barcode list, then enter your linear AI data using standard parenthesis syntax, such as <code>(01)10614141999996(17)251231</code>, and supply the supplementary data that should appear in the 2D component. Barcode APIs automatically selects the right composite component size based on how much supplementary data you provide and renders the linear and 2D portions together as a single compliant symbol. From there you can:</p><ul><li>Adjust the linear bar height and 2D module size independently to fit label constraints</li><li>Set colors and quiet zone while keeping enough contrast for both the linear and 2D scan paths</li><li>Export as PNG, SVG, or PDF for placement in label design software</li><li>Bulk-generate composite labels from a CSV of GTINs and supplementary fields, exported as a ZIP or print-ready PDF</li><li>Call the REST API &mdash; <code>/barcode?type=gs1-128composite&amp;data=(01)10614141999996(17)251231</code> &mdash; to generate labels from your own systems</li></ul>"
+      "h2": "How to create a GS1-128 composite symbol in Barcode Mint",
+      "html": "<p>Select <strong>GS1-128 Composite Symbology</strong> from the Linear Barcode list, then enter your linear AI data using standard parenthesis syntax, such as <code>(01)10614141999996(17)251231</code>, and supply the supplementary data that should appear in the 2D component. Barcode Mint automatically selects the right composite component size based on how much supplementary data you provide and renders the linear and 2D portions together as a single compliant symbol. From there you can:</p><ul><li>Adjust the linear bar height and 2D module size independently to fit label constraints</li><li>Set colors and quiet zone while keeping enough contrast for both the linear and 2D scan paths</li><li>Export as PNG, SVG, or PDF for placement in label design software</li><li>Bulk-generate composite labels from a CSV of GTINs and supplementary fields, exported as a ZIP or print-ready PDF</li><li>Call the REST API &mdash; <code>/barcode?type=gs1-128composite&amp;data=(01)10614141999996(17)251231</code> &mdash; to generate labels from your own systems</li></ul>"
     },
     {
       "h2": "Print and scan best practices",

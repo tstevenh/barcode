@@ -1,4 +1,4 @@
-# Barcode APIs
+# Barcode Mint
 
 A fast, offline-capable barcode & QR code generator supporting 100+ symbologies
 (QR, Data Matrix, PDF417, Aztec, EAN/UPC, GS1 DataBar, postal codes, HIBC and
@@ -81,4 +81,4 @@ bundled server-side:
 - [jsPDF](https://github.com/parallax/jsPDF) — MIT
 - QRCode.js (Kazuhiko Arase), bundled in `js/qr-local.js` — MIT
 
-This application's own source is proprietary. © 2026 Barcode APIs.
+This application's own source is proprietary. © 2026 Barcode Mint.

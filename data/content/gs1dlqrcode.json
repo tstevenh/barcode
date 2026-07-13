@@ -1,6 +1,6 @@
 {
   "id": "gs1dlqrcode",
-  "title": "GS1 Digital Link QR Code Generator | Barcode APIs",
+  "title": "GS1 Digital Link QR Code Generator | Barcode Mint",
   "metaDescription": "Create a GS1 Digital Link QR code that scans as a live web URL and carries GS1 data. Free generator with PNG/SVG export, batch mode, and REST API.",
   "primaryKeyword": "gs1 digital link qr code generator",
   "secondaryKeywords": ["gs1 digital link", "digital link qr code", "gs1 web uri", "gtin url qr code", "smart packaging qr code", "gs1 2d barcode standard"],
@@ -23,8 +23,8 @@
       "html": "<p>Brand owners rolling out GS1's Sunrise 2027 2D-at-checkout transition use Digital Link so the same code that scans at the register also opens a consumer-facing product page. Pharmaceutical and food packaging use it to combine regulatory traceability data with links to safety information, recall notices, or authenticity verification. Retailers and CPG brands adopt it for \"smart packaging\" campaigns where scanning the code opens marketing content, sustainability information, or loyalty program links, all while the same code satisfies supply-chain data requirements. Apparel and consumer electronics brands have also used Digital Link to link a single serialized code to warranty registration, repair instructions, and resale/authentication history over the product's lifetime.</p>"
     },
     {
-      "h2": "How to create a GS1 Digital Link QR code in Barcode APIs",
-      "html": "<p>Select <strong>GS1 Digital Link QR Code</strong> from the symbology list and use the built-in Digital Link builder to enter your resolver domain, GTIN, and any additional identifiers (batch, expiry, serial); Barcode APIs assembles the correctly formatted URL path for you. From there you can:</p><ul><li>Choose the error correction level, size, and quiet zone as with any QR code</li><li>Set foreground and background colors while preserving scan reliability</li><li>Preview the exact resolved URL before exporting to confirm it points to the right resolver</li><li>Export PNG or SVG for packaging artwork, or copy the code directly</li><li>Use the batch/sequence tools or CSV bulk upload to generate unique Digital Link codes per GTIN/batch across a product line, output as ZIP or PDF</li><li>Call the REST API &mdash; <code>/barcode?type=gs1dlqrcode&amp;data=https://example.com/01/09501234567890/10/LOT42A</code> &mdash; to automate label generation from your product database</li></ul>"
+      "h2": "How to create a GS1 Digital Link QR code in Barcode Mint",
+      "html": "<p>Select <strong>GS1 Digital Link QR Code</strong> from the symbology list and use the built-in Digital Link builder to enter your resolver domain, GTIN, and any additional identifiers (batch, expiry, serial); Barcode Mint assembles the correctly formatted URL path for you. From there you can:</p><ul><li>Choose the error correction level, size, and quiet zone as with any QR code</li><li>Set foreground and background colors while preserving scan reliability</li><li>Preview the exact resolved URL before exporting to confirm it points to the right resolver</li><li>Export PNG or SVG for packaging artwork, or copy the code directly</li><li>Use the batch/sequence tools or CSV bulk upload to generate unique Digital Link codes per GTIN/batch across a product line, output as ZIP or PDF</li><li>Call the REST API &mdash; <code>/barcode?type=gs1dlqrcode&amp;data=https://example.com/01/09501234567890/10/LOT42A</code> &mdash; to automate label generation from your product database</li></ul>"
     },
     {
       "h2": "Print and scan best practices",
@@ -48,7 +48,7 @@
     {"q": "Do I need to own a website to use GS1 Digital Link?", "a": "Yes, you need a resolvable domain (your own website or a GS1-approved resolver service) that can interpret the Digital Link URL path and serve appropriate content, since the code only works if that URL actually resolves."},
     {"q": "Can the same code work for both checkout scanning and a marketing link?", "a": "Yes, that's the core benefit of Digital Link: a point-of-sale system extracts the GTIN and other identifiers from the URL path, while a consumer's phone simply opens the page at that URL."},
     {"q": "What GS1 identifiers can I include in a Digital Link URL?", "a": "Common identifiers include GTIN, batch/lot number, expiration date, and serial number, each expressed as a numbered path segment using the same Application Identifier numbers as classic GS1 barcodes."},
-    {"q": "Can I generate Digital Link QR codes in bulk?", "a": "Yes, upload a CSV of GTINs and other identifiers and Barcode APIs will bulk-generate a ZIP or PDF of Digital Link QR codes, one per row."},
+    {"q": "Can I generate Digital Link QR codes in bulk?", "a": "Yes, upload a CSV of GTINs and other identifiers and Barcode Mint will bulk-generate a ZIP or PDF of Digital Link QR codes, one per row."},
     {"q": "Is a GS1 Digital Link QR code generator different from a normal URL QR code generator?", "a": "Yes, a GS1 Digital Link QR code generator specifically formats the URL path using GS1 Application Identifier numbers in the correct order, which a generic URL QR code tool won't validate or assemble for you."}
   ]
 }

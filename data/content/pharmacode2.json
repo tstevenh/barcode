@@ -1,6 +1,6 @@
 {
   "id": "pharmacode2",
-  "title": "Pharmacode 2-Track Generator | Barcode APIs",
+  "title": "Pharmacode 2-Track Generator | Barcode Mint",
   "metaDescription": "Generate a Pharmacode 2-track barcode free in your browser. Encode two-track pharmaceutical packaging control codes and export PNG, SVG, or PDF instantly.",
   "primaryKeyword": "pharmacode 2-track generator",
   "secondaryKeywords": ["two-track pharmacode", "pharmacode 2 track barcode", "pharmaceutical packaging control code", "laetus two-track code", "pharmacode vs pharmacode 2-track"],
@@ -23,7 +23,7 @@
       "html": "<p>Pharmacode 2-track is used in the same pharmaceutical (and occasionally cosmetics) packaging-line environments as one-track Pharmacode, specifically where a manufacturer's packaging equipment is configured to verify two related pieces of information from a single symbol &mdash; for example, confirming both a product identifier and a batch or line-configuration code before a carton proceeds to sealing. It's a production quality-control mechanism, not a consumer-facing or pharmacy-facing barcode; the final packaging typically also carries a separate, human- and system-readable product code such as a national pharma number or GS1 DataMatrix.</p><p>Because Two-Track Pharmacode requires purpose-built sensor hardware, it tends to appear on lines run by manufacturers who invested in that specific Laetus equipment generation rather than being chosen fresh for new packaging designs today; newer lines more often solve the &ldquo;verify two things at once&rdquo; problem with a single 2D code like GS1 DataMatrix instead, which can encode both values plus a check mechanism in one scan.</p>"
     },
     {
-      "h2": "How to create a Pharmacode 2-track barcode in Barcode APIs",
+      "h2": "How to create a Pharmacode 2-track barcode in Barcode Mint",
       "html": "<p>Select <strong>Pharmacode 2-track</strong> from the symbology list on the left, then enter the value your packaging line's Two-Track sensor configuration expects. From there you can:</p><ul><li>Adjust bar width and overall height to match your packaging line's sensor tolerances</li><li>Set the quiet zone according to your line equipment's specification</li><li>Export as PNG, SVG, or PDF for packaging artwork, or copy directly into a design tool</li><li>Use the batch or sequence tools to generate a numbered run of control codes at once</li><li>Upload a CSV of values for bulk generation as a ZIP of image files or a print-ready PDF</li><li>Call the REST API &mdash; <code>/barcode?type=pharmacode2&amp;data=12345</code> &mdash; to integrate generation into a packaging-line configuration or artwork pipeline</li></ul><p>Always confirm the exact encoding parameters against your specific packaging-line equipment documentation, since Two-Track Pharmacode implementations can vary by manufacturer. The live preview lets you check the bar-extent pattern visually before export, which is a useful sanity check against your equipment vendor's reference chart if one is available.</p>"
     },
     {
@@ -48,6 +48,6 @@
     {"q": "Does Pharmacode 2-track have a check digit?", "a": "No, like one-track Pharmacode, the two-track format has no built-in check digit; it's designed for fast reading by dedicated packaging-line sensors rather than validated data transmission."},
     {"q": "Can a standard barcode scanner read Pharmacode 2-track?", "a": "No, Two-Track Pharmacode requires sensors specifically configured for its three-state bar structure; it isn't intended to be read by general-purpose retail barcode scanners."},
     {"q": "Is Pharmacode 2-track a product identification code?", "a": "No, it's a production-line control code, not a consumer- or pharmacy-facing product identifier; final packaging typically carries a separate product barcode such as a national pharma code or GS1 DataMatrix."},
-    {"q": "Can I generate multiple Pharmacode 2-track codes at once?", "a": "Yes, upload a CSV of values and Barcode APIs will generate a ZIP of image files or a print-ready PDF of packaging control codes in one batch."}
+    {"q": "Can I generate multiple Pharmacode 2-track codes at once?", "a": "Yes, upload a CSV of values and Barcode Mint will generate a ZIP of image files or a print-ready PDF of packaging control codes in one batch."}
   ]
 }

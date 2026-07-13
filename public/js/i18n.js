@@ -1,11 +1,11 @@
-// Internationalization for Barcode APIs
+// Internationalization for Barcode Mint
 (function () {
   "use strict";
 
   var UI_EN = {
     brandTagline: "Free Online Barcode & QR Code Generator",
     navGenerator: "Generator", navReset: "Reset", navPrint: "Print",
-    loaderText: "Loading Barcode APIs\u2026",
+    loaderText: "Loading Barcode Mint\u2026",
     heroEyebrow: "60+ symbologies \u00b7 1D \u00b7 2D \u00b7 Postal",
     heroTitleHtml: "Generate <span class=\"grad-text\">any barcode</span><br/>in seconds.",
     heroDesc: "QR, Data Matrix, PDF417, Aztec, GS1, postal codes, WiFi, vCard and more \u2014 customize, preview live, and export as PNG, SVG or ZIP.",
@@ -25,7 +25,7 @@
     feat2T: "60+ symbologies", feat2D: "Linear, 2D, GS1, postal codes, EAN/UPC and more.",
     feat3T: "Smart content", feat3D: "WiFi, vCard, email, SMS, location and calendar events.",
     feat4T: "Batch & export", feat4D: "Generate sequences and download PNG, SVG, or a ZIP archive.",
-    footerText: "© 2026 Barcode APIs",
+    footerText: "© 2026 Barcode Mint",
     langLabel: "Language",
     contentType: "Content type",
     ctText: "Text", ctUrl: "URL / Link", ctWifi: "WiFi network", ctVcard: "Contact (vCard)",
@@ -59,7 +59,7 @@
   var UI_ID = {
     brandTagline: "Generator Barcode & Kode QR Online Gratis",
     navGenerator: "Generator", navReset: "Atur ulang", navPrint: "Cetak",
-    loaderText: "Memuat Barcode APIs\u2026",
+    loaderText: "Memuat Barcode Mint\u2026",
     heroEyebrow: "60+ simbologi \u00b7 1D \u00b7 2D \u00b7 Pos",
     heroTitleHtml: "Buat <span class=\"grad-text\">barcode apa pun</span><br/>dalam hitungan detik.",
     heroDesc: "QR, Data Matrix, PDF417, Aztec, GS1, kode pos, WiFi, vCard dan lainnya \u2014 sesuaikan, lihat pratinjau langsung, dan ekspor ke PNG, SVG atau ZIP.",
@@ -79,7 +79,7 @@
     feat2T: "60+ simbologi", feat2D: "Linear, 2D, GS1, kode pos, EAN/UPC dan lainnya.",
     feat3T: "Konten pintar", feat3D: "WiFi, vCard, email, SMS, lokasi, dan acara kalender.",
     feat4T: "Batch & ekspor", feat4D: "Buat urutan dan unduh PNG, SVG, atau arsip ZIP.",
-    footerText: "© 2026 Barcode APIs",
+    footerText: "© 2026 Barcode Mint",
     langLabel: "Bahasa",
     contentType: "Tipe konten",
     ctText: "Teks", ctUrl: "URL / Tautan", ctWifi: "Jaringan WiFi", ctVcard: "Kontak (vCard)",
@@ -113,7 +113,7 @@
   var UI_ES = {
     brandTagline: "Generador de c\u00f3digos de barras y QR en l\u00ednea gratis",
     navGenerator: "Generador", navReset: "Restablecer", navPrint: "Imprimir",
-    loaderText: "Cargando Barcode APIs\u2026",
+    loaderText: "Cargando Barcode Mint\u2026",
     heroEyebrow: "60+ simbolog\u00edas \u00b7 1D \u00b7 2D \u00b7 Postal",
     heroTitleHtml: "Genera <span class=\"grad-text\">cualquier c\u00f3digo</span><br/>en segundos.",
     heroDesc: "QR, Data Matrix, PDF417, Aztec, GS1, c\u00f3digos postales, WiFi, vCard y m\u00e1s: personaliza, previsualiza en vivo y exporta como PNG, SVG o ZIP.",
@@ -133,7 +133,7 @@
     feat2T: "60+ simbolog\u00edas", feat2D: "Lineales, 2D, GS1, c\u00f3digos postales, EAN/UPC y m\u00e1s.",
     feat3T: "Contenido inteligente", feat3D: "WiFi, vCard, correo, SMS, ubicaci\u00f3n y eventos de calendario.",
     feat4T: "Lote y exportaci\u00f3n", feat4D: "Genera secuencias y descarga PNG, SVG o un archivo ZIP.",
-    footerText: "© 2026 Barcode APIs",
+    footerText: "© 2026 Barcode Mint",
     langLabel: "Idioma",
     contentType: "Tipo de contenido",
     ctText: "Texto", ctUrl: "URL / Enlace", ctWifi: "Red WiFi", ctVcard: "Contacto (vCard)",
@@ -161,7 +161,7 @@
   var UI_FR = {
     brandTagline: "G\u00e9n\u00e9rateur de codes-barres et QR en ligne gratuit",
     navGenerator: "G\u00e9n\u00e9rateur", navReset: "R\u00e9initialiser", navPrint: "Imprimer",
-    loaderText: "Chargement de Barcode APIs\u2026",
+    loaderText: "Chargement de Barcode Mint\u2026",
     heroEyebrow: "60+ symbologies \u00b7 1D \u00b7 2D \u00b7 Postal",
     heroTitleHtml: "G\u00e9n\u00e9rez <span class=\"grad-text\">n'importe quel code</span><br/>en quelques secondes.",
     heroDesc: "QR, Data Matrix, PDF417, Aztec, GS1, codes postaux, WiFi, vCard et plus \u2014 personnalisez, pr\u00e9visualisez en direct et exportez en PNG, SVG ou ZIP.",
@@ -181,7 +181,7 @@
     feat2T: "60+ symbologies", feat2D: "Lin\u00e9aires, 2D, GS1, codes postaux, EAN/UPC et plus.",
     feat3T: "Contenu intelligent", feat3D: "WiFi, vCard, e-mail, SMS, localisation et \u00e9v\u00e9nements.",
     feat4T: "Lot et export", feat4D: "G\u00e9n\u00e9rez des s\u00e9quences et t\u00e9l\u00e9chargez en PNG, SVG ou ZIP.",
-    footerText: "© 2026 Barcode APIs",
+    footerText: "© 2026 Barcode Mint",
     langLabel: "Langue",
     contentType: "Type de contenu",
     ctText: "Texte", ctUrl: "URL / Lien", ctWifi: "R\u00e9seau WiFi", ctVcard: "Contact (vCard)",
@@ -209,7 +209,7 @@
   var UI_DE = {
     brandTagline: "Kostenloser Online-Barcode- & QR-Code-Generator",
     navGenerator: "Generator", navReset: "Zur\u00fccksetzen", navPrint: "Drucken",
-    loaderText: "Barcode APIs wird geladen\u2026",
+    loaderText: "Barcode Mint wird geladen\u2026",
     heroEyebrow: "60+ Symbologien \u00b7 1D \u00b7 2D \u00b7 Post",
     heroTitleHtml: "Erstelle <span class=\"grad-text\">jeden Barcode</span><br/>in Sekunden.",
     heroDesc: "QR, Data Matrix, PDF417, Aztec, GS1, Postcodes, WiFi, vCard und mehr \u2013 anpassen, live ansehen und als PNG, SVG oder ZIP exportieren.",
@@ -229,7 +229,7 @@
     feat2T: "60+ Symbologien", feat2D: "Linear, 2D, GS1, Postcodes, EAN/UPC und mehr.",
     feat3T: "Intelligente Inhalte", feat3D: "WiFi, vCard, E-Mail, SMS, Standort und Kalendertermine.",
     feat4T: "Stapel & Export", feat4D: "Sequenzen erstellen und als PNG, SVG oder ZIP herunterladen.",
-    footerText: "© 2026 Barcode APIs",
+    footerText: "© 2026 Barcode Mint",
     langLabel: "Sprache",
     contentType: "Inhaltstyp",
     ctText: "Text", ctUrl: "URL / Link", ctWifi: "WiFi-Netzwerk", ctVcard: "Kontakt (vCard)",
@@ -379,7 +379,7 @@
   };
 
   Object.assign(UI_FR, {
-    footerText: "© 2026 Barcode APIs",
+    footerText: "© 2026 Barcode Mint",
     errDataBarDigits: "DataBar / EAN-14 accepte uniquement des chiffres. Saisissez au moins 1 chiffre ; un GTIN-14 valide est généré automatiquement.",
     errEngineCdn: "Le moteur de codes-barres n'est pas chargé. Si vous êtes hors ligne, vérifiez que le CDN n'est pas bloqué.",
     errApiPartial: "Certains codes-barres n'ont pas pu être chargés depuis l'API : {n}",
@@ -390,7 +390,7 @@
 
   Object.assign(UI_DE, {
     heroDesc: "QR, Data Matrix, PDF417, Aztec, GS1, Postcodes, WiFi, vCard und mehr: anpassen, live ansehen und als PNG, SVG oder ZIP exportieren.",
-    footerText: "© 2026 Barcode APIs",
+    footerText: "© 2026 Barcode Mint",
     errDataBarDigits: "DataBar / EAN-14 akzeptiert nur Ziffern. Gib mindestens 1 Ziffer ein; ein gültiger GTIN-14 wird automatisch erzeugt.",
     errEngineCdn: "Die Barcode-Engine ist nicht geladen. Wenn du offline bist, prüfe, ob das CDN blockiert wird.",
     errApiPartial: "Einige Barcodes konnten nicht über die API geladen werden: {n}",
@@ -402,7 +402,7 @@
   var UI_PL = {
     brandTagline: "Generator kodów kreskowych i QR online",
     navGenerator: "Generator", navReset: "Resetuj", navPrint: "Drukuj",
-    loaderText: "Ładowanie Barcode APIs…",
+    loaderText: "Ładowanie Barcode Mint…",
     heroEyebrow: "100+ symbologii · 1D · 2D · pocztowe",
     heroTitleHtml: "Twórz <span class=\"grad-text\">dowolne kody kreskowe</span><br/>w kilka sekund.",
     heroDesc: "QR, Data Matrix, PDF417, Aztec, GS1, kody pocztowe, WiFi, vCard i więcej: dostosuj, zobacz podgląd na żywo i eksportuj jako PNG, SVG lub ZIP.",
@@ -422,7 +422,7 @@
     feat2T: "100+ symbologii", feat2D: "Kody liniowe, 2D, GS1, pocztowe, EAN/UPC i inne.",
     feat3T: "Inteligentna treść", feat3D: "WiFi, vCard, e-mail, SMS, lokalizacja i wydarzenia z kalendarza.",
     feat4T: "Partie i eksport", feat4D: "Generuj sekwencje i pobieraj PNG, SVG lub archiwum ZIP.",
-    footerText: "© 2026 Barcode APIs",
+    footerText: "© 2026 Barcode Mint",
     langLabel: "Język",
     contentType: "Typ treści",
     ctText: "Tekst", ctUrl: "URL / link", ctWifi: "Sieć WiFi", ctVcard: "Kontakt (vCard)",
@@ -456,7 +456,7 @@
   var UI_NL = {
     brandTagline: "Barcode- en QR-code generator online",
     navGenerator: "Generator", navReset: "Resetten", navPrint: "Afdrukken",
-    loaderText: "Barcode APIs laden…",
+    loaderText: "Barcode Mint laden…",
     heroEyebrow: "100+ symbologieën · 1D · 2D · post",
     heroTitleHtml: "Maak <span class=\"grad-text\">elke barcode</span><br/>in enkele seconden.",
     heroDesc: "QR, Data Matrix, PDF417, Aztec, GS1, postcodes, WiFi, vCard en meer: pas aan, bekijk live en exporteer als PNG, SVG of ZIP.",
@@ -476,7 +476,7 @@
     feat2T: "100+ symbologieën", feat2D: "Lineair, 2D, GS1, postcodes, EAN/UPC en meer.",
     feat3T: "Slimme inhoud", feat3D: "WiFi, vCard, e-mail, SMS, locatie en agenda-afspraken.",
     feat4T: "Batch en export", feat4D: "Maak reeksen en download PNG, SVG of een ZIP-archief.",
-    footerText: "© 2026 Barcode APIs",
+    footerText: "© 2026 Barcode Mint",
     langLabel: "Taal",
     contentType: "Inhoudstype",
     ctText: "Tekst", ctUrl: "URL / link", ctWifi: "WiFi-netwerk", ctVcard: "Contact (vCard)",
@@ -510,7 +510,7 @@
   var UI_JA = {
     brandTagline: "バーコードとQRコードの作成ツール",
     navGenerator: "作成", navReset: "リセット", navPrint: "印刷",
-    loaderText: "Barcode APIsを読み込み中…",
+    loaderText: "Barcode Mintを読み込み中…",
     heroEyebrow: "100種類以上 · 1D · 2D · 郵便コード",
     heroTitleHtml: "<span class=\"grad-text\">あらゆるバーコード</span>を<br/>数秒で作成。",
     heroDesc: "QR、Data Matrix、PDF417、Aztec、GS1、郵便コード、WiFi、vCardなどを調整し、ライブ表示してPNG、SVG、ZIPで保存できます。",
@@ -530,7 +530,7 @@
     feat2T: "100種類以上の形式", feat2D: "リニア、2D、GS1、郵便コード、EAN/UPCなどに対応。",
     feat3T: "スマート入力", feat3D: "WiFi、vCard、メール、SMS、位置情報、予定を扱えます。",
     feat4T: "一括作成と出力", feat4D: "連番を作成し、PNG、SVG、ZIPで保存できます。",
-    footerText: "© 2026 Barcode APIs",
+    footerText: "© 2026 Barcode Mint",
     langLabel: "言語",
     contentType: "内容の種類",
     ctText: "テキスト", ctUrl: "URL / リンク", ctWifi: "WiFiネットワーク", ctVcard: "連絡先 (vCard)",

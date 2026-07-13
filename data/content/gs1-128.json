@@ -1,6 +1,6 @@
 {
   "id": "gs1-128",
-  "title": "GS1-128 Barcode Generator - Free | Barcode APIs",
+  "title": "GS1-128 Barcode Generator - Free | Barcode Mint",
   "metaDescription": "Free GS1-128 barcode generator for shipping labels and SSCC pallet tags. Enter Application Identifiers like (01) and (17), then export PNG, SVG, or PDF.",
   "primaryKeyword": "gs1-128 barcode generator",
   "secondaryKeywords": ["gs1-128 label maker", "sscc barcode generator", "application identifier barcode", "ucc/ean-128 generator", "shipping carton barcode", "gs1-128 vs code 128"],
@@ -19,8 +19,8 @@
       "html": "<p>GS1-128 shows up anywhere goods move between companies rather than across a retail scanner. A distribution center applies an SSCC-based GS1-128 label to a pallet so it can be tracked as a single unit through receiving, cross-docking, and shipping. A food producer encodes GTIN, batch number, and expiration date on a case label so a recall can trace exactly which lots shipped where. A 3PL uses GS1-128 on carton labels tied to an Advance Ship Notice (ASN) so the receiving warehouse can scan the label and automatically match it against the electronic shipment record. Apparel, electronics, and industrial supply chains all rely on GS1-128 the same way &mdash; it's the connective tissue between a physical case and its digital record in an ERP or WMS.</p>"
     },
     {
-      "h2": "How to create a GS1-128 barcode in Barcode APIs",
-      "html": "<p>Select <strong>GS1-128</strong> from the Linear Barcode list, then enter your data using standard AI syntax with parentheses around each Application Identifier, for example <code>(01)10614141999996(17)251231(10)LOT482</code>. Barcode APIs parses the AI structure and renders a compliant symbol with the FNC1 lead-in automatically inserted. From there you can:</p><ul><li>Adjust bar height, module width, and quiet zone to match your label stock or carrier specification</li><li>Set foreground/background colors while preserving enough contrast for warehouse scanners</li><li>Export as PNG, SVG, or PDF, or copy the barcode for use in your label design software</li><li>Generate a batch of GS1-128 labels from a CSV of GTINs, lots, and expiration dates as a ZIP or print-ready PDF</li><li>Call the REST API &mdash; <code>/barcode?type=gs1-128&amp;data=(01)10614141999996(17)251231</code> &mdash; to generate labels programmatically from your WMS or ERP</li></ul>"
+      "h2": "How to create a GS1-128 barcode in Barcode Mint",
+      "html": "<p>Select <strong>GS1-128</strong> from the Linear Barcode list, then enter your data using standard AI syntax with parentheses around each Application Identifier, for example <code>(01)10614141999996(17)251231(10)LOT482</code>. Barcode Mint parses the AI structure and renders a compliant symbol with the FNC1 lead-in automatically inserted. From there you can:</p><ul><li>Adjust bar height, module width, and quiet zone to match your label stock or carrier specification</li><li>Set foreground/background colors while preserving enough contrast for warehouse scanners</li><li>Export as PNG, SVG, or PDF, or copy the barcode for use in your label design software</li><li>Generate a batch of GS1-128 labels from a CSV of GTINs, lots, and expiration dates as a ZIP or print-ready PDF</li><li>Call the REST API &mdash; <code>/barcode?type=gs1-128&amp;data=(01)10614141999996(17)251231</code> &mdash; to generate labels programmatically from your WMS or ERP</li></ul>"
     },
     {
       "h2": "Print and scan best practices",
@@ -43,7 +43,7 @@
     {"q": "What is a GS1-128 barcode generator used for?", "a": "A GS1-128 barcode generator builds Code 128 barcodes that encode GS1 Application Identifiers such as GTIN, SSCC, batch number, and expiration date, which is the standard format for shipping cartons and pallet labels in supply chain logistics."},
     {"q": "What's the difference between GS1-128 and Code 128?", "a": "GS1-128 is a Code 128 barcode with a leading FNC1 character that signals the data uses GS1 Application Identifiers in a defined structure, while a plain Code 128 barcode just encodes raw text with no standardized meaning attached to it."},
     {"q": "Can one GS1-128 barcode hold multiple pieces of data?", "a": "Yes, you can concatenate multiple Application Identifiers in a single barcode, such as GTIN, lot number, and expiration date together, as long as the total data fits within practical Code 128 length limits for reliable scanning."},
-    {"q": "Do I need a GS1 company prefix to make a GS1-128 barcode?", "a": "You need a licensed GS1 company prefix only if you're creating GTINs or SSCCs for real commercial shipments; Barcode APIs itself will generate a barcode for any valid AI data string you enter, but the numbers must come from GS1 to be usable in a real supply chain."},
+    {"q": "Do I need a GS1 company prefix to make a GS1-128 barcode?", "a": "You need a licensed GS1 company prefix only if you're creating GTINs or SSCCs for real commercial shipments; Barcode Mint itself will generate a barcode for any valid AI data string you enter, but the numbers must come from GS1 to be usable in a real supply chain."},
     {"q": "Is GS1-128 the same as a UPC barcode?", "a": "No, GS1-128 is used for cartons, pallets, and logistics units rather than individual retail items scanned at checkout, which is the role of UPC or EAN barcodes."}
   ]
 }

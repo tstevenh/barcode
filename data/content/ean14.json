@@ -1,6 +1,6 @@
 {
   "id": "ean14",
-  "title": "EAN-14 (GTIN-14) Barcode Generator | Barcode APIs",
+  "title": "EAN-14 (GTIN-14) Barcode Generator | Barcode Mint",
   "metaDescription": "Generate EAN-14/GTIN-14 carton barcodes free online for shipping cases and pallets. Enter 13 digits, check digit auto-added. PNG/SVG export and REST API.",
   "primaryKeyword": "ean-14 barcode generator",
   "secondaryKeywords": ["gtin-14 barcode", "itf-14 vs ean-14", "carton barcode generator", "shipping case barcode", "packaging indicator digit", "ean-14 check digit"],
@@ -12,18 +12,18 @@
     },
     {
       "h2": "How EAN-14 / GTIN-14 Encodes Data",
-      "html": "<p>A GTIN-14's 14 digits break down as:</p><ul><li><strong>Packaging indicator (1 digit)</strong> — a leading digit from 1–8 indicating the packaging level (case, pallet, inner pack, etc.) above the base unit; 9 is reserved for variable-measure trade items.</li><li><strong>Item reference (12 digits)</strong> — typically the same 12-digit base as the underlying EAN-13/UPC-A the carton contains, sometimes with the leading zero of a UPC-A base folded in.</li><li><strong>Check digit (1 digit)</strong> — calculated with the standard weighted modulo-10 algorithm across the preceding 13 digits.</li></ul><p>You enter the first 13 digits in Barcode APIs (packaging indicator plus the 12-digit item reference), and the 14th check digit is calculated and appended automatically.</p>"
+      "html": "<p>A GTIN-14's 14 digits break down as:</p><ul><li><strong>Packaging indicator (1 digit)</strong> — a leading digit from 1–8 indicating the packaging level (case, pallet, inner pack, etc.) above the base unit; 9 is reserved for variable-measure trade items.</li><li><strong>Item reference (12 digits)</strong> — typically the same 12-digit base as the underlying EAN-13/UPC-A the carton contains, sometimes with the leading zero of a UPC-A base folded in.</li><li><strong>Check digit (1 digit)</strong> — calculated with the standard weighted modulo-10 algorithm across the preceding 13 digits.</li></ul><p>You enter the first 13 digits in Barcode Mint (packaging indicator plus the 12-digit item reference), and the 14th check digit is calculated and appended automatically.</p>"
     },
     {
       "h2": "Technical Specifications",
-      "html": "<p>GTIN-14 is always 14 digits total, numeric only. The first digit — the packaging indicator — is not arbitrary: it signals to downstream systems how this carton relates to the base retail unit's own GTIN, and different indicator values are used to represent different pack configurations of the same underlying product. This is a key distinction from EAN-13: a single product can have one EAN-13 for retail sale but multiple valid GTIN-14s, one for each case-pack size it ships in (a 6-pack case vs. a 24-pack pallet layer, for instance). As with other GS1-issued identifiers, Barcode APIs generates a correctly formatted, scannable barcode from the digits you provide, but does not assign or register an official GTIN-14 — that still requires a GS1 company prefix.</p>"
+      "html": "<p>GTIN-14 is always 14 digits total, numeric only. The first digit — the packaging indicator — is not arbitrary: it signals to downstream systems how this carton relates to the base retail unit's own GTIN, and different indicator values are used to represent different pack configurations of the same underlying product. This is a key distinction from EAN-13: a single product can have one EAN-13 for retail sale but multiple valid GTIN-14s, one for each case-pack size it ships in (a 6-pack case vs. a 24-pack pallet layer, for instance). As with other GS1-issued identifiers, Barcode Mint generates a correctly formatted, scannable barcode from the digits you provide, but does not assign or register an official GTIN-14 — that still requires a GS1 company prefix.</p>"
     },
     {
       "h2": "Where EAN-14 Is Used",
       "html": "<ul><li><strong>Shipping cartons and cases</strong> — the primary use, letting warehouses and distribution centers scan a case without opening it to identify contents and quantity.</li><li><strong>Pallet and logistics labeling</strong> — often combined with an SSCC (Serial Shipping Container Code) on a GS1-128 label for full pallet-level tracking.</li><li><strong>EDI and supply chain systems</strong> — GTIN-14 is the standard reference used in electronic data interchange between manufacturers, distributors, and retailers for case-level ordering.</li><li><strong>Non-retail trade units</strong> — any grouping of consumer units that moves through the supply chain as a single handling unit, rather than being sold individually at a shelf.</li></ul>"
     },
     {
-      "h2": "How to Create an EAN-14 Barcode in Barcode APIs",
+      "h2": "How to Create an EAN-14 Barcode in Barcode Mint",
       "html": "<p>Select <strong>EAN-14</strong> from the symbology list under Retail (EAN/UPC). Enter the packaging indicator digit followed by the 12-digit item reference (13 digits total) — the check digit is calculated and appended automatically, and the live preview shows the finished 14-digit barcode before export. From there:</p><ul><li>Adjust <strong>bar width and height</strong> for the larger format typical of carton labels — GTIN-14 barcodes are generally printed larger than retail EAN-13/UPC-A codes.</li><li>Keep <strong>human-readable text</strong> on so warehouse staff can verify the code visually or key it in manually if a scan fails.</li><li>Set a generous <strong>quiet zone</strong>, since carton printing (often flexographic, on corrugated stock) has more variance than retail label printing and needs extra margin tolerance.</li><li>Export as <strong>PNG, SVG, or PDF</strong> for case-label artwork, or use <strong>Copy</strong> for quick placement.</li><li>Use the <strong>bulk CSV → ZIP/PDF</strong> tool to generate GTIN-14 labels across multiple case-pack configurations from a spreadsheet.</li><li>Call the <strong>REST API</strong> — <code>/barcode?type=ean14&data=YOUR13DIGITS</code> — to generate EAN-14 images programmatically from a warehouse or ERP system.</li></ul>"
     },
     {
@@ -42,11 +42,11 @@
     "Multi-pack and bulk trade unit tracking through the supply chain"
   ],
   "faq": [
-    {"q": "How many digits do I enter for an ean-14 barcode generator?", "a": "Enter 13 digits (a packaging indicator digit plus the 12-digit item reference); Barcode APIs calculates the 14th digit, the check digit, automatically."},
+    {"q": "How many digits do I enter for an ean-14 barcode generator?", "a": "Enter 13 digits (a packaging indicator digit plus the 12-digit item reference); Barcode Mint calculates the 14th digit, the check digit, automatically."},
     {"q": "Is EAN-14 the same as ITF-14?", "a": "<p>Not exactly. GTIN-14 (often called EAN-14) is the 14-digit data standard, while ITF-14 is the specific barcode symbology most commonly used to physically encode that data on shipping cartons.</p>"},
     {"q": "What does the packaging indicator digit mean?", "a": "It's the leading digit of a GTIN-14, indicating the packaging level — such as a case or pallet layer — above the base retail unit; digits 1 through 8 represent different pack configurations, and 9 is reserved for variable-measure items."},
-    {"q": "Does this tool register an official GTIN-14 for me?", "a": "No. Barcode APIs generates a correctly formatted, scannable EAN-14 image from the digits you provide, but a genuinely unique GTIN-14 for commercial supply chain use still needs to be built from a GS1-issued company prefix."},
-    {"q": "Can I generate EAN-14 barcodes in bulk?", "a": "<p>Yes. Upload a CSV of 13-digit values to Barcode APIs's bulk tool to produce a ZIP of individual barcode images or a single print-ready PDF, one per carton configuration.</p>"},
-    {"q": "Is the EAN-14 generator free to use?", "a": "Yes, Barcode APIs's EAN-14 generator runs entirely in your browser at no cost, with no account required for standard PNG/SVG/PDF exports."}
+    {"q": "Does this tool register an official GTIN-14 for me?", "a": "No. Barcode Mint generates a correctly formatted, scannable EAN-14 image from the digits you provide, but a genuinely unique GTIN-14 for commercial supply chain use still needs to be built from a GS1-issued company prefix."},
+    {"q": "Can I generate EAN-14 barcodes in bulk?", "a": "<p>Yes. Upload a CSV of 13-digit values to Barcode Mint's bulk tool to produce a ZIP of individual barcode images or a single print-ready PDF, one per carton configuration.</p>"},
+    {"q": "Is the EAN-14 generator free to use?", "a": "Yes, Barcode Mint's EAN-14 generator runs entirely in your browser at no cost, with no account required for standard PNG/SVG/PDF exports."}
   ]
 }

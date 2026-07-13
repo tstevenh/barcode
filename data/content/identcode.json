@@ -1,6 +1,6 @@
 {
   "id": "identcode",
-  "title": "Deutsche Post Identcode Generator | Barcode APIs",
+  "title": "Deutsche Post Identcode Generator | Barcode Mint",
   "metaDescription": "Generate Deutsche Post Identcode barcodes free online for German parcel and mail sortation. 11-digit numeric code with auto check digit, PNG/SVG export, API.",
   "primaryKeyword": "deutsche post identcode generator",
   "secondaryKeywords": ["identcode barcode generator", "deutsche post barcode", "german parcel barcode", "identcode check digit", "dhl identcode", "deutsche post interleaved 2 of 5"],
@@ -12,7 +12,7 @@
     },
     {
       "h2": "How Identcode Encodes Data",
-      "html": "<p>An Identcode is 11 digits in the finished, encoded form: 2 digits identifying the mailer or customer, 8 digits forming a unique serial/item identifier, and a final check digit calculated with a weighted modulo-10 algorithm to catch transcription or scanning errors. Because it's built on Interleaved 2 of 5 structure, the barcode pairs digits together — the first digit of each pair defines the bar pattern, the second defines the space pattern — which is why Identcode (like ITF generally) requires an even total digit count and includes fixed start/stop patterns framing the data.</p><p>Barcode APIs calculates and appends the check digit automatically, so you only need to enter the 10-digit customer + serial portion when generating a code, and the live preview reflects the final 11-digit result immediately.</p>"
+      "html": "<p>An Identcode is 11 digits in the finished, encoded form: 2 digits identifying the mailer or customer, 8 digits forming a unique serial/item identifier, and a final check digit calculated with a weighted modulo-10 algorithm to catch transcription or scanning errors. Because it's built on Interleaved 2 of 5 structure, the barcode pairs digits together — the first digit of each pair defines the bar pattern, the second defines the space pattern — which is why Identcode (like ITF generally) requires an even total digit count and includes fixed start/stop patterns framing the data.</p><p>Barcode Mint calculates and appends the check digit automatically, so you only need to enter the 10-digit customer + serial portion when generating a code, and the live preview reflects the final 11-digit result immediately.</p>"
     },
     {
       "h2": "Technical Specifications",
@@ -23,7 +23,7 @@
       "html": "<p>Identcode is specific to German postal and parcel logistics:</p><ul><li><strong>Deutsche Post / DHL parcel labels</strong> — printed on parcels to give each item a unique identifier that sortation equipment and tracking systems can reference.</li><li><strong>Bulk mail identification</strong> — businesses sending large batches of mail through Deutsche Post use Identcode to give each piece a traceable serial number.</li><li><strong>Combined with Leitcode</strong> — many German shipping labels print Identcode alongside Leitcode, one identifying the item and the other its destination routing.</li><li><strong>Logistics tracking</strong> — internal warehouse and fulfillment systems in Germany sometimes adopt Identcode-style numbering for parcel tracking integration with Deutsche Post's network.</li></ul>"
     },
     {
-      "h2": "How to Create an Identcode in Barcode APIs",
+      "h2": "How to Create an Identcode in Barcode Mint",
       "html": "<p>Select <strong>Deutsche Post Identcode</strong> from the Postal Code group in the symbology list. Enter your 10-digit customer and serial number data — the check digit is calculated and appended automatically, and the live preview updates instantly so you can confirm the finished 11-digit barcode before exporting. From there:</p><ul><li>Adjust <strong>bar width and height</strong> to match the label size required by your parcel or mailing template.</li><li>Toggle <strong>human-readable text</strong> below the bars so staff can visually verify the code without a scanner.</li><li>Keep the barcode printed in solid black on a light background — Deutsche Post's sortation equipment, like most postal scanners, requires high contrast rather than color variants.</li><li>Export as <strong>PNG or SVG</strong> for label design, or use <strong>Copy</strong> to paste directly into a template.</li><li>Use the <strong>bulk CSV → ZIP/PDF</strong> tool to generate a unique Identcode for every parcel in a shipment batch from a spreadsheet.</li><li>Call the <strong>REST API</strong> — <code>/barcode?type=identcode&data=YOURCUSTOMERANDSERIAL</code> — to generate Identcodes on demand from a shipping or fulfillment system.</li></ul>"
     },
     {
@@ -44,9 +44,9 @@
   "faq": [
     {"q": "How many digits are in a Deutsche Post Identcode?", "a": "An Identcode is 11 digits total in its finished form: 2 digits for the customer/mailer, 8 digits for a unique serial identifier, and 1 check digit calculated automatically."},
     {"q": "What's the difference between Identcode and Leitcode?", "a": "<p>Identcode identifies a specific mail item or parcel with a unique serial number, while Leitcode encodes routing and destination information. The two symbologies are often printed together on the same German postal label.</p>"},
-    {"q": "Do I need to calculate the Identcode check digit myself?", "a": "No, Barcode APIs's deutsche post identcode generator calculates the modulo-10 check digit automatically from the 10 digits you enter and appends it to complete the 11-digit code."},
-    {"q": "Can I bulk-generate Identcodes for a parcel shipment?", "a": "<p>Yes. Upload a CSV of customer and serial numbers to Barcode APIs's bulk tool to produce a ZIP of individual barcode images or a single print-ready PDF, one per parcel.</p>"},
-    {"q": "Is the Identcode generator free to use?", "a": "Yes, Barcode APIs's Identcode generator runs entirely in your browser with no account required for standard PNG/SVG exports."},
+    {"q": "Do I need to calculate the Identcode check digit myself?", "a": "No, Barcode Mint's deutsche post identcode generator calculates the modulo-10 check digit automatically from the 10 digits you enter and appends it to complete the 11-digit code."},
+    {"q": "Can I bulk-generate Identcodes for a parcel shipment?", "a": "<p>Yes. Upload a CSV of customer and serial numbers to Barcode Mint's bulk tool to produce a ZIP of individual barcode images or a single print-ready PDF, one per parcel.</p>"},
+    {"q": "Is the Identcode generator free to use?", "a": "Yes, Barcode Mint's Identcode generator runs entirely in your browser with no account required for standard PNG/SVG exports."},
     {"q": "Can I generate Identcodes from my own shipping software?", "a": "Yes — call /barcode?type=identcode&data=YOURDATA through the REST API to generate the barcode image directly from a shipping or fulfillment application."}
   ]
 }

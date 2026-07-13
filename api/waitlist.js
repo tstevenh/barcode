@@ -12,7 +12,7 @@
 // Optional env:
 //   WAITLIST_TABLE               defaults to "waitlist"
 //   RESEND_API_KEY               enables the confirmation email
-//   WAITLIST_FROM_EMAIL          verified Resend sender, e.g. "Barcode APIs <hello@barcodeapis.com>"
+//   WAITLIST_FROM_EMAIL          verified Resend sender, e.g. "Barcode Mint <hello@barcodemint.com>"
 //   WAITLIST_NOTIFY_EMAIL        optional internal address to CC on every signup
 
 const rateLimit = require("./_rate-limit");
@@ -26,18 +26,18 @@ const ALLOWED_LOCALES = new Set(["en", "de", "pl", "nl", "fr", "ja"]);
 
 // Localized confirmation email (subject + plain-text body), keyed by locale.
 const EMAIL_I18N = {
-  en: { subject: "You're on the Barcode APIs early list",
-    body: "Thanks for joining the Barcode APIs early list.\n\nWe'll email you the moment it's ready — early-list members get first access and launch pricing.\n\n— Barcode APIs" },
-  de: { subject: "Sie stehen auf der Barcode APIs Early-Access-Liste",
-    body: "Danke, dass Sie sich für die Early-Access-Liste von Barcode APIs eingetragen haben.\n\nWir melden uns per E-Mail, sobald es so weit ist — Mitglieder der Liste erhalten zuerst Zugang und exklusive Launch-Preise.\n\n— Barcode APIs" },
-  pl: { subject: "Jesteś na liście wczesnego dostępu Barcode APIs",
-    body: "Dziękujemy za zapisanie się na listę wczesnego dostępu Barcode APIs.\n\nNapiszemy do Ciebie, gdy tylko będzie gotowe — członkowie listy otrzymują dostęp jako pierwsi oraz ceny na start.\n\n— Barcode APIs" },
-  nl: { subject: "Je staat op de early-accesslijst van Barcode APIs",
-    body: "Bedankt voor je aanmelding voor de early-accesslijst van Barcode APIs.\n\nWe mailen je zodra het zover is — leden van de lijst krijgen als eerste toegang en lanceerprijzen.\n\n— Barcode APIs" },
-  fr: { subject: "Vous êtes sur la liste d'accès anticipé de Barcode APIs",
-    body: "Merci de vous être inscrit à la liste d'accès anticipé de Barcode APIs.\n\nNous vous écrirons dès que ce sera prêt — les membres de la liste bénéficient d'un accès prioritaire et de tarifs de lancement.\n\n— Barcode APIs" },
-  ja: { subject: "Barcode APIs 先行アクセスリストにご登録いただきました",
-    body: "Barcode APIs の先行アクセスリストにご登録いただきありがとうございます。\n\n準備が整い次第、メールでお知らせします。先行リストのメンバーは、いち早くご利用いただけるほか、限定の提供開始価格をご案内します。\n\n— Barcode APIs" }
+  en: { subject: "You're on the Barcode Mint early list",
+    body: "Thanks for joining the Barcode Mint early list.\n\nWe'll email you the moment it's ready — early-list members get first access and launch pricing.\n\n— Barcode Mint" },
+  de: { subject: "Sie stehen auf der Barcode Mint Early-Access-Liste",
+    body: "Danke, dass Sie sich für die Early-Access-Liste von Barcode Mint eingetragen haben.\n\nWir melden uns per E-Mail, sobald es so weit ist — Mitglieder der Liste erhalten zuerst Zugang und exklusive Launch-Preise.\n\n— Barcode Mint" },
+  pl: { subject: "Jesteś na liście wczesnego dostępu Barcode Mint",
+    body: "Dziękujemy za zapisanie się na listę wczesnego dostępu Barcode Mint.\n\nNapiszemy do Ciebie, gdy tylko będzie gotowe — członkowie listy otrzymują dostęp jako pierwsi oraz ceny na start.\n\n— Barcode Mint" },
+  nl: { subject: "Je staat op de early-accesslijst van Barcode Mint",
+    body: "Bedankt voor je aanmelding voor de early-accesslijst van Barcode Mint.\n\nWe mailen je zodra het zover is — leden van de lijst krijgen als eerste toegang en lanceerprijzen.\n\n— Barcode Mint" },
+  fr: { subject: "Vous êtes sur la liste d'accès anticipé de Barcode Mint",
+    body: "Merci de vous être inscrit à la liste d'accès anticipé de Barcode Mint.\n\nNous vous écrirons dès que ce sera prêt — les membres de la liste bénéficient d'un accès prioritaire et de tarifs de lancement.\n\n— Barcode Mint" },
+  ja: { subject: "Barcode Mint 先行アクセスリストにご登録いただきました",
+    body: "Barcode Mint の先行アクセスリストにご登録いただきありがとうございます。\n\n準備が整い次第、メールでお知らせします。先行リストのメンバーは、いち早くご利用いただけるほか、限定の提供開始価格をご案内します。\n\n— Barcode Mint" }
 };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

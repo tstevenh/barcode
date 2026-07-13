@@ -1,6 +1,6 @@
 {
   "id": "telepen",
-  "title": "Telepen Barcode Generator - Free Online | Barcode APIs",
+  "title": "Telepen Barcode Generator - Free Online | Barcode Mint",
   "metaDescription": "Generate a Telepen barcode free in your browser. Encode full ASCII text for library systems, adjust size, and export PNG, SVG, or PDF instantly.",
   "primaryKeyword": "telepen barcode generator",
   "secondaryKeywords": ["telepen barcode", "library barcode generator", "full ascii barcode", "telepen vs code 128", "telepen check digit"],
@@ -23,8 +23,8 @@
       "html": "<p>Telepen's primary stronghold today is library systems, particularly in the United Kingdom, where it's used on borrower cards and book or media labels within library management software that was built around it decades ago and has continued supporting the format through successive system upgrades. It also appears in some specialist inventory and asset-tracking systems that adopted it during the same era for its full-ASCII capability and built-in check digit. Outside of these entrenched use cases, Telepen sees little new adoption, since Code 128 offers similar full-ASCII coverage with much broader international scanner and software support today.</p><p>Within a library, Telepen typically shows up in two places: on the borrower card itself, linking a scan to a patron account, and on the item label inside a book or media case, linking a scan to a catalog record. Both uses depend on decades-old but still-functioning infrastructure, which is exactly why replacement labels need to stay on the same symbology rather than switching formats mid-system.</p>"
     },
     {
-      "h2": "How to create a Telepen barcode in Barcode APIs",
-      "html": "<p>Select <strong>Telepen</strong> from the symbology list on the left, then type or paste your data &mdash; letters, digits, punctuation, or numeric-only strings are all supported. Barcode APIs calculates and appends the modulo-127 check digit automatically. From there:</p><ul><li>Adjust bar width, height, and quiet zone to match your library card or label format</li><li>Toggle human-readable text below the bars for manual entry when scanning fails</li><li>Export as PNG, SVG, or PDF, or copy the image directly into a card or label template</li><li>Use the batch or sequence tools to generate a numbered run of borrower or item codes at once</li><li>Upload a CSV of values for bulk generation as a ZIP of image files or a print-ready PDF of labels</li><li>Call the REST API &mdash; <code>/barcode?type=telepen&amp;data=LIB000123</code> &mdash; to generate codes programmatically from a library management system</li></ul><p>The bulk CSV workflow is especially useful for library replacement projects, where you might need to regenerate hundreds or thousands of worn borrower card or item labels in one pass rather than one at a time.</p>"
+      "h2": "How to create a Telepen barcode in Barcode Mint",
+      "html": "<p>Select <strong>Telepen</strong> from the symbology list on the left, then type or paste your data &mdash; letters, digits, punctuation, or numeric-only strings are all supported. Barcode Mint calculates and appends the modulo-127 check digit automatically. From there:</p><ul><li>Adjust bar width, height, and quiet zone to match your library card or label format</li><li>Toggle human-readable text below the bars for manual entry when scanning fails</li><li>Export as PNG, SVG, or PDF, or copy the image directly into a card or label template</li><li>Use the batch or sequence tools to generate a numbered run of borrower or item codes at once</li><li>Upload a CSV of values for bulk generation as a ZIP of image files or a print-ready PDF of labels</li><li>Call the REST API &mdash; <code>/barcode?type=telepen&amp;data=LIB000123</code> &mdash; to generate codes programmatically from a library management system</li></ul><p>The bulk CSV workflow is especially useful for library replacement projects, where you might need to regenerate hundreds or thousands of worn borrower card or item labels in one pass rather than one at a time.</p>"
     },
     {
       "h2": "Printing & scanning best practices",
@@ -48,6 +48,6 @@
     {"q": "Does Telepen have a check digit?", "a": "Yes, every Telepen symbol includes a mandatory check digit calculated with a modulo-127 algorithm, computed and appended automatically by the encoder."},
     {"q": "Is Telepen still widely used?", "a": "Its use has narrowed mostly to library systems and some specialist inventory applications that adopted it decades ago; Code 128 has become the more common choice for new full-ASCII barcode needs."},
     {"q": "What's the difference between Telepen and Code 128?", "a": "Both support the full ASCII character set with a built-in check digit, but Code 128 has far broader modern scanner and software support, while Telepen persists mainly through entrenched library systems."},
-    {"q": "Can I bulk-generate Telepen barcodes?", "a": "Yes, upload a CSV of values and Barcode APIs will generate a ZIP of image files or a print-ready PDF of labels in one batch."}
+    {"q": "Can I bulk-generate Telepen barcodes?", "a": "Yes, upload a CSV of values and Barcode Mint will generate a ZIP of image files or a print-ready PDF of labels in one batch."}
   ]
 }

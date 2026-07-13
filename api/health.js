@@ -2,7 +2,7 @@
 module.exports = (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.status(200).json({
-    name: "Barcode API",
+    name: "Barcode Mint API",
     ok: true,
     usage: "/barcode?type=qrcode&data=Hello&format=png",
     formats: ["png", "svg"],

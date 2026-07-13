@@ -1,4 +1,4 @@
-// Local QR fallback for Barcode APIs.
+// Local QR fallback for Barcode Mint.
 // Based on Kazuhiko Arase QRCode for JavaScript (MIT License), bundled from qrcode-terminal vendor.
 (function(){
   if (window.QRCode && typeof window.QRCode.toCanvas === "function") return;

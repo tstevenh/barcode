@@ -1,6 +1,6 @@
 {
  "id": "postnet",
- "title": "USPS POSTNET Barcode Generator | Barcode APIs",
+ "title": "USPS POSTNET Barcode Generator | Barcode Mint",
  "metaDescription": "Generate USPS POSTNET barcodes free online for ZIP, ZIP+4, or delivery-point codes. POSTNET is deprecated by USPS — use Intelligent Mail instead.",
  "primaryKeyword": "usps postnet barcode generator",
  "secondaryKeywords": [
@@ -30,8 +30,8 @@
    "html": "<p>Historically, POSTNET appeared on virtually every piece of U.S. bulk and business mail from the late 1980s through the 2000s and into the early 2010s:</p><ul><li>Return address ZIP+4 codes printed by mail-merge software on business correspondence and invoices.</li><li>Bulk mail and bill-pay reply envelopes pre-printed with the recipient's delivery point code for automated sorting.</li><li>Legacy print shops, mailing houses, and archival document systems that still generate or reproduce older mail formats.</li><li>Non-postal or educational contexts — some inventory or internal tracking systems adopted the POSTNET pattern for its simple height-modulated structure, unrelated to actual USPS mail processing.</li></ul><p>For any current U.S. mailing intended to earn USPS automation rates or be processed by modern sorting equipment, use Intelligent Mail barcode instead — POSTNET is not accepted for that purpose today.</p>"
   },
   {
-   "h2": "How to generate a POSTNET barcode in Barcode APIs",
-   "html": "<p>To create a POSTNET barcode:</p><ul><li>Select <strong>USPS POSTNET</strong> from the barcode type list.</li><li>Enter your ZIP code, ZIP+4, or full 11-digit delivery point number — Barcode APIs calculates and appends the check digit automatically.</li><li>Adjust bar height and spacing to match your target print size; POSTNET's short bars need clean, consistent height differentiation to remain readable.</li><li>Export as SVG for print-ready reproduction or PNG for digital use and reference.</li><li>Use <strong>Bulk CSV → ZIP/PDF</strong> to generate POSTNET codes for a list of addresses, useful for historical document reproduction or legacy system migration testing.</li><li>Call the REST API at <code>/barcode?type=postnet&data=...</code> for programmatic generation.</li></ul><p>If your goal is a working postal barcode for real mail today, use the <strong>USPS Intelligent Mail</strong> generator instead — it's the current standard and the only format that qualifies for USPS automation discounts.</p>"
+   "h2": "How to generate a POSTNET barcode in Barcode Mint",
+   "html": "<p>To create a POSTNET barcode:</p><ul><li>Select <strong>USPS POSTNET</strong> from the barcode type list.</li><li>Enter your ZIP code, ZIP+4, or full 11-digit delivery point number — Barcode Mint calculates and appends the check digit automatically.</li><li>Adjust bar height and spacing to match your target print size; POSTNET's short bars need clean, consistent height differentiation to remain readable.</li><li>Export as SVG for print-ready reproduction or PNG for digital use and reference.</li><li>Use <strong>Bulk CSV → ZIP/PDF</strong> to generate POSTNET codes for a list of addresses, useful for historical document reproduction or legacy system migration testing.</li><li>Call the REST API at <code>/barcode?type=postnet&data=...</code> for programmatic generation.</li></ul><p>If your goal is a working postal barcode for real mail today, use the <strong>USPS Intelligent Mail</strong> generator instead — it's the current standard and the only format that qualifies for USPS automation discounts.</p>"
   },
   {
    "h2": "Print and scan considerations",
@@ -64,7 +64,7 @@
   },
   {
    "q": "How many digits can a POSTNET barcode hold?",
-   "a": "POSTNET can encode a 5-digit ZIP code, a 9-digit ZIP+4, or an 11-digit delivery point code, each with an appended check digit calculated by Barcode APIs automatically."
+   "a": "POSTNET can encode a 5-digit ZIP code, a 9-digit ZIP+4, or an 11-digit delivery point code, each with an appended check digit calculated by Barcode Mint automatically."
   },
   {
    "q": "Should I use POSTNET for a new mailing today?",

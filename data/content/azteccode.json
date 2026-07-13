@@ -1,6 +1,6 @@
 {
   "id": "azteccode",
-  "title": "Aztec Barcode Generator - Free, No Quiet Zone | Barcode APIs",
+  "title": "Aztec Barcode Generator - Free, No Quiet Zone | Barcode Mint",
   "metaDescription": "Create an Aztec Code barcode free online for tickets and boarding passes. No quiet zone needed. Adjust size and error correction, export PNG or SVG.",
   "primaryKeyword": "aztec barcode generator",
   "secondaryKeywords": ["aztec code generator", "aztec 2d barcode", "boarding pass barcode generator", "train ticket barcode", "no quiet zone barcode", "aztec vs qr code"],
@@ -23,7 +23,7 @@
       "html": "<p>Airline e-ticket and boarding pass systems, particularly across European carriers and rail operators, favor Aztec Code specifically because it can be printed directly adjacent to other ticket text and graphics without a buffer zone. Train and transit ticketing across much of Europe uses it for the same reason, since ticket layouts are often crowded with fare details, station names, and validation stamps that leave little blank space. It also appears on some retail coupons, event tickets, and Italian postal applications. Mobile wallet apps favor it too, since the same tolerance for busy surroundings that helps on paper tickets also helps when the code shares a small phone screen with other UI elements like a status bar or app header. Because it doesn't need surrounding white space, it's a strong choice anywhere a 2D code must be squeezed into a busy, pre-printed document layout.</p>"
     },
     {
-      "h2": "How to create an Aztec Code in Barcode APIs",
+      "h2": "How to create an Aztec Code in Barcode Mint",
       "html": "<p>Select <strong>Aztec Code</strong> from the symbology list and enter your text, ticket data, or other content directly &mdash; the 2D content builder is also available if you want to encode a URL or other structured content type. From there you can:</p><ul><li>Adjust the error correction percentage to fit your printing and handling conditions</li><li>Set module size and scale to match your ticket or label layout</li><li>Choose colors while maintaining sufficient contrast for reliable scanning</li><li>Export as PNG or SVG, or copy the code directly into a ticket or document template</li><li>Generate a batch or numbered sequence for ticketing systems, or upload a CSV for bulk generation as a ZIP or PDF</li><li>Call the REST API &mdash; <code>/barcode?type=azteccode&amp;data=TICKET-00042</code> &mdash; to integrate with a ticketing or boarding pass system</li></ul>"
     },
     {
@@ -49,6 +49,6 @@
     {"q": "How much data can Aztec Code hold?", "a": "At its largest size, Aztec Code can hold roughly 3,800 numeric characters, about 3,000 alphanumeric characters, or around 1,900 bytes of binary data."},
     {"q": "What's the difference between compact and full-range Aztec Code?", "a": "Compact Aztec Code supports up to 15 layers without a separate reference grid and suits smaller data payloads, while full-range Aztec Code supports up to 32 layers with a reference grid for larger capacity."},
     {"q": "Can I scan an Aztec Code directly from a phone screen?", "a": "Yes, Aztec Code is commonly displayed on phone screens for mobile boarding passes and tickets, though it's worth testing your specific scanner against screen glare and brightness before relying on it exclusively."},
-    {"q": "Is this aztec barcode generator free for commercial ticketing use?", "a": "Yes, Barcode APIs's Aztec Code generator is free with no login, and since Aztec Code itself is a royalty-free open standard, you can use generated codes commercially without licensing fees."}
+    {"q": "Is this aztec barcode generator free for commercial ticketing use?", "a": "Yes, Barcode Mint's Aztec Code generator is free with no login, and since Aztec Code itself is a royalty-free open standard, you can use generated codes commercially without licensing fees."}
   ]
 }

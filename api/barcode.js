@@ -13,7 +13,7 @@ const rateLimit = require("./_rate-limit");
 // account-based key system ships. With no keys configured, only first-party
 // calls succeed — which is what we want pre-launch.
 const API_KEYS = new Set(String(process.env.BARCODE_API_KEYS || "").split(",").map((s) => s.trim()).filter(Boolean));
-const FIRST_PARTY_HOSTS = ["barcodeapis.com", "www.barcodeapis.com", "localhost", "127.0.0.1"];
+const FIRST_PARTY_HOSTS = ["barcodemint.com", "www.barcodemint.com", "localhost", "127.0.0.1"];
 function hostOf(u) { try { return new URL(u).hostname; } catch (e) { return ""; } }
 function isAllowedHost(h) { return !!h && (FIRST_PARTY_HOSTS.includes(h) || h.endsWith(".vercel.app")); }
 function isFirstParty(req) {
@@ -353,7 +353,7 @@ module.exports = async (req, res) => {
   };
   // Gate: first-party generator calls pass; anyone else needs a valid API key.
   if (!isFirstParty(req) && !API_KEYS.has(apiKeyOf(req, get))) {
-    res.status(401).json({ error: "An API key is required. The Barcode APIs API launches with paid plans — join the early list at https://barcodeapis.com/#pro" });
+    res.status(401).json({ error: "An API key is required. The Barcode Mint API launches with paid plans — join the early list at https://barcodemint.com/#pro" });
     return;
   }
   // Resolve output format: explicit ?format= wins, else infer from a .svg/.png

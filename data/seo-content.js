@@ -3,8 +3,8 @@
 // and the app's HINTS_EN one-liners to produce a unique page per barcode type.
 module.exports = {
   site: {
-    name: "Barcode APIs",
-    baseUrl: "https://barcodeapis.com",
+    name: "Barcode Mint",
+    baseUrl: "https://barcodemint.com",
     dir: "barcodes" // URL segment + output folder: /barcodes/<slug> (avoids the /barcode API path)
   },
 

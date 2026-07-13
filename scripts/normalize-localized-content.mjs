@@ -87,11 +87,11 @@ function term(id, name, lang, group) {
 
 function meta(lang, name, kw, family) {
   const m = {
-    pl: `Utwórz ${name} w Barcode APIs. ${kw} z podglądem, ustawieniami druku, obsługą partii oraz eksportem PNG, SVG i PDF dla etykiet.`,
-    de: `Erstelle ${name} in Barcode APIs. ${kw} mit Vorschau, Druckeinstellungen, Stapelverarbeitung und Export als PNG, SVG oder PDF.`,
-    nl: `Maak ${name} in Barcode APIs. ${kw} met live voorbeeld, drukinstellingen, batchverwerking en export als PNG, SVG of PDF.`,
-    fr: `Créez un ${name} dans Barcode APIs. ${kw} avec aperçu, réglages d’impression, traitement par lot et export PNG, SVG ou PDF.`,
-    ja: `Barcode APIsで${name}を作成。${kw}、印刷設定、一括処理、PNG、SVG、PDF保存に対応します。`
+    pl: `Utwórz ${name} w Barcode Mint. ${kw} z podglądem, ustawieniami druku, obsługą partii oraz eksportem PNG, SVG i PDF dla etykiet.`,
+    de: `Erstelle ${name} in Barcode Mint. ${kw} mit Vorschau, Druckeinstellungen, Stapelverarbeitung und Export als PNG, SVG oder PDF.`,
+    nl: `Maak ${name} in Barcode Mint. ${kw} met live voorbeeld, drukinstellingen, batchverwerking en export als PNG, SVG of PDF.`,
+    fr: `Créez un ${name} dans Barcode Mint. ${kw} avec aperçu, réglages d’impression, traitement par lot et export PNG, SVG ou PDF.`,
+    ja: `Barcode Mintで${name}を作成。${kw}、印刷設定、一括処理、PNG、SVG、PDF保存に対応します。`
   };
   return m[lang];
 }
@@ -108,17 +108,17 @@ function lead(lang, name, kw, family) {
 }
 
 const headings = {
-  pl: ["Czym jest {name}", "Jak {name} koduje dane", "Jakie dane można zapisać", "Gdzie używa się tego formatu", "Jak utworzyć kod w Barcode APIs", "Drukowanie i skanowanie", "Porównanie z pokrewnymi formatami"],
-  de: ["Was ist {name}", "Wie {name} Daten codiert", "Welche Daten passen hinein", "Wo dieses Format eingesetzt wird", "So erstellst du den Code in Barcode APIs", "Druck und Scanqualität", "Vergleich mit verwandten Formaten"],
-  nl: ["Wat is {name}", "Hoe {name} gegevens codeert", "Welke gegevens erin passen", "Waar dit formaat wordt gebruikt", "Zo maak je de code in Barcode APIs", "Afdrukken en scannen", "Vergelijking met verwante formaten"],
-  fr: ["Qu’est-ce que {name}", "Comment {name} encode les données", "Quelles données peuvent être encodées", "Où utiliser ce format", "Créer le code dans Barcode APIs", "Impression et lecture", "Comparaison avec les formats proches"],
-  ja: ["{name}とは", "{name}がデータを表す仕組み", "保存できるデータ", "主な利用場面", "Barcode APIsで作成する方法", "印刷と読み取りの要点", "近い形式との比較"]
+  pl: ["Czym jest {name}", "Jak {name} koduje dane", "Jakie dane można zapisać", "Gdzie używa się tego formatu", "Jak utworzyć kod w Barcode Mint", "Drukowanie i skanowanie", "Porównanie z pokrewnymi formatami"],
+  de: ["Was ist {name}", "Wie {name} Daten codiert", "Welche Daten passen hinein", "Wo dieses Format eingesetzt wird", "So erstellst du den Code in Barcode Mint", "Druck und Scanqualität", "Vergleich mit verwandten Formaten"],
+  nl: ["Wat is {name}", "Hoe {name} gegevens codeert", "Welke gegevens erin passen", "Waar dit formaat wordt gebruikt", "Zo maak je de code in Barcode Mint", "Afdrukken en scannen", "Vergelijking met verwante formaten"],
+  fr: ["Qu’est-ce que {name}", "Comment {name} encode les données", "Quelles données peuvent être encodées", "Où utiliser ce format", "Créer le code dans Barcode Mint", "Impression et lecture", "Comparaison avec les formats proches"],
+  ja: ["{name}とは", "{name}がデータを表す仕組み", "保存できるデータ", "主な利用場面", "Barcode Mintで作成する方法", "印刷と読み取りの要点", "近い形式との比較"]
 };
 
 const paragraphSets = {
   pl: [
     "{kw} pomaga przygotować {name} bez instalowania specjalistycznego programu. Format należy do grupy {family}, dlatego dobrze sprawdza się tam, gdzie ważna jest zgodność ze skanerami, powtarzalny wygląd oraz kontrola wymiarów. W praktyce użytkownik wpisuje dane, obserwuje podgląd i od razu widzi, czy symbol zachowuje właściwe proporcje do etykiety albo dokumentu.",
-    "Najważniejsze jest nie tylko samo utworzenie grafiki. Trzeba dobrać rozmiar modułu, margines, kontrast oraz ewentualny tekst czytelny dla człowieka. Barcode APIs pozwala testować te ustawienia przed eksportem, więc plik PNG, SVG lub PDF można wstawić do szablonu bez dodatkowego rysowania.",
+    "Najważniejsze jest nie tylko samo utworzenie grafiki. Trzeba dobrać rozmiar modułu, margines, kontrast oraz ewentualny tekst czytelny dla człowieka. Barcode Mint pozwala testować te ustawienia przed eksportem, więc plik PNG, SVG lub PDF można wstawić do szablonu bez dodatkowego rysowania.",
     "Dane zapisane w {name} powinny pasować do reguł wybranej symbologii. Niektóre formaty akceptują tekst, inne tylko cyfry, parzystą liczbę znaków albo strukturę GS1 z identyfikatorami aplikacji. Jeżeli kod trafia na produkt, paczkę lub dokument urzędowy, warto zachować oryginalny numer i osobno sprawdzić cyfrę kontrolną.",
     "W środowisku produkcyjnym liczy się powtarzalność. Ten sam ciąg danych powinien zawsze dawać przewidywalny symbol, a eksport wektorowy ułatwia druk w różnych rozmiarach. Przy partiach etykiet można przygotować listę w CSV, wygenerować wiele kodów naraz i zachować jednolity styl na całej serii.",
     "Typowy proces jest prosty: wybierz {name}, wklej dane, sprawdź komunikat poprawności i ustaw rozmiar zgodny z miejscem na etykiecie. Następnie pobierz PNG do szybkiego użycia, SVG do składu lub PDF do arkusza wydruku. Przy integracjach można użyć endpointu REST, aby generować obraz kodu z adresu URL.",
@@ -127,7 +127,7 @@ const paragraphSets = {
   ],
   de: [
     "{kw} hilft, {name} ohne Spezialsoftware vorzubereiten. Das Format gehört zur Gruppe {family} und eignet sich, wenn Scanner-Kompatibilität, klare Geometrie und kontrollierte Abmessungen wichtig sind. Du gibst die Daten ein, prüfst die Vorschau und erkennst sofort, ob das Symbol zur Etikettfläche oder zum Dokument passt.",
-    "Entscheidend ist nicht nur die Grafikdatei. Modulgröße, Rand, Kontrast und gegebenenfalls Klartext müssen zusammenpassen. Barcode APIs macht diese Einstellungen vor dem Export sichtbar, damit PNG, SVG oder PDF direkt in Layouts, Druckvorlagen oder interne Systeme übernommen werden können.",
+    "Entscheidend ist nicht nur die Grafikdatei. Modulgröße, Rand, Kontrast und gegebenenfalls Klartext müssen zusammenpassen. Barcode Mint macht diese Einstellungen vor dem Export sichtbar, damit PNG, SVG oder PDF direkt in Layouts, Druckvorlagen oder interne Systeme übernommen werden können.",
     "Die Daten für {name} müssen den Regeln der jeweiligen Symbologie folgen. Einige Formate erlauben Text, andere nur Ziffern, gerade Zeichenanzahlen oder strukturierte GS1-Daten mit Application Identifiers. Bei Produkt-, Paket- oder Behördenkennzeichnung sollte die Originalnummer unverändert bleiben und die Prüfziffer separat kontrolliert werden.",
     "In betrieblichen Abläufen zählt Wiederholbarkeit. Derselbe Datenwert soll immer ein vorhersehbares Symbol erzeugen, und Vektorexport erleichtert den Druck in mehreren Größen. Für Etikettenserien kann eine CSV-Liste eingelesen werden, sodass viele Codes mit einheitlichem Stil entstehen.",
     "Der Arbeitsablauf bleibt übersichtlich: {name} auswählen, Daten einfügen, Validierung prüfen und die Größe an die verfügbare Fläche anpassen. Danach eignet sich PNG für schnelle Nutzung, SVG für Satzprogramme und PDF für Druckbögen. Für Integrationen liefert der REST-Endpunkt das Codebild direkt über eine URL.",
@@ -136,7 +136,7 @@ const paragraphSets = {
   ],
   nl: [
     "{kw} helpt om {name} te maken zonder aparte desktopsoftware. Het formaat hoort bij {family} en is geschikt wanneer scannercompatibiliteit, vaste geometrie en controle over afmetingen belangrijk zijn. Je voert de gegevens in, bekijkt het voorbeeld en ziet direct of het symbool op het etiket of document past.",
-    "Het gaat niet alleen om een afbeelding. Modulegrootte, marge, contrast en eventueel leesbare tekst moeten samen kloppen. Barcode APIs toont deze instellingen vóór de export, zodat PNG, SVG of PDF direct bruikbaar is in een ontwerp, labeltemplate of intern systeem.",
+    "Het gaat niet alleen om een afbeelding. Modulegrootte, marge, contrast en eventueel leesbare tekst moeten samen kloppen. Barcode Mint toont deze instellingen vóór de export, zodat PNG, SVG of PDF direct bruikbaar is in een ontwerp, labeltemplate of intern systeem.",
     "De gegevens voor {name} moeten passen bij de regels van de symbologie. Sommige formaten accepteren tekst, andere alleen cijfers, een even aantal tekens of GS1-structuur met Application Identifiers. Bij producten, pakketten of officiële documenten moet het originele nummer exact behouden blijven.",
     "In operationele processen telt herhaalbaarheid. Dezelfde gegevens moeten steeds hetzelfde symbool opleveren, en vectoruitvoer maakt afdrukken op meerdere formaten betrouwbaarder. Voor reeksen etiketten kun je CSV gebruiken, zodat veel codes met dezelfde stijl worden gemaakt.",
     "De workflow is overzichtelijk: kies {name}, plak de gegevens, controleer de validatie en stel de maat af op de beschikbare ruimte. Gebruik PNG voor snel plaatsen, SVG voor vormgeving en PDF voor printvellen. Voor integraties kan de REST-endpoint direct een code-afbeelding leveren via een URL.",
@@ -145,7 +145,7 @@ const paragraphSets = {
   ],
   fr: [
     "{kw} permet de préparer {name} sans logiciel spécialisé. Ce format appartient à la famille {family} et convient lorsque la compatibilité lecteur, la géométrie et les dimensions doivent rester maîtrisées. Vous saisissez les données, vérifiez l’aperçu et voyez immédiatement si le symbole tient sur l’étiquette ou le document.",
-    "Le résultat ne se limite pas à une image. Taille du module, marge, contraste et texte lisible doivent fonctionner ensemble. Barcode APIs rend ces paramètres visibles avant l’export afin que le PNG, le SVG ou le PDF puisse rejoindre une maquette, un modèle d’étiquette ou un système interne.",
+    "Le résultat ne se limite pas à une image. Taille du module, marge, contraste et texte lisible doivent fonctionner ensemble. Barcode Mint rend ces paramètres visibles avant l’export afin que le PNG, le SVG ou le PDF puisse rejoindre une maquette, un modèle d’étiquette ou un système interne.",
     "Les données destinées à {name} doivent respecter les règles de la symbologie. Certains formats acceptent du texte, d’autres uniquement des chiffres, un nombre pair de caractères ou une structure GS1 avec Application Identifiers. Pour un produit, un colis ou un document réglementé, le numéro source doit rester exact.",
     "Dans un flux professionnel, la répétabilité compte. La même valeur doit produire un symbole prévisible, et l’export vectoriel facilite l’impression à différentes tailles. Pour des séries d’étiquettes, un fichier CSV permet de générer de nombreux codes avec un style cohérent.",
     "Le parcours reste direct : choisissez {name}, collez les données, contrôlez la validation et ajustez la taille à l’espace disponible. Le PNG convient à un usage rapide, le SVG à la mise en page, et le PDF aux planches d’impression. Pour une intégration, l’endpoint REST renvoie l’image du code via une URL.",
@@ -154,7 +154,7 @@ const paragraphSets = {
   ],
   ja: [
     "{kw}は、専用ソフトを用意しなくても{name}を作成できるようにする機能です。この形式は{family}に属し、スキャナー互換性、形状の安定性、印刷サイズの管理が重要な場面に向いています。データを入力するとプレビューで確認でき、ラベルや書類に収まるかをすぐ判断できます。",
-    "必要なのは画像を作ることだけではありません。モジュールの大きさ、余白、コントラスト、人が読める文字の表示を用途に合わせて整える必要があります。Barcode APIsでは出力前に設定を確認できるため、PNG、SVG、PDFをそのままレイアウトや社内システムに組み込めます。",
+    "必要なのは画像を作ることだけではありません。モジュールの大きさ、余白、コントラスト、人が読める文字の表示を用途に合わせて整える必要があります。Barcode Mintでは出力前に設定を確認できるため、PNG、SVG、PDFをそのままレイアウトや社内システムに組み込めます。",
     "{name}に入れるデータは、選んだシンボル体系の規則に合わせる必要があります。文字列を扱える形式もあれば、数字のみ、偶数桁、GS1のApplication Identifiersを使う構造が必要な形式もあります。商品、荷物、公的な書類では元の番号を変えず、チェック桁も確認します。",
     "業務で使う場合は再現性が重要です。同じデータから常に同じ形のシンボルを作れること、複数サイズでも崩れないことが信頼につながります。CSVを使えば、多数のラベルを同じ設定でまとめて作成できます。",
     "作成手順はシンプルです。{name}を選び、データを貼り付け、検証表示を確認し、ラベルの空きスペースに合わせてサイズを調整します。PNGは素早い配置に、SVGは制作データに、PDFは印刷用シートに適しています。REST APIを使えばURLから画像を生成できます。",
@@ -173,7 +173,7 @@ const uses = {
 
 const faq = {
   pl: [
-    ["Czy {kw} działa w przeglądarce", "Tak. Barcode APIs tworzy {name} bez instalowania programu, a wynik można pobrać jako PNG, SVG lub PDF."],
+    ["Czy {kw} działa w przeglądarce", "Tak. Barcode Mint tworzy {name} bez instalowania programu, a wynik można pobrać jako PNG, SVG lub PDF."],
     ["Jakie dane mogę wpisać", "Wpisz dane zgodne z regułami formatu {name}. Jeżeli standard wymaga cyfr, długości albo struktury GS1, zachowaj dokładny zapis źródłowy."],
     ["Czy mogę wygenerować wiele kodów naraz", "Tak. Tryb partii pozwala wkleić listę lub wczytać CSV i pobrać serię kodów w ZIP albo PDF."],
     ["Czy taki kod nadaje się do druku", "Tak, ale przed produkcją warto zrobić próbny wydruk i sprawdzić skanowanie na docelowym materiale."],
@@ -181,7 +181,7 @@ const faq = {
     ["Czy mogę użyć API", "Tak. Endpoint REST pozwala tworzyć obraz kodu z parametrów w adresie URL, co ułatwia integrację z własnym systemem."]
   ],
   de: [
-    ["Funktioniert {kw} im Browser", "Ja. Barcode APIs erstellt {name} ohne Installation, danach kann die Ausgabe als PNG, SVG oder PDF gespeichert werden."],
+    ["Funktioniert {kw} im Browser", "Ja. Barcode Mint erstellt {name} ohne Installation, danach kann die Ausgabe als PNG, SVG oder PDF gespeichert werden."],
     ["Welche Daten kann ich eingeben", "Die Daten müssen zu den Regeln von {name} passen. Wenn Ziffern, Länge oder GS1-Struktur gefordert sind, sollte der Quellwert unverändert bleiben."],
     ["Kann ich viele Codes gleichzeitig erstellen", "Ja. Im Stapelmodus lassen sich Listen einfügen oder CSV-Dateien laden und anschließend als ZIP oder PDF ausgeben."],
     ["Eignet sich der Code für den Druck", "Ja, ein Probedruck mit anschließendem Scan auf dem Zielmaterial ist vor der Seriennutzung sinnvoll."],
@@ -189,7 +189,7 @@ const faq = {
     ["Kann ich eine API verwenden", "Ja. Der REST-Endpunkt erzeugt das Codebild aus URL-Parametern und lässt sich in eigene Systeme integrieren."]
   ],
   nl: [
-    ["Werkt {kw} in de browser", "Ja. Barcode APIs maakt {name} zonder installatie en laat je het resultaat opslaan als PNG, SVG of PDF."],
+    ["Werkt {kw} in de browser", "Ja. Barcode Mint maakt {name} zonder installatie en laat je het resultaat opslaan als PNG, SVG of PDF."],
     ["Welke gegevens kan ik invoeren", "De gegevens moeten voldoen aan de regels van {name}. Als cijfers, lengte of GS1-structuur nodig zijn, behoud dan de exacte bronwaarde."],
     ["Kan ik veel codes tegelijk maken", "Ja. In batchmodus kun je een lijst plakken of CSV laden en daarna ZIP of PDF downloaden."],
     ["Is de code geschikt voor drukwerk", "Ja, maar maak vóór seriegebruik een proefdruk en test met het doelmateriaal en de scanner."],
@@ -197,7 +197,7 @@ const faq = {
     ["Kan ik een API gebruiken", "Ja. De REST-endpoint maakt een code-afbeelding uit URL-parameters en past in eigen systemen."]
   ],
   fr: [
-    ["{kw} fonctionne-t-il dans le navigateur", "Oui. Barcode APIs crée {name} sans installation, puis le résultat peut être enregistré en PNG, SVG ou PDF."],
+    ["{kw} fonctionne-t-il dans le navigateur", "Oui. Barcode Mint crée {name} sans installation, puis le résultat peut être enregistré en PNG, SVG ou PDF."],
     ["Quelles données saisir", "Les données doivent respecter les règles de {name}. Si le format impose des chiffres, une longueur ou une structure GS1, conservez la valeur source exacte."],
     ["Puis-je générer plusieurs codes à la fois", "Oui. Le mode lot accepte une liste collée ou un fichier CSV, puis produit un ZIP ou une feuille PDF."],
     ["Le code convient-il à l’impression", "Oui, mais une impression test suivie d’une lecture sur le support final reste recommandée avant la production."],
@@ -205,7 +205,7 @@ const faq = {
     ["Puis-je utiliser une API", "Oui. L’endpoint REST génère l’image du code à partir de paramètres dans l’URL pour l’intégration dans vos systèmes."]
   ],
   ja: [
-    ["{kw}はブラウザーで使えますか", "はい。Barcode APIsは{name}をインストール不要で作成し、PNG、SVG、PDFとして保存できます。"],
+    ["{kw}はブラウザーで使えますか", "はい。Barcode Mintは{name}をインストール不要で作成し、PNG、SVG、PDFとして保存できます。"],
     ["どのようなデータを入力できますか", "{name}の規則に合うデータを入力します。数字、桁数、GS1構造が必要な場合は元の値を正確に保ってください。"],
     ["複数のコードをまとめて作れますか", "はい。一括モードではリスト貼り付けやCSV読み込みを使い、ZIPまたはPDFで保存できます。"],
     ["印刷に使えますか", "使えます。ただし本番前に試し刷りを行い、実際の素材とスキャナーで読み取り確認をしてください。"],
@@ -248,7 +248,7 @@ for (const lang of LANGS) {
     const secondary = Array.from({ length: en.secondaryKeywords.length || 3 }, (_, index) => secondarySeed[index % secondarySeed.length]);
     const localized = {
       id,
-      title: `${kw} | Barcode APIs`,
+      title: `${kw} | Barcode Mint`,
       metaDescription: meta(lang, name, kw, family),
       primaryKeyword: kw,
       secondaryKeywords: secondary,

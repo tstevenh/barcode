@@ -1,123 +1,123 @@
-# Barcode APIs
+# Barcode Mint
 
 > Free online barcode & QR code generator — 100+ symbologies (QR, Data Matrix, PDF417, EAN, UPC, GS1, Code 128 and more) with live preview and PNG / SVG export, plus a REST API.
 
 ## Pages
 
-- [Barcode & QR code generator](https://barcodeapis.com/): Generate any of 100+ barcode types in the browser with live preview.
-- [All barcode types](https://barcodeapis.com/barcodes): Browse every supported symbology.
-- [API documentation](https://barcodeapis.com/api-docs): REST API for generating barcodes programmatically.
-- [About](https://barcodeapis.com/about)
-- [Contact](https://barcodeapis.com/contact)
-- [Privacy](https://barcodeapis.com/privacy)
-- [Terms](https://barcodeapis.com/terms)
-- [Disclaimer](https://barcodeapis.com/disclaimer)
+- [Barcode & QR code generator](https://barcodemint.com/): Generate any of 100+ barcode types in the browser with live preview.
+- [All barcode types](https://barcodemint.com/barcodes): Browse every supported symbology.
+- [API documentation](https://barcodemint.com/api-docs): REST API for generating barcodes programmatically.
+- [About](https://barcodemint.com/about)
+- [Contact](https://barcodemint.com/contact)
+- [Privacy](https://barcodemint.com/privacy)
+- [Terms](https://barcodemint.com/terms)
+- [Disclaimer](https://barcodemint.com/disclaimer)
 
 ## Barcode generators
 
-- [QR Code Generator](https://barcodeapis.com/qr-code): Any text, URL or data. Most popular 2D code.
-- [GS1 QR Code Generator](https://barcodeapis.com/gs1-qr-code)
-- [GS1 Digital Link QR Code Generator](https://barcodeapis.com/gs1-digital-link-qr-code)
-- [GS1 Digital Link Data Matrix Generator](https://barcodeapis.com/gs1-digital-link-data-matrix)
-- [Data Matrix Generator](https://barcodeapis.com/data-matrix): Compact 2D code, ideal for small items & industry.
-- [GS1 Data Matrix Generator](https://barcodeapis.com/gs1-data-matrix): Data Matrix with GS1 Application Identifiers.
-- [PDF417 Generator](https://barcodeapis.com/pdf417): Stacked 2D code used on IDs and shipping labels.
-- [MicroPDF417 Generator](https://barcodeapis.com/micropdf417): Smaller PDF417 for limited space.
-- [Aztec Generator](https://barcodeapis.com/aztec): 2D code that needs no quiet zone. Used on tickets.
-- [Micro QR Generator](https://barcodeapis.com/micro-qr): Smaller QR code for short data.
-- [MaxiCode Generator](https://barcodeapis.com/maxicode): Fixed-size 2D code used by couriers (UPS).
-- [DotCode Generator](https://barcodeapis.com/dotcode): High-speed 2D dot code for printing lines.
-- [Han Xin Code Generator](https://barcodeapis.com/han-xin-code): 2D code with strong Chinese character support.
-- [Codablock-F Generator](https://barcodeapis.com/codablock-f)
-- [Royal Mail Mailmark 2D Generator](https://barcodeapis.com/royal-mail-mailmark-2d)
-- [Swiss QR Code Generator](https://barcodeapis.com/swiss-qr-code)
-- [ZATCA QR Code Generator](https://barcodeapis.com/zatca-qr-code)
-- [EPC QR Code Generator](https://barcodeapis.com/epc-qr-code)
-- [MeCard Generator](https://barcodeapis.com/mecard)
-- [NTIN Code Generator](https://barcodeapis.com/ntin-code)
-- [PPN Code Generator](https://barcodeapis.com/ppn-code)
-- [HIBC LIC QR Code Generator](https://barcodeapis.com/hibc-lic-qr-code)
-- [HIBC LIC Data Matrix Generator](https://barcodeapis.com/hibc-lic-data-matrix)
-- [HIBC LIC PDF417 Generator](https://barcodeapis.com/hibc-lic-pdf417)
-- [HIBC LIC Codablock-F Generator](https://barcodeapis.com/hibc-lic-codablock-f)
-- [HIBC PAS QR Code Generator](https://barcodeapis.com/hibc-pas-qr-code)
-- [HIBC PAS Data Matrix Generator](https://barcodeapis.com/hibc-pas-data-matrix)
-- [HIBC PAS PDF417 Generator](https://barcodeapis.com/hibc-pas-pdf417)
-- [Code 128 Generator](https://barcodeapis.com/code-128): Full ASCII. Compact, great for general use.
-- [Code 128 A Generator](https://barcodeapis.com/code-128-a): Code 128 charset A (uppercase + control).
-- [Code 128 B Generator](https://barcodeapis.com/code-128-b): Code 128 charset B (full ASCII).
-- [Code 128 C Generator](https://barcodeapis.com/code-128-c): Code 128 charset C (digit pairs only).
-- [Code 39 Generator](https://barcodeapis.com/code-39): Uppercase, digits and - . $ / + % space.
-- [Code-39 Full ASCII Generator](https://barcodeapis.com/code-39-full-ascii)
-- [Code 93 Generator](https://barcodeapis.com/code-93): Compact alphanumeric, denser than Code 39.
-- [Code 11 Generator](https://barcodeapis.com/code-11): Digits and dash. Used in telecom.
-- [Standard 2 of 5 Generator](https://barcodeapis.com/standard-2-of-5): Standard 2 of 5. Digits only.
-- [Flattermarken Generator](https://barcodeapis.com/flattermarken)
-- [Interleaved 2 of 5 Generator](https://barcodeapis.com/interleaved-2-of-5): Even number of digits only.
-- [ITF-14 Generator](https://barcodeapis.com/itf-14): 13 digits (14th check digit auto-added).
-- [Industrial 2 of 5 Generator](https://barcodeapis.com/industrial-2-of-5): Industrial 2 of 5. Digits only.
-- [IATA 2 of 5 Generator](https://barcodeapis.com/iata-2-of-5): IATA 2 of 5. Used for air cargo.
-- [Matrix 2 of 5 Generator](https://barcodeapis.com/matrix-2-of-5): Matrix 2 of 5. Digits only.
-- [DPD Barcode / DPD Parcel Label Generator](https://barcodeapis.com/dpd-barcode-dpd-parcel-label)
-- [UPU S10 Generator](https://barcodeapis.com/upu-s10)
-- [MSI Generator](https://barcodeapis.com/msi): Digits only. Used in inventory.
-- [MSI Mod 10 Generator](https://barcodeapis.com/msi-mod-10): MSI with mod-10 check digit.
-- [MSI Mod 11 Generator](https://barcodeapis.com/msi-mod-11): MSI with mod-11 check digit.
-- [Code 32 (Italian) Generator](https://barcodeapis.com/code-32-italian): Italian pharmaceutical code (8 digits).
-- [Pharmacode Generator](https://barcodeapis.com/pharmacode): A number from 3 to 131070.
-- [Pharmacode 2-track Generator](https://barcodeapis.com/pharmacode-2-track): Two-track pharmacode.
-- [Codabar Generator](https://barcodeapis.com/codabar): Digits and - $ : / . + , optional A-D wrap.
-- [Telepen Generator](https://barcodeapis.com/telepen): Encodes full ASCII. Used in libraries.
-- [Channel Code Generator](https://barcodeapis.com/channel-code): Compact code for 2–7 digits.
-- [BC412 Generator](https://barcodeapis.com/bc412): 12-level code used in semiconductors.
-- [PZN (Pharma) Generator](https://barcodeapis.com/pzn-pharma): German pharmaceutical number (PZN).
-- [GS1-128 Generator](https://barcodeapis.com/gs1-128): Code 128 with GS1 Application Identifiers.
-- [GS1-128 Composite Symbology Generator](https://barcodeapis.com/gs1-128-composite-symbology)
-- [HIBC LIC Code 39 Generator](https://barcodeapis.com/hibc-lic-code-39)
-- [HIBC LIC Code 128 Generator](https://barcodeapis.com/hibc-lic-code-128)
-- [HIBC PAS Code 39 Generator](https://barcodeapis.com/hibc-pas-code-39)
-- [HIBC PAS Code 128 Generator](https://barcodeapis.com/hibc-pas-code-128)
-- [DataBar Omni Generator](https://barcodeapis.com/databar-omni): GS1 DataBar Omnidirectional. Use GS1 AI (01)+GTIN, e.g. (01)09521234543213.
-- [DataBar Stacked Generator](https://barcodeapis.com/databar-stacked): GS1 DataBar Stacked. Use GS1 AI (01)+GTIN, e.g. (01)09521234543213.
-- [DataBar Stacked Omni Generator](https://barcodeapis.com/databar-stacked-omni): GS1 DataBar Stacked Omnidirectional.
-- [DataBar Truncated Generator](https://barcodeapis.com/databar-truncated): GS1 DataBar Truncated. Use GS1 AI (01)+GTIN, e.g. (01)09521234543213.
-- [DataBar Limited Generator](https://barcodeapis.com/databar-limited): GS1 DataBar Limited. Use (01)+GTIN starting with 0 or 1.
-- [DataBar Expanded Generator](https://barcodeapis.com/databar-expanded): GS1 DataBar Expanded. AI data.
-- [GS1 DataBar Expanded Stacked Generator](https://barcodeapis.com/gs1-databar-expanded-stacked)
-- [GS1 DataBar Composite Generator](https://barcodeapis.com/gs1-databar-composite)
-- [GS1 DataBar Stacked Composite Generator](https://barcodeapis.com/gs1-databar-stacked-composite)
-- [GS1 DataBar Stacked Omni Composite Generator](https://barcodeapis.com/gs1-databar-stacked-omni-composite)
-- [GS1 DataBar Limited Composite Generator](https://barcodeapis.com/gs1-databar-limited-composite)
-- [GS1 DataBar Truncated Composite Generator](https://barcodeapis.com/gs1-databar-truncated-composite)
-- [GS1 DataBar Expanded Composite Generator](https://barcodeapis.com/gs1-databar-expanded-composite)
-- [GS1 DataBar Expanded Stacked Composite Generator](https://barcodeapis.com/gs1-databar-expanded-stacked-composite)
-- [GS1 Composite 2D Component Generator](https://barcodeapis.com/gs1-composite-2d-component)
-- [USPS POSTNET Generator](https://barcodeapis.com/usps-postnet): USPS POSTNET. ZIP digits.
-- [USPS PLANET Generator](https://barcodeapis.com/usps-planet): USPS PLANET. Tracking digits.
-- [USPS Intelligent Mail Generator](https://barcodeapis.com/usps-intelligent-mail): USPS Intelligent Mail (IMb), 20–31 digits.
-- [USPS IM Package Generator](https://barcodeapis.com/usps-im-package)
-- [Royal Mail 4-State Generator](https://barcodeapis.com/royal-mail-4-state): Royal Mail 4-State (RM4SCC).
-- [Royal Mail Mailmark 4-State Generator](https://barcodeapis.com/royal-mail-mailmark-4-state)
-- [DAFT Generator](https://barcodeapis.com/daft)
-- [Royal Dutch KIX Generator](https://barcodeapis.com/royal-dutch-kix): Royal Dutch TNT KIX code.
-- [Australia Post Generator](https://barcodeapis.com/australia-post): Australia Post 4-State customer code.
-- [Japan Post Generator](https://barcodeapis.com/japan-post): Japan Post 4-State code.
-- [Korean Postal Authority Code Generator](https://barcodeapis.com/korean-postal-authority-code)
-- [Deutsche Post Identcode Generator](https://barcodeapis.com/deutsche-post-identcode): Deutsche Post Identcode.
-- [Deutsche Post Leitcode Generator](https://barcodeapis.com/deutsche-post-leitcode): Deutsche Post Leitcode.
-- [EAN-13 Generator](https://barcodeapis.com/ean-13): 12 digits (13th check digit auto-added).
-- [EAN-8 Generator](https://barcodeapis.com/ean-8): 7 digits (8th check digit auto-added).
-- [EAN-5 add-on Generator](https://barcodeapis.com/ean-5-add-on): Exactly 5 digits.
-- [EAN-2 add-on Generator](https://barcodeapis.com/ean-2-add-on): Exactly 2 digits.
-- [UPC-A Generator](https://barcodeapis.com/upc-a): 11 digits (12th check digit auto-added).
-- [UPC-E Generator](https://barcodeapis.com/upc-e): Compressed UPC, 6–11 digits.
-- [EAN-14 Generator](https://barcodeapis.com/ean-14)
-- [EAN-8 Composite Generator](https://barcodeapis.com/ean-8-composite)
-- [EAN-13 Composite Generator](https://barcodeapis.com/ean-13-composite)
-- [UPC-A Composite Generator](https://barcodeapis.com/upc-a-composite)
-- [UPC-E Composite Generator](https://barcodeapis.com/upc-e-composite)
-- [ISBN Generator](https://barcodeapis.com/isbn): Book number (EAN-13 based).
-- [ISBN-13 + 5 add-on Generator](https://barcodeapis.com/isbn-13-plus-5-add-on)
-- [ISSN Generator](https://barcodeapis.com/issn): Serial publication number.
-- [ISSN + 2 add-on Generator](https://barcodeapis.com/issn-plus-2-add-on)
-- [ISMN Generator](https://barcodeapis.com/ismn): Music publication number.
+- [QR Code Generator](https://barcodemint.com/qr-code): Any text, URL or data. Most popular 2D code.
+- [GS1 QR Code Generator](https://barcodemint.com/gs1-qr-code)
+- [GS1 Digital Link QR Code Generator](https://barcodemint.com/gs1-digital-link-qr-code)
+- [GS1 Digital Link Data Matrix Generator](https://barcodemint.com/gs1-digital-link-data-matrix)
+- [Data Matrix Generator](https://barcodemint.com/data-matrix): Compact 2D code, ideal for small items & industry.
+- [GS1 Data Matrix Generator](https://barcodemint.com/gs1-data-matrix): Data Matrix with GS1 Application Identifiers.
+- [PDF417 Generator](https://barcodemint.com/pdf417): Stacked 2D code used on IDs and shipping labels.
+- [MicroPDF417 Generator](https://barcodemint.com/micropdf417): Smaller PDF417 for limited space.
+- [Aztec Generator](https://barcodemint.com/aztec): 2D code that needs no quiet zone. Used on tickets.
+- [Micro QR Generator](https://barcodemint.com/micro-qr): Smaller QR code for short data.
+- [MaxiCode Generator](https://barcodemint.com/maxicode): Fixed-size 2D code used by couriers (UPS).
+- [DotCode Generator](https://barcodemint.com/dotcode): High-speed 2D dot code for printing lines.
+- [Han Xin Code Generator](https://barcodemint.com/han-xin-code): 2D code with strong Chinese character support.
+- [Codablock-F Generator](https://barcodemint.com/codablock-f)
+- [Royal Mail Mailmark 2D Generator](https://barcodemint.com/royal-mail-mailmark-2d)
+- [Swiss QR Code Generator](https://barcodemint.com/swiss-qr-code)
+- [ZATCA QR Code Generator](https://barcodemint.com/zatca-qr-code)
+- [EPC QR Code Generator](https://barcodemint.com/epc-qr-code)
+- [MeCard Generator](https://barcodemint.com/mecard)
+- [NTIN Code Generator](https://barcodemint.com/ntin-code)
+- [PPN Code Generator](https://barcodemint.com/ppn-code)
+- [HIBC LIC QR Code Generator](https://barcodemint.com/hibc-lic-qr-code)
+- [HIBC LIC Data Matrix Generator](https://barcodemint.com/hibc-lic-data-matrix)
+- [HIBC LIC PDF417 Generator](https://barcodemint.com/hibc-lic-pdf417)
+- [HIBC LIC Codablock-F Generator](https://barcodemint.com/hibc-lic-codablock-f)
+- [HIBC PAS QR Code Generator](https://barcodemint.com/hibc-pas-qr-code)
+- [HIBC PAS Data Matrix Generator](https://barcodemint.com/hibc-pas-data-matrix)
+- [HIBC PAS PDF417 Generator](https://barcodemint.com/hibc-pas-pdf417)
+- [Code 128 Generator](https://barcodemint.com/code-128): Full ASCII. Compact, great for general use.
+- [Code 128 A Generator](https://barcodemint.com/code-128-a): Code 128 charset A (uppercase + control).
+- [Code 128 B Generator](https://barcodemint.com/code-128-b): Code 128 charset B (full ASCII).
+- [Code 128 C Generator](https://barcodemint.com/code-128-c): Code 128 charset C (digit pairs only).
+- [Code 39 Generator](https://barcodemint.com/code-39): Uppercase, digits and - . $ / + % space.
+- [Code-39 Full ASCII Generator](https://barcodemint.com/code-39-full-ascii)
+- [Code 93 Generator](https://barcodemint.com/code-93): Compact alphanumeric, denser than Code 39.
+- [Code 11 Generator](https://barcodemint.com/code-11): Digits and dash. Used in telecom.
+- [Standard 2 of 5 Generator](https://barcodemint.com/standard-2-of-5): Standard 2 of 5. Digits only.
+- [Flattermarken Generator](https://barcodemint.com/flattermarken)
+- [Interleaved 2 of 5 Generator](https://barcodemint.com/interleaved-2-of-5): Even number of digits only.
+- [ITF-14 Generator](https://barcodemint.com/itf-14): 13 digits (14th check digit auto-added).
+- [Industrial 2 of 5 Generator](https://barcodemint.com/industrial-2-of-5): Industrial 2 of 5. Digits only.
+- [IATA 2 of 5 Generator](https://barcodemint.com/iata-2-of-5): IATA 2 of 5. Used for air cargo.
+- [Matrix 2 of 5 Generator](https://barcodemint.com/matrix-2-of-5): Matrix 2 of 5. Digits only.
+- [DPD Barcode / DPD Parcel Label Generator](https://barcodemint.com/dpd-barcode-dpd-parcel-label)
+- [UPU S10 Generator](https://barcodemint.com/upu-s10)
+- [MSI Generator](https://barcodemint.com/msi): Digits only. Used in inventory.
+- [MSI Mod 10 Generator](https://barcodemint.com/msi-mod-10): MSI with mod-10 check digit.
+- [MSI Mod 11 Generator](https://barcodemint.com/msi-mod-11): MSI with mod-11 check digit.
+- [Code 32 (Italian) Generator](https://barcodemint.com/code-32-italian): Italian pharmaceutical code (8 digits).
+- [Pharmacode Generator](https://barcodemint.com/pharmacode): A number from 3 to 131070.
+- [Pharmacode 2-track Generator](https://barcodemint.com/pharmacode-2-track): Two-track pharmacode.
+- [Codabar Generator](https://barcodemint.com/codabar): Digits and - $ : / . + , optional A-D wrap.
+- [Telepen Generator](https://barcodemint.com/telepen): Encodes full ASCII. Used in libraries.
+- [Channel Code Generator](https://barcodemint.com/channel-code): Compact code for 2–7 digits.
+- [BC412 Generator](https://barcodemint.com/bc412): 12-level code used in semiconductors.
+- [PZN (Pharma) Generator](https://barcodemint.com/pzn-pharma): German pharmaceutical number (PZN).
+- [GS1-128 Generator](https://barcodemint.com/gs1-128): Code 128 with GS1 Application Identifiers.
+- [GS1-128 Composite Symbology Generator](https://barcodemint.com/gs1-128-composite-symbology)
+- [HIBC LIC Code 39 Generator](https://barcodemint.com/hibc-lic-code-39)
+- [HIBC LIC Code 128 Generator](https://barcodemint.com/hibc-lic-code-128)
+- [HIBC PAS Code 39 Generator](https://barcodemint.com/hibc-pas-code-39)
+- [HIBC PAS Code 128 Generator](https://barcodemint.com/hibc-pas-code-128)
+- [DataBar Omni Generator](https://barcodemint.com/databar-omni): GS1 DataBar Omnidirectional. Use GS1 AI (01)+GTIN, e.g. (01)09521234543213.
+- [DataBar Stacked Generator](https://barcodemint.com/databar-stacked): GS1 DataBar Stacked. Use GS1 AI (01)+GTIN, e.g. (01)09521234543213.
+- [DataBar Stacked Omni Generator](https://barcodemint.com/databar-stacked-omni): GS1 DataBar Stacked Omnidirectional.
+- [DataBar Truncated Generator](https://barcodemint.com/databar-truncated): GS1 DataBar Truncated. Use GS1 AI (01)+GTIN, e.g. (01)09521234543213.
+- [DataBar Limited Generator](https://barcodemint.com/databar-limited): GS1 DataBar Limited. Use (01)+GTIN starting with 0 or 1.
+- [DataBar Expanded Generator](https://barcodemint.com/databar-expanded): GS1 DataBar Expanded. AI data.
+- [GS1 DataBar Expanded Stacked Generator](https://barcodemint.com/gs1-databar-expanded-stacked)
+- [GS1 DataBar Composite Generator](https://barcodemint.com/gs1-databar-composite)
+- [GS1 DataBar Stacked Composite Generator](https://barcodemint.com/gs1-databar-stacked-composite)
+- [GS1 DataBar Stacked Omni Composite Generator](https://barcodemint.com/gs1-databar-stacked-omni-composite)
+- [GS1 DataBar Limited Composite Generator](https://barcodemint.com/gs1-databar-limited-composite)
+- [GS1 DataBar Truncated Composite Generator](https://barcodemint.com/gs1-databar-truncated-composite)
+- [GS1 DataBar Expanded Composite Generator](https://barcodemint.com/gs1-databar-expanded-composite)
+- [GS1 DataBar Expanded Stacked Composite Generator](https://barcodemint.com/gs1-databar-expanded-stacked-composite)
+- [GS1 Composite 2D Component Generator](https://barcodemint.com/gs1-composite-2d-component)
+- [USPS POSTNET Generator](https://barcodemint.com/usps-postnet): USPS POSTNET. ZIP digits.
+- [USPS PLANET Generator](https://barcodemint.com/usps-planet): USPS PLANET. Tracking digits.
+- [USPS Intelligent Mail Generator](https://barcodemint.com/usps-intelligent-mail): USPS Intelligent Mail (IMb), 20–31 digits.
+- [USPS IM Package Generator](https://barcodemint.com/usps-im-package)
+- [Royal Mail 4-State Generator](https://barcodemint.com/royal-mail-4-state): Royal Mail 4-State (RM4SCC).
+- [Royal Mail Mailmark 4-State Generator](https://barcodemint.com/royal-mail-mailmark-4-state)
+- [DAFT Generator](https://barcodemint.com/daft)
+- [Royal Dutch KIX Generator](https://barcodemint.com/royal-dutch-kix): Royal Dutch TNT KIX code.
+- [Australia Post Generator](https://barcodemint.com/australia-post): Australia Post 4-State customer code.
+- [Japan Post Generator](https://barcodemint.com/japan-post): Japan Post 4-State code.
+- [Korean Postal Authority Code Generator](https://barcodemint.com/korean-postal-authority-code)
+- [Deutsche Post Identcode Generator](https://barcodemint.com/deutsche-post-identcode): Deutsche Post Identcode.
+- [Deutsche Post Leitcode Generator](https://barcodemint.com/deutsche-post-leitcode): Deutsche Post Leitcode.
+- [EAN-13 Generator](https://barcodemint.com/ean-13): 12 digits (13th check digit auto-added).
+- [EAN-8 Generator](https://barcodemint.com/ean-8): 7 digits (8th check digit auto-added).
+- [EAN-5 add-on Generator](https://barcodemint.com/ean-5-add-on): Exactly 5 digits.
+- [EAN-2 add-on Generator](https://barcodemint.com/ean-2-add-on): Exactly 2 digits.
+- [UPC-A Generator](https://barcodemint.com/upc-a): 11 digits (12th check digit auto-added).
+- [UPC-E Generator](https://barcodemint.com/upc-e): Compressed UPC, 6–11 digits.
+- [EAN-14 Generator](https://barcodemint.com/ean-14)
+- [EAN-8 Composite Generator](https://barcodemint.com/ean-8-composite)
+- [EAN-13 Composite Generator](https://barcodemint.com/ean-13-composite)
+- [UPC-A Composite Generator](https://barcodemint.com/upc-a-composite)
+- [UPC-E Composite Generator](https://barcodemint.com/upc-e-composite)
+- [ISBN Generator](https://barcodemint.com/isbn): Book number (EAN-13 based).
+- [ISBN-13 + 5 add-on Generator](https://barcodemint.com/isbn-13-plus-5-add-on)
+- [ISSN Generator](https://barcodemint.com/issn): Serial publication number.
+- [ISSN + 2 add-on Generator](https://barcodemint.com/issn-plus-2-add-on)
+- [ISMN Generator](https://barcodemint.com/ismn): Music publication number.

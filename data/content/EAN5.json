@@ -1,6 +1,6 @@
 {
   "id": "EAN5",
-  "title": "EAN-5 Add-On Barcode Generator | Barcode APIs",
+  "title": "EAN-5 Add-On Barcode Generator | Barcode Mint",
   "metaDescription": "Generate an EAN-5 add-on barcode free online to encode a suggested retail price or issue number next to EAN-13/UPC-A. Instant preview, export, and API.",
   "primaryKeyword": "ean-5 add-on generator",
   "secondaryKeywords": ["ean-5 supplement barcode", "5 digit barcode add-on", "book price barcode", "ean-5 vs ean-2", "magazine price add-on code", "ean-13 price supplement"],
@@ -16,14 +16,14 @@
     },
     {
       "h2": "Technical Specifications",
-      "html": "<p>EAN-5 is always exactly 5 digits, numeric only, with no letters or symbols and no independent check digit in the traditional sense — validity comes from the parity encoding pattern rather than a calculated final digit. It is a supplement only: it cannot be printed alone as a standalone, scannable product identifier, and Barcode APIs treats it accordingly, generating it as an add-on component meant to sit beside a main EAN-13, UPC-A, or ISBN barcode rather than as an independent symbology choice.</p>"
+      "html": "<p>EAN-5 is always exactly 5 digits, numeric only, with no letters or symbols and no independent check digit in the traditional sense — validity comes from the parity encoding pattern rather than a calculated final digit. It is a supplement only: it cannot be printed alone as a standalone, scannable product identifier, and Barcode Mint treats it accordingly, generating it as an add-on component meant to sit beside a main EAN-13, UPC-A, or ISBN barcode rather than as an independent symbology choice.</p>"
     },
     {
       "h2": "Where EAN-5 Is Used",
       "html": "<ul><li><strong>Book publishing</strong> — the most common use, encoding a suggested retail price next to the ISBN-based EAN-13 on the back cover.</li><li><strong>Magazines and periodicals</strong> — occasionally used to indicate cover price alongside the main identifying code.</li><li><strong>Specialty print goods</strong> — some publishers use the 5-digit field for edition or variant data rather than price, depending on internal convention.</li></ul>"
     },
     {
-      "h2": "How to Create an EAN-5 Add-On in Barcode APIs",
+      "h2": "How to Create an EAN-5 Add-On in Barcode Mint",
       "html": "<p>Select <strong>EAN-5 add-on</strong> from the symbology list under Retail (EAN/UPC). Enter exactly 5 digits — following the currency-plus-price convention if you're encoding a book price, or your own internal 5-digit scheme for other uses. The live preview renders the add-on's distinctive shorter, taller-guard-bar appearance so you can confirm it before export. From there:</p><ul><li>Generate your main <strong>EAN-13</strong> or <strong>UPC-A</strong> barcode separately, then position the EAN-5 add-on immediately to its right with the standard supplemental gap between them.</li><li>Match <strong>bar height and module width</strong> proportionally to the main barcode so the combined symbol reads as one cohesive unit on the printed page.</li><li>Export as <strong>PNG or SVG</strong> for placement in cover or packaging design software, or use <strong>Copy</strong> for quick insertion.</li><li>Use the <strong>bulk CSV → ZIP/PDF</strong> tool if you're generating price add-ons for an entire catalog or title list at once.</li><li>Call the <strong>REST API</strong> — <code>/barcode?type=ean5&data=YOUR5DIGITS</code> — to generate the add-on programmatically from a publishing or catalog system.</li></ul>"
     },
     {
@@ -46,7 +46,7 @@
     {"q": "Can EAN-5 be used as a standalone barcode?", "a": "<p>No. EAN-5 is a supplemental add-on that must be printed next to a main EAN-13, UPC-A, or ISBN barcode — it does not identify a product on its own.</p>"},
     {"q": "Does EAN-5 have a check digit?", "a": "Not in the traditional modulo-10 sense. EAN-5 uses a parity encoding pattern across its 5 digits rather than a separate calculated check digit."},
     {"q": "Will every barcode scanner read the EAN-5 add-on?", "a": "Not necessarily — many retail scanners are configured to read only the primary barcode and ignore supplemental add-ons unless specifically set up to capture them."},
-    {"q": "Is the EAN-5 add-on generator free to use?", "a": "Yes, Barcode APIs's EAN-5 generator runs entirely in your browser with no account required for standard PNG/SVG exports."},
-    {"q": "Can I generate EAN-5 add-ons in bulk for a book catalog?", "a": "<p>Yes. Upload a CSV of 5-digit price codes to Barcode APIs's bulk tool to produce a ZIP of individual add-on images or a single print-ready PDF, one per title.</p>"}
+    {"q": "Is the EAN-5 add-on generator free to use?", "a": "Yes, Barcode Mint's EAN-5 generator runs entirely in your browser with no account required for standard PNG/SVG exports."},
+    {"q": "Can I generate EAN-5 add-ons in bulk for a book catalog?", "a": "<p>Yes. Upload a CSV of 5-digit price codes to Barcode Mint's bulk tool to produce a ZIP of individual add-on images or a single print-ready PDF, one per title.</p>"}
   ]
 }

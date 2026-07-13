@@ -18,7 +18,7 @@
   },
   {
    "h2": "How the mod-11 check digit is calculated",
-   "html": "<p>Working from the rightmost digit of your data, each digit is multiplied by a cyclical weight that repeats 2, 3, 4, 5, 6, 7, 2, 3, 4... moving from right to left. The weighted values are summed, and that sum is divided by 11; the remainder is subtracted from 11 to produce the check digit (if the result is 10 or 11, conventions vary by system, and Barcode APIs follows the standard MSI Mod 11 handling for that edge case). Because the weighting changes from position to position, this scheme is more sensitive to digits being swapped or shifted than the doubling used in Mod 10, which treats alternating positions more uniformly. Barcode APIs calculates and appends this digit automatically from your base numeric input.</p>"
+   "html": "<p>Working from the rightmost digit of your data, each digit is multiplied by a cyclical weight that repeats 2, 3, 4, 5, 6, 7, 2, 3, 4... moving from right to left. The weighted values are summed, and that sum is divided by 11; the remainder is subtracted from 11 to produce the check digit (if the result is 10 or 11, conventions vary by system, and Barcode Mint follows the standard MSI Mod 11 handling for that edge case). Because the weighting changes from position to position, this scheme is more sensitive to digits being swapped or shifted than the doubling used in Mod 10, which treats alternating positions more uniformly. Barcode Mint calculates and appends this digit automatically from your base numeric input.</p>"
   },
   {
    "h2": "Technical Specifications",
@@ -29,8 +29,8 @@
    "html": "<p>MSI Mod 11 appears in the same general settings as other MSI variants &mdash; warehouse racking labels, inventory tags, and internal asset tracking &mdash; specifically in organizations that have standardized on the stronger check-digit scheme, often because a past incident with transposed digits caused a costly misroute or inventory discrepancy. It's also used where a system was originally specified with Mod 11 by an equipment vendor or integrator and later installations simply continued the convention.</p><p>It's also common in library shelving systems, cable and component reel labeling, and multi-location asset tracking where a mislabeled item might not be discovered for weeks, making the stronger error catch worth the marginal extra calculation. Because Mod 11 and Mod 10 produce different check digits from the same base data, a system can't simply switch between them without reprinting every existing label, which is one reason organizations tend to standardize on one scheme early and rarely revisit the choice.</p>"
   },
   {
-   "h2": "How to create an MSI Mod 11 barcode in Barcode APIs",
-   "html": "<p>Select <strong>MSI Mod 11</strong> from the symbology list on the left, then enter your base numeric data &mdash; Barcode APIs calculates and appends the weighted mod-11 check digit automatically. From there you can:</p><ul><li>Adjust bar width, height, and quiet zone to match your label size and scanner</li><li>Toggle human-readable text below the bars, typically shown with the check digit included for manual verification</li><li>Export as PNG, SVG, or PDF, or copy the image directly into a label template</li><li>Use the batch or sequence tools to generate a numbered run of labels, each with its own correctly computed check digit</li><li>Upload a CSV of base numeric values for bulk generation as a ZIP of image files or a print-ready PDF of labels</li><li>Call the REST API &mdash; <code>/barcode?type=MSI11&amp;data=123456</code> &mdash; to generate codes programmatically, with the check digit computed automatically</li></ul>"
+   "h2": "How to create an MSI Mod 11 barcode in Barcode Mint",
+   "html": "<p>Select <strong>MSI Mod 11</strong> from the symbology list on the left, then enter your base numeric data &mdash; Barcode Mint calculates and appends the weighted mod-11 check digit automatically. From there you can:</p><ul><li>Adjust bar width, height, and quiet zone to match your label size and scanner</li><li>Toggle human-readable text below the bars, typically shown with the check digit included for manual verification</li><li>Export as PNG, SVG, or PDF, or copy the image directly into a label template</li><li>Use the batch or sequence tools to generate a numbered run of labels, each with its own correctly computed check digit</li><li>Upload a CSV of base numeric values for bulk generation as a ZIP of image files or a print-ready PDF of labels</li><li>Call the REST API &mdash; <code>/barcode?type=MSI11&amp;data=123456</code> &mdash; to generate codes programmatically, with the check digit computed automatically</li></ul>"
   },
   {
    "h2": "Print and scan best practices",
@@ -59,7 +59,7 @@
   },
   {
    "q": "Do I need to calculate the check digit myself?",
-   "a": "No, Barcode APIs calculates and appends the correct weighted mod-11 check digit automatically based on the numeric data you enter."
+   "a": "No, Barcode Mint calculates and appends the correct weighted mod-11 check digit automatically based on the numeric data you enter."
   },
   {
    "q": "Can MSI Mod 11 encode letters?",
@@ -71,7 +71,7 @@
   },
   {
    "q": "Can I bulk-generate MSI Mod 11 barcodes?",
-   "a": "Yes, upload a CSV of base numeric values and Barcode APIs will calculate each check digit and generate a ZIP of image files or a print-ready PDF of labels."
+   "a": "Yes, upload a CSV of base numeric values and Barcode Mint will calculate each check digit and generate a ZIP of image files or a print-ready PDF of labels."
   }
  ]
 }

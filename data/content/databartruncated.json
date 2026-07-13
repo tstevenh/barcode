@@ -23,8 +23,8 @@
       "html": "<p>DataBar Truncated fits applications where label height is the binding constraint and the scanning setup is predictable &mdash; internal inventory tags scanned by a fixed-mount or handheld reader aimed deliberately at the code, asset tags in tight physical spaces, and specialty packaging where a full-height DataBar Omni symbol simply won't fit under a product image or text block. It's less common at consumer retail checkout precisely because that environment depends on omnidirectional reliability that a shortened symbol can't fully guarantee.</p>"
     },
     {
-      "h2": "How to create a DataBar Truncated barcode in Barcode APIs",
-      "html": "<p>Select <strong>DataBar Truncated</strong> from the GS1 DataBar group in the symbology list, then enter the GTIN with AI syntax, for example <code>(01)09521234543213</code>. Barcode APIs validates the check digit and renders the shortened single-row symbol.</p><ul><li>Adjust the reduced bar height and module width to fit your exact label constraints</li><li>Set foreground/background colors while keeping strong contrast</li><li>Fine-tune the quiet zone margin on both sides of the symbol</li><li>Export as PNG or SVG, or copy the code for a label template</li><li>Upload a CSV of GTINs for bulk generation into a ZIP or print-ready PDF</li><li>Use the REST API to automate output: <code>/barcode?type=databartruncated&amp;data=(01)09521234543213</code></li></ul>"
+      "h2": "How to create a DataBar Truncated barcode in Barcode Mint",
+      "html": "<p>Select <strong>DataBar Truncated</strong> from the GS1 DataBar group in the symbology list, then enter the GTIN with AI syntax, for example <code>(01)09521234543213</code>. Barcode Mint validates the check digit and renders the shortened single-row symbol.</p><ul><li>Adjust the reduced bar height and module width to fit your exact label constraints</li><li>Set foreground/background colors while keeping strong contrast</li><li>Fine-tune the quiet zone margin on both sides of the symbol</li><li>Export as PNG or SVG, or copy the code for a label template</li><li>Upload a CSV of GTINs for bulk generation into a ZIP or print-ready PDF</li><li>Use the REST API to automate output: <code>/barcode?type=databartruncated&amp;data=(01)09521234543213</code></li></ul>"
     },
     {
       "h2": "Print and scan best practices",
@@ -48,7 +48,7 @@
     {"q": "Is DataBar Truncated safe to use at retail checkout?", "a": "GS1 guidance advises against using DataBar Truncated for general retail point-of-sale scanning because its reduced height makes omnidirectional sweep scanning less reliable; DataBar Omni or DataBar Stacked Omni are better suited to checkout lanes."},
     {"q": "Does DataBar Truncated store different data than DataBar Omni?", "a": "No, both encode the same GTIN through Application Identifier (01); the only difference is that DataBar Truncated has a shorter bar height."},
     {"q": "Why not just use DataBar Stacked instead of DataBar Truncated?", "a": "<p>DataBar Stacked splits the GTIN into two full-height rows to save width, while DataBar Truncated keeps a single row and shortens the height instead &mdash; choose whichever dimension your label can least spare.</p>"},
-    {"q": "Can I bulk-generate DataBar Truncated barcodes?", "a": "Yes, upload a CSV of GTINs and Barcode APIs will produce a ZIP of image files or a print-ready PDF of labels."},
+    {"q": "Can I bulk-generate DataBar Truncated barcodes?", "a": "Yes, upload a CSV of GTINs and Barcode Mint will produce a ZIP of image files or a print-ready PDF of labels."},
     {"q": "What GS1 Application Identifier does DataBar Truncated use?", "a": "It uses AI (01) for the GTIN, the same Application Identifier used by DataBar Omni, Stacked, and Stacked Omni, since all four are GTIN-only symbols."}
   ]
 }

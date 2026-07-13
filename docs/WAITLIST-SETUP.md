@@ -35,9 +35,9 @@ rest of the site is unaffected.
 ## 2. Resend (confirmation email — optional)
 
 1. Create an account at https://resend.com and verify your sending domain
-   (e.g. `barcodeapis.com`).
+   (e.g. `barcodemint.com`).
 2. Create an API key.
-3. Note a verified from-address, e.g. `Barcode APIs <hello@barcodeapis.com>`.
+3. Note a verified from-address, e.g. `Barcode Mint <hello@barcodemint.com>`.
 
 If you skip this, signups are still stored — no email just goes out.
 

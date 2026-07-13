@@ -23,8 +23,8 @@
       "html": "<p>DataBar Stacked shows up on narrow packaging where a wide DataBar Omni symbol simply won't fit across the label &mdash; small cosmetic tubes, narrow jewelry tags, compact electronics accessories, and specialty pharmacy or supplement packaging with a tall, thin label area. It's common in scenarios where a stockroom or pharmacy worker scans items one at a time with a handheld imager rather than sweeping items past a fixed lane scanner, since that use case tolerates the more deliberate aiming that a stacked, non-omnidirectional symbol requires.</p>"
     },
     {
-      "h2": "How to create a DataBar Stacked barcode in Barcode APIs",
-      "html": "<p>Choose <strong>DataBar Stacked</strong> from the GS1 DataBar group in the symbology list, then enter the GTIN using AI syntax, such as <code>(01)09521234543213)</code>. Barcode APIs checks the digit sequence and lays out the two-row symbol automatically.</p><ul><li>Adjust module width and row height independently to fit a narrow, tall label footprint</li><li>Set foreground/background colors while preserving scan contrast</li><li>Fine-tune the quiet zone margin around the stacked symbol</li><li>Export to PNG or SVG, or copy the barcode for a label template</li><li>Bulk-generate from a CSV of GTINs into a ZIP or print-ready PDF</li><li>Use the REST API for automated generation: <code>/barcode?type=databarstacked&amp;data=(01)09521234543213</code></li></ul>"
+      "h2": "How to create a DataBar Stacked barcode in Barcode Mint",
+      "html": "<p>Choose <strong>DataBar Stacked</strong> from the GS1 DataBar group in the symbology list, then enter the GTIN using AI syntax, such as <code>(01)09521234543213)</code>. Barcode Mint checks the digit sequence and lays out the two-row symbol automatically.</p><ul><li>Adjust module width and row height independently to fit a narrow, tall label footprint</li><li>Set foreground/background colors while preserving scan contrast</li><li>Fine-tune the quiet zone margin around the stacked symbol</li><li>Export to PNG or SVG, or copy the barcode for a label template</li><li>Bulk-generate from a CSV of GTINs into a ZIP or print-ready PDF</li><li>Use the REST API for automated generation: <code>/barcode?type=databarstacked&amp;data=(01)09521234543213</code></li></ul>"
     },
     {
       "h2": "Print and scan best practices",
@@ -48,7 +48,7 @@
     {"q": "Is DataBar Stacked omnidirectional like DataBar Omni?", "a": "No, plain DataBar Stacked is intended for handheld or fixed-position scanning rather than full sweep-lane checkout scanning. If you need both a narrow footprint and omnidirectional POS scanning, use DataBar Stacked Omni instead."},
     {"q": "Can DataBar Stacked carry more than a GTIN?", "a": "No, DataBar Stacked only carries a GTIN through AI (01). For batch numbers, dates, or other Application Identifiers, use DataBar Expanded Stacked or a DataBar Composite symbol."},
     {"q": "How is DataBar Stacked different from DataBar Truncated?", "a": "DataBar Stacked splits the GTIN data into two full-height rows for a narrow, tall label, while DataBar Truncated keeps the single-row layout of DataBar Omni but shortens the bar height, trading omnidirectional reliability for vertical space savings in a different way."},
-    {"q": "Can I bulk-generate DataBar Stacked barcodes?", "a": "Yes, upload a CSV of GTINs and Barcode APIs produces a ZIP of image files or a print-ready PDF of labels in one pass."},
+    {"q": "Can I bulk-generate DataBar Stacked barcodes?", "a": "Yes, upload a CSV of GTINs and Barcode Mint produces a ZIP of image files or a print-ready PDF of labels in one pass."},
     {"q": "Does DataBar Stacked need a licensed GS1 prefix?", "a": "Yes, for real commercial use the GTIN encoded in a DataBar Stacked symbol should come from a GTIN issued under your organization's licensed GS1 Company Prefix so it doesn't collide with another company's product identifier."}
   ]
 }

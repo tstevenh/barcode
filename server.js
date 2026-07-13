@@ -1,4 +1,4 @@
-// Local development / self-host server for Barcode APIs.
+// Local development / self-host server for Barcode Mint.
 //
 // Serves the static site AND runs the /api serverless handlers in one process,
 // so `npm start` gives full dev/prod parity at http://localhost:3000 without
@@ -130,5 +130,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log("Barcode APIs running at http://localhost:" + PORT);
+  console.log("Barcode Mint running at http://localhost:" + PORT);
 });

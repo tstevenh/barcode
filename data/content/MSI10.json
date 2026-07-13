@@ -18,7 +18,7 @@
   },
   {
    "h2": "How the mod-10 check digit is calculated",
-   "html": "<p>Working from the rightmost digit of your data, every second digit is doubled; if doubling produces a two-digit result, its digits are added together (for example, 8 doubled is 16, which becomes 1+6=7). All the resulting digits &mdash; both the doubled-and-reduced values and the digits left untouched &mdash; are summed, and the check digit is whatever value, when added to that sum, brings the total up to the next multiple of 10. Barcode APIs calculates and appends this digit automatically, so you only need to enter your base numeric data.</p><p>This is the same family of algorithm used in the Luhn check digit for credit cards and in several other barcode check-digit schemes, which makes it fast to calculate and easy to verify with standard libraries, though it's not the most robust option for catching every type of error &mdash; that's where MSI Mod 11 comes in, described below.</p>"
+   "html": "<p>Working from the rightmost digit of your data, every second digit is doubled; if doubling produces a two-digit result, its digits are added together (for example, 8 doubled is 16, which becomes 1+6=7). All the resulting digits &mdash; both the doubled-and-reduced values and the digits left untouched &mdash; are summed, and the check digit is whatever value, when added to that sum, brings the total up to the next multiple of 10. Barcode Mint calculates and appends this digit automatically, so you only need to enter your base numeric data.</p><p>This is the same family of algorithm used in the Luhn check digit for credit cards and in several other barcode check-digit schemes, which makes it fast to calculate and easy to verify with standard libraries, though it's not the most robust option for catching every type of error &mdash; that's where MSI Mod 11 comes in, described below.</p>"
   },
   {
    "h2": "Technical Specifications",
@@ -33,8 +33,8 @@
    "html": "<p>You'll find MSI Mod 10 in the same environments as plain MSI &mdash; retail shelf labels, warehouse and inventory tags, asset tracking &mdash; but specifically in systems where the extra reliability of a check digit is worth the small increase in label length, such as high-volume distribution centers where a single misread digit could route an item to the wrong bin or trigger an incorrect reorder.</p><p>It also shows up on library and video-rental shelf tags, cable and reel identification in electronics assembly, and multi-pack carton labels in older distribution software that was configured decades ago to expect exactly this check-digit scheme. Because MSI was never adopted by GS1 for retail point-of-sale, you won't see it at a supermarket checkout; it lives almost entirely in closed-loop, internal systems where the same organization controls both the label printer and the scanner configuration, which is precisely the kind of environment where standardizing on a check digit pays off over time.</p>"
   },
   {
-   "h2": "How to create an MSI Mod 10 barcode in Barcode APIs",
-   "html": "<p>Select <strong>MSI Mod 10</strong> from the symbology list on the left, then enter your base numeric data &mdash; Barcode APIs calculates and appends the mod-10 check digit automatically, so you don't need to compute it yourself. From there you can:</p><ul><li>Adjust bar width, height, and quiet zone to fit your label size</li><li>Toggle human-readable text below the bars, which typically shows the check digit alongside your data for manual verification</li><li>Export as PNG, SVG, or PDF, or copy the image directly into a label template</li><li>Use the batch or sequence tools to generate a numbered run of labels, each with its own correctly calculated check digit</li><li>Upload a CSV of numeric values for bulk generation as a ZIP of image files or a print-ready PDF of labels</li><li>Call the REST API &mdash; <code>/barcode?type=MSI10&amp;data=123456</code> &mdash; to generate codes programmatically, with the check digit computed server-side</li></ul>"
+   "h2": "How to create an MSI Mod 10 barcode in Barcode Mint",
+   "html": "<p>Select <strong>MSI Mod 10</strong> from the symbology list on the left, then enter your base numeric data &mdash; Barcode Mint calculates and appends the mod-10 check digit automatically, so you don't need to compute it yourself. From there you can:</p><ul><li>Adjust bar width, height, and quiet zone to fit your label size</li><li>Toggle human-readable text below the bars, which typically shows the check digit alongside your data for manual verification</li><li>Export as PNG, SVG, or PDF, or copy the image directly into a label template</li><li>Use the batch or sequence tools to generate a numbered run of labels, each with its own correctly calculated check digit</li><li>Upload a CSV of numeric values for bulk generation as a ZIP of image files or a print-ready PDF of labels</li><li>Call the REST API &mdash; <code>/barcode?type=MSI10&amp;data=123456</code> &mdash; to generate codes programmatically, with the check digit computed server-side</li></ul>"
   },
   {
    "h2": "Print and scan best practices",
@@ -59,7 +59,7 @@
   },
   {
    "q": "Do I need to calculate the check digit myself?",
-   "a": "No, Barcode APIs calculates and appends the correct mod-10 check digit automatically based on the numeric data you enter."
+   "a": "No, Barcode Mint calculates and appends the correct mod-10 check digit automatically based on the numeric data you enter."
   },
   {
    "q": "Can MSI Mod 10 encode letters?",
@@ -71,7 +71,7 @@
   },
   {
    "q": "Can I bulk-generate MSI Mod 10 barcodes?",
-   "a": "Yes, upload a CSV of base numeric values and Barcode APIs will calculate each check digit and generate a ZIP of image files or a print-ready PDF of labels."
+   "a": "Yes, upload a CSV of base numeric values and Barcode Mint will calculate each check digit and generate a ZIP of image files or a print-ready PDF of labels."
   }
  ]
 }

@@ -27,7 +27,7 @@ const CASES = [
   { label: "Data Matrix",        bcid: "datamatrix",        text: "Data Matrix 123" },
   { label: "Aztec",              bcid: "azteccode",         text: "Aztec Code 123" },
   { label: "PDF417",             bcid: "pdf417",            text: "PDF417 Barcode" },
-  { label: "Code 128",           bcid: "code128",           text: "Barcode APIs" },
+  { label: "Code 128",           bcid: "code128",           text: "Barcode Mint" },
   { label: "Code 39",            bcid: "code39",            text: "CODE 39" },
   { label: "Code 93",            bcid: "code93",            text: "CODE 93", opts: { includecheck: true } },
   { label: "Codabar",            bcid: "rationalizedCodabar", text: "A12345678A" },

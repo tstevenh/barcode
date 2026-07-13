@@ -1,6 +1,6 @@
 {
   "id": "microqr",
-  "title": "Micro QR Code Generator - Small QR Codes | Barcode APIs",
+  "title": "Micro QR Code Generator - Small QR Codes | Barcode Mint",
   "metaDescription": "Generate a Micro QR code free for short data on tiny labels. Smaller than standard QR with less overhead. Export PNG or SVG or use the REST API.",
   "primaryKeyword": "micro qr generator",
   "secondaryKeywords": ["micro qr code", "small qr code generator", "micro qr vs qr code", "mini qr code maker", "compact 2d code small label", "micro qr code specs"],
@@ -23,7 +23,7 @@
       "html": "<p>Small electronic component marking where a standard QR code's minimum size wouldn't fit; medical and dental instrument tracking on tools too small for larger labels; jewelry and small parts identification; PCB (printed circuit board) serialization; and any application already committed to QR-family scanning infrastructure that needs a smaller symbol for short identifiers like serial numbers or part codes rather than URLs or long text. It also shows up on small consumables and single-use medical items where a lot number or short ID needs to travel with the part but there's no room for a full QR code or even a standard-size Data Matrix.</p>"
     },
     {
-      "h2": "How to create a Micro QR code in Barcode APIs",
+      "h2": "How to create a Micro QR code in Barcode Mint",
       "html": "<p>Select <strong>Micro QR</strong> from the symbology list and enter your short text or numeric data directly &mdash; keep in mind the reduced capacity compared to standard QR code when deciding what to encode. From there you can:</p><ul><li>Choose the appropriate size (M1-M4) based on your data length, or let the generator select automatically</li><li>Set error correction level (where supported by the chosen size) to balance capacity against damage tolerance</li><li>Adjust module size, scale, and quiet zone for very small label formats</li><li>Set foreground and background colors while preserving enough contrast for a scanner to resolve the smaller grid</li><li>Export as PNG or SVG, or copy the code directly for use in component or instrument labeling</li><li>Use batch/sequence generation or CSV bulk upload for producing many unique small codes at once, exported as ZIP or PDF</li><li>Call the REST API &mdash; <code>/barcode?type=microqr&amp;data=SN00042</code> &mdash; to integrate into a labeling pipeline</li></ul>"
     },
     {

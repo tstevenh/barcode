@@ -1,6 +1,6 @@
 {
   "id": "kix",
-  "title": "Royal Dutch KIX Code Generator | Barcode APIs",
+  "title": "Royal Dutch KIX Code Generator | Barcode Mint",
   "metaDescription": "Generate Royal Dutch KIX (Klant Index) postal barcodes free online for PostNL mail sortation. Live preview, PNG/SVG export, batch mode, and REST API.",
   "primaryKeyword": "royal dutch kix generator",
   "secondaryKeywords": ["kix code generator", "postnl barcode", "dutch postal barcode", "klant index code", "kix code format", "netherlands mail sorting barcode"],
@@ -23,7 +23,7 @@
       "html": "<p>KIX is specific to Dutch mail handling:</p><ul><li><strong>PostNL mail sortation</strong> — printed directly on envelopes and parcels to let automated sorting equipment route mail by postcode and address without OCR.</li><li><strong>Direct mail and bulk mailing</strong> — Dutch businesses sending large mailings print KIX codes to qualify for postal discounts tied to machine-sortable mail.</li><li><strong>Return envelopes and reply mail</strong> — pre-printed KIX codes on Dutch business reply mail speed up return sorting.</li><li><strong>Logistics and courier labels</strong> — some Netherlands-based parcel services still reference KIX-style postcode encoding on interim sortation labels.</li></ul>"
     },
     {
-      "h2": "How to Create a KIX Code in Barcode APIs",
+      "h2": "How to Create a KIX Code in Barcode Mint",
       "html": "<p>Select <strong>Royal Dutch KIX</strong> from the Postal Code group in the symbology list. Enter the Dutch postcode and house number as a single string, following the standard <code>1234ABhousenumber</code> pattern — the live preview updates immediately so you can confirm the bar pattern matches your input before exporting. Because KIX has no check digit, double-check your postcode and house number against the actual address before printing; the generator will faithfully encode whatever you type, including typos.</p><ul><li>Adjust <strong>bar height</strong> and <strong>spacing</strong> to fit your envelope's designated barcode zone — Dutch mail specifications define a specific placement area on the envelope face.</li><li>Set foreground color to solid black; postal scanners are tuned for high-contrast black-on-white and don't reliably read colored or reversed-contrast bars.</li><li>Export as <strong>PNG or SVG</strong> for insertion into mail-merge templates, or use <strong>Copy</strong> to drop the code directly into a document layout.</li><li>Use the <strong>bulk CSV → ZIP/PDF</strong> tool to generate a unique KIX code for every recipient in a mailing list in one pass.</li><li>Call the <strong>REST API</strong> — <code>/barcode?type=kix&data=1234ABhousenumber</code> — to generate KIX codes on demand from a mail-merge or fulfillment system.</li></ul>"
     },
     {
@@ -46,8 +46,8 @@
     {"q": "What does KIX stand for?", "a": "KIX stands for Klant Index (\"customer index\" in Dutch), the postal barcode format used by PostNL, the Dutch postal service, for automated mail sortation."},
     {"q": "Does a KIX code include a check digit?", "a": "No. Unlike many postal barcodes, KIX has no built-in check digit, so the encoder simply converts your postcode and house number directly into bars without any error-detection character."},
     {"q": "What data goes into a royal dutch kix generator?", "a": "<p>A typical KIX code encodes the Dutch postcode (four digits plus two letters) followed by the house number and, if applicable, a house number addition such as an apartment letter.</p>"},
-    {"q": "Can I generate KIX codes for a bulk mailing list?", "a": "<p>Yes. Upload a CSV of postcodes and house numbers to Barcode APIs's bulk tool and it will output a ZIP of individual KIX barcode images or a single print-ready PDF, one per recipient.</p>"},
-    {"q": "Is this KIX generator free to use?", "a": "Yes, Barcode APIs's KIX code generator runs entirely in your browser with no account required for standard PNG/SVG exports."},
+    {"q": "Can I generate KIX codes for a bulk mailing list?", "a": "<p>Yes. Upload a CSV of postcodes and house numbers to Barcode Mint's bulk tool and it will output a ZIP of individual KIX barcode images or a single print-ready PDF, one per recipient.</p>"},
+    {"q": "Is this KIX generator free to use?", "a": "Yes, Barcode Mint's KIX code generator runs entirely in your browser with no account required for standard PNG/SVG exports."},
     {"q": "Can I generate KIX codes through an API?", "a": "Yes — call /barcode?type=kix&data=YOURPOSTCODE to generate a KIX barcode image directly from your own mail-merge or fulfillment application."}
   ]
 }

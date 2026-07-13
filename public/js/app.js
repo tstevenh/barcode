@@ -53,7 +53,7 @@
       { id: "hibcpaspdf417", name: "HIBC PAS PDF417",               engine: "bwip", kind: "2d", bcid: "hibcpdf417", def: "+$$52001510X3" }
     ]},
     { groupKey: "grpLinear", items: [
-      { id: "CODE128",        name: "Code 128",            engine: "jsbarcode", kind: "linear", def: "Barcode APIs" },
+      { id: "CODE128",        name: "Code 128",            engine: "jsbarcode", kind: "linear", def: "Barcode Mint" },
       { id: "CODE128A",       name: "Code 128 A",          engine: "jsbarcode", kind: "linear", def: "BARCODE 128A" },
       { id: "CODE128B",       name: "Code 128 B",          engine: "jsbarcode", kind: "linear", def: "Barcode 128B" },
       { id: "CODE128C",       name: "Code 128 C",          engine: "jsbarcode", kind: "linear", def: "12345678" },

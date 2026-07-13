@@ -1,6 +1,6 @@
 {
   "id": "maxicode",
-  "title": "MaxiCode Generator - Fixed-Size 2D Barcode | Barcode APIs",
+  "title": "MaxiCode Generator - Fixed-Size 2D Barcode | Barcode Mint",
   "metaDescription": "Generate a MaxiCode barcode free online, the fixed-size 2D symbol UPS uses for high-speed package sorting. Export PNG or SVG or use the REST API.",
   "primaryKeyword": "maxicode generator",
   "secondaryKeywords": [
@@ -30,7 +30,7 @@
       "html": "<p>MaxiCode is best known as the barcode UPS uses on virtually every package it ships, encoding destination postal code, country, and service class for automated conveyor sorting. It's also specified by the U.S. Department of Defense for some logistics and shipping applications, and by other logistics and freight operations that need fast, rotation-tolerant scanning on high-speed sortation lines. Postal and parcel operators outside the US have also adopted MaxiCode or MaxiCode-compatible equipment for cross-border shipments handled through UPS's network, since the label needs to remain readable across every sorting facility the package passes through regardless of country. Because of its fixed size and origin, it's rarely seen outside large-scale package sorting and logistics contexts.</p>"
     },
     {
-      "h2": "How to create a MaxiCode in Barcode APIs",
+      "h2": "How to create a MaxiCode in Barcode Mint",
       "html": "<p>Select <strong>MaxiCode</strong> from the symbology list and enter your shipping or structured data directly. From there you can:</p><ul><li>Choose the appropriate MaxiCode mode for your data (Structured Carrier Message for shipping data, or general text modes for other content)</li><li>Preview the fixed-size symbol layout, since MaxiCode doesn't scale like other 2D codes</li><li>Export as PNG or SVG for label templates, or copy the code directly</li><li>Use batch/sequence generation or CSV bulk upload to produce unique shipping labels across a batch, exported as ZIP or PDF</li><li>Call the REST API &mdash; <code>/barcode?type=maxicode&amp;data=Shipment%20Data</code> &mdash; to integrate MaxiCode generation into a shipping or logistics system</li></ul>"
     },
     {

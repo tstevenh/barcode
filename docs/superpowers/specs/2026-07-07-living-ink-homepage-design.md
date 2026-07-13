@@ -1,4 +1,4 @@
-# Living Ink — Barcode APIs homepage redesign
+# Living Ink — Barcode Mint homepage redesign
 
 **Date:** 2026-07-07 · **Scope:** Phase 1 = homepage (`index.html`) only. Phase 2 (later, on approval of the live result) = port to `templates/app-shell.html` + rebuild all 106 pages × 6 languages.
 

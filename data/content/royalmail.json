@@ -1,6 +1,6 @@
 {
  "id": "royalmail",
- "title": "Royal Mail 4-State Generator (RM4SCC) | Barcode APIs",
+ "title": "Royal Mail 4-State Generator (RM4SCC) | Barcode Mint",
  "metaDescription": "Free Royal Mail 4-State (RM4SCC) generator. Encode UK postcodes and delivery-point suffixes for Cleanmail and Mailsort. PNG/SVG export plus REST API.",
  "primaryKeyword": "royal mail 4-state generator",
  "secondaryKeywords": [
@@ -11,7 +11,7 @@
   "uk postal barcode",
   "delivery point suffix barcode"
  ],
- "lead": "Turn a UK postcode and delivery point suffix into an RM4SCC code with the royal mail 4-state generator in Barcode APIs, ready for Cleanmail and Mailsort.",
+ "lead": "Turn a UK postcode and delivery point suffix into an RM4SCC code with the royal mail 4-state generator in Barcode Mint, ready for Cleanmail and Mailsort.",
  "sections": [
   {
    "h2": "What Is a Royal Mail 4-State Barcode?",
@@ -30,7 +30,7 @@
    "html": "<p>RM4SCC is specific to UK mail handling and Royal Mail's bulk-mail discount programs:</p><ul><li><strong>Cleanmail and Mailsort</strong> — bulk mailers print RM4SCC barcodes on envelopes to qualify for Royal Mail's presorted postage discounts.</li><li><strong>Franking machines</strong> — many UK franking systems print an RM4SCC barcode alongside the postage impression.</li><li><strong>Direct mail and statements</strong> — UK utilities, banks, and subscription businesses print this barcode on mailed statements and marketing mail for automated sortation.</li><li><strong>Reply-paid and business reply envelopes</strong> — pre-printed RM4SCC codes speed up return mail processing in the UK.</li></ul>"
   },
   {
-   "h2": "How to Create an RM4SCC Barcode in Barcode APIs",
+   "h2": "How to Create an RM4SCC Barcode in Barcode Mint",
    "html": "<p>Select <strong>Royal Mail 4-State</strong> from the Postal Code group in the symbology list. Type the UK postcode followed by the delivery point suffix — the live preview updates as you type so you can check the bar pattern before exporting. From there:</p><ul><li>Adjust <strong>bar height and spacing</strong> to fit the barcode zone required by your envelope template or franking layout.</li><li>Keep the barcode solid black on a light, uncoated background — Royal Mail's optical readers, like most postal scanners, need strong contrast rather than color or tinted print.</li><li>Export as <strong>PNG or SVG</strong> for drop-in placement in a mail-merge or label template, or use <strong>Copy</strong> to paste directly into design software.</li><li>Use the <strong>bulk CSV → ZIP/PDF</strong> tool to generate one barcode per row for an entire mailing list of postcodes and DPS values in a single pass.</li><li>Call the <strong>REST API</strong> — <code>/barcode?type=royalmail&data=YOURPOSTCODEDPS</code> — to generate RM4SCC images on demand from a mail-merge or fulfillment system.</li></ul>"
   },
   {
@@ -64,11 +64,11 @@
   },
   {
    "q": "Can I bulk-generate Royal Mail 4-State barcodes from a spreadsheet?",
-   "a": "<p>Yes. Upload a CSV of postcodes and delivery point suffixes to Barcode APIs's bulk tool to produce a ZIP of barcode images or a single print-ready PDF, one per row.</p>"
+   "a": "<p>Yes. Upload a CSV of postcodes and delivery point suffixes to Barcode Mint's bulk tool to produce a ZIP of barcode images or a single print-ready PDF, one per row.</p>"
   },
   {
    "q": "Is this royal mail 4-state generator free to use?",
-   "a": "Yes, Barcode APIs's Royal Mail 4-State generator runs entirely in your browser, with no account required for standard PNG/SVG exports."
+   "a": "Yes, Barcode Mint's Royal Mail 4-State generator runs entirely in your browser, with no account required for standard PNG/SVG exports."
   },
   {
    "q": "How is RM4SCC different from Mailmark 4-State?",
