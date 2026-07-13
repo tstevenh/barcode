@@ -68,16 +68,17 @@ export const STATIC_PAGES = [
     bodyHtml: `
       ${REVIEW_NOTE}
       <h2>The short version</h2>
-      <p>Barcode Mint is built to need as little of your data as possible. There are no accounts, no advertising trackers, and no analytics cookies. The only personal information we collect is what you choose to give us — for example, your email address if you join the early-access list.</p>
+      <p>Barcode Mint is built to need as little of your data as possible. There are no accounts and no advertising trackers. We use Google Analytics to understand aggregate, anonymous traffic, and the only personal information we collect is what you choose to give us — for example, your email address if you join the early-access list.</p>
       <h2>The data you enter to generate a barcode</h2>
       <p>The text or values you type to create a barcode are processed to render your code. Most symbologies are generated entirely in your browser and never leave your device. Certain complex 2D and postal symbologies are rendered by our service: that request is processed to return your image and is not used to build a profile of you. Standard, short-lived server logs (including IP address) may be kept by our hosting provider for security and reliability.</p>
       <h2>The early-access waitlist</h2>
       <p>If you join the waitlist, we store the email address you provide, the tier you expressed interest in, any feature interests you select, the page you signed up from, and a timestamp. We use this only to contact you about the launch and to decide what to build. This data is stored with <strong>Supabase</strong>, and confirmation emails are sent with <strong>Resend</strong>. You can ask us to access or delete it at any time by emailing <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>.</p>
       <h2>Cookies and local storage</h2>
-      <p>We don't use tracking cookies. Your browser's local storage keeps a single preference — your chosen interface language — so the site remembers it on your next visit. You can clear it any time through your browser.</p>
+      <p>We use Google Analytics (GA4), which sets cookies to measure aggregate, anonymous usage — pages viewed, approximate location, and device type. We don't use advertising cookies. Your browser's local storage also keeps one preference — your chosen interface language. You can clear cookies and local storage any time through your browser.</p>
       <h2>Third parties</h2>
       <ul>
         <li><strong>Vercel</strong> — hosting and content delivery (may keep short-lived request logs).</li>
+        <li><strong>Google Analytics (GA4)</strong> — aggregate, anonymous traffic analytics (Google LLC).</li>
         <li><strong>Google Fonts</strong> — web fonts are loaded from Google's servers, which may log the request, including your IP address.</li>
         <li><strong>Supabase</strong> — storage for waitlist signups.</li>
         <li><strong>Resend</strong> — sending waitlist confirmation emails.</li>
