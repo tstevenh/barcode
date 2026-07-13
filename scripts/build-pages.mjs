@@ -37,7 +37,9 @@ const LOCALES = LOCALE_CODES.map((code) => {
 const SITE_NAME = SEO.site.name;
 const BUILD_DATE = "2026-07-13";
 
-const FAVICON = "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20role%3D%22img%22%20aria-label%3D%22Barcode%20Mint%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%230b1220%22%2F%3E%3Cg%20fill%3D%22%23ffffff%22%3E%3Crect%20x%3D%2211%22%20y%3D%2211%22%20width%3D%222%22%20height%3D%2210%22%2F%3E%3Crect%20x%3D%2214%22%20y%3D%2211%22%20width%3D%221%22%20height%3D%2210%22%2F%3E%3Crect%20x%3D%2216%22%20y%3D%2211%22%20width%3D%222%22%20height%3D%2210%22%2F%3E%3Crect%20x%3D%2219%22%20y%3D%2211%22%20width%3D%222%22%20height%3D%2210%22%2F%3E%3C%2Fg%3E%3Cg%20stroke%3D%22%232d50e6%22%20stroke-width%3D%221.7%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M11%206%20H6%20V11%22%2F%3E%3Cpath%20d%3D%22M21%206%20H26%20V11%22%2F%3E%3Cpath%20d%3D%22M11%2026%20H6%20V21%22%2F%3E%3Cpath%20d%3D%22M21%2026%20H26%20V21%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E";
+const FAVICON = `<link rel="icon" href="/favicon.ico" sizes="32x32" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />`;
 
 function readJSON(p) {
   try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch (e) { return null; }
@@ -294,7 +296,7 @@ function headFor(it, c, locale, leaf = it.slug) {
     `<meta property="og:image:width" content="1200" />`,
     `<meta property="og:image:height" content="630" />`,
     `<meta name="twitter:image" content="${BASE}/og/og-default.png" />`,
-    `<link rel="icon" href="${FAVICON}" />`,
+    `${FAVICON}`,
     `<script type="application/ld+json">${JSON.stringify(ld)}</script>`,
     ``
   ].join("\n");
@@ -454,7 +456,7 @@ ${alternates(HUB)}
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:image" content="${BASE}/og/og-hub.png" />
-<link rel="icon" href="${FAVICON}" />
+${FAVICON}
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
 <link rel="stylesheet" href="/css/style.css" />
 ${GTAG}
@@ -510,7 +512,7 @@ function homeHead(locale, c = null) {
     `<meta property="og:image:width" content="1200" />`,
     `<meta property="og:image:height" content="630" />`,
     `<meta name="twitter:image" content="${BASE}/og/og-default.png" />`,
-    `<link rel="icon" href="${FAVICON}" />`,
+    `${FAVICON}`,
     `<script type="application/ld+json">${JSON.stringify(ld)}</script>`,
     ``
   ].join("\n");
@@ -616,7 +618,7 @@ function staticPageHtml(page) {
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:image" content="${BASE}/og/og-default.png" />
-<link rel="icon" href="${FAVICON}" />
+${FAVICON}
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
 <link rel="stylesheet" href="/css/style.css" />
 ${GTAG}
