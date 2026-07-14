@@ -194,11 +194,13 @@ a { color: inherit; }
 }
 /* "grad-text" span kept for i18n contract — rendered as a live cobalt scan-highlight */
 .grad-text {
-  position: relative; color: var(--accent); white-space: nowrap;
-}
-.grad-text::after {
-  content: ""; position: absolute; left: -.04em; right: -.04em; bottom: .08em; height: .09em;
-  background: var(--accent);
+  position: relative; color: var(--accent);
+  /* underline via text-decoration so the highlight follows wrapped lines
+     (long localized phrases, e.g. pl/fr, would overflow with white-space:nowrap) */
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: .09em;
+  text-underline-offset: .16em;
 }
 .hero p { margin: 26px 0 0; max-width: 52ch; font-family: var(--mono); font-size: clamp(13px, 1.4vw, 15px); color: var(--ink); line-height: 1.7; text-wrap: pretty; }
 .hero .btn-lg { display: none; } /* the tool is right here; no "scroll to generator" CTA */
@@ -749,7 +751,13 @@ input[type=range] { width: 100%; accent-color: var(--accent); }
 .pro[data-bill="mo"] .bill-yr { display: none; }
 .pro[data-bill="yr"] .bill-mo { display: none; }
 @media (max-width: 780px) { .api-plans { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 560px) { .pro-tiers-2 { grid-template-columns: 1fr; } .api-plans { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) {
+  .pro-tiers-2 { grid-template-columns: 1fr; }
+  /* compact the 2-up plan cards so longer localized labels (pl/fr) fit at phone widths */
+  .api-plans { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .api-plan { padding: 13px 11px; min-height: 0; }
+  .api-price b { font-size: 25px; }
+}
 
 /* ---------- Locked (Pro) features on the free generator ---------- */
 /* Batch / sequence mode is a Pro feature: kept in the DOM (app.js manages
@@ -769,7 +777,8 @@ input[type=range] { width: 100%; accent-color: var(--accent); }
   transition: background .15s var(--ease-out);
 }
 .lock-badge:hover { background: var(--accent); }
-.lock-cta { margin: 4px 0 18px; }
+/* full-width CTA — allow wrapping so long localized labels (pl/fr) don't force overflow */
+.lock-cta { margin: 4px 0 18px; white-space: normal; text-wrap: balance; height: auto; }
 .locked-body {
   opacity: .4; filter: grayscale(1) blur(1.5px);
   pointer-events: none; user-select: none;
